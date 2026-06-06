@@ -17,9 +17,9 @@ Pick a country and city from a bundled catalog, get accurate daily times (Umm al
 | | |
 |---|---|
 | **Version** | 1.0.0 |
-| **Package** | `com.prayertime` (online) · `com.prayertime.offline` (privacy-only APK) |
+| **Package** | `com.prayertime` |
 | **Min SDK** | 23 · **Target** 35 |
-| **Tests** | 303 shared JVM · 344 online JVM |
+| **Tests** | JVM unit tests via `./gradlew testDebugUnitTest` |
 
 ---
 
@@ -68,22 +68,21 @@ Offline-only privacy toggle, theme picker, adhan notifications, and country/city
 | Area | Details |
 |------|---------|
 | **Prayer calculation** | Umm al-Qura (Makkah), Shafi Asr, twilight angle at \|lat\| ≥ 48°; Shuruq = sunrise |
-| **Privacy** | Default **offline-only** — no network calls; optional Aladhan API when user disables offline mode (online flavor) |
+| **Privacy** | Default **offline-only** — no network calls; optional Aladhan API when user disables offline mode in Settings |
 | **Adhan** | Eight sounds, per-prayer mute, exact-alarm scheduling, Doze-safe `setAlarmClock` |
 | **Widgets** | Four providers; locale + Eastern Arabic digits; theme sync; stale-cache fallback |
 | **Hijri** | Calculator + 10 events; main-screen banner; calendar monthly/annual views |
 | **i18n** | English / Arabic, RTL layout, in-app language picker |
 | **Themes** | Light, green, dark — app + widgets + calendar |
-| **Security (online)** | TLS certificate pinning for `aladhan.com` |
+| **Security** | TLS certificate pinning for `aladhan.com` (when network mode enabled) |
 
 ---
 
 ## Architecture
 
-- **Primary app (`online` flavor):** bundled `locations.json` + local `adhan-java` **or** [Aladhan API](https://api.aladhan.com) — user toggles **Offline-only (no network)** in Settings
-- **Optional `offline` flavor:** separate APK with **no** network stack and **no** `INTERNET` permission
-- **Stack:** Kotlin · Jetpack Compose · Hilt · Room v4 · DataStore · WorkManager
-- **Flavors:** `RepositoryModule` swaps `LocalPrayerTimesRepository` vs `OnlinePrayerTimesRepository`; network code lives only in `src/online/`
+- **Single APK (`com.prayertime`):** bundled `locations.json` + local `adhan-java` **or** [Aladhan API](https://api.aladhan.com) — user toggles **Offline-only (no network)** in Settings
+- **Stack:** Kotlin · Jetpack Compose · Hilt · Room v4 · DataStore · WorkManager · Retrofit/OkHttp (Aladhan only when network mode on)
+- **Repository:** `OnlinePrayerTimesRepository` composes local engine + optional API
 
 See [`PHASED_PLAN.md`](PHASED_PLAN.md) for the full roadmap and Mermaid diagrams.
 
@@ -96,16 +95,14 @@ Requires JDK 21, Android SDK, and a local `keystore.properties` (copy from `keys
 ```sh
 export JAVA_HOME=$HOME/jdk21
 export ANDROID_HOME=$HOME/Android/Sdk
-./gradlew assembleOnlineRelease
-adb install -r app/build/outputs/apk/online/release/app-online-release.apk
+./gradlew assembleRelease
+adb install -r app/build/outputs/apk/release/app-release.apk
 ```
 
 | Artifact | Path | Size |
 |----------|------|------|
-| Signed APK | `app/build/outputs/apk/online/release/app-online-release.apk` | ~12 MB |
-| Signed AAB | `app/build/outputs/bundle/onlineRelease/app-online-release.aab` | Play Store |
-
-**Privacy-only build:** `assembleOfflineRelease` → `com.prayertime.offline` (~12 MB, no Aladhan toggle).
+| Signed APK | `app/build/outputs/apk/release/app-release.apk` | ~12 MB |
+| Signed AAB | `app/build/outputs/bundle/release/app-release.aab` | Play Store |
 
 ```sh
 ./scripts/release-gate.sh   # APK size gate (≤ 13 MB)
@@ -119,17 +116,23 @@ adb install -r app/build/outputs/apk/online/release/app-online-release.apk
 ```sh
 export JAVA_HOME=$HOME/jdk21
 export ANDROID_HOME=$HOME/Android/Sdk
-./gradlew assembleOnlineDebug testOnlineDebugUnitTest
+./gradlew assembleDebug testDebugUnitTest
 ```
 
-**Emulator shortcut** (boot → install offline debug → launch):
+**Emulator shortcut** (boot → install debug → launch):
 
 ```sh
-./dev              # installs com.prayertime.offline
+./dev              # installs com.prayertime
 ./dev --headless
 ```
 
-For the **online** flavor on device/emulator: `./gradlew installOnlineDebug`.
+Manual install on a running emulator:
+
+```sh
+./scripts/emulator-start
+./gradlew installDebug
+adb shell am start -n com.prayertime/com.prayertime.ui.MainActivity
+```
 
 After widget size or layout changes, remove and re-add the widget on the home screen (launchers cache dimensions).
 
@@ -138,10 +141,10 @@ After widget size or layout changes, remove and re-add the widget on the home sc
 ## Tests
 
 ```sh
-./gradlew testOfflineDebugUnitTest testOnlineDebugUnitTest
+./gradlew testDebugUnitTest
 ```
 
-303 shared tests + 41 online-only (`app/src/testOnline/java/`). Suites cover Doze (5A), permission denial (5B), offline cache (5C), DST/timezone (5D), Room migrations, widgets, and Hijri calculator.
+Full gate: `./scripts/smoke-ci.sh` (build, lint, detekt, APK size).
 
 Requires JDK 21 (`$HOME/jdk21`); system JDK 25 breaks the current Gradle/AGP toolchain.
 
@@ -178,9 +181,9 @@ See repository license file. Prayer calculation uses [`adhan-java`](https://gith
 | | |
 |---|---|
 | **الإصدار** | 1.0.0 |
-| **حزمة التطبيق** | `com.prayertime` (متصل بالشبكة) · `com.prayertime.offline` (نسخة الخصوصية بالكامل - بدون إنترنت) |
+| **حزمة التطبيق** | `com.prayertime` |
 | **الحد الأدنى لـ SDK** | 23 · **المستهدف** 35 |
-| **الاختبارات** | 303 اختبار JVM مشترك · 344 اختبار JVM للنسخة المتصلة |
+| **الاختبارات** | `./gradlew testDebugUnitTest` |
 
 ---
 
@@ -229,22 +232,20 @@ See repository license file. Prayer calculation uses [`adhan-java`](https://gith
 | القسم | التفاصيل |
 |------|---------|
 | **حساب أوقات الصلاة** | تقويم أم القرى (مكة المكرمة)، مذهب الشافعي للعصر، تعديل زاوية الشفق لخطوط العرض |lat| ≥ 48°؛ وقت الشروق = شروق الشمس |
-| **الخصوصية** | افتراضياً **دون اتصال بالشبكة بالكامل** — لا توجد اتصالات بالشبكة؛ استخدام اختياري لواجهة Aladhan API عند تعطيل وضع العمل دون اتصال (في النسخة المتصلة فقط) |
+| **الخصوصية** | افتراضياً **دون اتصال بالشبكة** — لا اتصالات شبكة؛ Aladhan اختياري من الإعدادات |
 | **الأذان** | ثمانية أصوات للأذان، إمكانية كتم الصوت لكل صلاة على حدة، جدولة التنبيهات باستخدام ميزة الإنذار الدقيق، متوافق مع وضع Doze للحفاظ على البطارية عبر `setAlarmClock` |
 | **الأدوات (Widgets)** | أربعة مزودين للأدوات؛ دعم اللغة والأرقام العربية الشرقية؛ مزامنة السمة؛ استخدام الذاكرة المؤقتة كاحتياطي عند عدم وجود تحديثات |
 | **التقويم الهجري** | حاسبة هجرية مدمجة مع 10 مناسبات إسلامية؛ شريط إعلاني للمناسبات في الشاشة الرئيسية؛ عرض شهري وسنوي للتقويم |
 | **تعدد اللغات** | دعم كامل للغتين العربية والإنجليزية، اتجاه كامل من اليمين إلى اليسار (RTL)، ومحدد لغة مدمج في التطبيق |
 | **السمات** | ثلاثة سمات (فاتح، أخضر، داكن) تشمل التطبيق والأدوات والتقويم |
-| **الأمان (النسخة المتصلة)** | تثبيت شهادة TLS لـ `aladhan.com` لضمان أمان الاتصال |
+| **الأمان** | تثبيت شهادة TLS لـ `aladhan.com` عند تفعيل وضع الشبكة |
 
 ---
 
 ## البنية البرمجية (Architecture)
 
-- **التطبيق الرئيسي (نسخة `online`):** يستخدم ملف `locations.json` المدمج + مكتبة `adhan-java` المحلية **أو** [Aladhan API](https://api.aladhan.com) — حيث يمكن للمستخدم تفعيل خيار **دون اتصال بالشبكة (بلا إنترنت)** من الإعدادات.
-- **نسخة الخصوصية الاختيارية (`offline`):** حزمة APK منفصلة **لا** تحتوي على أي كود للشبكة وبدون صلاحية الوصول للإنترنت `INTERNET`.
-- **التقنيات المستخدمة:** Kotlin · Jetpack Compose · Hilt · Room v4 · DataStore · WorkManager
-- **النكهات (Flavors):** يقوم `RepositoryModule` بتبديل `LocalPrayerTimesRepository` بـ `OnlinePrayerTimesRepository`؛ ويعيش كود الشبكة حصرياً في المجلد `src/online/`.
+- **APK واحد (`com.prayertime`):** `locations.json` + `adhan-java` **أو** [Aladhan API](https://api.aladhan.com) — toggle **دون اتصال** من الإعدادات
+- **التقنيات:** Kotlin · Jetpack Compose · Hilt · Room v4 · DataStore · WorkManager
 
 راجع ملف [`PHASED_PLAN.md`](PHASED_PLAN.md) للاطلاع على خارطة الطريق الكاملة ومخططات Mermaid.
 
@@ -257,16 +258,14 @@ See repository license file. Prayer calculation uses [`adhan-java`](https://gith
 ```sh
 export JAVA_HOME=$HOME/jdk21
 export ANDROID_HOME=$HOME/Android/Sdk
-./gradlew assembleOnlineRelease
-adb install -r app/build/outputs/apk/online/release/app-online-release.apk
+./gradlew assembleRelease
+adb install -r app/build/outputs/apk/release/app-release.apk
 ```
 
 | الملف الناتج | المسار | الحجم |
 |----------|------|------|
-| APK موقع | `app/build/outputs/apk/online/release/app-online-release.apk` | ~12 ميجابايت |
-| AAB موقع | `app/build/outputs/bundle/onlineRelease/app-online-release.aab` | متجر Google Play |
-
-**نسخة الخصوصية (بدون إنترنت):** `assembleOfflineRelease` ← ينتج حزمة `com.prayertime.offline` (بحجم ~12 ميجابايت، بدون مفتاح التبديل للإنترنت).
+| APK موقع | `app/build/outputs/apk/release/app-release.apk` | ~12 ميجابايت |
+| AAB موقع | `app/build/outputs/bundle/release/app-release.aab` | متجر Google Play |
 
 ```sh
 ./scripts/release-gate.sh   # التحقق من حجم الـ APK (يجب أن يكون ≤ 13 ميجابايت)
@@ -280,17 +279,23 @@ adb install -r app/build/outputs/apk/online/release/app-online-release.apk
 ```sh
 export JAVA_HOME=$HOME/jdk21
 export ANDROID_HOME=$HOME/Android/Sdk
-./gradlew assembleOnlineDebug testOnlineDebugUnitTest
+./gradlew assembleDebug testDebugUnitTest
 ```
 
-**اختصار المحاكي** (تشغيل المحاكي ← تثبيت نسخة تصحيح الأخطاء دون اتصال ← تشغيل التطبيق):
+**اختصار المحاكي:**
 
 ```sh
-./dev              # يقوم بتثبيت com.prayertime.offline
+./dev              # com.prayertime
 ./dev --headless
 ```
 
-لتثبيت نسخة **المتصل بالإنترنت** على جهاز أو محاكي: `./gradlew installOnlineDebug`.
+تثبيت يدوي:
+
+```sh
+./scripts/emulator-start
+./gradlew installDebug
+adb shell am start -n com.prayertime/com.prayertime.ui.MainActivity
+```
 
 بعد تغيير حجم أو تخطيط الأدوات (Widgets)، قم بإزالتها وإعادة إضافتها إلى الشاشة الرئيسية (تقوم واجهات التشغيل بحفظ الأبعاد مؤقتاً).
 
@@ -299,10 +304,10 @@ export ANDROID_HOME=$HOME/Android/Sdk
 ## الاختبارات (Tests)
 
 ```sh
-./gradlew testOfflineDebugUnitTest testOnlineDebugUnitTest
+./gradlew testDebugUnitTest
 ```
 
-303 اختبارات مشتركة + 41 اختباراً خاصاً بالاتصال بالإنترنت (`app/src/testOnline/java/`). تغطي الاختبارات وضع Doze (5A)، رفض الصلاحيات (5B)، الذاكرة المؤقتة دون اتصال بالشبكة (5C)، التوقيت الصيفي والمناطق الزمنية (5D)، هجرة قاعدة بيانات Room، الأدوات، وحاسبة التقويم الهجري.
+البوابة الكاملة: `./scripts/smoke-ci.sh`.
 
 يتطلب التثبيت إصدار JDK 21 (`$HOME/jdk21`)؛ حيث أن إصدار نظام JDK 25 يسبب مشاكلاً مع بيئة Gradle/AGP الحالية.
 

@@ -20,19 +20,6 @@ android {
     namespace = "com.prayertime"
     compileSdk = 35
 
-    flavorDimensions += listOf("network")
-    productFlavors {
-        create("offline") {
-            dimension = "network"
-            applicationIdSuffix = ".offline"
-            buildConfigField("boolean", "NETWORK_MODE_AVAILABLE", "false")
-        }
-        create("online") {
-            dimension = "network"
-            buildConfigField("boolean", "NETWORK_MODE_AVAILABLE", "true")
-        }
-    }
-
     defaultConfig {
         applicationId = "com.prayertime"
         minSdk = 23
@@ -125,12 +112,12 @@ dependencies {
     implementation("androidx.room:room-ktx:2.6.1")
     ksp("androidx.room:room-compiler:2.6.1")
 
-    // Networking — online flavor only (AladhanResponse + AladhanApi live in src/online/)
-    add("onlineImplementation", "com.squareup.retrofit2:retrofit:2.11.0")
-    add("onlineImplementation", "com.squareup.retrofit2:converter-gson:2.11.0")
-    add("onlineImplementation", "com.google.code.gson:gson:2.11.0")
-    add("onlineImplementation", "com.squareup.okhttp3:okhttp:4.12.0")
-    add("onlineImplementation", "com.squareup.okhttp3:logging-interceptor:4.12.0")
+    // Networking (AladhanResponse + AladhanApi)
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+    implementation("com.google.code.gson:gson:2.11.0")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 
     // Adhan (on-device prayer time calculation)
     implementation("com.batoulapps.adhan:adhan:1.2.1")
@@ -157,7 +144,7 @@ dependencies {
     testImplementation("org.json:json:20240303")
     testImplementation("androidx.work:work-testing:2.9.1")
     testImplementation("io.mockk:mockk:1.13.13")
-    add("testOnlineImplementation", "com.squareup.okhttp3:mockwebserver:4.12.0")
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.12.0")
 
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test:runner:1.6.2")

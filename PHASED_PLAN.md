@@ -1,9 +1,9 @@
 # Prayer Time Widget — Phased Implementation Plan
 
 > **Current state:** Phases **0–6** complete (**v1.0.0** tagged Jun 2026). **5C.2**, **5D** manual QA deferred. **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
-> **Build:** Product flavors `offline` (default, no `INTERNET`, ~22 MB debug APK) and `online` (Aladhan optional, ~23 MB debug APK).
-> **Calculation:** Umm al-Qura + Shafi + twilight (≥48°N); `adhan-java` offline; Aladhan API only in `online` flavor when network mode enabled.
-> **Tests:** `./gradlew testOfflineDebugUnitTest testOnlineDebugUnitTest` — **303** shared + **41** online-only = **344** online `@Test` methods (`rg -c '@Test' app/src/test/java app/src/testOnline/java --glob '*.kt'`; `./scripts/smoke-ci.sh`).
+> **Build:** Single APK `com.prayertime` (~23 MB debug). Privacy via Settings **offline-only toggle** (`offline_only`); no separate offline flavor.
+> **Calculation:** Umm al-Qura + Shafi + twilight (≥48°N); `adhan-java` when offline-only; Aladhan API when user disables offline mode.
+> **Tests:** `./gradlew testDebugUnitTest` — run `./scripts/smoke-ci.sh` for full gate.
 > **Docs language:** English. **Architecture graphs:** Graphify + Mermaid below.
 > **Phase gate (2026-06-07):** **5A** + **5B** + **5C.1/5C.3** + **5F.1/5F.2** manual QA signed off (emulator); **5A–5E** automated tests (**303** shared / **344** online); TLS pinning; audit **100/100**. **Phase 6** complete — **`v1.0.0`** tagged. **5C.2**, **5D** still open (non-blocking).
 

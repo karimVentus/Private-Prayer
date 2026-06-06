@@ -17,7 +17,7 @@ Ensure you have the correct JDK and Android SDK paths set:
 ```sh
 export JAVA_HOME=$HOME/jdk21
 export ANDROID_HOME=$HOME/Android/Sdk
-./gradlew assembleOnlineDebug
+./gradlew assembleDebug
 ```
 
 ### Running Tests
@@ -25,7 +25,7 @@ export ANDROID_HOME=$HOME/Android/Sdk
 Before submitting any changes, run the test suites to ensure everything is functional:
 
 ```sh
-./gradlew testOfflineDebugUnitTest testOnlineDebugUnitTest
+./gradlew testDebugUnitTest
 ```
 
 ### Coding Standards
@@ -51,7 +51,7 @@ We use Detekt for code linting and style checking. Verify your code meets the st
 ```sh
 export JAVA_HOME=$HOME/jdk21
 export ANDROID_HOME=$HOME/Android/Sdk
-./gradlew assembleOnlineDebug
+./gradlew assembleDebug
 ```
 
 ### تشغيل الاختبارات
@@ -59,7 +59,7 @@ export ANDROID_HOME=$HOME/Android/Sdk
 قبل إرسال أي تغييرات، يرجى تشغيل حزم الاختبارات للتأكد من سلامة التطبيق:
 
 ```sh
-./gradlew testOfflineDebugUnitTest testOnlineDebugUnitTest
+./gradlew testDebugUnitTest
 ```
 
 ### معايير جودة الكود

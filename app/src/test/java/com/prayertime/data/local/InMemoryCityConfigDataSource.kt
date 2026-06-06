@@ -20,15 +20,17 @@ class InMemoryCityConfigDataSource : CityConfigDataSource {
         _offlineOnly.value = enabled
     }
 
-    /** Test-only: simulate external DataStore wipe without [clear] offlineOnly side effects. */
+    /** Test-only: simulate external DataStore wipe without [resetCityStore] offlineOnly side effects. */
     fun emitCityConfig(config: CityConfig?) {
         _cityConfig.value = config
     }
 
-    override suspend fun clear() {
+    override suspend fun clearCitySelection() {
         _cityConfig.value = null
-        // Mirror DataStore clear: offlineOnly snapshot re-emits even when still true.
-        _offlineOnly.value = false
+    }
+
+    override suspend fun resetCityStore() {
+        _cityConfig.value = null
         _offlineOnly.value = true
     }
 }

@@ -54,30 +54,6 @@
         </receiver>
 
         <receiver
-            android:name=".widget.PrayerTimeWidgetProviderSmallTall"
-            android:exported="true"
-            android:label="@string/widget_name_small_tall">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/widget_info_small_tall" />
-        </receiver>
-
-        <receiver
-            android:name=".widget.PrayerTimeWidgetProviderSmallWide"
-            android:exported="true"
-            android:label="@string/widget_name_small_wide">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/widget_info_small_wide" />
-        </receiver>
-
-        <receiver
             android:name=".widget.PrayerTimeWidgetProvider"
             android:exported="true"
             android:label="@string/widget_name_medium">

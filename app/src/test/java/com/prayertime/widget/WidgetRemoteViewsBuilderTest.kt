@@ -7,12 +7,16 @@ import android.widget.RemoteViews
 import android.widget.TextView
 import androidx.test.core.app.ApplicationProvider
 import com.prayertime.R
+import com.prayertime.data.local.AppPreferencesDataSource
 import com.prayertime.domain.calculator.HijriCalculator
 import com.prayertime.domain.model.HijriDate
 import com.prayertime.domain.model.Prayer
 import com.prayertime.domain.model.PrayerTime
+import com.prayertime.locale.AppLocale
 import com.prayertime.ui.HijriDateFormatter
+import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -23,7 +27,8 @@ import org.robolectric.annotation.Config
 @Config(sdk = [34])
 class WidgetRemoteViewsBuilderTest {
     private val context: Context = ApplicationProvider.getApplicationContext()
-    private val builder = WidgetRemoteViewsBuilder(context)
+    private val preferences = AppPreferencesDataSource(context)
+    private val builder = WidgetRemoteViewsBuilder(context, preferences)
 
     @Test
     fun build_allStatesAndSizes_produceInflatableRemoteViews() {
@@ -101,13 +106,26 @@ class WidgetRemoteViewsBuilderTest {
     }
 
     @Test
-    fun build_readySmallTall_showsNextPrayerAndHourMinuteCountdown() {
-        val snapshot = readySnapshot(HijriCalculator.gregorianToHijri(2024, 6, 4))
-        val widget = applyWidget(builder.build(snapshot, WidgetSize.SMALL_TALL))
-        assertEquals(context.getString(R.string.fajr), widget.text(R.id.widget_next_prayer))
-        assertEquals(context.getString(R.string.widget_hour_line, 1), widget.text(R.id.widget_countdown_hours))
-        assertEquals(context.getString(R.string.widget_minute_line, 0), widget.text(R.id.widget_countdown_minutes))
+    fun build_readyLarge_countdownIgnoresStaleSnapshotValue() {
+        val snapshot =
+            readySnapshot(HijriCalculator.gregorianToHijri(2024, 6, 4))
+                .copy(countdownMillis = 27 * 60_000L)
+        val widget = applyWidget(builder.build(snapshot, WidgetSize.LARGE))
+        val countdown = widget.text(R.id.widget_countdown_0)
+        assertFalse(countdown.contains("27"))
+        assertTrue(countdown.contains("1"))
     }
+
+    @Test
+    fun build_readyMedium_usesPersistedArabicWhenAppCompatLocalesEmpty() =
+        runBlocking {
+            preferences.setAppLanguageTag("ar")
+            AppLocale.apply(null)
+            val snapshot = readySnapshot(HijriCalculator.gregorianToHijri(2024, 6, 4))
+            val widget = applyWidget(builder.build(snapshot, WidgetSize.MEDIUM))
+            val localized = context.withAppWidgetLocale("ar")
+            assertEquals(localized.getString(R.string.widget_m_fajr), widget.text(R.id.widget_prayer_0))
+        }
 
     @Test
     fun build_staleMedium_showsStaleBannerAndPrayerColumns() {

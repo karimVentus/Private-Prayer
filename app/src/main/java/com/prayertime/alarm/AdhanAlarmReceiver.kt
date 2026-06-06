@@ -7,6 +7,7 @@ import android.media.AudioAttributes
 import android.media.MediaPlayer
 import com.prayertime.data.local.AppPreferencesDataSource
 import com.prayertime.domain.model.Prayer
+import com.prayertime.notification.AdhanAlertPolicy
 import com.prayertime.notification.AdhanNotificationHelper
 import com.prayertime.notification.AdhanSoundResolver
 import dagger.hilt.android.AndroidEntryPoint
@@ -42,8 +43,12 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
         alarmScope.launch {
             try {
                 if (preferences.isPrayerMuted(prayer.name)) return@launch
-                adhanNotificationHelper.showPrayerNotification(prayer)
-                playAdhanSound(context, soundPref)
+                val playWhenSilent = preferences.readAdhanPlayWhenSilentOnce()
+                val alertMode = AdhanAlertPolicy.effectiveMode(context, playWhenSilent)
+                adhanNotificationHelper.showPrayerNotification(prayer, alertMode)
+                if (AdhanAlertPolicy.shouldPlayAdhanAudio(context, playWhenSilent)) {
+                    playAdhanSound(context, soundPref)
+                }
             } finally {
                 pendingResult.finish()
             }

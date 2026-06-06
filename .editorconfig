@@ -1,0 +1,3 @@
+[*.{kt,kts}]
+# Jetpack Compose naming guidelines allow PascalCase for @Composable functions
+ktlint_standard_function-naming = disabled

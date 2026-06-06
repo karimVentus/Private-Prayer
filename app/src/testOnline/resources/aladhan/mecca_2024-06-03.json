@@ -1,0 +1,27 @@
+{
+  "code": 200,
+  "status": "OK",
+  "data": {
+    "timings": {
+      "Fajr": "04:02 (AST)",
+      "Sunrise": "05:23 (AST)",
+      "Dhuhr": "12:15 (AST)",
+      "Asr": "15:42 (AST)",
+      "Maghrib": "18:47 (AST)",
+      "Isha": "20:17 (AST)"
+    },
+    "date": {
+      "readable": "03 Jun 2024",
+      "timestamp": "1717372800",
+      "gregorian": {
+        "date": "03-06-2024",
+        "format": "DD-MM-YYYY"
+      }
+    },
+    "meta": {
+      "timezone": "Asia/Riyadh",
+      "latitude": 21.4225,
+      "longitude": 39.8262
+    }
+  }
+}

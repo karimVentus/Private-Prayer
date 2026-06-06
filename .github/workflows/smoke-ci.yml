@@ -1,0 +1,32 @@
+name: Smoke CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Create environment links for smoke-ci script
+        run: |
+          mkdir -p $HOME/Android
+          ln -s $JAVA_HOME $HOME/jdk21
+          ln -s $ANDROID_HOME $HOME/Android/Sdk
+
+      - name: Run Smoke CI Verification
+        run: |
+          unset ANDROID_SDK_ROOT
+          ./scripts/smoke-ci.sh

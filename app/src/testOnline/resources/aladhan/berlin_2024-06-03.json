@@ -1,0 +1,27 @@
+{
+  "code": 200,
+  "status": "OK",
+  "data": {
+    "timings": {
+      "Fajr": "03:18 (CEST)",
+      "Sunrise": "05:12 (CEST)",
+      "Dhuhr": "13:24 (CEST)",
+      "Asr": "17:18 (CEST)",
+      "Maghrib": "21:02 (CEST)",
+      "Isha": "22:48 (CEST)"
+    },
+    "date": {
+      "readable": "03 Jun 2024",
+      "timestamp": "1717372800",
+      "gregorian": {
+        "date": "03-06-2024",
+        "format": "DD-MM-YYYY"
+      }
+    },
+    "meta": {
+      "timezone": "Europe/Berlin",
+      "latitude": 52.52,
+      "longitude": 13.405
+    }
+  }
+}

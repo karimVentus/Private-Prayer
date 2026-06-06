@@ -1,0 +1,59 @@
+build:
+  maxIssues: 0
+  excludeCorrectable: false
+
+complexity:
+  active: true
+  ComplexCondition:
+    active: true
+    threshold: 4
+  LongMethod:
+    active: true
+    threshold: 100
+  LongParameterList:
+    active: true
+    functionThreshold: 10
+    constructorThreshold: 10
+  TooManyFunctions:
+    active: true
+    thresholdInFiles: 40
+    thresholdInClasses: 30
+
+naming:
+  active: true
+  ClassNaming:
+    active: true
+  FunctionNaming:
+    active: true
+    ignoreAnnotated: ['Composable']
+  VariableNaming:
+    active: true
+
+performance:
+  active: true
+  SpreadOperator:
+    active: true
+
+style:
+  active: true
+  MaxLineLength:
+    active: true
+    maxLineLength: 160
+  MagicNumber:
+    active: false # Disabled to allow time calculations and indices in repository/calculator
+  UnusedImports:
+    active: true
+  UnusedPrivateMember:
+    active: true
+
+potential-bugs:
+  active: true
+  ImplicitDefaultLocale:
+    active: false
+
+exceptions:
+  active: true
+  TooGenericExceptionCaught:
+    active: false # Allowed since we map generic exceptions to stable ErrorTypes in the Repository
+  SwallowedException:
+    active: false

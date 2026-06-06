@@ -1,0 +1,98 @@
+#!/usr/bin/env bash
+# Boot PrayerTimeEmulator and wait until adb reports a ready device.
+# HEADLESS=1 → no window, -gpu host (KVM). Default → GUI window (leave it open).
+set -euo pipefail
+
+SDK="${ANDROID_HOME:-$HOME/Android/Sdk}"
+EMULATOR_BIN="$SDK/emulator/emulator"
+ADB_BIN="$SDK/platform-tools/adb"
+AVD_NAME="PrayerTimeEmulator"
+BOOT_TIMEOUT_SEC="${BOOT_TIMEOUT_SEC:-180}"
+LOG_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/prayertime"
+LOG_FILE="$LOG_DIR/emulator.log"
+PID_FILE="$LOG_DIR/emulator.pid"
+
+mkdir -p "$LOG_DIR"
+
+if [ ! -x "$EMULATOR_BIN" ]; then
+  echo "[emulator-start] Android emulator not found: $EMULATOR_BIN"
+  exit 1
+fi
+
+if [ ! -x "$ADB_BIN" ]; then
+  echo "[emulator-start] adb not found: $ADB_BIN"
+  exit 1
+fi
+
+if ! "$EMULATOR_BIN" -list-avds | grep -Fxq "$AVD_NAME"; then
+  echo "[emulator-start] AVD '$AVD_NAME' not found. Create it in Android Studio Device Manager."
+  exit 1
+fi
+
+"$ADB_BIN" start-server >/dev/null
+
+has_ready_device() {
+  "$ADB_BIN" devices | awk 'NR>1 && $2=="device" { found=1 } END { exit !found }'
+}
+
+wait_for_boot() {
+  local elapsed=0
+  echo "[emulator-start] Waiting for adb device..."
+  "$ADB_BIN" wait-for-device
+  echo "[emulator-start] Waiting for sys.boot_completed..."
+  until [ "$("$ADB_BIN" shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')" = "1" ]; do
+    sleep 2
+    elapsed=$((elapsed + 2))
+    if [ "$elapsed" -ge "$BOOT_TIMEOUT_SEC" ]; then
+      echo "[emulator-start] Boot timed out after ${BOOT_TIMEOUT_SEC}s"
+      echo "[emulator-start] Log tail ($LOG_FILE):"
+      tail -n 30 "$LOG_FILE" 2>/dev/null || true
+      exit 1
+    fi
+    if [ -f "$PID_FILE" ] && ! kill -0 "$(cat "$PID_FILE")" 2>/dev/null; then
+      echo "[emulator-start] Emulator process exited during boot (see $LOG_FILE)"
+      tail -n 30 "$LOG_FILE" 2>/dev/null || true
+      exit 1
+    fi
+  done
+}
+
+if has_ready_device; then
+  echo "[emulator-start] Device already connected:"
+  "$ADB_BIN" devices -l | sed -n '2,$p'
+  exit 0
+fi
+
+if [ -f "$PID_FILE" ] && kill -0 "$(cat "$PID_FILE")" 2>/dev/null; then
+  echo "[emulator-start] Emulator already starting (PID $(cat "$PID_FILE")); waiting..."
+  wait_for_boot
+  "$ADB_BIN" devices -l | sed -n '2,$p'
+  exit 0
+fi
+
+EMU_ARGS=(-avd "$AVD_NAME" -no-boot-anim)
+if [ "${HEADLESS:-0}" = "1" ]; then
+  EMU_ARGS+=(-no-window -no-audio -gpu host)
+  echo "[emulator-start] Launching $AVD_NAME (headless, -gpu host). Logs: $LOG_FILE"
+else
+  echo "[emulator-start] Launching $AVD_NAME (GUI — leave the window open). Logs: $LOG_FILE"
+fi
+
+nohup "$EMULATOR_BIN" "${EMU_ARGS[@]}" >>"$LOG_FILE" 2>&1 &
+EMU_PID=$!
+echo "$EMU_PID" >"$PID_FILE"
+disown "$EMU_PID" 2>/dev/null || true
+
+echo "[emulator-start] PID $EMU_PID"
+
+wait_for_boot
+
+if ! kill -0 "$EMU_PID" 2>/dev/null; then
+  echo "[emulator-start] Emulator exited after boot"
+  tail -n 30 "$LOG_FILE" 2>/dev/null || true
+  rm -f "$PID_FILE"
+  exit 1
+fi
+
+echo "[emulator-start] Ready:"
+"$ADB_BIN" devices -l | sed -n '2,$p'

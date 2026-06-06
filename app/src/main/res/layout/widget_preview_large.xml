@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_background_light"
+    android:gravity="center_horizontal"
+    android:layoutDirection="locale"
+    android:orientation="vertical"
+    android:padding="6dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:maxLines="1"
+        android:text="@string/widget_preview_city"
+        android:textColor="@color/widget_light_text_secondary"
+        android:textSize="12sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:maxLines="1"
+        android:text="@string/widget_preview_hijri"
+        android:textColor="@color/widget_light_text_secondary"
+        android:textSize="10sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:text="@string/widget_preview_clock"
+        android:textColor="@color/widget_light_text_primary"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <include layout="@layout/widget_preview_medium_col_fajr" />
+        <include layout="@layout/widget_preview_medium_col_shuruq" />
+        <include layout="@layout/widget_preview_medium_col_dhuhr" />
+        <include layout="@layout/widget_preview_medium_col_asr" />
+        <include layout="@layout/widget_preview_medium_col_maghrib" />
+        <include layout="@layout/widget_preview_medium_col_isha" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Light widget chrome -->
+    <color name="widget_light_background">#FFFAFDFB</color>
+    <color name="widget_light_text_primary">#FF04342C</color>
+    <color name="widget_light_text_secondary">#FF0F6E56</color>
+    <color name="widget_light_text_accent">#FF1D9E75</color>
+    <color name="widget_light_row_highlight">#FFE8F5F0</color>
+    <color name="widget_light_row_highlight_stroke">#FF1D9E75</color>
+
+    <!-- Green widget chrome -->
+    <color name="widget_green_background">#FF04342C</color>
+    <color name="widget_green_text_primary">#FFE1F5EE</color>
+    <color name="widget_green_text_secondary">#FF9FE1CB</color>
+    <color name="widget_green_text_accent">#FF1D9E75</color>
+    <color name="widget_green_row_highlight">#FF085041</color>
+    <color name="widget_green_row_highlight_stroke">#FF1D9E75</color>
+
+    <!-- Dark widget chrome -->
+    <color name="widget_dark_background">#FF1E1E2E</color>
+    <color name="widget_dark_text_primary">#FFFFFFFF</color>
+    <color name="widget_dark_text_secondary">#FFB0BEC5</color>
+    <color name="widget_dark_text_accent">#FF81C784</color>
+    <color name="widget_dark_row_highlight">#FF2E3B55</color>
+    <color name="widget_dark_row_highlight_stroke">#FF81C784</color>
+
+    <!-- Default layout chrome (Light = app default theme) -->
+    <color name="widget_background">@color/widget_light_background</color>
+    <color name="widget_text_primary">@color/widget_light_text_primary</color>
+    <color name="widget_text_secondary">@color/widget_light_text_secondary</color>
+    <color name="widget_text_accent">@color/widget_light_text_accent</color>
+</resources>

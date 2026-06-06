@@ -1,0 +1,4258 @@
+{
+  "countries": [
+    {
+      "name": "Afghanistan",
+      "code": "AF"
+    },
+    {
+      "name": "Albania",
+      "code": "AL"
+    },
+    {
+      "name": "Algeria",
+      "code": "DZ"
+    },
+    {
+      "name": "Andorra",
+      "code": "AD"
+    },
+    {
+      "name": "Angola",
+      "code": "AO"
+    },
+    {
+      "name": "Argentina",
+      "code": "AR"
+    },
+    {
+      "name": "Armenia",
+      "code": "AM"
+    },
+    {
+      "name": "Australia",
+      "code": "AU"
+    },
+    {
+      "name": "Austria",
+      "code": "AT"
+    },
+    {
+      "name": "Azerbaijan",
+      "code": "AZ"
+    },
+    {
+      "name": "Bahrain",
+      "code": "BH"
+    },
+    {
+      "name": "Bangladesh",
+      "code": "BD"
+    },
+    {
+      "name": "Belarus",
+      "code": "BY"
+    },
+    {
+      "name": "Belgium",
+      "code": "BE"
+    },
+    {
+      "name": "Bosnia and Herzegovina",
+      "code": "BA"
+    },
+    {
+      "name": "Brazil",
+      "code": "BR"
+    },
+    {
+      "name": "Brunei",
+      "code": "BN"
+    },
+    {
+      "name": "Bahamas",
+      "code": "BS"
+    },
+    {
+      "name": "Barbados",
+      "code": "BB"
+    },
+    {
+      "name": "Belize",
+      "code": "BZ"
+    },
+    {
+      "name": "Benin",
+      "code": "BJ"
+    },
+    {
+      "name": "Bhutan",
+      "code": "BT"
+    },
+    {
+      "name": "Bolivia",
+      "code": "BO"
+    },
+    {
+      "name": "Botswana",
+      "code": "BW"
+    },
+    {
+      "name": "Burkina Faso",
+      "code": "BF"
+    },
+    {
+      "name": "Burundi",
+      "code": "BI"
+    },
+    {
+      "name": "Bulgaria",
+      "code": "BG"
+    },
+    {
+      "name": "Canada",
+      "code": "CA"
+    },
+    {
+      "name": "Chad",
+      "code": "TD"
+    },
+    {
+      "name": "Chile",
+      "code": "CL"
+    },
+    {
+      "name": "China",
+      "code": "CN"
+    },
+    {
+      "name": "Colombia",
+      "code": "CO"
+    },
+    {
+      "name": "Cambodia",
+      "code": "KH"
+    },
+    {
+      "name": "Cameroon",
+      "code": "CM"
+    },
+    {
+      "name": "Cape Verde",
+      "code": "CV"
+    },
+    {
+      "name": "Central African Republic",
+      "code": "CF"
+    },
+    {
+      "name": "Comoros",
+      "code": "KM"
+    },
+    {
+      "name": "Congo",
+      "code": "CG"
+    },
+    {
+      "name": "Costa Rica",
+      "code": "CR"
+    },
+    {
+      "name": "Cote d'Ivoire",
+      "code": "CI"
+    },
+    {
+      "name": "Cuba",
+      "code": "CU"
+    },
+    {
+      "name": "Croatia",
+      "code": "HR"
+    },
+    {
+      "name": "Cyprus",
+      "code": "CY"
+    },
+    {
+      "name": "Czech Republic",
+      "code": "CZ"
+    },
+    {
+      "name": "Denmark",
+      "code": "DK"
+    },
+    {
+      "name": "Djibouti",
+      "code": "DJ"
+    },
+    {
+      "name": "Democratic Republic of the Congo",
+      "code": "CD"
+    },
+    {
+      "name": "Dominica",
+      "code": "DM"
+    },
+    {
+      "name": "Dominican Republic",
+      "code": "DO"
+    },
+    {
+      "name": "Egypt",
+      "code": "EG"
+    },
+    {
+      "name": "Eritrea",
+      "code": "ER"
+    },
+    {
+      "name": "Estonia",
+      "code": "EE"
+    },
+    {
+      "name": "Ethiopia",
+      "code": "ET"
+    },
+    {
+      "name": "Ecuador",
+      "code": "EC"
+    },
+    {
+      "name": "El Salvador",
+      "code": "SV"
+    },
+    {
+      "name": "Equatorial Guinea",
+      "code": "GQ"
+    },
+    {
+      "name": "Eswatini",
+      "code": "SZ"
+    },
+    {
+      "name": "Fiji",
+      "code": "FJ"
+    },
+    {
+      "name": "Finland",
+      "code": "FI"
+    },
+    {
+      "name": "France",
+      "code": "FR"
+    },
+    {
+      "name": "Georgia",
+      "code": "GE"
+    },
+    {
+      "name": "Germany",
+      "code": "DE"
+    },
+    {
+      "name": "Ghana",
+      "code": "GH"
+    },
+    {
+      "name": "Gabon",
+      "code": "GA"
+    },
+    {
+      "name": "Gambia",
+      "code": "GM"
+    },
+    {
+      "name": "Grenada",
+      "code": "GD"
+    },
+    {
+      "name": "Guatemala",
+      "code": "GT"
+    },
+    {
+      "name": "Guinea",
+      "code": "GN"
+    },
+    {
+      "name": "Guinea-Bissau",
+      "code": "GW"
+    },
+    {
+      "name": "Guyana",
+      "code": "GY"
+    },
+    {
+      "name": "Greece",
+      "code": "GR"
+    },
+    {
+      "name": "Haiti",
+      "code": "HT"
+    },
+    {
+      "name": "Honduras",
+      "code": "HN"
+    },
+    {
+      "name": "Hungary",
+      "code": "HU"
+    },
+    {
+      "name": "Iceland",
+      "code": "IS"
+    },
+    {
+      "name": "India",
+      "code": "IN"
+    },
+    {
+      "name": "Indonesia",
+      "code": "ID"
+    },
+    {
+      "name": "Iran",
+      "code": "IR"
+    },
+    {
+      "name": "Iraq",
+      "code": "IQ"
+    },
+    {
+      "name": "Ireland",
+      "code": "IE"
+    },
+    {
+      "name": "Israel",
+      "code": "IL"
+    },
+    {
+      "name": "Italy",
+      "code": "IT"
+    },
+    {
+      "name": "Jamaica",
+      "code": "JM"
+    },
+    {
+      "name": "Japan",
+      "code": "JP"
+    },
+    {
+      "name": "Jordan",
+      "code": "JO"
+    },
+    {
+      "name": "Kazakhstan",
+      "code": "KZ"
+    },
+    {
+      "name": "Kenya",
+      "code": "KE"
+    },
+    {
+      "name": "Kiribati",
+      "code": "KI"
+    },
+    {
+      "name": "Kosovo",
+      "code": "XK"
+    },
+    {
+      "name": "Kuwait",
+      "code": "KW"
+    },
+    {
+      "name": "Kyrgyzstan",
+      "code": "KG"
+    },
+    {
+      "name": "Laos",
+      "code": "LA"
+    },
+    {
+      "name": "Latvia",
+      "code": "LV"
+    },
+    {
+      "name": "Lebanon",
+      "code": "LB"
+    },
+    {
+      "name": "Libya",
+      "code": "LY"
+    },
+    {
+      "name": "Lesotho",
+      "code": "LS"
+    },
+    {
+      "name": "Liberia",
+      "code": "LR"
+    },
+    {
+      "name": "Lithuania",
+      "code": "LT"
+    },
+    {
+      "name": "Luxembourg",
+      "code": "LU"
+    },
+    {
+      "name": "Malaysia",
+      "code": "MY"
+    },
+    {
+      "name": "Maldives",
+      "code": "MV"
+    },
+    {
+      "name": "Mali",
+      "code": "ML"
+    },
+    {
+      "name": "Madagascar",
+      "code": "MG"
+    },
+    {
+      "name": "Malawi",
+      "code": "MW"
+    },
+    {
+      "name": "Marshall Islands",
+      "code": "MH"
+    },
+    {
+      "name": "Micronesia",
+      "code": "FM"
+    },
+    {
+      "name": "Mozambique",
+      "code": "MZ"
+    },
+    {
+      "name": "Malta",
+      "code": "MT"
+    },
+    {
+      "name": "Mauritania",
+      "code": "MR"
+    },
+    {
+      "name": "Namibia",
+      "code": "NA"
+    },
+    {
+      "name": "Nauru",
+      "code": "NR"
+    },
+    {
+      "name": "Nepal",
+      "code": "NP"
+    },
+    {
+      "name": "Nicaragua",
+      "code": "NI"
+    },
+    {
+      "name": "Niger",
+      "code": "NE"
+    },
+    {
+      "name": "Mexico",
+      "code": "MX"
+    },
+    {
+      "name": "Moldova",
+      "code": "MD"
+    },
+    {
+      "name": "Monaco",
+      "code": "MC"
+    },
+    {
+      "name": "Mongolia",
+      "code": "MN"
+    },
+    {
+      "name": "Montenegro",
+      "code": "ME"
+    },
+    {
+      "name": "Morocco",
+      "code": "MA"
+    },
+    {
+      "name": "Myanmar",
+      "code": "MM"
+    },
+    {
+      "name": "Netherlands",
+      "code": "NL"
+    },
+    {
+      "name": "New Zealand",
+      "code": "NZ"
+    },
+    {
+      "name": "Nigeria",
+      "code": "NG"
+    },
+    {
+      "name": "North Macedonia",
+      "code": "MK"
+    },
+    {
+      "name": "Norway",
+      "code": "NO"
+    },
+    {
+      "name": "Oman",
+      "code": "OM"
+    },
+    {
+      "name": "Pakistan",
+      "code": "PK"
+    },
+    {
+      "name": "Palestine",
+      "code": "PS"
+    },
+    {
+      "name": "Panama",
+      "code": "PA"
+    },
+    {
+      "name": "Papua New Guinea",
+      "code": "PG"
+    },
+    {
+      "name": "Paraguay",
+      "code": "PY"
+    },
+    {
+      "name": "Peru",
+      "code": "PE"
+    },
+    {
+      "name": "Philippines",
+      "code": "PH"
+    },
+    {
+      "name": "Poland",
+      "code": "PL"
+    },
+    {
+      "name": "Portugal",
+      "code": "PT"
+    },
+    {
+      "name": "Qatar",
+      "code": "QA"
+    },
+    {
+      "name": "Romania",
+      "code": "RO"
+    },
+    {
+      "name": "Rwanda",
+      "code": "RW"
+    },
+    {
+      "name": "Russia",
+      "code": "RU"
+    },
+    {
+      "name": "Saudi Arabia",
+      "code": "SA"
+    },
+    {
+      "name": "Senegal",
+      "code": "SN"
+    },
+    {
+      "name": "Serbia",
+      "code": "RS"
+    },
+    {
+      "name": "Sierra Leone",
+      "code": "SL"
+    },
+    {
+      "name": "Saint Lucia",
+      "code": "LC"
+    },
+    {
+      "name": "Samoa",
+      "code": "WS"
+    },
+    {
+      "name": "San Marino",
+      "code": "SM"
+    },
+    {
+      "name": "Seychelles",
+      "code": "SC"
+    },
+    {
+      "name": "Suriname",
+      "code": "SR"
+    },
+    {
+      "name": "Singapore",
+      "code": "SG"
+    },
+    {
+      "name": "Slovakia",
+      "code": "SK"
+    },
+    {
+      "name": "Slovenia",
+      "code": "SI"
+    },
+    {
+      "name": "Somalia",
+      "code": "SO"
+    },
+    {
+      "name": "South Africa",
+      "code": "ZA"
+    },
+    {
+      "name": "South Korea",
+      "code": "KR"
+    },
+    {
+      "name": "Spain",
+      "code": "ES"
+    },
+    {
+      "name": "Sri Lanka",
+      "code": "LK"
+    },
+    {
+      "name": "Sudan",
+      "code": "SD"
+    },
+    {
+      "name": "Sweden",
+      "code": "SE"
+    },
+    {
+      "name": "Switzerland",
+      "code": "CH"
+    },
+    {
+      "name": "Timor-Leste",
+      "code": "TL"
+    },
+    {
+      "name": "Togo",
+      "code": "TG"
+    },
+    {
+      "name": "Tonga",
+      "code": "TO"
+    },
+    {
+      "name": "Trinidad and Tobago",
+      "code": "TT"
+    },
+    {
+      "name": "Tuvalu",
+      "code": "TV"
+    },
+    {
+      "name": "Syria",
+      "code": "SY"
+    },
+    {
+      "name": "Taiwan",
+      "code": "TW"
+    },
+    {
+      "name": "Tajikistan",
+      "code": "TJ"
+    },
+    {
+      "name": "Tanzania",
+      "code": "TZ"
+    },
+    {
+      "name": "Thailand",
+      "code": "TH"
+    },
+    {
+      "name": "Tunisia",
+      "code": "TN"
+    },
+    {
+      "name": "Turkey",
+      "code": "TR"
+    },
+    {
+      "name": "Turkmenistan",
+      "code": "TM"
+    },
+    {
+      "name": "Uganda",
+      "code": "UG"
+    },
+    {
+      "name": "Ukraine",
+      "code": "UA"
+    },
+    {
+      "name": "United Arab Emirates",
+      "code": "AE"
+    },
+    {
+      "name": "United Kingdom",
+      "code": "GB"
+    },
+    {
+      "name": "United States",
+      "code": "US"
+    },
+    {
+      "name": "Uruguay",
+      "code": "UY"
+    },
+    {
+      "name": "Uzbekistan",
+      "code": "UZ"
+    },
+    {
+      "name": "Vanuatu",
+      "code": "VU"
+    },
+    {
+      "name": "Vatican City",
+      "code": "VA"
+    },
+    {
+      "name": "Venezuela",
+      "code": "VE"
+    },
+    {
+      "name": "Vietnam",
+      "code": "VN"
+    },
+    {
+      "name": "Yemen",
+      "code": "YE"
+    },
+    {
+      "name": "Zambia",
+      "code": "ZM"
+    },
+    {
+      "name": "Zimbabwe",
+      "code": "ZW"
+    }
+  ],
+  "citiesByCountry": {
+    "SY": [
+      "Damascus",
+      "Aleppo",
+      "Homs",
+      "Hama",
+      "Latakia",
+      "Tartus",
+      "Deir ez-Zor",
+      "Daraa",
+      "Idlib",
+      "Raqqa",
+      "Hasakah",
+      "Qamishli",
+      "Palmyra",
+      "Suwayda",
+      "Safita"
+    ],
+    "SA": [
+      "Riyadh",
+      "Jeddah",
+      "Mecca",
+      "Medina",
+      "Dammam",
+      "Khobar",
+      "Dhahran",
+      "Taif",
+      "Tabuk",
+      "Buraidah",
+      "Khamis Mushait",
+      "Abha",
+      "Ha'il",
+      "Najran",
+      "Jubail"
+    ],
+    "EG": [
+      "Cairo",
+      "Alexandria",
+      "Giza",
+      "Shubra El Kheima",
+      "Port Said",
+      "Suez",
+      "Luxor",
+      "Mansoura",
+      "Tanta",
+      "Asyut",
+      "Ismailia",
+      "Fayyum",
+      "Zagazig",
+      "Damietta",
+      "Aswan"
+    ],
+    "TR": [
+      "Istanbul",
+      "Ankara",
+      "Izmir",
+      "Bursa",
+      "Antalya",
+      "Adana",
+      "Gaziantep",
+      "Konya",
+      "Mersin",
+      "Diyarbakir",
+      "Samsun",
+      "Eskisehir",
+      "Trabzon",
+      "Erzurum",
+      "Kayseri"
+    ],
+    "DE": [
+      "Aachen",
+      "Augsburg",
+      "Bamberg",
+      "Bergisch Gladbach",
+      "Berlin",
+      "Bielefeld",
+      "Bochum",
+      "Bonn",
+      "Bottrop",
+      "Braunschweig",
+      "Bremen",
+      "Bremerhaven",
+      "Castrop-Rauxel",
+      "Celle",
+      "Chemnitz",
+      "Cologne",
+      "Cottbus",
+      "Darmstadt",
+      "Delmenhorst",
+      "Dessau-Rosslau",
+      "Detmold",
+      "Dortmund",
+      "Dresden",
+      "Duisburg",
+      "Duren",
+      "Dusseldorf",
+      "Emden",
+      "Erfurt",
+      "Erlangen",
+      "Essen",
+      "Esslingen",
+      "Flensburg",
+      "Frankfurt",
+      "Freiburg",
+      "Fulda",
+      "Furth",
+      "Garbsen",
+      "Gelsenkirchen",
+      "Gera",
+      "Gladbeck",
+      "Gorlitz",
+      "Gottingen",
+      "Grevenbroich",
+      "Gutersloh",
+      "Hagen",
+      "Halle",
+      "Hamburg",
+      "Hameln",
+      "Hamm",
+      "Hanau",
+      "Hanover",
+      "Heidelberg",
+      "Heidenheim",
+      "Heilbronn",
+      "Herten",
+      "Hildesheim",
+      "Ingolstadt",
+      "Iserlohn",
+      "Jena",
+      "Kaiserslautern",
+      "Karlsruhe",
+      "Kassel",
+      "Kiel",
+      "Koblenz",
+      "Konstanz",
+      "Krefeld",
+      "Landshut",
+      "Leipzig",
+      "Leverkusen",
+      "Lubeck",
+      "Ludwigsburg",
+      "Ludwigshafen",
+      "Luneburg",
+      "Magdeburg",
+      "Mainz",
+      "Mannheim",
+      "Marl",
+      "Minden",
+      "Moers",
+      "Monchengladbach",
+      "Munich",
+      "Munster",
+      "Neubrandenburg",
+      "Neumunster",
+      "Neuss",
+      "Norderstedt",
+      "Nuremberg",
+      "Oberhausen",
+      "Offenbach",
+      "Offenburg",
+      "Oldenburg",
+      "Osnabrück",
+      "Paderborn",
+      "Passau",
+      "Pforzheim",
+      "Plauen",
+      "Potsdam",
+      "Pulheim",
+      "Ratingen",
+      "Recklinghausen",
+      "Regensburg",
+      "Remscheid",
+      "Reutlingen",
+      "Rheine",
+      "Rosenheim",
+      "Rostock",
+      "Saarbrücken",
+      "Salzgitter",
+      "Schweinfurt",
+      "Schwerin",
+      "Siegen",
+      "Solingen",
+      "Stuttgart",
+      "Trier",
+      "Troisdorf",
+      "Tubingen",
+      "Ulm",
+      "Unna",
+      "Velbert",
+      "Villingen-Schwenningen",
+      "Weimar",
+      "Wesel",
+      "Wiesbaden",
+      "Wilhelmshaven",
+      "Witten",
+      "Wolfsburg",
+      "Wuppertal",
+      "Wurzburg"
+    ],
+    "US": [
+      "New York",
+      "Los Angeles",
+      "Chicago",
+      "Houston",
+      "Phoenix",
+      "Philadelphia",
+      "San Antonio",
+      "San Diego",
+      "Dallas",
+      "San Jose",
+      "Austin",
+      "Boston",
+      "Seattle",
+      "Denver",
+      "Miami"
+    ],
+    "GB": [
+      "London",
+      "Birmingham",
+      "Manchester",
+      "Liverpool",
+      "Leeds",
+      "Sheffield",
+      "Glasgow",
+      "Edinburgh",
+      "Bristol",
+      "Newcastle",
+      "Nottingham",
+      "Southampton",
+      "Leicester",
+      "Cardiff",
+      "Belfast"
+    ],
+    "FR": [
+      "Paris",
+      "Marseille",
+      "Lyon",
+      "Toulouse",
+      "Nice",
+      "Nantes",
+      "Strasbourg",
+      "Montpellier",
+      "Bordeaux",
+      "Lille",
+      "Rennes",
+      "Reims",
+      "Saint-Étienne",
+      "Le Havre",
+      "Dijon"
+    ],
+    "CA": [
+      "Toronto",
+      "Montreal",
+      "Vancouver",
+      "Calgary",
+      "Edmonton",
+      "Ottawa",
+      "Winnipeg",
+      "Quebec City",
+      "Hamilton",
+      "Kitchener",
+      "London",
+      "Halifax",
+      "Victoria",
+      "Windsor",
+      "Saskatoon"
+    ],
+    "AU": [
+      "Sydney",
+      "Melbourne",
+      "Brisbane",
+      "Perth",
+      "Adelaide",
+      "Gold Coast",
+      "Canberra",
+      "Newcastle",
+      "Hobart",
+      "Darwin",
+      "Cairns",
+      "Geelong",
+      "Wollongong",
+      "Sunshine Coast",
+      "Launceston"
+    ],
+    "IN": [
+      "Mumbai",
+      "Delhi",
+      "Bangalore",
+      "Hyderabad",
+      "Ahmedabad",
+      "Chennai",
+      "Kolkata",
+      "Surat",
+      "Pune",
+      "Jaipur",
+      "Lucknow",
+      "Kanpur",
+      "Nagpur",
+      "Indore",
+      "Thane"
+    ],
+    "PK": [
+      "Karachi",
+      "Lahore",
+      "Faisalabad",
+      "Rawalpindi",
+      "Islamabad",
+      "Multan",
+      "Peshawar",
+      "Quetta",
+      "Sialkot",
+      "Gujranwala",
+      "Hyderabad",
+      "Bahawalpur",
+      "Sukkur",
+      "Larkana",
+      "Jhelum"
+    ],
+    "BD": [
+      "Dhaka",
+      "Chittagong",
+      "Khulna",
+      "Rajshahi",
+      "Sylhet",
+      "Barisal",
+      "Rangpur",
+      "Mymensingh",
+      "Comilla",
+      "Narayanganj",
+      "Gazipur",
+      "Jessore",
+      "Bogra",
+      "Dinajpur",
+      "Cox's Bazar"
+    ],
+    "ID": [
+      "Jakarta",
+      "Surabaya",
+      "Bandung",
+      "Medan",
+      "Semarang",
+      "Makassar",
+      "Palembang",
+      "Tangerang",
+      "Depok",
+      "Batam",
+      "Bogor",
+      "Pekanbaru",
+      "Bandar Lampung",
+      "Padang",
+      "Denpasar"
+    ],
+    "IQ": [
+      "Baghdad",
+      "Basra",
+      "Mosul",
+      "Erbil",
+      "Kirkuk",
+      "Najaf",
+      "Karbala",
+      "Sulaymaniyah",
+      "Nasiriyah",
+      "Amarah",
+      "Diwaniyah",
+      "Kut",
+      "Hillah",
+      "Ramadi",
+      "Fallujah"
+    ],
+    "JO": [
+      "Amman",
+      "Zarqa",
+      "Irbid",
+      "Russeifa",
+      "Aqaba",
+      "Salt",
+      "Madaba",
+      "Jerash",
+      "Mafraq",
+      "Tafilah",
+      "Karak",
+      "Ajloun",
+      "Ramtha",
+      "Ma'an",
+      "Sahab"
+    ],
+    "PS": [
+      "Gaza",
+      "Hebron",
+      "Nablus",
+      "Jenin",
+      "Tulkarm",
+      "Ramallah",
+      "Bethlehem",
+      "Jericho",
+      "Qalqilya",
+      "Rafah",
+      "Khan Yunis",
+      "Deir al-Balah",
+      "Tubas",
+      "Salfit",
+      "Yatta"
+    ],
+    "LB": [
+      "Beirut",
+      "Tripoli",
+      "Sidon",
+      "Tyre",
+      "Baalbek",
+      "Jounieh",
+      "Zahle",
+      "Nabatieh",
+      "Byblos",
+      "Batroun",
+      "Aley",
+      "Bcharre",
+      "Bint Jbeil",
+      "Hermel",
+      "Mtein"
+    ],
+    "YE": [
+      "Sana'a",
+      "Aden",
+      "Taiz",
+      "Hodeidah",
+      "Mukalla",
+      "Ibb",
+      "Dhamar",
+      "Sayyan",
+      "Zinjibar",
+      "Hajjah",
+      "Al Bayda",
+      "Marib",
+      "Sa'dah",
+      "Shibam",
+      "Yarim"
+    ],
+    "MA": [
+      "Casablanca",
+      "Rabat",
+      "Marrakech",
+      "Fez",
+      "Tangier",
+      "Agadir",
+      "Meknes",
+      "Oujda",
+      "Kenitra",
+      "Tetouan",
+      "Safi",
+      "El Jadida",
+      "Beni Mellal",
+      "Nador",
+      "Taza"
+    ],
+    "DZ": [
+      "Algiers",
+      "Oran",
+      "Constantine",
+      "Annaba",
+      "Blida",
+      "Setif",
+      "Sidi Bel Abbes",
+      "Batna",
+      "Tlemcen",
+      "Bejaia",
+      "Biskra",
+      "Tebessa",
+      "Djelfa",
+      "Skikda",
+      "Mostaganem"
+    ],
+    "TN": [
+      "Tunis",
+      "Sfax",
+      "Sousse",
+      "Kairouan",
+      "Bizerte",
+      "Gabes",
+      "Ariana",
+      "Gafsa",
+      "Monastir",
+      "Nabeul",
+      "Medenine",
+      "Tozeur",
+      "Mahdia",
+      "Hammamet",
+      "Djerba"
+    ],
+    "SD": [
+      "Khartoum",
+      "Omdurman",
+      "Port Sudan",
+      "Kassala",
+      "El Obeid",
+      "Nyala",
+      "Wad Madani",
+      "Gedaref",
+      "Atbara",
+      "Dongola",
+      "El Fasher",
+      "Ed Dueim",
+      "Kosti",
+      "Sennar",
+      "Ad Damazin"
+    ],
+    "AE": [
+      "Dubai",
+      "Abu Dhabi",
+      "Sharjah",
+      "Al Ain",
+      "Ajman",
+      "Ras Al Khaimah",
+      "Fujairah",
+      "Umm Al Quwain",
+      "Khor Fakkan",
+      "Diba",
+      "Madinat Zayed",
+      "Liwa",
+      "Hatta",
+      "Kalba",
+      "Ar Ruways"
+    ],
+    "QA": [
+      "Doha",
+      "Al Rayyan",
+      "Al Wakrah",
+      "Al Khor",
+      "Dukhan",
+      "Mesaieed",
+      "Al Shamal",
+      "Lusail",
+      "Umm Salal",
+      "Abu Samra"
+    ],
+    "KW": [
+      "Kuwait City",
+      "Al Ahmadi",
+      "Hawalli",
+      "Farwaniya",
+      "Salmiya",
+      "Jahra",
+      "Mubarak Al-Kabeer",
+      "Sabah Al-Salem",
+      "Fahaheel",
+      "Mangaf"
+    ],
+    "OM": [
+      "Muscat",
+      "Salalah",
+      "Sohar",
+      "Nizwa",
+      "Sur",
+      "Ibri",
+      "Buraimi",
+      "Rustaq",
+      "Ibra",
+      "Khasab",
+      "Bahla",
+      "Dibba",
+      "Samail",
+      "Barka",
+      "Adam"
+    ],
+    "BH": [
+      "Manama",
+      "Riffa",
+      "Muharraq",
+      "Hamad Town",
+      "Isa Town",
+      "Sitra",
+      "Budaiya",
+      "A'ali",
+      "Jidhafs",
+      "Sanabis"
+    ],
+    "MY": [
+      "Kuala Lumpur",
+      "Penang",
+      "Johor Bahru",
+      "Kota Kinabalu",
+      "Kuching",
+      "Ipoh",
+      "Shah Alam",
+      "Malacca",
+      "Petaling Jaya",
+      "Subang Jaya",
+      "Kuala Terengganu",
+      "Kota Bharu",
+      "Alor Setar",
+      "Miri",
+      "Kuantan"
+    ],
+    "PH": [
+      "Manila",
+      "Quezon City",
+      "Davao City",
+      "Cebu City",
+      "Zamboanga City",
+      "General Santos",
+      "Bacolod",
+      "Iloilo City",
+      "Butuan",
+      "Cagayan de Oro",
+      "Angeles City",
+      "Baguio",
+      "Olongapo",
+      "Tarlac City",
+      "Batangas"
+    ],
+    "NG": [
+      "Lagos",
+      "Abuja",
+      "Kano",
+      "Ibadan",
+      "Benin City",
+      "Port Harcourt",
+      "Kaduna",
+      "Enugu",
+      "Zaria",
+      "Jos",
+      "Ilorin",
+      "Oyo",
+      "Warri",
+      "Abeokuta",
+      "Calabar"
+    ],
+    "ZA": [
+      "Johannesburg",
+      "Cape Town",
+      "Durban",
+      "Pretoria",
+      "Port Elizabeth",
+      "Bloemfontein",
+      "East London",
+      "Pietermaritzburg",
+      "Nelspruit",
+      "Rustenburg",
+      "Polokwane",
+      "Kimberley",
+      "George",
+      "Upington",
+      "Vereeniging"
+    ],
+    "AF": [
+      "Kabul",
+      "Kandahar",
+      "Herat",
+      "Mazar-i-Sharif",
+      "Jalalabad",
+      "Kunduz",
+      "Balkh",
+      "Bamyan",
+      "Ghazni",
+      "Khost",
+      "Faizabad",
+      "Lashkar Gah",
+      "Taloqan",
+      "Sheberghan",
+      "Maimana"
+    ],
+    "IR": [
+      "Tehran",
+      "Mashhad",
+      "Isfahan",
+      "Shiraz",
+      "Tabriz",
+      "Karaj",
+      "Qom",
+      "Ahvaz",
+      "Kermanshah",
+      "Yazd",
+      "Zahedan",
+      "Rasht",
+      "Hamadan",
+      "Arak",
+      "Urmia"
+    ],
+    "ES": [
+      "Madrid",
+      "Barcelona",
+      "Valencia",
+      "Seville",
+      "Bilbao",
+      "Malaga",
+      "Zaragoza",
+      "Murcia",
+      "Palma",
+      "Las Palmas",
+      "Alicante",
+      "Granada",
+      "Cordoba",
+      "Valladolid",
+      "Vigo"
+    ],
+    "IT": [
+      "Rome",
+      "Milan",
+      "Naples",
+      "Turin",
+      "Palermo",
+      "Genoa",
+      "Florence",
+      "Bologna",
+      "Bari",
+      "Catania",
+      "Venice",
+      "Verona",
+      "Messina",
+      "Padua",
+      "Trieste"
+    ],
+    "NL": [
+      "Amsterdam",
+      "Rotterdam",
+      "The Hague",
+      "Utrecht",
+      "Eindhoven",
+      "Groningen",
+      "Tilburg",
+      "Almere",
+      "Breda",
+      "Nijmegen",
+      "Haarlem",
+      "Arnhem",
+      "Enschede",
+      "Amersfoort",
+      "Leiden"
+    ],
+    "SE": [
+      "Stockholm",
+      "Gothenburg",
+      "Malmo",
+      "Uppsala",
+      "Linkoping",
+      "Vasteras",
+      "Orebro",
+      "Norrkoping",
+      "Helsingborg",
+      "Lund",
+      "Umea",
+      "Gavle",
+      "Boras",
+      "Sodertalje",
+      "Eskilstuna"
+    ],
+    "CN": [
+      "Beijing",
+      "Shanghai",
+      "Guangzhou",
+      "Shenzhen",
+      "Chengdu",
+      "Nanjing",
+      "Wuhan",
+      "Xi'an",
+      "Hangzhou",
+      "Chongqing",
+      "Tianjin",
+      "Suzhou",
+      "Harbin",
+      "Qingdao",
+      "Dalian"
+    ],
+    "JP": [
+      "Tokyo",
+      "Yokohama",
+      "Osaka",
+      "Nagoya",
+      "Sapporo",
+      "Fukuoka",
+      "Kyoto",
+      "Kobe",
+      "Kawasaki",
+      "Saitama",
+      "Hiroshima",
+      "Sendai",
+      "Chiba",
+      "Niigata",
+      "Hamamatsu"
+    ],
+    "BR": [
+      "Brasília",
+      "São Paulo",
+      "Rio de Janeiro",
+      "Salvador",
+      "Fortaleza",
+      "Belo Horizonte",
+      "Manaus",
+      "Curitiba",
+      "Recife",
+      "Porto Alegre",
+      "Belém",
+      "Goiânia",
+      "Guarulhos",
+      "Campinas",
+      "São Luís"
+    ],
+    "RU": [
+      "Moscow",
+      "Saint Petersburg",
+      "Novosibirsk",
+      "Yekaterinburg",
+      "Kazan",
+      "Krasnoyarsk",
+      "Nizhny Novgorod",
+      "Chelyabinsk",
+      "Samara",
+      "Omsk",
+      "Rostov-on-Don",
+      "Ufa",
+      "Perm",
+      "Voronezh",
+      "Volgograd"
+    ],
+    "GR": [
+      "Athens",
+      "Thessaloniki",
+      "Patras",
+      "Heraklion",
+      "Larissa",
+      "Volos",
+      "Ioannina",
+      "Kavala",
+      "Rhodes",
+      "Chania",
+      "Agrinio",
+      "Serres",
+      "Lamia",
+      "Alexandroupoli",
+      "Kozani"
+    ],
+    "PL": [
+      "Warsaw",
+      "Krakow",
+      "Lodz",
+      "Wroclaw",
+      "Poznan",
+      "Gdansk",
+      "Szczecin",
+      "Bydgoszcz",
+      "Lublin",
+      "Katowice",
+      "Bialystok",
+      "Gdynia",
+      "Czestochowa",
+      "Radom",
+      "Torun"
+    ],
+    "RO": [
+      "Bucharest",
+      "Cluj-Napoca",
+      "Timisoara",
+      "Iasi",
+      "Constanta",
+      "Craiova",
+      "Brașov",
+      "Galati",
+      "Ploiesti",
+      "Oradea",
+      "Brasov",
+      "Arad",
+      "Sibiu",
+      "Targu Mures",
+      "Bacau"
+    ],
+    "AT": [
+      "Vienna",
+      "Graz",
+      "Linz",
+      "Salzburg",
+      "Innsbruck",
+      "Klagenfurt",
+      "Villach",
+      "Wels",
+      "Sankt Pölten",
+      "Dornbirn"
+    ],
+    "CH": [
+      "Zurich",
+      "Geneva",
+      "Basel",
+      "Bern",
+      "Lausanne",
+      "Winterthur",
+      "Lucerne",
+      "St. Gallen",
+      "Lugano",
+      "Biel"
+    ],
+    "BE": [
+      "Brussels",
+      "Antwerp",
+      "Ghent",
+      "Charleroi",
+      "Liege",
+      "Bruges",
+      "Namur",
+      "Leuven",
+      "Mons",
+      "Mechelen"
+    ],
+    "KE": [
+      "Nairobi",
+      "Mombasa",
+      "Kisumu",
+      "Nakuru",
+      "Eldoret",
+      "Thika",
+      "Malindi",
+      "Kitale",
+      "Nyeri",
+      "Machakos"
+    ],
+    "TZ": [
+      "Dar es Salaam",
+      "Dodoma",
+      "Mwanza",
+      "Arusha",
+      "Zanzibar City",
+      "Mbeya",
+      "Morogoro",
+      "Tanga",
+      "Tabora",
+      "Kigoma"
+    ],
+    "ET": [
+      "Addis Ababa",
+      "Dire Dawa",
+      "Mekelle",
+      "Gonder",
+      "Bahir Dar",
+      "Awasa",
+      "Jimma",
+      "Adama",
+      "Dessie",
+      "Jijiga"
+    ],
+    "SO": [
+      "Mogadishu",
+      "Hargeisa",
+      "Kismayo",
+      "Baidoa",
+      "Berbera",
+      "Merca",
+      "Jamaame",
+      "Bosaso",
+      "Galkayo",
+      "Beledweyne"
+    ],
+    "DJ": [
+      "Djibouti City",
+      "Ali Sabieh",
+      "Tadjoura",
+      "Obock",
+      "Dikhil"
+    ],
+    "LY": [
+      "Tripoli",
+      "Benghazi",
+      "Misrata",
+      "Bayda",
+      "Tobruk",
+      "Sirte",
+      "Zawiya",
+      "Sabha",
+      "Derna",
+      "Zliten"
+    ],
+    "MR": [
+      "Nouakchott",
+      "Nouadhibou",
+      "Kiffa",
+      "Rosso",
+      "Kaedi",
+      "Zouerat",
+      "Atar",
+      "Selibaby",
+      "Tidjikja",
+      "Aleg"
+    ],
+    "SN": [
+      "Dakar",
+      "Thiès",
+      "Saint-Louis",
+      "Ziguinchor",
+      "Kaolack",
+      "Touba",
+      "Mbour",
+      "Diourbel",
+      "Louga",
+      "Tambacounda"
+    ],
+    "SL": [
+      "Freetown",
+      "Bo",
+      "Kenema",
+      "Makeni",
+      "Koidu",
+      "Port Loko",
+      "Kabala",
+      "Pujehun",
+      "Bonthe",
+      "Kailahun"
+    ],
+    "GH": [
+      "Accra",
+      "Kumasi",
+      "Tamale",
+      "Sekondi-Takoradi",
+      "Cape Coast",
+      "Tema",
+      "Obuasi",
+      "Sunyani",
+      "Koforidua",
+      "Wa"
+    ],
+    "KG": [
+      "Bishkek",
+      "Osh",
+      "Jalal-Abad",
+      "Karakol",
+      "Tokmok",
+      "Naryn",
+      "Batken",
+      "Talas",
+      "Kara-Balta",
+      "Balykchy"
+    ],
+    "KZ": [
+      "Nur-Sultan",
+      "Almaty",
+      "Shymkent",
+      "Karagandy",
+      "Aktobe",
+      "Taraz",
+      "Pavlodar",
+      "Oskemen",
+      "Kyzylorda",
+      "Atyrau"
+    ],
+    "UZ": [
+      "Tashkent",
+      "Samarkand",
+      "Bukhara",
+      "Namangan",
+      "Andijan",
+      "Fergana",
+      "Nukus",
+      "Termez",
+      "Jizzakh",
+      "Khiva"
+    ],
+    "TM": [
+      "Ashgabat",
+      "Turkmenabat",
+      "Dashoguz",
+      "Mary",
+      "Balkanabat",
+      "Konye-Urgench",
+      "Bayramaly",
+      "Tejen",
+      "Turkmenbashi",
+      "Abadan"
+    ],
+    "TJ": [
+      "Dushanbe",
+      "Khujand",
+      "Kulob",
+      "Bokhtar",
+      "Istaravshan",
+      "Tursunzoda",
+      "Panjakent",
+      "Vahdat",
+      "Konibodom",
+      "Isfara"
+    ],
+    "AZ": [
+      "Baku",
+      "Ganja",
+      "Sumgait",
+      "Mingachevir",
+      "Lankaran",
+      "Shirvan",
+      "Nakhchivan",
+      "Shaki",
+      "Yevlakh",
+      "Khachmaz"
+    ],
+    "GE": [
+      "Tbilisi",
+      "Batumi",
+      "Kutaisi",
+      "Rustavi",
+      "Zugdidi",
+      "Gori",
+      "Poti",
+      "Telavi",
+      "Akhaltsikhe",
+      "Mtskheta"
+    ],
+    "AM": [
+      "Yerevan",
+      "Gyumri",
+      "Vanadzor",
+      "Vagharshapat",
+      "Hrazdan",
+      "Kapan",
+      "Armavir",
+      "Artashat",
+      "Gavar",
+      "Ijevan"
+    ],
+    "AL": [
+      "Tirana",
+      "Durrës",
+      "Vlorë",
+      "Elbasan",
+      "Shkodër",
+      "Fier",
+      "Korçë",
+      "Berat",
+      "Lushnjë",
+      "Pogradec"
+    ],
+    "BA": [
+      "Sarajevo",
+      "Banja Luka",
+      "Tuzla",
+      "Zenica",
+      "Mostar",
+      "Bijeljina",
+      "Bihać",
+      "Prijedor",
+      "Trebinje",
+      "Brčko"
+    ],
+    "XK": [
+      "Pristina",
+      "Prizren",
+      "Gjakova",
+      "Peja",
+      "Ferizaj",
+      "Mitrovica",
+      "Gjilan",
+      "Vushtrri",
+      "Suhareka",
+      "Malisheva"
+    ],
+    "MK": [
+      "Skopje",
+      "Bitola",
+      "Kumanovo",
+      "Prilep",
+      "Tetovo",
+      "Ohrid",
+      "Veles",
+      "Stip",
+      "Strumica",
+      "Gostivar"
+    ],
+    "ME": [
+      "Podgorica",
+      "Nikšić",
+      "Bijelo Polje",
+      "Bar",
+      "Herceg Novi",
+      "Cetinje",
+      "Budva",
+      "Kotor",
+      "Ulcinj",
+      "Tivat"
+    ],
+    "RS": [
+      "Belgrade",
+      "Novi Sad",
+      "Niš",
+      "Kragujevac",
+      "Subotica",
+      "Zrenjanin",
+      "Pančevo",
+      "Čačak",
+      "Kraljevo",
+      "Smederevo"
+    ],
+    "HR": [
+      "Zagreb",
+      "Split",
+      "Rijeka",
+      "Osijek",
+      "Zadar",
+      "Dubrovnik",
+      "Pula",
+      "Slavonski Brod",
+      "Karlovac",
+      "Varaždin"
+    ],
+    "BG": [
+      "Sofia",
+      "Plovdiv",
+      "Varna",
+      "Burgas",
+      "Ruse",
+      "Stara Zagora",
+      "Pleven",
+      "Sliven",
+      "Dobrich",
+      "Shumen"
+    ],
+    "IE": [
+      "Dublin",
+      "Cork",
+      "Limerick",
+      "Galway",
+      "Waterford",
+      "Drogheda",
+      "Kilkenny",
+      "Swords",
+      "Dundalk",
+      "Navan"
+    ],
+    "CZ": [
+      "Prague",
+      "Brno",
+      "Ostrava",
+      "Pilsen",
+      "Liberec",
+      "Olomouc",
+      "Ústí nad Labem",
+      "Hradec Králové",
+      "České Budějovice",
+      "Pardubice"
+    ],
+    "SK": [
+      "Bratislava",
+      "Košice",
+      "Prešov",
+      "Žilina",
+      "Nitra",
+      "Banská Bystrica",
+      "Trnava",
+      "Martin",
+      "Trenčín",
+      "Poprad"
+    ],
+    "SI": [
+      "Ljubljana",
+      "Maribor",
+      "Celje",
+      "Kranj",
+      "Koper",
+      "Novo Mesto",
+      "Velenje",
+      "Ptuj",
+      "Trbovlje",
+      "Kamnik"
+    ],
+    "LT": [
+      "Vilnius",
+      "Kaunas",
+      "Klaipėda",
+      "Šiauliai",
+      "Panevėžys",
+      "Alytus",
+      "Marijampolė",
+      "Mažeikiai",
+      "Jonava",
+      "Utena"
+    ],
+    "LV": [
+      "Riga",
+      "Daugavpils",
+      "Liepāja",
+      "Jelgava",
+      "Jūrmala",
+      "Ventspils",
+      "Rēzekne",
+      "Ogre",
+      "Tukums",
+      "Cēsis"
+    ],
+    "EE": [
+      "Tallinn",
+      "Tartu",
+      "Narva",
+      "Pärnu",
+      "Kohtla-Järve",
+      "Viljandi",
+      "Rakvere",
+      "Sillamäe",
+      "Kuressaare",
+      "Võru"
+    ],
+    "FI": [
+      "Helsinki",
+      "Espoo",
+      "Tampere",
+      "Vantaa",
+      "Turku",
+      "Oulu",
+      "Lahti",
+      "Kuopio",
+      "Jyväskylä",
+      "Pori"
+    ],
+    "NO": [
+      "Oslo",
+      "Bergen",
+      "Trondheim",
+      "Stavanger",
+      "Drammen",
+      "Fredrikstad",
+      "Kristiansand",
+      "Tromsø",
+      "Sandnes",
+      "Bodø"
+    ],
+    "DK": [
+      "Copenhagen",
+      "Aarhus",
+      "Odense",
+      "Aalborg",
+      "Esbjerg",
+      "Randers",
+      "Kolding",
+      "Horsens",
+      "Vejle",
+      "Roskilde"
+    ],
+    "IS": [
+      "Reykjavik",
+      "Kópavogur",
+      "Akureyri",
+      "Reykjanesbær",
+      "Garðabær",
+      "Mosfellsbær",
+      "Akranes",
+      "Selfoss",
+      "Hafnarfjörður",
+      "Keflavík"
+    ],
+    "HU": [
+      "Budapest",
+      "Debrecen",
+      "Szeged",
+      "Miskolc",
+      "Pécs",
+      "Győr",
+      "Nyíregyháza",
+      "Kecskemét",
+      "Székesfehérvár",
+      "Szombathely"
+    ],
+    "PT": [
+      "Lisbon",
+      "Porto",
+      "Braga",
+      "Coimbra",
+      "Funchal",
+      "Amadora",
+      "Setúbal",
+      "Almada",
+      "Aveiro",
+      "Faro"
+    ],
+    "UA": [
+      "Kyiv",
+      "Kharkiv",
+      "Odesa",
+      "Dnipro",
+      "Lviv",
+      "Zaporizhzhia",
+      "Kryvyi Rih",
+      "Mykolaiv",
+      "Vinnytsia",
+      "Kherson",
+      "Poltava",
+      "Chernihiv",
+      "Cherkasy",
+      "Sumy",
+      "Zhytomyr"
+    ],
+    "BY": [
+      "Minsk",
+      "Gomel",
+      "Mogilev",
+      "Vitebsk",
+      "Grodno",
+      "Brest",
+      "Bobruisk",
+      "Baranovichi",
+      "Borisov",
+      "Pinsk"
+    ],
+    "MD": [
+      "Chișinău",
+      "Bălți",
+      "Tiraspol",
+      "Bender",
+      "Cahul",
+      "Ungheni",
+      "Soroca",
+      "Orhei",
+      "Hîncești",
+      "Edineț"
+    ],
+    "MN": [
+      "Ulaanbaatar",
+      "Erdenet",
+      "Darkhan",
+      "Choibalsan",
+      "Mörön",
+      "Khovd",
+      "Ulgii",
+      "Bayankhongor",
+      "Arvaikheer",
+      "Ulaangom"
+    ],
+    "NP": [
+      "Kathmandu",
+      "Pokhara",
+      "Bharatpur",
+      "Lalitpur",
+      "Birgunj",
+      "Butwal",
+      "Dharan",
+      "Biratnagar",
+      "Janakpur",
+      "Hetauda"
+    ],
+    "LK": [
+      "Colombo",
+      "Kandy",
+      "Galle",
+      "Jaffna",
+      "Negombo",
+      "Matara",
+      "Batticaloa",
+      "Trincomalee",
+      "Kurunegala",
+      "Anuradhapura"
+    ],
+    "MM": [
+      "Yangon",
+      "Mandalay",
+      "Naypyidaw",
+      "Mawlamyine",
+      "Bago",
+      "Pathein",
+      "Taunggyi",
+      "Sittwe",
+      "Monywa",
+      "Myeik"
+    ],
+    "TH": [
+      "Bangkok",
+      "Chiang Mai",
+      "Phuket",
+      "Pattaya",
+      "Nonthaburi",
+      "Nakhon Ratchasima",
+      "Chiang Rai",
+      "Hat Yai",
+      "Khon Kaen",
+      "Udon Thani"
+    ],
+    "VN": [
+      "Hanoi",
+      "Ho Chi Minh City",
+      "Da Nang",
+      "Hai Phong",
+      "Can Tho",
+      "Nha Trang",
+      "Hue",
+      "Da Lat",
+      "Vung Tau",
+      "Quy Nhon"
+    ],
+    "KH": [
+      "Phnom Penh",
+      "Siem Reap",
+      "Battambang",
+      "Sihanoukville",
+      "Kampong Cham",
+      "Pursat",
+      "Takeo",
+      "Kampot",
+      "Kratie",
+      "Prey Veng"
+    ],
+    "LA": [
+      "Vientiane",
+      "Luang Prabang",
+      "Pakse",
+      "Savannakhet",
+      "Thakhek",
+      "Muang Xay",
+      "Phonsavan",
+      "Xam Neua",
+      "Salavan",
+      "Attapeu"
+    ],
+    "SG": [
+      "Singapore"
+    ],
+    "BN": [
+      "Bandar Seri Begawan",
+      "Kuala Belait",
+      "Seria",
+      "Tutong",
+      "Bangar"
+    ],
+    "MV": [
+      "Malé",
+      "Addu City",
+      "Fuvahmulah",
+      "Kulhudhuffushi",
+      "Hithadhoo"
+    ],
+    "CY": [
+      "Nicosia",
+      "Limassol",
+      "Larnaca",
+      "Paphos",
+      "Famagusta",
+      "Kyrenia",
+      "Morphou",
+      "Paralimni",
+      "Dromolaxia",
+      "Aradippou"
+    ],
+    "MT": [
+      "Valletta",
+      "Birkirkara",
+      "Mosta",
+      "Sliema",
+      "San Gwann",
+      "Saint Paul's Bay",
+      "Qormi",
+      "Zabbar",
+      "Fgura",
+      "Zejtun"
+    ],
+    "LU": [
+      "Luxembourg City",
+      "Esch-sur-Alzette",
+      "Dudelange",
+      "Differdange",
+      "Ettelbruck",
+      "Diekirch",
+      "Strassen",
+      "Wiltz",
+      "Echternach",
+      "Rumelange"
+    ],
+    "MC": [
+      "Monaco",
+      "Monte Carlo",
+      "La Condamine",
+      "Fontvieille",
+      "Moneghetti"
+    ],
+    "VA": [
+      "Vatican City"
+    ],
+    "AD": [
+      "Andorra la Vella",
+      "Escaldes-Engordany",
+      "Encamp",
+      "La Massana",
+      "Ordino",
+      "Canillo",
+      "Sant Julià de Lòria",
+      "Arinsal",
+      "El Pas de la Casa",
+      "Pal"
+    ],
+    "IL": [
+      "Jerusalem",
+      "Tel Aviv",
+      "Haifa",
+      "Rishon LeZion",
+      "Petah Tikva",
+      "Ashdod",
+      "Netanya",
+      "Beersheba",
+      "Holon",
+      "Ramat Gan"
+    ],
+    "NZ": [
+      "Auckland",
+      "Wellington",
+      "Christchurch",
+      "Hamilton",
+      "Tauranga",
+      "Napier",
+      "Dunedin",
+      "Palmerston North",
+      "Nelson",
+      "Rotorua"
+    ],
+    "CO": [
+      "Bogotá",
+      "Medellín",
+      "Cali",
+      "Barranquilla",
+      "Cartagena",
+      "Cúcuta",
+      "Bucaramanga",
+      "Ibagué",
+      "Pereira",
+      "Santa Marta"
+    ],
+    "VE": [
+      "Caracas",
+      "Maracaibo",
+      "Valencia",
+      "Barquisimeto",
+      "Maracay",
+      "Ciudad Guayana",
+      "Barcelona",
+      "Maturín",
+      "Mérida",
+      "Cumaná"
+    ],
+    "AR": [
+      "Buenos Aires",
+      "Córdoba",
+      "Rosario",
+      "Mendoza",
+      "La Plata",
+      "San Miguel de Tucumán",
+      "Salta",
+      "Mar del Plata",
+      "Santa Fe",
+      "San Juan"
+    ],
+    "CL": [
+      "Santiago",
+      "Valparaíso",
+      "Concepción",
+      "La Serena",
+      "Antofagasta",
+      "Rancagua",
+      "Talca",
+      "Arica",
+      "Iquique",
+      "Puerto Montt"
+    ],
+    "PE": [
+      "Lima",
+      "Arequipa",
+      "Cusco",
+      "Trujillo",
+      "Chiclayo",
+      "Piura",
+      "Iquitos",
+      "Huancayo",
+      "Cajamarca",
+      "Pucallpa"
+    ],
+    "UY": [
+      "Montevideo",
+      "Salto",
+      "Paysandú",
+      "Ciudad de la Costa",
+      "Las Piedras",
+      "Rivera",
+      "Maldonado",
+      "Tacuarembó",
+      "Melo",
+      "Mercedes"
+    ]
+  },
+  "countryDefaults": {
+    "AF": {
+      "latitude": 33.9,
+      "longitude": 67.7,
+      "timezone": "Asia/Kabul"
+    },
+    "AL": {
+      "latitude": 41.0,
+      "longitude": 20.0,
+      "timezone": "Europe/Tirane"
+    },
+    "DZ": {
+      "latitude": 28.0,
+      "longitude": 3.0,
+      "timezone": "Africa/Algiers"
+    },
+    "AD": {
+      "latitude": 42.5,
+      "longitude": 1.5,
+      "timezone": "Europe/Andorra"
+    },
+    "AO": {
+      "latitude": -11.2,
+      "longitude": 17.9,
+      "timezone": "Africa/Luanda"
+    },
+    "AR": {
+      "latitude": -34.6,
+      "longitude": -58.4,
+      "timezone": "America/Argentina/Buenos_Aires"
+    },
+    "AM": {
+      "latitude": 40.1,
+      "longitude": 45.0,
+      "timezone": "Asia/Yerevan"
+    },
+    "AU": {
+      "latitude": -25.3,
+      "longitude": 133.8,
+      "timezone": "Australia/Sydney"
+    },
+    "AT": {
+      "latitude": 47.5,
+      "longitude": 14.0,
+      "timezone": "Europe/Vienna"
+    },
+    "AZ": {
+      "latitude": 40.3,
+      "longitude": 47.5,
+      "timezone": "Asia/Baku"
+    },
+    "BH": {
+      "latitude": 26.0,
+      "longitude": 50.5,
+      "timezone": "Asia/Bahrain"
+    },
+    "BD": {
+      "latitude": 23.7,
+      "longitude": 90.4,
+      "timezone": "Asia/Dhaka"
+    },
+    "BY": {
+      "latitude": 53.5,
+      "longitude": 28.0,
+      "timezone": "Europe/Minsk"
+    },
+    "BE": {
+      "latitude": 50.8,
+      "longitude": 4.0,
+      "timezone": "Europe/Brussels"
+    },
+    "BA": {
+      "latitude": 44.0,
+      "longitude": 18.0,
+      "timezone": "Europe/Sarajevo"
+    },
+    "BR": {
+      "latitude": -10.0,
+      "longitude": -55.0,
+      "timezone": "America/Sao_Paulo"
+    },
+    "BN": {
+      "latitude": 4.5,
+      "longitude": 114.5,
+      "timezone": "Asia/Brunei"
+    },
+    "BG": {
+      "latitude": 42.7,
+      "longitude": 25.5,
+      "timezone": "Europe/Sofia"
+    },
+    "CA": {
+      "latitude": 56.1,
+      "longitude": -106.3,
+      "timezone": "America/Toronto"
+    },
+    "TD": {
+      "latitude": 15.5,
+      "longitude": 18.7,
+      "timezone": "Africa/Ndjamena"
+    },
+    "CL": {
+      "latitude": -35.0,
+      "longitude": -71.0,
+      "timezone": "America/Santiago"
+    },
+    "CN": {
+      "latitude": 35.0,
+      "longitude": 105.0,
+      "timezone": "Asia/Shanghai"
+    },
+    "CO": {
+      "latitude": 4.0,
+      "longitude": -73.0,
+      "timezone": "America/Bogota"
+    },
+    "KH": {
+      "latitude": 12.5,
+      "longitude": 105.0,
+      "timezone": "Asia/Phnom_Penh"
+    },
+    "CM": {
+      "latitude": 7.0,
+      "longitude": 12.0,
+      "timezone": "Africa/Douala"
+    },
+    "HR": {
+      "latitude": 45.0,
+      "longitude": 15.5,
+      "timezone": "Europe/Zagreb"
+    },
+    "CY": {
+      "latitude": 35.0,
+      "longitude": 33.0,
+      "timezone": "Asia/Nicosia"
+    },
+    "CZ": {
+      "latitude": 49.8,
+      "longitude": 15.5,
+      "timezone": "Europe/Prague"
+    },
+    "DK": {
+      "latitude": 56.0,
+      "longitude": 10.0,
+      "timezone": "Europe/Copenhagen"
+    },
+    "DJ": {
+      "latitude": 11.8,
+      "longitude": 42.5,
+      "timezone": "Africa/Djibouti"
+    },
+    "CD": {
+      "latitude": -4.0,
+      "longitude": 25.0,
+      "timezone": "Africa/Lubumbashi"
+    },
+    "EG": {
+      "latitude": 26.8,
+      "longitude": 30.8,
+      "timezone": "Africa/Cairo"
+    },
+    "ER": {
+      "latitude": 15.0,
+      "longitude": 39.0,
+      "timezone": "Africa/Asmara"
+    },
+    "EE": {
+      "latitude": 58.6,
+      "longitude": 26.0,
+      "timezone": "Europe/Tallinn"
+    },
+    "ET": {
+      "latitude": 9.0,
+      "longitude": 40.0,
+      "timezone": "Africa/Addis_Ababa"
+    },
+    "FI": {
+      "latitude": 64.0,
+      "longitude": 26.0,
+      "timezone": "Europe/Helsinki"
+    },
+    "FR": {
+      "latitude": 46.6,
+      "longitude": 2.2,
+      "timezone": "Europe/Paris"
+    },
+    "GA": {
+      "latitude": -0.5,
+      "longitude": 11.5,
+      "timezone": "Africa/Libreville"
+    },
+    "GM": {
+      "latitude": 13.4,
+      "longitude": -15.5,
+      "timezone": "Africa/Banjul"
+    },
+    "GE": {
+      "latitude": 42.0,
+      "longitude": 43.5,
+      "timezone": "Asia/Tbilisi"
+    },
+    "DE": {
+      "latitude": 51.5,
+      "longitude": 10.5,
+      "timezone": "Europe/Berlin"
+    },
+    "GH": {
+      "latitude": 8.0,
+      "longitude": -2.0,
+      "timezone": "Africa/Accra"
+    },
+    "GR": {
+      "latitude": 39.0,
+      "longitude": 22.0,
+      "timezone": "Europe/Athens"
+    },
+    "GT": {
+      "latitude": 15.5,
+      "longitude": -90.3,
+      "timezone": "America/Guatemala"
+    },
+    "GN": {
+      "latitude": 9.5,
+      "longitude": -11.0,
+      "timezone": "Africa/Conakry"
+    },
+    "GY": {
+      "latitude": 5.0,
+      "longitude": -58.8,
+      "timezone": "America/Guyana"
+    },
+    "HT": {
+      "latitude": 19.0,
+      "longitude": -72.4,
+      "timezone": "America/Port-au-Prince"
+    },
+    "HN": {
+      "latitude": 14.0,
+      "longitude": -87.0,
+      "timezone": "America/Tegucigalpa"
+    },
+    "HU": {
+      "latitude": 47.0,
+      "longitude": 19.5,
+      "timezone": "Europe/Budapest"
+    },
+    "IS": {
+      "latitude": 65.0,
+      "longitude": -18.0,
+      "timezone": "Atlantic/Reykjavik"
+    },
+    "IN": {
+      "latitude": 20.6,
+      "longitude": 78.9,
+      "timezone": "Asia/Kolkata"
+    },
+    "ID": {
+      "latitude": -0.8,
+      "longitude": 117.9,
+      "timezone": "Asia/Jakarta"
+    },
+    "IR": {
+      "latitude": 32.0,
+      "longitude": 53.0,
+      "timezone": "Asia/Tehran"
+    },
+    "IQ": {
+      "latitude": 33.0,
+      "longitude": 44.0,
+      "timezone": "Asia/Baghdad"
+    },
+    "IE": {
+      "latitude": 53.0,
+      "longitude": -8.0,
+      "timezone": "Europe/Dublin"
+    },
+    "IT": {
+      "latitude": 41.9,
+      "longitude": 12.5,
+      "timezone": "Europe/Rome"
+    },
+    "JM": {
+      "latitude": 18.1,
+      "longitude": -77.3,
+      "timezone": "America/Jamaica"
+    },
+    "JP": {
+      "latitude": 36.0,
+      "longitude": 138.0,
+      "timezone": "Asia/Tokyo"
+    },
+    "JO": {
+      "latitude": 31.2,
+      "longitude": 36.8,
+      "timezone": "Asia/Amman"
+    },
+    "KZ": {
+      "latitude": 48.0,
+      "longitude": 68.0,
+      "timezone": "Asia/Almaty"
+    },
+    "KE": {
+      "latitude": 0.0,
+      "longitude": 38.0,
+      "timezone": "Africa/Nairobi"
+    },
+    "KW": {
+      "latitude": 29.3,
+      "longitude": 47.5,
+      "timezone": "Asia/Kuwait"
+    },
+    "KG": {
+      "latitude": 41.5,
+      "longitude": 75.0,
+      "timezone": "Asia/Bishkek"
+    },
+    "LA": {
+      "latitude": 18.0,
+      "longitude": 105.0,
+      "timezone": "Asia/Vientiane"
+    },
+    "LV": {
+      "latitude": 57.0,
+      "longitude": 25.0,
+      "timezone": "Europe/Riga"
+    },
+    "LB": {
+      "latitude": 33.9,
+      "longitude": 35.5,
+      "timezone": "Asia/Beirut"
+    },
+    "LY": {
+      "latitude": 26.0,
+      "longitude": 17.0,
+      "timezone": "Africa/Tripoli"
+    },
+    "LT": {
+      "latitude": 55.0,
+      "longitude": 24.0,
+      "timezone": "Europe/Vilnius"
+    },
+    "LU": {
+      "latitude": 49.8,
+      "longitude": 6.1,
+      "timezone": "Europe/Luxembourg"
+    },
+    "MG": {
+      "latitude": -18.0,
+      "longitude": 47.0,
+      "timezone": "Indian/Antananarivo"
+    },
+    "MY": {
+      "latitude": 4.0,
+      "longitude": 109.0,
+      "timezone": "Asia/Kuala_Lumpur"
+    },
+    "MV": {
+      "latitude": 3.2,
+      "longitude": 73.2,
+      "timezone": "Indian/Maldives"
+    },
+    "ML": {
+      "latitude": 18.0,
+      "longitude": -2.0,
+      "timezone": "Africa/Bamako"
+    },
+    "MT": {
+      "latitude": 35.9,
+      "longitude": 14.4,
+      "timezone": "Europe/Malta"
+    },
+    "MR": {
+      "latitude": 21.0,
+      "longitude": -11.0,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MX": {
+      "latitude": 23.6,
+      "longitude": -102.5,
+      "timezone": "America/Mexico_City"
+    },
+    "MC": {
+      "latitude": 43.7,
+      "longitude": 7.4,
+      "timezone": "Europe/Monaco"
+    },
+    "MN": {
+      "latitude": 46.0,
+      "longitude": 105.0,
+      "timezone": "Asia/Ulaanbaatar"
+    },
+    "ME": {
+      "latitude": 42.7,
+      "longitude": 19.4,
+      "timezone": "Europe/Podgorica"
+    },
+    "MA": {
+      "latitude": 32.0,
+      "longitude": -6.0,
+      "timezone": "Africa/Casablanca"
+    },
+    "MM": {
+      "latitude": 22.0,
+      "longitude": 98.0,
+      "timezone": "Asia/Yangon"
+    },
+    "NA": {
+      "latitude": -23.0,
+      "longitude": 17.0,
+      "timezone": "Africa/Windhoek"
+    },
+    "NP": {
+      "latitude": 28.0,
+      "longitude": 84.0,
+      "timezone": "Asia/Kathmandu"
+    },
+    "NL": {
+      "latitude": 52.0,
+      "longitude": 5.0,
+      "timezone": "Europe/Amsterdam"
+    },
+    "NZ": {
+      "latitude": -41.0,
+      "longitude": 174.0,
+      "timezone": "Pacific/Auckland"
+    },
+    "NI": {
+      "latitude": 13.0,
+      "longitude": -85.0,
+      "timezone": "America/Managua"
+    },
+    "NE": {
+      "latitude": 17.0,
+      "longitude": 8.0,
+      "timezone": "Africa/Niamey"
+    },
+    "NG": {
+      "latitude": 9.0,
+      "longitude": 8.0,
+      "timezone": "Africa/Lagos"
+    },
+    "MK": {
+      "latitude": 41.6,
+      "longitude": 21.7,
+      "timezone": "Europe/Skopje"
+    },
+    "NO": {
+      "latitude": 62.0,
+      "longitude": 10.0,
+      "timezone": "Europe/Oslo"
+    },
+    "OM": {
+      "latitude": 21.0,
+      "longitude": 57.0,
+      "timezone": "Asia/Muscat"
+    },
+    "PK": {
+      "latitude": 30.4,
+      "longitude": 69.3,
+      "timezone": "Asia/Karachi"
+    },
+    "PS": {
+      "latitude": 31.9,
+      "longitude": 35.2,
+      "timezone": "Asia/Hebron"
+    },
+    "PA": {
+      "latitude": 9.0,
+      "longitude": -80.0,
+      "timezone": "America/Panama"
+    },
+    "PG": {
+      "latitude": -6.0,
+      "longitude": 147.0,
+      "timezone": "Pacific/Port_Moresby"
+    },
+    "PY": {
+      "latitude": -23.0,
+      "longitude": -58.0,
+      "timezone": "America/Asuncion"
+    },
+    "PE": {
+      "latitude": -9.0,
+      "longitude": -75.0,
+      "timezone": "America/Lima"
+    },
+    "PH": {
+      "latitude": 13.0,
+      "longitude": 122.0,
+      "timezone": "Asia/Manila"
+    },
+    "PL": {
+      "latitude": 52.0,
+      "longitude": 20.0,
+      "timezone": "Europe/Warsaw"
+    },
+    "PT": {
+      "latitude": 39.5,
+      "longitude": -8.0,
+      "timezone": "Europe/Lisbon"
+    },
+    "QA": {
+      "latitude": 25.5,
+      "longitude": 51.0,
+      "timezone": "Asia/Qatar"
+    },
+    "RO": {
+      "latitude": 46.0,
+      "longitude": 25.0,
+      "timezone": "Europe/Bucharest"
+    },
+    "RU": {
+      "latitude": 60.0,
+      "longitude": 40.0,
+      "timezone": "Europe/Moscow"
+    },
+    "RW": {
+      "latitude": -2.0,
+      "longitude": 30.0,
+      "timezone": "Africa/Kigali"
+    },
+    "SA": {
+      "latitude": 24.0,
+      "longitude": 45.0,
+      "timezone": "Asia/Riyadh"
+    },
+    "SN": {
+      "latitude": 14.0,
+      "longitude": -14.0,
+      "timezone": "Africa/Dakar"
+    },
+    "RS": {
+      "latitude": 44.0,
+      "longitude": 21.0,
+      "timezone": "Europe/Belgrade"
+    },
+    "SG": {
+      "latitude": 1.3,
+      "longitude": 103.8,
+      "timezone": "Asia/Singapore"
+    },
+    "SK": {
+      "latitude": 48.7,
+      "longitude": 19.5,
+      "timezone": "Europe/Bratislava"
+    },
+    "SI": {
+      "latitude": 46.0,
+      "longitude": 15.0,
+      "timezone": "Europe/Ljubljana"
+    },
+    "SO": {
+      "latitude": 6.0,
+      "longitude": 47.0,
+      "timezone": "Africa/Mogadishu"
+    },
+    "ZA": {
+      "latitude": -29.0,
+      "longitude": 26.0,
+      "timezone": "Africa/Johannesburg"
+    },
+    "KR": {
+      "latitude": 36.0,
+      "longitude": 128.0,
+      "timezone": "Asia/Seoul"
+    },
+    "ES": {
+      "latitude": 40.0,
+      "longitude": -4.0,
+      "timezone": "Europe/Madrid"
+    },
+    "LK": {
+      "latitude": 7.0,
+      "longitude": 81.0,
+      "timezone": "Asia/Colombo"
+    },
+    "SD": {
+      "latitude": 16.0,
+      "longitude": 30.0,
+      "timezone": "Africa/Khartoum"
+    },
+    "SR": {
+      "latitude": 4.0,
+      "longitude": -56.0,
+      "timezone": "America/Paramaribo"
+    },
+    "SE": {
+      "latitude": 62.0,
+      "longitude": 15.0,
+      "timezone": "Europe/Stockholm"
+    },
+    "CH": {
+      "latitude": 46.8,
+      "longitude": 8.2,
+      "timezone": "Europe/Zurich"
+    },
+    "SY": {
+      "latitude": 34.8,
+      "longitude": 39.0,
+      "timezone": "Asia/Damascus"
+    },
+    "TW": {
+      "latitude": 23.5,
+      "longitude": 121.0,
+      "timezone": "Asia/Taipei"
+    },
+    "TJ": {
+      "latitude": 39.0,
+      "longitude": 71.0,
+      "timezone": "Asia/Dushanbe"
+    },
+    "TZ": {
+      "latitude": -6.0,
+      "longitude": 35.0,
+      "timezone": "Africa/Dar_es_Salaam"
+    },
+    "TH": {
+      "latitude": 15.0,
+      "longitude": 101.0,
+      "timezone": "Asia/Bangkok"
+    },
+    "TL": {
+      "latitude": -8.6,
+      "longitude": 125.7,
+      "timezone": "Asia/Dili"
+    },
+    "TG": {
+      "latitude": 8.0,
+      "longitude": 1.0,
+      "timezone": "Africa/Lome"
+    },
+    "TN": {
+      "latitude": 34.0,
+      "longitude": 9.0,
+      "timezone": "Africa/Tunis"
+    },
+    "TR": {
+      "latitude": 39.0,
+      "longitude": 35.0,
+      "timezone": "Europe/Istanbul"
+    },
+    "TM": {
+      "latitude": 39.0,
+      "longitude": 60.0,
+      "timezone": "Asia/Ashgabat"
+    },
+    "UG": {
+      "latitude": 1.0,
+      "longitude": 32.0,
+      "timezone": "Africa/Kampala"
+    },
+    "UA": {
+      "latitude": 49.0,
+      "longitude": 31.0,
+      "timezone": "Europe/Kiev"
+    },
+    "AE": {
+      "latitude": 24.0,
+      "longitude": 54.0,
+      "timezone": "Asia/Dubai"
+    },
+    "GB": {
+      "latitude": 55.4,
+      "longitude": -3.4,
+      "timezone": "Europe/London"
+    },
+    "US": {
+      "latitude": 39.8,
+      "longitude": -98.5,
+      "timezone": "America/New_York"
+    },
+    "UY": {
+      "latitude": -33.0,
+      "longitude": -56.0,
+      "timezone": "America/Montevideo"
+    },
+    "UZ": {
+      "latitude": 41.0,
+      "longitude": 68.0,
+      "timezone": "Asia/Tashkent"
+    },
+    "VA": {
+      "latitude": 41.9,
+      "longitude": 12.5,
+      "timezone": "Europe/Vatican"
+    },
+    "VE": {
+      "latitude": 8.0,
+      "longitude": -66.0,
+      "timezone": "America/Caracas"
+    },
+    "VN": {
+      "latitude": 16.0,
+      "longitude": 108.0,
+      "timezone": "Asia/Ho_Chi_Minh"
+    },
+    "YE": {
+      "latitude": 15.5,
+      "longitude": 48.0,
+      "timezone": "Asia/Aden"
+    },
+    "ZM": {
+      "latitude": -13.0,
+      "longitude": 28.0,
+      "timezone": "Africa/Lusaka"
+    },
+    "ZW": {
+      "latitude": -19.0,
+      "longitude": 30.0,
+      "timezone": "Africa/Harare"
+    },
+    "BS": {
+      "latitude": 25.0,
+      "longitude": -77.4,
+      "timezone": "America/Nassau"
+    },
+    "BB": {
+      "latitude": 13.2,
+      "longitude": -59.5,
+      "timezone": "America/Barbados"
+    },
+    "BZ": {
+      "latitude": 17.2,
+      "longitude": -88.5,
+      "timezone": "America/Belize"
+    },
+    "BJ": {
+      "latitude": 9.5,
+      "longitude": 2.3,
+      "timezone": "Africa/Porto-Novo"
+    },
+    "BT": {
+      "latitude": 27.5,
+      "longitude": 90.5,
+      "timezone": "Asia/Thimphu"
+    },
+    "BO": {
+      "latitude": -17.0,
+      "longitude": -65.0,
+      "timezone": "America/La_Paz"
+    },
+    "BW": {
+      "latitude": -22.0,
+      "longitude": 24.0,
+      "timezone": "Africa/Gaborone"
+    },
+    "BF": {
+      "latitude": 12.0,
+      "longitude": -2.0,
+      "timezone": "Africa/Ouagadougou"
+    },
+    "BI": {
+      "latitude": -3.5,
+      "longitude": 30.0,
+      "timezone": "Africa/Bujumbura"
+    },
+    "CV": {
+      "latitude": 16.0,
+      "longitude": -24.0,
+      "timezone": "Atlantic/Cape_Verde"
+    },
+    "CF": {
+      "latitude": 7.0,
+      "longitude": 21.0,
+      "timezone": "Africa/Bangui"
+    },
+    "KM": {
+      "latitude": -12.0,
+      "longitude": 44.0,
+      "timezone": "Indian/Comoro"
+    },
+    "CG": {
+      "latitude": -1.0,
+      "longitude": 16.0,
+      "timezone": "Africa/Brazzaville"
+    },
+    "CR": {
+      "latitude": 10.0,
+      "longitude": -84.0,
+      "timezone": "America/Costa_Rica"
+    },
+    "CI": {
+      "latitude": 7.5,
+      "longitude": -5.0,
+      "timezone": "Africa/Abidjan"
+    },
+    "CU": {
+      "latitude": 21.5,
+      "longitude": -80.0,
+      "timezone": "America/Havana"
+    },
+    "DM": {
+      "latitude": 15.5,
+      "longitude": -61.4,
+      "timezone": "America/Dominica"
+    },
+    "DO": {
+      "latitude": 19.0,
+      "longitude": -70.7,
+      "timezone": "America/Santo_Domingo"
+    },
+    "EC": {
+      "latitude": -1.0,
+      "longitude": -78.0,
+      "timezone": "America/Guayaquil"
+    },
+    "SV": {
+      "latitude": 13.7,
+      "longitude": -88.9,
+      "timezone": "America/El_Salvador"
+    },
+    "GQ": {
+      "latitude": 1.5,
+      "longitude": 10.0,
+      "timezone": "Africa/Malabo"
+    },
+    "SZ": {
+      "latitude": -26.5,
+      "longitude": 31.5,
+      "timezone": "Africa/Mbabane"
+    },
+    "FJ": {
+      "latitude": -17.5,
+      "longitude": 178.0,
+      "timezone": "Pacific/Fiji"
+    },
+    "GD": {
+      "latitude": 12.0,
+      "longitude": -61.7,
+      "timezone": "America/Grenada"
+    },
+    "GW": {
+      "latitude": 12.0,
+      "longitude": -15.0,
+      "timezone": "Africa/Bissau"
+    },
+    "KI": {
+      "latitude": 1.0,
+      "longitude": 173.0,
+      "timezone": "Pacific/Tarawa"
+    },
+    "XK": {
+      "latitude": 42.6,
+      "longitude": 20.9,
+      "timezone": "Europe/Belgrade"
+    },
+    "LS": {
+      "latitude": -29.5,
+      "longitude": 28.5,
+      "timezone": "Africa/Maseru"
+    },
+    "LR": {
+      "latitude": 6.5,
+      "longitude": -9.5,
+      "timezone": "Africa/Monrovia"
+    },
+    "MW": {
+      "latitude": -13.5,
+      "longitude": 34.0,
+      "timezone": "Africa/Blantyre"
+    },
+    "MH": {
+      "latitude": 7.0,
+      "longitude": 171.0,
+      "timezone": "Pacific/Majuro"
+    },
+    "FM": {
+      "latitude": 7.0,
+      "longitude": 152.0,
+      "timezone": "Pacific/Pohnpei"
+    },
+    "MZ": {
+      "latitude": -18.0,
+      "longitude": 35.0,
+      "timezone": "Africa/Maputo"
+    },
+    "NR": {
+      "latitude": -0.5,
+      "longitude": 166.9,
+      "timezone": "Pacific/Nauru"
+    },
+    "SC": {
+      "latitude": -4.0,
+      "longitude": 56.0,
+      "timezone": "Indian/Mahe"
+    },
+    "SL": {
+      "latitude": 8.5,
+      "longitude": -11.5,
+      "timezone": "Africa/Freetown"
+    },
+    "SB": {
+      "latitude": -9.5,
+      "longitude": 160.0,
+      "timezone": "Pacific/Guadalcanal"
+    },
+    "LC": {
+      "latitude": 14.0,
+      "longitude": -61.0,
+      "timezone": "America/St_Lucia"
+    },
+    "WS": {
+      "latitude": -13.5,
+      "longitude": -172.0,
+      "timezone": "Pacific/Apia"
+    },
+    "SM": {
+      "latitude": 43.9,
+      "longitude": 12.5,
+      "timezone": "Europe/San_Marino"
+    },
+    "ST": {
+      "latitude": 0.5,
+      "longitude": 7.0,
+      "timezone": "Africa/Sao_Tome"
+    },
+    "TT": {
+      "latitude": 10.5,
+      "longitude": -61.3,
+      "timezone": "America/Port_of_Spain"
+    },
+    "TV": {
+      "latitude": -8.5,
+      "longitude": 179.0,
+      "timezone": "Pacific/Funafuti"
+    },
+    "VU": {
+      "latitude": -16.0,
+      "longitude": 167.0,
+      "timezone": "Pacific/Efate"
+    }
+  },
+  "knownCityCoords": {
+    "DE_Berlin": {
+      "latitude": 52.52,
+      "longitude": 13.405,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Hameln": {
+      "latitude": 52.103,
+      "longitude": 9.356,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Hamburg": {
+      "latitude": 53.55,
+      "longitude": 10.0,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Munich": {
+      "latitude": 48.137,
+      "longitude": 11.575,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Cologne": {
+      "latitude": 50.938,
+      "longitude": 6.96,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Frankfurt": {
+      "latitude": 50.111,
+      "longitude": 8.682,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Stuttgart": {
+      "latitude": 48.775,
+      "longitude": 9.183,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Dusseldorf": {
+      "latitude": 51.225,
+      "longitude": 6.776,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Leipzig": {
+      "latitude": 51.339,
+      "longitude": 12.373,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Dortmund": {
+      "latitude": 51.514,
+      "longitude": 7.465,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Essen": {
+      "latitude": 51.456,
+      "longitude": 7.012,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Bremen": {
+      "latitude": 53.079,
+      "longitude": 8.802,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Dresden": {
+      "latitude": 51.05,
+      "longitude": 13.738,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Hanover": {
+      "latitude": 52.375,
+      "longitude": 9.732,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Nuremberg": {
+      "latitude": 49.453,
+      "longitude": 11.077,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Duisburg": {
+      "latitude": 51.435,
+      "longitude": 6.762,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Bochum": {
+      "latitude": 51.482,
+      "longitude": 7.216,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Wuppertal": {
+      "latitude": 51.256,
+      "longitude": 7.141,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Bielefeld": {
+      "latitude": 52.02,
+      "longitude": 8.533,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Bonn": {
+      "latitude": 50.737,
+      "longitude": 7.098,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Munster": {
+      "latitude": 51.961,
+      "longitude": 7.626,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Mannheim": {
+      "latitude": 49.488,
+      "longitude": 8.466,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Karlsruhe": {
+      "latitude": 49.007,
+      "longitude": 8.404,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Augsburg": {
+      "latitude": 48.371,
+      "longitude": 10.898,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Wiesbaden": {
+      "latitude": 50.078,
+      "longitude": 8.24,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Monchengladbach": {
+      "latitude": 51.195,
+      "longitude": 6.432,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Gelsenkirchen": {
+      "latitude": 51.518,
+      "longitude": 7.089,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Aachen": {
+      "latitude": 50.775,
+      "longitude": 6.084,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Braunschweig": {
+      "latitude": 52.263,
+      "longitude": 10.527,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Kiel": {
+      "latitude": 54.323,
+      "longitude": 10.123,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Chemnitz": {
+      "latitude": 50.828,
+      "longitude": 12.921,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Halle": {
+      "latitude": 51.483,
+      "longitude": 11.97,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Magdeburg": {
+      "latitude": 52.12,
+      "longitude": 11.627,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Freiburg": {
+      "latitude": 47.999,
+      "longitude": 7.842,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Krefeld": {
+      "latitude": 51.339,
+      "longitude": 6.581,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Mainz": {
+      "latitude": 50.0,
+      "longitude": 8.271,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Lubeck": {
+      "latitude": 53.869,
+      "longitude": 10.686,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Erfurt": {
+      "latitude": 50.979,
+      "longitude": 11.033,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Oberhausen": {
+      "latitude": 51.47,
+      "longitude": 6.851,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Rostock": {
+      "latitude": 54.089,
+      "longitude": 12.14,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Kassel": {
+      "latitude": 51.312,
+      "longitude": 9.479,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Hagen": {
+      "latitude": 51.359,
+      "longitude": 7.475,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Potsdam": {
+      "latitude": 52.391,
+      "longitude": 13.065,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Saarbrücken": {
+      "latitude": 49.235,
+      "longitude": 7.0,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Hamm": {
+      "latitude": 51.678,
+      "longitude": 7.806,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Ludwigshafen": {
+      "latitude": 49.481,
+      "longitude": 8.435,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Oldenburg": {
+      "latitude": 53.144,
+      "longitude": 8.214,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Osnabrück": {
+      "latitude": 52.279,
+      "longitude": 8.047,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Leverkusen": {
+      "latitude": 51.031,
+      "longitude": 6.984,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Solingen": {
+      "latitude": 51.163,
+      "longitude": 7.085,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Heidelberg": {
+      "latitude": 49.398,
+      "longitude": 8.672,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Darmstadt": {
+      "latitude": 49.872,
+      "longitude": 8.651,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Paderborn": {
+      "latitude": 51.719,
+      "longitude": 8.754,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Regensburg": {
+      "latitude": 49.013,
+      "longitude": 12.102,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Ulm": {
+      "latitude": 48.401,
+      "longitude": 9.987,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Reutlingen": {
+      "latitude": 48.49,
+      "longitude": 9.211,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Koblenz": {
+      "latitude": 50.353,
+      "longitude": 7.597,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Bergisch Gladbach": {
+      "latitude": 50.992,
+      "longitude": 7.121,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Jena": {
+      "latitude": 50.927,
+      "longitude": 11.589,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Trier": {
+      "latitude": 49.759,
+      "longitude": 6.644,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Erlangen": {
+      "latitude": 49.59,
+      "longitude": 11.007,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Moers": {
+      "latitude": 51.46,
+      "longitude": 6.619,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Siegen": {
+      "latitude": 50.875,
+      "longitude": 8.024,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Hildesheim": {
+      "latitude": 52.15,
+      "longitude": 9.951,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Salzgitter": {
+      "latitude": 52.15,
+      "longitude": 10.333,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Cottbus": {
+      "latitude": 51.753,
+      "longitude": 14.329,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Kaiserslautern": {
+      "latitude": 49.444,
+      "longitude": 7.769,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Wurzburg": {
+      "latitude": 49.794,
+      "longitude": 9.929,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Weimar": {
+      "latitude": 50.978,
+      "longitude": 11.323,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Neuss": {
+      "latitude": 51.198,
+      "longitude": 6.685,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Heilbronn": {
+      "latitude": 49.142,
+      "longitude": 9.218,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Gottingen": {
+      "latitude": 51.534,
+      "longitude": 9.936,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Ingolstadt": {
+      "latitude": 48.766,
+      "longitude": 11.424,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Offenbach": {
+      "latitude": 50.101,
+      "longitude": 8.766,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Gutersloh": {
+      "latitude": 51.907,
+      "longitude": 8.378,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Unna": {
+      "latitude": 51.537,
+      "longitude": 7.69,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Iserlohn": {
+      "latitude": 51.375,
+      "longitude": 7.704,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Bamberg": {
+      "latitude": 49.898,
+      "longitude": 10.901,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Bottrop": {
+      "latitude": 51.524,
+      "longitude": 6.929,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Bremerhaven": {
+      "latitude": 53.543,
+      "longitude": 8.593,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Castrop-Rauxel": {
+      "latitude": 51.564,
+      "longitude": 7.312,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Celle": {
+      "latitude": 52.625,
+      "longitude": 10.081,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Delmenhorst": {
+      "latitude": 53.051,
+      "longitude": 8.631,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Dessau-Rosslau": {
+      "latitude": 51.839,
+      "longitude": 12.246,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Detmold": {
+      "latitude": 51.938,
+      "longitude": 8.878,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Duren": {
+      "latitude": 50.799,
+      "longitude": 6.482,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Emden": {
+      "latitude": 53.367,
+      "longitude": 7.206,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Esslingen": {
+      "latitude": 48.74,
+      "longitude": 9.311,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Flensburg": {
+      "latitude": 54.785,
+      "longitude": 9.437,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Fulda": {
+      "latitude": 50.553,
+      "longitude": 9.677,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Furth": {
+      "latitude": 49.478,
+      "longitude": 10.99,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Garbsen": {
+      "latitude": 52.427,
+      "longitude": 9.598,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Gera": {
+      "latitude": 50.877,
+      "longitude": 12.082,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Gladbeck": {
+      "latitude": 51.572,
+      "longitude": 6.994,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Gorlitz": {
+      "latitude": 51.152,
+      "longitude": 14.987,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Grevenbroich": {
+      "latitude": 51.091,
+      "longitude": 6.587,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Hanau": {
+      "latitude": 50.133,
+      "longitude": 8.917,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Heidenheim": {
+      "latitude": 48.678,
+      "longitude": 10.151,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Herten": {
+      "latitude": 51.593,
+      "longitude": 7.139,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Konstanz": {
+      "latitude": 47.66,
+      "longitude": 9.175,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Landshut": {
+      "latitude": 48.539,
+      "longitude": 12.16,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Ludwigsburg": {
+      "latitude": 48.897,
+      "longitude": 9.192,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Luneburg": {
+      "latitude": 53.248,
+      "longitude": 10.413,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Marl": {
+      "latitude": 51.658,
+      "longitude": 7.09,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Minden": {
+      "latitude": 52.29,
+      "longitude": 8.917,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Neubrandenburg": {
+      "latitude": 53.557,
+      "longitude": 13.261,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Neumunster": {
+      "latitude": 54.075,
+      "longitude": 9.982,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Norderstedt": {
+      "latitude": 53.707,
+      "longitude": 9.985,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Offenburg": {
+      "latitude": 48.473,
+      "longitude": 7.945,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Passau": {
+      "latitude": 48.574,
+      "longitude": 13.45,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Pforzheim": {
+      "latitude": 48.891,
+      "longitude": 8.704,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Plauen": {
+      "latitude": 50.497,
+      "longitude": 12.138,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Pulheim": {
+      "latitude": 50.999,
+      "longitude": 6.806,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Ratingen": {
+      "latitude": 51.297,
+      "longitude": 6.849,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Recklinghausen": {
+      "latitude": 51.614,
+      "longitude": 7.197,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Remscheid": {
+      "latitude": 51.179,
+      "longitude": 7.194,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Rheine": {
+      "latitude": 52.285,
+      "longitude": 7.44,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Rosenheim": {
+      "latitude": 47.856,
+      "longitude": 12.129,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Schweinfurt": {
+      "latitude": 50.049,
+      "longitude": 10.234,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Schwerin": {
+      "latitude": 53.629,
+      "longitude": 11.414,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Troisdorf": {
+      "latitude": 50.816,
+      "longitude": 7.16,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Tubingen": {
+      "latitude": 48.522,
+      "longitude": 9.055,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Velbert": {
+      "latitude": 51.34,
+      "longitude": 7.043,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Villingen-Schwenningen": {
+      "latitude": 48.062,
+      "longitude": 8.45,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Wesel": {
+      "latitude": 51.658,
+      "longitude": 6.614,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Wilhelmshaven": {
+      "latitude": 53.516,
+      "longitude": 8.118,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Witten": {
+      "latitude": 51.439,
+      "longitude": 7.336,
+      "timezone": "Europe/Berlin"
+    },
+    "DE_Wolfsburg": {
+      "latitude": 52.423,
+      "longitude": 10.787,
+      "timezone": "Europe/Berlin"
+    },
+    "SY_Damascus": {
+      "latitude": 33.513,
+      "longitude": 36.292,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Aleppo": {
+      "latitude": 36.202,
+      "longitude": 37.134,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Homs": {
+      "latitude": 34.733,
+      "longitude": 36.717,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Hama": {
+      "latitude": 35.136,
+      "longitude": 36.753,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Latakia": {
+      "latitude": 35.531,
+      "longitude": 35.79,
+      "timezone": "Asia/Damascus"
+    },
+    "SA_Mecca": {
+      "latitude": 21.422,
+      "longitude": 39.826,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Medina": {
+      "latitude": 24.467,
+      "longitude": 39.611,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Riyadh": {
+      "latitude": 24.714,
+      "longitude": 46.676,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Jeddah": {
+      "latitude": 21.486,
+      "longitude": 39.192,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Dammam": {
+      "latitude": 26.421,
+      "longitude": 50.114,
+      "timezone": "Asia/Riyadh"
+    },
+    "EG_Cairo": {
+      "latitude": 30.044,
+      "longitude": 31.236,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Alexandria": {
+      "latitude": 31.2,
+      "longitude": 29.919,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Giza": {
+      "latitude": 30.013,
+      "longitude": 31.209,
+      "timezone": "Africa/Cairo"
+    },
+    "TR_Istanbul": {
+      "latitude": 41.008,
+      "longitude": 28.978,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Ankara": {
+      "latitude": 39.933,
+      "longitude": 32.86,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Izmir": {
+      "latitude": 38.419,
+      "longitude": 27.129,
+      "timezone": "Europe/Istanbul"
+    },
+    "US_New York": {
+      "latitude": 40.713,
+      "longitude": -74.006,
+      "timezone": "America/New_York"
+    },
+    "US_Los Angeles": {
+      "latitude": 34.052,
+      "longitude": -118.244,
+      "timezone": "America/Los_Angeles"
+    },
+    "US_Chicago": {
+      "latitude": 41.878,
+      "longitude": -87.629,
+      "timezone": "America/Chicago"
+    },
+    "US_Houston": {
+      "latitude": 29.76,
+      "longitude": -95.37,
+      "timezone": "America/Chicago"
+    },
+    "GB_London": {
+      "latitude": 51.507,
+      "longitude": -0.128,
+      "timezone": "Europe/London"
+    },
+    "GB_Birmingham": {
+      "latitude": 52.486,
+      "longitude": -1.89,
+      "timezone": "Europe/London"
+    },
+    "GB_Manchester": {
+      "latitude": 53.48,
+      "longitude": -2.242,
+      "timezone": "Europe/London"
+    },
+    "FR_Paris": {
+      "latitude": 48.857,
+      "longitude": 2.352,
+      "timezone": "Europe/Paris"
+    },
+    "FR_Marseille": {
+      "latitude": 43.297,
+      "longitude": 5.381,
+      "timezone": "Europe/Paris"
+    },
+    "FR_Lyon": {
+      "latitude": 45.764,
+      "longitude": 4.836,
+      "timezone": "Europe/Paris"
+    },
+    "CA_Toronto": {
+      "latitude": 43.653,
+      "longitude": -79.383,
+      "timezone": "America/Toronto"
+    },
+    "CA_Montreal": {
+      "latitude": 45.502,
+      "longitude": -73.567,
+      "timezone": "America/Montreal"
+    },
+    "CA_Vancouver": {
+      "latitude": 49.283,
+      "longitude": -123.121,
+      "timezone": "America/Vancouver"
+    },
+    "AU_Sydney": {
+      "latitude": -33.868,
+      "longitude": 151.209,
+      "timezone": "Australia/Sydney"
+    },
+    "AU_Melbourne": {
+      "latitude": -37.814,
+      "longitude": 144.963,
+      "timezone": "Australia/Melbourne"
+    },
+    "AU_Brisbane": {
+      "latitude": -27.47,
+      "longitude": 153.025,
+      "timezone": "Australia/Brisbane"
+    },
+    "IN_Mumbai": {
+      "latitude": 19.076,
+      "longitude": 72.877,
+      "timezone": "Asia/Kolkata"
+    },
+    "IN_Delhi": {
+      "latitude": 28.704,
+      "longitude": 77.102,
+      "timezone": "Asia/Kolkata"
+    },
+    "IN_Bangalore": {
+      "latitude": 12.972,
+      "longitude": 77.594,
+      "timezone": "Asia/Kolkata"
+    },
+    "PK_Karachi": {
+      "latitude": 24.86,
+      "longitude": 67.001,
+      "timezone": "Asia/Karachi"
+    },
+    "PK_Lahore": {
+      "latitude": 31.52,
+      "longitude": 74.359,
+      "timezone": "Asia/Karachi"
+    },
+    "PK_Islamabad": {
+      "latitude": 33.684,
+      "longitude": 73.047,
+      "timezone": "Asia/Karachi"
+    },
+    "BD_Dhaka": {
+      "latitude": 23.81,
+      "longitude": 90.413,
+      "timezone": "Asia/Dhaka"
+    },
+    "BD_Chittagong": {
+      "latitude": 22.357,
+      "longitude": 91.783,
+      "timezone": "Asia/Dhaka"
+    },
+    "ID_Jakarta": {
+      "latitude": -6.209,
+      "longitude": 106.845,
+      "timezone": "Asia/Jakarta"
+    },
+    "ID_Surabaya": {
+      "latitude": -7.257,
+      "longitude": 112.752,
+      "timezone": "Asia/Jakarta"
+    },
+    "ID_Bandung": {
+      "latitude": -6.917,
+      "longitude": 107.619,
+      "timezone": "Asia/Jakarta"
+    },
+    "IQ_Baghdad": {
+      "latitude": 33.315,
+      "longitude": 44.366,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Basra": {
+      "latitude": 30.508,
+      "longitude": 47.783,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Mosul": {
+      "latitude": 36.335,
+      "longitude": 43.119,
+      "timezone": "Asia/Baghdad"
+    },
+    "JO_Amman": {
+      "latitude": 31.946,
+      "longitude": 35.926,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Zarqa": {
+      "latitude": 32.073,
+      "longitude": 36.087,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Irbid": {
+      "latitude": 32.556,
+      "longitude": 35.848,
+      "timezone": "Asia/Amman"
+    },
+    "PS_Gaza": {
+      "latitude": 31.5,
+      "longitude": 34.467,
+      "timezone": "Asia/Gaza"
+    },
+    "PS_Hebron": {
+      "latitude": 31.529,
+      "longitude": 35.094,
+      "timezone": "Asia/Hebron"
+    },
+    "PS_Nablus": {
+      "latitude": 32.221,
+      "longitude": 35.254,
+      "timezone": "Asia/Hebron"
+    }
+  }
+}

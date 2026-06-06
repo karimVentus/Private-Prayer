@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">أوقات الصلاة</string>
+    <string name="bismillah_header">☾  بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ  ☾</string>
+
+    <!-- CityInputScreen -->
+    <string name="select_country">اختر الدولة</string>
+    <string name="search_countries">ابحث عن دولة…</string>
+    <string name="no_countries_match">لا توجد دول مطابقة.</string>
+    <string name="no_countries_loaded">تعذّر تحميل الدول. أعد تشغيل التطبيق.</string>
+    <string name="no_cities_match">لا توجد مدن مطابقة.</string>
+    <string name="no_cities_loaded">تعذّر تحميل مدن هذه الدولة.</string>
+    <string name="back"><![CDATA[< رجوع]]></string>
+    <string name="search_cities_hint">ابحث عن مدينة أو اكتب أي اسم</string>
+    <string name="use_city">استخدام "%s"</string>
+
+    <!-- PrayerTimesScreen -->
+    <string name="change">تغيير</string>
+    <string name="language">اللغة</string>
+    <string name="settings">الإعدادات</string>
+    <string name="language_dialog_title">لغة التطبيق</string>
+    <string name="language_system">لغة النظام</string>
+    <string name="language_english">English</string>
+    <string name="language_arabic">العربية</string>
+    <string name="language_dialog_close">إغلاق</string>
+    <string name="theme_picker">مظهر التطبيق</string>
+    <string name="theme_light">فاتح</string>
+    <string name="theme_green">أخضر</string>
+    <string name="theme_dark">داكن</string>
+    <string name="privacy_mode_badge">وضع الخصوصية — بدون إنترنت</string>
+    <string name="next_label">التالي: %1$s بعد %2$s</string>
+
+    <!-- Prayer names -->
+    <string name="fajr">الفجر</string>
+    <string name="shuruq">الشروق</string>
+    <string name="dhuhr">الظهر</string>
+    <string name="asr">العصر</string>
+    <string name="maghrib">المغرب</string>
+    <string name="isha">العشاء</string>
+    <string name="widget_m_fajr">فجر</string>
+    <string name="widget_m_shuruq">شروق</string>
+    <string name="widget_m_dhuhr">ظهر</string>
+    <string name="widget_m_asr">عصر</string>
+    <string name="widget_m_maghrib">مغرب</string>
+    <string name="widget_m_isha">عشاء</string>
+    <string name="mute_prayer_notification">كتم إشعار %1$s</string>
+    <string name="unmute_prayer_notification">تفعيل إشعار %1$s</string>
+
+    <!-- Countdown format — unit labels used with Kotlin string interpolation -->
+    <string name="countdown_hours">س</string>
+    <string name="countdown_minutes">د</string>
+    <string name="widget_hour_line">%1$d ساعة</string>
+    <string name="widget_minute_line">%1$d د</string>
+    <string name="widget_countdown_full_line">%1$d ساعة %2$d د</string>
+    <string name="countdown_seconds">ث</string>
+
+    <!-- Error messages -->
+    <string name="error_save_network_offline">فشل البحث المحلي عن المدينة. حاول مرة أخرى.</string>
+    <string name="error_save_network_online">تعذر حل اسم المدينة. اتصل بالإنترنت أو فعّل وضع عدم الاتصال في الإعدادات.</string>
+    <string name="error_save_city_not_found">المدينة غير موجودة. تحقق من التهجئة أو جرب مدينة أخرى.</string>
+    <string name="error_save_invalid_response">تعذرت قراءة بيانات الصلاة من الخادم. حاول مرة أخرى.</string>
+    <string name="error_save_unknown">حدث خطأ غير متوقع أثناء حفظ المدينة. حاول مرة أخرى.</string>
+    <string name="error_fetch_network_offline">تعذر حساب الأوقات محلياً. حاول مرة أخرى.</string>
+    <string name="error_fetch_network_online">تعذر تحديث الأوقات. فعّل وضع عدم الاتصال في الإعدادات للحساب بدون إنترنت.</string>
+    <string name="error_fetch_city_not_found">المدينة غير موجودة. تحقق من الاسم أو اختر مدينة أخرى.</string>
+    <string name="error_fetch_invalid_response">أعاد الخادم بيانات صلاة غير صالحة. حاول مرة أخرى.</string>
+    <string name="error_fetch_unknown">حدث خطأ غير متوقع أثناء تحميل أوقات الصلاة. حاول مرة أخرى.</string>
+
+    <!-- SettingsScreen -->
+    <string name="settings_title">الإعدادات</string>
+    <string name="privacy_mode">وضع الخصوصية</string>
+    <string name="offline_only_toggle">بدون إنترنت (بدون شبكة)</string>
+    <string name="offline_desc">لا طلبات إنترنت. جميع الحسابات محلية.</string>
+    <string name="offline_apk_fixed_desc">هذا الإصدار يعمل بدون إنترنت فقط. وضع الشبكة غير متوفر.</string>
+    <string name="network_desc">قد يتم جلب الأوقات من api.aladhan.com</string>
+    <string name="privacy_section">الخصوصية</string>
+    <string name="privacy_what_sent">ما يمكن إرساله عبر الشبكة:</string>
+    <string name="privacy_offline_item">• وضع عدم الاتصال: لا شيء</string>
+    <string name="privacy_network_item">• وضع الشبكة: اسم المدينة + رمز الدولة إلى api.aladhan.com</string>
+    <string name="privacy_never_used">ما لا يُستخدم أبداً:</string>
+    <string name="privacy_no_analytics">• لا توجد أدوات تحليل / تتبع</string>
+    <string name="privacy_no_ads">• لا إعلانات</string>
+    <string name="privacy_no_crash">• لا تقارير أعطال</string>
+    <string name="privacy_no_gps">• لا GPS أو أذونات موقع</string>
+    <string name="privacy_full_policy">آخر تحديث: يونيو 2026. الملخص أعلاه هو سياسة الخصوصية الكاملة داخل التطبيق. إعدادات المدينة وأوقات الصلاة تُخزَّن على هذا الجهاز فقط ولا تُزامَن مع أي خادم.</string>
+    <string name="calc_method">طريقة الحساب</string>
+    <string name="calc_method_desc">أم القرى (الفجر 18.5°، العشاء 90 دقيقة بعد المغرب) + العصر شافعي.</string>
+    <string name="calc_method_high_lat">تعديل الشفق لخطوط العرض العليا عند |lat| ≥ 48°.</string>
+    <string name="refresh_times_title">تحديث الأوقات</string>
+    <string name="refresh_times_desc">أعد حساب أو تنزيل أوقات اليوم إذا بدت القيم المخزّنة خاطئة. تغيير المدينة يحافظ على الذاكرة المؤقتة للعودة السريعة.</string>
+    <string name="refresh_times_action">تحديث أوقات اليوم</string>
+    <string name="version">أوقات الصلاة v%1$s</string>
+
+    <string name="adhan_channel_name">الأذان</string>
+    <string name="adhan_channel_desc">تذكير بوقت الصلاة مع صوت الأذان</string>
+    <string name="adhan_notification_title">حان وقت الصلاة</string>
+    <string name="adhan_notification_body">حان وقت %1$s</string>
+    <string name="adhan_enabled_confirmation_title">إشعارات الأذان مفعّلة</string>
+    <string name="adhan_enabled_confirmation_body">سيصلك إشعار عند كل صلاة. هذه الرسالة للتأكد من أن الإشعارات تعمل.</string>
+    <string name="adhan_toggle">إشعارات الأذان</string>
+    <string name="adhan_toggle_desc">تشغيل الأذان وإظهار إشعار عند الفجر والشروق والظهر والعصر والمغرب والعشاء.</string>
+    <string name="adhan_exact_alarm_notice">التنبيهات الدقيقة معطّلة — قد لا يُشغَّل الأذان في الوقت المحدد أثناء وضع السكون أو عند إغلاق التطبيق. اضغط للسماح بالمنبّهات والتذكيرات.</string>
+    <string name="adhan_battery_optimization_notice">اختياري: تحسين البطارية مفعّل — قد يتأخر الأذان على بعض الأجهزة. اضغط للسماح بالعمل في الخلفية دون قيود.</string>
+    <string name="adhan_notifications_denied">الإشعارات معطّلة — فعّلها من إعدادات النظام لسماع الأذان.</string>
+    <string name="adhan_sound_picker">صوت الأذان</string>
+    <string name="adhan_sound_default">الافتراضي</string>
+    <string name="adhan_sound_ahmad_alhaddad">أحمد الحداد</string>
+    <string name="adhan_sound_alhram">الحرم ١</string>
+    <string name="adhan_sound_alhram2">الحرم ٢</string>
+    <string name="adhan_sound_almadina">المدينة ١</string>
+    <string name="adhan_sound_almadina2">المدينة ٢</string>
+    <string name="adhan_sound_alsbeawey">السبعاوي</string>
+    <string name="adhan_sound_easa_alhjlawey">عيسى الحجلاوي</string>
+
+    <!-- Home screen widget -->
+    <string name="widget_name_small_tall">أوقات الصلاة (١×١)</string>
+    <string name="widget_name_small_wide">أوقات الصلاة (٢×١)</string>
+    <string name="widget_name_medium">أوقات الصلاة (متوسط)</string>
+    <string name="widget_name_large">أوقات الصلاة (كبير)</string>
+    <string name="widget_description">أوقات الصلاة اليوم والعد التنازلي للصلاة التالية</string>
+    <string name="widget_no_city">افتح التطبيق لاختيار مدينة</string>
+    <string name="widget_error">تعذر تحميل أوقات الصلاة</string>
+    <string name="widget_stale">عرض أوقات محفوظة — قد تكون قديمة</string>
+    <string name="widget_preview_city">Hameln, DE</string>
+    <string name="widget_preview_hijri">١٠ ذو الحجة ١٤٤٦</string>
+    <string name="widget_preview_clock">١٤:٣٠</string>
+    <string name="widget_preview_next">الظهر</string>
+    <string name="widget_preview_countdown">١س ٠٥د</string>
+    <string name="widget_preview_countdown_hours">١س</string>
+    <string name="widget_preview_countdown_minutes">٠٥د</string>
+    <string name="widget_preview_time_fajr">٠٥:٠٠</string>
+    <string name="widget_preview_time_shuruq">٠٦:٣٠</string>
+    <string name="widget_preview_time_dhuhr">١٣:٠٠</string>
+    <string name="widget_preview_time_asr">١٦:٣٠</string>
+    <string name="widget_preview_time_maghrib">٢٠:١٥</string>
+    <string name="widget_preview_time_isha">٢٢:٠٠</string>
+
+    <!-- Hijri date -->
+    <string name="hijri_date_format">%1$d %2$s %3$d</string>
+    <string name="hijri_month_1">محرم</string>
+    <string name="hijri_month_2">صفر</string>
+    <string name="hijri_month_3">ربيع الأول</string>
+    <string name="hijri_month_4">ربيع الثاني</string>
+    <string name="hijri_month_5">جمادى الأولى</string>
+    <string name="hijri_month_6">جمادى الثانية</string>
+    <string name="hijri_month_7">رجب</string>
+    <string name="hijri_month_8">شعبان</string>
+    <string name="hijri_month_9">رمضان</string>
+    <string name="hijri_month_10">شوال</string>
+    <string name="hijri_month_11">ذو القعدة</string>
+    <string name="hijri_month_12">ذو الحجة</string>
+
+    <!-- Event banner -->
+    <string name="event_banner_format">%1$s بعد %2$d يوم</string>
+    <string name="event_islamic_new_year">رأس السنة الهجرية</string>
+    <string name="event_ashura">عشرة محرم</string>
+    <string name="event_mawlid_al_nabi">المولد النبوي الشريف</string>
+    <string name="event_isra_and_miraj">الإسراء والمعراج</string>
+    <string name="event_mid_shaban">النصف من شعبان</string>
+    <string name="event_ramadan_start">رمضان</string>
+    <string name="event_laylat_al_qadr">ليلة القدر</string>
+    <string name="event_eid_al_fitr">عيد الفطر</string>
+    <string name="event_day_of_arafah">يوم عرفة</string>
+    <string name="event_eid_al_adha">عيد الأضحى</string>
+    <string name="event_islamic_new_year_cell">رأس السنة</string>
+    <string name="event_ashura_cell">عاشوراء</string>
+    <string name="event_mawlid_al_nabi_cell">المولد</string>
+    <string name="event_isra_and_miraj_cell">الإسراء</string>
+    <string name="event_mid_shaban_cell">نصف شعبان</string>
+    <string name="event_ramadan_start_cell">رمضان</string>
+    <string name="event_laylat_al_qadr_cell">القدر</string>
+    <string name="event_eid_al_fitr_cell">الفطر</string>
+    <string name="event_day_of_arafah_cell">عرفة</string>
+    <string name="event_eid_al_adha_cell">الأضحى</string>
+    <string name="calendar">التقويم</string>
+    <string name="back_to_prayer_times">العودة لأوقات الصلاة</string>
+    <string name="calendar_ramadan_first">بداية رمضان</string>
+    <string name="calendar_ramadan_last">آخر يوم</string>
+    <string name="calendar_tab_monthly">شهري</string>
+    <string name="calendar_tab_annual">المناسبات السنوية</string>
+    <string name="calendar_days_from_now">بعد %d يوم</string>
+    <string name="calendar_days_ago">قبل %d يوم</string>
+    <string name="calendar_today">اليوم</string>
+    <string name="calendar_ok">حسناً</string>
+    <string name="calendar_day_sat">السبت</string>
+    <string name="calendar_day_sun">الأحد</string>
+    <string name="calendar_day_mon">الاثنين</string>
+    <string name="calendar_day_tue">الثلاثاء</string>
+    <string name="calendar_day_wed">الأربعاء</string>
+    <string name="calendar_day_thu">الخميس</string>
+    <string name="calendar_day_fri">الجمعة</string>
+    <string name="calendar_nav_prev_desc">الشهر السابق</string>
+    <string name="calendar_nav_next_desc">الشهر التالي</string>
+
+    <string name="annual_events_title">مواعيد المناسبات والأعياد الإسلامية</string>
+    <string name="annual_col_hijri">التاريخ الهجري</string>
+    <string name="annual_col_event">المناسبة</string>
+    <string name="annual_col_greg">التاريخ الميلادي</string>
+    <string name="annual_disclaimer">التواريخ الميلادية جدولية (أم القرى) — قد تختلف يومًا عن رؤية الهلال</string>
+    <string name="annual_ah_suffix">هـ</string>
+    <string name="error_missing_coords">إحداثيات المدينة غير متوفرة. يرجى إعادة اختيار المدينة.</string>
+    <string name="annual_sub_laylat">(المرتقبة)</string>
+    <string name="annual_sub_eid_fitr">تكبيرات العيد — صلاة العيد</string>
+    <string name="annual_sub_eid_adha">أيام التشريق: ١١ — ١٣ ذو الحجة</string>
+    <string name="annual_legend_events">مناسبات</string>
+    <string name="annual_legend_ramadan">رمضان</string>
+    <string name="annual_legend_hajj">الحج</string>
+    <string name="annual_legend_eids">أعياد</string>
+</resources>

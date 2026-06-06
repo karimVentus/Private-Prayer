@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- HTTPS-only for all hosts (offline APK never calls the network). -->
+    <base-config cleartextTrafficPermitted="false" />
+
+    <!-- TLS pinning: api.aladhan.com (online flavor prayer-times API).
+         Primary: leaf certificate digest (api.aladhan.com, ZeroSSL, expires 2026-08-30).
+         Backup:  leaf SPKI digest — survives cert re-issue with the same key pair.
+         Regenerate: ./scripts/verify-aladhan-pins.sh -->
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">aladhan.com</domain>
+        <pin-set expiration="2027-01-01">
+            <pin digest="SHA-256">LbYQJp4I4uILFUa7cDrMk4ExrxhGUtUeb38YHtFKbc0=</pin>
+            <pin digest="SHA-256">YW2HeBr3FbB7WROQSYNUZXgELxpbNppPx7ERFUkyroU=</pin>
+        </pin-set>
+    </domain-config>
+</network-security-config>

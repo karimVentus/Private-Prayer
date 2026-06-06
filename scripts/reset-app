@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+ADB_SCRIPT="$ROOT_DIR/scripts/adb"
+EMU_SCRIPT="$ROOT_DIR/scripts/emu"
+PACKAGE_NAME="com.prayertime.offline"
+BOOT_IF_NEEDED=false
+
+for arg in "$@"; do
+  case "$arg" in
+    --boot)
+      BOOT_IF_NEEDED=true
+      ;;
+    *)
+      PACKAGE_NAME="$arg"
+      ;;
+  esac
+done
+
+if [ ! -f "$ADB_SCRIPT" ]; then
+  echo "[reset-app] Missing helper: $ADB_SCRIPT"
+  exit 1
+fi
+
+has_device() {
+  "$ADB_SCRIPT" get-state >/dev/null 2>&1
+}
+
+if ! has_device; then
+  if [ "$BOOT_IF_NEEDED" = true ]; then
+    echo "[reset-app] No device detected. Booting emulator..."
+    "$EMU_SCRIPT"
+  else
+    echo "[reset-app] No connected device/emulator."
+    echo "[reset-app] Start one with: ./scripts/emu"
+    echo "[reset-app] Or run: ./scripts/reset-app --boot"
+    exit 1
+  fi
+fi
+
+echo "[reset-app] Removing legacy package com.prayertime (if present)..."
+"$ADB_SCRIPT" uninstall com.prayertime >/dev/null 2>&1 || true
+
+echo "[reset-app] Clearing app data: $PACKAGE_NAME"
+"$ADB_SCRIPT" shell pm clear "$PACKAGE_NAME"
+
+echo "[reset-app] Installing debug build..."
+(
+  cd "$ROOT_DIR"
+  JAVA_HOME="${JAVA_HOME:-$HOME/jdk21}" ANDROID_HOME="${ANDROID_HOME:-$HOME/Android/Sdk}" ./gradlew installOfflineDebug
+)
+
+echo "[reset-app] Launching $PACKAGE_NAME..."
+"$ADB_SCRIPT" shell am start -W -n "$PACKAGE_NAME/com.prayertime.ui.MainActivity"
+
+echo "[reset-app] Done."

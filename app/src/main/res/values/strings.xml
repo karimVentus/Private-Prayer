@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Prayer Times</string>
+    <string name="bismillah_header">☾  بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ  ☾</string>
+
+    <!-- CityInputScreen -->
+    <string name="select_country">Select Country</string>
+    <string name="search_countries">Search countries…</string>
+    <string name="no_countries_match">No countries match your search.</string>
+    <string name="no_countries_loaded">Could not load countries. Restart the app.</string>
+    <string name="no_cities_match">No cities match your search.</string>
+    <string name="no_cities_loaded">Could not load cities for this country.</string>
+    <string name="back"><![CDATA[< Back]]></string>
+    <string name="search_cities_hint">Search cities or type any name</string>
+    <string name="use_city">Use &quot;%s&quot;</string>
+
+    <!-- PrayerTimesScreen -->
+    <string name="change">Change</string>
+    <string name="language">Language</string>
+    <string name="settings">Settings</string>
+    <string name="language_dialog_title">App language</string>
+    <string name="language_system">System default</string>
+    <string name="language_english">English</string>
+    <string name="language_arabic">Arabic (العربية)</string>
+    <string name="language_dialog_close">Close</string>
+    <string name="theme_picker">App theme</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_green">Green</string>
+    <string name="theme_dark">Dark</string>
+    <string name="privacy_mode_badge">Privacy mode — no network</string>
+    <string name="next_label">Next: %1$s in %2$s</string>
+
+    <!-- Prayer names -->
+    <string name="fajr">Fajr</string>
+    <string name="shuruq">Shuruq</string>
+    <string name="dhuhr">Dhuhr</string>
+    <string name="asr">Asr</string>
+    <string name="maghrib">Maghrib</string>
+    <string name="isha">Isha</string>
+    <!-- Medium widget — short labels so 6 columns fit without clipping -->
+    <string name="widget_m_fajr">Fajr</string>
+    <string name="widget_m_shuruq">Shrq</string>
+    <string name="widget_m_dhuhr">Dhuhr</string>
+    <string name="widget_m_asr">Asr</string>
+    <string name="widget_m_maghrib">Magh</string>
+    <string name="widget_m_isha">Isha</string>
+    <string name="mute_prayer_notification">Mute %1$s notifications</string>
+    <string name="unmute_prayer_notification">Unmute %1$s notifications</string>
+
+    <!-- Countdown format — unit labels used with Kotlin string interpolation -->
+    <string name="countdown_hours">h</string>
+    <string name="countdown_minutes">m</string>
+    <string name="widget_hour_line">%1$d h</string>
+    <string name="widget_minute_line">%1$d m</string>
+    <string name="widget_countdown_full_line">%1$d h %2$d m</string>
+    <string name="countdown_seconds">s</string>
+
+    <!-- Error messages -->
+    <string name="error_save_network_offline">Local city lookup failed unexpectedly. Please try again.</string>
+    <string name="error_save_network_online">Network mode could not resolve this city. Connect to internet or enable Offline-only mode in Settings.</string>
+    <string name="error_save_city_not_found">City not found. Please check the spelling or try another city.</string>
+    <string name="error_save_invalid_response">Could not read prayer data from the server. Please try again.</string>
+    <string name="error_save_unknown">An unexpected error occurred while saving this city. Please try again.</string>
+    <string name="error_fetch_network_offline">Could not calculate times locally. Please try again.</string>
+    <string name="error_fetch_network_online">Network mode could not refresh times. Enable Offline-only mode in Settings for zero-network calculation.</string>
+    <string name="error_fetch_city_not_found">City not found. Please check the name or select another city.</string>
+    <string name="error_fetch_invalid_response">The server returned invalid prayer data. Please try again.</string>
+    <string name="error_fetch_unknown">An unexpected error occurred while loading prayer times. Please try again.</string>
+
+    <!-- SettingsScreen -->
+    <string name="settings_title">Settings</string>
+    <string name="privacy_mode">Privacy Mode</string>
+    <string name="offline_only_toggle">Offline-only (no network)</string>
+    <string name="offline_desc">No network requests. All calculations are local.</string>
+    <string name="offline_apk_fixed_desc">This app build is offline-only. Network mode is not included.</string>
+    <string name="network_desc">Times may be fetched from api.aladhan.com</string>
+    <string name="privacy_section">Privacy</string>
+    <string name="privacy_what_sent">What can be sent over network:</string>
+    <string name="privacy_offline_item">• Offline-only mode: nothing</string>
+    <string name="privacy_network_item">• Network mode: city name + country code to api.aladhan.com</string>
+    <string name="privacy_never_used">What is never used:</string>
+    <string name="privacy_no_analytics">• No analytics / tracking SDKs</string>
+    <string name="privacy_no_ads">• No ads</string>
+    <string name="privacy_no_crash">• No crash reporting</string>
+    <string name="privacy_no_gps">• No GPS or location permissions</string>
+    <string name="privacy_full_policy">Last updated June 2026. The summary above is the complete in-app privacy policy. City settings and prayer times are stored only on this device and are not synced to any server.</string>
+    <string name="calc_method">Calculation Method</string>
+    <string name="calc_method_desc">Umm al-Qura (Fajr 18.5°, Isha 90 min after Maghrib) + Shafi Asr.</string>
+    <string name="calc_method_high_lat">High-latitude twilight adjustment for |lat| ≥ 48°.</string>
+    <string name="refresh_times_title">Refresh times</string>
+    <string name="refresh_times_desc">Recalculate or re-download today\'s prayer times if cached values look wrong. Changing city keeps past cache for faster return.</string>
+    <string name="refresh_times_action">Refresh today\'s times</string>
+    <string name="version">Prayer Times v%1$s</string>
+
+    <!-- Adhan notifications -->
+    <string name="adhan_channel_name">Adhan</string>
+    <string name="adhan_channel_desc">Prayer time reminders with Adhan sound</string>
+    <string name="adhan_notification_title">Prayer time</string>
+    <string name="adhan_notification_body">It is time for %1$s</string>
+    <string name="adhan_enabled_confirmation_title">Adhan notifications on</string>
+    <string name="adhan_enabled_confirmation_body">You will get a notification at each prayer time. This message confirms notifications are working.</string>
+    <string name="adhan_toggle">Adhan notifications</string>
+    <string name="adhan_toggle_desc">Play Adhan and show a notification at Fajr, Shuruq, Dhuhr, Asr, Maghrib, and Isha.</string>
+    <string name="adhan_exact_alarm_notice">Exact alarms are off — Adhan may not fire on time in Doze or when the app is closed. Tap to allow Alarms &amp; reminders.</string>
+    <string name="adhan_battery_optimization_notice">Optional: battery optimization is on — Adhan may be delayed on some phones. Tap to allow unrestricted background use.</string>
+    <string name="adhan_notifications_denied">Notifications are off — enable them in system settings to hear Adhan.</string>
+    <string name="adhan_sound_picker">Adhan sound</string>
+    <string name="adhan_sound_default">Default</string>
+    <string name="adhan_sound_ahmad_alhaddad">Ahmad Al-Haddad</string>
+    <string name="adhan_sound_alhram">Al-Haram 1</string>
+    <string name="adhan_sound_alhram2">Al-Haram 2</string>
+    <string name="adhan_sound_almadina">Al-Madina 1</string>
+    <string name="adhan_sound_almadina2">Al-Madina 2</string>
+    <string name="adhan_sound_alsbeawey">Al-Subeawey</string>
+    <string name="adhan_sound_easa_alhjlawey">Easa Al-Hijlawey</string>
+
+    <!-- Home screen widget -->
+    <string name="widget_name_small_tall">Prayer Time (1×1)</string>
+    <string name="widget_name_small_wide">Prayer Time (2×1)</string>
+    <string name="widget_name_medium">Prayer Time (M)</string>
+    <string name="widget_name_large">Prayer Time (L)</string>
+    <string name="widget_description">Today\'s prayer times and next prayer countdown</string>
+    <string name="widget_preview_city">Hameln, DE</string>
+    <string name="widget_preview_hijri">10 Dhul Hijjah 1446</string>
+    <string name="widget_preview_clock">14:30</string>
+    <string name="widget_preview_next">Dhuhr</string>
+    <string name="widget_preview_countdown">1h 05m</string>
+    <string name="widget_preview_countdown_hours">1h</string>
+    <string name="widget_preview_countdown_minutes">05m</string>
+    <string name="widget_preview_time_fajr">05:00</string>
+    <string name="widget_preview_time_shuruq">06:30</string>
+    <string name="widget_preview_time_dhuhr">13:00</string>
+    <string name="widget_preview_time_asr">16:30</string>
+    <string name="widget_preview_time_maghrib">20:15</string>
+    <string name="widget_preview_time_isha">22:00</string>
+    <string name="widget_no_city">Open the app to choose a city</string>
+    <string name="widget_error">Unable to load prayer times</string>
+    <string name="widget_stale">Showing cached times — may be outdated</string>
+
+    <!-- Hijri date -->
+    <string name="hijri_date_format">%1$d %2$s %3$d</string>
+    <string name="hijri_month_1">Muharram</string>
+    <string name="hijri_month_2">Safar</string>
+    <string name="hijri_month_3">Rabi al-Awwal</string>
+    <string name="hijri_month_4">Rabi al-Thani</string>
+    <string name="hijri_month_5">Jumada al-Awwal</string>
+    <string name="hijri_month_6">Jumada al-Thani</string>
+    <string name="hijri_month_7">Rajab</string>
+    <string name="hijri_month_8">Shaban</string>
+    <string name="hijri_month_9">Ramadan</string>
+    <string name="hijri_month_10">Shawwal</string>
+    <string name="hijri_month_11">Dhul Qadah</string>
+    <string name="hijri_month_12">Dhul Hijjah</string>
+
+    <!-- Event banner -->
+    <string name="event_banner_format">%1$s in %2$d days</string>
+    <string name="event_islamic_new_year">Islamic New Year</string>
+    <string name="event_ashura">Ashura</string>
+    <string name="event_mawlid_al_nabi">Mawlid al-Nabi</string>
+    <string name="event_isra_and_miraj">Isra and Miraj</string>
+    <string name="event_mid_shaban">Mid-Shaban</string>
+    <string name="event_ramadan_start">Ramadan</string>
+    <string name="event_laylat_al_qadr">Laylat al-Qadr</string>
+    <string name="event_eid_al_fitr">Eid al-Fitr</string>
+    <string name="event_day_of_arafah">Day of Arafah</string>
+    <string name="event_eid_al_adha">Eid al-Adha</string>
+    <string name="event_islamic_new_year_cell">New Year</string>
+    <string name="event_ashura_cell">Ashura</string>
+    <string name="event_mawlid_al_nabi_cell">Mawlid</string>
+    <string name="event_isra_and_miraj_cell">Isra</string>
+    <string name="event_mid_shaban_cell">Mid-Sha\'ban</string>
+    <string name="event_ramadan_start_cell">Ramadan</string>
+    <string name="event_laylat_al_qadr_cell">Qadr</string>
+    <string name="event_eid_al_fitr_cell">Eid Fitr</string>
+    <string name="event_day_of_arafah_cell">Arafah</string>
+    <string name="event_eid_al_adha_cell">Adha</string>
+    <string name="calendar">Calendar</string>
+    <string name="back_to_prayer_times">Back to prayer times</string>
+    <string name="calendar_ramadan_first">1st of Ramadan</string>
+    <string name="calendar_ramadan_last">Last day</string>
+    <string name="calendar_tab_monthly">Monthly</string>
+    <string name="calendar_tab_annual">Annual Events</string>
+    <string name="calendar_days_from_now">%d days from now</string>
+    <string name="calendar_days_ago">%d days ago</string>
+    <string name="calendar_today">Today</string>
+    <string name="calendar_ok">OK</string>
+    <string name="calendar_day_sat">Sat</string>
+    <string name="calendar_day_sun">Sun</string>
+    <string name="calendar_day_mon">Mon</string>
+    <string name="calendar_day_tue">Tue</string>
+    <string name="calendar_day_wed">Wed</string>
+    <string name="calendar_day_thu">Thu</string>
+    <string name="calendar_day_fri">Fri</string>
+    <string name="calendar_nav_prev" translatable="false">&lt;</string>
+    <string name="calendar_nav_next" translatable="false">&gt;</string>
+    <string name="calendar_nav_prev_desc">Previous month</string>
+    <string name="calendar_nav_next_desc">Next month</string>
+
+    <string name="annual_events_title">Islamic Events Calendar</string>
+    <string name="annual_col_hijri">Hijri Date</string>
+    <string name="annual_col_event">Event</string>
+    <string name="annual_col_greg">Gregorian</string>
+    <string name="annual_disclaimer">Gregorian dates are tabular (Umm al-Qura) — may differ by one day from moon sighting</string>
+    <string name="annual_ah_suffix">AH</string>
+    <string name="error_missing_coords">City coordinates are missing. Please re-select your city.</string>
+    <string name="annual_sub_laylat">(observed)</string>
+    <string name="annual_sub_eid_fitr">Takbirat — Eid prayer</string>
+    <string name="annual_sub_eid_adha">Tashriq: 11–13 Dhul Hijjah</string>
+    <string name="annual_legend_events">Events</string>
+    <string name="annual_legend_ramadan">Ramadan</string>
+    <string name="annual_legend_hajj">Hajj</string>
+    <string name="annual_legend_eids">Eids</string>
+</resources>

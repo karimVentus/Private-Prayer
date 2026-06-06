@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+ADB_SCRIPT="$ROOT_DIR/scripts/adb"
+RESET_SCRIPT="$ROOT_DIR/scripts/reset-app"
+ACTIVITY="com.prayertime.offline/.ui.MainActivity"
+KEEP_OFF=false
+
+for arg in "$@"; do
+  case "$arg" in
+    --keep-off)
+      KEEP_OFF=true
+      ;;
+    *)
+      echo "[verify-offline] Unknown option: $arg"
+      echo "Usage: ./scripts/verify-offline [--keep-off]"
+      exit 1
+      ;;
+  esac
+done
+
+ensure_network_off() {
+  echo "[verify-offline] Disabling network (best effort)..."
+  "$ADB_SCRIPT" shell svc wifi disable >/dev/null 2>&1 || true
+  "$ADB_SCRIPT" shell svc data disable >/dev/null 2>&1 || true
+
+  "$ADB_SCRIPT" shell settings put global airplane_mode_on 1 >/dev/null 2>&1 || true
+  "$ADB_SCRIPT" shell am broadcast -a android.intent.action.AIRPLANE_MODE --ez state true >/dev/null 2>&1 || true
+}
+
+ensure_network_on() {
+  echo "[verify-offline] Restoring network (best effort)..."
+  "$ADB_SCRIPT" shell settings put global airplane_mode_on 0 >/dev/null 2>&1 || true
+  "$ADB_SCRIPT" shell am broadcast -a android.intent.action.AIRPLANE_MODE --ez state false >/dev/null 2>&1 || true
+  "$ADB_SCRIPT" shell svc wifi enable >/dev/null 2>&1 || true
+  "$ADB_SCRIPT" shell svc data enable >/dev/null 2>&1 || true
+}
+
+echo "[verify-offline] Resetting app + ensuring emulator is up..."
+"$RESET_SCRIPT" --boot
+
+echo "[verify-offline] Launching app..."
+"$ADB_SCRIPT" shell am start -n "$ACTIVITY" >/dev/null
+
+ensure_network_off
+
+echo "[verify-offline] Current connectivity snapshot:"
+"$ADB_SCRIPT" shell dumpsys connectivity | sed -n '1,80p' || true
+
+echo ""
+echo "[verify-offline] Ready for manual verification:"
+echo "  1) In app About screen: set Offline-only OFF"
+echo "  2) Try selecting/saving a city"
+echo "  3) Then set Offline-only ON and repeat"
+echo ""
+echo "[verify-offline] Expected result:"
+echo "  - OFF (network mode) should fail first-time save without internet"
+echo "  - ON (offline-only) should still succeed"
+
+if [ "$KEEP_OFF" = false ]; then
+  echo ""
+  echo "[verify-offline] Auto-restoring network in 5 seconds (use --keep-off to skip)..."
+  sleep 5
+  ensure_network_on
+  echo "[verify-offline] Network restore attempted."
+else
+  echo ""
+  echo "[verify-offline] Keeping network disabled (--keep-off)."
+fi
+
+echo "[verify-offline] Done."

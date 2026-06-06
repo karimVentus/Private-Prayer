@@ -1,0 +1,116 @@
+#!/usr/bin/env bash
+# One command: boot emulator → install offline debug → launch app.
+#
+#   ./scripts/emu              GUI emulator (default)
+#   ./scripts/emu --headless   no window (-gpu host, needs KVM)
+#   ./dev                      same as ./scripts/emu (repo root)
+#
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+JAVA_HOME="${JAVA_HOME:-$HOME/jdk21}"
+SDK="${ANDROID_HOME:-$HOME/Android/Sdk}"
+ADB_BIN="$SDK/platform-tools/adb"
+EMULATOR_START="$ROOT_DIR/scripts/emulator-start"
+OFFLINE_PACKAGE="com.prayertime.offline"
+OFFLINE_ACTIVITY="com.prayertime.ui.MainActivity"
+OFFLINE_LAUNCHER_LABEL="Prayer Times"
+
+refresh_launcher_icons() {
+  # Pixel/Android 14 often caches the app drawer until the launcher process restarts.
+  for pkg in com.google.android.apps.nexuslauncher com.google.android.launcher; do
+    "$ADB_BIN" shell am force-stop "$pkg" >/dev/null 2>&1 || true
+  done
+  "$ADB_BIN" shell am start -a android.intent.action.MAIN -c android.intent.category.HOME >/dev/null 2>&1 || true
+}
+
+verify_launcher_entry() {
+  local query
+  query=$("$ADB_BIN" shell cmd package query-activities -a android.intent.action.MAIN -c android.intent.category.LAUNCHER "$OFFLINE_PACKAGE" 2>/dev/null || true)
+  if [ -z "$query" ]; then
+    echo "[emu] WARN: no LAUNCHER activity registered for $OFFLINE_PACKAGE"
+    return 1
+  fi
+  echo "[emu] Launcher entry: $query"
+  return 0
+}
+
+HEADLESS=0
+for arg in "$@"; do
+  case "$arg" in
+    --headless) HEADLESS=1 ;;
+    -h | --help)
+      echo "Usage: $0 [--headless]"
+      echo "  Boots PrayerTimeEmulator, installs offline debug APK, opens the app."
+      exit 0
+      ;;
+    *)
+      echo "[emu] Unknown option: $arg (try --help)"
+      exit 1
+      ;;
+  esac
+done
+
+export JAVA_HOME
+export ANDROID_HOME="$SDK"
+export PATH="$SDK/platform-tools:$PATH"
+export HEADLESS
+
+if [ ! -x "$EMULATOR_START" ]; then
+  echo "[emu] Missing: $EMULATOR_START"
+  exit 1
+fi
+
+echo "=============================================="
+echo "[emu] PrayerTime offline — emulator + install + launch"
+echo "=============================================="
+
+"$EMULATOR_START"
+
+echo "[emu] Removing legacy package com.prayertime (old launcher icon)..."
+"$ADB_BIN" uninstall com.prayertime >/dev/null 2>&1 || true
+
+echo "[emu] Building and installing offline debug ($OFFLINE_PACKAGE)..."
+(
+  cd "$ROOT_DIR"
+  ./gradlew installOfflineDebug
+)
+
+if ! "$ADB_BIN" devices | awk 'NR>1 && $2=="device" { found=1 } END { exit !found }'; then
+  echo "[emu] ERROR: No adb device. Logs: ${XDG_CACHE_HOME:-$HOME/.cache}/prayertime/emulator.log"
+  exit 1
+fi
+
+if ! "$ADB_BIN" shell pm path "$OFFLINE_PACKAGE" 2>/dev/null | grep -q .; then
+  echo "[emu] ERROR: $OFFLINE_PACKAGE is not installed on the emulator."
+  exit 1
+fi
+
+verify_launcher_entry || true
+refresh_launcher_icons
+
+echo "[emu] Launching app (drawer label: \"$OFFLINE_LAUNCHER_LABEL\", package: $OFFLINE_PACKAGE)..."
+launch_out=$("$ADB_BIN" shell am start -W -n "$OFFLINE_PACKAGE/$OFFLINE_ACTIVITY" 2>&1) || true
+echo "$launch_out"
+if echo "$launch_out" | grep -qiE 'Error|does not exist|Unable to find'; then
+  echo "[emu] WARN: component start failed; trying launcher intent..."
+  launch_out=$("$ADB_BIN" shell am start -W -a android.intent.action.MAIN -c android.intent.category.LAUNCHER "$OFFLINE_PACKAGE" 2>&1) || true
+  echo "$launch_out"
+fi
+if echo "$launch_out" | grep -qiE 'Error|does not exist|Unable to find'; then
+  echo "[emu] ERROR: could not start the app. Recent crash log:"
+  "$ADB_BIN" logcat -d -t 40 2>/dev/null | grep -E 'AndroidRuntime|FATAL|prayertime' || true
+  exit 1
+fi
+
+echo "=============================================="
+echo "[emu] Done."
+"$ADB_BIN" devices -l | sed -n '2,$p'
+if [ "$HEADLESS" = "1" ]; then
+  echo "[emu] Headless emulator still running (PID $(cat "${XDG_CACHE_HOME:-$HOME/.cache}/prayertime/emulator.pid" 2>/dev/null || echo '?'))."
+else
+  echo "[emu] Keep the emulator window open while testing."
+fi
+echo "[emu] In the app drawer, look for \"$OFFLINE_LAUNCHER_LABEL\" (not \"PrayerTime\")."
+echo "[emu] connectedOfflineDebugAndroidTest does not keep the app on screen — run ./dev again to reopen."
+echo "=============================================="

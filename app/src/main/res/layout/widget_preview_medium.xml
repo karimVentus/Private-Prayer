@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_background_light"
+    android:layoutDirection="locale"
+    android:paddingBottom="3dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:orientation="vertical"
+        android:paddingHorizontal="4dp"
+        android:paddingTop="2dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@string/widget_preview_city"
+            android:textColor="@color/widget_light_text_secondary"
+            android:textSize="10sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <include layout="@layout/widget_preview_medium_col_fajr" />
+            <include layout="@layout/widget_preview_medium_col_shuruq" />
+            <include layout="@layout/widget_preview_medium_col_dhuhr" />
+            <include layout="@layout/widget_preview_medium_col_asr" />
+            <include layout="@layout/widget_preview_medium_col_maghrib" />
+            <include layout="@layout/widget_preview_medium_col_isha" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

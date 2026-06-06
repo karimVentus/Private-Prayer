@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SDK="${ANDROID_HOME:-$HOME/Android/Sdk}"
+ADB_BIN="$SDK/platform-tools/adb"
+
+if [ ! -x "$ADB_BIN" ]; then
+  echo "[adb] adb not found: $ADB_BIN"
+  echo "[adb] Set ANDROID_HOME or install Android SDK platform-tools."
+  exit 1
+fi
+
+exec "$ADB_BIN" "$@"

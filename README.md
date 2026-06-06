@@ -4,6 +4,8 @@
 
 ---
 
+<a id="english"></a>
+
 # English
 
 **Privacy-first Android prayer times — no GPS, no account.**
@@ -160,6 +162,8 @@ Requires JDK 21 (`$HOME/jdk21`); system JDK 25 breaks the current Gradle/AGP too
 See repository license file. Prayer calculation uses [`adhan-java`](https://github.com/batoulapps/adhan-java) (Umm al-Qura).
 
 ---
+
+<a id="arabic"></a>
 
 # العربية
 

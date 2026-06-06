@@ -1,4 +1,10 @@
-# Prayer Times
+# Prayer Times (أوقات الصلاة)
+
+[English](#english) | [العربية](#arabic)
+
+---
+
+# English
 
 **Privacy-first Android prayer times — no GPS, no account.**
 
@@ -152,3 +158,160 @@ Requires JDK 21 (`$HOME/jdk21`); system JDK 25 breaks the current Gradle/AGP too
 ## License
 
 See repository license file. Prayer calculation uses [`adhan-java`](https://github.com/batoulapps/adhan-java) (Umm al-Qura).
+
+---
+
+# العربية
+
+**تطبيق أوقات الصلاة يركز على الخصوصية — بدون نظام تحديد المواقع (GPS)، وبدون حساب شخصي.**
+
+اختر الدولة والمدينة من دليل مدمج داخل التطبيق، واحصل على أوقات صلاة يومية دقيقة (تقويم أم القرى، والمذهب الشافعي)، وعد تنازلي مباشر للصلاة القادمة، وتنبيهات أذان اختيارية، وأربع أدوات للشاشة الرئيسية (Widgets)، وتقويم هجري مع عشرة مناسبات إسلامية. التطبيق متوفر باللغتين العربية والإنجليزية مع دعم كامل للاتجاه من اليمين إلى اليسار (RTL)، وثلاثة سمات (مظهر فاتح، أخضر، داكن).
+
+| | |
+|---|---|
+| **الإصدار** | 1.0.0 |
+| **حزمة التطبيق** | `com.prayertime` (متصل بالشبكة) · `com.prayertime.offline` (نسخة الخصوصية بالكامل - بدون إنترنت) |
+| **الحد الأدنى لـ SDK** | 23 · **المستهدف** 35 |
+| **الاختبارات** | 303 اختبار JVM مشترك · 344 اختبار JVM للنسخة المتصلة |
+
+---
+
+## لقطات الشاشة (Screenshots)
+
+### أوقات الصلاة
+
+عد تنازلي مباشر، التاريخ الهجري، شريط المناسبات الإسلامية القادمة، مفاتيح كتم الصوت لكل صلاة، ووضع الخصوصية دون اتصال بالشبكة.
+
+| English (light) | Arabic (light) | Arabic (dark) |
+|:---:|:---:|:---:|
+| ![Prayer times — English, light theme](docs/screenshots/prayer-times-en-light.png) | ![Prayer times — Arabic, light theme](docs/screenshots/prayer-times-ar-light.png) | ![Prayer times — Arabic, dark theme](docs/screenshots/prayer-times-ar-dark.png) |
+
+### أدوات الشاشة الرئيسية (Widgets)
+
+أربعة أحجام: أداة طولية صغيرة، أداة عريضة صغيرة، أداة متوسطة (جدول 5×1)، وأداة كبيرة (ساعة + ستة أعمدة). يتم تمييز الصلاة القادمة بإطار عمودي فريد؛ تتبع الأدوات مظهر التطبيق المختار.
+
+| English (light) | Arabic (light) | Arabic (dark) |
+|:---:|:---:|:---:|
+| ![Widgets — English, light](docs/screenshots/widgets-en-light.png) | ![Widgets — Arabic, light](docs/screenshots/widgets-ar-light.png) | ![Widgets — Arabic, dark](docs/screenshots/widgets-ar-dark.png) |
+
+| Large widget (EN) | Large widget (AR) | Large widget (AR, dark) |
+|:---:|:---:|:---:|
+| ![Large widget — English](docs/screenshots/widget-large-en-light.png) | ![Large widget — Arabic](docs/screenshots/widget-large-ar-light.png) | ![Large widget — Arabic, dark](docs/screenshots/widget-large-ar-dark.png) |
+
+### التقويم الهجري
+
+شبكة تقويم شهرية مقترنة بالتقويم الميلادي، وتسميات المناسبات الإسلامية (عرفة، الأعياد، إلخ)، وقائمة بالمناسبات السنوية.
+
+| Monthly calendar | Annual occasions |
+|:---:|:---:|
+| ![Hijri calendar — monthly view](docs/screenshots/hijri-calendar-monthly-ar.png) | ![Hijri calendar — annual events](docs/screenshots/hijri-events-annual-ar.png) |
+
+### الإعدادات وإعدادات التشغيل الأول
+
+مفتاح الخصوصية للعمل دون اتصال بالشبكة بالكامل، مغير السمة، تنبيهات الأذان، ومعالج إعداد الدولة والمدينة (أكثر من 4000 مدينة، دون الحاجة لـ GPS).
+
+| Settings | City wizard |
+|:---:|:---:|
+| ![Settings — Arabic, dark theme](docs/screenshots/settings-ar-dark.png) | ![City wizard — Arabic, dark theme](docs/screenshots/city-wizard-ar-dark.png) |
+
+---
+
+## الميزات (Features)
+
+| القسم | التفاصيل |
+|------|---------|
+| **حساب أوقات الصلاة** | تقويم أم القرى (مكة المكرمة)، مذهب الشافعي للعصر، تعديل زاوية الشفق لخطوط العرض |lat| ≥ 48°؛ وقت الشروق = شروق الشمس |
+| **الخصوصية** | افتراضياً **دون اتصال بالشبكة بالكامل** — لا توجد اتصالات بالشبكة؛ استخدام اختياري لواجهة Aladhan API عند تعطيل وضع العمل دون اتصال (في النسخة المتصلة فقط) |
+| **الأذان** | ثمانية أصوات للأذان، إمكانية كتم الصوت لكل صلاة على حدة، جدولة التنبيهات باستخدام ميزة الإنذار الدقيق، متوافق مع وضع Doze للحفاظ على البطارية عبر `setAlarmClock` |
+| **الأدوات (Widgets)** | أربعة مزودين للأدوات؛ دعم اللغة والأرقام العربية الشرقية؛ مزامنة السمة؛ استخدام الذاكرة المؤقتة كاحتياطي عند عدم وجود تحديثات |
+| **التقويم الهجري** | حاسبة هجرية مدمجة مع 10 مناسبات إسلامية؛ شريط إعلاني للمناسبات في الشاشة الرئيسية؛ عرض شهري وسنوي للتقويم |
+| **تعدد اللغات** | دعم كامل للغتين العربية والإنجليزية، اتجاه كامل من اليمين إلى اليسار (RTL)، ومحدد لغة مدمج في التطبيق |
+| **السمات** | ثلاثة سمات (فاتح، أخضر، داكن) تشمل التطبيق والأدوات والتقويم |
+| **الأمان (النسخة المتصلة)** | تثبيت شهادة TLS لـ `aladhan.com` لضمان أمان الاتصال |
+
+---
+
+## البنية البرمجية (Architecture)
+
+- **التطبيق الرئيسي (نسخة `online`):** يستخدم ملف `locations.json` المدمج + مكتبة `adhan-java` المحلية **أو** [Aladhan API](https://api.aladhan.com) — حيث يمكن للمستخدم تفعيل خيار **دون اتصال بالشبكة (بلا إنترنت)** من الإعدادات.
+- **نسخة الخصوصية الاختيارية (`offline`):** حزمة APK منفصلة **لا** تحتوي على أي كود للشبكة وبدون صلاحية الوصول للإنترنت `INTERNET`.
+- **التقنيات المستخدمة:** Kotlin · Jetpack Compose · Hilt · Room v4 · DataStore · WorkManager
+- **النكهات (Flavors):** يقوم `RepositoryModule` بتبديل `LocalPrayerTimesRepository` بـ `OnlinePrayerTimesRepository`؛ ويعيش كود الشبكة حصرياً في المجلد `src/online/`.
+
+راجع ملف [`PHASED_PLAN.md`](PHASED_PLAN.md) للاطلاع على خارطة الطريق الكاملة ومخططات Mermaid.
+
+---
+
+## التثبيت (النسخة النهائية - Release)
+
+يتطلب التثبيت وجود JDK 21، و Android SDK، وملف `keystore.properties` محلي (انسخه من `keystore.properties.example`؛ لا تقم أبداً برفع ملف keystore أو كلمات المرور إلى المستودع).
+
+```sh
+export JAVA_HOME=$HOME/jdk21
+export ANDROID_HOME=$HOME/Android/Sdk
+./gradlew assembleOnlineRelease
+adb install -r app/build/outputs/apk/online/release/app-online-release.apk
+```
+
+| الملف الناتج | المسار | الحجم |
+|----------|------|------|
+| APK موقع | `app/build/outputs/apk/online/release/app-online-release.apk` | ~12 ميجابايت |
+| AAB موقع | `app/build/outputs/bundle/onlineRelease/app-online-release.aab` | متجر Google Play |
+
+**نسخة الخصوصية (بدون إنترنت):** `assembleOfflineRelease` ← ينتج حزمة `com.prayertime.offline` (بحجم ~12 ميجابايت، بدون مفتاح التبديل للإنترنت).
+
+```sh
+./scripts/release-gate.sh   # التحقق من حجم الـ APK (يجب أن يكون ≤ 13 ميجابايت)
+./scripts/smoke-ci.sh       # اختبار الـ CI الكامل قبل الدمج أو التوسيم
+```
+
+---
+
+## التطوير (Development)
+
+```sh
+export JAVA_HOME=$HOME/jdk21
+export ANDROID_HOME=$HOME/Android/Sdk
+./gradlew assembleOnlineDebug testOnlineDebugUnitTest
+```
+
+**اختصار المحاكي** (تشغيل المحاكي ← تثبيت نسخة تصحيح الأخطاء دون اتصال ← تشغيل التطبيق):
+
+```sh
+./dev              # يقوم بتثبيت com.prayertime.offline
+./dev --headless
+```
+
+لتثبيت نسخة **المتصل بالإنترنت** على جهاز أو محاكي: `./gradlew installOnlineDebug`.
+
+بعد تغيير حجم أو تخطيط الأدوات (Widgets)، قم بإزالتها وإعادة إضافتها إلى الشاشة الرئيسية (تقوم واجهات التشغيل بحفظ الأبعاد مؤقتاً).
+
+---
+
+## الاختبارات (Tests)
+
+```sh
+./gradlew testOfflineDebugUnitTest testOnlineDebugUnitTest
+```
+
+303 اختبارات مشتركة + 41 اختباراً خاصاً بالاتصال بالإنترنت (`app/src/testOnline/java/`). تغطي الاختبارات وضع Doze (5A)، رفض الصلاحيات (5B)، الذاكرة المؤقتة دون اتصال بالشبكة (5C)، التوقيت الصيفي والمناطق الزمنية (5D)، هجرة قاعدة بيانات Room، الأدوات، وحاسبة التقويم الهجري.
+
+يتطلب التثبيت إصدار JDK 21 (`$HOME/jdk21`)؛ حيث أن إصدار نظام JDK 25 يسبب مشاكلاً مع بيئة Gradle/AGP الحالية.
+
+---
+
+## المستندات (Documentation)
+
+| المستند | الغرض |
+|-----|---------|
+| [`PHASED_PLAN.md`](PHASED_PLAN.md) | خارطة الطريق، بوابات المراحل، Graphify |
+| [`APP_CREATION_PLAYBOOK.md`](APP_CREATION_PLAYBOOK.md) | دليل الهندسة البرمجية + جدول الميزات |
+| [`docs/PRIVACY.md`](docs/PRIVACY.md) | نموذج سياسة الخصوصية |
+| [`graphity.md`](graphity.md) | صيانة شجرة المعرفة (Knowledge-Graph) |
+| [`AGENTS.md`](AGENTS.md) | بيئة البناء والتشغيل للوكلاء والـ CI |
+
+---
+
+## الترخيص (License)
+
+راجع ملف الترخيص المرفق في المستودع. يعتمد حساب أوقات الصلاة على مكتبة [`adhan-java`](https://github.com/batoulapps/adhan-java) (تقويم أم القرى).

@@ -4,12 +4,12 @@
 - cluster-only mode — file stats not available
 
 ## Summary
-- 3309 nodes · 4681 edges · 372 communities (326 shown, 46 thin omitted)
+- 3361 nodes · 4748 edges · 377 communities (330 shown, 47 thin omitted)
 - Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 129 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `771d46ed`
+- Built from commit: `1b97af59`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -363,11 +363,11 @@
 - [[_COMMUNITY_Community 346|Community 346]]
 - [[_COMMUNITY_Community 347|Community 347]]
 - [[_COMMUNITY_Community 348|Community 348]]
+- [[_COMMUNITY_Community 349|Community 349]]
 - [[_COMMUNITY_Community 350|Community 350]]
 - [[_COMMUNITY_Community 351|Community 351]]
 - [[_COMMUNITY_Community 352|Community 352]]
 - [[_COMMUNITY_Community 353|Community 353]]
-- [[_COMMUNITY_Community 354|Community 354]]
 - [[_COMMUNITY_Community 355|Community 355]]
 - [[_COMMUNITY_Community 356|Community 356]]
 - [[_COMMUNITY_Community 357|Community 357]]
@@ -375,12 +375,17 @@
 - [[_COMMUNITY_Community 359|Community 359]]
 - [[_COMMUNITY_Community 360|Community 360]]
 - [[_COMMUNITY_Community 361|Community 361]]
+- [[_COMMUNITY_Community 362|Community 362]]
 - [[_COMMUNITY_Community 363|Community 363]]
 - [[_COMMUNITY_Community 364|Community 364]]
 - [[_COMMUNITY_Community 365|Community 365]]
+- [[_COMMUNITY_Community 366|Community 366]]
 - [[_COMMUNITY_Community 368|Community 368]]
 - [[_COMMUNITY_Community 369|Community 369]]
-- [[_COMMUNITY_Community 371|Community 371]]
+- [[_COMMUNITY_Community 370|Community 370]]
+- [[_COMMUNITY_Community 373|Community 373]]
+- [[_COMMUNITY_Community 374|Community 374]]
+- [[_COMMUNITY_Community 376|Community 376]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `citiesByCountry` - 116 edges
@@ -391,25 +396,25 @@
 6. `AladhanTimingsMapperTest` - 34 edges
 7. `PrayerTimesRepository` - 32 edges
 8. `SimpleDateFormat` - 29 edges
-9. `PrayerTimesRepositoryTest` - 29 edges
-10. `PrayerTimesLocalEngineTest` - 28 edges
+9. `WidgetRemoteViewsBuilder` - 29 edges
+10. `PrayerTimesRepositoryTest` - 29 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `parse_coords_map()` --references--> `Float`  [EXTRACTED]
   scripts/export-locations-json.py → app/src/main/java/com/prayertime/widget/WidgetUpdater.kt
-- `PrayerTimeRoot()` --calls--> `PrayerTimeTheme()`  [INFERRED]
-  app/src/main/java/com/prayertime/ui/PrayerTimeRoot.kt → app/src/main/java/com/prayertime/ui/theme/PrayerTimeTheme.kt
 - `PrayerTimeAboutRoute()` --calls--> `AboutScreen()`  [INFERRED]
   app/src/main/java/com/prayertime/ui/PrayerTimeRoot.kt → app/src/main/java/com/prayertime/ui/screens/AboutScreen.kt
 - `PrayerTimeAboutRoute()` --calls--> `AdhanNotificationsUiState`  [INFERRED]
   app/src/main/java/com/prayertime/ui/PrayerTimeRoot.kt → app/src/main/java/com/prayertime/ui/screens/AboutScreen.kt
-- `PrayerTimeMainRoute()` --calls--> `key()`  [INFERRED]
-  app/src/main/java/com/prayertime/ui/PrayerTimeRoot.kt → app/src/testOnline/java/com/prayertime/data/remote/ScenarioPrayerApi.kt
+- `PrayerTimeAboutRoute()` --calls--> `PrivacyModeUiState`  [INFERRED]
+  app/src/main/java/com/prayertime/ui/PrayerTimeRoot.kt → app/src/main/java/com/prayertime/ui/screens/AboutScreen.kt
+- `PrayerTimeAboutRoute()` --calls--> `ThemeUiState`  [INFERRED]
+  app/src/main/java/com/prayertime/ui/PrayerTimeRoot.kt → app/src/main/java/com/prayertime/ui/screens/AboutScreen.kt
 
 ## Import Cycles
 - None detected.
 
-## Communities (372 total, 46 thin omitted)
+## Communities (377 total, 47 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.15
@@ -428,116 +433,116 @@ Cohesion: 0.11
 Nodes (17): 📑 Graphify Initialization & Integration Lifecycle, Graphify — Knowledge Graph Playbook (PrayerTime-), If not present, install the CLI globally via your package manager, Phase 1: Workspace & first vertical slice, Phase 1: Workspace & First Vertical Slice Preparation, Phase 2: CLI installation, Phase 3: AI assistant & hooks, Phase 4: Initial AST extraction (zero token cost) (+9 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.06
-Nodes (39): Boolean, Context, String, Context, AppTheme, Boolean, Context, Int (+31 more)
+Cohesion: 0.07
+Nodes (31): AppTheme, Boolean, Context, Int, Long, PendingIntent, Prayer, PrayerTime (+23 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.15
-Nodes (14): Adhan toggle crashed app (DEFECT), Cache Staleness on Mode/Coords Change (Edge Case), Component ID Mismatch (State Key Mismatch), Comprehensive codebase audit — architecture & runtime (Jun 2026), Daily Update Failure Due to Doze Mode, Default Reliance on GPS (CRITICAL), DST Time Zone Disregard, Incident Log (+6 more)
+Cohesion: 0.14
+Nodes (15): Adhan toggle crashed app (DEFECT), Cache Staleness on Mode/Coords Change (Edge Case), Component ID Mismatch (State Key Mismatch), Comprehensive codebase audit — architecture & runtime (Jun 2026), Comprehensive codebase audit — reconciliation (Jun 2026), Daily Update Failure Due to Doze Mode, Default Reliance on GPS (CRITICAL), DST Time Zone Disregard (+7 more)
 
 ### Community 6 - "Community 6"
-Cohesion: 0.05
-Nodes (29): AdhanNotificationHelper, AdhanAlarmReceiver, AdhanAlarmReceiverTest, BootCompletedReceiver, PrayerAlarmDozeTest, AppPreferencesDataSource, Context, CoroutineScope (+21 more)
+Cohesion: 0.06
+Nodes (57): AppCompatActivity, AppSettingsViewModel, Boolean, CitySetupViewModel, ComponentActivity, MainViewModel, PrayerTimeApplication, PrayerTimesUiState (+49 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.09
-Nodes (26): Boolean, CityConfig, Date, ErrorType, Exception, Flow, List, Long (+18 more)
+Cohesion: 0.12
+Nodes (18): Boolean, CityConfig, Date, ErrorType, Exception, Flow, List, Long (+10 more)
 
 ### Community 8 - "Community 8"
+Cohesion: 0.08
+Nodes (14): Boolean, CityConfig, CitySetupViewModel, FakePrayerTimesRepository, InMemoryCityConfigDataSource, LocationRepository, PrayerTimesResult, SaveCityResult (+6 more)
+
+### Community 9 - "Community 9"
 Cohesion: 0.09
 Nodes (24): android, android, CityCoords, Country, List, LocationCatalog, Map, String (+16 more)
 
-### Community 9 - "Community 9"
-Cohesion: 0.08
-Nodes (13): Boolean, CityConfig, CitySetupViewModel, FakePrayerTimesRepository, InMemoryCityConfigDataSource, LocationRepository, PrayerTimesResult, SaveCityResult (+5 more)
-
 ### Community 10 - "Community 10"
+Cohesion: 0.08
+Nodes (20): AppPreferencesDataSource, Boolean, CityConfig, FakePrayerTimesRepository, InMemoryCityConfigDataSource, List, Long, Prayer (+12 more)
+
+### Community 11 - "Community 11"
 Cohesion: 0.09
 Nodes (25): androidx, Set, String, Context, Intent, List, Long, PendingIntent (+17 more)
 
-### Community 12 - "Community 12"
+### Community 13 - "Community 13"
 Cohesion: 0.10
 Nodes (16): Context, AppPreferencesDataSource, Boolean, CityConfig, Context, FakePrayerTimesRepository, Flow, PrayerTimeRefreshWorker (+8 more)
 
-### Community 13 - "Community 13"
+### Community 14 - "Community 14"
 Cohesion: 0.08
 Nodes (16): Boolean, Country, Int, List, StateFlow, String, WizardStep, AppTheme (+8 more)
 
-### Community 14 - "Community 14"
+### Community 15 - "Community 15"
 Cohesion: 0.09
 Nodes (13): AppDatabase, AppPreferencesDataSource, AppSettingsViewModel, Boolean, CityConfig, FakePrayerTimesRepository, InMemoryCityConfigDataSource, PrayerTimesResult (+5 more)
 
-### Community 15 - "Community 15"
+### Community 16 - "Community 16"
+Cohesion: 0.12
+Nodes (12): AppPreferencesDataSource, Boolean, CityConfig, Context, FakePrayerTimesRepository, Flow, PrayerTimeRefreshWorker, PrayerTimesResult (+4 more)
+
+### Community 17 - "Community 17"
 Cohesion: 0.14
 Nodes (6): AppDatabase, Int, Long, PrayerTimesLocalEngine, String, PrayerTimesLocalEngineTest
 
-### Community 16 - "Community 16"
+### Community 18 - "Community 18"
 Cohesion: 0.07
 Nodes (31): 1. Verified claims — sound, 2. Audit findings — status after remediation, 3. Architectural notes (unchanged / informational), 4. Security / hygiene, 5. Test coverage (actual), 6. Conclusion, AGENTS.md claims verification, Already fixed (prior audits reported as open) (+23 more)
 
-### Community 18 - "Community 18"
+### Community 20 - "Community 20"
 Cohesion: 0.09
 Nodes (16): Boolean, CityConfig, Flow, Boolean, CityConfig, Double, Flow, Pair (+8 more)
 
-### Community 19 - "Community 19"
+### Community 21 - "Community 21"
 Cohesion: 0.13
 Nodes (14): Boolean, CityConfig, HijriDate, List, LivePrayerCountdown, Long, Prayer, PrayerTime (+6 more)
 
-### Community 20 - "Community 20"
-Cohesion: 0.15
-Nodes (27): AppCompatActivity, AppSettingsViewModel, Boolean, CitySetupViewModel, ComponentActivity, MainViewModel, PrayerTimeApplication, PrayerTimesUiState (+19 more)
-
-### Community 21 - "Community 21"
+### Community 22 - "Community 22"
 Cohesion: 0.11
 Nodes (15): Boolean, CityConfig, ErrorType, Exception, Flow, GeocodeResult, PrayerTimesResult, SaveCityResult (+7 more)
 
-### Community 22 - "Community 22"
+### Community 23 - "Community 23"
 Cohesion: 0.10
 Nodes (16): CityCoords, CityResolutionResult, Context, Country, Int, List, LocationCatalog, Map (+8 more)
 
-### Community 23 - "Community 23"
+### Community 24 - "Community 24"
 Cohesion: 0.11
 Nodes (4): AppDatabase, CityConfigSerializer, Context, PrayerTimesRepositoryTest
 
-### Community 24 - "Community 24"
+### Community 25 - "Community 25"
 Cohesion: 0.24
 Nodes (27): android, Boolean, CalendarPalette, HijriDate, Int, List, Modifier, String (+19 more)
 
-### Community 25 - "Community 25"
+### Community 26 - "Community 26"
 Cohesion: 0.16
 Nodes (11): CityConfig, GeocodeResult, List, Long, Map, Prayer, PrayerTime, PrayerTimesResult (+3 more)
 
 ### Community 27 - "Community 27"
+Cohesion: 0.15
+Nodes (23): Boolean, Modifier, AppTheme, Boolean, Modifier, String, Modifier, Int (+15 more)
+
+### Community 29 - "Community 29"
 Cohesion: 0.18
 Nodes (5): AppDatabase, Context, InMemoryCityConfigDataSource, OnlinePrayerTimesRepositoryTest, ScenarioPrayerApi
 
-### Community 28 - "Community 28"
+### Community 30 - "Community 30"
 Cohesion: 0.14
 Nodes (7): PrayerAlarmSchedulerTest, Context, List, Long, PrayerTime, ShadowAlarmManager, ShadowAlarmManager
 
-### Community 29 - "Community 29"
-Cohesion: 0.21
-Nodes (23): Boolean, HijriDate, Int, LivePrayerCountdown, Long, Prayer, PrayerTime, PrayerTimesResult (+15 more)
-
-### Community 30 - "Community 30"
-Cohesion: 0.20
-Nodes (20): Modifier, Boolean, Country, List, Modifier, String, WizardStep, Int (+12 more)
-
 ### Community 31 - "Community 31"
+Cohesion: 0.11
+Nodes (17): AppPreferencesDataSource, LocationRepository, PrayerTimesRepository, Boolean, Context, String, Context, Application (+9 more)
+
+### Community 32 - "Community 32"
+Cohesion: 0.17
+Nodes (9): Context, HijriDate, List, PrayerTime, RemoteViews, WidgetSnapshot, AppliedWidget, AppliedWidget (+1 more)
+
+### Community 33 - "Community 33"
 Cohesion: 0.19
 Nodes (13): PrayerAlarmScheduler, AlarmManager, Boolean, Context, Int, Intent, List, Long (+5 more)
 
-### Community 32 - "Community 32"
+### Community 34 - "Community 34"
 Cohesion: 0.23
 Nodes (11): Boolean, Date, HijriDate, Int, IslamicEvent, List, TimeZone, UpcomingEvent (+3 more)
-
-### Community 33 - "Community 33"
-Cohesion: 0.16
-Nodes (8): AppPreferencesDataSource, FakePrayerTimesRepository, InMemoryCityConfigDataSource, PrayerTime, PrayerTimesViewModel, forceSuccessState(), PrayerTimesViewModelTest, PrayerTimesTestRepository
-
-### Community 34 - "Community 34"
-Cohesion: 0.18
-Nodes (9): Context, HijriDate, List, PrayerTime, RemoteViews, WidgetSnapshot, AppliedWidget, AppliedWidget (+1 more)
 
 ### Community 35 - "Community 35"
 Cohesion: 0.10
@@ -577,115 +582,115 @@ Nodes (9): Date, List, Long, Map, Prayer, PrayerTime, String, TimeZone (+1 more)
 
 ### Community 45 - "Community 45"
 Cohesion: 0.19
-Nodes (7): AppPreferencesDataSource, Context, FakePrayerTimesRepository, PrayerTimeRefreshWorker, ShadowAlarmManager, FakeRepo, PrayerTimeRefreshWorkerTest
+Nodes (6): PrayerAlarmDozeTest, Context, List, Long, PrayerTime, ShadowAlarmManager
 
 ### Community 46 - "Community 46"
 Cohesion: 0.29
 Nodes (9): Boolean, List, Long, Prayer, PrayerTime, PrayerTimesResult, TimeZone, NextSnapshot (+1 more)
 
 ### Community 47 - "Community 47"
-Cohesion: 0.19
-Nodes (17): Boolean, Modifier, AppTheme, Boolean, Modifier, String, AppTextButton(), AboutScreen() (+9 more)
+Cohesion: 0.15
+Nodes (18): Architecture, Build, Development, Documentation, Features, Hijri calendar, Home-screen widgets, Install (release) (+10 more)
 
 ### Community 48 - "Community 48"
-Cohesion: 0.13
-Nodes (9): Boolean, String, AppTheme, AppTheme, ComposeScreenSmokeTest, LanguageOptionRow(), LanguagePickerDialog(), ProvideAppTheme() (+1 more)
+Cohesion: 0.15
+Nodes (9): AdhanNotificationHelper, AdhanAlarmReceiver, AdhanAlarmReceiverTest, AppPreferencesDataSource, Context, CoroutineScope, Int, Intent (+1 more)
 
 ### Community 49 - "Community 49"
 Cohesion: 0.17
 Nodes (9): Boolean, CityConfig, CityConfigDataSource, Flow, PrayerTimesLocalEngine, PrayerTimesResult, SaveCityResult, LocalPrayerTimesRepository (+1 more)
 
 ### Community 50 - "Community 50"
+Cohesion: 0.28
+Nodes (16): Boolean, Country, List, Modifier, String, WizardStep, CityInputActions, CityInputUiState (+8 more)
+
+### Community 52 - "Community 52"
 Cohesion: 0.21
 Nodes (14): `api 404 on fetch returns CITY_NOT_FOUND error`(), `api 404 on fetch returns CITY_NOT_FOUND error when network mode`(), FakeAladhanApi, `geocode 404 does not persist city config`(), `geocode 404 does not persist city config when network mode`(), `geocode incomplete response does not persist`(), `geocode incomplete response does not persist when network mode`(), `geocode network error does not persist`() (+6 more)
 
-### Community 51 - "Community 51"
+### Community 53 - "Community 53"
 Cohesion: 0.27
 Nodes (5): Activity, Boolean, Context, Intent, AdhanPermissions
 
-### Community 52 - "Community 52"
+### Community 54 - "Community 54"
 Cohesion: 0.17
 Nodes (8): Boolean, CityResolutionResult, Country, List, LocationCatalog, String, LocationRepository, LocalLocationRepository
 
-### Community 53 - "Community 53"
+### Community 55 - "Community 55"
 Cohesion: 0.17
 Nodes (12): AppDatabase, AppPreferencesDataSource, CityConfigDataSource, CityConfigSerializer, Context, LocationRepository, bindCityConfigDataSource(), bindLocationRepository() (+4 more)
 
-### Community 55 - "Community 55"
+### Community 56 - "Community 56"
 Cohesion: 0.40
 Nodes (15): qa-offline.sh script, app_installed(), cmd_5c1(), cmd_5c2_guide(), cmd_5c3(), cmd_all(), cmd_audit(), cmd_cache_dump() (+7 more)
 
-### Community 57 - "Community 57"
+### Community 58 - "Community 58"
 Cohesion: 0.21
 Nodes (10): AladhanResponse, AladhanResponse, Int, PrayerApiGeocode, PrayerApiResponse, String, TimingsWithGeocode, AladhanApi (+2 more)
 
-### Community 58 - "Community 58"
+### Community 59 - "Community 59"
 Cohesion: 0.48
 Nodes (14): qa-doze.sh script, app_installed(), cmd_5a1_guide(), cmd_5a2(), cmd_alarms(), cmd_all(), cmd_audit(), cmd_doze_off() (+6 more)
 
-### Community 59 - "Community 59"
+### Community 60 - "Community 60"
 Cohesion: 0.25
 Nodes (4): List, String, PrayerTimeDao, PrayerTimeEntity
 
-### Community 60 - "Community 60"
+### Community 61 - "Community 61"
 Cohesion: 0.22
 Nodes (8): HijriDate, Int, IslamicEvent, String, UpcomingEvent, IslamicEvent, Resources, HijriDateFormatter
 
-### Community 61 - "Community 61"
+### Community 62 - "Community 62"
 Cohesion: 0.14
 Nodes (13): 6.8 addendum — Jun 5 session, Commit & PR Discipline, Critical Agent Verification Directive, Documentation Maintenance, Graphify integration (knowledge graph), Incident Log, Open items (post Phase 2G), Phase 6: Release (+5 more)
 
-### Community 63 - "Community 63"
+### Community 64 - "Community 64"
 Cohesion: 0.14
 Nodes (13): 3A — Widget UI, 3B — Updates, 3C — Tests, Approaches Considered, Architecture, Components, Docs Updates (on gate pass), Error Handling (+5 more)
 
-### Community 64 - "Community 64"
+### Community 65 - "Community 65"
 Cohesion: 0.23
 Nodes (9): Date, Double, List, PrayerTime, String, TimeZone, LocalPrayerTimeCalculator, DateComponents (+1 more)
 
-### Community 65 - "Community 65"
+### Community 66 - "Community 66"
 Cohesion: 0.19
 Nodes (6): Boolean, CityResolutionResult, Country, List, String, LocationRepository
 
-### Community 66 - "Community 66"
+### Community 67 - "Community 67"
 Cohesion: 0.18
 Nodes (5): AppPreferencesDataSource, Context, FakePrayerTimesRepository, InMemoryCityConfigDataSource, PermissionDenialMatrixTest
 
-### Community 67 - "Community 67"
-Cohesion: 0.21
-Nodes (6): Boolean, CityConfig, PrayerTimesResult, SaveCityResult, PrayerTimesTestRepository, PrayerTimesRepository
-
 ### Community 68 - "Community 68"
-Cohesion: 0.24
-Nodes (5): Boolean, CityConfig, Flow, PrayerTimesResult, FakeRepo
-
-### Community 69 - "Community 69"
-Cohesion: 0.15
-Nodes (13): 5A — Doze Mode & Battery, 5B — Permission Denial Flows, 5C — Offline Robustness, 5D — DST & Time Zone, 5E addendum — Jun 5 session (manual QA polish), 5E addendum — Jun 6 session (app themes + widget polish), 5E addendum — Jun 6 session (wizard keyboard + prayer mute UI), 5E — UI Polish (batches) (+5 more)
-
-### Community 70 - "Community 70"
 Cohesion: 0.15
 Nodes (12): Phase 3 Home Screen Widget Implementation Plan, Self-Review Checklist, Task 0: Branch setup, Task 1: Shared countdown formatter, Task 2: Widget snapshot model + loader, Task 3: RemoteViews layout + builder, Task 4: WidgetUpdater + Provider, Task 5: WidgetUpdateWorker + WidgetRefreshWork (+4 more)
 
-### Community 71 - "Community 71"
+### Community 69 - "Community 69"
 Cohesion: 0.20
 Nodes (7): AladhanApi, AladhanApiService, AladhanApi, PrayerApi, NetworkModule, OkHttpClient, Retrofit
 
-### Community 72 - "Community 72"
+### Community 70 - "Community 70"
 Cohesion: 0.33
 Nodes (7): AppTheme, CityConfig, PrayerTimesResult, String, WidgetSnapshot, HijriContext, WidgetSnapshotLoader
 
-### Community 73 - "Community 73"
+### Community 71 - "Community 71"
 Cohesion: 0.20
 Nodes (7): PrayerTimeApplication, Result, Result, CoroutineWorker, Result, PrayerTimeRefreshWorker, WidgetUpdateWorker
 
-### Community 74 - "Community 74"
+### Community 72 - "Community 72"
 Cohesion: 0.20
 Nodes (8): PrayerApiGeocode, PrayerApiResponse, String, TimingsWithGeocode, PrayerApi, PrayerApiGeocode, PrayerApiResponse, TimingsWithGeocode
 
-### Community 75 - "Community 75"
+### Community 73 - "Community 73"
 Cohesion: 0.17
 Nodes (11): Calculation method, Changes to this policy, Contact, Data storage, Network mode (legacy, opt-in), Network usage, No data collection, No telemetry or tracking (+3 more)
+
+### Community 75 - "Community 75"
+Cohesion: 0.17
+Nodes (11): Phase 6 Release Implementation Plan, Self-review (plan vs spec), Task 0: Branch setup, Task 1: 6.1 Version bump, Task 2: 6.2 R8 / ProGuard hardening, Task 3: 6.3 Release signing, Task 4: 6.4 APK size verification, Task 5: 6.5 Playbook audit (+3 more)
+
+### Community 76 - "Community 76"
+Cohesion: 0.22
+Nodes (8): BootCompletedReceiver, AppPreferencesDataSource, Context, CoroutineScope, Intent, PrayerTimeApplication, PrayerTimesRepository, WidgetUpdater
 
 ### Community 77 - "Community 77"
 Cohesion: 0.20
@@ -712,76 +717,76 @@ Cohesion: 0.20
 Nodes (5): AppWidgetManager, Context, ShadowAppWidgetManager, WidgetTestSupport, PrayerTimeWidgetProviderTest
 
 ### Community 84 - "Community 84"
-Cohesion: 0.31
-Nodes (3): BootPrayerTimesResolverTest, PrayerTimesRepository, PrayerTimesResult
+Cohesion: 0.20
+Nodes (10): 5A — Doze Mode & Battery, 5B — Permission Denial Flows, 5C — Offline Robustness, 5D — DST & Time Zone, 5F — Multi-Device Testing, 5G addendum — Jun 5 session, 5G addendum — Jun 6 session (comprehensive audit), Phase 5: Hardening & Polish (+2 more)
 
 ### Community 85 - "Community 85"
 Cohesion: 0.31
-Nodes (5): Boolean, Country, List, String, SearchLocationsUseCase
+Nodes (3): BootPrayerTimesResolverTest, PrayerTimesRepository, PrayerTimesResult
 
 ### Community 86 - "Community 86"
-Cohesion: 0.39
-Nodes (4): Context, Prayer, String, AdhanNotificationHelper
+Cohesion: 0.22
+Nodes (7): ExactAlarmPermissionReceiver, AppPreferencesDataSource, Context, CoroutineScope, Intent, PrayerTimesRepository, WidgetUpdater
 
 ### Community 87 - "Community 87"
 Cohesion: 0.31
-Nodes (6): Boolean, ErrorType, FetchError, Int, SaveCityError, PrayerTimesErrorMapper
+Nodes (5): Boolean, Country, List, String, SearchLocationsUseCase
 
 ### Community 88 - "Community 88"
-Cohesion: 0.33
-Nodes (5): AppTheme, ColorScheme, CalendarPalette, ThemePalettes, WidgetPalette
+Cohesion: 0.39
+Nodes (4): Context, Prayer, String, AdhanNotificationHelper
 
 ### Community 89 - "Community 89"
 Cohesion: 0.31
-Nodes (5): AppDatabase, InMemoryCityConfigDataSource, LocalPrayerTimesRepository, PrayerTimesViewModel, PrayerTimesViewModelIntegrationTest
+Nodes (6): Boolean, ErrorType, FetchError, Int, SaveCityError, PrayerTimesErrorMapper
 
 ### Community 90 - "Community 90"
-Cohesion: 0.31
-Nodes (7): List, Long, Prayer, berlinDayTimes(), clearViewModelForTest(), forceLiveCountdown(), forceSuccessStateWithAnchor()
+Cohesion: 0.33
+Nodes (5): AppTheme, ColorScheme, CalendarPalette, ThemePalettes, WidgetPalette
 
 ### Community 91 - "Community 91"
+Cohesion: 0.31
+Nodes (5): AppDatabase, InMemoryCityConfigDataSource, LocalPrayerTimesRepository, PrayerTimesViewModel, PrayerTimesViewModelIntegrationTest
+
+### Community 92 - "Community 92"
 Cohesion: 0.28
 Nodes (3): AladhanApi, MockWebServer, AladhanApiMockWebServerTest
 
-### Community 92 - "Community 92"
+### Community 93 - "Community 93"
 Cohesion: 0.42
 Nodes (4): AladhanResponse, PrayerApiResponse, String, AladhanTestFixtures
 
-### Community 93 - "Community 93"
+### Community 94 - "Community 94"
 Cohesion: 0.39
 Nodes (8): Map, PrayerApiResponse, berlinJune2024(), defaultScenarios(), incomplete(), legacyFlatMock(), meccaJune2024(), Request
 
-### Community 94 - "Community 94"
+### Community 95 - "Community 95"
 Cohesion: 0.25
 Nodes (8): 8.1) Vertical Slice Definition Template (copy/paste), A) Slice identity, B) Boundary and safety map, C) Contract definition, D) UX definition, E) Test plan (minimum), F) Evidence required to mark slice "done", G) Post-implementation review
 
-### Community 95 - "Community 95"
+### Community 96 - "Community 96"
 Cohesion: 0.29
 Nodes (6): Context, Context, AppDatabase, getInstance(), PrayerTimeDao, RoomDatabase
 
-### Community 96 - "Community 96"
+### Community 97 - "Community 97"
 Cohesion: 0.39
 Nodes (5): Int, Long, String, TimeZone, PrayerDayLabels
 
-### Community 97 - "Community 97"
+### Community 98 - "Community 98"
 Cohesion: 0.46
 Nodes (4): Boolean, Long, String, CountdownFormatter
 
-### Community 98 - "Community 98"
+### Community 99 - "Community 99"
 Cohesion: 0.32
 Nodes (4): AppDatabase, CityConfigSerializer, CityConfigSerializer, PrayerTimeCacheTest
 
-### Community 99 - "Community 99"
+### Community 100 - "Community 100"
 Cohesion: 0.32
 Nodes (3): Context, WidgetUpdateWorker, WidgetUpdateWorkerTest
 
-### Community 100 - "Community 100"
+### Community 101 - "Community 101"
 Cohesion: 0.36
 Nodes (3): AladhanApi, Boolean, LiveAladhanTestSupport
-
-### Community 101 - "Community 101"
-Cohesion: 0.25
-Nodes (7): database, entities, identityHash, setupQueries, version, views, formatVersion
 
 ### Community 102 - "Community 102"
 Cohesion: 0.25
@@ -797,920 +802,936 @@ Nodes (7): database, entities, identityHash, setupQueries, version, views, forma
 
 ### Community 105 - "Community 105"
 Cohesion: 0.25
-Nodes (8): 1A — Contracts & Domain Models, 1B — Data Layer, 1C — Domain Layer, 1D — UI Layer, 1E — Tests, Phase 1: Vertical Slice — City Input + Prayer Times Display, Quality Gate (Phase 1) — ⚠️ IN PROGRESS, Quality Gate (Phase 1) — ✅ PASSED
+Nodes (7): database, entities, identityHash, setupQueries, version, views, formatVersion
 
 ### Community 106 - "Community 106"
-Cohesion: 0.43
-Nodes (7): Architecture, Build, Documentation, Local device helpers, PrayerTime, PrayerTime Widget, Tests
+Cohesion: 0.25
+Nodes (8): 1A — Contracts & Domain Models, 1B — Data Layer, 1C — Domain Layer, 1D — UI Layer, 1E — Tests, Phase 1: Vertical Slice — City Input + Prayer Times Display, Quality Gate (Phase 1) — ⚠️ IN PROGRESS, Quality Gate (Phase 1) — ✅ PASSED
 
 ### Community 107 - "Community 107"
+Cohesion: 0.29
+Nodes (5): AdhanAlarmRescheduler, AppPreferencesDataSource, Context, PrayerTimesRepository, WidgetUpdater
+
+### Community 108 - "Community 108"
 Cohesion: 0.43
 Nodes (4): BootPrayerTimesResolver, CityConfig, PrayerTimesRepository, PrayerTimesResult
 
-### Community 108 - "Community 108"
+### Community 109 - "Community 109"
 Cohesion: 0.29
 Nodes (7): 11) Quality Pipeline Phases (reference template), Documentation Discipline, Phase A — Immediate Gate, Phase B — Behavior Stability, Phase C — Product Hardening, Phase D — Environment Hardening, UI Hardening (batch approach)
 
-### Community 109 - "Community 109"
+### Community 110 - "Community 110"
 Cohesion: 0.29
 Nodes (7): 6.1 One reviewable change per commit, 6.2 Commit message quality, 6.3 PR hygiene, 6.4 Bundle Your Pushes, 6.5 Branching Strategy, 6.6 Merge Rules, 6) Commit and PR discipline lessons
 
-### Community 110 - "Community 110"
+### Community 111 - "Community 111"
 Cohesion: 0.38
 Nodes (4): List, String, AppLocale, SupportedLanguage
 
-### Community 111 - "Community 111"
+### Community 112 - "Community 112"
 Cohesion: 0.33
 Nodes (5): Int, List, String, AdhanSoundResolver, Option
 
-### Community 112 - "Community 112"
+### Community 113 - "Community 113"
 Cohesion: 0.29
 Nodes (5): ErrorType, FetchError, Throwable, NetworkMapper, Throwable
 
-### Community 115 - "Community 115"
+### Community 116 - "Community 116"
 Cohesion: 0.29
 Nodes (7): 1F-A — Privacy policy (transparency), 1F-B — Remove Aladhan dependency (100% local), 1F-C — Permissions & manifest, 1F-D — Accuracy after split, 1F-E — Tests, Phase 1F — Privacy & Offline Independence, Quality Gate (Phase 1F)
 
-### Community 116 - "Community 116"
+### Community 117 - "Community 117"
 Cohesion: 0.29
 Nodes (7): 2A — Countdown, 2B — Adhan Notification, 2C — Permission Handling, 2D — Daily Refresh (WorkManager), 2E — Tests, Phase 2: Countdown + Adhan Notifications, Quality Gate (Phase 2)
 
-### Community 117 - "Community 117"
+### Community 118 - "Community 118"
 Cohesion: 0.29
 Nodes (7): 3A — Widget Implementation, 3B — Widget Updates, 3C — Tests, 3C — Tests (~15 widget-adjacent), 3C — Tests (~18 widget-adjacent), Phase 3: Home Screen Widget, Quality Gate (Phase 3)
 
-### Community 118 - "Community 118"
+### Community 119 - "Community 119"
 Cohesion: 0.48
 Nodes (6): FetchError, Loading, NoCity, PrayerTimesActions, PrayerTimesUiState, Success
 
-### Community 121 - "Community 121"
+### Community 123 - "Community 123"
 Cohesion: 0.33
 Nodes (4): ShowIntentFactory, Context, Int, PendingIntent
 
-### Community 122 - "Community 122"
+### Community 124 - "Community 124"
 Cohesion: 0.33
 Nodes (3): Boolean, CoroutineScope, AppConfigModule
 
-### Community 123 - "Community 123"
+### Community 125 - "Community 125"
 Cohesion: 0.33
 Nodes (3): CoroutineScope, WidgetUpdater, WidgetEntryPoint
 
-### Community 124 - "Community 124"
+### Community 126 - "Community 126"
 Cohesion: 0.33
 Nodes (4): Color, IslamicEvent, CalendarColors, islamicEventAccent()
 
-### Community 125 - "Community 125"
-Cohesion: 0.33
-Nodes (4): AppDatabase, CityConfigDataSource, RepositoryModule, PrayerTimesRepository
-
-### Community 126 - "Community 126"
-Cohesion: 0.33
-Nodes (4): AladhanResponse, Int, String, AladhanApiService
-
 ### Community 127 - "Community 127"
-Cohesion: 0.53
-Nodes (6): 2H-A — Architecture & data, 2H-B — UI, locale, permissions, 2H-C — Tooling & docs, Phase 2H — Pre–Phase 3 polish (complete), Phase 2H — Pre–Phase 3 polish (in progress), Quality Gate (Phase 2H)
+Cohesion: 0.33
+Nodes (4): Context, Intent, BroadcastReceiver, WidgetPrayerBoundaryReceiver
 
 ### Community 128 - "Community 128"
 Cohesion: 0.33
-Nodes (6): 4A — Hijri Calculation, 4B — UI Integration, 4C — Tests, Phase 4 → 5 handoff, Phase 4: Hijri Calendar & Events, Quality Gate (Phase 4)
+Nodes (4): AppDatabase, CityConfigDataSource, RepositoryModule, PrayerTimesRepository
+
+### Community 129 - "Community 129"
+Cohesion: 0.33
+Nodes (4): AladhanResponse, Int, String, AladhanApiService
+
+### Community 130 - "Community 130"
+Cohesion: 0.53
+Nodes (6): 2H-A — Architecture & data, 2H-B — UI, locale, permissions, 2H-C — Tooling & docs, Phase 2H — Pre–Phase 3 polish (complete), Phase 2H — Pre–Phase 3 polish (in progress), Quality Gate (Phase 2H)
 
 ### Community 131 - "Community 131"
-Cohesion: 0.40
-Nodes (5): 4.1 The Minimum Testing Ladder, 4.2 Test what usually breaks, 4.3 Fail fast on invalid response payloads, 4.4 Known Test Coverage Holes, 4) Testing strategy lessons
+Cohesion: 0.33
+Nodes (6): 4A — Hijri Calculation, 4B — UI Integration, 4C — Tests, Phase 4 → 5 handoff, Phase 4: Hijri Calendar & Events, Quality Gate (Phase 4)
 
 ### Community 132 - "Community 132"
-Cohesion: 0.40
-Nodes (5): 7.1 Host Constraints (Android), 7.5 Safety Over Convenience for Destructive Actions, 7.6 Security & Dependencies, 7.A) Android-Specific Enhancements, 7) Platform-Specific Hardening (Android Only)
-
-### Community 133 - "Community 133"
-Cohesion: 0.40
-Nodes (3): LocationRepository, DomainModule, SearchLocationsUseCase
-
-### Community 134 - "Community 134"
-Cohesion: 0.60
-Nodes (3): String, ArabicDigits, toEasternArabicDigits()
+Cohesion: 0.33
+Nodes (6): 5E addendum — Jun 5 session (manual QA polish), 5E addendum — Jun 6 session (app themes + widget polish), 5E addendum — Jun 6 session (audit polish + widget picker), 5E addendum — Jun 6 session (medium widget layout, post v1.0.0), 5E addendum — Jun 6 session (wizard keyboard + prayer mute UI), 5E — UI Polish (batches)
 
 ### Community 135 - "Community 135"
 Cohesion: 0.40
-Nodes (3): Int, Prayer, PendingIntentRequestCodes
+Nodes (5): 4.1 The Minimum Testing Ladder, 4.2 Test what usually breaks, 4.3 Fail fast on invalid response payloads, 4.4 Known Test Coverage Holes, 4) Testing strategy lessons
+
+### Community 136 - "Community 136"
+Cohesion: 0.40
+Nodes (5): 7.1 Host Constraints (Android), 7.5 Safety Over Convenience for Destructive Actions, 7.6 Security & Dependencies, 7.A) Android-Specific Enhancements, 7) Platform-Specific Hardening (Android Only)
+
+### Community 137 - "Community 137"
+Cohesion: 0.40
+Nodes (3): LocationRepository, DomainModule, SearchLocationsUseCase
+
+### Community 138 - "Community 138"
+Cohesion: 0.60
+Nodes (3): String, ArabicDigits, toEasternArabicDigits()
 
 ### Community 139 - "Community 139"
+Cohesion: 0.40
+Nodes (3): Int, Prayer, PendingIntentRequestCodes
+
+### Community 143 - "Community 143"
 Cohesion: 0.70
 Nodes (4): CityResolutionResult, Fallback, Found, InvalidCountry
 
-### Community 140 - "Community 140"
+### Community 144 - "Community 144"
 Cohesion: 0.40
 Nodes (4): HijriDate, IslamicEvent, IslamicMonth, UpcomingEvent
 
-### Community 141 - "Community 141"
+### Community 145 - "Community 145"
 Cohesion: 0.60
 Nodes (4): Error, ErrorType, PrayerTimesResult, Success
 
-### Community 142 - "Community 142"
+### Community 146 - "Community 146"
 Cohesion: 0.40
 Nodes (5): 2G-A — Dependency injection, 2G-B — Cache & refresh, 2G-C — Tests, Phase 2G — Hilt DI & test coverage, Quality Gate (Phase 2G)
 
-### Community 143 - "Community 143"
+### Community 147 - "Community 147"
 Cohesion: 0.40
 Nodes (5): 5G — Architecture & audit hardening (complete Jun 2026), Critical / high (runtime), Deferred (not bugs), Medium / architecture, Test infrastructure
 
-### Community 144 - "Community 144"
+### Community 148 - "Community 148"
 Cohesion: 0.50
 Nodes (4): 1.1 Define the first vertical slice, 1.2 Declare trust boundaries early, 1.3 Create a quality gate before roadmap expansion, 1) Pre-build phase (before writing features)
 
-### Community 145 - "Community 145"
+### Community 149 - "Community 149"
 Cohesion: 0.50
 Nodes (4): 3.1 Freeze scope while stabilizing, 3.2 Track what is "implemented" vs "partial" vs "planned", 3.3 Split "historical walkthrough" from "release sign-off", 3) Scope control lessons (Very strict here)
 
-### Community 146 - "Community 146"
+### Community 150 - "Community 150"
 Cohesion: 0.50
 Nodes (4): 5.1 Docs are part of product correctness, 5.2 Keep a stabilization checklist, 5.3 Verification Instructions Requirement, 5) Documentation discipline lessons
 
-### Community 147 - "Community 147"
+### Community 151 - "Community 151"
 Cohesion: 0.50
 Nodes (3): Int, Pair, Pair
 
-### Community 149 - "Community 149"
-Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, AD
-
-### Community 150 - "Community 150"
-Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, AF
-
-### Community 151 - "Community 151"
-Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, AL
-
-### Community 152 - "Community 152"
-Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, AM
-
 ### Community 153 - "Community 153"
 Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, AO
+Nodes (4): latitude, longitude, timezone, AD
 
 ### Community 154 - "Community 154"
 Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, AR
+Nodes (4): latitude, longitude, timezone, AF
 
 ### Community 155 - "Community 155"
 Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, AT
+Nodes (4): latitude, longitude, timezone, AL
 
 ### Community 156 - "Community 156"
 Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, AU
+Nodes (4): latitude, longitude, timezone, AM
 
 ### Community 157 - "Community 157"
 Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, AZ
+Nodes (4): latitude, longitude, timezone, AO
 
 ### Community 158 - "Community 158"
 Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, BA
+Nodes (4): latitude, longitude, timezone, AR
 
 ### Community 159 - "Community 159"
 Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, BE
+Nodes (4): latitude, longitude, timezone, AT
 
 ### Community 160 - "Community 160"
 Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, BG
+Nodes (4): latitude, longitude, timezone, AU
 
 ### Community 161 - "Community 161"
 Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, BH
+Nodes (4): latitude, longitude, timezone, AZ
 
 ### Community 162 - "Community 162"
 Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, BN
+Nodes (4): latitude, longitude, timezone, BA
 
 ### Community 163 - "Community 163"
 Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, BR
+Nodes (4): latitude, longitude, timezone, BE
 
 ### Community 164 - "Community 164"
 Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, BY
+Nodes (4): latitude, longitude, timezone, BG
 
 ### Community 165 - "Community 165"
 Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, CA
+Nodes (4): latitude, longitude, timezone, BH
 
 ### Community 166 - "Community 166"
 Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, CD
+Nodes (4): latitude, longitude, timezone, BN
 
 ### Community 167 - "Community 167"
 Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, CL
+Nodes (4): latitude, longitude, timezone, BR
 
 ### Community 168 - "Community 168"
 Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, CM
+Nodes (4): latitude, longitude, timezone, BY
 
 ### Community 169 - "Community 169"
 Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, CN
+Nodes (4): latitude, longitude, timezone, CA
 
 ### Community 170 - "Community 170"
 Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, CO
+Nodes (4): latitude, longitude, timezone, CD
 
 ### Community 171 - "Community 171"
 Cohesion: 0.50
-Nodes (4): CY, latitude, longitude, timezone
+Nodes (4): latitude, longitude, timezone, CL
 
 ### Community 172 - "Community 172"
 Cohesion: 0.50
-Nodes (4): CZ, latitude, longitude, timezone
+Nodes (4): latitude, longitude, timezone, CM
 
 ### Community 173 - "Community 173"
 Cohesion: 0.50
-Nodes (4): DE, latitude, longitude, timezone
+Nodes (4): latitude, longitude, timezone, CN
 
 ### Community 174 - "Community 174"
 Cohesion: 0.50
-Nodes (4): DJ, latitude, longitude, timezone
+Nodes (4): latitude, longitude, timezone, CO
 
 ### Community 175 - "Community 175"
 Cohesion: 0.50
-Nodes (4): DK, latitude, longitude, timezone
+Nodes (4): CY, latitude, longitude, timezone
 
 ### Community 176 - "Community 176"
 Cohesion: 0.50
-Nodes (4): DZ, latitude, longitude, timezone
+Nodes (4): CZ, latitude, longitude, timezone
 
 ### Community 177 - "Community 177"
 Cohesion: 0.50
-Nodes (4): EE, latitude, longitude, timezone
+Nodes (4): DE, latitude, longitude, timezone
 
 ### Community 178 - "Community 178"
 Cohesion: 0.50
-Nodes (4): EG, latitude, longitude, timezone
+Nodes (4): DJ, latitude, longitude, timezone
 
 ### Community 179 - "Community 179"
 Cohesion: 0.50
-Nodes (4): ER, latitude, longitude, timezone
+Nodes (4): DK, latitude, longitude, timezone
 
 ### Community 180 - "Community 180"
 Cohesion: 0.50
-Nodes (4): FI, latitude, longitude, timezone
+Nodes (4): DZ, latitude, longitude, timezone
 
 ### Community 181 - "Community 181"
 Cohesion: 0.50
-Nodes (4): FR, latitude, longitude, timezone
+Nodes (4): EE, latitude, longitude, timezone
 
 ### Community 182 - "Community 182"
 Cohesion: 0.50
-Nodes (4): GA, latitude, longitude, timezone
+Nodes (4): EG, latitude, longitude, timezone
 
 ### Community 183 - "Community 183"
 Cohesion: 0.50
-Nodes (4): GE, latitude, longitude, timezone
+Nodes (4): ER, latitude, longitude, timezone
 
 ### Community 184 - "Community 184"
 Cohesion: 0.50
-Nodes (4): GH, latitude, longitude, timezone
+Nodes (4): FI, latitude, longitude, timezone
 
 ### Community 185 - "Community 185"
 Cohesion: 0.50
-Nodes (4): GM, latitude, longitude, timezone
+Nodes (4): FR, latitude, longitude, timezone
 
 ### Community 186 - "Community 186"
 Cohesion: 0.50
-Nodes (4): GN, latitude, longitude, timezone
+Nodes (4): GA, latitude, longitude, timezone
 
 ### Community 187 - "Community 187"
 Cohesion: 0.50
-Nodes (4): GR, latitude, longitude, timezone
+Nodes (4): GE, latitude, longitude, timezone
 
 ### Community 188 - "Community 188"
 Cohesion: 0.50
-Nodes (4): GT, latitude, longitude, timezone
+Nodes (4): GH, latitude, longitude, timezone
 
 ### Community 189 - "Community 189"
 Cohesion: 0.50
-Nodes (4): GY, latitude, longitude, timezone
+Nodes (4): GM, latitude, longitude, timezone
 
 ### Community 190 - "Community 190"
 Cohesion: 0.50
-Nodes (4): HN, latitude, longitude, timezone
+Nodes (4): GN, latitude, longitude, timezone
 
 ### Community 191 - "Community 191"
 Cohesion: 0.50
-Nodes (4): HR, latitude, longitude, timezone
+Nodes (4): GR, latitude, longitude, timezone
 
 ### Community 192 - "Community 192"
 Cohesion: 0.50
-Nodes (4): HT, latitude, longitude, timezone
+Nodes (4): GT, latitude, longitude, timezone
 
 ### Community 193 - "Community 193"
 Cohesion: 0.50
-Nodes (4): HU, latitude, longitude, timezone
+Nodes (4): GY, latitude, longitude, timezone
 
 ### Community 194 - "Community 194"
 Cohesion: 0.50
-Nodes (4): ID, latitude, longitude, timezone
+Nodes (4): HN, latitude, longitude, timezone
 
 ### Community 195 - "Community 195"
 Cohesion: 0.50
-Nodes (4): IE, latitude, longitude, timezone
+Nodes (4): HR, latitude, longitude, timezone
 
 ### Community 196 - "Community 196"
 Cohesion: 0.50
-Nodes (4): IN, latitude, longitude, timezone
+Nodes (4): HT, latitude, longitude, timezone
 
 ### Community 197 - "Community 197"
 Cohesion: 0.50
-Nodes (4): IQ, latitude, longitude, timezone
+Nodes (4): HU, latitude, longitude, timezone
 
 ### Community 198 - "Community 198"
 Cohesion: 0.50
-Nodes (4): IR, latitude, longitude, timezone
+Nodes (4): ID, latitude, longitude, timezone
 
 ### Community 199 - "Community 199"
 Cohesion: 0.50
-Nodes (4): IS, latitude, longitude, timezone
+Nodes (4): IE, latitude, longitude, timezone
 
 ### Community 200 - "Community 200"
 Cohesion: 0.50
-Nodes (4): IT, latitude, longitude, timezone
+Nodes (4): IN, latitude, longitude, timezone
 
 ### Community 201 - "Community 201"
 Cohesion: 0.50
-Nodes (4): JM, latitude, longitude, timezone
+Nodes (4): IQ, latitude, longitude, timezone
 
 ### Community 202 - "Community 202"
 Cohesion: 0.50
-Nodes (4): JO, latitude, longitude, timezone
+Nodes (4): IR, latitude, longitude, timezone
 
 ### Community 203 - "Community 203"
 Cohesion: 0.50
-Nodes (4): JP, latitude, longitude, timezone
+Nodes (4): IS, latitude, longitude, timezone
 
 ### Community 204 - "Community 204"
 Cohesion: 0.50
-Nodes (4): KE, latitude, longitude, timezone
+Nodes (4): IT, latitude, longitude, timezone
 
 ### Community 205 - "Community 205"
 Cohesion: 0.50
-Nodes (4): KG, latitude, longitude, timezone
+Nodes (4): JM, latitude, longitude, timezone
 
 ### Community 206 - "Community 206"
 Cohesion: 0.50
-Nodes (4): KH, latitude, longitude, timezone
+Nodes (4): JO, latitude, longitude, timezone
 
 ### Community 207 - "Community 207"
 Cohesion: 0.50
-Nodes (4): KW, latitude, longitude, timezone
+Nodes (4): JP, latitude, longitude, timezone
 
 ### Community 208 - "Community 208"
 Cohesion: 0.50
-Nodes (4): KZ, latitude, longitude, timezone
+Nodes (4): KE, latitude, longitude, timezone
 
 ### Community 209 - "Community 209"
 Cohesion: 0.50
-Nodes (4): LA, latitude, longitude, timezone
+Nodes (4): KG, latitude, longitude, timezone
 
 ### Community 210 - "Community 210"
 Cohesion: 0.50
-Nodes (4): LB, latitude, longitude, timezone
+Nodes (4): KH, latitude, longitude, timezone
 
 ### Community 211 - "Community 211"
 Cohesion: 0.50
-Nodes (4): LT, latitude, longitude, timezone
+Nodes (4): KW, latitude, longitude, timezone
 
 ### Community 212 - "Community 212"
 Cohesion: 0.50
-Nodes (4): LU, latitude, longitude, timezone
+Nodes (4): KZ, latitude, longitude, timezone
 
 ### Community 213 - "Community 213"
 Cohesion: 0.50
-Nodes (4): LV, latitude, longitude, timezone
+Nodes (4): LA, latitude, longitude, timezone
 
 ### Community 214 - "Community 214"
 Cohesion: 0.50
-Nodes (4): LY, latitude, longitude, timezone
+Nodes (4): LB, latitude, longitude, timezone
 
 ### Community 215 - "Community 215"
 Cohesion: 0.50
-Nodes (4): MA, latitude, longitude, timezone
+Nodes (4): LT, latitude, longitude, timezone
 
 ### Community 216 - "Community 216"
 Cohesion: 0.50
-Nodes (4): MC, latitude, longitude, timezone
+Nodes (4): LU, latitude, longitude, timezone
 
 ### Community 217 - "Community 217"
 Cohesion: 0.50
-Nodes (4): ME, latitude, longitude, timezone
+Nodes (4): LV, latitude, longitude, timezone
 
 ### Community 218 - "Community 218"
 Cohesion: 0.50
-Nodes (4): MG, latitude, longitude, timezone
+Nodes (4): LY, latitude, longitude, timezone
 
 ### Community 219 - "Community 219"
 Cohesion: 0.50
-Nodes (4): MK, latitude, longitude, timezone
+Nodes (4): MA, latitude, longitude, timezone
 
 ### Community 220 - "Community 220"
 Cohesion: 0.50
-Nodes (4): ML, latitude, longitude, timezone
+Nodes (4): MC, latitude, longitude, timezone
 
 ### Community 221 - "Community 221"
 Cohesion: 0.50
-Nodes (4): MM, latitude, longitude, timezone
+Nodes (4): ME, latitude, longitude, timezone
 
 ### Community 222 - "Community 222"
 Cohesion: 0.50
-Nodes (4): MN, latitude, longitude, timezone
+Nodes (4): MG, latitude, longitude, timezone
 
 ### Community 223 - "Community 223"
 Cohesion: 0.50
-Nodes (4): MR, latitude, longitude, timezone
+Nodes (4): MK, latitude, longitude, timezone
 
 ### Community 224 - "Community 224"
 Cohesion: 0.50
-Nodes (4): MT, latitude, longitude, timezone
+Nodes (4): ML, latitude, longitude, timezone
 
 ### Community 225 - "Community 225"
 Cohesion: 0.50
-Nodes (4): MV, latitude, longitude, timezone
+Nodes (4): MM, latitude, longitude, timezone
 
 ### Community 226 - "Community 226"
 Cohesion: 0.50
-Nodes (4): MX, latitude, longitude, timezone
+Nodes (4): MN, latitude, longitude, timezone
 
 ### Community 227 - "Community 227"
 Cohesion: 0.50
-Nodes (4): MY, latitude, longitude, timezone
+Nodes (4): MR, latitude, longitude, timezone
 
 ### Community 228 - "Community 228"
 Cohesion: 0.50
-Nodes (4): NA, latitude, longitude, timezone
+Nodes (4): MT, latitude, longitude, timezone
 
 ### Community 229 - "Community 229"
 Cohesion: 0.50
-Nodes (4): NE, latitude, longitude, timezone
+Nodes (4): MV, latitude, longitude, timezone
 
 ### Community 230 - "Community 230"
 Cohesion: 0.50
-Nodes (4): NG, latitude, longitude, timezone
+Nodes (4): MX, latitude, longitude, timezone
 
 ### Community 231 - "Community 231"
 Cohesion: 0.50
-Nodes (4): NI, latitude, longitude, timezone
+Nodes (4): MY, latitude, longitude, timezone
 
 ### Community 232 - "Community 232"
 Cohesion: 0.50
-Nodes (4): NL, latitude, longitude, timezone
+Nodes (4): NA, latitude, longitude, timezone
 
 ### Community 233 - "Community 233"
 Cohesion: 0.50
-Nodes (4): NO, latitude, longitude, timezone
+Nodes (4): NE, latitude, longitude, timezone
 
 ### Community 234 - "Community 234"
 Cohesion: 0.50
-Nodes (4): NP, latitude, longitude, timezone
+Nodes (4): NG, latitude, longitude, timezone
 
 ### Community 235 - "Community 235"
 Cohesion: 0.50
-Nodes (4): NZ, latitude, longitude, timezone
+Nodes (4): NI, latitude, longitude, timezone
 
 ### Community 236 - "Community 236"
 Cohesion: 0.50
-Nodes (4): OM, latitude, longitude, timezone
+Nodes (4): NL, latitude, longitude, timezone
 
 ### Community 237 - "Community 237"
 Cohesion: 0.50
-Nodes (4): PA, latitude, longitude, timezone
+Nodes (4): NO, latitude, longitude, timezone
 
 ### Community 238 - "Community 238"
 Cohesion: 0.50
-Nodes (4): PG, latitude, longitude, timezone
+Nodes (4): NP, latitude, longitude, timezone
 
 ### Community 239 - "Community 239"
 Cohesion: 0.50
-Nodes (4): PK, latitude, longitude, timezone
+Nodes (4): NZ, latitude, longitude, timezone
 
 ### Community 240 - "Community 240"
 Cohesion: 0.50
-Nodes (4): PS, latitude, longitude, timezone
+Nodes (4): OM, latitude, longitude, timezone
 
 ### Community 241 - "Community 241"
 Cohesion: 0.50
-Nodes (4): TD, latitude, longitude, timezone
-
-### Community 242 - "Community 242"
-Cohesion: 0.83
-Nodes (3): CitySelection, CountrySelection, WizardStep
-
-### Community 243 - "Community 243"
-Cohesion: 0.50
-Nodes (3): smoke-ci.sh script, ANDROID_HOME, JAVA_HOME
-
-### Community 244 - "Community 244"
-Cohesion: 0.83
-Nodes (3): Error, SaveCityResult, Success
-
-### Community 245 - "Community 245"
-Cohesion: 0.83
-Nodes (3): Error, GeocodeResult, Success
-
-### Community 246 - "Community 246"
-Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, AD
-
-### Community 247 - "Community 247"
-Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, AF
-
-### Community 248 - "Community 248"
-Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, AL
-
-### Community 249 - "Community 249"
-Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, AM
-
-### Community 250 - "Community 250"
-Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, AO
-
-### Community 251 - "Community 251"
-Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, AR
-
-### Community 252 - "Community 252"
-Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, AT
-
-### Community 253 - "Community 253"
-Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, AU
-
-### Community 254 - "Community 254"
-Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, AZ
-
-### Community 255 - "Community 255"
-Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, BA
-
-### Community 256 - "Community 256"
-Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, BE
-
-### Community 257 - "Community 257"
-Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, BG
-
-### Community 258 - "Community 258"
-Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, BH
-
-### Community 259 - "Community 259"
-Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, BN
-
-### Community 260 - "Community 260"
-Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, BR
-
-### Community 261 - "Community 261"
-Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, BY
-
-### Community 262 - "Community 262"
-Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, CA
-
-### Community 263 - "Community 263"
-Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, CD
-
-### Community 264 - "Community 264"
-Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, CL
-
-### Community 265 - "Community 265"
-Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, CM
-
-### Community 266 - "Community 266"
-Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, CN
-
-### Community 267 - "Community 267"
-Cohesion: 0.50
-Nodes (4): latitude, longitude, timezone, CO
-
-### Community 268 - "Community 268"
-Cohesion: 0.50
-Nodes (4): CY, latitude, longitude, timezone
-
-### Community 269 - "Community 269"
-Cohesion: 0.50
-Nodes (4): CZ, latitude, longitude, timezone
-
-### Community 270 - "Community 270"
-Cohesion: 0.50
-Nodes (4): DE, latitude, longitude, timezone
-
-### Community 271 - "Community 271"
-Cohesion: 0.50
-Nodes (4): DJ, latitude, longitude, timezone
-
-### Community 272 - "Community 272"
-Cohesion: 0.50
-Nodes (4): DK, latitude, longitude, timezone
-
-### Community 273 - "Community 273"
-Cohesion: 0.50
-Nodes (4): DZ, latitude, longitude, timezone
-
-### Community 274 - "Community 274"
-Cohesion: 0.50
-Nodes (4): EE, latitude, longitude, timezone
-
-### Community 275 - "Community 275"
-Cohesion: 0.50
-Nodes (4): EG, latitude, longitude, timezone
-
-### Community 276 - "Community 276"
-Cohesion: 0.50
-Nodes (4): ER, latitude, longitude, timezone
-
-### Community 277 - "Community 277"
-Cohesion: 0.50
-Nodes (4): FI, latitude, longitude, timezone
-
-### Community 278 - "Community 278"
-Cohesion: 0.50
-Nodes (4): FR, latitude, longitude, timezone
-
-### Community 279 - "Community 279"
-Cohesion: 0.50
-Nodes (4): GA, latitude, longitude, timezone
-
-### Community 280 - "Community 280"
-Cohesion: 0.50
-Nodes (4): GE, latitude, longitude, timezone
-
-### Community 281 - "Community 281"
-Cohesion: 0.50
-Nodes (4): GH, latitude, longitude, timezone
-
-### Community 282 - "Community 282"
-Cohesion: 0.50
-Nodes (4): GM, latitude, longitude, timezone
-
-### Community 283 - "Community 283"
-Cohesion: 0.50
-Nodes (4): GN, latitude, longitude, timezone
-
-### Community 284 - "Community 284"
-Cohesion: 0.50
-Nodes (4): GR, latitude, longitude, timezone
-
-### Community 285 - "Community 285"
-Cohesion: 0.50
-Nodes (4): GT, latitude, longitude, timezone
-
-### Community 286 - "Community 286"
-Cohesion: 0.50
-Nodes (4): GY, latitude, longitude, timezone
-
-### Community 287 - "Community 287"
-Cohesion: 0.50
-Nodes (4): HN, latitude, longitude, timezone
-
-### Community 288 - "Community 288"
-Cohesion: 0.50
-Nodes (4): HR, latitude, longitude, timezone
-
-### Community 289 - "Community 289"
-Cohesion: 0.50
-Nodes (4): HT, latitude, longitude, timezone
-
-### Community 290 - "Community 290"
-Cohesion: 0.50
-Nodes (4): HU, latitude, longitude, timezone
-
-### Community 291 - "Community 291"
-Cohesion: 0.50
-Nodes (4): ID, latitude, longitude, timezone
-
-### Community 292 - "Community 292"
-Cohesion: 0.50
-Nodes (4): IE, latitude, longitude, timezone
-
-### Community 293 - "Community 293"
-Cohesion: 0.50
-Nodes (4): IN, latitude, longitude, timezone
-
-### Community 294 - "Community 294"
-Cohesion: 0.50
-Nodes (4): IQ, latitude, longitude, timezone
-
-### Community 295 - "Community 295"
-Cohesion: 0.50
-Nodes (4): IR, latitude, longitude, timezone
-
-### Community 296 - "Community 296"
-Cohesion: 0.50
-Nodes (4): IS, latitude, longitude, timezone
-
-### Community 297 - "Community 297"
-Cohesion: 0.50
-Nodes (4): IT, latitude, longitude, timezone
-
-### Community 298 - "Community 298"
-Cohesion: 0.50
-Nodes (4): JM, latitude, longitude, timezone
-
-### Community 299 - "Community 299"
-Cohesion: 0.50
-Nodes (4): JO, latitude, longitude, timezone
-
-### Community 300 - "Community 300"
-Cohesion: 0.50
-Nodes (4): JP, latitude, longitude, timezone
-
-### Community 301 - "Community 301"
-Cohesion: 0.50
-Nodes (4): KE, latitude, longitude, timezone
-
-### Community 302 - "Community 302"
-Cohesion: 0.50
-Nodes (4): KG, latitude, longitude, timezone
-
-### Community 303 - "Community 303"
-Cohesion: 0.50
-Nodes (4): KH, latitude, longitude, timezone
-
-### Community 304 - "Community 304"
-Cohesion: 0.50
-Nodes (4): KW, latitude, longitude, timezone
-
-### Community 305 - "Community 305"
-Cohesion: 0.50
-Nodes (4): KZ, latitude, longitude, timezone
-
-### Community 306 - "Community 306"
-Cohesion: 0.50
-Nodes (4): LA, latitude, longitude, timezone
-
-### Community 307 - "Community 307"
-Cohesion: 0.50
-Nodes (4): LB, latitude, longitude, timezone
-
-### Community 308 - "Community 308"
-Cohesion: 0.50
-Nodes (4): LT, latitude, longitude, timezone
-
-### Community 309 - "Community 309"
-Cohesion: 0.50
-Nodes (4): LU, latitude, longitude, timezone
-
-### Community 310 - "Community 310"
-Cohesion: 0.50
-Nodes (4): LV, latitude, longitude, timezone
-
-### Community 311 - "Community 311"
-Cohesion: 0.50
-Nodes (4): LY, latitude, longitude, timezone
-
-### Community 312 - "Community 312"
-Cohesion: 0.50
-Nodes (4): MA, latitude, longitude, timezone
-
-### Community 313 - "Community 313"
-Cohesion: 0.50
-Nodes (4): MC, latitude, longitude, timezone
-
-### Community 314 - "Community 314"
-Cohesion: 0.50
-Nodes (4): ME, latitude, longitude, timezone
-
-### Community 315 - "Community 315"
-Cohesion: 0.50
-Nodes (4): MG, latitude, longitude, timezone
-
-### Community 316 - "Community 316"
-Cohesion: 0.50
-Nodes (4): MK, latitude, longitude, timezone
-
-### Community 317 - "Community 317"
-Cohesion: 0.50
-Nodes (4): ML, latitude, longitude, timezone
-
-### Community 318 - "Community 318"
-Cohesion: 0.50
-Nodes (4): MM, latitude, longitude, timezone
-
-### Community 319 - "Community 319"
-Cohesion: 0.50
-Nodes (4): MN, latitude, longitude, timezone
-
-### Community 320 - "Community 320"
-Cohesion: 0.50
-Nodes (4): MR, latitude, longitude, timezone
-
-### Community 321 - "Community 321"
-Cohesion: 0.50
-Nodes (4): MT, latitude, longitude, timezone
-
-### Community 322 - "Community 322"
-Cohesion: 0.50
-Nodes (4): MV, latitude, longitude, timezone
-
-### Community 323 - "Community 323"
-Cohesion: 0.50
-Nodes (4): MX, latitude, longitude, timezone
-
-### Community 324 - "Community 324"
-Cohesion: 0.50
-Nodes (4): MY, latitude, longitude, timezone
-
-### Community 325 - "Community 325"
-Cohesion: 0.50
-Nodes (4): NA, latitude, longitude, timezone
-
-### Community 326 - "Community 326"
-Cohesion: 0.50
-Nodes (4): NE, latitude, longitude, timezone
-
-### Community 327 - "Community 327"
-Cohesion: 0.50
-Nodes (4): NG, latitude, longitude, timezone
-
-### Community 328 - "Community 328"
-Cohesion: 0.50
-Nodes (4): NI, latitude, longitude, timezone
-
-### Community 329 - "Community 329"
-Cohesion: 0.50
-Nodes (4): NL, latitude, longitude, timezone
-
-### Community 330 - "Community 330"
-Cohesion: 0.50
-Nodes (4): NO, latitude, longitude, timezone
-
-### Community 331 - "Community 331"
-Cohesion: 0.50
-Nodes (4): NP, latitude, longitude, timezone
-
-### Community 332 - "Community 332"
-Cohesion: 0.50
-Nodes (4): NZ, latitude, longitude, timezone
-
-### Community 333 - "Community 333"
-Cohesion: 0.50
-Nodes (4): OM, latitude, longitude, timezone
-
-### Community 334 - "Community 334"
-Cohesion: 0.50
 Nodes (4): PA, latitude, longitude, timezone
 
-### Community 335 - "Community 335"
+### Community 242 - "Community 242"
 Cohesion: 0.50
 Nodes (4): PG, latitude, longitude, timezone
 
-### Community 336 - "Community 336"
+### Community 243 - "Community 243"
 Cohesion: 0.50
 Nodes (4): PK, latitude, longitude, timezone
 
-### Community 337 - "Community 337"
+### Community 244 - "Community 244"
 Cohesion: 0.50
 Nodes (4): PS, latitude, longitude, timezone
 
-### Community 338 - "Community 338"
+### Community 245 - "Community 245"
 Cohesion: 0.50
 Nodes (4): TD, latitude, longitude, timezone
 
-### Community 344 - "Community 344"
+### Community 246 - "Community 246"
+Cohesion: 0.83
+Nodes (3): CitySelection, CountrySelection, WizardStep
+
+### Community 247 - "Community 247"
+Cohesion: 0.50
+Nodes (3): release-gate.sh script, ANDROID_HOME, JAVA_HOME
+
+### Community 248 - "Community 248"
+Cohesion: 0.50
+Nodes (3): smoke-ci.sh script, ANDROID_HOME, JAVA_HOME
+
+### Community 249 - "Community 249"
+Cohesion: 0.83
+Nodes (3): Error, SaveCityResult, Success
+
+### Community 250 - "Community 250"
+Cohesion: 0.83
+Nodes (3): Error, GeocodeResult, Success
+
+### Community 251 - "Community 251"
+Cohesion: 0.50
+Nodes (4): latitude, longitude, timezone, AD
+
+### Community 252 - "Community 252"
+Cohesion: 0.50
+Nodes (4): latitude, longitude, timezone, AF
+
+### Community 253 - "Community 253"
+Cohesion: 0.50
+Nodes (4): latitude, longitude, timezone, AL
+
+### Community 254 - "Community 254"
+Cohesion: 0.50
+Nodes (4): latitude, longitude, timezone, AM
+
+### Community 255 - "Community 255"
+Cohesion: 0.50
+Nodes (4): latitude, longitude, timezone, AO
+
+### Community 256 - "Community 256"
+Cohesion: 0.50
+Nodes (4): latitude, longitude, timezone, AR
+
+### Community 257 - "Community 257"
+Cohesion: 0.50
+Nodes (4): latitude, longitude, timezone, AT
+
+### Community 258 - "Community 258"
+Cohesion: 0.50
+Nodes (4): latitude, longitude, timezone, AU
+
+### Community 259 - "Community 259"
+Cohesion: 0.50
+Nodes (4): latitude, longitude, timezone, AZ
+
+### Community 260 - "Community 260"
+Cohesion: 0.50
+Nodes (4): latitude, longitude, timezone, BA
+
+### Community 261 - "Community 261"
+Cohesion: 0.50
+Nodes (4): latitude, longitude, timezone, BE
+
+### Community 262 - "Community 262"
+Cohesion: 0.50
+Nodes (4): latitude, longitude, timezone, BG
+
+### Community 263 - "Community 263"
+Cohesion: 0.50
+Nodes (4): latitude, longitude, timezone, BH
+
+### Community 264 - "Community 264"
+Cohesion: 0.50
+Nodes (4): latitude, longitude, timezone, BN
+
+### Community 265 - "Community 265"
+Cohesion: 0.50
+Nodes (4): latitude, longitude, timezone, BR
+
+### Community 266 - "Community 266"
+Cohesion: 0.50
+Nodes (4): latitude, longitude, timezone, BY
+
+### Community 267 - "Community 267"
+Cohesion: 0.50
+Nodes (4): latitude, longitude, timezone, CA
+
+### Community 268 - "Community 268"
+Cohesion: 0.50
+Nodes (4): latitude, longitude, timezone, CD
+
+### Community 269 - "Community 269"
+Cohesion: 0.50
+Nodes (4): latitude, longitude, timezone, CL
+
+### Community 270 - "Community 270"
+Cohesion: 0.50
+Nodes (4): latitude, longitude, timezone, CM
+
+### Community 271 - "Community 271"
+Cohesion: 0.50
+Nodes (4): latitude, longitude, timezone, CN
+
+### Community 272 - "Community 272"
+Cohesion: 0.50
+Nodes (4): latitude, longitude, timezone, CO
+
+### Community 273 - "Community 273"
+Cohesion: 0.50
+Nodes (4): CY, latitude, longitude, timezone
+
+### Community 274 - "Community 274"
+Cohesion: 0.50
+Nodes (4): CZ, latitude, longitude, timezone
+
+### Community 275 - "Community 275"
+Cohesion: 0.50
+Nodes (4): DE, latitude, longitude, timezone
+
+### Community 276 - "Community 276"
+Cohesion: 0.50
+Nodes (4): DJ, latitude, longitude, timezone
+
+### Community 277 - "Community 277"
+Cohesion: 0.50
+Nodes (4): DK, latitude, longitude, timezone
+
+### Community 278 - "Community 278"
+Cohesion: 0.50
+Nodes (4): DZ, latitude, longitude, timezone
+
+### Community 279 - "Community 279"
+Cohesion: 0.50
+Nodes (4): EE, latitude, longitude, timezone
+
+### Community 280 - "Community 280"
+Cohesion: 0.50
+Nodes (4): EG, latitude, longitude, timezone
+
+### Community 281 - "Community 281"
+Cohesion: 0.50
+Nodes (4): ER, latitude, longitude, timezone
+
+### Community 282 - "Community 282"
+Cohesion: 0.50
+Nodes (4): FI, latitude, longitude, timezone
+
+### Community 283 - "Community 283"
+Cohesion: 0.50
+Nodes (4): FR, latitude, longitude, timezone
+
+### Community 284 - "Community 284"
+Cohesion: 0.50
+Nodes (4): GA, latitude, longitude, timezone
+
+### Community 285 - "Community 285"
+Cohesion: 0.50
+Nodes (4): GE, latitude, longitude, timezone
+
+### Community 286 - "Community 286"
+Cohesion: 0.50
+Nodes (4): GH, latitude, longitude, timezone
+
+### Community 287 - "Community 287"
+Cohesion: 0.50
+Nodes (4): GM, latitude, longitude, timezone
+
+### Community 288 - "Community 288"
+Cohesion: 0.50
+Nodes (4): GN, latitude, longitude, timezone
+
+### Community 289 - "Community 289"
+Cohesion: 0.50
+Nodes (4): GR, latitude, longitude, timezone
+
+### Community 290 - "Community 290"
+Cohesion: 0.50
+Nodes (4): GT, latitude, longitude, timezone
+
+### Community 291 - "Community 291"
+Cohesion: 0.50
+Nodes (4): GY, latitude, longitude, timezone
+
+### Community 292 - "Community 292"
+Cohesion: 0.50
+Nodes (4): HN, latitude, longitude, timezone
+
+### Community 293 - "Community 293"
+Cohesion: 0.50
+Nodes (4): HR, latitude, longitude, timezone
+
+### Community 294 - "Community 294"
+Cohesion: 0.50
+Nodes (4): HT, latitude, longitude, timezone
+
+### Community 295 - "Community 295"
+Cohesion: 0.50
+Nodes (4): HU, latitude, longitude, timezone
+
+### Community 296 - "Community 296"
+Cohesion: 0.50
+Nodes (4): ID, latitude, longitude, timezone
+
+### Community 297 - "Community 297"
+Cohesion: 0.50
+Nodes (4): IE, latitude, longitude, timezone
+
+### Community 298 - "Community 298"
+Cohesion: 0.50
+Nodes (4): IN, latitude, longitude, timezone
+
+### Community 299 - "Community 299"
+Cohesion: 0.50
+Nodes (4): IQ, latitude, longitude, timezone
+
+### Community 300 - "Community 300"
+Cohesion: 0.50
+Nodes (4): IR, latitude, longitude, timezone
+
+### Community 301 - "Community 301"
+Cohesion: 0.50
+Nodes (4): IS, latitude, longitude, timezone
+
+### Community 302 - "Community 302"
+Cohesion: 0.50
+Nodes (4): IT, latitude, longitude, timezone
+
+### Community 303 - "Community 303"
+Cohesion: 0.50
+Nodes (4): JM, latitude, longitude, timezone
+
+### Community 304 - "Community 304"
+Cohesion: 0.50
+Nodes (4): JO, latitude, longitude, timezone
+
+### Community 305 - "Community 305"
+Cohesion: 0.50
+Nodes (4): JP, latitude, longitude, timezone
+
+### Community 306 - "Community 306"
+Cohesion: 0.50
+Nodes (4): KE, latitude, longitude, timezone
+
+### Community 307 - "Community 307"
+Cohesion: 0.50
+Nodes (4): KG, latitude, longitude, timezone
+
+### Community 308 - "Community 308"
+Cohesion: 0.50
+Nodes (4): KH, latitude, longitude, timezone
+
+### Community 309 - "Community 309"
+Cohesion: 0.50
+Nodes (4): KW, latitude, longitude, timezone
+
+### Community 310 - "Community 310"
+Cohesion: 0.50
+Nodes (4): KZ, latitude, longitude, timezone
+
+### Community 311 - "Community 311"
+Cohesion: 0.50
+Nodes (4): LA, latitude, longitude, timezone
+
+### Community 312 - "Community 312"
+Cohesion: 0.50
+Nodes (4): LB, latitude, longitude, timezone
+
+### Community 313 - "Community 313"
+Cohesion: 0.50
+Nodes (4): LT, latitude, longitude, timezone
+
+### Community 314 - "Community 314"
+Cohesion: 0.50
+Nodes (4): LU, latitude, longitude, timezone
+
+### Community 315 - "Community 315"
+Cohesion: 0.50
+Nodes (4): LV, latitude, longitude, timezone
+
+### Community 316 - "Community 316"
+Cohesion: 0.50
+Nodes (4): LY, latitude, longitude, timezone
+
+### Community 317 - "Community 317"
+Cohesion: 0.50
+Nodes (4): MA, latitude, longitude, timezone
+
+### Community 318 - "Community 318"
+Cohesion: 0.50
+Nodes (4): MC, latitude, longitude, timezone
+
+### Community 319 - "Community 319"
+Cohesion: 0.50
+Nodes (4): ME, latitude, longitude, timezone
+
+### Community 320 - "Community 320"
+Cohesion: 0.50
+Nodes (4): MG, latitude, longitude, timezone
+
+### Community 321 - "Community 321"
+Cohesion: 0.50
+Nodes (4): MK, latitude, longitude, timezone
+
+### Community 322 - "Community 322"
+Cohesion: 0.50
+Nodes (4): ML, latitude, longitude, timezone
+
+### Community 323 - "Community 323"
+Cohesion: 0.50
+Nodes (4): MM, latitude, longitude, timezone
+
+### Community 324 - "Community 324"
+Cohesion: 0.50
+Nodes (4): MN, latitude, longitude, timezone
+
+### Community 325 - "Community 325"
+Cohesion: 0.50
+Nodes (4): MR, latitude, longitude, timezone
+
+### Community 326 - "Community 326"
+Cohesion: 0.50
+Nodes (4): MT, latitude, longitude, timezone
+
+### Community 327 - "Community 327"
+Cohesion: 0.50
+Nodes (4): MV, latitude, longitude, timezone
+
+### Community 328 - "Community 328"
+Cohesion: 0.50
+Nodes (4): MX, latitude, longitude, timezone
+
+### Community 329 - "Community 329"
+Cohesion: 0.50
+Nodes (4): MY, latitude, longitude, timezone
+
+### Community 330 - "Community 330"
+Cohesion: 0.50
+Nodes (4): NA, latitude, longitude, timezone
+
+### Community 331 - "Community 331"
+Cohesion: 0.50
+Nodes (4): NE, latitude, longitude, timezone
+
+### Community 332 - "Community 332"
+Cohesion: 0.50
+Nodes (4): NG, latitude, longitude, timezone
+
+### Community 333 - "Community 333"
+Cohesion: 0.50
+Nodes (4): NI, latitude, longitude, timezone
+
+### Community 334 - "Community 334"
+Cohesion: 0.50
+Nodes (4): NL, latitude, longitude, timezone
+
+### Community 335 - "Community 335"
+Cohesion: 0.50
+Nodes (4): NO, latitude, longitude, timezone
+
+### Community 336 - "Community 336"
+Cohesion: 0.50
+Nodes (4): NP, latitude, longitude, timezone
+
+### Community 337 - "Community 337"
+Cohesion: 0.50
+Nodes (4): NZ, latitude, longitude, timezone
+
+### Community 338 - "Community 338"
+Cohesion: 0.50
+Nodes (4): OM, latitude, longitude, timezone
+
+### Community 339 - "Community 339"
+Cohesion: 0.50
+Nodes (4): PA, latitude, longitude, timezone
+
+### Community 340 - "Community 340"
+Cohesion: 0.50
+Nodes (4): PG, latitude, longitude, timezone
+
+### Community 341 - "Community 341"
+Cohesion: 0.50
+Nodes (4): PK, latitude, longitude, timezone
+
+### Community 342 - "Community 342"
+Cohesion: 0.50
+Nodes (4): PS, latitude, longitude, timezone
+
+### Community 343 - "Community 343"
+Cohesion: 0.50
+Nodes (4): TD, latitude, longitude, timezone
+
+### Community 349 - "Community 349"
 Cohesion: 0.67
 Nodes (3): Phase 0: Project Scaffolding, Quality Gate (Phase 0) — ✅ SCREENING PASSED, Tasks
 
 ## Knowledge Gaps
-- **1411 isolated node(s):** `java.import.gradle.java.home`, `java.jdt.ls.java.home`, `formatVersion`, `version`, `identityHash` (+1406 more)
+- **1447 isolated node(s):** `java.import.gradle.java.home`, `java.jdt.ls.java.home`, `formatVersion`, `version`, `identityHash` (+1442 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **46 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **47 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `SimpleDateFormat` connect `Community 56` to `Community 64`, `Community 96`, `Community 98`, `Community 38`, `Community 11`, `Community 44`, `Community 15`, `Community 23`, `Community 24`, `Community 25`, `Community 27`?**
-  _High betweenness centrality (0.033) - this node is a cross-community bridge._
-- **Why does `countryDefaults` connect `Community 80` to `Community 149`, `Community 150`, `Community 151`, `Community 152`, `Community 153`, `Community 154`, `Community 155`, `Community 156`, `Community 157`, `Community 158`, `Community 159`, `Community 160`, `Community 161`, `Community 162`, `Community 163`, `Community 164`, `Community 165`, `Community 166`, `Community 167`, `Community 168`, `Community 169`, `Community 170`, `Community 171`, `Community 172`, `Community 173`, `Community 174`, `Community 175`, `Community 176`, `Community 177`, `Community 178`, `Community 179`, `Community 180`, `Community 181`, `Community 182`, `Community 183`, `Community 184`, `Community 185`, `Community 186`, `Community 187`, `Community 188`, `Community 189`, `Community 190`, `Community 191`, `Community 192`, `Community 193`, `Community 194`, `Community 195`, `Community 196`, `Community 197`, `Community 198`, `Community 199`, `Community 200`, `Community 201`, `Community 202`, `Community 203`, `Community 204`, `Community 205`, `Community 206`, `Community 207`, `Community 208`, `Community 209`, `Community 210`, `Community 211`, `Community 212`, `Community 213`, `Community 214`, `Community 215`, `Community 216`, `Community 217`, `Community 218`, `Community 219`, `Community 220`, `Community 221`, `Community 222`, `Community 223`, `Community 224`, `Community 225`, `Community 226`, `Community 227`, `Community 228`, `Community 229`, `Community 230`, `Community 231`, `Community 232`, `Community 233`, `Community 234`, `Community 235`, `Community 236`, `Community 237`, `Community 238`, `Community 239`, `Community 240`, `Community 241`, `Community 348`?**
+- **Why does `SimpleDateFormat` connect `Community 57` to `Community 65`, `Community 97`, `Community 99`, `Community 38`, `Community 12`, `Community 44`, `Community 17`, `Community 24`, `Community 25`, `Community 26`, `Community 29`?**
+  _High betweenness centrality (0.038) - this node is a cross-community bridge._
+- **Why does `countryDefaults` connect `Community 80` to `Community 153`, `Community 154`, `Community 155`, `Community 156`, `Community 157`, `Community 158`, `Community 159`, `Community 160`, `Community 161`, `Community 162`, `Community 163`, `Community 164`, `Community 165`, `Community 166`, `Community 167`, `Community 168`, `Community 169`, `Community 170`, `Community 171`, `Community 172`, `Community 173`, `Community 174`, `Community 175`, `Community 176`, `Community 177`, `Community 178`, `Community 179`, `Community 180`, `Community 181`, `Community 182`, `Community 183`, `Community 184`, `Community 185`, `Community 186`, `Community 187`, `Community 188`, `Community 189`, `Community 190`, `Community 191`, `Community 192`, `Community 193`, `Community 194`, `Community 195`, `Community 196`, `Community 197`, `Community 198`, `Community 199`, `Community 200`, `Community 201`, `Community 202`, `Community 203`, `Community 204`, `Community 205`, `Community 206`, `Community 207`, `Community 208`, `Community 209`, `Community 210`, `Community 211`, `Community 212`, `Community 213`, `Community 214`, `Community 215`, `Community 216`, `Community 217`, `Community 218`, `Community 219`, `Community 220`, `Community 221`, `Community 222`, `Community 223`, `Community 224`, `Community 225`, `Community 226`, `Community 227`, `Community 228`, `Community 229`, `Community 230`, `Community 231`, `Community 232`, `Community 233`, `Community 234`, `Community 235`, `Community 236`, `Community 237`, `Community 238`, `Community 239`, `Community 240`, `Community 241`, `Community 242`, `Community 243`, `Community 244`, `Community 245`, `Community 353`?**
   _High betweenness centrality (0.027) - this node is a cross-community bridge._
-- **Why does `countryDefaults` connect `Community 82` to `Community 246`, `Community 247`, `Community 248`, `Community 249`, `Community 250`, `Community 251`, `Community 252`, `Community 253`, `Community 254`, `Community 255`, `Community 256`, `Community 257`, `Community 258`, `Community 259`, `Community 260`, `Community 261`, `Community 262`, `Community 263`, `Community 264`, `Community 265`, `Community 266`, `Community 267`, `Community 268`, `Community 269`, `Community 270`, `Community 271`, `Community 272`, `Community 273`, `Community 274`, `Community 275`, `Community 276`, `Community 277`, `Community 278`, `Community 279`, `Community 280`, `Community 281`, `Community 282`, `Community 283`, `Community 284`, `Community 285`, `Community 286`, `Community 287`, `Community 288`, `Community 289`, `Community 290`, `Community 291`, `Community 292`, `Community 293`, `Community 294`, `Community 295`, `Community 296`, `Community 297`, `Community 298`, `Community 299`, `Community 300`, `Community 301`, `Community 302`, `Community 303`, `Community 304`, `Community 305`, `Community 306`, `Community 307`, `Community 308`, `Community 309`, `Community 310`, `Community 311`, `Community 312`, `Community 313`, `Community 314`, `Community 315`, `Community 316`, `Community 317`, `Community 318`, `Community 319`, `Community 320`, `Community 321`, `Community 322`, `Community 323`, `Community 324`, `Community 325`, `Community 326`, `Community 327`, `Community 328`, `Community 329`, `Community 330`, `Community 331`, `Community 332`, `Community 333`, `Community 334`, `Community 335`, `Community 336`, `Community 337`, `Community 338`, `Community 361`?**
-  _High betweenness centrality (0.020) - this node is a cross-community bridge._
+- **Why does `countryDefaults` connect `Community 82` to `Community 251`, `Community 252`, `Community 253`, `Community 254`, `Community 255`, `Community 256`, `Community 257`, `Community 258`, `Community 259`, `Community 260`, `Community 261`, `Community 262`, `Community 263`, `Community 264`, `Community 265`, `Community 266`, `Community 267`, `Community 268`, `Community 269`, `Community 270`, `Community 271`, `Community 272`, `Community 273`, `Community 274`, `Community 275`, `Community 276`, `Community 277`, `Community 278`, `Community 279`, `Community 280`, `Community 281`, `Community 282`, `Community 283`, `Community 284`, `Community 285`, `Community 286`, `Community 287`, `Community 288`, `Community 289`, `Community 290`, `Community 291`, `Community 292`, `Community 293`, `Community 294`, `Community 295`, `Community 296`, `Community 297`, `Community 298`, `Community 299`, `Community 300`, `Community 301`, `Community 302`, `Community 303`, `Community 304`, `Community 305`, `Community 306`, `Community 307`, `Community 308`, `Community 309`, `Community 310`, `Community 311`, `Community 312`, `Community 313`, `Community 314`, `Community 315`, `Community 316`, `Community 317`, `Community 318`, `Community 319`, `Community 320`, `Community 321`, `Community 322`, `Community 323`, `Community 324`, `Community 325`, `Community 326`, `Community 327`, `Community 328`, `Community 329`, `Community 330`, `Community 331`, `Community 332`, `Community 333`, `Community 334`, `Community 335`, `Community 336`, `Community 337`, `Community 338`, `Community 339`, `Community 340`, `Community 341`, `Community 342`, `Community 343`, `Community 366`?**
+  _High betweenness centrality (0.023) - this node is a cross-community bridge._
 - **What connects `java.import.gradle.java.home`, `java.jdt.ls.java.home`, `formatVersion` to the rest of the system?**
-  _1411 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _1447 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.017241379310344827 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**

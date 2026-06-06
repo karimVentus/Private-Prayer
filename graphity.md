@@ -117,4 +117,4 @@ Use the graph to avoid stale imports when refactoring repository ↔ flavor-spec
 
 **Test counts (Jun 2026):** **303** `@Test` in shared `app/src/test/java/` (both flavors) + **41** online-only in `app/src/testOnline/java/` = **344** online JVM tests. Recount: `rg -c '@Test' app/src/test/java app/src/testOnline/java --glob '*.kt'`.
 
-**Last Graphify run:** 2026-06-06 — **3364 nodes, 54706 edges** (post-**5E.31**: medium widget 3-band layout, unified highlight overlay, short labels).
+**Last Graphify run:** 2026-06-06 — **3374 nodes, 58985 edges** (post-**5E.33**: medium widget time-only, 14sp, Ashura AR label, README screenshots).

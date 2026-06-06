@@ -163,7 +163,7 @@ OnlinePrayerTimesRepository : PrayerTimesRepository
 - **Three themes:** `AppTheme.LIGHT` (default), `GREEN`, `DARK` — persisted in DataStore (`app_theme`)
 - **Compose:** `PrayerTimeTheme(theme)` + `ThemePalettes.materialScheme()`; calendar uses `LocalCalendarPalette` / `calendarPalette()`
 - **Settings:** user-facing **Settings** screen (`AboutScreen.kt`) — theme picker, privacy, adhan, refresh
-- **Widgets:** `WidgetSnapshot.appTheme`; `ThemePalettes.widget()` colors; per-theme `widget_col_highlight_{light,green,dark}.xml` (8dp radius); M-widget **5×1** three equal bands (header / names / times), short labels, unified next-prayer highlight via `widget_highlight_0..5` overlay
+- **Widgets:** `WidgetSnapshot.appTheme`; `ThemePalettes.widget()` colors; per-theme `widget_col_highlight_{light,green,dark}.xml` (8dp radius); M-widget **5×1** three equal bands (header / names / times), **14sp** labels+times, **time-only** (no column countdown), unified next-prayer highlight via `widget_highlight_0..5` overlay
 - **Per-prayer mute:** `PrayerTimesScreen` toggles → `muted_prayers` DataStore; `PrayerAlarmScheduler` schedules all six `Prayer` slots; `AdhanAlarmReceiver` no-ops when muted
 
 ## Graphify
@@ -174,7 +174,7 @@ After structural changes or phase completion:
 OPENAI_API_KEY="" graphify update . --no-cluster
 ```
 
-Details: [`graphity.md`](graphity.md). Diagrams: [`PHASED_PLAN.md`](PHASED_PLAN.md). **Last run:** 2026-06-06 — **3364** nodes, **54706** edges (medium widget layout **5E.31**).
+Details: [`graphity.md`](graphity.md). Diagrams: [`PHASED_PLAN.md`](PHASED_PLAN.md). **Last run:** 2026-06-06 — **3374** nodes, **58985** edges (**5E.33** time-only M-widget + Ashura AR).
 
 ## Orientation
 

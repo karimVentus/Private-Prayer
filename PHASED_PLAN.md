@@ -30,8 +30,8 @@
 | **5C.1 / 5C.3 offline QA** | **Done (Jun 2026)** | 5C.1 airplane-at-launch cache hit (online flavor); 5C.3 network restore, same six prayer clocks online vs offline |
 | **Widget picker previews** | **Done (5E.28)** | `widget_preview_*` layouts + `xml-v31` `previewLayout`; static light sample (runtime widgets follow user theme) |
 | **Launcher icon** | **Done (5E.29)** | `ic_launcher_foreground` vector on green adaptive icon (replaces solid-white foreground) |
-| **App themes (5E.16–19)** | **Done (Jun 2026)** | Light / Green / Dark — `AppTheme`, `ThemePalettes`, Settings picker, calendar + all four widgets; M-widget countdown inline + 8dp column highlight |
-| **M-widget layout (5E.31)** | **Done (Jun 2026)** | 5×1 grid; 3 equal bands (header / names / times); short labels; unified next-prayer highlight (`widget_highlight_*` overlay); phone QA signed off |
+| **App themes (5E.16–19)** | **Done (Jun 2026)** | Light / Green / Dark — `AppTheme`, `ThemePalettes`, Settings picker, calendar + all four widgets; per-theme column highlight on M/L widgets |
+| **M-widget layout (5E.31–33)** | **Done (Jun 2026)** | 5×1 grid; 3 equal bands (header / names / times); short labels; **14sp** names+times; **time-only** (no column countdown); unified next-prayer highlight (`widget_highlight_*` overlay); phone QA signed off |
 | **5F.1 API 23 QA** | **Done (Jun 2026)** | `PrayerTimeAPI23` emulator — signed release APK; AR prayer screen + Settings; M widget; adhan toggle (`ic_stat_adhan` fix) |
 | **5F.2 API 34 QA** | **Done (Jun 2026)** | `PrayerTimeEmulator` (API 34) — release smoke, language picker, widget polish; emulator partial pass accepted |
 | **Phase 6** release | **Done (`v1.0.0`)** | R8 + signed APK/AAB (~12 MB); PR #22 merged; tag pushed Jun 2026 |
@@ -173,7 +173,7 @@ Maintain an up-to-date code graph after each phase gate. Full CLI lifecycle: [`g
 
 **Agent rule:** Run Graphify update when architecture boundaries change (new packages, repository paths, or phase completion).
 
-> **Last Graphify run:** 2026-06-06 — **3364** nodes, **54706** edges (post **5E.31** medium widget layout). Commit `graphify-out/` with structural PRs.
+> **Last Graphify run:** 2026-06-06 — **3374** nodes, **58985** edges (post **5E.33** medium widget time-only + Ashura AR). Commit `graphify-out/` with structural PRs.
 
 ---
 
@@ -744,8 +744,10 @@ QA helper: `./scripts/qa-offline.sh` (`audit`, `5c1`, `5c2-guide`, `5c3`, `netwo
 
 #### 5E addendum — Jun 6 session (medium widget layout, post v1.0.0)
 
-- [x] **5E.31** Medium widget layout — `widget_prayer_times_medium.xml` restructured into three equal vertical bands (header event+Hijri / prayer names / times); restored **5×1** `targetCellHeight=1`; short prayer labels (`widget_m_*` strings); time-only columns (no inline countdown clip); unified next-prayer highlight via `widget_highlight_0..5` overlay in `widget_prayer_block` (single border per column — highlight slots stay `VISIBLE` so `GONE` does not expand one column to full width); `WidgetRemoteViewsBuilder.unifiedColumnHighlight`; tests updated
+- [x] **5E.31** Medium widget layout — `widget_prayer_times_medium.xml` restructured into three equal vertical bands (header event+Hijri / prayer names / times); restored **5×1** `targetCellHeight=1`; short prayer labels (`widget_m_*` strings); unified next-prayer highlight via `widget_highlight_0..5` overlay in `widget_prayer_block` (single border per column — highlight slots stay `VISIBLE` so `GONE` does not expand one column to full width); `WidgetRemoteViewsBuilder.unifiedColumnHighlight`; tests updated
 - [x] **5E.32** Graphify updated — **3364** nodes, **54706** edges (2026-06-06, post **5E.31**)
+- [x] **5E.33** Medium widget polish — **14sp** prayer names + times; **time-only** medium bind (`timeOnly=true`, no per-column countdown — user feedback; countdown stays on small + large widgets); AR Ashura event label `event_ashura` → **عشرة محرم**
+- [x] **5E.34** Graphify updated — **3374** nodes, **58985** edges (2026-06-06, post **5E.33**)
 
 ### 5F — Multi-Device Testing
 
@@ -832,9 +834,9 @@ As issues arise during development, append entries to `APP_CREATION_PLAYBOOK.md`
 
 - [x] **APP_CREATION_PLAYBOOK.md** — feature table + audit incident log (2026-06-04)
 - [x] **README.md** — screenshots, features table, release/install (2026-06-06)
-- [x] **PHASED_PLAN.md** — M-widget layout polish **5E.31** + Graphify (2026-06-06)
-- [x] **graphity.md** + **Graphify** — post **5E.31** medium widget session (2026-06-06)
-- [x] **AGENTS.md** — medium widget layout + highlight overlay notes (2026-06-06)
+- [x] **PHASED_PLAN.md** — M-widget **5E.33** (time-only, 14sp, Ashura AR) + Graphify (2026-06-06)
+- [x] **graphity.md** + **Graphify** — post **5E.33** medium widget session (2026-06-06)
+- [x] **AGENTS.md** — medium widget time-only + highlight overlay notes (2026-06-06)
 
 ---
 

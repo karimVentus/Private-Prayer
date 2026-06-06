@@ -2,6 +2,8 @@
 
 [English](#english) | [العربية](#arabic)
 
+[![Smoke CI](https://github.com/karimVentus/Private-Prayer/actions/workflows/smoke-ci.yml/badge.svg)](https://github.com/karimVentus/Private-Prayer/actions/workflows/smoke-ci.yml)
+
 ---
 
 <a id="english"></a>
@@ -152,6 +154,8 @@ Requires JDK 21 (`$HOME/jdk21`); system JDK 25 breaks the current Gradle/AGP too
 | [`PHASED_PLAN.md`](PHASED_PLAN.md) | Roadmap, phase gates, Graphify |
 | [`APP_CREATION_PLAYBOOK.md`](APP_CREATION_PLAYBOOK.md) | Engineering playbook + feature table |
 | [`docs/PRIVACY.md`](docs/PRIVACY.md) | Privacy model |
+| [`CONTRIBUTING.md`](CONTRIBUTING.md) | Contribution guidelines for developers |
+| [`SECURITY.md`](SECURITY.md) | Security policy and vulnerability reporting |
 | [`graphity.md`](graphity.md) | Knowledge-graph maintenance |
 | [`AGENTS.md`](AGENTS.md) | Build environment for agents/CI |
 
@@ -311,6 +315,8 @@ export ANDROID_HOME=$HOME/Android/Sdk
 | [`PHASED_PLAN.md`](PHASED_PLAN.md) | خارطة الطريق، بوابات المراحل، Graphify |
 | [`APP_CREATION_PLAYBOOK.md`](APP_CREATION_PLAYBOOK.md) | دليل الهندسة البرمجية + جدول الميزات |
 | [`docs/PRIVACY.md`](docs/PRIVACY.md) | نموذج سياسة الخصوصية |
+| [`CONTRIBUTING.md`](CONTRIBUTING.md) | إرشادات المساهمة للمطورين |
+| [`SECURITY.md`](SECURITY.md) | سياسة الأمان والإبلاغ عن الثغرات |
 | [`graphity.md`](graphity.md) | صيانة شجرة المعرفة (Knowledge-Graph) |
 | [`AGENTS.md`](AGENTS.md) | بيئة البناء والتشغيل للوكلاء والـ CI |
 

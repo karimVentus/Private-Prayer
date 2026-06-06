@@ -765,7 +765,59 @@
       "Qamishli",
       "Palmyra",
       "Suwayda",
-      "Safita"
+      "Safita",
+      "Al-Suqaylabiyah",
+      "Masyaf",
+      "Talkalakh",
+      "Al-Qusayr",
+      "Al-Nabk",
+      "Yabroud",
+      "Al-Qutayfah",
+      "Jayrud",
+      "Saidnaya",
+      "Maarat al-Numan",
+      "Ariha",
+      "Jisr al-Shughur",
+      "Al-Haffah",
+      "Jableh",
+      "Baniyas",
+      "Al-Shaykh Badr",
+      "Duraykish",
+      "Al-Hamidiyah",
+      "Al-Mukharram",
+      "Al-Qaryatayn",
+      "Al-Salamiyah",
+      "Al-Rastan",
+      "Talbiseh",
+      "Kafr Nabl",
+      "Khan Shaykhun",
+      "Manbij",
+      "Al-Bab",
+      "Ayn al-Arab",
+      "Afrin",
+      "Al-Malikiyah",
+      "Ras al-Ayn",
+      "Al-Shaddadi",
+      "Al-Thawrah",
+      "Maskanah",
+      "Al-Mayadin",
+      "Abu Kamal",
+      "Shahba",
+      "Salkhad",
+      "Nawa",
+      "Al-Sanamayn",
+      "Izra",
+      "Jasim",
+      "Inkhil",
+      "Harasta",
+      "Duma",
+      "Al-Zabadani",
+      "Kafr Batna",
+      "Ayn al-Fijah",
+      "Al-Tall",
+      "Qudsaya",
+      "Darayya",
+      "Muadamiyat al-Sham"
     ],
     "SA": [
       "Riyadh",
@@ -782,7 +834,37 @@
       "Abha",
       "Ha'il",
       "Najran",
-      "Jubail"
+      "Jubail",
+      "Yanbu",
+      "Al Qunfudhah",
+      "Al Bahah",
+      "Arar",
+      "Jizan",
+      "Sakaka",
+      "Al Kharj",
+      "Al Qatif",
+      "Al Hofuf",
+      "Al Mubarraz",
+      "Hafar Al Batin",
+      "Unaizah",
+      "Ras Tanura",
+      "Al Khafji",
+      "Rabigh",
+      "Al Wajh",
+      "Duba",
+      "Turaif",
+      "Al Majma'ah",
+      "Ad Dawadimi",
+      "Al Zulfi",
+      "Afif",
+      "Al Qurayyat",
+      "Al Lith",
+      "Ranyah",
+      "Sabya",
+      "Abu Arish",
+      "Samitah",
+      "Al Namas",
+      "Baljurashi"
     ],
     "EG": [
       "Cairo",
@@ -799,7 +881,34 @@
       "Fayyum",
       "Zagazig",
       "Damietta",
-      "Aswan"
+      "Aswan",
+      "Benha",
+      "Sohag",
+      "Qena",
+      "Hurghada",
+      "Sharm El Sheikh",
+      "Dahab",
+      "Marsa Alam",
+      "Matruh",
+      "Siwa",
+      "El Alamein",
+      "Arish",
+      "Rafah",
+      "Kafr El Sheikh",
+      "Damanhur",
+      "Kafr Dawud",
+      "Banha",
+      "Minya",
+      "Beni Suef",
+      "Edku",
+      "Rashid",
+      "Bilbeis",
+      "Mit Ghamr",
+      "Shebin El Kom",
+      "Kafr El Zayat",
+      "Qalyub",
+      "Obour",
+      "Madinaty"
     ],
     "TR": [
       "Istanbul",
@@ -816,7 +925,175 @@
       "Eskisehir",
       "Trabzon",
       "Erzurum",
-      "Kayseri"
+      "Kayseri",
+      "Adiyaman",
+      "Agri",
+      "Aksaray",
+      "Amasya",
+      "Ardahan",
+      "Artvin",
+      "Aydin",
+      "Balikesir",
+      "Bartin",
+      "Batman",
+      "Bayburt",
+      "Bilecik",
+      "Bingol",
+      "Bitlis",
+      "Bolu",
+      "Burdur",
+      "Canakkale",
+      "Cankiri",
+      "Corum",
+      "Denizli",
+      "Duzce",
+      "Edirne",
+      "Elazig",
+      "Erzincan",
+      "Giresun",
+      "Gumushane",
+      "Hakkari",
+      "Hatay",
+      "Igdir",
+      "Isparta",
+      "Kahramanmaras",
+      "Karabuk",
+      "Karaman",
+      "Kars",
+      "Kastamonu",
+      "Kilis",
+      "Kirikkale",
+      "Kirklareli",
+      "Kirsehir",
+      "Kocaeli",
+      "Kutahya",
+      "Malatya",
+      "Manisa",
+      "Mardin",
+      "Mugla",
+      "Mus",
+      "Nevsehir",
+      "Nigde",
+      "Ordu",
+      "Osmaniye",
+      "Rize",
+      "Sakarya",
+      "Sanliurfa",
+      "Siirt",
+      "Sinop",
+      "Sirnak",
+      "Sivas",
+      "Tekirdag",
+      "Tokat",
+      "Tunceli",
+      "Usak",
+      "Van",
+      "Yalova",
+      "Yozgat",
+      "Zonguldak",
+      "Alanya",
+      "Antakya",
+      "Iskenderun",
+      "Marmaris",
+      "Fethiye",
+      "Bodrum",
+      "Kusadasi",
+      "Cesme",
+      "Didim",
+      "Side",
+      "Belek",
+      "Kemer",
+      "Lara",
+      "Manavgat",
+      "Serik",
+      "Edremit",
+      "Ayvalik",
+      "Bergama",
+      "Soma",
+      "Akhisar",
+      "Salihli",
+      "Turgutlu",
+      "Alasehir",
+      "Nazilli",
+      "Soke",
+      "Odemis",
+      "Tire",
+      "Karsiyaka",
+      "Bornova",
+      "Buca",
+      "Menemen",
+      "Torbalı",
+      "Kadikoy",
+      "Uskudar",
+      "Besiktas",
+      "Sisli",
+      "Fatih",
+      "Esenyurt",
+      "Beylikduzu",
+      "Buyukcekmece",
+      "Kucukcekmece",
+      "Bakirkoy",
+      "Kartal",
+      "Pendik",
+      "Tuzla",
+      "Maltepe",
+      "Sariyer",
+      "Eyup",
+      "Sultanbeyli",
+      "Meram",
+      "Selcuklu",
+      "Karatay",
+      "Eregli",
+      "Ereğli",
+      "Ceyhan",
+      "Tarsus",
+      "Silifke",
+      "Anamur",
+      "Kozan",
+      "Kadirli",
+      "Bismil",
+      "Ergani",
+      "Cizre",
+      "Silopi",
+      "Idil",
+      "Nusaybin",
+      "Kiziltepe",
+      "Midyat",
+      "Siverek",
+      "Viransehir",
+      "Suruc",
+      "Birecik",
+      "Aksaray",
+      "Cumra",
+      "Beysehir",
+      "Seydisehir",
+      "Aksehir",
+      "Sandikli",
+      "Dinar",
+      "Bucak",
+      "Inegol",
+      "Gemlik",
+      "Mudanya",
+      "Orhangazi",
+      "Yalova",
+      "Gebze",
+      "Darica",
+      "Korfez",
+      "Golcuk",
+      "Manyas",
+      "Bandirma",
+      "Gonen",
+      "Susurluk",
+      "Cigli",
+      "Narlidere",
+      "Merkezefendi",
+      "Pamukkale",
+      "Safranbolu",
+      "Amasra",
+      "Golyazi",
+      "Caycuma",
+      "Devrek",
+      "Alapli"
     ],
     "DE": [
       "Aachen",
@@ -1116,7 +1393,30 @@
       "Kut",
       "Hillah",
       "Ramadi",
-      "Fallujah"
+      "Fallujah",
+      "Duhok",
+      "Zakho",
+      "Tikrit",
+      "Samarra",
+      "Baqubah",
+      "Kufa",
+      "Balad",
+      "Al-Qa'im",
+      "Haditha",
+      "Rutba",
+      "Tuz Khurmatu",
+      "Kalar",
+      "Halabja",
+      "Chamchamal",
+      "Ranya",
+      "Shaqlawa",
+      "Koysinjaq",
+      "Samawah",
+      "Shatrah",
+      "Suq al-Shuyukh",
+      "Ali al-Gharbi",
+      "Badrah",
+      "Mandali"
     ],
     "JO": [
       "Amman",
@@ -1133,7 +1433,29 @@
       "Ajloun",
       "Ramtha",
       "Ma'an",
-      "Sahab"
+      "Sahab",
+      "Wadi Musa",
+      "Petra",
+      "Dead Sea",
+      "Shoubak",
+      "Dhiban",
+      "Fuheis",
+      "Hoof",
+      "Jubeiha",
+      "Sweileh",
+      "Khalda",
+      "Tla' Al-Ali",
+      "Abdoun",
+      "Dahiyat Al Hussein",
+      "Marietta",
+      "Sarih",
+      "Hakama",
+      "Mazar Shamaliyya",
+      "Kafr Yuba",
+      "Al Husn",
+      "Samma",
+      "Sukhna",
+      "Qatraneh"
     ],
     "PS": [
       "Gaza",
@@ -1150,7 +1472,23 @@
       "Deir al-Balah",
       "Tubas",
       "Salfit",
-      "Yatta"
+      "Yatta",
+      "Jerusalem",
+      "Gaza City",
+      "Beit Lahia",
+      "Beit Hanoun",
+      "Beit Jala",
+      "Beit Sahour",
+      "Abu Dis",
+      "Al Bireh",
+      "Dura",
+      "Halhul",
+      "Al-Dhahiriya",
+      "Jabalia",
+      "Bani Suheila",
+      "Abasan al-Kabira",
+      "Al-Qarara",
+      "Khuza'a"
     ],
     "LB": [
       "Beirut",
@@ -1167,7 +1505,27 @@
       "Bcharre",
       "Bint Jbeil",
       "Hermel",
-      "Mtein"
+      "Mtein",
+      "Bcharré",
+      "Zgharta",
+      "Koura",
+      "Miniyeh",
+      "Dannieh",
+      "Akkar",
+      "Rashaya",
+      "West Bekaa",
+      "Hasbaya",
+      "Marjayoun",
+      "Tebnine",
+      "Jezzine",
+      "Chouf",
+      "Baabda",
+      "Metn",
+      "Keserwan",
+      "Amchit",
+      "Chekka",
+      "Selaata",
+      "Enfeh"
     ],
     "YE": [
       "Sana'a",
@@ -1184,7 +1542,22 @@
       "Marib",
       "Sa'dah",
       "Shibam",
-      "Yarim"
+      "Yarim",
+      "Say'un",
+      "Amran",
+      "Al Mahwit",
+      "Al Dhale'",
+      "Rada'a",
+      "Lahij",
+      "Ataq",
+      "Al Hazm",
+      "Al Ghaydah",
+      "Hadibu",
+      "Zabid",
+      "Beit al-Faqih",
+      "Mocha",
+      "Habban",
+      "Mudiyah"
     ],
     "MA": [
       "Casablanca",
@@ -1201,7 +1574,32 @@
       "El Jadida",
       "Beni Mellal",
       "Nador",
-      "Taza"
+      "Taza",
+      "Laayoune",
+      "Dakhla",
+      "Ouarzazate",
+      "Settat",
+      "Khouribga",
+      "Mohammedia",
+      "Chefchaouen",
+      "Essaouira",
+      "Ifrane",
+      "Errachidia",
+      "Taourirt",
+      "Temara",
+      "Salé",
+      "Boujdour",
+      "Smara",
+      "Al Hoceima",
+      "Berkane",
+      "Larache",
+      "Ksar El Kebir",
+      "Guercif",
+      "Sefrou",
+      "Midelt",
+      "Tinghir",
+      "Zagora",
+      "Taroudant"
     ],
     "DZ": [
       "Algiers",
@@ -1218,7 +1616,36 @@
       "Tebessa",
       "Djelfa",
       "Skikda",
-      "Mostaganem"
+      "Mostaganem",
+      "Tizi Ouzou",
+      "Medea",
+      "Chlef",
+      "Souk Ahras",
+      "Ouargla",
+      "Saida",
+      "El Oued",
+      "Guelma",
+      "Relizane",
+      "Tiaret",
+      "Bordj Bou Arreridj",
+      "Khenchela",
+      "Bouira",
+      "M'sila",
+      "Ain Oussera",
+      "Laghouat",
+      "Mascara",
+      "Ain Beida",
+      "Ghardaia",
+      "Bechar",
+      "Tamanrasset",
+      "Illizi",
+      "Tindouf",
+      "Adrar",
+      "Timimoun",
+      "In Salah",
+      "El Menia",
+      "Bordj Badji Mokhtar",
+      "Ain Saleh"
     ],
     "TN": [
       "Tunis",
@@ -1235,7 +1662,26 @@
       "Tozeur",
       "Mahdia",
       "Hammamet",
-      "Djerba"
+      "Djerba",
+      "La Marsa",
+      "Tataouine",
+      "Kasserine",
+      "Sidi Bouzid",
+      "Beja",
+      "Jendouba",
+      "El Kef",
+      "Siliana",
+      "Zaghouan",
+      "Zarzis",
+      "Houmt Souk",
+      "Kebili",
+      "Douz",
+      "Radès",
+      "Ettadhamen",
+      "Mourouj",
+      "Ben Arous",
+      "Megrine",
+      "Carthage"
     ],
     "SD": [
       "Khartoum",
@@ -1252,7 +1698,27 @@
       "Ed Dueim",
       "Kosti",
       "Sennar",
-      "Ad Damazin"
+      "Ad Damazin",
+      "Bahri",
+      "El Geneina",
+      "Al Qadarif",
+      "Shendi",
+      "Ed Damazin",
+      "Zalingei",
+      "Kadugli",
+      "Halfa",
+      "Merowe",
+      "Abu Hamad",
+      "Al Dabbah",
+      "Karima",
+      "Al Matammah",
+      "Rabak",
+      "Sinja",
+      "Umm Ruwaba",
+      "Al Faw",
+      "Al Managil",
+      "Dilling",
+      "Tawkar"
     ],
     "AE": [
       "Dubai",
@@ -1269,7 +1735,22 @@
       "Liwa",
       "Hatta",
       "Kalba",
-      "Ar Ruways"
+      "Ar Ruways",
+      "Al Gharbia",
+      "Al Dhafra",
+      "Jebel Ali",
+      "Al Quoz",
+      "Deira",
+      "Bur Dubai",
+      "Al Karama",
+      "Al Satwa",
+      "Al Barsha",
+      "Mirdif",
+      "Al Nahda",
+      "Al Qusais",
+      "Ras Al Khor",
+      "Umm Suqeim",
+      "Jumeirah"
     ],
     "QA": [
       "Doha",
@@ -1281,7 +1762,16 @@
       "Al Shamal",
       "Lusail",
       "Umm Salal",
-      "Abu Samra"
+      "Abu Samra",
+      "Madinat ash Shamal",
+      "Al Wukair",
+      "The Pearl",
+      "Al Sadd",
+      "Bin Mahmoud",
+      "Musheireb",
+      "Fereej Abdel Aziz",
+      "Al Mansoura",
+      "Najma"
     ],
     "KW": [
       "Kuwait City",
@@ -1293,7 +1783,19 @@
       "Mubarak Al-Kabeer",
       "Sabah Al-Salem",
       "Fahaheel",
-      "Mangaf"
+      "Mangaf",
+      "Ahmadi",
+      "Shuwaikh",
+      "Abu Halifa",
+      "Fintas",
+      "Mahboula",
+      "Sabahiya",
+      "Abdulla Al-Mubarak",
+      "Qurain",
+      "Rumaithiya",
+      "Surra",
+      "Khaitan",
+      "Sulaibikhat"
     ],
     "OM": [
       "Muscat",
@@ -1310,7 +1812,24 @@
       "Dibba",
       "Samail",
       "Barka",
-      "Adam"
+      "Adam",
+      "Seeb",
+      "Saham",
+      "Al Ashkharah",
+      "Bidbid",
+      "Bawshar",
+      "Muttrah",
+      "Al Qurum",
+      "Al Khuwayr",
+      "Al Ansab",
+      "Badriyah",
+      "Hayma",
+      "Duqm",
+      "Mirbat",
+      "Taqah",
+      "Thumrait",
+      "Dalkut",
+      "Raysut"
     ],
     "BH": [
       "Manama",
@@ -1322,7 +1841,17 @@
       "Budaiya",
       "A'ali",
       "Jidhafs",
-      "Sanabis"
+      "Sanabis",
+      "Karranah",
+      "Diraz",
+      "Bani Jamra",
+      "Tubli",
+      "Jurdab",
+      "Hidd",
+      "Zallaq",
+      "Sakhir",
+      "Awali",
+      "Ma'ameer"
     ],
     "MY": [
       "Kuala Lumpur",
@@ -1695,14 +2224,49 @@
       "Jamaame",
       "Bosaso",
       "Galkayo",
-      "Beledweyne"
+      "Beledweyne",
+      "Jowhar",
+      "Burao",
+      "Las Anod",
+      "Qardho",
+      "Garowe",
+      "Eyl",
+      "Hobyo",
+      "Afgooye",
+      "Wanlaweyn",
+      "Bardera",
+      "Luuq",
+      "Garbaharey",
+      "Dhusamareb",
+      "Buhoodle",
+      "Baki",
+      "Borama",
+      "Zeylac",
+      "Ceerigaabo",
+      "Bandarbeyla",
+      "Iskushuban"
     ],
     "DJ": [
       "Djibouti City",
       "Ali Sabieh",
       "Tadjoura",
       "Obock",
-      "Dikhil"
+      "Dikhil",
+      "Arta",
+      "Holhol",
+      "Doraleh",
+      "Loyada",
+      "Randa",
+      "Yoboki",
+      "As Eyla",
+      "Goubétto",
+      "Dorra",
+      "Alaili Dadda",
+      "Khôr 'Angar",
+      "Daddato",
+      "Moulhoule",
+      "Galafi",
+      "Balho"
     ],
     "LY": [
       "Tripoli",
@@ -1714,7 +2278,29 @@
       "Zawiya",
       "Sabha",
       "Derna",
-      "Zliten"
+      "Zliten",
+      "Khoms",
+      "Gharyan",
+      "Ajdabiya",
+      "Murzuq",
+      "Ubari",
+      "Bani Walid",
+      "Ghat",
+      "Nalut",
+      "Yafran",
+      "Tajura",
+      "Gaser Akhiyar",
+      "Janzur",
+      "Sorman",
+      "Sabratha",
+      "Zuwarah",
+      "Jaghbub",
+      "Jalu",
+      "Kufra",
+      "Marada",
+      "Brega",
+      "Ras Lanuf",
+      "Bin Jawad"
     ],
     "MR": [
       "Nouakchott",
@@ -1726,7 +2312,28 @@
       "Atar",
       "Selibaby",
       "Tidjikja",
-      "Aleg"
+      "Aleg",
+      "Zouerate",
+      "Boutilimit",
+      "Aioun",
+      "Akjoujt",
+      "Bir Moghrein",
+      "Bogue",
+      "Nema",
+      "Timbedra",
+      "Oualata",
+      "Tichit",
+      "Chinguetti",
+      "Ouadane",
+      "Moudjeria",
+      "Tamchekett",
+      "Magta Lahjar",
+      "Guerou",
+      "Kobeni",
+      "Boumdeid",
+      "Legrane",
+      "Benichab",
+      "Mederdra"
     ],
     "SN": [
       "Dakar",
@@ -2419,6 +3026,18 @@
       "Tacuarembó",
       "Melo",
       "Mercedes"
+    ],
+    "KM": [
+      "Moroni",
+      "Mitsamiouli",
+      "Fomboni",
+      "Domoni",
+      "Mutsamudu",
+      "Sima",
+      "Ouani",
+      "Bambao",
+      "Moya",
+      "Iconi"
     ]
   },
   "countryDefaults": {
@@ -4035,13 +4654,13 @@
       "timezone": "Asia/Riyadh"
     },
     "SA_Jeddah": {
-      "latitude": 21.486,
-      "longitude": 39.192,
+      "latitude": 21.543,
+      "longitude": 39.173,
       "timezone": "Asia/Riyadh"
     },
     "SA_Dammam": {
       "latitude": 26.421,
-      "longitude": 50.114,
+      "longitude": 50.123,
       "timezone": "Asia/Riyadh"
     },
     "EG_Cairo": {
@@ -4215,28 +4834,28 @@
       "timezone": "Asia/Baghdad"
     },
     "IQ_Basra": {
-      "latitude": 30.508,
-      "longitude": 47.783,
+      "latitude": 30.5,
+      "longitude": 47.817,
       "timezone": "Asia/Baghdad"
     },
     "IQ_Mosul": {
-      "latitude": 36.335,
-      "longitude": 43.119,
+      "latitude": 36.34,
+      "longitude": 43.13,
       "timezone": "Asia/Baghdad"
     },
     "JO_Amman": {
-      "latitude": 31.946,
-      "longitude": 35.926,
+      "latitude": 31.95,
+      "longitude": 35.933,
       "timezone": "Asia/Amman"
     },
     "JO_Zarqa": {
-      "latitude": 32.073,
-      "longitude": 36.087,
+      "latitude": 32.083,
+      "longitude": 36.1,
       "timezone": "Asia/Amman"
     },
     "JO_Irbid": {
-      "latitude": 32.556,
-      "longitude": 35.848,
+      "latitude": 32.55,
+      "longitude": 35.85,
       "timezone": "Asia/Amman"
     },
     "PS_Gaza": {
@@ -4245,14 +4864,4364 @@
       "timezone": "Asia/Gaza"
     },
     "PS_Hebron": {
-      "latitude": 31.529,
-      "longitude": 35.094,
-      "timezone": "Asia/Hebron"
+      "latitude": 31.533,
+      "longitude": 35.083,
+      "timezone": "Asia/Gaza"
     },
     "PS_Nablus": {
-      "latitude": 32.221,
-      "longitude": 35.254,
-      "timezone": "Asia/Hebron"
+      "latitude": 32.217,
+      "longitude": 35.267,
+      "timezone": "Asia/Gaza"
+    },
+    "SY_Tartus": {
+      "latitude": 34.89,
+      "longitude": 35.887,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Deir ez-Zor": {
+      "latitude": 35.335,
+      "longitude": 40.14,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Daraa": {
+      "latitude": 32.625,
+      "longitude": 36.105,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Idlib": {
+      "latitude": 35.93,
+      "longitude": 36.634,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Raqqa": {
+      "latitude": 35.95,
+      "longitude": 39.02,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Hasakah": {
+      "latitude": 36.502,
+      "longitude": 40.747,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Suwayda": {
+      "latitude": 32.7,
+      "longitude": 36.567,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Qamishli": {
+      "latitude": 37.05,
+      "longitude": 41.217,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Palmyra": {
+      "latitude": 34.56,
+      "longitude": 38.267,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Safita": {
+      "latitude": 34.821,
+      "longitude": 36.118,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Al-Suqaylabiyah": {
+      "latitude": 35.37,
+      "longitude": 36.38,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Masyaf": {
+      "latitude": 35.065,
+      "longitude": 36.343,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Talkalakh": {
+      "latitude": 34.572,
+      "longitude": 36.242,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Al-Qusayr": {
+      "latitude": 34.508,
+      "longitude": 36.575,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Al-Nabk": {
+      "latitude": 34.024,
+      "longitude": 36.729,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Yabroud": {
+      "latitude": 33.969,
+      "longitude": 36.655,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Al-Qutayfah": {
+      "latitude": 33.738,
+      "longitude": 36.6,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Jayrud": {
+      "latitude": 33.807,
+      "longitude": 36.74,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Saidnaya": {
+      "latitude": 33.695,
+      "longitude": 36.377,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Maarat al-Numan": {
+      "latitude": 35.648,
+      "longitude": 36.675,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Ariha": {
+      "latitude": 35.813,
+      "longitude": 36.606,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Jisr al-Shughur": {
+      "latitude": 35.813,
+      "longitude": 36.32,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Al-Haffah": {
+      "latitude": 35.597,
+      "longitude": 35.94,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Jableh": {
+      "latitude": 35.361,
+      "longitude": 35.919,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Baniyas": {
+      "latitude": 35.177,
+      "longitude": 35.94,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Al-Shaykh Badr": {
+      "latitude": 34.985,
+      "longitude": 36.067,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Duraykish": {
+      "latitude": 34.896,
+      "longitude": 36.134,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Al-Hamidiyah": {
+      "latitude": 34.716,
+      "longitude": 35.953,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Al-Mukharram": {
+      "latitude": 34.815,
+      "longitude": 37.086,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Al-Qaryatayn": {
+      "latitude": 34.23,
+      "longitude": 37.242,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Al-Salamiyah": {
+      "latitude": 35.007,
+      "longitude": 37.05,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Al-Rastan": {
+      "latitude": 34.927,
+      "longitude": 36.733,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Talbiseh": {
+      "latitude": 34.84,
+      "longitude": 36.73,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Kafr Nabl": {
+      "latitude": 35.614,
+      "longitude": 36.558,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Khan Shaykhun": {
+      "latitude": 35.442,
+      "longitude": 36.581,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Manbij": {
+      "latitude": 36.529,
+      "longitude": 37.954,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Al-Bab": {
+      "latitude": 36.391,
+      "longitude": 37.467,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Ayn al-Arab": {
+      "latitude": 36.892,
+      "longitude": 38.365,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Afrin": {
+      "latitude": 36.511,
+      "longitude": 36.869,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Al-Malikiyah": {
+      "latitude": 37.173,
+      "longitude": 42.14,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Ras al-Ayn": {
+      "latitude": 36.85,
+      "longitude": 40.067,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Al-Shaddadi": {
+      "latitude": 36.059,
+      "longitude": 40.736,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Al-Thawrah": {
+      "latitude": 35.836,
+      "longitude": 38.548,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Maskanah": {
+      "latitude": 35.963,
+      "longitude": 38.036,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Al-Mayadin": {
+      "latitude": 35.022,
+      "longitude": 40.454,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Abu Kamal": {
+      "latitude": 34.453,
+      "longitude": 40.918,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Shahba": {
+      "latitude": 32.852,
+      "longitude": 36.628,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Salkhad": {
+      "latitude": 32.492,
+      "longitude": 36.71,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Nawa": {
+      "latitude": 32.89,
+      "longitude": 36.046,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Al-Sanamayn": {
+      "latitude": 33.072,
+      "longitude": 36.178,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Izra": {
+      "latitude": 32.86,
+      "longitude": 36.235,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Jasim": {
+      "latitude": 32.99,
+      "longitude": 36.06,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Inkhil": {
+      "latitude": 33.017,
+      "longitude": 36.12,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Harasta": {
+      "latitude": 33.565,
+      "longitude": 36.374,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Duma": {
+      "latitude": 33.571,
+      "longitude": 36.402,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Al-Zabadani": {
+      "latitude": 33.727,
+      "longitude": 36.096,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Kafr Batna": {
+      "latitude": 33.506,
+      "longitude": 36.371,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Ayn al-Fijah": {
+      "latitude": 33.614,
+      "longitude": 36.183,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Al-Tall": {
+      "latitude": 33.608,
+      "longitude": 36.314,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Qudsaya": {
+      "latitude": 33.541,
+      "longitude": 36.221,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Darayya": {
+      "latitude": 33.459,
+      "longitude": 36.241,
+      "timezone": "Asia/Damascus"
+    },
+    "SY_Muadamiyat al-Sham": {
+      "latitude": 33.46,
+      "longitude": 36.216,
+      "timezone": "Asia/Damascus"
+    },
+    "TR_Bursa": {
+      "latitude": 40.183,
+      "longitude": 29.067,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Antalya": {
+      "latitude": 36.884,
+      "longitude": 30.704,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Adana": {
+      "latitude": 37.0,
+      "longitude": 35.321,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Gaziantep": {
+      "latitude": 37.066,
+      "longitude": 37.383,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Konya": {
+      "latitude": 37.867,
+      "longitude": 32.483,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Mersin": {
+      "latitude": 36.8,
+      "longitude": 34.633,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Diyarbakir": {
+      "latitude": 37.914,
+      "longitude": 40.231,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Samsun": {
+      "latitude": 41.287,
+      "longitude": 36.337,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Eskisehir": {
+      "latitude": 39.767,
+      "longitude": 30.533,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Trabzon": {
+      "latitude": 41.0,
+      "longitude": 39.717,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Erzurum": {
+      "latitude": 39.904,
+      "longitude": 41.267,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Kayseri": {
+      "latitude": 38.733,
+      "longitude": 35.483,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Adiyaman": {
+      "latitude": 37.763,
+      "longitude": 38.278,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Agri": {
+      "latitude": 39.719,
+      "longitude": 43.051,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Aksaray": {
+      "latitude": 38.369,
+      "longitude": 34.029,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Amasya": {
+      "latitude": 40.653,
+      "longitude": 35.833,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Ardahan": {
+      "latitude": 41.111,
+      "longitude": 42.702,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Artvin": {
+      "latitude": 41.182,
+      "longitude": 41.818,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Aydin": {
+      "latitude": 37.85,
+      "longitude": 27.85,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Balikesir": {
+      "latitude": 39.648,
+      "longitude": 27.883,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Bartin": {
+      "latitude": 41.633,
+      "longitude": 32.333,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Batman": {
+      "latitude": 37.883,
+      "longitude": 41.133,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Bayburt": {
+      "latitude": 40.256,
+      "longitude": 40.228,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Bilecik": {
+      "latitude": 40.142,
+      "longitude": 29.98,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Bingol": {
+      "latitude": 38.885,
+      "longitude": 40.496,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Bitlis": {
+      "latitude": 38.4,
+      "longitude": 42.108,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Bolu": {
+      "latitude": 40.733,
+      "longitude": 31.606,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Burdur": {
+      "latitude": 37.719,
+      "longitude": 30.283,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Canakkale": {
+      "latitude": 40.15,
+      "longitude": 26.417,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Cankiri": {
+      "latitude": 40.6,
+      "longitude": 33.617,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Corum": {
+      "latitude": 40.55,
+      "longitude": 34.95,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Denizli": {
+      "latitude": 37.783,
+      "longitude": 29.1,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Duzce": {
+      "latitude": 40.838,
+      "longitude": 31.163,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Edirne": {
+      "latitude": 41.667,
+      "longitude": 26.567,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Elazig": {
+      "latitude": 38.675,
+      "longitude": 39.221,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Erzincan": {
+      "latitude": 39.75,
+      "longitude": 39.5,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Giresun": {
+      "latitude": 40.917,
+      "longitude": 38.383,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Gumushane": {
+      "latitude": 40.467,
+      "longitude": 39.483,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Hakkari": {
+      "latitude": 37.583,
+      "longitude": 43.733,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Hatay": {
+      "latitude": 36.202,
+      "longitude": 36.161,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Igdir": {
+      "latitude": 39.919,
+      "longitude": 44.046,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Isparta": {
+      "latitude": 37.767,
+      "longitude": 30.55,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Kahramanmaras": {
+      "latitude": 37.585,
+      "longitude": 36.937,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Karabuk": {
+      "latitude": 41.2,
+      "longitude": 32.633,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Karaman": {
+      "latitude": 37.183,
+      "longitude": 33.217,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Kars": {
+      "latitude": 40.608,
+      "longitude": 43.098,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Kastamonu": {
+      "latitude": 41.383,
+      "longitude": 33.783,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Kilis": {
+      "latitude": 36.717,
+      "longitude": 37.117,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Kirikkale": {
+      "latitude": 39.85,
+      "longitude": 33.517,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Kirklareli": {
+      "latitude": 41.733,
+      "longitude": 27.217,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Kirsehir": {
+      "latitude": 39.15,
+      "longitude": 34.167,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Kocaeli": {
+      "latitude": 40.767,
+      "longitude": 29.917,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Kutahya": {
+      "latitude": 39.417,
+      "longitude": 29.983,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Malatya": {
+      "latitude": 38.35,
+      "longitude": 38.317,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Manisa": {
+      "latitude": 38.617,
+      "longitude": 27.433,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Mardin": {
+      "latitude": 37.317,
+      "longitude": 40.733,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Mugla": {
+      "latitude": 37.217,
+      "longitude": 28.367,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Mus": {
+      "latitude": 38.733,
+      "longitude": 41.483,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Nevsehir": {
+      "latitude": 38.625,
+      "longitude": 34.714,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Nigde": {
+      "latitude": 37.967,
+      "longitude": 34.683,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Ordu": {
+      "latitude": 40.983,
+      "longitude": 37.883,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Osmaniye": {
+      "latitude": 37.074,
+      "longitude": 36.246,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Rize": {
+      "latitude": 41.017,
+      "longitude": 40.517,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Sakarya": {
+      "latitude": 40.783,
+      "longitude": 30.4,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Sanliurfa": {
+      "latitude": 37.158,
+      "longitude": 38.791,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Siirt": {
+      "latitude": 37.933,
+      "longitude": 41.95,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Sinop": {
+      "latitude": 42.033,
+      "longitude": 35.15,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Sirnak": {
+      "latitude": 37.517,
+      "longitude": 42.45,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Sivas": {
+      "latitude": 39.75,
+      "longitude": 37.017,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Tekirdag": {
+      "latitude": 40.983,
+      "longitude": 27.517,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Tokat": {
+      "latitude": 40.317,
+      "longitude": 36.55,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Tunceli": {
+      "latitude": 39.108,
+      "longitude": 39.548,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Usak": {
+      "latitude": 38.683,
+      "longitude": 29.4,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Van": {
+      "latitude": 38.494,
+      "longitude": 43.38,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Yalova": {
+      "latitude": 40.65,
+      "longitude": 29.267,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Yozgat": {
+      "latitude": 39.817,
+      "longitude": 34.817,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Zonguldak": {
+      "latitude": 41.45,
+      "longitude": 31.783,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Alanya": {
+      "latitude": 36.544,
+      "longitude": 31.995,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Antakya": {
+      "latitude": 36.202,
+      "longitude": 36.161,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Iskenderun": {
+      "latitude": 36.587,
+      "longitude": 36.173,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Marmaris": {
+      "latitude": 36.855,
+      "longitude": 28.27,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Fethiye": {
+      "latitude": 36.621,
+      "longitude": 29.116,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Bodrum": {
+      "latitude": 37.034,
+      "longitude": 27.43,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Kusadasi": {
+      "latitude": 37.859,
+      "longitude": 27.259,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Cesme": {
+      "latitude": 38.325,
+      "longitude": 26.307,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Didim": {
+      "latitude": 37.375,
+      "longitude": 27.267,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Side": {
+      "latitude": 36.767,
+      "longitude": 31.4,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Belek": {
+      "latitude": 36.867,
+      "longitude": 31.05,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Kemer": {
+      "latitude": 36.595,
+      "longitude": 30.558,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Lara": {
+      "latitude": 36.855,
+      "longitude": 30.795,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Manavgat": {
+      "latitude": 36.787,
+      "longitude": 31.443,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Serik": {
+      "latitude": 36.917,
+      "longitude": 31.1,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Edremit": {
+      "latitude": 39.583,
+      "longitude": 27.017,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Ayvalik": {
+      "latitude": 39.317,
+      "longitude": 26.683,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Bergama": {
+      "latitude": 39.117,
+      "longitude": 27.183,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Soma": {
+      "latitude": 39.183,
+      "longitude": 27.6,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Akhisar": {
+      "latitude": 38.917,
+      "longitude": 27.833,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Salihli": {
+      "latitude": 38.483,
+      "longitude": 28.133,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Turgutlu": {
+      "latitude": 38.5,
+      "longitude": 27.7,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Alasehir": {
+      "latitude": 38.35,
+      "longitude": 28.517,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Nazilli": {
+      "latitude": 37.917,
+      "longitude": 28.317,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Soke": {
+      "latitude": 37.75,
+      "longitude": 27.4,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Odemis": {
+      "latitude": 38.233,
+      "longitude": 27.967,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Tire": {
+      "latitude": 38.1,
+      "longitude": 27.733,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Karsiyaka": {
+      "latitude": 38.467,
+      "longitude": 27.1,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Bornova": {
+      "latitude": 38.467,
+      "longitude": 27.217,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Buca": {
+      "latitude": 38.383,
+      "longitude": 27.167,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Menemen": {
+      "latitude": 38.6,
+      "longitude": 27.067,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Torbalı": {
+      "latitude": 38.167,
+      "longitude": 27.35,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Kadikoy": {
+      "latitude": 40.983,
+      "longitude": 29.033,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Uskudar": {
+      "latitude": 41.017,
+      "longitude": 29.033,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Besiktas": {
+      "latitude": 41.083,
+      "longitude": 29.017,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Sisli": {
+      "latitude": 41.067,
+      "longitude": 28.983,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Fatih": {
+      "latitude": 41.017,
+      "longitude": 28.95,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Esenyurt": {
+      "latitude": 41.033,
+      "longitude": 28.667,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Beylikduzu": {
+      "latitude": 41.0,
+      "longitude": 28.633,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Buyukcekmece": {
+      "latitude": 41.033,
+      "longitude": 28.583,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Kucukcekmece": {
+      "latitude": 41.017,
+      "longitude": 28.783,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Bakirkoy": {
+      "latitude": 40.983,
+      "longitude": 28.867,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Kartal": {
+      "latitude": 40.9,
+      "longitude": 29.183,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Pendik": {
+      "latitude": 40.883,
+      "longitude": 29.25,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Tuzla": {
+      "latitude": 40.817,
+      "longitude": 29.317,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Maltepe": {
+      "latitude": 40.933,
+      "longitude": 29.15,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Sariyer": {
+      "latitude": 41.167,
+      "longitude": 29.05,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Eyup": {
+      "latitude": 41.083,
+      "longitude": 28.917,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Sultanbeyli": {
+      "latitude": 40.967,
+      "longitude": 29.267,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Meram": {
+      "latitude": 37.85,
+      "longitude": 32.467,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Selcuklu": {
+      "latitude": 37.883,
+      "longitude": 32.5,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Karatay": {
+      "latitude": 37.867,
+      "longitude": 32.55,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Eregli": {
+      "latitude": 37.517,
+      "longitude": 34.05,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Ereğli": {
+      "latitude": 41.283,
+      "longitude": 31.417,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Ceyhan": {
+      "latitude": 37.033,
+      "longitude": 35.817,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Tarsus": {
+      "latitude": 36.917,
+      "longitude": 34.9,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Silifke": {
+      "latitude": 36.383,
+      "longitude": 33.933,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Anamur": {
+      "latitude": 36.083,
+      "longitude": 32.833,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Kozan": {
+      "latitude": 37.45,
+      "longitude": 35.817,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Kadirli": {
+      "latitude": 37.367,
+      "longitude": 36.1,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Bismil": {
+      "latitude": 37.85,
+      "longitude": 40.667,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Ergani": {
+      "latitude": 38.267,
+      "longitude": 39.767,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Cizre": {
+      "latitude": 37.33,
+      "longitude": 42.184,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Silopi": {
+      "latitude": 37.25,
+      "longitude": 42.467,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Idil": {
+      "latitude": 37.35,
+      "longitude": 41.883,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Nusaybin": {
+      "latitude": 37.083,
+      "longitude": 41.217,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Kiziltepe": {
+      "latitude": 37.2,
+      "longitude": 40.583,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Midyat": {
+      "latitude": 37.417,
+      "longitude": 41.367,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Siverek": {
+      "latitude": 37.75,
+      "longitude": 39.317,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Viransehir": {
+      "latitude": 37.233,
+      "longitude": 39.767,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Suruc": {
+      "latitude": 36.983,
+      "longitude": 38.417,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Birecik": {
+      "latitude": 37.033,
+      "longitude": 37.983,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Cumra": {
+      "latitude": 37.567,
+      "longitude": 32.783,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Beysehir": {
+      "latitude": 37.683,
+      "longitude": 31.717,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Seydisehir": {
+      "latitude": 37.417,
+      "longitude": 31.85,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Aksehir": {
+      "latitude": 38.35,
+      "longitude": 31.417,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Sandikli": {
+      "latitude": 38.467,
+      "longitude": 30.267,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Dinar": {
+      "latitude": 38.083,
+      "longitude": 30.167,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Bucak": {
+      "latitude": 37.467,
+      "longitude": 30.583,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Inegol": {
+      "latitude": 40.083,
+      "longitude": 29.517,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Gemlik": {
+      "latitude": 40.433,
+      "longitude": 29.15,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Mudanya": {
+      "latitude": 40.383,
+      "longitude": 28.883,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Orhangazi": {
+      "latitude": 40.5,
+      "longitude": 29.3,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Gebze": {
+      "latitude": 40.8,
+      "longitude": 29.433,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Darica": {
+      "latitude": 40.767,
+      "longitude": 29.383,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Korfez": {
+      "latitude": 40.767,
+      "longitude": 29.783,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Golcuk": {
+      "latitude": 40.717,
+      "longitude": 29.817,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Manyas": {
+      "latitude": 40.05,
+      "longitude": 27.967,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Bandirma": {
+      "latitude": 40.35,
+      "longitude": 27.983,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Gonen": {
+      "latitude": 40.1,
+      "longitude": 27.65,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Susurluk": {
+      "latitude": 39.917,
+      "longitude": 28.15,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Cigli": {
+      "latitude": 38.5,
+      "longitude": 27.033,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Narlidere": {
+      "latitude": 38.383,
+      "longitude": 27.0,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Merkezefendi": {
+      "latitude": 37.783,
+      "longitude": 29.067,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Pamukkale": {
+      "latitude": 37.917,
+      "longitude": 29.117,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Safranbolu": {
+      "latitude": 41.25,
+      "longitude": 32.683,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Amasra": {
+      "latitude": 41.75,
+      "longitude": 32.383,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Golyazi": {
+      "latitude": 40.55,
+      "longitude": 28.5,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Caycuma": {
+      "latitude": 41.433,
+      "longitude": 32.083,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Devrek": {
+      "latitude": 41.217,
+      "longitude": 31.95,
+      "timezone": "Europe/Istanbul"
+    },
+    "TR_Alapli": {
+      "latitude": 41.183,
+      "longitude": 31.383,
+      "timezone": "Europe/Istanbul"
+    },
+    "SA_Khobar": {
+      "latitude": 26.217,
+      "longitude": 50.197,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Dhahran": {
+      "latitude": 26.267,
+      "longitude": 50.133,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Taif": {
+      "latitude": 21.267,
+      "longitude": 40.417,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Tabuk": {
+      "latitude": 28.383,
+      "longitude": 36.567,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Buraidah": {
+      "latitude": 26.333,
+      "longitude": 43.967,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Khamis Mushait": {
+      "latitude": 18.3,
+      "longitude": 42.733,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Abha": {
+      "latitude": 18.217,
+      "longitude": 42.5,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Ha'il": {
+      "latitude": 27.517,
+      "longitude": 41.683,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Najran": {
+      "latitude": 17.5,
+      "longitude": 44.133,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Jubail": {
+      "latitude": 27.0,
+      "longitude": 49.667,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Yanbu": {
+      "latitude": 24.083,
+      "longitude": 38.067,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Al Qunfudhah": {
+      "latitude": 19.126,
+      "longitude": 41.079,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Al Bahah": {
+      "latitude": 20.013,
+      "longitude": 41.468,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Arar": {
+      "latitude": 30.983,
+      "longitude": 41.017,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Jizan": {
+      "latitude": 16.883,
+      "longitude": 42.55,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Sakaka": {
+      "latitude": 29.967,
+      "longitude": 40.2,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Al Kharj": {
+      "latitude": 24.15,
+      "longitude": 47.3,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Al Qatif": {
+      "latitude": 26.517,
+      "longitude": 50.0,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Al Hofuf": {
+      "latitude": 25.383,
+      "longitude": 49.583,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Al Mubarraz": {
+      "latitude": 25.417,
+      "longitude": 49.567,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Hafar Al Batin": {
+      "latitude": 28.433,
+      "longitude": 45.967,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Unaizah": {
+      "latitude": 26.083,
+      "longitude": 43.983,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Ras Tanura": {
+      "latitude": 26.65,
+      "longitude": 50.15,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Al Khafji": {
+      "latitude": 28.433,
+      "longitude": 48.5,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Rabigh": {
+      "latitude": 22.8,
+      "longitude": 39.017,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Al Wajh": {
+      "latitude": 26.233,
+      "longitude": 36.467,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Duba": {
+      "latitude": 27.35,
+      "longitude": 35.683,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Turaif": {
+      "latitude": 31.667,
+      "longitude": 38.65,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Al Majma'ah": {
+      "latitude": 25.9,
+      "longitude": 45.333,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Ad Dawadimi": {
+      "latitude": 24.483,
+      "longitude": 44.383,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Al Zulfi": {
+      "latitude": 26.3,
+      "longitude": 44.817,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Afif": {
+      "latitude": 23.917,
+      "longitude": 42.917,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Al Qurayyat": {
+      "latitude": 31.334,
+      "longitude": 37.343,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Al Lith": {
+      "latitude": 20.15,
+      "longitude": 40.283,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Ranyah": {
+      "latitude": 20.467,
+      "longitude": 42.833,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Sabya": {
+      "latitude": 17.15,
+      "longitude": 42.617,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Abu Arish": {
+      "latitude": 16.967,
+      "longitude": 42.833,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Samitah": {
+      "latitude": 16.6,
+      "longitude": 42.933,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Al Namas": {
+      "latitude": 19.117,
+      "longitude": 42.133,
+      "timezone": "Asia/Riyadh"
+    },
+    "SA_Baljurashi": {
+      "latitude": 19.85,
+      "longitude": 41.567,
+      "timezone": "Asia/Riyadh"
+    },
+    "EG_Shubra El Kheima": {
+      "latitude": 30.128,
+      "longitude": 31.242,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Port Said": {
+      "latitude": 31.25,
+      "longitude": 32.283,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Suez": {
+      "latitude": 29.967,
+      "longitude": 32.55,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Luxor": {
+      "latitude": 25.687,
+      "longitude": 32.64,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Mansoura": {
+      "latitude": 31.04,
+      "longitude": 31.38,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Tanta": {
+      "latitude": 30.79,
+      "longitude": 31.0,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Asyut": {
+      "latitude": 27.183,
+      "longitude": 31.183,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Ismailia": {
+      "latitude": 30.583,
+      "longitude": 32.267,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Fayyum": {
+      "latitude": 29.308,
+      "longitude": 30.844,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Zagazig": {
+      "latitude": 30.583,
+      "longitude": 31.5,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Damietta": {
+      "latitude": 31.417,
+      "longitude": 31.817,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Aswan": {
+      "latitude": 24.088,
+      "longitude": 32.9,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Benha": {
+      "latitude": 30.467,
+      "longitude": 31.183,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Sohag": {
+      "latitude": 26.55,
+      "longitude": 31.7,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Qena": {
+      "latitude": 26.167,
+      "longitude": 32.717,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Hurghada": {
+      "latitude": 27.258,
+      "longitude": 33.812,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Sharm El Sheikh": {
+      "latitude": 27.916,
+      "longitude": 34.33,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Dahab": {
+      "latitude": 28.483,
+      "longitude": 34.5,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Marsa Alam": {
+      "latitude": 25.067,
+      "longitude": 34.883,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Matruh": {
+      "latitude": 31.35,
+      "longitude": 27.233,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Siwa": {
+      "latitude": 29.2,
+      "longitude": 25.517,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_El Alamein": {
+      "latitude": 30.833,
+      "longitude": 28.95,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Arish": {
+      "latitude": 31.133,
+      "longitude": 33.8,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Rafah": {
+      "latitude": 31.283,
+      "longitude": 34.233,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Kafr El Sheikh": {
+      "latitude": 31.117,
+      "longitude": 30.95,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Damanhur": {
+      "latitude": 31.033,
+      "longitude": 30.467,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Kafr Dawud": {
+      "latitude": 30.4,
+      "longitude": 30.833,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Banha": {
+      "latitude": 30.467,
+      "longitude": 31.183,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Minya": {
+      "latitude": 28.117,
+      "longitude": 30.75,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Beni Suef": {
+      "latitude": 29.083,
+      "longitude": 31.083,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Edku": {
+      "latitude": 31.3,
+      "longitude": 30.3,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Rashid": {
+      "latitude": 31.4,
+      "longitude": 30.417,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Bilbeis": {
+      "latitude": 30.417,
+      "longitude": 31.567,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Mit Ghamr": {
+      "latitude": 30.717,
+      "longitude": 31.45,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Shebin El Kom": {
+      "latitude": 30.55,
+      "longitude": 31.0,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Kafr El Zayat": {
+      "latitude": 30.817,
+      "longitude": 30.817,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Qalyub": {
+      "latitude": 30.183,
+      "longitude": 31.2,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Obour": {
+      "latitude": 30.2,
+      "longitude": 31.567,
+      "timezone": "Africa/Cairo"
+    },
+    "EG_Madinaty": {
+      "latitude": 30.067,
+      "longitude": 31.583,
+      "timezone": "Africa/Cairo"
+    },
+    "IQ_Erbil": {
+      "latitude": 36.178,
+      "longitude": 44.009,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Kirkuk": {
+      "latitude": 35.467,
+      "longitude": 44.383,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Najaf": {
+      "latitude": 32.0,
+      "longitude": 44.333,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Karbala": {
+      "latitude": 32.617,
+      "longitude": 44.033,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Sulaymaniyah": {
+      "latitude": 35.558,
+      "longitude": 45.441,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Nasiriyah": {
+      "latitude": 31.05,
+      "longitude": 46.267,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Amarah": {
+      "latitude": 31.833,
+      "longitude": 47.15,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Diwaniyah": {
+      "latitude": 31.983,
+      "longitude": 44.917,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Kut": {
+      "latitude": 32.5,
+      "longitude": 45.817,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Hillah": {
+      "latitude": 32.483,
+      "longitude": 44.433,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Ramadi": {
+      "latitude": 33.417,
+      "longitude": 43.3,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Fallujah": {
+      "latitude": 33.35,
+      "longitude": 43.783,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Duhok": {
+      "latitude": 36.867,
+      "longitude": 43.0,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Zakho": {
+      "latitude": 37.15,
+      "longitude": 42.683,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Tikrit": {
+      "latitude": 34.6,
+      "longitude": 43.683,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Samarra": {
+      "latitude": 34.2,
+      "longitude": 43.883,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Baqubah": {
+      "latitude": 33.75,
+      "longitude": 44.65,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Kufa": {
+      "latitude": 32.033,
+      "longitude": 44.4,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Balad": {
+      "latitude": 34.017,
+      "longitude": 44.15,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Al-Qa'im": {
+      "latitude": 34.383,
+      "longitude": 41.1,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Haditha": {
+      "latitude": 34.083,
+      "longitude": 42.367,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Rutba": {
+      "latitude": 33.033,
+      "longitude": 40.283,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Tuz Khurmatu": {
+      "latitude": 34.883,
+      "longitude": 44.633,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Kalar": {
+      "latitude": 34.633,
+      "longitude": 45.317,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Halabja": {
+      "latitude": 35.183,
+      "longitude": 45.983,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Chamchamal": {
+      "latitude": 35.533,
+      "longitude": 44.833,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Ranya": {
+      "latitude": 36.25,
+      "longitude": 44.883,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Shaqlawa": {
+      "latitude": 36.4,
+      "longitude": 44.333,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Koysinjaq": {
+      "latitude": 36.083,
+      "longitude": 44.633,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Samawah": {
+      "latitude": 31.317,
+      "longitude": 45.283,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Shatrah": {
+      "latitude": 31.417,
+      "longitude": 46.183,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Suq al-Shuyukh": {
+      "latitude": 31.0,
+      "longitude": 46.217,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Ali al-Gharbi": {
+      "latitude": 32.483,
+      "longitude": 46.683,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Badrah": {
+      "latitude": 33.117,
+      "longitude": 45.967,
+      "timezone": "Asia/Baghdad"
+    },
+    "IQ_Mandali": {
+      "latitude": 33.75,
+      "longitude": 45.567,
+      "timezone": "Asia/Baghdad"
+    },
+    "JO_Russeifa": {
+      "latitude": 32.017,
+      "longitude": 36.05,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Aqaba": {
+      "latitude": 29.517,
+      "longitude": 35.0,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Salt": {
+      "latitude": 32.033,
+      "longitude": 35.733,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Madaba": {
+      "latitude": 31.717,
+      "longitude": 35.8,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Jerash": {
+      "latitude": 32.283,
+      "longitude": 35.9,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Mafraq": {
+      "latitude": 32.35,
+      "longitude": 36.2,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Tafilah": {
+      "latitude": 30.833,
+      "longitude": 35.6,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Karak": {
+      "latitude": 31.183,
+      "longitude": 35.7,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Ajloun": {
+      "latitude": 32.333,
+      "longitude": 35.75,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Ramtha": {
+      "latitude": 32.567,
+      "longitude": 36.017,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Ma'an": {
+      "latitude": 30.192,
+      "longitude": 35.734,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Sahab": {
+      "latitude": 31.867,
+      "longitude": 36.0,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Wadi Musa": {
+      "latitude": 30.317,
+      "longitude": 35.483,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Petra": {
+      "latitude": 30.329,
+      "longitude": 35.444,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Dead Sea": {
+      "latitude": 31.5,
+      "longitude": 35.5,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Shoubak": {
+      "latitude": 30.533,
+      "longitude": 35.533,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Dhiban": {
+      "latitude": 31.5,
+      "longitude": 35.783,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Fuheis": {
+      "latitude": 32.017,
+      "longitude": 35.783,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Hoof": {
+      "latitude": 32.2,
+      "longitude": 35.85,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Jubeiha": {
+      "latitude": 32.033,
+      "longitude": 35.867,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Sweileh": {
+      "latitude": 32.033,
+      "longitude": 35.833,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Khalda": {
+      "latitude": 32.017,
+      "longitude": 35.9,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Tla' Al-Ali": {
+      "latitude": 32.017,
+      "longitude": 35.883,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Abdoun": {
+      "latitude": 31.95,
+      "longitude": 35.883,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Dahiyat Al Hussein": {
+      "latitude": 32.017,
+      "longitude": 35.9,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Marietta": {
+      "latitude": 32.117,
+      "longitude": 35.8,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Sarih": {
+      "latitude": 32.5,
+      "longitude": 35.917,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Hakama": {
+      "latitude": 32.583,
+      "longitude": 35.867,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Mazar Shamaliyya": {
+      "latitude": 32.467,
+      "longitude": 35.8,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Kafr Yuba": {
+      "latitude": 32.55,
+      "longitude": 35.883,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Al Husn": {
+      "latitude": 32.483,
+      "longitude": 35.9,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Samma": {
+      "latitude": 32.567,
+      "longitude": 35.817,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Sukhna": {
+      "latitude": 33.0,
+      "longitude": 36.167,
+      "timezone": "Asia/Amman"
+    },
+    "JO_Qatraneh": {
+      "latitude": 31.25,
+      "longitude": 36.05,
+      "timezone": "Asia/Amman"
+    },
+    "LB_Beirut": {
+      "latitude": 33.893,
+      "longitude": 35.502,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Tripoli": {
+      "latitude": 34.433,
+      "longitude": 35.833,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Sidon": {
+      "latitude": 33.56,
+      "longitude": 35.37,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Tyre": {
+      "latitude": 33.267,
+      "longitude": 35.2,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Baalbek": {
+      "latitude": 34.006,
+      "longitude": 36.211,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Jounieh": {
+      "latitude": 33.978,
+      "longitude": 35.618,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Zahle": {
+      "latitude": 33.85,
+      "longitude": 35.9,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Nabatieh": {
+      "latitude": 33.383,
+      "longitude": 35.467,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Byblos": {
+      "latitude": 34.117,
+      "longitude": 35.65,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Aley": {
+      "latitude": 33.8,
+      "longitude": 35.6,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Batroun": {
+      "latitude": 34.25,
+      "longitude": 35.667,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Bcharré": {
+      "latitude": 34.25,
+      "longitude": 36.017,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Zgharta": {
+      "latitude": 34.4,
+      "longitude": 35.9,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Koura": {
+      "latitude": 34.317,
+      "longitude": 35.85,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Miniyeh": {
+      "latitude": 34.467,
+      "longitude": 35.933,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Dannieh": {
+      "latitude": 34.4,
+      "longitude": 36.017,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Akkar": {
+      "latitude": 34.5,
+      "longitude": 36.083,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Hermel": {
+      "latitude": 34.4,
+      "longitude": 36.4,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Rashaya": {
+      "latitude": 33.5,
+      "longitude": 35.85,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_West Bekaa": {
+      "latitude": 33.65,
+      "longitude": 35.717,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Hasbaya": {
+      "latitude": 33.4,
+      "longitude": 35.683,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Marjayoun": {
+      "latitude": 33.35,
+      "longitude": 35.583,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Bint Jbeil": {
+      "latitude": 33.117,
+      "longitude": 35.433,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Tebnine": {
+      "latitude": 33.183,
+      "longitude": 35.4,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Jezzine": {
+      "latitude": 33.533,
+      "longitude": 35.583,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Chouf": {
+      "latitude": 33.7,
+      "longitude": 35.567,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Baabda": {
+      "latitude": 33.833,
+      "longitude": 35.533,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Metn": {
+      "latitude": 33.917,
+      "longitude": 35.583,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Keserwan": {
+      "latitude": 33.983,
+      "longitude": 35.617,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Amchit": {
+      "latitude": 34.15,
+      "longitude": 35.65,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Chekka": {
+      "latitude": 34.333,
+      "longitude": 35.733,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Selaata": {
+      "latitude": 34.283,
+      "longitude": 35.7,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Enfeh": {
+      "latitude": 34.35,
+      "longitude": 35.733,
+      "timezone": "Asia/Beirut"
+    },
+    "PS_Jerusalem": {
+      "latitude": 31.768,
+      "longitude": 35.214,
+      "timezone": "Asia/Gaza"
+    },
+    "PS_Gaza City": {
+      "latitude": 31.517,
+      "longitude": 34.45,
+      "timezone": "Asia/Gaza"
+    },
+    "PS_Ramallah": {
+      "latitude": 31.9,
+      "longitude": 35.2,
+      "timezone": "Asia/Gaza"
+    },
+    "PS_Jenin": {
+      "latitude": 32.467,
+      "longitude": 35.3,
+      "timezone": "Asia/Gaza"
+    },
+    "PS_Tulkarm": {
+      "latitude": 32.317,
+      "longitude": 35.033,
+      "timezone": "Asia/Gaza"
+    },
+    "PS_Qalqilya": {
+      "latitude": 32.2,
+      "longitude": 34.967,
+      "timezone": "Asia/Gaza"
+    },
+    "PS_Jericho": {
+      "latitude": 31.867,
+      "longitude": 35.45,
+      "timezone": "Asia/Gaza"
+    },
+    "PS_Bethlehem": {
+      "latitude": 31.717,
+      "longitude": 35.2,
+      "timezone": "Asia/Gaza"
+    },
+    "PS_Rafah": {
+      "latitude": 31.3,
+      "longitude": 34.25,
+      "timezone": "Asia/Gaza"
+    },
+    "PS_Khan Yunis": {
+      "latitude": 31.35,
+      "longitude": 34.3,
+      "timezone": "Asia/Gaza"
+    },
+    "PS_Deir al-Balah": {
+      "latitude": 31.417,
+      "longitude": 34.35,
+      "timezone": "Asia/Gaza"
+    },
+    "PS_Beit Lahia": {
+      "latitude": 31.55,
+      "longitude": 34.5,
+      "timezone": "Asia/Gaza"
+    },
+    "PS_Beit Hanoun": {
+      "latitude": 31.533,
+      "longitude": 34.533,
+      "timezone": "Asia/Gaza"
+    },
+    "PS_Beit Jala": {
+      "latitude": 31.717,
+      "longitude": 35.183,
+      "timezone": "Asia/Gaza"
+    },
+    "PS_Beit Sahour": {
+      "latitude": 31.7,
+      "longitude": 35.217,
+      "timezone": "Asia/Gaza"
+    },
+    "PS_Abu Dis": {
+      "latitude": 31.75,
+      "longitude": 35.25,
+      "timezone": "Asia/Gaza"
+    },
+    "PS_Al Bireh": {
+      "latitude": 31.9,
+      "longitude": 35.217,
+      "timezone": "Asia/Gaza"
+    },
+    "PS_Salfit": {
+      "latitude": 32.083,
+      "longitude": 35.183,
+      "timezone": "Asia/Gaza"
+    },
+    "PS_Tubas": {
+      "latitude": 32.317,
+      "longitude": 35.367,
+      "timezone": "Asia/Gaza"
+    },
+    "PS_Yatta": {
+      "latitude": 31.45,
+      "longitude": 35.083,
+      "timezone": "Asia/Gaza"
+    },
+    "PS_Dura": {
+      "latitude": 31.5,
+      "longitude": 35.033,
+      "timezone": "Asia/Gaza"
+    },
+    "PS_Halhul": {
+      "latitude": 31.583,
+      "longitude": 35.1,
+      "timezone": "Asia/Gaza"
+    },
+    "PS_Al-Dhahiriya": {
+      "latitude": 31.417,
+      "longitude": 34.983,
+      "timezone": "Asia/Gaza"
+    },
+    "PS_Jabalia": {
+      "latitude": 31.533,
+      "longitude": 34.483,
+      "timezone": "Asia/Gaza"
+    },
+    "PS_Bani Suheila": {
+      "latitude": 31.35,
+      "longitude": 34.317,
+      "timezone": "Asia/Gaza"
+    },
+    "PS_Abasan al-Kabira": {
+      "latitude": 31.317,
+      "longitude": 34.35,
+      "timezone": "Asia/Gaza"
+    },
+    "PS_Al-Qarara": {
+      "latitude": 31.367,
+      "longitude": 34.383,
+      "timezone": "Asia/Gaza"
+    },
+    "PS_Khuza'a": {
+      "latitude": 31.3,
+      "longitude": 34.367,
+      "timezone": "Asia/Gaza"
+    },
+    "AE_Dubai": {
+      "latitude": 25.205,
+      "longitude": 55.27,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Abu Dhabi": {
+      "latitude": 24.467,
+      "longitude": 54.367,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Sharjah": {
+      "latitude": 25.357,
+      "longitude": 55.391,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Al Ain": {
+      "latitude": 24.207,
+      "longitude": 55.745,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Ajman": {
+      "latitude": 25.4,
+      "longitude": 55.433,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Ras Al Khaimah": {
+      "latitude": 25.79,
+      "longitude": 55.943,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Fujairah": {
+      "latitude": 25.123,
+      "longitude": 56.337,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Umm Al Quwain": {
+      "latitude": 25.565,
+      "longitude": 55.555,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Khor Fakkan": {
+      "latitude": 25.333,
+      "longitude": 56.35,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Diba": {
+      "latitude": 25.617,
+      "longitude": 56.267,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Madinat Zayed": {
+      "latitude": 23.65,
+      "longitude": 53.65,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Liwa": {
+      "latitude": 23.133,
+      "longitude": 53.783,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Hatta": {
+      "latitude": 24.817,
+      "longitude": 56.117,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Kalba": {
+      "latitude": 25.067,
+      "longitude": 56.35,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Ar Ruways": {
+      "latitude": 24.117,
+      "longitude": 52.733,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Al Gharbia": {
+      "latitude": 24.0,
+      "longitude": 52.0,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Al Dhafra": {
+      "latitude": 24.0,
+      "longitude": 54.0,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Jebel Ali": {
+      "latitude": 25.017,
+      "longitude": 55.067,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Al Quoz": {
+      "latitude": 25.15,
+      "longitude": 55.25,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Deira": {
+      "latitude": 25.267,
+      "longitude": 55.3,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Bur Dubai": {
+      "latitude": 25.25,
+      "longitude": 55.3,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Al Karama": {
+      "latitude": 25.233,
+      "longitude": 55.3,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Al Satwa": {
+      "latitude": 25.217,
+      "longitude": 55.267,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Al Barsha": {
+      "latitude": 25.083,
+      "longitude": 55.2,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Mirdif": {
+      "latitude": 25.233,
+      "longitude": 55.417,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Al Nahda": {
+      "latitude": 25.3,
+      "longitude": 55.367,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Al Qusais": {
+      "latitude": 25.283,
+      "longitude": 55.383,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Ras Al Khor": {
+      "latitude": 25.183,
+      "longitude": 55.333,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Umm Suqeim": {
+      "latitude": 25.15,
+      "longitude": 55.217,
+      "timezone": "Asia/Dubai"
+    },
+    "AE_Jumeirah": {
+      "latitude": 25.2,
+      "longitude": 55.25,
+      "timezone": "Asia/Dubai"
+    },
+    "KW_Kuwait City": {
+      "latitude": 29.375,
+      "longitude": 47.977,
+      "timezone": "Asia/Kuwait"
+    },
+    "KW_Hawalli": {
+      "latitude": 29.333,
+      "longitude": 48.033,
+      "timezone": "Asia/Kuwait"
+    },
+    "KW_Salmiya": {
+      "latitude": 29.333,
+      "longitude": 48.083,
+      "timezone": "Asia/Kuwait"
+    },
+    "KW_Farwaniya": {
+      "latitude": 29.283,
+      "longitude": 47.967,
+      "timezone": "Asia/Kuwait"
+    },
+    "KW_Ahmadi": {
+      "latitude": 29.083,
+      "longitude": 48.083,
+      "timezone": "Asia/Kuwait"
+    },
+    "KW_Jahra": {
+      "latitude": 29.333,
+      "longitude": 47.667,
+      "timezone": "Asia/Kuwait"
+    },
+    "KW_Mubarak Al-Kabeer": {
+      "latitude": 29.267,
+      "longitude": 48.083,
+      "timezone": "Asia/Kuwait"
+    },
+    "KW_Sabah Al-Salem": {
+      "latitude": 29.25,
+      "longitude": 48.05,
+      "timezone": "Asia/Kuwait"
+    },
+    "KW_Shuwaikh": {
+      "latitude": 29.35,
+      "longitude": 47.933,
+      "timezone": "Asia/Kuwait"
+    },
+    "KW_Fahaheel": {
+      "latitude": 29.083,
+      "longitude": 48.133,
+      "timezone": "Asia/Kuwait"
+    },
+    "KW_Mangaf": {
+      "latitude": 29.1,
+      "longitude": 48.133,
+      "timezone": "Asia/Kuwait"
+    },
+    "KW_Abu Halifa": {
+      "latitude": 29.117,
+      "longitude": 48.117,
+      "timezone": "Asia/Kuwait"
+    },
+    "KW_Fintas": {
+      "latitude": 29.183,
+      "longitude": 48.117,
+      "timezone": "Asia/Kuwait"
+    },
+    "KW_Mahboula": {
+      "latitude": 29.133,
+      "longitude": 48.117,
+      "timezone": "Asia/Kuwait"
+    },
+    "KW_Sabahiya": {
+      "latitude": 29.267,
+      "longitude": 48.05,
+      "timezone": "Asia/Kuwait"
+    },
+    "KW_Abdulla Al-Mubarak": {
+      "latitude": 29.317,
+      "longitude": 48.067,
+      "timezone": "Asia/Kuwait"
+    },
+    "KW_Qurain": {
+      "latitude": 29.283,
+      "longitude": 48.067,
+      "timezone": "Asia/Kuwait"
+    },
+    "KW_Rumaithiya": {
+      "latitude": 29.317,
+      "longitude": 48.067,
+      "timezone": "Asia/Kuwait"
+    },
+    "KW_Surra": {
+      "latitude": 29.317,
+      "longitude": 47.983,
+      "timezone": "Asia/Kuwait"
+    },
+    "KW_Khaitan": {
+      "latitude": 29.3,
+      "longitude": 47.933,
+      "timezone": "Asia/Kuwait"
+    },
+    "KW_Sulaibikhat": {
+      "latitude": 29.317,
+      "longitude": 47.833,
+      "timezone": "Asia/Kuwait"
+    },
+    "QA_Doha": {
+      "latitude": 25.286,
+      "longitude": 51.533,
+      "timezone": "Asia/Qatar"
+    },
+    "QA_Al Rayyan": {
+      "latitude": 25.292,
+      "longitude": 51.424,
+      "timezone": "Asia/Qatar"
+    },
+    "QA_Umm Salal": {
+      "latitude": 25.467,
+      "longitude": 51.4,
+      "timezone": "Asia/Qatar"
+    },
+    "QA_Al Wakrah": {
+      "latitude": 25.183,
+      "longitude": 51.617,
+      "timezone": "Asia/Qatar"
+    },
+    "QA_Al Khor": {
+      "latitude": 25.683,
+      "longitude": 51.517,
+      "timezone": "Asia/Qatar"
+    },
+    "QA_Al Shamal": {
+      "latitude": 26.133,
+      "longitude": 51.217,
+      "timezone": "Asia/Qatar"
+    },
+    "QA_Madinat ash Shamal": {
+      "latitude": 26.133,
+      "longitude": 51.217,
+      "timezone": "Asia/Qatar"
+    },
+    "QA_Dukhan": {
+      "latitude": 25.417,
+      "longitude": 50.783,
+      "timezone": "Asia/Qatar"
+    },
+    "QA_Al Wukair": {
+      "latitude": 25.15,
+      "longitude": 51.533,
+      "timezone": "Asia/Qatar"
+    },
+    "QA_Lusail": {
+      "latitude": 25.5,
+      "longitude": 51.45,
+      "timezone": "Asia/Qatar"
+    },
+    "QA_The Pearl": {
+      "latitude": 25.367,
+      "longitude": 51.55,
+      "timezone": "Asia/Qatar"
+    },
+    "QA_Al Sadd": {
+      "latitude": 25.283,
+      "longitude": 51.517,
+      "timezone": "Asia/Qatar"
+    },
+    "QA_Bin Mahmoud": {
+      "latitude": 25.267,
+      "longitude": 51.517,
+      "timezone": "Asia/Qatar"
+    },
+    "QA_Musheireb": {
+      "latitude": 25.283,
+      "longitude": 51.533,
+      "timezone": "Asia/Qatar"
+    },
+    "QA_Fereej Abdel Aziz": {
+      "latitude": 25.283,
+      "longitude": 51.5,
+      "timezone": "Asia/Qatar"
+    },
+    "QA_Al Mansoura": {
+      "latitude": 25.267,
+      "longitude": 51.533,
+      "timezone": "Asia/Qatar"
+    },
+    "QA_Najma": {
+      "latitude": 25.283,
+      "longitude": 51.533,
+      "timezone": "Asia/Qatar"
+    },
+    "BH_Manama": {
+      "latitude": 26.217,
+      "longitude": 50.583,
+      "timezone": "Asia/Bahrain"
+    },
+    "BH_Riffa": {
+      "latitude": 26.133,
+      "longitude": 50.55,
+      "timezone": "Asia/Bahrain"
+    },
+    "BH_Muharraq": {
+      "latitude": 26.25,
+      "longitude": 50.617,
+      "timezone": "Asia/Bahrain"
+    },
+    "BH_Hamad Town": {
+      "latitude": 26.133,
+      "longitude": 50.5,
+      "timezone": "Asia/Bahrain"
+    },
+    "BH_A'ali": {
+      "latitude": 26.15,
+      "longitude": 50.517,
+      "timezone": "Asia/Bahrain"
+    },
+    "BH_Isa Town": {
+      "latitude": 26.167,
+      "longitude": 50.5,
+      "timezone": "Asia/Bahrain"
+    },
+    "BH_Sitra": {
+      "latitude": 26.15,
+      "longitude": 50.617,
+      "timezone": "Asia/Bahrain"
+    },
+    "BH_Budaiya": {
+      "latitude": 26.217,
+      "longitude": 50.433,
+      "timezone": "Asia/Bahrain"
+    },
+    "BH_Jidhafs": {
+      "latitude": 26.217,
+      "longitude": 50.533,
+      "timezone": "Asia/Bahrain"
+    },
+    "BH_Karranah": {
+      "latitude": 26.217,
+      "longitude": 50.483,
+      "timezone": "Asia/Bahrain"
+    },
+    "BH_Diraz": {
+      "latitude": 26.183,
+      "longitude": 50.467,
+      "timezone": "Asia/Bahrain"
+    },
+    "BH_Bani Jamra": {
+      "latitude": 26.217,
+      "longitude": 50.45,
+      "timezone": "Asia/Bahrain"
+    },
+    "BH_Sanabis": {
+      "latitude": 26.233,
+      "longitude": 50.533,
+      "timezone": "Asia/Bahrain"
+    },
+    "BH_Tubli": {
+      "latitude": 26.183,
+      "longitude": 50.55,
+      "timezone": "Asia/Bahrain"
+    },
+    "BH_Jurdab": {
+      "latitude": 26.183,
+      "longitude": 50.567,
+      "timezone": "Asia/Bahrain"
+    },
+    "BH_Hidd": {
+      "latitude": 26.25,
+      "longitude": 50.65,
+      "timezone": "Asia/Bahrain"
+    },
+    "BH_Zallaq": {
+      "latitude": 26.1,
+      "longitude": 50.483,
+      "timezone": "Asia/Bahrain"
+    },
+    "BH_Sakhir": {
+      "latitude": 26.033,
+      "longitude": 50.517,
+      "timezone": "Asia/Bahrain"
+    },
+    "BH_Awali": {
+      "latitude": 26.083,
+      "longitude": 50.55,
+      "timezone": "Asia/Bahrain"
+    },
+    "BH_Ma'ameer": {
+      "latitude": 26.067,
+      "longitude": 50.6,
+      "timezone": "Asia/Bahrain"
+    },
+    "OM_Muscat": {
+      "latitude": 23.614,
+      "longitude": 58.59,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Seeb": {
+      "latitude": 23.683,
+      "longitude": 58.183,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Salalah": {
+      "latitude": 17.017,
+      "longitude": 54.083,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Sohar": {
+      "latitude": 24.342,
+      "longitude": 56.73,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Nizwa": {
+      "latitude": 22.933,
+      "longitude": 57.533,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Sur": {
+      "latitude": 22.567,
+      "longitude": 59.533,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Ibri": {
+      "latitude": 23.233,
+      "longitude": 56.517,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Barka": {
+      "latitude": 23.7,
+      "longitude": 57.883,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Rustaq": {
+      "latitude": 23.4,
+      "longitude": 57.417,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Buraimi": {
+      "latitude": 24.25,
+      "longitude": 55.783,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Saham": {
+      "latitude": 24.167,
+      "longitude": 56.883,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Khasab": {
+      "latitude": 26.183,
+      "longitude": 56.25,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Al Ashkharah": {
+      "latitude": 21.933,
+      "longitude": 59.617,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Ibra": {
+      "latitude": 22.683,
+      "longitude": 58.533,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Bidbid": {
+      "latitude": 23.417,
+      "longitude": 58.117,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Bawshar": {
+      "latitude": 23.55,
+      "longitude": 58.417,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Muttrah": {
+      "latitude": 23.617,
+      "longitude": 58.567,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Al Qurum": {
+      "latitude": 23.6,
+      "longitude": 58.483,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Al Khuwayr": {
+      "latitude": 23.6,
+      "longitude": 58.3,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Al Ansab": {
+      "latitude": 23.533,
+      "longitude": 58.283,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Badriyah": {
+      "latitude": 23.2,
+      "longitude": 56.817,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Samail": {
+      "latitude": 23.3,
+      "longitude": 58.017,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Adam": {
+      "latitude": 22.383,
+      "longitude": 57.533,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Hayma": {
+      "latitude": 19.933,
+      "longitude": 56.283,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Duqm": {
+      "latitude": 19.65,
+      "longitude": 57.7,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Mirbat": {
+      "latitude": 16.983,
+      "longitude": 54.683,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Taqah": {
+      "latitude": 17.033,
+      "longitude": 54.4,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Thumrait": {
+      "latitude": 17.667,
+      "longitude": 54.017,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Dalkut": {
+      "latitude": 16.7,
+      "longitude": 53.25,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Raysut": {
+      "latitude": 16.933,
+      "longitude": 54.0,
+      "timezone": "Asia/Muscat"
+    },
+    "YE_Sana'a": {
+      "latitude": 15.369,
+      "longitude": 44.191,
+      "timezone": "Asia/Aden"
+    },
+    "YE_Aden": {
+      "latitude": 12.8,
+      "longitude": 45.033,
+      "timezone": "Asia/Aden"
+    },
+    "YE_Taiz": {
+      "latitude": 13.583,
+      "longitude": 44.017,
+      "timezone": "Asia/Aden"
+    },
+    "YE_Hodeidah": {
+      "latitude": 14.8,
+      "longitude": 42.95,
+      "timezone": "Asia/Aden"
+    },
+    "YE_Ibb": {
+      "latitude": 13.967,
+      "longitude": 44.183,
+      "timezone": "Asia/Aden"
+    },
+    "YE_Mukalla": {
+      "latitude": 14.533,
+      "longitude": 49.133,
+      "timezone": "Asia/Aden"
+    },
+    "YE_Say'un": {
+      "latitude": 15.983,
+      "longitude": 48.833,
+      "timezone": "Asia/Aden"
+    },
+    "YE_Dhamar": {
+      "latitude": 14.567,
+      "longitude": 44.4,
+      "timezone": "Asia/Aden"
+    },
+    "YE_Amran": {
+      "latitude": 15.667,
+      "longitude": 43.95,
+      "timezone": "Asia/Aden"
+    },
+    "YE_Hajjah": {
+      "latitude": 15.7,
+      "longitude": 43.6,
+      "timezone": "Asia/Aden"
+    },
+    "YE_Sa'dah": {
+      "latitude": 16.933,
+      "longitude": 43.85,
+      "timezone": "Asia/Aden"
+    },
+    "YE_Zinjibar": {
+      "latitude": 13.133,
+      "longitude": 45.367,
+      "timezone": "Asia/Aden"
+    },
+    "YE_Al Mahwit": {
+      "latitude": 15.467,
+      "longitude": 43.55,
+      "timezone": "Asia/Aden"
+    },
+    "YE_Al Bayda": {
+      "latitude": 13.983,
+      "longitude": 45.567,
+      "timezone": "Asia/Aden"
+    },
+    "YE_Al Dhale'": {
+      "latitude": 13.7,
+      "longitude": 44.733,
+      "timezone": "Asia/Aden"
+    },
+    "YE_Marib": {
+      "latitude": 15.467,
+      "longitude": 45.317,
+      "timezone": "Asia/Aden"
+    },
+    "YE_Shibam": {
+      "latitude": 15.917,
+      "longitude": 48.617,
+      "timezone": "Asia/Aden"
+    },
+    "YE_Rada'a": {
+      "latitude": 14.417,
+      "longitude": 44.833,
+      "timezone": "Asia/Aden"
+    },
+    "YE_Lahij": {
+      "latitude": 13.05,
+      "longitude": 44.867,
+      "timezone": "Asia/Aden"
+    },
+    "YE_Ataq": {
+      "latitude": 14.55,
+      "longitude": 46.833,
+      "timezone": "Asia/Aden"
+    },
+    "YE_Al Hazm": {
+      "latitude": 16.167,
+      "longitude": 44.767,
+      "timezone": "Asia/Aden"
+    },
+    "YE_Al Ghaydah": {
+      "latitude": 16.217,
+      "longitude": 52.183,
+      "timezone": "Asia/Aden"
+    },
+    "YE_Hadibu": {
+      "latitude": 12.65,
+      "longitude": 54.017,
+      "timezone": "Asia/Aden"
+    },
+    "YE_Yarim": {
+      "latitude": 14.3,
+      "longitude": 44.383,
+      "timezone": "Asia/Aden"
+    },
+    "YE_Zabid": {
+      "latitude": 14.2,
+      "longitude": 43.317,
+      "timezone": "Asia/Aden"
+    },
+    "YE_Beit al-Faqih": {
+      "latitude": 14.517,
+      "longitude": 43.317,
+      "timezone": "Asia/Aden"
+    },
+    "YE_Mocha": {
+      "latitude": 13.317,
+      "longitude": 43.25,
+      "timezone": "Asia/Aden"
+    },
+    "YE_Habban": {
+      "latitude": 14.35,
+      "longitude": 47.083,
+      "timezone": "Asia/Aden"
+    },
+    "YE_Mudiyah": {
+      "latitude": 13.933,
+      "longitude": 46.083,
+      "timezone": "Asia/Aden"
+    },
+    "LY_Tripoli": {
+      "latitude": 32.887,
+      "longitude": 13.181,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Benghazi": {
+      "latitude": 32.117,
+      "longitude": 20.067,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Misrata": {
+      "latitude": 32.375,
+      "longitude": 15.092,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Zliten": {
+      "latitude": 32.467,
+      "longitude": 14.567,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Khoms": {
+      "latitude": 32.65,
+      "longitude": 14.267,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Zawiya": {
+      "latitude": 32.75,
+      "longitude": 12.717,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Gharyan": {
+      "latitude": 32.167,
+      "longitude": 13.017,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Derna": {
+      "latitude": 32.767,
+      "longitude": 22.633,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Tobruk": {
+      "latitude": 32.083,
+      "longitude": 23.967,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Bayda": {
+      "latitude": 32.767,
+      "longitude": 21.733,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Ajdabiya": {
+      "latitude": 30.767,
+      "longitude": 20.217,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Sirte": {
+      "latitude": 31.2,
+      "longitude": 16.583,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Sabha": {
+      "latitude": 27.033,
+      "longitude": 14.433,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Murzuq": {
+      "latitude": 25.917,
+      "longitude": 13.917,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Ubari": {
+      "latitude": 26.589,
+      "longitude": 12.769,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Bani Walid": {
+      "latitude": 31.75,
+      "longitude": 13.983,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Ghat": {
+      "latitude": 24.967,
+      "longitude": 10.167,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Nalut": {
+      "latitude": 31.867,
+      "longitude": 10.983,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Yafran": {
+      "latitude": 32.067,
+      "longitude": 12.517,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Tajura": {
+      "latitude": 32.883,
+      "longitude": 13.35,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Gaser Akhiyar": {
+      "latitude": 32.867,
+      "longitude": 13.0,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Janzur": {
+      "latitude": 32.817,
+      "longitude": 13.017,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Sorman": {
+      "latitude": 32.75,
+      "longitude": 12.567,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Sabratha": {
+      "latitude": 32.8,
+      "longitude": 12.483,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Zuwarah": {
+      "latitude": 32.933,
+      "longitude": 12.083,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Jaghbub": {
+      "latitude": 29.75,
+      "longitude": 24.517,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Jalu": {
+      "latitude": 29.033,
+      "longitude": 21.55,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Kufra": {
+      "latitude": 24.167,
+      "longitude": 23.283,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Marada": {
+      "latitude": 30.667,
+      "longitude": 19.167,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Brega": {
+      "latitude": 30.417,
+      "longitude": 19.567,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Ras Lanuf": {
+      "latitude": 30.567,
+      "longitude": 18.367,
+      "timezone": "Africa/Tripoli"
+    },
+    "LY_Bin Jawad": {
+      "latitude": 30.75,
+      "longitude": 18.083,
+      "timezone": "Africa/Tripoli"
+    },
+    "TN_Tunis": {
+      "latitude": 36.806,
+      "longitude": 10.181,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Sfax": {
+      "latitude": 34.733,
+      "longitude": 10.767,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Sousse": {
+      "latitude": 35.825,
+      "longitude": 10.641,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Kairouan": {
+      "latitude": 35.678,
+      "longitude": 10.096,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Bizerte": {
+      "latitude": 37.267,
+      "longitude": 9.867,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Gabes": {
+      "latitude": 33.883,
+      "longitude": 10.117,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Ariana": {
+      "latitude": 36.867,
+      "longitude": 10.2,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Gafsa": {
+      "latitude": 34.417,
+      "longitude": 8.783,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_La Marsa": {
+      "latitude": 36.883,
+      "longitude": 10.317,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Monastir": {
+      "latitude": 35.767,
+      "longitude": 10.817,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Hammamet": {
+      "latitude": 36.4,
+      "longitude": 10.617,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Nabeul": {
+      "latitude": 36.45,
+      "longitude": 10.733,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Medenine": {
+      "latitude": 33.35,
+      "longitude": 10.483,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Tataouine": {
+      "latitude": 32.917,
+      "longitude": 10.45,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Kasserine": {
+      "latitude": 35.167,
+      "longitude": 8.833,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Tozeur": {
+      "latitude": 33.917,
+      "longitude": 8.133,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Sidi Bouzid": {
+      "latitude": 35.033,
+      "longitude": 9.483,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Beja": {
+      "latitude": 36.733,
+      "longitude": 9.183,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Jendouba": {
+      "latitude": 36.5,
+      "longitude": 8.783,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_El Kef": {
+      "latitude": 36.167,
+      "longitude": 8.7,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Siliana": {
+      "latitude": 36.083,
+      "longitude": 9.367,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Zaghouan": {
+      "latitude": 36.4,
+      "longitude": 10.133,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Mahdia": {
+      "latitude": 35.5,
+      "longitude": 11.067,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Djerba": {
+      "latitude": 33.85,
+      "longitude": 10.85,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Zarzis": {
+      "latitude": 33.5,
+      "longitude": 11.1,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Houmt Souk": {
+      "latitude": 33.867,
+      "longitude": 10.85,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Kebili": {
+      "latitude": 33.7,
+      "longitude": 8.967,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Douz": {
+      "latitude": 33.467,
+      "longitude": 9.033,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Radès": {
+      "latitude": 36.767,
+      "longitude": 10.267,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Ettadhamen": {
+      "latitude": 36.833,
+      "longitude": 10.117,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Mourouj": {
+      "latitude": 36.683,
+      "longitude": 10.167,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Ben Arous": {
+      "latitude": 36.75,
+      "longitude": 10.233,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Megrine": {
+      "latitude": 36.767,
+      "longitude": 10.233,
+      "timezone": "Africa/Tunis"
+    },
+    "TN_Carthage": {
+      "latitude": 36.85,
+      "longitude": 10.317,
+      "timezone": "Africa/Tunis"
+    },
+    "DZ_Algiers": {
+      "latitude": 36.753,
+      "longitude": 3.022,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Oran": {
+      "latitude": 35.697,
+      "longitude": -0.631,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Constantine": {
+      "latitude": 36.365,
+      "longitude": 6.615,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Annaba": {
+      "latitude": 36.9,
+      "longitude": 7.767,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Blida": {
+      "latitude": 36.472,
+      "longitude": 2.833,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Setif": {
+      "latitude": 36.19,
+      "longitude": 5.41,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Tizi Ouzou": {
+      "latitude": 36.717,
+      "longitude": 4.05,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Bejaia": {
+      "latitude": 36.756,
+      "longitude": 5.084,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Batna": {
+      "latitude": 35.556,
+      "longitude": 6.174,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Tlemcen": {
+      "latitude": 34.883,
+      "longitude": -1.317,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Mostaganem": {
+      "latitude": 35.933,
+      "longitude": 0.083,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Medea": {
+      "latitude": 36.267,
+      "longitude": 2.75,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Biskra": {
+      "latitude": 34.85,
+      "longitude": 5.733,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Skikda": {
+      "latitude": 36.867,
+      "longitude": 6.9,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Chlef": {
+      "latitude": 36.167,
+      "longitude": 1.333,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Souk Ahras": {
+      "latitude": 36.283,
+      "longitude": 7.95,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Ouargla": {
+      "latitude": 31.967,
+      "longitude": 5.333,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Saida": {
+      "latitude": 34.833,
+      "longitude": 0.15,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_El Oued": {
+      "latitude": 33.367,
+      "longitude": 6.867,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Guelma": {
+      "latitude": 36.467,
+      "longitude": 7.433,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Relizane": {
+      "latitude": 35.733,
+      "longitude": 0.55,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Tiaret": {
+      "latitude": 35.383,
+      "longitude": 1.317,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Bordj Bou Arreridj": {
+      "latitude": 36.067,
+      "longitude": 4.767,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Khenchela": {
+      "latitude": 35.433,
+      "longitude": 7.15,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Bouira": {
+      "latitude": 36.383,
+      "longitude": 3.9,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_M'sila": {
+      "latitude": 35.7,
+      "longitude": 4.533,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Ain Oussera": {
+      "latitude": 35.45,
+      "longitude": 2.9,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Laghouat": {
+      "latitude": 33.8,
+      "longitude": 2.867,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Djelfa": {
+      "latitude": 34.667,
+      "longitude": 3.25,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Mascara": {
+      "latitude": 35.4,
+      "longitude": -0.133,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Tebessa": {
+      "latitude": 35.4,
+      "longitude": 8.117,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Ain Beida": {
+      "latitude": 35.717,
+      "longitude": 7.383,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Ghardaia": {
+      "latitude": 32.483,
+      "longitude": 3.667,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Bechar": {
+      "latitude": 31.616,
+      "longitude": -2.217,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Tamanrasset": {
+      "latitude": 22.785,
+      "longitude": 5.523,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Illizi": {
+      "latitude": 26.483,
+      "longitude": 8.467,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Tindouf": {
+      "latitude": 27.675,
+      "longitude": -8.128,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Adrar": {
+      "latitude": 27.871,
+      "longitude": -0.293,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Timimoun": {
+      "latitude": 29.267,
+      "longitude": 0.233,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_In Salah": {
+      "latitude": 27.2,
+      "longitude": 2.467,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_El Menia": {
+      "latitude": 30.583,
+      "longitude": 2.867,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Bordj Badji Mokhtar": {
+      "latitude": 21.333,
+      "longitude": 0.95,
+      "timezone": "Africa/Algiers"
+    },
+    "DZ_Ain Saleh": {
+      "latitude": 26.133,
+      "longitude": 1.783,
+      "timezone": "Africa/Algiers"
+    },
+    "MA_Casablanca": {
+      "latitude": 33.573,
+      "longitude": -7.59,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Rabat": {
+      "latitude": 34.021,
+      "longitude": -6.842,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Marrakech": {
+      "latitude": 31.63,
+      "longitude": -8.009,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Fez": {
+      "latitude": 34.033,
+      "longitude": -5.0,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Tangier": {
+      "latitude": 35.767,
+      "longitude": -5.8,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Agadir": {
+      "latitude": 30.433,
+      "longitude": -9.6,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Meknes": {
+      "latitude": 33.893,
+      "longitude": -5.547,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Oujda": {
+      "latitude": 34.683,
+      "longitude": -1.917,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Kenitra": {
+      "latitude": 34.25,
+      "longitude": -6.583,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Tetouan": {
+      "latitude": 35.583,
+      "longitude": -5.367,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Safi": {
+      "latitude": 32.3,
+      "longitude": -9.233,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_El Jadida": {
+      "latitude": 33.25,
+      "longitude": -8.5,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Beni Mellal": {
+      "latitude": 32.333,
+      "longitude": -6.35,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Nador": {
+      "latitude": 35.167,
+      "longitude": -2.933,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Laayoune": {
+      "latitude": 27.15,
+      "longitude": -13.2,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Dakhla": {
+      "latitude": 23.717,
+      "longitude": -15.933,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Ouarzazate": {
+      "latitude": 30.917,
+      "longitude": -6.9,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Taza": {
+      "latitude": 34.217,
+      "longitude": -4.017,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Settat": {
+      "latitude": 33.0,
+      "longitude": -7.617,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Khouribga": {
+      "latitude": 32.883,
+      "longitude": -6.9,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Mohammedia": {
+      "latitude": 33.683,
+      "longitude": -7.367,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Chefchaouen": {
+      "latitude": 35.167,
+      "longitude": -5.367,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Essaouira": {
+      "latitude": 31.513,
+      "longitude": -9.77,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Ifrane": {
+      "latitude": 33.517,
+      "longitude": -5.117,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Errachidia": {
+      "latitude": 31.933,
+      "longitude": -4.433,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Taourirt": {
+      "latitude": 34.4,
+      "longitude": -2.883,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Temara": {
+      "latitude": 33.933,
+      "longitude": -6.917,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Salé": {
+      "latitude": 34.033,
+      "longitude": -6.817,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Boujdour": {
+      "latitude": 26.133,
+      "longitude": -14.483,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Smara": {
+      "latitude": 26.733,
+      "longitude": -11.683,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Al Hoceima": {
+      "latitude": 35.25,
+      "longitude": -3.933,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Berkane": {
+      "latitude": 34.917,
+      "longitude": -2.317,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Larache": {
+      "latitude": 35.183,
+      "longitude": -6.15,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Ksar El Kebir": {
+      "latitude": 35.0,
+      "longitude": -5.9,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Guercif": {
+      "latitude": 34.233,
+      "longitude": -3.35,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Sefrou": {
+      "latitude": 33.833,
+      "longitude": -4.833,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Midelt": {
+      "latitude": 32.683,
+      "longitude": -4.733,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Tinghir": {
+      "latitude": 31.517,
+      "longitude": -5.533,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Zagora": {
+      "latitude": 30.317,
+      "longitude": -5.833,
+      "timezone": "Africa/Casablanca"
+    },
+    "MA_Taroudant": {
+      "latitude": 30.467,
+      "longitude": -8.867,
+      "timezone": "Africa/Casablanca"
+    },
+    "SD_Khartoum": {
+      "latitude": 15.551,
+      "longitude": 32.532,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Omdurman": {
+      "latitude": 15.617,
+      "longitude": 32.483,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Bahri": {
+      "latitude": 15.633,
+      "longitude": 32.533,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Port Sudan": {
+      "latitude": 19.617,
+      "longitude": 37.217,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Kassala": {
+      "latitude": 15.45,
+      "longitude": 36.4,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_El Obeid": {
+      "latitude": 13.183,
+      "longitude": 30.217,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Wad Madani": {
+      "latitude": 14.4,
+      "longitude": 33.533,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Nyala": {
+      "latitude": 12.05,
+      "longitude": 24.883,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_El Fasher": {
+      "latitude": 13.633,
+      "longitude": 25.35,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_El Geneina": {
+      "latitude": 13.45,
+      "longitude": 22.433,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Al Qadarif": {
+      "latitude": 14.033,
+      "longitude": 35.383,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Kosti": {
+      "latitude": 13.167,
+      "longitude": 32.667,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Shendi": {
+      "latitude": 16.683,
+      "longitude": 33.433,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Atbara": {
+      "latitude": 17.7,
+      "longitude": 33.983,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Ed Damazin": {
+      "latitude": 11.769,
+      "longitude": 34.35,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Zalingei": {
+      "latitude": 12.9,
+      "longitude": 23.483,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Ed Dueim": {
+      "latitude": 14.0,
+      "longitude": 32.317,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Kadugli": {
+      "latitude": 11.017,
+      "longitude": 29.717,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Sennar": {
+      "latitude": 13.55,
+      "longitude": 33.583,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Halfa": {
+      "latitude": 21.933,
+      "longitude": 31.35,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Dongola": {
+      "latitude": 19.167,
+      "longitude": 30.483,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Merowe": {
+      "latitude": 18.467,
+      "longitude": 31.817,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Abu Hamad": {
+      "latitude": 19.533,
+      "longitude": 33.317,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Al Dabbah": {
+      "latitude": 18.05,
+      "longitude": 30.95,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Karima": {
+      "latitude": 18.55,
+      "longitude": 31.85,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Al Matammah": {
+      "latitude": 16.633,
+      "longitude": 33.45,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Rabak": {
+      "latitude": 13.167,
+      "longitude": 32.733,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Sinja": {
+      "latitude": 13.15,
+      "longitude": 33.933,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Umm Ruwaba": {
+      "latitude": 12.9,
+      "longitude": 31.2,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Al Faw": {
+      "latitude": 14.117,
+      "longitude": 33.317,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Al Managil": {
+      "latitude": 14.25,
+      "longitude": 33.133,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Gedaref": {
+      "latitude": 14.033,
+      "longitude": 35.383,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Dilling": {
+      "latitude": 12.05,
+      "longitude": 29.65,
+      "timezone": "Africa/Khartoum"
+    },
+    "SD_Tawkar": {
+      "latitude": 18.433,
+      "longitude": 37.733,
+      "timezone": "Africa/Khartoum"
+    },
+    "MR_Nouakchott": {
+      "latitude": 18.086,
+      "longitude": -15.975,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Nouadhibou": {
+      "latitude": 20.9,
+      "longitude": -17.05,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Rosso": {
+      "latitude": 16.517,
+      "longitude": -15.8,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Kiffa": {
+      "latitude": 16.617,
+      "longitude": -11.4,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Zouerate": {
+      "latitude": 22.733,
+      "longitude": -12.467,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Kaedi": {
+      "latitude": 16.15,
+      "longitude": -13.517,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Boutilimit": {
+      "latitude": 17.55,
+      "longitude": -14.7,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Atar": {
+      "latitude": 20.517,
+      "longitude": -13.05,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Aleg": {
+      "latitude": 17.05,
+      "longitude": -13.917,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Selibaby": {
+      "latitude": 15.15,
+      "longitude": -12.183,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Aioun": {
+      "latitude": 16.667,
+      "longitude": -9.617,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Akjoujt": {
+      "latitude": 19.733,
+      "longitude": -14.383,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Tidjikja": {
+      "latitude": 18.55,
+      "longitude": -11.433,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Bir Moghrein": {
+      "latitude": 25.233,
+      "longitude": -11.583,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Bogue": {
+      "latitude": 16.6,
+      "longitude": -14.267,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Nema": {
+      "latitude": 16.617,
+      "longitude": -7.25,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Timbedra": {
+      "latitude": 16.65,
+      "longitude": -7.6,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Oualata": {
+      "latitude": 17.3,
+      "longitude": -7.033,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Tichit": {
+      "latitude": 18.433,
+      "longitude": -9.5,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Chinguetti": {
+      "latitude": 20.467,
+      "longitude": -12.367,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Ouadane": {
+      "latitude": 20.933,
+      "longitude": -11.617,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Moudjeria": {
+      "latitude": 17.817,
+      "longitude": -12.333,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Tamchekett": {
+      "latitude": 17.233,
+      "longitude": -10.65,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Magta Lahjar": {
+      "latitude": 17.483,
+      "longitude": -13.117,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Guerou": {
+      "latitude": 16.833,
+      "longitude": -11.833,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Kobeni": {
+      "latitude": 15.9,
+      "longitude": -9.417,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Boumdeid": {
+      "latitude": 17.467,
+      "longitude": -11.333,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Legrane": {
+      "latitude": 22.067,
+      "longitude": -13.4,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Benichab": {
+      "latitude": 19.867,
+      "longitude": -15.833,
+      "timezone": "Africa/Nouakchott"
+    },
+    "MR_Mederdra": {
+      "latitude": 16.917,
+      "longitude": -15.633,
+      "timezone": "Africa/Nouakchott"
+    },
+    "SO_Mogadishu": {
+      "latitude": 2.046,
+      "longitude": 45.318,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Hargeisa": {
+      "latitude": 9.56,
+      "longitude": 44.065,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Bosaso": {
+      "latitude": 11.283,
+      "longitude": 49.183,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Kismayo": {
+      "latitude": -0.35,
+      "longitude": 42.533,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Baidoa": {
+      "latitude": 3.117,
+      "longitude": 43.65,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Galkayo": {
+      "latitude": 6.767,
+      "longitude": 47.433,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Merca": {
+      "latitude": 1.7,
+      "longitude": 44.767,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Beledweyne": {
+      "latitude": 4.733,
+      "longitude": 45.2,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Berbera": {
+      "latitude": 10.435,
+      "longitude": 45.016,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Jowhar": {
+      "latitude": 2.783,
+      "longitude": 45.5,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Burao": {
+      "latitude": 9.517,
+      "longitude": 45.533,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Las Anod": {
+      "latitude": 8.283,
+      "longitude": 47.35,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Qardho": {
+      "latitude": 9.5,
+      "longitude": 49.083,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Garowe": {
+      "latitude": 8.4,
+      "longitude": 48.483,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Eyl": {
+      "latitude": 8.0,
+      "longitude": 49.817,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Hobyo": {
+      "latitude": 5.35,
+      "longitude": 48.517,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Jamaame": {
+      "latitude": 0.067,
+      "longitude": 42.733,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Afgooye": {
+      "latitude": 2.15,
+      "longitude": 45.117,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Wanlaweyn": {
+      "latitude": 2.617,
+      "longitude": 44.9,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Bardera": {
+      "latitude": 2.333,
+      "longitude": 42.283,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Luuq": {
+      "latitude": 3.8,
+      "longitude": 42.55,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Garbaharey": {
+      "latitude": 3.333,
+      "longitude": 42.25,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Dhusamareb": {
+      "latitude": 5.533,
+      "longitude": 46.383,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Buhoodle": {
+      "latitude": 8.233,
+      "longitude": 46.317,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Baki": {
+      "latitude": 9.892,
+      "longitude": 43.389,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Borama": {
+      "latitude": 9.933,
+      "longitude": 43.183,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Zeylac": {
+      "latitude": 11.35,
+      "longitude": 43.467,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Ceerigaabo": {
+      "latitude": 10.6,
+      "longitude": 47.367,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Bandarbeyla": {
+      "latitude": 9.483,
+      "longitude": 50.817,
+      "timezone": "Africa/Mogadishu"
+    },
+    "SO_Iskushuban": {
+      "latitude": 10.283,
+      "longitude": 50.233,
+      "timezone": "Africa/Mogadishu"
+    },
+    "DJ_Djibouti City": {
+      "latitude": 11.589,
+      "longitude": 43.145,
+      "timezone": "Africa/Djibouti"
+    },
+    "DJ_Ali Sabieh": {
+      "latitude": 11.15,
+      "longitude": 42.717,
+      "timezone": "Africa/Djibouti"
+    },
+    "DJ_Tadjoura": {
+      "latitude": 11.783,
+      "longitude": 42.883,
+      "timezone": "Africa/Djibouti"
+    },
+    "DJ_Obock": {
+      "latitude": 11.967,
+      "longitude": 43.283,
+      "timezone": "Africa/Djibouti"
+    },
+    "DJ_Dikhil": {
+      "latitude": 11.1,
+      "longitude": 42.367,
+      "timezone": "Africa/Djibouti"
+    },
+    "DJ_Arta": {
+      "latitude": 11.517,
+      "longitude": 42.833,
+      "timezone": "Africa/Djibouti"
+    },
+    "DJ_Holhol": {
+      "latitude": 11.317,
+      "longitude": 42.7,
+      "timezone": "Africa/Djibouti"
+    },
+    "DJ_Doraleh": {
+      "latitude": 11.533,
+      "longitude": 43.067,
+      "timezone": "Africa/Djibouti"
+    },
+    "DJ_Loyada": {
+      "latitude": 11.467,
+      "longitude": 43.25,
+      "timezone": "Africa/Djibouti"
+    },
+    "DJ_Randa": {
+      "latitude": 11.833,
+      "longitude": 42.75,
+      "timezone": "Africa/Djibouti"
+    },
+    "DJ_Yoboki": {
+      "latitude": 11.517,
+      "longitude": 42.1,
+      "timezone": "Africa/Djibouti"
+    },
+    "DJ_As Eyla": {
+      "latitude": 11.0,
+      "longitude": 42.317,
+      "timezone": "Africa/Djibouti"
+    },
+    "DJ_Goubétto": {
+      "latitude": 11.417,
+      "longitude": 43.133,
+      "timezone": "Africa/Djibouti"
+    },
+    "DJ_Dorra": {
+      "latitude": 12.15,
+      "longitude": 42.467,
+      "timezone": "Africa/Djibouti"
+    },
+    "DJ_Alaili Dadda": {
+      "latitude": 11.983,
+      "longitude": 42.75,
+      "timezone": "Africa/Djibouti"
+    },
+    "DJ_Khôr 'Angar": {
+      "latitude": 11.817,
+      "longitude": 42.8,
+      "timezone": "Africa/Djibouti"
+    },
+    "DJ_Daddato": {
+      "latitude": 12.004,
+      "longitude": 42.704,
+      "timezone": "Africa/Djibouti"
+    },
+    "DJ_Moulhoule": {
+      "latitude": 12.0,
+      "longitude": 42.817,
+      "timezone": "Africa/Djibouti"
+    },
+    "DJ_Galafi": {
+      "latitude": 12.017,
+      "longitude": 42.167,
+      "timezone": "Africa/Djibouti"
+    },
+    "DJ_Balho": {
+      "latitude": 12.067,
+      "longitude": 42.183,
+      "timezone": "Africa/Djibouti"
+    },
+    "LB_Bcharre": {
+      "latitude": 34.25,
+      "longitude": 36.017,
+      "timezone": "Asia/Beirut"
+    },
+    "LB_Mtein": {
+      "latitude": 33.867,
+      "longitude": 35.633,
+      "timezone": "Asia/Beirut"
+    },
+    "KW_Al Ahmadi": {
+      "latitude": 29.083,
+      "longitude": 48.083,
+      "timezone": "Asia/Kuwait"
+    },
+    "QA_Mesaieed": {
+      "latitude": 24.983,
+      "longitude": 51.533,
+      "timezone": "Asia/Qatar"
+    },
+    "QA_Abu Samra": {
+      "latitude": 24.733,
+      "longitude": 50.833,
+      "timezone": "Asia/Qatar"
+    },
+    "OM_Bahla": {
+      "latitude": 22.967,
+      "longitude": 57.3,
+      "timezone": "Asia/Muscat"
+    },
+    "OM_Dibba": {
+      "latitude": 25.617,
+      "longitude": 56.267,
+      "timezone": "Asia/Muscat"
+    },
+    "YE_Sayyan": {
+      "latitude": 15.167,
+      "longitude": 44.317,
+      "timezone": "Asia/Aden"
+    },
+    "SD_Ad Damazin": {
+      "latitude": 11.769,
+      "longitude": 34.35,
+      "timezone": "Africa/Khartoum"
+    },
+    "MR_Zouerat": {
+      "latitude": 22.733,
+      "longitude": -12.467,
+      "timezone": "Africa/Nouakchott"
+    },
+    "DZ_Sidi Bel Abbes": {
+      "latitude": 35.2,
+      "longitude": -0.633,
+      "timezone": "Africa/Algiers"
     }
   }
 }

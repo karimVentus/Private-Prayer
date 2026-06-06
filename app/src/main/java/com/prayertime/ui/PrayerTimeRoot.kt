@@ -46,6 +46,7 @@ import androidx.compose.ui.window.Dialog
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.LifecycleResumeEffect
 import androidx.lifecycle.lifecycleScope
+import com.prayertime.R
 import com.prayertime.alarm.PrayerAlarmScheduler
 import com.prayertime.permission.AdhanPermissions
 import com.prayertime.ui.city.CityInputActions
@@ -61,7 +62,6 @@ import com.prayertime.ui.screens.CityInputScreen
 import com.prayertime.ui.screens.HijriCalendarScreen
 import com.prayertime.ui.screens.LanguagePickerDialog
 import com.prayertime.ui.screens.PrayerTimesScreen
-import com.prayertime.R
 import com.prayertime.ui.screens.PrivacyModeUiState
 import com.prayertime.ui.screens.ThemeUiState
 import com.prayertime.ui.settings.AppSettingsViewModel

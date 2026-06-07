@@ -42,7 +42,6 @@ import com.prayertime.R
 import com.prayertime.di.CompassEntryPoint
 import com.prayertime.domain.calculator.QiblaCalculator
 import com.prayertime.ui.theme.AppSpacing
-
 import dagger.hilt.android.EntryPointAccessors
 import kotlin.math.cos
 import kotlin.math.sin
@@ -64,267 +63,239 @@ fun QiblaScreen(
     onClose: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val qiblaBearing =
-        remember(latitude, longitude) {
-            QiblaCalculator.bearing(latitude, longitude)
-        }
-    val cardinalDir =
-        remember(qiblaBearing) {
-            QiblaCalculator.cardinalDirection(qiblaBearing)
-        }
+    val qiblaBearing = remember(latitude, longitude) { QiblaCalculator.bearing(latitude, longitude) }
+    val cardinalDir = remember(qiblaBearing) { QiblaCalculator.cardinalDirection(qiblaBearing) }
 
     val context = LocalContext.current
     val compassSensor =
         remember(context) {
-            val entryPoint =
-                EntryPointAccessors.fromApplication(
-                    context.applicationContext,
-                    CompassEntryPoint::class.java,
-                )
-            entryPoint.compassSensor()
+            EntryPointAccessors
+                .fromApplication(context.applicationContext, CompassEntryPoint::class.java)
+                .compassSensor()
         }
     val azimuth by compassSensor.azimuth.collectAsState(initial = null)
-
     val smoothAzimuth by animateFloatAsState(
         targetValue = azimuth ?: 0f,
         animationSpec = tween(durationMillis = 600, easing = LinearEasing),
         label = "compassAzimuth",
     )
-
-    val compassAvailable =
-        remember(compassSensor) { compassSensor.isAvailable }
+    val compassAvailable = remember(compassSensor) { compassSensor.isAvailable }
     val palette = calendarPalette()
-    val resources = context.resources
 
     Column(
         modifier = modifier.fillMaxSize().background(palette.background),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        // --- Title row ---
-        Row(
-            modifier = Modifier.fillMaxWidth().padding(horizontal = AppSpacing.screenHorizontal),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Spacer(modifier = Modifier.weight(1f))
-            Text(
-                text = stringResource(R.string.qibla_compass_title),
-                color = palette.textPrimary,
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Bold,
-                textAlign = TextAlign.Center,
-            )
-            Spacer(modifier = Modifier.weight(1f))
-        }
-
+        QiblaTitleRow(palette)
         Spacer(modifier = Modifier.height(AppSpacing.screenVertical))
+        QiblaSensorStatus(compassAvailable, azimuth, palette)
+        QiblaCompassBox(
+            smoothAzimuth = smoothAzimuth,
+            qiblaBearing = qiblaBearing,
+            palette = palette,
+            modifier = Modifier.weight(1f),
+        )
+        QiblaInfoLabels(qiblaBearing, cardinalDir, cityLabel, palette, context.resources)
+        QiblaCloseButton(onClose, palette, context.resources)
+    }
+}
 
-        if (!compassAvailable) {
-            // --- Sensor-unavailable message ---
+// ── Sub-composables ───────────────────────────────────────────────────────────
+
+@Composable
+private fun QiblaTitleRow(palette: com.prayertime.ui.theme.CalendarPalette) {
+    Row(
+        modifier = Modifier.fillMaxWidth().padding(horizontal = AppSpacing.screenHorizontal),
+        horizontalArrangement = Arrangement.Center,
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Spacer(modifier = Modifier.weight(1f))
+        Text(
+            text = stringResource(R.string.qibla_compass_title),
+            color = palette.textPrimary,
+            fontSize = 18.sp,
+            fontWeight = FontWeight.Bold,
+            textAlign = TextAlign.Center,
+        )
+        Spacer(modifier = Modifier.weight(1f))
+    }
+}
+
+@Composable
+private fun QiblaSensorStatus(
+    compassAvailable: Boolean,
+    azimuth: Float?,
+    palette: com.prayertime.ui.theme.CalendarPalette,
+) {
+    val context = LocalContext.current
+    when {
+        !compassAvailable ->
             Text(
-                text = resources.getString(R.string.compass_not_available),
+                text = context.getString(R.string.compass_not_available),
                 color = palette.textSecondary,
                 fontSize = 14.sp,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(horizontal = AppSpacing.screenHorizontal),
             )
-        } else if (azimuth == null) {
-            // --- Waiting for first sensor reading ---
+        azimuth == null ->
             Text(
-                text = resources.getString(R.string.compass_calibrating),
+                text = context.getString(R.string.compass_calibrating),
                 color = palette.textSecondary,
                 fontSize = 14.sp,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(horizontal = AppSpacing.screenHorizontal),
             )
-        }
+        else -> Unit
+    }
+}
 
-        // --- Compass drawing ---
-        BoxWithConstraints(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = AppSpacing.screenHorizontal)
-                .weight(1f),
-            contentAlignment = Alignment.Center,
-        ) {
-            val compassSize = minOf(maxWidth, maxHeight) * 0.85f
-            val qiblaAngle = qiblaBearing - smoothAzimuth
-
-            Canvas(
-                modifier = Modifier.size(compassSize).aspectRatio(1f),
-            ) {
-                val cx = size.width / 2f
-                val cy = size.height / 2f
-                val radius = minOf(cx, cy) * 0.90f
-                val outerRingWidth = 2.dp.toPx()
-                val innerRingWidth = 1.dp.toPx()
-
-                val ringColor = palette.textPrimary.copy(alpha = 0.35f)
-                val markColor = palette.textPrimary.copy(alpha = 0.55f)
-                val minorMarkColor = palette.textPrimary.copy(alpha = 0.20f)
-                val textColorArgb = palette.textPrimary.hashCode()
-                val labelPaint =
-                    android.graphics.Paint().apply {
-                        color = textColorArgb
-                        textAlign = android.graphics.Paint.Align.CENTER
-                        textSize = 14.sp.toPx()
-                        isAntiAlias = true
-                        isFakeBoldText = true
-                    }
-                // --- 1. Outer ring (fixed) ---
-                drawCircle(
-                    color = ringColor,
-                    radius = radius,
-                    center = Offset(cx, cy),
-                    style = Stroke(width = outerRingWidth),
-                )
-                drawCircle(
-                    color = ringColor.copy(alpha = 0.15f),
-                    radius = radius * 0.97f,
-                    center = Offset(cx, cy),
-                    style = Stroke(width = innerRingWidth),
-                )
-
-                // --- 2. Rotating dial: N/S/E/W marks + minor ticks ---
-                rotate(degrees = -smoothAzimuth, pivot = Offset(cx, cy)) {
-                    // Cardinal marks (0, 90, 180, 270)
-                    val cardinals = listOf(0f to "N", 90f to "E", 180f to "S", 270f to "W")
-                    for ((angle, label) in cardinals) {
-                        val rad = Math.toRadians(angle.toDouble())
-                        val sinR = sin(rad).toFloat()
-                        val cosR = cos(rad).toFloat()
-
-                        // Tick mark
-                        val tickInner = radius * 0.82f
-                        val tickOuter = radius * 0.92f
-                        drawLine(
-                            color = markColor,
-                            start = Offset(cx + tickInner * sinR, cy - tickInner * cosR),
-                            end = Offset(cx + tickOuter * sinR, cy - tickOuter * cosR),
-                            strokeWidth = 2.5.dp.toPx(),
-                        )
-
-                        // Label
-                        val labelRadius = radius * 0.72f
-                        val lx = cx + labelRadius * sinR
-                        val ly = cy - labelRadius * cosR
-                        drawContext.canvas.nativeCanvas.drawText(label, lx, ly + 5.sp.toPx() / 3f, labelPaint)
-                    }
-
-                    // Minor ticks every 30 degrees
-                    for (angle in 0 until 360 step 30) {
-                        if (angle % 90 == 0) continue
-                        val rad = Math.toRadians(angle.toDouble())
-                        val sinR = sin(rad).toFloat()
-                        val cosR = cos(rad).toFloat()
-                        val tickInner = radius * 0.86f
-                        val tickOuter = radius * 0.90f
-                        drawLine(
-                            color = minorMarkColor,
-                            start = Offset(cx + tickInner * sinR, cy - tickInner * cosR),
-                            end = Offset(cx + tickOuter * sinR, cy - tickOuter * cosR),
-                            strokeWidth = 1.dp.toPx(),
-                        )
-                    }
-                }
-
-                // --- 3. Qibla arrow (rotated by bearing - azimuth) ---
-                // This arrow stays fixed on screen but its rotation adjusts so it
-                // always points toward Qibla relative to the user's facing direction.
-                val arrowAngleRad = Math.toRadians(qiblaAngle.toDouble())
-                val aSin = sin(arrowAngleRad).toFloat()
-                val aCos = cos(arrowAngleRad).toFloat()
-
-                // Arrow tip at the edge of the compass ring
-                val arrowLength = radius * 0.72f
-                val arrowTipX = cx + arrowLength * aSin
-                val arrowTipY = cy - arrowLength * aCos
-
-                // Arrow base (wider) near center
-                val baseWidth = 8.dp.toPx()
-                val baseLength = radius * 0.08f
-                val baseCx = cx + baseLength * aSin
-                val baseCy = cy - baseLength * aCos
-
-                // Perpendicular direction for base width
-                val perpSin = cos(arrowAngleRad).toFloat()
-                val perpCos = (-sin(arrowAngleRad)).toFloat()
-
-                val arrowPath =
-                    Path().apply {
-                        moveTo(arrowTipX, arrowTipY)
-                        lineTo(baseCx + baseWidth * perpSin, baseCy + baseWidth * perpCos)
-                        lineTo(baseCx - baseWidth * perpSin, baseCy - baseWidth * perpCos)
-                        close()
-                    }
-                drawPath(
-                    path = arrowPath,
-                    color = Color(0xFFD32F2F),
-                )
-
-                // Small accent circle at the arrow's base
-                drawCircle(
-                    color = Color(0xFFFFCDD2),
-                    radius = baseWidth * 0.4f,
-                    center = Offset(baseCx, baseCy),
-                )
-
-                // --- 4. Compass center dot ---
-                drawCircle(
-                    color = palette.textPrimary.copy(alpha = 0.5f),
-                    radius = 2.5.dp.toPx(),
-                    center = Offset(cx, cy),
-                )
-            }
-        }
-
-        // --- Info labels ---
-        Column(
-            modifier = Modifier
+@Composable
+private fun QiblaCompassBox(
+    smoothAzimuth: Float,
+    qiblaBearing: Float,
+    palette: com.prayertime.ui.theme.CalendarPalette,
+    modifier: Modifier = Modifier,
+) {
+    BoxWithConstraints(
+        modifier =
+            modifier
                 .fillMaxWidth()
                 .padding(horizontal = AppSpacing.screenHorizontal),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            // Bearing text
-            Text(
-                text = resources.getString(
-                    R.string.qibla_bearing_format,
-                    qiblaBearing.toInt(),
-                    cardinalDir,
-                ),
-                color = palette.textPrimary,
-                fontSize = 16.sp,
-                fontWeight = FontWeight.SemiBold,
-                textAlign = TextAlign.Center,
-            )
+        contentAlignment = Alignment.Center,
+    ) {
+        val compassSize = minOf(maxWidth, maxHeight) * 0.85f
+        val qiblaAngle = qiblaBearing - smoothAzimuth
+        Canvas(modifier = Modifier.size(compassSize).aspectRatio(1f)) {
+            drawCompassContent(smoothAzimuth, qiblaAngle, palette)
+        }
+    }
+}
 
-            Spacer(modifier = Modifier.height(4.dp))
+/** All canvas drawing for the compass dial + arrow. */
+private fun androidx.compose.ui.graphics.drawscope.DrawScope.drawCompassContent(
+    smoothAzimuth: Float,
+    qiblaAngle: Float,
+    palette: com.prayertime.ui.theme.CalendarPalette,
+) {
+    val cx = size.width / 2f
+    val cy = size.height / 2f
+    val radius = minOf(cx, cy) * 0.90f
 
-            // City name
-            Text(
-                text = cityLabel,
-                color = palette.textSecondary,
-                fontSize = 13.sp,
-                textAlign = TextAlign.Center,
-            )
+    val ringColor = palette.textPrimary.copy(alpha = 0.35f)
+    val markColor = palette.textPrimary.copy(alpha = 0.55f)
+    val minorMarkColor = palette.textPrimary.copy(alpha = 0.20f)
+    val labelPaint =
+        android.graphics.Paint().apply {
+            color = palette.textPrimary.hashCode()
+            textAlign = android.graphics.Paint.Align.CENTER
+            textSize = 14.sp.toPx()
+            isAntiAlias = true
+            isFakeBoldText = true
         }
 
-        // --- Close button ---
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .navigationBarsPadding(),
-            horizontalArrangement = Arrangement.End,
-        ) {
-            Text(
-                text = resources.getString(R.string.back_to_prayer_times),
-                color = palette.textSecondary,
-                fontSize = 11.sp,
-                modifier = Modifier
+    // 1. Outer ring
+    drawCircle(color = ringColor, radius = radius, center = Offset(cx, cy), style = Stroke(width = 2.dp.toPx()))
+    drawCircle(color = ringColor.copy(alpha = 0.15f), radius = radius * 0.97f, center = Offset(cx, cy), style = Stroke(width = 1.dp.toPx()))
+
+    // 2. Rotating dial
+    rotate(degrees = -smoothAzimuth, pivot = Offset(cx, cy)) {
+        val cardinals = listOf(0f to "N", 90f to "E", 180f to "S", 270f to "W")
+        for ((angle, label) in cardinals) {
+            val rad = Math.toRadians(angle.toDouble())
+            val sinR = sin(rad).toFloat()
+            val cosR = cos(rad).toFloat()
+            drawLine(
+                markColor,
+                Offset(cx + radius * 0.82f * sinR, cy - radius * 0.82f * cosR),
+                Offset(cx + radius * 0.92f * sinR, cy - radius * 0.92f * cosR),
+                2.5.dp.toPx(),
+            )
+            val lr = radius * 0.72f
+            drawContext.canvas.nativeCanvas.drawText(label, cx + lr * sinR, cy - lr * cosR + 5.sp.toPx() / 3f, labelPaint)
+        }
+        for (angle in 0 until 360 step 30) {
+            if (angle % 90 == 0) continue
+            val rad = Math.toRadians(angle.toDouble())
+            val sinR = sin(rad).toFloat()
+            val cosR = cos(rad).toFloat()
+            drawLine(
+                minorMarkColor,
+                Offset(cx + radius * 0.86f * sinR, cy - radius * 0.86f * cosR),
+                Offset(cx + radius * 0.90f * sinR, cy - radius * 0.90f * cosR),
+                1.dp.toPx(),
+            )
+        }
+    }
+
+    // 3. Qibla arrow
+    val rad = Math.toRadians(qiblaAngle.toDouble())
+    val aSin = sin(rad).toFloat()
+    val aCos = cos(rad).toFloat()
+    val arrowLength = radius * 0.72f
+    val baseLength = radius * 0.08f
+    val baseWidth = 8.dp.toPx()
+    val baseCx = cx + baseLength * aSin
+    val baseCy = cy - baseLength * aCos
+    val perpSin = cos(rad).toFloat()
+    val perpCos = (-sin(rad)).toFloat()
+    drawPath(
+        Path().apply {
+            moveTo(cx + arrowLength * aSin, cy - arrowLength * aCos)
+            lineTo(baseCx + baseWidth * perpSin, baseCy + baseWidth * perpCos)
+            lineTo(baseCx - baseWidth * perpSin, baseCy - baseWidth * perpCos)
+            close()
+        },
+        color = Color(0xFFD32F2F),
+    )
+    drawCircle(Color(0xFFFFCDD2), radius = baseWidth * 0.4f, center = Offset(baseCx, baseCy))
+
+    // 4. Center dot
+    drawCircle(palette.textPrimary.copy(alpha = 0.5f), radius = 2.5.dp.toPx(), center = Offset(cx, cy))
+}
+
+@Composable
+private fun QiblaInfoLabels(
+    qiblaBearing: Float,
+    cardinalDir: String,
+    cityLabel: String,
+    palette: com.prayertime.ui.theme.CalendarPalette,
+    resources: android.content.res.Resources,
+) {
+    Column(
+        modifier = Modifier.fillMaxWidth().padding(horizontal = AppSpacing.screenHorizontal),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Text(
+            text = resources.getString(R.string.qibla_bearing_format, qiblaBearing.toInt(), cardinalDir),
+            color = palette.textPrimary,
+            fontSize = 16.sp,
+            fontWeight = FontWeight.SemiBold,
+            textAlign = TextAlign.Center,
+        )
+        Spacer(modifier = Modifier.height(4.dp))
+        Text(text = cityLabel, color = palette.textSecondary, fontSize = 13.sp, textAlign = TextAlign.Center)
+    }
+}
+
+@Composable
+private fun QiblaCloseButton(
+    onClose: () -> Unit,
+    palette: com.prayertime.ui.theme.CalendarPalette,
+    resources: android.content.res.Resources,
+) {
+    Row(
+        modifier = Modifier.fillMaxWidth().navigationBarsPadding(),
+        horizontalArrangement = Arrangement.End,
+    ) {
+        Text(
+            text = resources.getString(R.string.back_to_prayer_times),
+            color = palette.textSecondary,
+            fontSize = 11.sp,
+            modifier =
+                Modifier
                     .defaultMinSize(minHeight = AppSpacing.touchTargetMin)
                     .clickable(onClick = onClose)
                     .padding(horizontal = 16.dp, vertical = 12.dp),
-            )
-        }
+        )
     }
 }

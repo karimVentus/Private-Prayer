@@ -62,8 +62,8 @@ import com.prayertime.ui.screens.CityInputScreen
 import com.prayertime.ui.screens.HijriCalendarScreen
 import com.prayertime.ui.screens.LanguagePickerDialog
 import com.prayertime.ui.screens.PrayerTimesScreen
-import com.prayertime.ui.screens.QiblaScreen
 import com.prayertime.ui.screens.PrivacyModeUiState
+import com.prayertime.ui.screens.QiblaScreen
 import com.prayertime.ui.screens.ThemeUiState
 import com.prayertime.ui.settings.AppSettingsViewModel
 import com.prayertime.ui.theme.PrayerTimeTheme

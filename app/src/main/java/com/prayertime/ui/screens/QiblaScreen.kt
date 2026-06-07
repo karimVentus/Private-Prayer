@@ -1,5 +1,6 @@
 package com.prayertime.ui.screens
 
+import android.hardware.SensorManager
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
@@ -19,6 +20,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -41,6 +45,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.window.Dialog
 import com.prayertime.R
 import com.prayertime.di.CompassEntryPoint
 import com.prayertime.domain.calculator.QiblaCalculator
@@ -82,8 +87,13 @@ fun QiblaScreen(
     val palette = calendarPalette()
 
     var azimuth by remember { mutableStateOf<Float?>(null) }
+    var accuracy by remember { mutableStateOf(SensorManager.SENSOR_STATUS_ACCURACY_HIGH) }
+    var showCalibrationDialog by remember { mutableStateOf(false) }
     LaunchedEffect(compassSensor) {
         compassSensor?.azimuth?.collect { azimuth = it }
+    }
+    LaunchedEffect(compassSensor) {
+        compassSensor?.accuracy?.collect { accuracy = it }
     }
     val smoothAzimuth by animateFloatAsState(
         targetValue = azimuth ?: 0f,
@@ -105,7 +115,12 @@ fun QiblaScreen(
             modifier = Modifier.weight(1f),
         )
         QiblaInfoLabels(qiblaBearing, cardinalDir, cityLabel, palette, context.resources)
+        QiblaCalibrationStatus(accuracy, compassAvailable, palette, context.resources, onCalibrate = { showCalibrationDialog = true })
         QiblaCloseButton(onClose, palette, context.resources)
+    }
+
+    if (showCalibrationDialog) {
+        QiblaCalibrationDialog(onDismiss = { showCalibrationDialog = false }, resources = context.resources)
     }
 }
 
@@ -331,5 +346,83 @@ private fun QiblaCloseButton(
                     .clickable(onClick = onClose)
                     .padding(horizontal = 16.dp, vertical = 12.dp),
         )
+    }
+}
+
+@Composable
+private fun QiblaCalibrationStatus(
+    accuracy: Int,
+    compassAvailable: Boolean,
+    palette: com.prayertime.ui.theme.CalendarPalette,
+    resources: android.content.res.Resources,
+    onCalibrate: () -> Unit,
+) {
+    if (!compassAvailable) return
+    val (label, showCalibrate) = when (accuracy) {
+        SensorManager.SENSOR_STATUS_UNRELIABLE,
+        SensorManager.SENSOR_STATUS_ACCURACY_LOW ->
+            resources.getString(R.string.compass_low_accuracy) to true
+        SensorManager.SENSOR_STATUS_ACCURACY_MEDIUM ->
+            resources.getString(R.string.compass_accuracy_medium) to false
+        else -> resources.getString(R.string.compass_accuracy_high) to false
+    }
+    Column(
+        modifier = Modifier.fillMaxWidth().padding(horizontal = AppSpacing.screenHorizontal),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Spacer(modifier = Modifier.height(4.dp))
+        Text(
+            text = label,
+            color = if (showCalibrate) Color(0xFFE65100) else palette.textSecondary,
+            fontSize = 12.sp,
+            textAlign = TextAlign.Center,
+        )
+        if (showCalibrate) {
+            Spacer(modifier = Modifier.height(4.dp))
+            Text(
+                text = resources.getString(R.string.compass_calibrate_action),
+                color = Color(0xFF1565C0),
+                fontSize = 13.sp,
+                fontWeight = FontWeight.SemiBold,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.clickable(onClick = onCalibrate).padding(8.dp),
+            )
+        }
+    }
+}
+
+@Composable
+private fun QiblaCalibrationDialog(
+    onDismiss: () -> Unit,
+    resources: android.content.res.Resources,
+) {
+    Dialog(onDismissRequest = onDismiss) {
+        Card(
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+            modifier = Modifier.padding(16.dp),
+        ) {
+            Column(
+                modifier = Modifier.padding(24.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                Text(
+                    text = resources.getString(R.string.compass_calibrate_action),
+                    style = MaterialTheme.typography.titleLarge,
+                )
+                Spacer(modifier = Modifier.height(16.dp))
+                Text(
+                    text = resources.getString(R.string.compass_calibrate_instruction),
+                    style = MaterialTheme.typography.bodyMedium,
+                    textAlign = TextAlign.Center,
+                )
+                Spacer(modifier = Modifier.height(24.dp))
+                Text(
+                    text = resources.getString(R.string.change_city_dialog_cancel),
+                    color = Color(0xFF1565C0),
+                    fontWeight = FontWeight.SemiBold,
+                    modifier = Modifier.clickable(onClick = onDismiss).padding(8.dp),
+                )
+            }
+        }
     }
 }

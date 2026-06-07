@@ -631,7 +631,7 @@ Phases **0–4** are complete. **5G** and **5E** code complete (portrait-only). 
 #### Deferred (not bugs)
 
 - [ ] **5G.D1** User-configurable calc method/school (`m-5`) → Phase 6+ product scope
-- [ ] **5G.D2** `CityConfig` nullable coords API (`m-2`) — guarded by `hasValidCoordinates` today
+- [x] **5G.D2** `CityConfig` nullable coords API (`m-2`) — `latitude`/`longitude` optional; `hasValidCoordinates` guards fetch/save (Jun 2026)
 
 ### Quality Gate (Phase 5G)
 

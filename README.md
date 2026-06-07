@@ -12,7 +12,7 @@
 
 **Privacy-first Android prayer times — no GPS, no account.**
 
-Pick a country and city from a bundled catalog, get accurate daily times (Umm al-Qura, Shafi), live countdown to the next prayer, optional adhan notifications, four home-screen widgets, and a Hijri calendar with ten Islamic events. English and Arabic with full RTL support; three themes (light, green, dark).
+Pick a country and city from a bundled catalog, get accurate daily times (Umm al-Qura, Shafi), live countdown to the next prayer, optional adhan notifications, two home-screen widgets (medium + large), and a Hijri calendar with ten Islamic events. English and Arabic with full RTL support; three themes (light, green, dark).
 
 | | |
 |---|---|
@@ -35,13 +35,17 @@ Live countdown, Hijri date, upcoming event banner, per-prayer mute toggles, and 
 
 ### Home-screen widgets
 
-Four sizes: small tall, small wide, medium (5×1 schedule), and large (clock + six columns). Next prayer highlighted with a single column border; widgets follow the app theme.
+Two sizes: **medium** (5×1 schedule — Hijri header, prayer names, times, next-prayer column highlight) and **large** (city clock + six columns with per-prayer countdown). Widgets follow the app theme and locale (including Eastern Arabic digits).
 
-| English (light) | Arabic (light) | Arabic (dark) |
+| Medium (EN) | Medium (AR) | Medium (AR, dark) |
+|:---:|:---:|:---:|
+| ![Medium widget — English](docs/screenshots/widget-medium-en-light.png) | ![Medium widget — Arabic](docs/screenshots/widget-medium-ar-light.png) | ![Medium widget — Arabic, dark](docs/screenshots/widget-medium-ar-dark.png) |
+
+| Overview (EN) | Overview (AR) | Overview (AR, dark) |
 |:---:|:---:|:---:|
 | ![Widgets — English, light](docs/screenshots/widgets-en-light.png) | ![Widgets — Arabic, light](docs/screenshots/widgets-ar-light.png) | ![Widgets — Arabic, dark](docs/screenshots/widgets-ar-dark.png) |
 
-| Large widget (EN) | Large widget (AR) | Large widget (AR, dark) |
+| Large (EN) | Large (AR) | Large (AR, dark) |
 |:---:|:---:|:---:|
 | ![Large widget — English](docs/screenshots/widget-large-en-light.png) | ![Large widget — Arabic](docs/screenshots/widget-large-ar-light.png) | ![Large widget — Arabic, dark](docs/screenshots/widget-large-ar-dark.png) |
 
@@ -70,7 +74,7 @@ Offline-only privacy toggle, theme picker, adhan notifications, and country/city
 | **Prayer calculation** | Umm al-Qura (Makkah), Shafi Asr, twilight angle at \|lat\| ≥ 48°; Shuruq = sunrise |
 | **Privacy** | Default **offline-only** — no network calls; optional Aladhan API when user disables offline mode in Settings |
 | **Adhan** | Eight sounds, per-prayer mute, exact-alarm scheduling, Doze-safe `setAlarmClock` |
-| **Widgets** | Four providers; locale + Eastern Arabic digits; theme sync; stale-cache fallback |
+| **Widgets** | Medium (5×1) + large (clock + columns); locale + Eastern Arabic digits; theme sync; stale-cache fallback |
 | **Hijri** | Calculator + 10 events; main-screen banner; calendar monthly/annual views |
 | **i18n** | English / Arabic, RTL layout, in-app language picker |
 | **Themes** | Light, green, dark — app + widgets + calendar |
@@ -134,7 +138,7 @@ Manual install on a running emulator:
 adb shell am start -n com.prayertime/com.prayertime.ui.MainActivity
 ```
 
-After widget size or layout changes, remove and re-add the widget on the home screen (launchers cache dimensions).
+After widget layout changes, remove and re-add the widget on the home screen (launchers cache dimensions). Regenerate README widget PNGs with `./scripts/export-readme-widget-screenshots.sh`.
 
 ---
 
@@ -176,7 +180,7 @@ See repository license file. Prayer calculation uses [`adhan-java`](https://gith
 
 **تطبيق أوقات الصلاة يركز على الخصوصية — بدون نظام تحديد المواقع (GPS)، وبدون حساب شخصي.**
 
-اختر الدولة والمدينة من دليل مدمج داخل التطبيق، واحصل على أوقات صلاة يومية دقيقة (تقويم أم القرى، والمذهب الشافعي)، وعد تنازلي مباشر للصلاة القادمة، وتنبيهات أذان اختيارية، وأربع أدوات للشاشة الرئيسية (Widgets)، وتقويم هجري مع عشرة مناسبات إسلامية. التطبيق متوفر باللغتين العربية والإنجليزية مع دعم كامل للاتجاه من اليمين إلى اليسار (RTL)، وثلاثة سمات (مظهر فاتح، أخضر، داكن).
+اختر الدولة والمدينة من دليل مدمج داخل التطبيق، واحصل على أوقات صلاة يومية دقيقة (تقويم أم القرى، والمذهب الشافعي)، وعد تنازلي مباشر للصلاة القادمة، وتنبيهات أذان اختيارية، وأداتين للشاشة الرئيسية (متوسطة + كبيرة)، وتقويم هجري مع عشرة مناسبات إسلامية. التطبيق متوفر باللغتين العربية والإنجليزية مع دعم كامل للاتجاه من اليمين إلى اليسار (RTL)، وثلاثة سمات (مظهر فاتح، أخضر، داكن).
 
 | | |
 |---|---|
@@ -199,13 +203,17 @@ See repository license file. Prayer calculation uses [`adhan-java`](https://gith
 
 ### أدوات الشاشة الرئيسية (Widgets)
 
-أربعة أحجام: أداة طولية صغيرة، أداة عريضة صغيرة، أداة متوسطة (جدول 5×1)، وأداة كبيرة (ساعة + ستة أعمدة). يتم تمييز الصلاة القادمة بإطار عمودي فريد؛ تتبع الأدوات مظهر التطبيق المختار.
+حجمان: **متوسط** (جدول 5×1 — ترويسة هجرية، أسماء الصلوات، الأوقات، تمييز عمود الصلاة القادمة) و**كبير** (ساعة المدينة + ستة أعمدة مع عد تنازلي لكل صلاة). تتبع الأدوات مظهر التطبيق واللغة (بما في ذلك الأرقام العربية الشرقية).
 
-| English (light) | Arabic (light) | Arabic (dark) |
+| Medium (EN) | Medium (AR) | Medium (AR, dark) |
+|:---:|:---:|:---:|
+| ![Medium widget — English](docs/screenshots/widget-medium-en-light.png) | ![Medium widget — Arabic](docs/screenshots/widget-medium-ar-light.png) | ![Medium widget — Arabic, dark](docs/screenshots/widget-medium-ar-dark.png) |
+
+| Overview (EN) | Overview (AR) | Overview (AR, dark) |
 |:---:|:---:|:---:|
 | ![Widgets — English, light](docs/screenshots/widgets-en-light.png) | ![Widgets — Arabic, light](docs/screenshots/widgets-ar-light.png) | ![Widgets — Arabic, dark](docs/screenshots/widgets-ar-dark.png) |
 
-| Large widget (EN) | Large widget (AR) | Large widget (AR, dark) |
+| Large (EN) | Large (AR) | Large (AR, dark) |
 |:---:|:---:|:---:|
 | ![Large widget — English](docs/screenshots/widget-large-en-light.png) | ![Large widget — Arabic](docs/screenshots/widget-large-ar-light.png) | ![Large widget — Arabic, dark](docs/screenshots/widget-large-ar-dark.png) |
 
@@ -234,7 +242,7 @@ See repository license file. Prayer calculation uses [`adhan-java`](https://gith
 | **حساب أوقات الصلاة** | تقويم أم القرى (مكة المكرمة)، مذهب الشافعي للعصر، تعديل زاوية الشفق لخطوط العرض |lat| ≥ 48°؛ وقت الشروق = شروق الشمس |
 | **الخصوصية** | افتراضياً **دون اتصال بالشبكة** — لا اتصالات شبكة؛ Aladhan اختياري من الإعدادات |
 | **الأذان** | ثمانية أصوات للأذان، إمكانية كتم الصوت لكل صلاة على حدة، جدولة التنبيهات باستخدام ميزة الإنذار الدقيق، متوافق مع وضع Doze للحفاظ على البطارية عبر `setAlarmClock` |
-| **الأدوات (Widgets)** | أربعة مزودين للأدوات؛ دعم اللغة والأرقام العربية الشرقية؛ مزامنة السمة؛ استخدام الذاكرة المؤقتة كاحتياطي عند عدم وجود تحديثات |
+| **الأدوات (Widgets)** | متوسط (5×1) + كبير (ساعة + أعمدة)؛ دعم اللغة والأرقام العربية الشرقية؛ مزامنة السمة؛ ذاكرة مؤقتة عند التأخر |
 | **التقويم الهجري** | حاسبة هجرية مدمجة مع 10 مناسبات إسلامية؛ شريط إعلاني للمناسبات في الشاشة الرئيسية؛ عرض شهري وسنوي للتقويم |
 | **تعدد اللغات** | دعم كامل للغتين العربية والإنجليزية، اتجاه كامل من اليمين إلى اليسار (RTL)، ومحدد لغة مدمج في التطبيق |
 | **السمات** | ثلاثة سمات (فاتح، أخضر، داكن) تشمل التطبيق والأدوات والتقويم |
@@ -297,7 +305,7 @@ export ANDROID_HOME=$HOME/Android/Sdk
 adb shell am start -n com.prayertime/com.prayertime.ui.MainActivity
 ```
 
-بعد تغيير حجم أو تخطيط الأدوات (Widgets)، قم بإزالتها وإعادة إضافتها إلى الشاشة الرئيسية (تقوم واجهات التشغيل بحفظ الأبعاد مؤقتاً).
+بعد تغيير تخطيط الأدوات (Widgets)، قم بإزالتها وإعادة إضافتها إلى الشاشة الرئيسية (تقوم واجهات التشغيل بحفظ الأبعاد مؤقتاً). لتحديث صور README للأدوات: `./scripts/export-readme-widget-screenshots.sh`.
 
 ---
 

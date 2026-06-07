@@ -104,8 +104,8 @@
     <string name="adhan_notification_body">حان وقت %1$s</string>
     <string name="adhan_enabled_confirmation_title">إشعارات الأذان مفعّلة</string>
     <string name="adhan_enabled_confirmation_body">سيصلك إشعار عند كل صلاة. هذه الرسالة للتأكد من أن الإشعارات تعمل.</string>
-    <string name="adhan_toggle">إشعارات الأذان</string>
-    <string name="adhan_toggle_desc">تشغيل الأذان وإظهار إشعار عند الفجر والشروق والظهر والعصر والمغرب والعشاء.</string>
+    <string name="adhan_toggle">الأذان</string>
+    <string name="adhan_already_active">الأذان نشط افتراضياً. سيتم تشغيله تلقائياً عند كل صلاة.</string>
     <string name="adhan_play_when_silent">تشغيل عند الصمت</string>
     <string name="adhan_play_when_silent_desc">تشغيل صوت الأذان حتى لو كان الجهاز على الوضع الصامت أو الاهتزاز.</string>
     <string name="adhan_exact_alarm_notice">التنبيهات الدقيقة معطّلة — قد لا يُشغَّل الأذان في الوقت المحدد أثناء وضع السكون أو عند إغلاق التطبيق. اضغط للسماح بالمنبّهات والتذكيرات.</string>

@@ -48,13 +48,11 @@ data class PrivacyModeUiState(
 )
 
 data class AdhanNotificationsUiState(
-    val enabled: Boolean,
     val playWhenSilent: Boolean,
     val notificationsGranted: Boolean,
     val exactAlarmsGranted: Boolean,
     val batteryOptimizationExempt: Boolean,
     val adhanSound: String,
-    val onEnabledChanged: (Boolean) -> Unit,
     val onPlayWhenSilentChanged: (Boolean) -> Unit,
     val onRequestNotifications: () -> Unit,
     val onRequestExactAlarms: () -> Unit,
@@ -218,10 +216,9 @@ private fun RefreshTimesCard(onRefreshTimes: () -> Unit) {
 
 @Composable
 private fun AdhanNotificationsCard(adhan: AdhanNotificationsUiState) {
-    val enabled = adhan.enabled
     val notificationsGranted = adhan.notificationsGranted
     val exactAlarmsGranted = adhan.exactAlarmsGranted
-    val showBatteryNotice = enabled && notificationsGranted && exactAlarmsGranted && !adhan.batteryOptimizationExempt
+    val showBatteryNotice = notificationsGranted && exactAlarmsGranted && !adhan.batteryOptimizationExempt
     Card(
         modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
@@ -233,22 +230,11 @@ private fun AdhanNotificationsCard(adhan: AdhanNotificationsUiState) {
                 fontWeight = FontWeight.Bold,
             )
             Spacer(modifier = Modifier.height(8.dp))
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text(
-                    text = stringResource(R.string.adhan_toggle_desc),
-                    style = MaterialTheme.typography.bodyMedium,
-                    modifier = Modifier.weight(1f),
-                )
-                Switch(
-                    checked = enabled,
-                    onCheckedChange = adhan.onEnabledChanged,
-                )
-            }
-            if (enabled && !notificationsGranted) {
+            Text(
+                text = stringResource(R.string.adhan_already_active),
+                style = MaterialTheme.typography.bodyMedium,
+            )
+            if (!notificationsGranted) {
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
                     text = stringResource(R.string.adhan_notifications_denied),
@@ -257,7 +243,7 @@ private fun AdhanNotificationsCard(adhan: AdhanNotificationsUiState) {
                     modifier = Modifier.clickable(onClick = adhan.onRequestNotifications),
                 )
             }
-            if (enabled && notificationsGranted && !exactAlarmsGranted) {
+            if (notificationsGranted && !exactAlarmsGranted) {
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
                     text = stringResource(R.string.adhan_exact_alarm_notice),
@@ -275,35 +261,33 @@ private fun AdhanNotificationsCard(adhan: AdhanNotificationsUiState) {
                     modifier = Modifier.clickable(onClick = adhan.onRequestBatteryOptimization),
                 )
             }
-            if (enabled) {
-                Spacer(modifier = Modifier.height(12.dp))
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Column(modifier = Modifier.weight(1f)) {
-                        Text(
-                            text = stringResource(R.string.adhan_play_when_silent),
-                            style = MaterialTheme.typography.bodyMedium,
-                        )
-                        Text(
-                            text = stringResource(R.string.adhan_play_when_silent_desc),
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    }
-                    Switch(
-                        checked = adhan.playWhenSilent,
-                        onCheckedChange = adhan.onPlayWhenSilentChanged,
+            Spacer(modifier = Modifier.height(12.dp))
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(
+                        text = stringResource(R.string.adhan_play_when_silent),
+                        style = MaterialTheme.typography.bodyMedium,
+                    )
+                    Text(
+                        text = stringResource(R.string.adhan_play_when_silent_desc),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
                 }
-                Spacer(modifier = Modifier.height(12.dp))
-                AdhanSoundPicker(
-                    selected = adhan.adhanSound,
-                    onSelected = adhan.onAdhanSoundChanged,
+                Switch(
+                    checked = adhan.playWhenSilent,
+                    onCheckedChange = adhan.onPlayWhenSilentChanged,
                 )
             }
+            Spacer(modifier = Modifier.height(12.dp))
+            AdhanSoundPicker(
+                selected = adhan.adhanSound,
+                onSelected = adhan.onAdhanSoundChanged,
+            )
         }
     }
 }

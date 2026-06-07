@@ -223,13 +223,11 @@ private fun PrayerTimeAboutRoute(
             ),
         adhan =
             AdhanNotificationsUiState(
-                enabled = adhanEnabled,
                 playWhenSilent = adhanPlayWhenSilent,
                 notificationsGranted = adhanPermissions.notificationsGranted,
                 exactAlarmsGranted = adhanPermissions.exactAlarmsGranted,
                 batteryOptimizationExempt = adhanPermissions.batteryOptimizationExempt,
                 adhanSound = adhanSound,
-                onEnabledChanged = adhanPermissions.onEnabledChanged,
                 onPlayWhenSilentChanged = settingsViewModel::setAdhanPlayWhenSilent,
                 onRequestNotifications = adhanPermissions.requestNotifications,
                 onRequestExactAlarms = adhanPermissions.onRequestExactAlarms,

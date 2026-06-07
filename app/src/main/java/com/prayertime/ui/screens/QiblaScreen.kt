@@ -85,20 +85,22 @@ fun QiblaScreen(
     var azimuth by remember { mutableStateOf<Float?>(null) }
     var accuracy by remember { mutableStateOf(SensorManager.SENSOR_STATUS_ACCURACY_HIGH) }
     var isCalibrating by remember { mutableStateOf(false) }
+    var prevAccuracy by remember { mutableStateOf(-1) }
     LaunchedEffect(compassSensor) {
         compassSensor?.azimuth?.collect { azimuth = it }
     }
     LaunchedEffect(compassSensor) {
         compassSensor?.accuracy?.collect { accuracy = it }
     }
-    // When calibrating and accuracy hits HIGH → vibrate + auto-close
-    LaunchedEffect(isCalibrating, accuracy) {
-        if (isCalibrating && accuracy >= SensorManager.SENSOR_STATUS_ACCURACY_HIGH) {
+    // When calibrating and accuracy RISES to HIGH → vibrate + auto-close
+    LaunchedEffect(isCalibrating, accuracy, prevAccuracy) {
+        if (isCalibrating && accuracy >= SensorManager.SENSOR_STATUS_ACCURACY_HIGH && prevAccuracy < SensorManager.SENSOR_STATUS_ACCURACY_HIGH) {
             (context.getSystemService(android.content.Context.VIBRATOR_SERVICE) as? android.os.Vibrator)?.vibrate(
                 android.os.VibrationEffect.createOneShot(200, android.os.VibrationEffect.DEFAULT_AMPLITUDE)
             )
             isCalibrating = false
         }
+        if (isCalibrating) prevAccuracy = accuracy
     }
     val smoothAzimuth by animateFloatAsState(
         targetValue = azimuth ?: 0f,

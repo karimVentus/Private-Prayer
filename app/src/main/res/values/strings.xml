@@ -106,8 +106,8 @@
     <string name="adhan_notification_body">It is time for %1$s</string>
     <string name="adhan_enabled_confirmation_title">Adhan notifications on</string>
     <string name="adhan_enabled_confirmation_body">You will get a notification at each prayer time. This message confirms notifications are working.</string>
-    <string name="adhan_toggle">Adhan notifications</string>
-    <string name="adhan_toggle_desc">Play Adhan and show a notification at Fajr, Shuruq, Dhuhr, Asr, Maghrib, and Isha.</string>
+    <string name="adhan_toggle">Adhan</string>
+    <string name="adhan_already_active">Adhan is active by default. It will play automatically at each prayer time.</string>
     <string name="adhan_play_when_silent">Play when phone is silent</string>
     <string name="adhan_play_when_silent_desc">Play Adhan audio even when the device is on silent or vibrate.</string>
     <string name="adhan_exact_alarm_notice">Exact alarms are off — Adhan may not fire on time in Doze or when the app is closed. Tap to allow Alarms &amp; reminders.</string>

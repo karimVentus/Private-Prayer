@@ -39,7 +39,7 @@ class CityConfigSerializer
 
         override val offlineOnly: Flow<Boolean> =
             context.dataStore.data.map { prefs ->
-                prefs[offlineOnlyKey] ?: false
+                prefs[offlineOnlyKey] ?: true
             }
 
         override suspend fun save(config: CityConfig) {

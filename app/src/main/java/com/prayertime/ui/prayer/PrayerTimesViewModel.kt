@@ -54,6 +54,9 @@ class PrayerTimesViewModel
         private var currentConfig: CityConfig? = null
         private var lastWidgetPrayer: Prayer? = null
 
+        /** Unit tests: false skips the infinite 1s delay loop (initial [liveCountdown] still set). */
+        internal var enableCountdownTickerLoop: Boolean = true
+
         init {
             viewModelScope.launch {
                 repository.cityConfig.collect { config ->
@@ -227,6 +230,9 @@ class PrayerTimesViewModel
                 )
             val dayAnchorTimestamp = dayAnchor
             lastWidgetPrayer = fallbackNextPrayer
+            if (!enableCountdownTickerLoop) {
+                return
+            }
             countdownJob =
                 viewModelScope.launch {
                     var dayRefreshTriggered = false

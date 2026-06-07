@@ -31,7 +31,7 @@ class PrayerAlarmSchedulerTest {
 
         val shadow = shadowAlarmManager(context)
         assertEquals(5, shadow.scheduledAlarms.size)
-        assertTrue(shadow.scheduledAlarms.all { it.type == AlarmManager.RTC_WAKEUP })
+        assertTrue(shadow.scheduledAlarms.all { it.getType() == AlarmManager.RTC_WAKEUP })
     }
 
     @Test
@@ -225,6 +225,6 @@ class PrayerAlarmSchedulerTest {
         // Fajr is in the past, so 5 future prayers remain
         assertEquals(5, shadow.scheduledAlarms.size)
         // All alarms should be RTC_WAKEUP (inexact via setAndAllowWhileIdle on API 23+)
-        assertTrue(shadow.scheduledAlarms.all { it.type == AlarmManager.RTC_WAKEUP })
+        assertTrue(shadow.scheduledAlarms.all { it.getType() == AlarmManager.RTC_WAKEUP })
     }
 }

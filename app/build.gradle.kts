@@ -68,7 +68,13 @@ android {
     }
 
     testOptions {
-        unitTests.isIncludeAndroidResources = true
+        unitTests {
+            isIncludeAndroidResources = true
+            all {
+                it.maxParallelForks = 1
+                it.jvmArgs("-Xmx1536m")
+            }
+        }
     }
 
     sourceSets {

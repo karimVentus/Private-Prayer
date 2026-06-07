@@ -10,10 +10,12 @@ echo "=============================================="
 echo "[smoke-ci] Starting project verification..."
 echo "=============================================="
 
-# 1. Run all checks in a single Gradle invocation
-# This is faster and avoids KSP incremental cache/file locking issues
-echo "[smoke-ci] Running build, test, lint, and static analysis tasks..."
-./gradlew clean assembleDebug testDebugUnitTest lintDebug ktlintCheck detekt
+# 1. Build + unit tests first (lint runs separately so Robolectric is not starved on CI)
+echo "[smoke-ci] Running build and unit tests..."
+./gradlew clean assembleDebug testDebugUnitTest
+
+echo "[smoke-ci] Running lint and static analysis..."
+./gradlew lintDebug ktlintCheck detekt
 
 # 2. Verify APK Size
 echo "[smoke-ci] Verifying APK size..."

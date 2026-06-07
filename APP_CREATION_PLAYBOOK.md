@@ -53,7 +53,7 @@ For Android, define environments explicitly:
 
 Prerequisites before starting the Widget:
 
-    - [x] Green smoke gate for the core application (`./gradlew test` BUILD SUCCESSFUL, **303** shared / **344** online test methods).
+    - [x] Green smoke gate for the core application (`./gradlew testDebugUnitTest` BUILD SUCCESSFUL, **414** test methods).
 - [x] Time calculation logic runs offline via adhan-java (no network dependency for daily calc).
 - [x] "City not found" error: `SaveCityResult.Error` blocks geocode failure from persisting; Snackbar shown; NoCity race suppressed.
 - [x] Database correctly saves and restores the entry for "Damascus, SY" (DataStore contract test passes).
@@ -429,7 +429,7 @@ For every sensitive operation, document:
 - [x] 6. Implement Backend: `PrayerTimesRepository` — adhan-java local calc for daily times; Aladhan API used for geocode only on save. Room cache + offline fallback.
 - [x] 7. Error Normalization: `NetworkMapper` → `FetchError`; save path → `SaveCityError`.
 - [x] 8. User-facing errors: Display `Snackbar`; invalid city not persisted (SaveCityResult).
-- [x] 9. Tests: **303** shared / **344** online unit methods — shared `app/src/test/java/` (303 `@Test`) + online-only `app/src/testOnline/java/` (41 `@Test`) (includes `FakePrayerTimesRepository`, `ComposeScreenSmokeTest`, `PrayerTimesViewModelIntegrationTest`, `AladhanApiMockWebServerTest`, `PrayerTimeWidgetProviderTest`, `LocationCatalogLoaderTest`, `TextNormalizerTest`).
+- [x] 9. Tests: **414** unit methods — `app/src/test/java/` (64 files; single APK). Includes `FakePrayerTimesRepository`, `ComposeScreenSmokeTest`, `PrayerTimesViewModelIntegrationTest`, `AladhanApiMockWebServerTest`, `PrayerTimeWidgetProviderTest`, `QiblaCalculatorTest`, `LocationNamesTest`, `LiveAladhanTestSupportTest`.
 - [ ] 10. Truthful Docs: Update README with accurate feature list — *in progress*.
 - [x] 11. Freeze Scope: Core app stable before widget/Hijri phases (Phases 3–4 complete).
 - [x] 12. Migration: Hijri calendar and events added without altering core prayer-time pipeline (Phase 4).
@@ -553,7 +553,7 @@ For every sensitive operation, document:
 - **Symptom:** Audit report (2026-06-04) flagged non-atomic Room cache writes, silent Aladhan parse failures, shared `ErrorType` across fetch/save, `Prayer.DUHA` semantic mismatch, duplicated test fakes, widget path mocked.
 - **Root cause:** Phase 3–4 velocity; incremental hardening deferred to Phase 5.
 - **Impact:** Potential wrong prayer times on malformed API input; compile-time error conflation; test gaps on widget and HTTP wire path.
-- **Fix implemented:** Phase **5G** + **5E** — see `PHASED_PLAN.md` §5G/§5E (atomic `cacheToRoom`, audit remediation Jun 2026, widget previews, launcher icon, **303/344** tests green).
+- **Fix implemented:** Phase **5G** + **5E** + **7A** — see `PHASED_PLAN.md` §5G/§5E/§7A (atomic `cacheToRoom`, audit v2 Jun 2026, Qibla compass, **414** tests green).
 - [x] **Preventive action:** Graphify + AGENTS.md + `Audit.md` updated; architectural audit items closed; manual QA (5A–5F) tracked separately.
 
 #### Comprehensive codebase audit — reconciliation (Jun 2026)

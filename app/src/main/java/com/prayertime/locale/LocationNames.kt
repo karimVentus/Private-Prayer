@@ -45,7 +45,8 @@ object LocationNames {
     ): String {
         val city = cityDisplay(cityName, cityArabic, languageTag)
         val countryLabel = countryDisplay(country, languageTag)
-        return "$city, $countryLabel"
+        val separator = if (effectiveLanguageTag(languageTag).startsWith("ar")) "، " else ", "
+        return "$city$separator$countryLabel"
     }
 
     fun matchesQuery(

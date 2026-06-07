@@ -6,6 +6,7 @@ import com.prayertime.domain.model.CityResolutionResult
 import com.prayertime.domain.model.Country
 import com.prayertime.domain.repository.LocationRepository
 import com.prayertime.locale.LocationNames
+import java.util.Locale
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -43,9 +44,19 @@ class LocalLocationRepository
             countryCode: String,
             languageTag: String?,
         ): String {
-            val country = countryByCode(countryCode) ?: return "$cityName, $countryCode"
+            val country = countryByCode(countryCode) ?: fallbackCountry(countryCode)
             val arabic = arabicCityName(countryCode, cityName)
             return LocationNames.formatCityHeader(cityName, country, arabic, languageTag)
+        }
+
+        private fun fallbackCountry(code: String): Country {
+            val english =
+                Locale.Builder()
+                    .setRegion(code)
+                    .build()
+                    .getDisplayCountry(Locale.ENGLISH)
+                    .ifBlank { code }
+            return Country(name = english, code = code)
         }
 
         override fun resolveCityCoordinates(

@@ -29,4 +29,17 @@ class LocationNamesTest {
         val display = LocationNames.countryDisplay(germany, "ar")
         assertTrue(LocationNames.matchesQuery(display, germany.name, "ألمان"))
     }
+
+    @Test
+    fun formatCityHeader_arabic_uses_arabic_comma_and_translations() {
+        val header =
+            LocationNames.formatCityHeader(
+                cityName = "Hameln",
+                country = germany,
+                cityArabic = "هاملن",
+                languageTag = "ar",
+            )
+        assertTrue(header.contains("هاملن"))
+        assertTrue(header.contains("،"))
+    }
 }

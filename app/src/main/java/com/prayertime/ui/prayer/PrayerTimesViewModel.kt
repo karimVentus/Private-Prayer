@@ -75,6 +75,7 @@ class PrayerTimesViewModel
                 preferences.appLanguageTag.collect { languageTag ->
                     val success = _uiState.value as? PrayerTimesUiState.Success ?: return@collect
                     val config = currentConfig ?: return@collect
+                    locationRepository.awaitReady()
                     _uiState.value =
                         success.copy(
                             city = formatCityHeader(config, languageTag),
@@ -159,6 +160,7 @@ class PrayerTimesViewModel
                 stopCountdownTicker()
             }
             val offlineOnly = repository.offlineOnly.first()
+            locationRepository.awaitReady()
             val languageTag = preferences.readAppLanguageTagOnce()
             when (val result = repository.fetchTodayTimes(config)) {
                 is PrayerTimesResult.Success -> {

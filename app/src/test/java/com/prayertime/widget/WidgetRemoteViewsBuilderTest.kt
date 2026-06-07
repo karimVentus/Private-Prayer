@@ -16,8 +16,7 @@ import com.prayertime.domain.model.Prayer
 import com.prayertime.domain.model.PrayerTime
 import com.prayertime.locale.AppLocale
 import com.prayertime.ui.HijriDateFormatter
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.runTest
+import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
@@ -29,7 +28,6 @@ import org.robolectric.Shadows
 import org.robolectric.annotation.Config
 import java.util.TimeZone
 
-@OptIn(ExperimentalCoroutinesApi::class)
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34])
 class WidgetRemoteViewsBuilderTest {
@@ -151,7 +149,7 @@ class WidgetRemoteViewsBuilderTest {
 
     @Test
     fun build_readyMedium_usesPersistedArabicWhenAppCompatLocalesEmpty() =
-        runTest {
+        runBlocking {
             preferences.setAppLanguageTag("ar")
             drainMainLooper()
             AppLocale.apply(null)

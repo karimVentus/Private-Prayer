@@ -21,6 +21,9 @@ interface PrayerTimesRepository {
      */
     suspend fun clearCityConfig()
 
+    /** Clears city DataStore entirely (city + privacy/offline mode). */
+    suspend fun resetCityStore()
+
     /** Deletes ALL cached prayer times from Room. Use for cache poisoning recovery or storage pressure. */
     suspend fun clearAllCaches()
 

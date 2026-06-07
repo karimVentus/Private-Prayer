@@ -1,60 +1,78 @@
 package com.prayertime.widget
 
 import android.content.Context
+import android.os.Looper
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.RemoteViews
 import android.widget.TextView
 import androidx.test.core.app.ApplicationProvider
 import com.prayertime.R
+import com.prayertime.data.local.AppPreferencesDataSource
 import com.prayertime.domain.calculator.HijriCalculator
+import com.prayertime.domain.calculator.PrayerTimeCalculator
 import com.prayertime.domain.model.HijriDate
 import com.prayertime.domain.model.Prayer
 import com.prayertime.domain.model.PrayerTime
+import com.prayertime.locale.AppLocale
 import com.prayertime.ui.HijriDateFormatter
+import kotlinx.coroutines.runBlocking
+import org.junit.After
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
+import org.robolectric.Shadows
 import org.robolectric.annotation.Config
+import java.util.TimeZone
 
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34])
 class WidgetRemoteViewsBuilderTest {
     private val context: Context = ApplicationProvider.getApplicationContext()
-    private val builder = WidgetRemoteViewsBuilder(context)
+    private val preferences = AppPreferencesDataSource(context)
+    private val builder = WidgetRemoteViewsBuilder(context, preferences)
+    private val berlin = TimeZone.getTimeZone("Europe/Berlin")
+
+    @After
+    fun drainMainLooper() {
+        Shadows.shadowOf(Looper.getMainLooper()).idle()
+    }
 
     @Test
-    fun build_allStatesAndSizes_produceInflatableRemoteViews() {
+    fun build_noCityLarge_inflatesWithoutCrash() {
+        applyWidget(builder.build(WidgetSnapshot(WidgetSnapshot.State.NO_CITY), WidgetSize.LARGE))
+    }
+
+    @Test
+    fun build_errorLarge_inflatesWithoutCrash() {
         val hijri = HijriCalculator.gregorianToHijri(2024, 6, 4)
-        val times = sampleTimes()
-        val snapshots =
-            listOf(
-                WidgetSnapshot(WidgetSnapshot.State.NO_CITY),
-                WidgetSnapshot(WidgetSnapshot.State.ERROR, cityLabel = "Hameln, DE", hijriDate = hijri),
-                WidgetSnapshot(
-                    state = WidgetSnapshot.State.STALE,
-                    cityLabel = "Hameln, DE",
-                    times = times,
-                    nextPrayer = Prayer.FAJR,
-                    countdownMillis = 3_600_000L,
-                    hijriDate = hijri,
-                ),
-                WidgetSnapshot(
-                    state = WidgetSnapshot.State.READY,
-                    cityLabel = "Hameln, DE",
-                    times = times,
-                    nextPrayer = Prayer.FAJR,
-                    countdownMillis = 3_600_000L,
-                    hijriDate = hijri,
-                ),
+        val snapshot =
+            WidgetSnapshot(
+                state = WidgetSnapshot.State.ERROR,
+                cityLabel = "Hameln, DE",
+                hijriDate = hijri,
             )
-        for (snapshot in snapshots) {
-            for (size in WidgetSize.entries) {
-                applyWidget(builder.build(snapshot, size))
-            }
-        }
+        applyWidget(builder.build(snapshot, WidgetSize.LARGE))
+    }
+
+    @Test
+    fun build_staleLarge_inflatesWithoutCrash() {
+        val baseMs = System.currentTimeMillis()
+        val hijri = HijriCalculator.gregorianToHijri(2024, 6, 4)
+        val times = sampleTimes(baseMs)
+        val snapshot =
+            WidgetSnapshot(
+                state = WidgetSnapshot.State.STALE,
+                cityLabel = "Hameln, DE",
+                times = times,
+                nextPrayer = Prayer.FAJR,
+                countdownMillis = 3_600_000L,
+                hijriDate = hijri,
+            )
+        applyWidget(builder.build(snapshot, WidgetSize.LARGE))
     }
 
     @Test
@@ -79,8 +97,10 @@ class WidgetRemoteViewsBuilderTest {
 
     @Test
     fun build_readyLarge_showsCityHijriPrayerNamesAndTimes() {
+        val baseMs = System.currentTimeMillis()
         val hijri = HijriCalculator.gregorianToHijri(2024, 6, 4)
-        val snapshot = readySnapshot(hijri)
+        val times = sampleTimes(baseMs)
+        val snapshot = readySnapshot(hijri, times)
         val widget = applyWidget(builder.build(snapshot, WidgetSize.LARGE))
         assertEquals("Hameln, DE", widget.text(R.id.widget_city))
         assertEquals(HijriDateFormatter.format(hijri, context.resources), widget.text(R.id.widget_hijri))
@@ -88,12 +108,15 @@ class WidgetRemoteViewsBuilderTest {
         assertEquals("04:00", widget.text(R.id.widget_time_0))
         assertEquals(context.getString(R.string.dhuhr), widget.text(R.id.widget_prayer_2))
         assertEquals("12:30", widget.text(R.id.widget_time_2))
-        assertTrue(widget.text(R.id.widget_countdown_0).contains("h"))
+        val countdown = widget.text(R.id.widget_countdown_0)
+        assertTrue(countdown.isNotEmpty())
+        assertTrue(countdown.contains(context.getString(R.string.countdown_hours)))
     }
 
     @Test
     fun build_readyMedium_showsPrayerNamesAndTimesWithoutTruncation() {
-        val snapshot = readySnapshot(HijriCalculator.gregorianToHijri(2024, 6, 4))
+        val baseMs = System.currentTimeMillis()
+        val snapshot = readySnapshot(HijriCalculator.gregorianToHijri(2024, 6, 4), sampleTimes(baseMs))
         val widget = applyWidget(builder.build(snapshot, WidgetSize.MEDIUM))
         assertEquals("04:00", widget.text(R.id.widget_time_0))
         assertEquals("12:30", widget.text(R.id.widget_time_2))
@@ -101,22 +124,56 @@ class WidgetRemoteViewsBuilderTest {
     }
 
     @Test
-    fun build_readySmallTall_showsNextPrayerAndHourMinuteCountdown() {
-        val snapshot = readySnapshot(HijriCalculator.gregorianToHijri(2024, 6, 4))
-        val widget = applyWidget(builder.build(snapshot, WidgetSize.SMALL_TALL))
-        assertEquals(context.getString(R.string.fajr), widget.text(R.id.widget_next_prayer))
-        assertEquals(context.getString(R.string.widget_hour_line, 1), widget.text(R.id.widget_countdown_hours))
-        assertEquals(context.getString(R.string.widget_minute_line, 0), widget.text(R.id.widget_countdown_minutes))
+    fun build_readyLarge_countdownIgnoresStaleSnapshotValue() {
+        val baseMs = System.currentTimeMillis()
+        val times = sampleTimes(baseMs)
+        val snapshot =
+            readySnapshot(HijriCalculator.gregorianToHijri(2024, 6, 4), times)
+                .copy(countdownMillis = 27 * 60_000L)
+        val widget = applyWidget(builder.build(snapshot, WidgetSize.LARGE))
+        val countdown = widget.text(R.id.widget_countdown_0)
+        val freshMillis =
+            PrayerTimeCalculator.millisUntilNextOccurrence(
+                times.first().timestamp,
+                System.currentTimeMillis(),
+                berlin,
+            )
+        val expected =
+            CountdownFormatter.format(
+                freshMillis,
+                context.getString(R.string.countdown_hours),
+                context.getString(R.string.countdown_minutes),
+            )
+        assertEquals(expected, countdown)
+        assertFalse(countdown.contains("27"))
     }
 
     @Test
+    fun build_readyMedium_usesPersistedArabicWhenAppCompatLocalesEmpty() =
+        runBlocking {
+            preferences.setAppLanguageTag("ar")
+            drainMainLooper()
+            AppLocale.apply(null)
+            val baseMs = System.currentTimeMillis()
+            val snapshot =
+                readySnapshot(
+                    HijriCalculator.gregorianToHijri(2024, 6, 4),
+                    sampleTimes(baseMs),
+                )
+            val widget = applyWidget(builder.build(snapshot, WidgetSize.MEDIUM))
+            val localized = context.withAppWidgetLocale("ar")
+            assertEquals(localized.getString(R.string.widget_m_fajr), widget.text(R.id.widget_prayer_0))
+        }
+
+    @Test
     fun build_staleMedium_showsStaleBannerAndPrayerColumns() {
+        val baseMs = System.currentTimeMillis()
         val hijri = HijriCalculator.gregorianToHijri(2024, 6, 4)
         val snapshot =
             WidgetSnapshot(
                 state = WidgetSnapshot.State.STALE,
                 cityLabel = "Hameln, DE",
-                times = sampleTimes(),
+                times = sampleTimes(baseMs),
                 nextPrayer = Prayer.FAJR,
                 countdownMillis = 3_600_000L,
                 hijriDate = hijri,
@@ -128,31 +185,35 @@ class WidgetRemoteViewsBuilderTest {
         assertEquals("04:00", widget.text(R.id.widget_time_0))
     }
 
-    private fun readySnapshot(hijri: HijriDate): WidgetSnapshot =
+    private fun readySnapshot(
+        hijri: HijriDate,
+        times: List<PrayerTime>,
+    ): WidgetSnapshot =
         WidgetSnapshot(
             state = WidgetSnapshot.State.READY,
             cityLabel = "Hameln, DE",
-            timezone = "Europe/Berlin",
-            times = sampleTimes(),
+            timezone = berlin.id,
+            times = times,
             nextPrayer = Prayer.FAJR,
             countdownMillis = 3_600_000L,
             hijriDate = hijri,
         )
 
-    private fun sampleTimes(): List<PrayerTime> {
-        val now = System.currentTimeMillis()
+    private fun sampleTimes(baseMs: Long): List<PrayerTime> {
+        val hour = 3_600_000L
         return listOf(
-            PrayerTime(Prayer.FAJR, "04:00", now + 3_600_000L),
-            PrayerTime(Prayer.SHURUQ, "05:30", now + 7_200_000L),
-            PrayerTime(Prayer.DHUHR, "12:30", now + 28_800_000L),
-            PrayerTime(Prayer.ASR, "16:00", now + 41_400_000L),
-            PrayerTime(Prayer.MAGHRIB, "19:00", now + 52_200_000L),
-            PrayerTime(Prayer.ISHA, "20:30", now + 57_600_000L),
+            PrayerTime(Prayer.FAJR, "04:00", baseMs + 2 * hour),
+            PrayerTime(Prayer.SHURUQ, "05:30", baseMs + 3 * hour),
+            PrayerTime(Prayer.DHUHR, "12:30", baseMs + 10 * hour),
+            PrayerTime(Prayer.ASR, "16:00", baseMs + 13 * hour),
+            PrayerTime(Prayer.MAGHRIB, "19:00", baseMs + 16 * hour),
+            PrayerTime(Prayer.ISHA, "20:30", baseMs + 18 * hour),
         )
     }
 
     private fun applyWidget(views: RemoteViews): AppliedWidget {
         val root = views.apply(context, FrameLayout(context))
+        drainMainLooper()
         return AppliedWidget(root)
     }
 

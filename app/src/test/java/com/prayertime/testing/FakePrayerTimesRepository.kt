@@ -49,8 +49,14 @@ class FakePrayerTimesRepository private constructor(
     override suspend fun saveCityConfig(config: CityConfig): SaveCityResult = saveHandler(config)
 
     override suspend fun clearCityConfig() {
-        citySource?.clear()
+        citySource?.clearCitySelection()
         workerCityConfig?.value = null
+    }
+
+    override suspend fun resetCityStore() {
+        citySource?.resetCityStore()
+        workerCityConfig?.value = null
+        workerOfflineOnly?.value = true
     }
 
     override suspend fun clearAllCaches() = Unit

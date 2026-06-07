@@ -5,7 +5,7 @@
 ```sh
 export JAVA_HOME=$HOME/jdk21
 export ANDROID_HOME=$HOME/Android/Sdk
-./gradlew assembleOfflineDebug testOfflineDebugUnitTest
+./gradlew assembleDebug testDebugUnitTest
 ```
 
 - JDK 21 (Temurin) at `~/jdk21` — system JDK 25 breaks current Gradle/AGP
@@ -20,7 +20,8 @@ PrayerTime-/
 │   ├── alarm/              # AdhanAlarmReceiver, BootCompletedReceiver, PrayerAlarmScheduler
 │   ├── data/
 │   │   ├── local/          # Room v4 (city-scoped cache + Hijri columns), AppPreferencesDataSource, CityConfigSerializer
-│   │   ├── repository/     # PrayerTimesRepository, LocalPrayerTimesRepository, LocalLocationRepository, PrayerTimesLocalEngine, AladhanTimingsMapper
+│   │   ├── repository/     # PrayerTimesRepository, OnlinePrayerTimesRepository, LocalPrayerTimesRepository, …
+│   │   ├── remote/         # AladhanApi, NetworkMapper, PrayerApi (Retrofit/Gson/OkHttp)
 │   │   ├── LocationDataSource.kt, LocationCatalogLoader.kt, LocationCatalog.kt
 │   │   └── assets/locations.json
 │   ├── domain/
@@ -31,7 +32,7 @@ PrayerTime-/
 │   ├── locale/             # AppLocale, TextNormalizer (diacritic folding)
 │   ├── notification/       # AdhanNotificationHelper
 │   ├── permission/         # AdhanPermissions
-│   ├── di/                 # Hilt modules (DataModule, DomainModule, AppConfigModule, LocationCatalogInitializer)
+│   ├── di/                 # Hilt modules (DataModule, DomainModule, AppConfigModule, NetworkModule, RepositoryModule, LocationCatalogInitializer)
 │   ├── ui/
 │   │   ├── MainActivity.kt, PrayerTimeRoot.kt
 │   │   ├── city/           # CitySetupViewModel, WizardStep
@@ -42,13 +43,10 @@ PrayerTime-/
 │   ├── worker/             # PrayerRefreshWork, PrayerTimeRefreshWorker, WidgetRefreshWork, WidgetUpdateWorker (@HiltWorker)
 │   ├── widget/              # PrayerTimeWidgetProvider (+SmallTall, +SmallWide, +Large), WidgetUpdater, WidgetSnapshotLoader, WidgetRemoteViewsBuilder, WidgetPrayerBoundaryScheduler, WidgetPrayerBoundaryReceiver, WidgetLocaleContext, WidgetDigitFormatter, CountdownFormatter
 │   └── PrayerTimeApplication.kt  # @HiltAndroidApp, HiltWorkerFactory
-├── app/src/offline/java/   # RepositoryModule → LocalPrayerTimesRepository
-├── app/src/online/java/    # NetworkModule, RepositoryModule, AladhanApi, AladhanResponse, NetworkMapper, OnlinePrayerTimesRepository (Retrofit/Gson/OkHttp only here)
-├── app/src/test/java/      # Shared JVM tests (run for every flavor)
-├── app/src/testOnline/java/  # Online-flavor-only tests — AGP auto-adds this source set for `online*` variants (no build.gradle entry needed)
+├── app/src/test/java/      # JVM unit tests (single APK; includes network/Aladhan tests)
 ├── app/schemas/            # Room exported JSON (v4) — commit on version bumps
 ├── scripts/                # smoke-ci.sh, qa-doze.sh, qa-offline.sh, verify-aladhan-pins.sh
-├── dev                     # ./dev → scripts/emu (emulator + installOfflineDebug + launch)
+├── dev                     # ./dev → scripts/emu (emulator + installDebug + launch)
 ├── PHASED_PLAN.md
 ├── APP_CREATION_PLAYBOOK.md
 ├── graphity.md
@@ -81,7 +79,7 @@ PrayerTime-/
 
 ### Dependency injection (Hilt)
 - `@HiltAndroidApp` on `PrayerTimeApplication` — implements `Configuration.Provider` for `HiltWorkerFactory`
-- Flavor `RepositoryModule`: offline → `LocalPrayerTimesRepository`; online → `OnlinePrayerTimesRepository` + `NetworkModule`
+- Flavor `RepositoryModule`: `OnlinePrayerTimesRepository` + `NetworkModule`; privacy via Settings **offline-only toggle** (`offline_only` DataStore flag), not a separate APK
 - `@HiltViewModel` + `hiltViewModel()` for all three ViewModels; `@AndroidEntryPoint` on `MainActivity`, `BootCompletedReceiver`
 - `@HiltWorker` on `PrayerTimeRefreshWorker` — repository/preferences injected, no service-locator cast
 - Unit tests construct ViewModels/workers directly (no Hilt test harness)
@@ -102,9 +100,8 @@ PrayerTime-/
 - When enabled: fetch today's times, then `PrayerAlarmScheduler.schedulePrayerAlarms(useReliableAlarms = true)` — requires `USE_EXACT_ALARM` (install grant) or user-granted `SCHEDULE_EXACT_ALARM` on API 31+ for `setAlarmClock`
 
 ### Unit test source sets
-- `src/test/java/` — shared tests; Gradle runs them for **both** offline and online variants
-- `src/testOnline/java/` — extra tests compiled only for **online** flavor (network mapper, Aladhan fixtures, `OnlinePrayerTimesRepositoryTest`, optional `AladhanApiLiveIntegrationTest`). AGP discovers this by naming convention (`test` + flavor name); no explicit `sourceSets` block in `build.gradle.kts`
-- Run online-only suite: `./gradlew testOnlineDebugUnitTest`
+- `src/test/java/` — all JVM unit tests (network + shared)
+- Run: `./gradlew testDebugUnitTest`
 - Live HTTP integration tests skip when offline or `PRAYERTIME_LIVE_HTTP=0` (default in CI); opt in with `PRAYERTIME_LIVE_HTTP=1` when network is available
 
 ### Async LocationDataSource
@@ -125,30 +122,18 @@ PrayerTime-/
 - `OnlinePrayerTimesRepository` shares single `PrayerTimesLocalEngine` instance with composed `LocalPrayerTimesRepository`
 
 ### Flavor isolation
-- `PrayerTimesRepository` is an interface — no base class, no `if (api != null)` checks
-- **Online repo uses composition, not inheritance** — `OnlinePrayerTimesRepository : PrayerTimesRepository` directly; it does **not** extend `LocalPrayerTimesRepository`
-- Composition layout (online flavor):
-
-```
-OnlinePrayerTimesRepository : PrayerTimesRepository
-├── engine: PrayerTimesLocalEngine      # shared with local delegate
-├── local: LocalPrayerTimesRepository   # DataStore, offline save, config flows
-└── api: PrayerApi                      # AladhanApi in src/online/ only
-```
-
-- `src/main/` has **zero** Retrofit/Gson/OkHttp imports; network stack lives only in `src/online/`
-- `AladhanTimingsMapper` in `src/main/` — pure parsing, no Retrofit/Gson deps
-- `networkModeAvailable` flag (`BuildConfig`) controls privacy toggle visibility — offline APK shows static informational card, never a dead Switch
+- **Single APK** (`com.prayertime`) — Aladhan stack in `src/main/`; user chooses offline-only vs network in Settings
+- `PrayerTimesRepository` is an interface — `OnlinePrayerTimesRepository` composes `LocalPrayerTimesRepository` + `PrayerApi`
+- **`offline_only` flag** (default true): zero HTTP when enabled; Aladhan when disabled
 - **Release shrinker:** `proguard-rules.pro` keeps `domain.model.**`, `data.remote.**`, and four `PrayerTimeWidgetProvider*` classes; `-dontwarn` for OkHttp/Retrofit
 
 ## APK sizes (debug builds)
 
-| Flavor | APK | Size |
-|--------|-----|------|
-| offline | `app-offline-debug.apk` | ~22 MB (no Retrofit/Gson/OkHttp) |
-| online | `app-online-debug.apk` | ~23 MB |
+| Build | APK | Size |
+|-------|-----|------|
+| debug | `app-debug.apk` | ~23 MB |
 
-`smoke-ci.sh` builds + tests **both** flavors; APK size gate applies to offline only (limit 25 MB — passes).
+`smoke-ci.sh` builds + tests single variant; APK size gate limit 25 MB.
 
 ## Prayer calculation (current)
 
@@ -182,8 +167,8 @@ Details: [`graphity.md`](graphity.md). Diagrams: [`PHASED_PLAN.md`](PHASED_PLAN.
 
 ## Agent rules
 
-- **Verification:** After changes: `./dev` (boot `PrayerTimeEmulator`, install offline debug, launch). Launcher icon label is **Prayer Times** (`com.prayertime.offline`), not `PrayerTime`. If missing from the drawer after install, run `./dev` again (refreshes Pixel Launcher) or `adb shell am start -n com.prayertime.offline/com.prayertime.ui.MainActivity`. Headless: `./dev --headless`. CI: `./scripts/smoke-ci.sh` (unit tests + lint + detekt + APK size; no emulator). After dependency bumps: full `./scripts/smoke-ci.sh` before merge.
-- **Instrumented tests:** `./gradlew connectedOfflineDebugAndroidTest` — Room `MigrationTestHelper` validates exported schemas (requires emulator/device; not part of smoke-ci). Filter one class: `-Pandroid.testInstrumentationRunnerArguments.class=com.prayertime.data.local.AppDatabaseMigrationInstrumentedTest` (no `--tests` on connected tasks).
+- **Verification:** After changes: `./dev` (boot `PrayerTimeEmulator`, install debug, launch). Package `com.prayertime`. Headless: `./dev --headless`. CI: `./scripts/smoke-ci.sh`. After dependency bumps: full `./scripts/smoke-ci.sh` before merge.
+- **Instrumented tests:** `./gradlew connectedDebugAndroidTest` — Room migration tests (requires emulator/device; not part of smoke-ci).
 - **Branching:** Feature work on branches; no direct push to `main`.
 - **Merge:** `./scripts/smoke-ci.sh` green, scope respected (no GPS / Adhkar / Qibla), user sign-off, update `PHASED_PLAN.md` + playbook feature table.
 - **Docs language:** English for plans and agent-facing docs.

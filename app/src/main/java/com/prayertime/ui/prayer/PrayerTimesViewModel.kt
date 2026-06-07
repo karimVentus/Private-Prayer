@@ -69,12 +69,15 @@ class PrayerTimesViewModel
             }
         }
 
-        fun clearCity() {
+        fun clearCity(clearAllPrayerCache: Boolean = false) {
             currentConfig = null
             stopCountdownTicker()
             _uiState.value = PrayerTimesUiState.NoCity
             widgetUpdater.requestImmediateUpdate()
             viewModelScope.launch {
+                if (clearAllPrayerCache) {
+                    repository.clearAllCaches()
+                }
                 clearCityConfig()
             }
         }

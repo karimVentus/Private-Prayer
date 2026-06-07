@@ -155,7 +155,7 @@ class AppSettingsViewModel internal constructor(
 
     suspend fun applyAppLanguage(tag: String?) {
         val normalized = AppLocale.normalizeStoredTag(tag)
-        preferences.setAppLanguageTag(normalized)
+        preferences.setAppLanguageTag(normalized, recordUserChoice = true)
         _appLanguageTag.value = normalized
         AppLocale.apply(normalized)
         onLocaleChanged()

@@ -47,7 +47,11 @@ class CompassSensor
 
         val readings: SharedFlow<CompassReading> =
             callbackFlow {
-                val manager = sensorManager ?: run { close(); return@callbackFlow }
+                val manager =
+                    sensorManager ?: run {
+                        close()
+                        return@callbackFlow
+                    }
 
                 val accelerometer = manager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
                 val magnetometer = manager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)

@@ -14,6 +14,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 @HiltAndroidApp
@@ -34,12 +35,11 @@ class PrayerTimeApplication : Application(), Configuration.Provider {
 
     override fun onCreate() {
         super.onCreate()
+        val languageTag = runBlocking { preferences.resolveLanguageTagForStartup() }
+        AppLocale.apply(languageTag)
         PrayerRefreshWork.enqueue(this)
         WidgetRefreshWork.enqueue(this)
         appScope.launch(Dispatchers.IO) {
-            val tag =
-                preferences.readAppLanguageTagOnce()
-            AppLocale.apply(AppLocale.normalizeStoredTag(tag))
             preferences.warmAppThemeCache()
             preferences.warmAppLanguageCache()
             runCatching { locationRepository.awaitReady() }

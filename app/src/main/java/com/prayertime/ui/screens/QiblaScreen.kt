@@ -6,6 +6,9 @@ import android.os.Build
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.os.VibratorManager
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -23,9 +26,6 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
-import androidx.compose.animation.core.LinearEasing
-import androidx.compose.animation.core.animateFloatAsState
-import androidx.compose.animation.core.tween
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -52,7 +52,6 @@ import com.prayertime.R
 import com.prayertime.di.CompassEntryPoint
 import com.prayertime.domain.calculator.QiblaCalculator
 import com.prayertime.sensor.CompassHeading
-import com.prayertime.sensor.CompassSensor
 import com.prayertime.ui.theme.AppSpacing
 import dagger.hilt.android.EntryPointAccessors
 import kotlin.math.cos

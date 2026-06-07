@@ -56,10 +56,36 @@ class AppPreferencesDataSourceTest {
     // ── Language tag ──
 
     @Test
+    fun `resolveLanguageTagForStartup seeds ar on first launch`() =
+        runTest {
+            val p = prefs()
+            p.clearPreferencesForTests()
+            assertEquals("ar", p.resolveLanguageTagForStartup { "ar" })
+            assertEquals("ar", p.appLanguageTag.first())
+        }
+
+    @Test
+    fun `resolveLanguageTagForStartup seeds en on first launch`() =
+        runTest {
+            val p = prefs()
+            p.clearPreferencesForTests()
+            assertEquals("en", p.resolveLanguageTagForStartup { "en" })
+            assertEquals("en", p.appLanguageTag.first())
+        }
+
+    @Test
+    fun `resolveLanguageTagForStartup respects explicit user system choice`() =
+        runTest {
+            val p = prefs()
+            p.setAppLanguageTag(null, recordUserChoice = true)
+            assertNull(p.resolveLanguageTagForStartup())
+        }
+
+    @Test
     fun `language tag persists and reads back`() =
         runTest {
             val p = prefs()
-            p.setAppLanguageTag("ar")
+            p.setAppLanguageTag("ar", recordUserChoice = true)
             assertEquals("ar", p.appLanguageTag.first())
             assertEquals("ar", p.readAppLanguageTagOnce())
         }

@@ -258,6 +258,31 @@ private fun androidx.compose.ui.graphics.drawscope.DrawScope.drawCompassContent(
     )
     drawCircle(Color(0xFFFFCDD2), radius = baseWidth * 0.4f, center = Offset(baseCx, baseCy))
 
+    // Kaaba icon at arrow tip
+    val kaabaSize = 10.dp.toPx()
+    val kx = cx + arrowLength * aSin
+    val ky = cy - arrowLength * aCos
+    // Kaaba body
+    drawRoundRect(
+        color = Color(0xFF2C2C2C),
+        topLeft = Offset(kx - kaabaSize / 2f, ky - kaabaSize * 1.3f),
+        size = androidx.compose.ui.geometry.Size(kaabaSize, kaabaSize * 1.3f),
+        cornerRadius = androidx.compose.ui.geometry.CornerRadius(2.dp.toPx(), 2.dp.toPx()),
+    )
+    // Gold door line
+    drawLine(
+        color = Color(0xFFD4A847),
+        start = Offset(kx - kaabaSize * 0.2f, ky - kaabaSize * 0.6f),
+        end = Offset(kx + kaabaSize * 0.2f, ky - kaabaSize * 0.6f),
+        strokeWidth = 2.dp.toPx(),
+    )
+    // Roof line
+    drawRect(
+        color = Color(0xFF1A1A1A),
+        topLeft = Offset(kx - kaabaSize * 0.6f, ky - kaabaSize * 1.45f),
+        size = androidx.compose.ui.geometry.Size(kaabaSize * 1.2f, kaabaSize * 0.15f),
+    )
+
     // 4. Center dot
     drawCircle(palette.textPrimary.copy(alpha = 0.5f), radius = 2.5.dp.toPx(), center = Offset(cx, cy))
 }

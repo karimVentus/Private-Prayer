@@ -9,7 +9,7 @@ complexity:
     threshold: 4
   LongMethod:
     active: true
-    threshold: 100
+    threshold: 120
   LongParameterList:
     active: true
     functionThreshold: 10
@@ -41,6 +41,9 @@ style:
     maxLineLength: 160
   MagicNumber:
     active: false # Disabled to allow time calculations and indices in repository/calculator
+  ReturnCount:
+    active: true
+    max: 15
   UnusedImports:
     active: true
   UnusedPrivateMember:

@@ -1,13 +1,9 @@
 package com.prayertime.widget
 
-import android.app.AlarmManager
-import android.app.PendingIntent
+import android.appwidget.AppWidgetManager
+import android.content.ComponentName
 import android.content.Context
-import android.content.Intent
-import android.os.Build
 import com.prayertime.PendingIntentRequestCodes
-import com.prayertime.alarm.PrayerAlarmScheduler
-import com.prayertime.alarm.ShowIntentFactory
 import com.prayertime.domain.calculator.PrayerTimeCalculator
 import com.prayertime.domain.model.PrayerTime
 import java.util.TimeZone
@@ -22,32 +18,23 @@ class WidgetPrayerBoundaryScheduler
     ) {
         suspend fun scheduleNextBoundaryUpdate(context: Context) {
             val snapshot = loader.load()
-            if (snapshot.state != WidgetSnapshot.State.READY) {
+            if (snapshot.state != WidgetSnapshot.State.READY || !hasInstalledWidgets(context)) {
                 cancel(context)
                 return
             }
-            val triggerAtMs =
-                nextBoundaryTimestamp(snapshot.times, snapshot.timezone) ?: run {
-                    cancel(context)
-                    return
-                }
-            scheduleAt(context, triggerAtMs)
+            val boundaryAt = nextBoundaryTimestamp(snapshot.times, snapshot.timezone)
+            if (boundaryAt != null) {
+                scheduleBoundaryAt(context, boundaryAt)
+                WidgetCountdownRefreshScheduler.scheduleNextTick(context)
+            } else {
+                cancel(context)
+            }
         }
 
         companion object {
             fun cancel(context: Context) {
-                val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as? AlarmManager ?: return
-                val pending =
-                    PendingIntent.getBroadcast(
-                        context,
-                        PendingIntentRequestCodes.WIDGET_BOUNDARY_ALARM,
-                        intentFor(context),
-                        PendingIntent.FLAG_NO_CREATE or PendingIntent.FLAG_IMMUTABLE,
-                    )
-                if (pending != null) {
-                    alarmManager.cancel(pending)
-                    pending.cancel()
-                }
+                WidgetAlarmScheduling.cancelBoundary(context)
+                WidgetCountdownRefreshScheduler.cancel(context)
             }
 
             internal fun nextBoundaryTimestamp(
@@ -63,49 +50,26 @@ class WidgetPrayerBoundaryScheduler
                 )
             }
 
-            internal fun scheduleAt(
+            internal fun scheduleBoundaryAt(
                 context: Context,
                 triggerAtMs: Long,
             ) {
-                val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as? AlarmManager ?: return
-                cancel(context)
-                val pendingIntent =
-                    PendingIntent.getBroadcast(
-                        context,
-                        PendingIntentRequestCodes.WIDGET_BOUNDARY_ALARM,
-                        intentFor(context),
-                        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
-                    )
-                val useReliableAlarms = PrayerAlarmScheduler.canUseExactAlarms(context)
-                val showIntent = if (useReliableAlarms) showPendingIntent(context) else null
-                if (useReliableAlarms && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && showIntent != null) {
-                    alarmManager.setAlarmClock(
-                        AlarmManager.AlarmClockInfo(triggerAtMs, showIntent),
-                        pendingIntent,
-                    )
-                    return
-                }
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    alarmManager.setAndAllowWhileIdle(
-                        AlarmManager.RTC_WAKEUP,
-                        triggerAtMs,
-                        pendingIntent,
-                    )
-                } else {
-                    alarmManager.setExact(
-                        AlarmManager.RTC_WAKEUP,
-                        triggerAtMs,
-                        pendingIntent,
-                    )
-                }
+                WidgetAlarmScheduling.scheduleAt(
+                    context = context,
+                    triggerAtMs = triggerAtMs,
+                    requestCode = PendingIntentRequestCodes.WIDGET_BOUNDARY_ALARM,
+                    showRequestCode = PendingIntentRequestCodes.WIDGET_BOUNDARY_SHOW,
+                    action = WidgetPrayerBoundaryReceiver.ACTION_WIDGET_BOUNDARY,
+                    cancelExisting = WidgetAlarmScheduling::cancelBoundary,
+                )
             }
 
-            private fun intentFor(context: Context): Intent =
-                Intent(context, WidgetPrayerBoundaryReceiver::class.java).apply {
-                    action = WidgetPrayerBoundaryReceiver.ACTION_WIDGET_BOUNDARY
-                }
-
-            private fun showPendingIntent(context: Context): PendingIntent =
-                ShowIntentFactory.create(context, PendingIntentRequestCodes.WIDGET_BOUNDARY_SHOW)
+            private fun hasInstalledWidgets(context: Context): Boolean {
+                val manager = AppWidgetManager.getInstance(context)
+                return listOf(
+                    ComponentName(context, PrayerTimeWidgetProvider::class.java),
+                    ComponentName(context, PrayerTimeWidgetProviderLarge::class.java),
+                ).any { manager.getAppWidgetIds(it).isNotEmpty() }
+            }
         }
     }

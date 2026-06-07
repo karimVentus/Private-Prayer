@@ -12,7 +12,7 @@ class WidgetPrayerBoundaryReceiver : BroadcastReceiver() {
         context: Context,
         intent: Intent,
     ) {
-        if (intent.action != ACTION_WIDGET_BOUNDARY) return
+        if (intent.action != ACTION_WIDGET_BOUNDARY && intent.action != ACTION_WIDGET_COUNTDOWN_TICK) return
         val pendingResult = goAsync()
         val entryPoint =
             EntryPointAccessors.fromApplication(
@@ -32,5 +32,6 @@ class WidgetPrayerBoundaryReceiver : BroadcastReceiver() {
 
     companion object {
         const val ACTION_WIDGET_BOUNDARY = "com.prayertime.action.WIDGET_PRAYER_BOUNDARY"
+        const val ACTION_WIDGET_COUNTDOWN_TICK = "com.prayertime.action.WIDGET_COUNTDOWN_TICK"
     }
 }

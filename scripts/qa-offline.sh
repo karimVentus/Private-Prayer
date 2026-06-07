@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 # Phase 5C — Offline robustness QA helper (PHASED_PLAN.md §5C).
 #
-# Primary target: **online** APK (com.prayertime) with network mode ON in About.
-# Offline APK (com.prayertime.offline) always calculates locally — 5C.1/5C.3 network
-# paths are N/A; 5C.2 cache retention still applies.
+# Primary target: **com.prayertime** — toggle offline-only vs network in Settings.
 #
 #   ./scripts/qa-offline.sh audit           Static + unit-test pointers (no device)
 #   ./scripts/qa-offline.sh network-off     Airplane mode on (best effort)
@@ -33,7 +31,7 @@ die() {
 
 need_adb() {
   [ -x "$ADB" ] || die "adb not found at $ADB (set ANDROID_HOME)"
-  "$ADB" get-state >/dev/null 2>&1 || die "no adb device — run ./dev or installOnlineDebug first"
+  "$ADB" get-state >/dev/null 2>&1 || die "no adb device — run ./dev or ./gradlew installDebug first"
 }
 
 app_installed() {
@@ -98,13 +96,11 @@ cmd_audit() {
       cd "$ROOT_DIR"
       export JAVA_HOME="${JAVA_HOME:-$HOME/jdk21}"
       export ANDROID_HOME="$SDK"
-      ./gradlew testOfflineDebugUnitTest \
+      ./gradlew testDebugUnitTest \
         --tests com.prayertime.data.repository.PrayerTimesLocalEngineTest \
         --tests com.prayertime.widget.WidgetSnapshotLoaderTest \
-        -q && echo "Offline unit tests: PASSED"
-      ./gradlew testOnlineDebugUnitTest \
         --tests com.prayertime.data.repository.OnlinePrayerTimesRepositoryTest \
-        -q && echo "Online unit tests: PASSED"
+        -q && echo "Unit tests: PASSED"
     )
   fi
   echo "Static audit complete."
@@ -236,8 +232,7 @@ cmd_all() {
       cmd_cache_dump
     else
       echo "[qa-offline] Device connected but $PACKAGE not installed"
-      echo "  Online 5C: PRAYERTIME_PACKAGE=com.prayertime ./gradlew installOnlineDebug"
-      echo "  Offline smoke: PRAYERTIME_PACKAGE=com.prayertime.offline ./dev"
+      echo "  Run: ./dev   or   ./gradlew installDebug"
     fi
   else
     echo "[qa-offline] No adb device — static audit only"

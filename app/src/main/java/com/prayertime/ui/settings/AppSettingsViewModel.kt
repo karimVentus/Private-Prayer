@@ -15,13 +15,11 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import javax.inject.Named
 
 @HiltViewModel
 class AppSettingsViewModel internal constructor(
     private val repository: PrayerTimesRepository,
     private val preferences: AppPreferencesDataSource,
-    private val networkModeAvailable: Boolean,
     private val onLocaleChanged: suspend () -> Unit,
     private val adhanNotificationHelper: AdhanNotificationHelper?,
 ) : ViewModel() {
@@ -31,11 +29,9 @@ class AppSettingsViewModel internal constructor(
         preferences: AppPreferencesDataSource,
         widgetUpdater: WidgetUpdater,
         adhanNotificationHelper: AdhanNotificationHelper,
-        @Named("networkModeAvailable") networkModeAvailable: Boolean,
     ) : this(
         repository,
         preferences,
-        networkModeAvailable = networkModeAvailable,
         onLocaleChanged = { widgetUpdater.updateAll() },
         adhanNotificationHelper = adhanNotificationHelper,
     )
@@ -43,11 +39,14 @@ class AppSettingsViewModel internal constructor(
     private val _showAbout = MutableStateFlow(false)
     val showAbout: StateFlow<Boolean> = _showAbout.asStateFlow()
 
-    private val _offlineOnly = MutableStateFlow(!networkModeAvailable)
+    private val _offlineOnly = MutableStateFlow(true)
     val offlineOnly: StateFlow<Boolean> = _offlineOnly.asStateFlow()
 
     private val _adhanNotificationsEnabled = MutableStateFlow(false)
     val adhanNotificationsEnabled: StateFlow<Boolean> = _adhanNotificationsEnabled.asStateFlow()
+
+    private val _adhanPlayWhenSilent = MutableStateFlow(false)
+    val adhanPlayWhenSilent: StateFlow<Boolean> = _adhanPlayWhenSilent.asStateFlow()
 
     private val _appLanguageTag = MutableStateFlow<String?>(null)
     val appLanguageTag: StateFlow<String?> = _appLanguageTag.asStateFlow()
@@ -63,19 +62,16 @@ class AppSettingsViewModel internal constructor(
 
     init {
         viewModelScope.launch {
-            val stored = repository.offlineOnly.first()
-            if (!networkModeAvailable) {
-                if (!stored) {
-                    repository.setOfflineOnly(true)
-                }
-                _offlineOnly.value = true
-            } else {
-                _offlineOnly.value = stored
-            }
+            _offlineOnly.value = repository.offlineOnly.first()
         }
         viewModelScope.launch {
             preferences.adhanNotificationsEnabled.collect { enabled ->
                 _adhanNotificationsEnabled.value = enabled
+            }
+        }
+        viewModelScope.launch {
+            preferences.adhanPlayWhenSilent.collect { enabled ->
+                _adhanPlayWhenSilent.value = enabled
             }
         }
         viewModelScope.launch {
@@ -109,7 +105,6 @@ class AppSettingsViewModel internal constructor(
     }
 
     fun setOfflineOnly(enabled: Boolean) {
-        if (!enabled && !networkModeAvailable) return
         viewModelScope.launch {
             repository.setOfflineOnly(enabled)
             _offlineOnly.value = enabled
@@ -123,6 +118,13 @@ class AppSettingsViewModel internal constructor(
             if (enabled) {
                 adhanNotificationHelper?.showAdhanEnabledConfirmation()
             }
+        }
+    }
+
+    fun setAdhanPlayWhenSilent(enabled: Boolean) {
+        _adhanPlayWhenSilent.value = enabled
+        viewModelScope.launch {
+            preferences.setAdhanPlayWhenSilent(enabled)
         }
     }
 
@@ -170,5 +172,19 @@ class AppSettingsViewModel internal constructor(
         viewModelScope.launch {
             preferences.setMutedPrayers(current)
         }
+    }
+
+    suspend fun resetAllSettings() {
+        preferences.resetToDefaults()
+        repository.resetCityStore()
+        _offlineOnly.value = true
+        _adhanNotificationsEnabled.value = false
+        _adhanPlayWhenSilent.value = false
+        _appLanguageTag.value = null
+        _adhanSound.value = AppPreferencesDataSource.DEFAULT_ADHAN_SOUND
+        _appTheme.value = AppTheme.LIGHT
+        _mutedPrayers.value = emptySet()
+        AppLocale.apply(null)
+        onLocaleChanged()
     }
 }

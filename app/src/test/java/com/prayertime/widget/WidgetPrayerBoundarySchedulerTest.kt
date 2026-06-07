@@ -71,6 +71,12 @@ class WidgetPrayerBoundarySchedulerTest {
     }
 
     @Test
+    fun nextCountdownTickTimestamp_alignsToNextMinuteBoundary() {
+        val now = 1_700_000_000_123L
+        assertEquals(1_700_000_040_000L, WidgetCountdownRefreshScheduler.nextTickTimestamp(now))
+    }
+
+    @Test
     fun nextBoundaryTimestamp_returnsNullWhenTimezoneMissing() {
         val now = System.currentTimeMillis()
         val times = listOf(PrayerTime(Prayer.FAJR, "04:00", now + 3_600_000L))

@@ -69,12 +69,15 @@ class PrayerTimesViewModel
             }
         }
 
-        fun clearCity() {
+        fun clearCity(clearAllPrayerCache: Boolean = false) {
             currentConfig = null
             stopCountdownTicker()
             _uiState.value = PrayerTimesUiState.NoCity
             widgetUpdater.requestImmediateUpdate()
             viewModelScope.launch {
+                if (clearAllPrayerCache) {
+                    repository.clearAllCaches()
+                }
                 clearCityConfig()
             }
         }
@@ -133,6 +136,8 @@ class PrayerTimesViewModel
                         PrayerTimesUiState.Success(
                             city = "${config.cityName}, ${config.countryCode}",
                             timezone = config.timezone,
+                            latitude = config.latitude,
+                            longitude = config.longitude,
                             result = result,
                             todayHijriDate = todayHijriDate(config.timezone),
                             upcomingEvent = upcomingEvent(config.timezone),

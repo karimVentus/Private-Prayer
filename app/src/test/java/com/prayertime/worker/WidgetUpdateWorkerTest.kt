@@ -6,6 +6,7 @@ import androidx.work.ListenableWorker
 import androidx.work.WorkerFactory
 import androidx.work.WorkerParameters
 import androidx.work.testing.TestListenableWorkerBuilder
+import com.prayertime.data.local.AppPreferencesDataSource
 import com.prayertime.widget.WidgetPrayerBoundaryScheduler
 import com.prayertime.widget.WidgetUpdater
 import io.mockk.coEvery
@@ -23,12 +24,14 @@ import org.robolectric.annotation.Config
 @Config(sdk = [34])
 class WidgetUpdateWorkerTest {
     private lateinit var context: Context
+    private lateinit var preferences: AppPreferencesDataSource
     private val widgetUpdater = mockk<WidgetUpdater>(relaxed = true)
     private val boundaryScheduler = mockk<WidgetPrayerBoundaryScheduler>(relaxed = true)
 
     @Before
     fun setup() {
         context = ApplicationProvider.getApplicationContext()
+        preferences = AppPreferencesDataSource(context)
         coEvery { widgetUpdater.updateAll() } returns Unit
         coEvery { boundaryScheduler.scheduleNextBoundaryUpdate(any()) } returns Unit
     }
@@ -64,6 +67,7 @@ class WidgetUpdateWorkerTest {
                             WidgetUpdateWorker(
                                 appContext,
                                 workerParameters,
+                                preferences,
                                 widgetUpdater,
                                 boundaryScheduler,
                             )

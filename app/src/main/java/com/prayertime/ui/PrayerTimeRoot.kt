@@ -4,16 +4,25 @@ import android.view.View
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.material3.Button
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
@@ -30,11 +39,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.LayoutDirection
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Dialog
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.LifecycleResumeEffect
 import androidx.lifecycle.lifecycleScope
-import com.prayertime.BuildConfig
+import com.prayertime.R
 import com.prayertime.alarm.PrayerAlarmScheduler
 import com.prayertime.permission.AdhanPermissions
 import com.prayertime.ui.city.CityInputActions
@@ -51,6 +63,7 @@ import com.prayertime.ui.screens.HijriCalendarScreen
 import com.prayertime.ui.screens.LanguagePickerDialog
 import com.prayertime.ui.screens.PrayerTimesScreen
 import com.prayertime.ui.screens.PrivacyModeUiState
+import com.prayertime.ui.screens.QiblaScreen
 import com.prayertime.ui.screens.ThemeUiState
 import com.prayertime.ui.settings.AppSettingsViewModel
 import com.prayertime.ui.theme.PrayerTimeTheme
@@ -73,6 +86,7 @@ fun PrayerTimeRoot(activity: AppCompatActivity) {
                 val prayerState by prayerTimesViewModel.uiState.collectAsState()
                 val showAbout by settingsViewModel.showAbout.collectAsState()
                 var showCalendar by remember { mutableStateOf(false) }
+                var showQibla by remember { mutableStateOf(false) }
                 val snackbarHostState = remember { SnackbarHostState() }
 
                 PrayerTimeSideEffects(
@@ -86,6 +100,18 @@ fun PrayerTimeRoot(activity: AppCompatActivity) {
 
                 if (showAbout) {
                     PrayerTimeAboutRoute(activity, settingsViewModel, prayerTimesViewModel)
+                } else if (showQibla) {
+                    val success = prayerState as? PrayerTimesUiState.Success
+                    if (success != null && success.latitude != null && success.longitude != null) {
+                        QiblaScreen(
+                            latitude = success.latitude,
+                            longitude = success.longitude,
+                            cityLabel = success.city,
+                            onClose = { showQibla = false },
+                        )
+                    } else {
+                        showQibla = false
+                    }
                 } else if (showCalendar) {
                     val success = prayerState as? PrayerTimesUiState.Success
                     if (success != null) {
@@ -105,6 +131,7 @@ fun PrayerTimeRoot(activity: AppCompatActivity) {
                         prayerState,
                         snackbarHostState,
                         onCalendar = { showCalendar = true },
+                        onQibla = { showQibla = true },
                     )
                 }
             }
@@ -171,6 +198,7 @@ private fun PrayerTimeAboutRoute(
 ) {
     val offlineOnly by settingsViewModel.offlineOnly.collectAsState()
     val adhanEnabled by settingsViewModel.adhanNotificationsEnabled.collectAsState()
+    val adhanPlayWhenSilent by settingsViewModel.adhanPlayWhenSilent.collectAsState()
     val adhanSound by settingsViewModel.adhanSound.collectAsState()
     val appTheme by settingsViewModel.appTheme.collectAsState()
     val adhanPermissions = rememberAboutAdhanPermissions(activity, settingsViewModel)
@@ -191,17 +219,18 @@ private fun PrayerTimeAboutRoute(
         privacy =
             PrivacyModeUiState(
                 offlineOnly = offlineOnly,
-                networkModeAvailable = BuildConfig.NETWORK_MODE_AVAILABLE,
                 onOfflineOnlyChanged = settingsViewModel::setOfflineOnly,
             ),
         adhan =
             AdhanNotificationsUiState(
                 enabled = adhanEnabled,
+                playWhenSilent = adhanPlayWhenSilent,
                 notificationsGranted = adhanPermissions.notificationsGranted,
                 exactAlarmsGranted = adhanPermissions.exactAlarmsGranted,
                 batteryOptimizationExempt = adhanPermissions.batteryOptimizationExempt,
                 adhanSound = adhanSound,
                 onEnabledChanged = adhanPermissions.onEnabledChanged,
+                onPlayWhenSilentChanged = settingsViewModel::setAdhanPlayWhenSilent,
                 onRequestNotifications = adhanPermissions.requestNotifications,
                 onRequestExactAlarms = adhanPermissions.onRequestExactAlarms,
                 onRequestBatteryOptimization = adhanPermissions.onRequestBatteryOptimization,
@@ -341,6 +370,7 @@ private fun PrayerTimeMainRoute(
     prayerState: PrayerTimesUiState,
     snackbarHostState: SnackbarHostState,
     onCalendar: () -> Unit,
+    onQibla: () -> Unit,
 ) {
     val wizardStep by citySetupViewModel.wizardStep.collectAsState()
     val countrySearchQuery by citySetupViewModel.countrySearchQuery.collectAsState()
@@ -353,6 +383,26 @@ private fun PrayerTimeMainRoute(
     val appLanguageTag by settingsViewModel.appLanguageTag.collectAsState()
     val mutedPrayers by settingsViewModel.mutedPrayers.collectAsState()
     var showLanguagePicker by remember { mutableStateOf(false) }
+    var showChangeCityConfirm by remember { mutableStateOf(false) }
+
+    if (showChangeCityConfirm) {
+        ChangeCityConfirmDialog(
+            onCityOnly = {
+                showChangeCityConfirm = false
+                citySetupViewModel.resetWizard()
+                prayerTimesViewModel.clearCity()
+            },
+            onResetAll = {
+                showChangeCityConfirm = false
+                citySetupViewModel.resetWizard()
+                activity.lifecycleScope.launch {
+                    settingsViewModel.resetAllSettings()
+                    prayerTimesViewModel.clearCity(clearAllPrayerCache = true)
+                }
+            },
+            onDismiss = { showChangeCityConfirm = false },
+        )
+    }
 
     PrayerTimeLanguagePickerGate(
         show = showLanguagePicker,
@@ -388,11 +438,9 @@ private fun PrayerTimeMainRoute(
                             offlineOnly = offlineOnly,
                             actions =
                                 PrayerTimesActions(
-                                    onChangeCity = {
-                                        citySetupViewModel.resetWizard()
-                                        prayerTimesViewModel.clearCity()
-                                    },
+                                    onChangeCity = { showChangeCityConfirm = true },
                                     onCalendar = onCalendar,
+                                    onQibla = onQibla,
                                     onAbout = settingsViewModel::showAbout,
                                     onLanguage = { showLanguagePicker = true },
                                     onToggleMute = { prayer -> settingsViewModel.toggleMutedPrayer(prayer.name) },
@@ -422,6 +470,55 @@ private fun PrayerTimeMainRoute(
                                 saveCity = citySetupViewModel::saveCity,
                             ),
                     )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun ChangeCityConfirmDialog(
+    onCityOnly: () -> Unit,
+    onResetAll: () -> Unit,
+    onDismiss: () -> Unit,
+) {
+    Dialog(onDismissRequest = onDismiss) {
+        Card(
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        ) {
+            Column(
+                modifier = Modifier.padding(24.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+            ) {
+                Text(
+                    text = stringResource(R.string.change_city_dialog_title),
+                    style = MaterialTheme.typography.titleLarge,
+                )
+                Text(
+                    text = stringResource(R.string.change_city_dialog_message),
+                    style = MaterialTheme.typography.bodyMedium,
+                )
+                Button(onClick = onCityOnly, modifier = Modifier.fillMaxWidth()) {
+                    Text(stringResource(R.string.change_city_dialog_city_only))
+                }
+                Text(
+                    text = stringResource(R.string.change_city_dialog_city_only_hint),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Button(onClick = onResetAll, modifier = Modifier.fillMaxWidth()) {
+                    Text(stringResource(R.string.change_city_dialog_reset_all))
+                }
+                Text(
+                    text = stringResource(R.string.change_city_dialog_reset_all_hint),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                TextButton(
+                    onClick = onDismiss,
+                    modifier = Modifier.align(Alignment.End),
+                ) {
+                    Text(stringResource(R.string.change_city_dialog_cancel))
                 }
             }
         }

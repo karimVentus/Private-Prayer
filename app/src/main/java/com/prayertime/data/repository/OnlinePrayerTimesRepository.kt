@@ -84,6 +84,10 @@ class OnlinePrayerTimesRepository(
         local.clearCityConfig()
     }
 
+    override suspend fun resetCityStore() {
+        local.resetCityStore()
+    }
+
     override suspend fun clearAllCaches() {
         local.clearAllCaches()
     }

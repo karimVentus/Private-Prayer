@@ -16,6 +16,13 @@
 
     <!-- PrayerTimesScreen -->
     <string name="change">تغيير</string>
+    <string name="change_city_dialog_title">تغيير المدينة؟</string>
+    <string name="change_city_dialog_message">ستعود إلى شاشة الترحيب. اختر ما تريد إعادة ضبطه:</string>
+    <string name="change_city_dialog_city_only">المدينة فقط</string>
+    <string name="change_city_dialog_city_only_hint">إزالة الدولة والمدينة. يبقي المظهر واللغة والأذان وباقي الإعدادات.</string>
+    <string name="change_city_dialog_reset_all">إعادة ضبط كل شيء</string>
+    <string name="change_city_dialog_reset_all_hint">إزالة المدينة وإعادة جميع الإعدادات إلى الافتراضي.</string>
+    <string name="change_city_dialog_cancel">إلغاء</string>
     <string name="language">اللغة</string>
     <string name="settings">الإعدادات</string>
     <string name="language_dialog_title">لغة التطبيق</string>
@@ -99,6 +106,8 @@
     <string name="adhan_enabled_confirmation_body">سيصلك إشعار عند كل صلاة. هذه الرسالة للتأكد من أن الإشعارات تعمل.</string>
     <string name="adhan_toggle">إشعارات الأذان</string>
     <string name="adhan_toggle_desc">تشغيل الأذان وإظهار إشعار عند الفجر والشروق والظهر والعصر والمغرب والعشاء.</string>
+    <string name="adhan_play_when_silent">تشغيل عند الصمت</string>
+    <string name="adhan_play_when_silent_desc">تشغيل صوت الأذان حتى لو كان الجهاز على الوضع الصامت أو الاهتزاز.</string>
     <string name="adhan_exact_alarm_notice">التنبيهات الدقيقة معطّلة — قد لا يُشغَّل الأذان في الوقت المحدد أثناء وضع السكون أو عند إغلاق التطبيق. اضغط للسماح بالمنبّهات والتذكيرات.</string>
     <string name="adhan_battery_optimization_notice">اختياري: تحسين البطارية مفعّل — قد يتأخر الأذان على بعض الأجهزة. اضغط للسماح بالعمل في الخلفية دون قيود.</string>
     <string name="adhan_notifications_denied">الإشعارات معطّلة — فعّلها من إعدادات النظام لسماع الأذان.</string>

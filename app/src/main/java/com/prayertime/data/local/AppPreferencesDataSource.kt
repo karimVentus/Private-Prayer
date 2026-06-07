@@ -25,6 +25,7 @@ class AppPreferencesDataSource
         @ApplicationContext private val context: Context,
     ) {
         private val adhanEnabledKey = booleanPreferencesKey("adhan_notifications_enabled")
+        private val adhanPlayWhenSilentKey = booleanPreferencesKey("adhan_play_when_silent")
         private val appLanguageTagKey = stringPreferencesKey("app_language_tag")
         private val adhanSoundKey = stringPreferencesKey("adhan_sound")
         private val appThemeKey = stringPreferencesKey("app_theme")
@@ -40,6 +41,23 @@ class AppPreferencesDataSource
             }
         }
 
+        val adhanPlayWhenSilent: Flow<Boolean> =
+            context.appSettingsStore.data.map { prefs ->
+                prefs[adhanPlayWhenSilentKey] ?: false
+            }
+
+        suspend fun setAdhanPlayWhenSilent(enabled: Boolean) {
+            context.appSettingsStore.edit { prefs ->
+                if (enabled) {
+                    prefs[adhanPlayWhenSilentKey] = true
+                } else {
+                    prefs.remove(adhanPlayWhenSilentKey)
+                }
+            }
+        }
+
+        suspend fun readAdhanPlayWhenSilentOnce(): Boolean = adhanPlayWhenSilent.first()
+
         val appLanguageTag: Flow<String?> =
             context.appSettingsStore.data.map { prefs ->
                 prefs[appLanguageTagKey]
@@ -53,9 +71,18 @@ class AppPreferencesDataSource
                     prefs[appLanguageTagKey] = tag
                 }
             }
+            writeAppLanguageCache(tag)
         }
 
         suspend fun readAppLanguageTagOnce(): String? = appLanguageTag.first()
+
+        /** Sync read for widget bind — mirrors DataStore via [writeAppLanguageCache]. */
+        fun readAppLanguageTagSync(): String? = themeCachePrefs.getString(APP_LANGUAGE_CACHE_KEY, null)
+
+        /** Backfill cache after upgrade when DataStore already has a language tag. */
+        suspend fun warmAppLanguageCache() {
+            writeAppLanguageCache(readAppLanguageTagOnce())
+        }
 
         val adhanSound: Flow<String> =
             context.appSettingsStore.data.map { prefs ->
@@ -97,6 +124,16 @@ class AppPreferencesDataSource
             themeCachePrefs.edit().putString(APP_THEME_CACHE_KEY, theme).apply()
         }
 
+        private fun writeAppLanguageCache(tag: String?) {
+            themeCachePrefs.edit().apply {
+                if (tag.isNullOrBlank()) {
+                    remove(APP_LANGUAGE_CACHE_KEY)
+                } else {
+                    putString(APP_LANGUAGE_CACHE_KEY, tag)
+                }
+            }.apply()
+        }
+
         private val themeCachePrefs =
             context.getSharedPreferences(THEME_CACHE_PREFS, Context.MODE_PRIVATE)
 
@@ -122,11 +159,18 @@ class AppPreferencesDataSource
             }
         }
 
+        suspend fun resetToDefaults() {
+            context.appSettingsStore.edit { it.clear() }
+            writeAppThemeCache(AppTheme.DEFAULT_STORAGE_KEY)
+            writeAppLanguageCache(null)
+        }
+
         suspend fun isPrayerMuted(prayer: String): Boolean = mutedPrayers.first().contains(prayer)
 
         companion object {
             const val DEFAULT_ADHAN_SOUND = AdhanSoundResolver.DEFAULT_KEY
             private const val THEME_CACHE_PREFS = "widget_theme_cache"
             private const val APP_THEME_CACHE_KEY = "app_theme"
+            private const val APP_LANGUAGE_CACHE_KEY = "app_language_tag"
         }
     }

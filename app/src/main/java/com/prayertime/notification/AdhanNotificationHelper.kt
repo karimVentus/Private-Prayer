@@ -68,7 +68,10 @@ class AdhanNotificationHelper
             }
         }
 
-        fun showPrayerNotification(prayer: Prayer) {
+        fun showPrayerNotification(
+            prayer: Prayer,
+            alertMode: AdhanAlertMode = AdhanAlertPolicy.mode(context),
+        ) {
             ensureChannel()
             val manager = context.getSystemService(NotificationManager::class.java) ?: return
             if (!NotificationManagerCompat.from(context).areNotificationsEnabled()) return
@@ -76,15 +79,32 @@ class AdhanNotificationHelper
             val title = context.getString(R.string.adhan_notification_title)
             val body = context.getString(R.string.adhan_notification_body, prayerLabel(prayer))
 
-            val notification =
+            val builder =
                 NotificationCompat.Builder(context, CHANNEL_ID)
                     .setSmallIcon(R.drawable.ic_stat_adhan)
                     .setContentTitle(title)
                     .setContentText(body)
-                    .setPriority(NotificationCompat.PRIORITY_HIGH)
                     .setAutoCancel(true)
                     .setCategory(NotificationCompat.CATEGORY_ALARM)
-                    .build()
+
+            when (alertMode) {
+                AdhanAlertMode.AUDIBLE -> {
+                    builder.setPriority(NotificationCompat.PRIORITY_HIGH)
+                }
+                AdhanAlertMode.VIBRATE -> {
+                    builder
+                        .setPriority(NotificationCompat.PRIORITY_HIGH)
+                        .setSilent(true)
+                        .setVibrate(longArrayOf(0, 500, 250, 500))
+                }
+                AdhanAlertMode.SILENT -> {
+                    builder
+                        .setPriority(NotificationCompat.PRIORITY_LOW)
+                        .setSilent(true)
+                }
+            }
+
+            val notification = builder.build()
 
             try {
                 manager.notify(NOTIFICATION_ID_BASE + prayer.ordinal, notification)

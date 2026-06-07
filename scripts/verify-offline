@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 ADB_SCRIPT="$ROOT_DIR/scripts/adb"
 RESET_SCRIPT="$ROOT_DIR/scripts/reset-app"
-ACTIVITY="com.prayertime.offline/.ui.MainActivity"
+ACTIVITY="com.prayertime/.ui.MainActivity"
 KEEP_OFF=false
 
 for arg in "$@"; do

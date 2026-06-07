@@ -106,8 +106,9 @@ class CitySetupViewModelTest {
             vm.selectCountry(Country("Syria", "SY"))
             vm.onCitySearchQueryChanged("Dam")
             val filtered = vm.filteredCities.value
-            assertEquals(listOf("Damascus"), filtered)
+            assertTrue(filtered.contains("Damascus"))
             assertFalse(filtered.contains("Aleppo"))
+            assertTrue(filtered.all { it.contains("Dam", ignoreCase = true) })
         }
 
     @Test

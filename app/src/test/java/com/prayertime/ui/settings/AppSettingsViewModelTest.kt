@@ -10,7 +10,6 @@ import com.prayertime.testing.FakePrayerTimesRepository
 import com.prayertime.testing.clearViewModelForTest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
@@ -61,11 +60,10 @@ class AppSettingsViewModelTest {
         }
     }
 
-    private fun viewModel(networkModeAvailable: Boolean = true): AppSettingsViewModel =
+    private fun viewModel(): AppSettingsViewModel =
         AppSettingsViewModel(
             repository,
             preferences,
-            networkModeAvailable = networkModeAvailable,
             onLocaleChanged = {
                 widgetRefreshCount++
             },
@@ -91,20 +89,6 @@ class AppSettingsViewModelTest {
             assertFalse(vm.offlineOnly.value)
             vm.setOfflineOnly(true)
             assertTrue(vm.offlineOnly.value)
-            vm.clearViewModelForTest()
-            activeViewModels.remove(vm)
-        }
-
-    @Test
-    fun `setOfflineOnly cannot disable privacy when network unavailable`() =
-        runTest(testDispatcher) {
-            repository.setOfflineOnly(false)
-            val vm = viewModel(networkModeAvailable = false)
-            advanceUntilIdle()
-            assertTrue(vm.offlineOnly.value)
-            vm.setOfflineOnly(false)
-            assertTrue(vm.offlineOnly.value)
-            assertTrue(repository.offlineOnly.first())
             vm.clearViewModelForTest()
             activeViewModels.remove(vm)
         }

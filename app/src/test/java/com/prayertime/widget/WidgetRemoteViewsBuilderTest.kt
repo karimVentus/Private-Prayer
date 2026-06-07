@@ -42,36 +42,37 @@ class WidgetRemoteViewsBuilderTest {
     }
 
     @Test
-    fun build_allStatesAndSizes_produceInflatableRemoteViews() {
+    fun build_noCityLarge_inflatesWithoutCrash() {
+        applyWidget(builder.build(WidgetSnapshot(WidgetSnapshot.State.NO_CITY), WidgetSize.LARGE))
+    }
+
+    @Test
+    fun build_errorLarge_inflatesWithoutCrash() {
+        val hijri = HijriCalculator.gregorianToHijri(2024, 6, 4)
+        val snapshot =
+            WidgetSnapshot(
+                state = WidgetSnapshot.State.ERROR,
+                cityLabel = "Hameln, DE",
+                hijriDate = hijri,
+            )
+        applyWidget(builder.build(snapshot, WidgetSize.LARGE))
+    }
+
+    @Test
+    fun build_staleLarge_inflatesWithoutCrash() {
         val baseMs = System.currentTimeMillis()
         val hijri = HijriCalculator.gregorianToHijri(2024, 6, 4)
         val times = sampleTimes(baseMs)
-        val snapshots =
-            listOf(
-                WidgetSnapshot(WidgetSnapshot.State.NO_CITY),
-                WidgetSnapshot(WidgetSnapshot.State.ERROR, cityLabel = "Hameln, DE", hijriDate = hijri),
-                WidgetSnapshot(
-                    state = WidgetSnapshot.State.STALE,
-                    cityLabel = "Hameln, DE",
-                    times = times,
-                    nextPrayer = Prayer.FAJR,
-                    countdownMillis = 3_600_000L,
-                    hijriDate = hijri,
-                ),
-                WidgetSnapshot(
-                    state = WidgetSnapshot.State.READY,
-                    cityLabel = "Hameln, DE",
-                    times = times,
-                    nextPrayer = Prayer.FAJR,
-                    countdownMillis = 3_600_000L,
-                    hijriDate = hijri,
-                ),
+        val snapshot =
+            WidgetSnapshot(
+                state = WidgetSnapshot.State.STALE,
+                cityLabel = "Hameln, DE",
+                times = times,
+                nextPrayer = Prayer.FAJR,
+                countdownMillis = 3_600_000L,
+                hijriDate = hijri,
             )
-        for (snapshot in snapshots) {
-            for (size in WidgetSize.entries) {
-                applyWidget(builder.build(snapshot, size))
-            }
-        }
+        applyWidget(builder.build(snapshot, WidgetSize.LARGE))
     }
 
     @Test

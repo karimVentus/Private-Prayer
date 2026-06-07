@@ -11,6 +11,7 @@ import com.prayertime.data.repository.LocalPrayerTimesRepository
 import com.prayertime.domain.model.CityConfig
 import com.prayertime.domain.model.Prayer
 import com.prayertime.domain.model.SaveCityResult
+import com.prayertime.notification.AdhanAlertDeliverer
 import com.prayertime.testing.clearViewModelForTest
 import com.prayertime.widget.WidgetUpdater
 import io.mockk.coEvery
@@ -48,6 +49,7 @@ class PrayerTimesViewModelIntegrationTest {
             every { appLanguageTag } returns flowOf(null)
             coEvery { readAppLanguageTagOnce() } returns null
         }
+    private val adhanAlertDeliverer = mockk<AdhanAlertDeliverer>(relaxed = true)
     private var vm: PrayerTimesViewModel? = null
 
     @Before
@@ -77,7 +79,7 @@ class PrayerTimesViewModelIntegrationTest {
 
     @Test
     fun `loads six calculated prayer times from real offline repository`() {
-        vm = PrayerTimesViewModel(repository, locationRepository, preferences, widgetUpdater)
+        vm = PrayerTimesViewModel(repository, locationRepository, preferences, adhanAlertDeliverer, widgetUpdater)
         runBlocking {
             val saved =
                 repository.saveCityConfig(

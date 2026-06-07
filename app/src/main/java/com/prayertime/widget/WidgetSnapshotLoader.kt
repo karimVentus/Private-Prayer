@@ -2,12 +2,12 @@ package com.prayertime.widget
 
 import com.prayertime.data.local.AppPreferencesDataSource
 import com.prayertime.data.repository.PrayerTimesRepository
-import com.prayertime.domain.repository.LocationRepository
 import com.prayertime.domain.calculator.HijriCalculator
 import com.prayertime.domain.model.CityConfig
 import com.prayertime.domain.model.HijriDate
 import com.prayertime.domain.model.PrayerTimesResult
 import com.prayertime.domain.model.UpcomingEvent
+import com.prayertime.domain.repository.LocationRepository
 import com.prayertime.ui.theme.AppTheme
 import kotlinx.coroutines.flow.first
 import java.util.Calendar

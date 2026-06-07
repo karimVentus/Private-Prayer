@@ -10,6 +10,7 @@ import com.prayertime.domain.model.FetchError
 import com.prayertime.domain.model.Prayer
 import com.prayertime.domain.model.PrayerTime
 import com.prayertime.domain.model.PrayerTimesResult
+import com.prayertime.notification.AdhanAlertDeliverer
 import com.prayertime.testing.FakePrayerTimesRepository
 import com.prayertime.testing.clearViewModelForTest
 import com.prayertime.ui.LivePrayerCountdown
@@ -57,6 +58,7 @@ class PrayerTimesViewModelTest {
             every { appLanguageTag } returns flowOf(null)
             coEvery { readAppLanguageTagOnce() } returns null
         }
+    private val adhanAlertDeliverer = mockk<AdhanAlertDeliverer>(relaxed = true)
     private val activeViewModels = mutableListOf<PrayerTimesViewModel>()
 
     private val hamelnConfig =
@@ -85,7 +87,7 @@ class PrayerTimesViewModelTest {
     }
 
     private fun viewModel(): PrayerTimesViewModel =
-        PrayerTimesViewModel(repository, locationRepository, preferences, widgetUpdater).also {
+        PrayerTimesViewModel(repository, locationRepository, preferences, adhanAlertDeliverer, widgetUpdater).also {
             activeViewModels.add(it)
         }
 

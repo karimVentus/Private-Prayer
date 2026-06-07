@@ -14,7 +14,9 @@ import com.prayertime.domain.model.Prayer
 import com.prayertime.domain.model.PrayerTime
 import com.prayertime.domain.model.PrayerTimesResult
 import com.prayertime.domain.model.UpcomingEvent
+import com.prayertime.domain.model.isInPrayerWindow
 import com.prayertime.domain.repository.LocationRepository
+import com.prayertime.notification.AdhanAlertDeliverer
 import com.prayertime.ui.LivePrayerCountdown
 import com.prayertime.ui.PrayerTimesErrorMapper
 import com.prayertime.widget.WidgetUpdater
@@ -39,6 +41,7 @@ class PrayerTimesViewModel
         private val repository: PrayerTimesRepository,
         private val locationRepository: LocationRepository,
         private val preferences: AppPreferencesDataSource,
+        private val adhanAlertDeliverer: AdhanAlertDeliverer,
         private val widgetUpdater: WidgetUpdater,
     ) : ViewModel() {
         private val _uiState = MutableStateFlow<PrayerTimesUiState>(PrayerTimesUiState.Loading)
@@ -93,6 +96,16 @@ class PrayerTimesViewModel
                 countryCode = config.countryCode,
                 languageTag = languageTag,
             )
+
+        /** After unmuting a prayer: play adhan immediately if we are still in that prayer's window. */
+        fun playAdhanIfPrayerWindow(prayer: Prayer) {
+            viewModelScope.launch {
+                if (!preferences.adhanNotificationsEnabled.first()) return@launch
+                val success = _uiState.value as? PrayerTimesUiState.Success ?: return@launch
+                if (!isInPrayerWindow(prayer, success.result.times)) return@launch
+                adhanAlertDeliverer.deliver(prayer, respectMute = false)
+            }
+        }
 
         fun clearCity(clearAllPrayerCache: Boolean = false) {
             currentConfig = null

@@ -1,7 +1,6 @@
 package com.prayertime.permission
 
 import android.app.Activity
-import android.app.AlarmManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -12,6 +11,7 @@ import android.provider.Settings
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
+import com.prayertime.alarm.PrayerAlarmScheduler
 
 object AdhanPermissions {
     const val REQUEST_POST_NOTIFICATIONS = 1001
@@ -52,13 +52,8 @@ object AdhanPermissions {
         )
     }
 
-    fun canScheduleExactAlarms(context: Context): Boolean {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
-            return true
-        }
-        val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as? AlarmManager
-        return alarmManager?.canScheduleExactAlarms() == true
-    }
+    fun canScheduleExactAlarms(context: Context): Boolean =
+        PrayerAlarmScheduler.canUseExactAlarms(context)
 
     fun openExactAlarmSettings(activity: Activity) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) return

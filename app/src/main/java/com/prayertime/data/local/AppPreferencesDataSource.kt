@@ -1,6 +1,7 @@
 package com.prayertime.data.local
 
 import android.content.Context
+import androidx.annotation.WorkerThread
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
@@ -146,10 +147,12 @@ class AppPreferencesDataSource
             writeAppThemeCache(readAppThemeOnce())
         }
 
+        @WorkerThread
         private fun writeAppThemeCache(theme: String) {
-            themeCachePrefs.edit().putString(APP_THEME_CACHE_KEY, theme).commit()
+            themeCachePrefs.edit().putString(APP_THEME_CACHE_KEY, theme).apply()
         }
 
+        @WorkerThread
         private fun writeAppLanguageCache(tag: String?) {
             themeCachePrefs.edit().apply {
                 if (tag.isNullOrBlank()) {
@@ -157,7 +160,7 @@ class AppPreferencesDataSource
                 } else {
                     putString(APP_LANGUAGE_CACHE_KEY, tag)
                 }
-            }.commit()
+            }.apply()
         }
 
         private val themeCachePrefs =

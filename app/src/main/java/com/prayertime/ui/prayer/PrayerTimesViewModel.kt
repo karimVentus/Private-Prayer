@@ -318,6 +318,31 @@ class PrayerTimesViewModel
             repository.clearCityConfig()
         }
 
+        /** Test seam — seed Success + [currentConfig] without fetching (same-module unit tests). */
+        internal fun seedSuccessStateForTest(
+            config: CityConfig,
+            result: PrayerTimesResult.Success,
+            cityLabel: String = "${config.cityName}, ${config.countryCode}",
+        ) {
+            currentConfig = config
+            _uiState.value =
+                PrayerTimesUiState.Success(
+                    city = cityLabel,
+                    timezone = config.timezone,
+                    latitude = config.latitude,
+                    longitude = config.longitude,
+                    result = result,
+                )
+        }
+
+        /** Test seam — seed [liveCountdown] without running the ticker loop. */
+        internal fun seedLiveCountdownForTest(
+            nextPrayer: Prayer,
+            countdownMillis: Long,
+        ) {
+            _liveCountdown.value = LivePrayerCountdown(nextPrayer, countdownMillis)
+        }
+
         override fun onCleared() {
             stopCountdownTicker()
             super.onCleared()

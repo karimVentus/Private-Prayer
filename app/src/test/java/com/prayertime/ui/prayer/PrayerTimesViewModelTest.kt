@@ -13,7 +13,6 @@ import com.prayertime.domain.model.PrayerTimesResult
 import com.prayertime.notification.AdhanAlertDeliverer
 import com.prayertime.testing.FakePrayerTimesRepository
 import com.prayertime.testing.clearViewModelForTest
-import com.prayertime.ui.LivePrayerCountdown
 import com.prayertime.widget.WidgetUpdater
 import io.mockk.clearMocks
 import io.mockk.coEvery
@@ -22,7 +21,6 @@ import io.mockk.mockk
 import io.mockk.verify
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.runBlocking
@@ -108,7 +106,7 @@ class PrayerTimesViewModelTest {
         runTest(testDispatcher) {
             val vm = viewModel()
             advanceUntilIdle()
-            vm.forceSuccessState(hamelnConfig)
+            vm.seedSuccessStateForTest(hamelnConfig, hamelnSuccessResult())
 
             vm.clearCity()
             advanceUntilIdle()
@@ -167,8 +165,8 @@ class PrayerTimesViewModelTest {
     fun `liveCountdown is null after clearCity`() =
         runTest(testDispatcher) {
             val vm = viewModel()
-            vm.forceSuccessState(hamelnConfig)
-            vm.forceLiveCountdown(Prayer.FAJR, 3_600_000L)
+            vm.seedSuccessStateForTest(hamelnConfig, hamelnSuccessResult())
+            vm.seedLiveCountdownForTest(Prayer.FAJR, 3_600_000L)
             assertNotNull(vm.liveCountdown.value)
 
             vm.clearCity()
@@ -325,7 +323,14 @@ class PrayerTimesViewModelTest {
             }
             val vm = viewModel()
             fetchCount = 0
-            vm.forceSuccessStateWithAnchor(hamelnConfig, yesterdayFajr)
+            vm.seedSuccessStateForTest(
+                hamelnConfig,
+                PrayerTimesResult.Success(
+                    times = berlinDayTimes(yesterdayFajr),
+                    nextPrayer = Prayer.FAJR,
+                    countdown = 1_000L,
+                ),
+            )
             vm.refreshIfPrayerDayStale()
             assertEquals(1, fetchCount)
             vm.clearCity()
@@ -342,65 +347,15 @@ private fun berlinDayTimes(fajrTs: Long): List<PrayerTime> =
         PrayerTime(Prayer.ISHA, "19:40", fajrTs + 54_600_000L),
     )
 
-private fun PrayerTimesViewModel.forceSuccessState(config: CityConfig) {
+private fun hamelnSuccessResult(): PrayerTimesResult.Success {
     val now = System.currentTimeMillis()
-    val times =
-        listOf(
-            PrayerTime(Prayer.FAJR, "05:00", now + 3_600_000),
-            PrayerTime(Prayer.DHUHR, "13:00", now + 28_800_000),
-        )
-    val uiStateField = PrayerTimesViewModel::class.java.getDeclaredField("_uiState")
-    uiStateField.isAccessible = true
-    @Suppress("UNCHECKED_CAST")
-    val uiState = uiStateField.get(this) as MutableStateFlow<PrayerTimesUiState>
-    uiState.value =
-        PrayerTimesUiState.Success(
-            city = "${config.cityName}, ${config.countryCode}",
-            timezone = config.timezone,
-            result =
-                PrayerTimesResult.Success(
-                    times = times,
-                    nextPrayer = Prayer.FAJR,
-                    countdown = 3_600_000,
-                ),
-        )
-    val configField = PrayerTimesViewModel::class.java.getDeclaredField("currentConfig")
-    configField.isAccessible = true
-    configField.set(this, config)
-}
-
-private fun PrayerTimesViewModel.forceLiveCountdown(
-    nextPrayer: Prayer,
-    countdownMillis: Long,
-) {
-    val field = PrayerTimesViewModel::class.java.getDeclaredField("_liveCountdown")
-    field.isAccessible = true
-    @Suppress("UNCHECKED_CAST")
-    val flow = field.get(this) as MutableStateFlow<LivePrayerCountdown?>
-    flow.value = LivePrayerCountdown(nextPrayer, countdownMillis)
-}
-
-private fun PrayerTimesViewModel.forceSuccessStateWithAnchor(
-    config: CityConfig,
-    fajrAnchor: Long,
-) {
-    val times = berlinDayTimes(fajrAnchor)
-    val uiStateField = PrayerTimesViewModel::class.java.getDeclaredField("_uiState")
-    uiStateField.isAccessible = true
-    @Suppress("UNCHECKED_CAST")
-    val uiState = uiStateField.get(this) as MutableStateFlow<PrayerTimesUiState>
-    uiState.value =
-        PrayerTimesUiState.Success(
-            city = "${config.cityName}, ${config.countryCode}",
-            timezone = config.timezone,
-            result =
-                PrayerTimesResult.Success(
-                    times = times,
-                    nextPrayer = Prayer.FAJR,
-                    countdown = 1_000L,
-                ),
-        )
-    val configField = PrayerTimesViewModel::class.java.getDeclaredField("currentConfig")
-    configField.isAccessible = true
-    configField.set(this, config)
+    return PrayerTimesResult.Success(
+        times =
+            listOf(
+                PrayerTime(Prayer.FAJR, "05:00", now + 3_600_000),
+                PrayerTime(Prayer.DHUHR, "13:00", now + 28_800_000),
+            ),
+        nextPrayer = Prayer.FAJR,
+        countdown = 3_600_000,
+    )
 }

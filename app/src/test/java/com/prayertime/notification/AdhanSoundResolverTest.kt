@@ -1,6 +1,5 @@
 package com.prayertime.notification
 
-import androidx.test.core.app.ApplicationProvider
 import com.prayertime.R
 import org.junit.Assert.assertEquals
 import org.junit.Test
@@ -11,7 +10,6 @@ import org.robolectric.annotation.Config
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34])
 class AdhanSoundResolverTest {
-
     @Test
     fun `rawResFor adhan returns R raw adhan`() {
         assertEquals(R.raw.adhan, AdhanSoundResolver.rawResFor("adhan"))

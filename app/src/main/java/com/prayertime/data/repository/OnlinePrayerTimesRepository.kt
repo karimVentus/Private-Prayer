@@ -6,7 +6,6 @@ import com.prayertime.data.remote.NetworkMapper
 import com.prayertime.data.remote.PrayerApi
 import com.prayertime.domain.model.CityConfig
 import com.prayertime.domain.model.FetchError
-import com.prayertime.domain.model.Prayer
 import com.prayertime.domain.model.PrayerTimesResult
 import com.prayertime.domain.model.SaveCityResult
 import kotlinx.coroutines.CancellationException

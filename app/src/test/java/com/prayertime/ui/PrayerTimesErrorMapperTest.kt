@@ -3,11 +3,9 @@ package com.prayertime.ui
 import com.prayertime.R
 import com.prayertime.domain.model.FetchError
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNotEquals
 import org.junit.Test
 
 class PrayerTimesErrorMapperTest {
-
     @Test
     fun `NETWORK maps to error_fetch_network_offline when offlineOnly is true`() {
         val res = PrayerTimesErrorMapper.fetchError(FetchError.NETWORK, offlineOnly = true)

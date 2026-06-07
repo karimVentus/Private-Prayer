@@ -13,7 +13,6 @@ import org.robolectric.annotation.Config
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34])
 class HijriDateFormatterTest {
-
     private val resources = ApplicationProvider.getApplicationContext<Context>().resources
 
     @Test

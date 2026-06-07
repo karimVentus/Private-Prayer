@@ -52,8 +52,7 @@ object AdhanPermissions {
         )
     }
 
-    fun canScheduleExactAlarms(context: Context): Boolean =
-        PrayerAlarmScheduler.canUseExactAlarms(context)
+    fun canScheduleExactAlarms(context: Context): Boolean = PrayerAlarmScheduler.canUseExactAlarms(context)
 
     fun openExactAlarmSettings(activity: Activity) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) return

@@ -91,9 +91,7 @@ class AppPreferencesDataSource
          * When the cache is cold (first launch or pre-cache upgrade), returns [defaultFromSystem]
          * until [resolveLanguageTagForStartup] runs on a background dispatcher.
          */
-        fun resolveLanguageTagForStartupSync(
-            defaultFromSystem: () -> String = { AppLocale.defaultTagFromSystem() },
-        ): String? {
+        fun resolveLanguageTagForStartupSync(defaultFromSystem: () -> String = { AppLocale.defaultTagFromSystem() }): String? {
             if (!readAppLanguageInitializedSync()) {
                 return defaultFromSystem()
             }
@@ -176,8 +174,7 @@ class AppPreferencesDataSource
         }
 
         /** Sync read for startup/widget bind — mirrors DataStore via [writeAppLanguageCache]. */
-        fun readAppLanguageInitializedSync(): Boolean =
-            themeCachePrefs.getBoolean(APP_LANGUAGE_INITIALIZED_CACHE_KEY, false)
+        fun readAppLanguageInitializedSync(): Boolean = themeCachePrefs.getBoolean(APP_LANGUAGE_INITIALIZED_CACHE_KEY, false)
 
         @WorkerThread
         private fun writeAppLanguageCache(tag: String?) {

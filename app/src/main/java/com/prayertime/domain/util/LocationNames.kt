@@ -64,22 +64,25 @@ object LocationNames {
     private fun normalizeForLookup(text: String): String {
         val sb = StringBuilder(text.length)
         for (c in text.lowercase(Locale.ROOT)) {
-            when (c) {
-                'á', 'à', 'â', 'ä', 'ã', 'å', 'ā' -> sb.append('a')
-                'é', 'è', 'ê', 'ë', 'ē' -> sb.append('e')
-                'í', 'ì', 'î', 'ï', 'ī' -> sb.append('i')
-                'ó', 'ò', 'ô', 'ö', 'õ', 'ø', 'ō' -> sb.append('o')
-                'ú', 'ù', 'û', 'ü', 'ū' -> sb.append('u')
-                'ñ', 'ń' -> sb.append('n')
-                'ç', 'ć' -> sb.append('c')
-                'š' -> sb.append('s')
-                'ž' -> sb.append('z')
-                'đ' -> sb.append('d')
-                'ł' -> sb.append('l')
-                'ß' -> { sb.append('s'); sb.append('s') }
-                else -> sb.append(c)
-            }
+            sb.append(foldLatinAccent(c) ?: c.toString())
         }
         return sb.toString()
     }
+
+    private fun foldLatinAccent(c: Char): String? =
+        when (c) {
+            'á', 'à', 'â', 'ä', 'ã', 'å', 'ā' -> "a"
+            'é', 'è', 'ê', 'ë', 'ē' -> "e"
+            'í', 'ì', 'î', 'ï', 'ī' -> "i"
+            'ó', 'ò', 'ô', 'ö', 'õ', 'ø', 'ō' -> "o"
+            'ú', 'ù', 'û', 'ü', 'ū' -> "u"
+            'ñ', 'ń' -> "n"
+            'ç', 'ć' -> "c"
+            'š' -> "s"
+            'ž' -> "z"
+            'đ' -> "d"
+            'ł' -> "l"
+            'ß' -> "ss"
+            else -> null
+        }
 }

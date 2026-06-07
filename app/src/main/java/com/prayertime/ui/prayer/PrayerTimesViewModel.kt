@@ -136,6 +136,8 @@ class PrayerTimesViewModel
                         PrayerTimesUiState.Success(
                             city = "${config.cityName}, ${config.countryCode}",
                             timezone = config.timezone,
+                            latitude = config.latitude,
+                            longitude = config.longitude,
                             result = result,
                             todayHijriDate = todayHijriDate(config.timezone),
                             upcomingEvent = upcomingEvent(config.timezone),

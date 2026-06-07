@@ -62,7 +62,7 @@ class ComposeScreenSmokeTest {
                     result = PrayerTimesResult.Success(times, Prayer.DHUHR, 3_600_000L),
                     liveCountdownFlow = MutableStateFlow(null),
                     offlineOnly = true,
-                    actions = PrayerTimesActions(onChangeCity = {}, onCalendar = {}, onAbout = {}, onLanguage = {}, onToggleMute = {}),
+                    actions = PrayerTimesActions(onChangeCity = {}, onCalendar = {}, onQibla = {}, onAbout = {}, onLanguage = {}, onToggleMute = {}),
                 )
             }
         }

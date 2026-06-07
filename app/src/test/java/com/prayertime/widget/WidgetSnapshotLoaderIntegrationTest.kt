@@ -6,6 +6,7 @@ import com.prayertime.data.LocationDataSourceTestSupport
 import com.prayertime.data.local.AppDatabase
 import com.prayertime.data.local.AppPreferencesDataSource
 import com.prayertime.data.local.InMemoryCityConfigDataSource
+import com.prayertime.data.repository.LocalLocationRepository
 import com.prayertime.data.repository.LocalPrayerTimesRepository
 import com.prayertime.domain.calculator.PrayerTimeCalculator
 import com.prayertime.domain.model.CityConfig
@@ -42,7 +43,7 @@ class WidgetSnapshotLoaderIntegrationTest {
             ).allowMainThreadQueries().build()
         repository = LocalPrayerTimesRepository(citySource, database)
         val preferences = AppPreferencesDataSource(ApplicationProvider.getApplicationContext())
-        loader = WidgetSnapshotLoader(repository, preferences)
+        loader = WidgetSnapshotLoader(repository, preferences, LocalLocationRepository())
     }
 
     @After
@@ -62,7 +63,7 @@ class WidgetSnapshotLoaderIntegrationTest {
             val snapshot = loader.load()
 
             assertEquals(WidgetSnapshot.State.READY, snapshot.state)
-            assertEquals("Hameln, DE", snapshot.cityLabel)
+            assertEquals("Hameln, Germany", snapshot.cityLabel)
             assertEquals("Europe/Berlin", snapshot.timezone)
             assertEquals(6, snapshot.times.size)
             assertNotNull(snapshot.nextPrayer)

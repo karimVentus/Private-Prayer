@@ -12,7 +12,7 @@ import org.junit.Test
 /**
  * End-to-end HTTP against [api.aladhan.com](https://api.aladhan.com) — Retrofit, Gson, and [AladhanApi].
  * Complements [AladhanApiMockWebServerTest] (synthetic fixtures on [MockWebServer]).
- * Skips when offline or when `PRAYERTIME_LIVE_HTTP=0`.
+ * Skips unless `PRAYERTIME_LIVE_HTTP=1` and api.aladhan.com is reachable.
  */
 class AladhanApiLiveIntegrationTest {
     private lateinit var api: AladhanApi

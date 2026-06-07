@@ -8,6 +8,7 @@ import com.prayertime.data.LocationDataSourceTestSupport
 import com.prayertime.data.local.AppDatabase
 import com.prayertime.data.local.AppPreferencesDataSource
 import com.prayertime.data.local.InMemoryCityConfigDataSource
+import com.prayertime.data.repository.LocalLocationRepository
 import com.prayertime.data.repository.LocalPrayerTimesRepository
 import com.prayertime.domain.model.CityConfig
 import com.prayertime.domain.model.SaveCityResult
@@ -58,7 +59,7 @@ object WidgetTestSupport {
             check(saved is SaveCityResult.Success)
         }
         val preferences = AppPreferencesDataSource(context)
-        val loader = WidgetSnapshotLoader(repository, preferences)
+        val loader = WidgetSnapshotLoader(repository, preferences, LocalLocationRepository())
         val builder = WidgetRemoteViewsBuilder(context, preferences)
         val updater = WidgetUpdater(context, preferences, loader, builder)
         val boundaryScheduler = WidgetPrayerBoundaryScheduler(loader)

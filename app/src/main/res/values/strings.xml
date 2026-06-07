@@ -106,8 +106,8 @@
     <string name="adhan_notification_body">It is time for %1$s</string>
     <string name="adhan_enabled_confirmation_title">Adhan notifications on</string>
     <string name="adhan_enabled_confirmation_body">You will get a notification at each prayer time. This message confirms notifications are working.</string>
-    <string name="adhan_toggle">Adhan notifications</string>
-    <string name="adhan_toggle_desc">Play Adhan and show a notification at Fajr, Shuruq, Dhuhr, Asr, Maghrib, and Isha.</string>
+    <string name="adhan_toggle">Adhan &amp; Notifications</string>
+    <string name="adhan_toggle_desc">Enable adhan alerts and notifications at prayer times.</string>
     <string name="adhan_play_when_silent">Play when phone is silent</string>
     <string name="adhan_play_when_silent_desc">Play Adhan audio even when the device is on silent or vibrate.</string>
     <string name="adhan_exact_alarm_notice">Exact alarms are off — Adhan may not fire on time in Doze or when the app is closed. Tap to allow Alarms &amp; reminders.</string>
@@ -124,8 +124,6 @@
     <string name="adhan_sound_easa_alhjlawey">Easa Al-Hijlawey</string>
 
     <!-- Home screen widget -->
-    <string name="widget_name_small_tall">Prayer Time (1×1)</string>
-    <string name="widget_name_small_wide">Prayer Time (2×1)</string>
     <string name="widget_name_medium">Prayer Time (M)</string>
     <string name="widget_name_large">Prayer Time (L)</string>
     <string name="widget_description">Today\'s prayer times and next prayer countdown</string>
@@ -223,6 +221,14 @@
     <!-- Qibla compass -->
     <string name="qibla_compass_title">Qibla Compass</string>
     <string name="compass_not_available">Compass sensor not available on this device.</string>
-    <string name="compass_calibrating">Calibrating compass… Move your device in a figure-eight pattern.</string>
+    <string name="compass_reading">Reading compass…</string>
     <string name="qibla_bearing_format">Qibla: %1$d° (%2$s) from North</string>
+    <string name="compass_low_accuracy">Compass accuracy is low. Try the calibration tips below.</string>
+    <string name="compass_calibrate_tips">Calibration tips</string>
+    <string name="compass_calibrate_help_title">Improve compass accuracy</string>
+    <string name="compass_calibrate_instruction">Move your phone in a wide figure-eight for 10–20 seconds while away from metal objects and magnets. This helps the magnetometer — there is no automatic “done” step.</string>
+    <string name="compass_align_hint">Hold the phone upright as usual — do not lay it flat. Turn your whole body (not the phone) until the red arrow meets the blue marker at the top of the compass circle.</string>
+    <string name="compass_calibrate_cancel">Close</string>
+    <string name="compass_hold_vertical_hint">Upright phone, body turns — not the phone. Align the red arrow with the blue marker on the compass.</string>
+    <string name="compass_aligned">Facing Qibla ✓</string>
 </resources>

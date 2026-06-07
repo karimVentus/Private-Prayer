@@ -1,12 +1,14 @@
 package com.prayertime.data.local
 
 import android.content.Context
+import androidx.annotation.WorkerThread
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import com.prayertime.locale.AppLocale
 import com.prayertime.notification.AdhanSoundResolver
 import com.prayertime.ui.theme.AppTheme
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -27,6 +29,7 @@ class AppPreferencesDataSource
         private val adhanEnabledKey = booleanPreferencesKey("adhan_notifications_enabled")
         private val adhanPlayWhenSilentKey = booleanPreferencesKey("adhan_play_when_silent")
         private val appLanguageTagKey = stringPreferencesKey("app_language_tag")
+        private val appLanguageInitializedKey = booleanPreferencesKey("app_language_initialized")
         private val adhanSoundKey = stringPreferencesKey("adhan_sound")
         private val appThemeKey = stringPreferencesKey("app_theme")
 
@@ -63,15 +66,58 @@ class AppPreferencesDataSource
                 prefs[appLanguageTagKey]
             }
 
-        suspend fun setAppLanguageTag(tag: String?) {
+        suspend fun setAppLanguageTag(
+            tag: String?,
+            recordUserChoice: Boolean = false,
+        ) {
             context.appSettingsStore.edit { prefs ->
                 if (tag.isNullOrBlank()) {
                     prefs.remove(appLanguageTagKey)
                 } else {
                     prefs[appLanguageTagKey] = tag
                 }
+                if (recordUserChoice) {
+                    prefs[appLanguageInitializedKey] = true
+                }
             }
             writeAppLanguageCache(tag)
+            if (recordUserChoice) {
+                writeAppLanguageInitializedCache(true)
+            }
+        }
+
+        /**
+         * Main-thread startup read — SharedPreferences mirror only (no DataStore I/O).
+         * When the cache is cold (first launch or pre-cache upgrade), returns [defaultFromSystem]
+         * until [resolveLanguageTagForStartup] runs on a background dispatcher.
+         */
+        fun resolveLanguageTagForStartupSync(defaultFromSystem: () -> String = { AppLocale.defaultTagFromSystem() }): String? {
+            if (!readAppLanguageInitializedSync()) {
+                return defaultFromSystem()
+            }
+            return AppLocale.normalizeStoredTag(readAppLanguageTagSync())
+        }
+
+        /**
+         * Persists stored language or seeds ar/en from the device locale on first launch.
+         * Returns null only when the user explicitly chose system default in Settings.
+         */
+        suspend fun resolveLanguageTagForStartup(defaultFromSystem: () -> String = { AppLocale.defaultTagFromSystem() }): String? {
+            val snapshot = context.appSettingsStore.data.first()
+            if (snapshot[appLanguageInitializedKey] == true) {
+                val tag = AppLocale.normalizeStoredTag(snapshot[appLanguageTagKey])
+                writeAppLanguageCache(snapshot[appLanguageTagKey])
+                writeAppLanguageInitializedCache(true)
+                return tag
+            }
+            val seeded = defaultFromSystem()
+            context.appSettingsStore.edit { prefs ->
+                prefs[appLanguageTagKey] = seeded
+                prefs[appLanguageInitializedKey] = true
+            }
+            writeAppLanguageCache(seeded)
+            writeAppLanguageInitializedCache(true)
+            return seeded
         }
 
         suspend fun readAppLanguageTagOnce(): String? = appLanguageTag.first()
@@ -81,7 +127,9 @@ class AppPreferencesDataSource
 
         /** Backfill cache after upgrade when DataStore already has a language tag. */
         suspend fun warmAppLanguageCache() {
-            writeAppLanguageCache(readAppLanguageTagOnce())
+            val snapshot = context.appSettingsStore.data.first()
+            writeAppLanguageCache(snapshot[appLanguageTagKey])
+            writeAppLanguageInitializedCache(snapshot[appLanguageInitializedKey] == true)
         }
 
         val adhanSound: Flow<String> =
@@ -120,10 +168,15 @@ class AppPreferencesDataSource
             writeAppThemeCache(readAppThemeOnce())
         }
 
+        @WorkerThread
         private fun writeAppThemeCache(theme: String) {
             themeCachePrefs.edit().putString(APP_THEME_CACHE_KEY, theme).apply()
         }
 
+        /** Sync read for startup/widget bind — mirrors DataStore via [writeAppLanguageCache]. */
+        fun readAppLanguageInitializedSync(): Boolean = themeCachePrefs.getBoolean(APP_LANGUAGE_INITIALIZED_CACHE_KEY, false)
+
+        @WorkerThread
         private fun writeAppLanguageCache(tag: String?) {
             themeCachePrefs.edit().apply {
                 if (tag.isNullOrBlank()) {
@@ -132,6 +185,11 @@ class AppPreferencesDataSource
                     putString(APP_LANGUAGE_CACHE_KEY, tag)
                 }
             }.apply()
+        }
+
+        @WorkerThread
+        private fun writeAppLanguageInitializedCache(initialized: Boolean) {
+            themeCachePrefs.edit().putBoolean(APP_LANGUAGE_INITIALIZED_CACHE_KEY, initialized).apply()
         }
 
         private val themeCachePrefs =
@@ -160,9 +218,21 @@ class AppPreferencesDataSource
         }
 
         suspend fun resetToDefaults() {
+            context.appSettingsStore.edit { prefs ->
+                prefs.clear()
+                prefs[appLanguageInitializedKey] = true
+            }
+            writeAppThemeCache(AppTheme.DEFAULT_STORAGE_KEY)
+            writeAppLanguageCache(null)
+            writeAppLanguageInitializedCache(true)
+        }
+
+        /** Clears DataStore for tests simulating a fresh install. */
+        internal suspend fun clearPreferencesForTests() {
             context.appSettingsStore.edit { it.clear() }
             writeAppThemeCache(AppTheme.DEFAULT_STORAGE_KEY)
             writeAppLanguageCache(null)
+            writeAppLanguageInitializedCache(false)
         }
 
         suspend fun isPrayerMuted(prayer: String): Boolean = mutedPrayers.first().contains(prayer)
@@ -172,5 +242,6 @@ class AppPreferencesDataSource
             private const val THEME_CACHE_PREFS = "widget_theme_cache"
             private const val APP_THEME_CACHE_KEY = "app_theme"
             private const val APP_LANGUAGE_CACHE_KEY = "app_language_tag"
+            private const val APP_LANGUAGE_INITIALIZED_CACHE_KEY = "app_language_initialized"
         }
     }

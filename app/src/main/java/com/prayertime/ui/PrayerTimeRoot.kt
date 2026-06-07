@@ -176,7 +176,7 @@ private fun PrayerTimeSideEffects(
         AdhanPermissions.areNotificationsAllowed(context),
         (prayerState as? PrayerTimesUiState.Success)?.result?.times?.map { it.timestamp },
     ) {
-        if (!adhanEnabled || !AdhanPermissions.hasPostNotificationsPermission(context)) {
+        if (!adhanEnabled || !AdhanPermissions.areNotificationsAllowed(context)) {
             PrayerAlarmScheduler.cancelAllPrayerAlarms(context)
             return@LaunchedEffect
         }
@@ -443,7 +443,13 @@ private fun PrayerTimeMainRoute(
                                     onQibla = onQibla,
                                     onAbout = settingsViewModel::showAbout,
                                     onLanguage = { showLanguagePicker = true },
-                                    onToggleMute = { prayer -> settingsViewModel.toggleMutedPrayer(prayer.name) },
+                                    onToggleMute = { prayer ->
+                                        val wasMuted = mutedPrayers.contains(prayer.name)
+                                        settingsViewModel.toggleMutedPrayer(prayer.name)
+                                        if (wasMuted) {
+                                            prayerTimesViewModel.playAdhanIfPrayerWindow(prayer)
+                                        }
+                                    },
                                     mutedPrayers = mutedPrayers,
                                 ),
                         )
@@ -458,6 +464,7 @@ private fun PrayerTimeMainRoute(
                                 citySearchQuery = citySearchQuery,
                                 filteredCountries = filteredCountries,
                                 filteredCities = filteredCities,
+                                languageTag = appLanguageTag,
                                 showCustomCityFallback = citySetupViewModel.showCustomCityFallback,
                                 catalogReady = catalogReady,
                             ),

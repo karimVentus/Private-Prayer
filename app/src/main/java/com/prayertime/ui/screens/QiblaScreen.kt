@@ -1,5 +1,11 @@
 package com.prayertime.ui.screens
 
+import android.content.Context
+import android.hardware.SensorManager
+import android.os.Build
+import android.os.VibrationEffect
+import android.os.Vibrator
+import android.os.VibratorManager
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
@@ -21,9 +27,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
@@ -41,6 +51,7 @@ import androidx.compose.ui.unit.sp
 import com.prayertime.R
 import com.prayertime.di.CompassEntryPoint
 import com.prayertime.domain.calculator.QiblaCalculator
+import com.prayertime.sensor.CompassHeading
 import com.prayertime.ui.theme.AppSpacing
 import dagger.hilt.android.EntryPointAccessors
 import kotlin.math.cos
@@ -69,18 +80,62 @@ fun QiblaScreen(
     val context = LocalContext.current
     val compassSensor =
         remember(context) {
-            EntryPointAccessors
-                .fromApplication(context.applicationContext, CompassEntryPoint::class.java)
-                .compassSensor()
+            runCatching {
+                EntryPointAccessors
+                    .fromApplication(context.applicationContext, CompassEntryPoint::class.java)
+                    .compassSensor()
+            }.getOrNull()
         }
-    val azimuth by compassSensor.azimuth.collectAsState(initial = null)
-    val smoothAzimuth by animateFloatAsState(
-        targetValue = azimuth ?: 0f,
-        animationSpec = tween(durationMillis = 600, easing = LinearEasing),
+    val compassAvailable = compassSensor?.isAvailable ?: false
+    val palette = calendarPalette()
+
+    var azimuth by remember { mutableStateOf<Float?>(null) }
+    // Continuous heading for smooth 0°/360° wrap (same idea as RotateAnimation fillAfter).
+    var smoothHeading by remember { mutableFloatStateOf(0f) }
+    val accuracy by compassSensor?.accuracy?.collectAsState()
+        ?: remember { mutableStateOf(SensorManager.SENSOR_STATUS_ACCURACY_HIGH) }
+    var showCalibrateHelp by remember { mutableStateOf(false) }
+
+    LaunchedEffect(compassSensor, latitude, longitude) {
+        val sensor = compassSensor ?: return@LaunchedEffect
+        sensor.readings.collect { reading ->
+            val raw =
+                CompassHeading.toTrueNorth(
+                    magneticAzimuth = reading.azimuth,
+                    latitude = latitude,
+                    longitude = longitude,
+                )
+            if (azimuth == null) {
+                azimuth = raw
+                smoothHeading = raw
+            } else {
+                var delta = raw - ((smoothHeading % 360f) + 360f) % 360f
+                if (delta > 180f) delta -= 360f
+                if (delta < -180f) delta += 360f
+                smoothHeading += delta
+                azimuth = raw
+            }
+        }
+    }
+
+    val animatedHeading by animateFloatAsState(
+        targetValue = smoothHeading,
+        animationSpec = tween(durationMillis = 210, easing = LinearEasing),
         label = "compassAzimuth",
     )
-    val compassAvailable = remember(compassSensor) { compassSensor.isAvailable }
-    val palette = calendarPalette()
+    val displayAzimuth: Float? = if (azimuth == null) null else animatedHeading
+    val isFacingQibla =
+        displayAzimuth?.let { heading ->
+            isFacingQibla(qiblaBearing, heading)
+        } ?: false
+    var wasFacingQibla by remember { mutableStateOf(false) }
+
+    LaunchedEffect(isFacingQibla) {
+        if (isFacingQibla && !wasFacingQibla) {
+            vibrateQiblaAligned(context)
+        }
+        wasFacingQibla = isFacingQibla
+    }
 
     Column(
         modifier = modifier.fillMaxSize().background(palette.background),
@@ -88,14 +143,24 @@ fun QiblaScreen(
     ) {
         QiblaTitleRow(palette)
         Spacer(modifier = Modifier.height(AppSpacing.screenVertical))
-        QiblaSensorStatus(compassAvailable, azimuth, palette)
+        QiblaSensorStatus(compassAvailable, displayAzimuth, isFacingQibla, palette)
         QiblaCompassBox(
-            smoothAzimuth = smoothAzimuth,
+            deviceAzimuth = displayAzimuth,
             qiblaBearing = qiblaBearing,
             palette = palette,
             modifier = Modifier.weight(1f),
         )
         QiblaInfoLabels(qiblaBearing, cardinalDir, cityLabel, palette, context.resources)
+        if (showCalibrateHelp) {
+            QiblaCalibrateHelp(palette = palette, onDismiss = { showCalibrateHelp = false })
+        } else {
+            QiblaCalibrationStatus(
+                accuracy = accuracy,
+                compassAvailable = compassAvailable,
+                resources = context.resources,
+                onShowTips = { showCalibrateHelp = true },
+            )
+        }
         QiblaCloseButton(onClose, palette, context.resources)
     }
 }
@@ -125,6 +190,7 @@ private fun QiblaTitleRow(palette: com.prayertime.ui.theme.CalendarPalette) {
 private fun QiblaSensorStatus(
     compassAvailable: Boolean,
     azimuth: Float?,
+    isFacingQibla: Boolean,
     palette: com.prayertime.ui.theme.CalendarPalette,
 ) {
     val context = LocalContext.current
@@ -139,19 +205,69 @@ private fun QiblaSensorStatus(
             )
         azimuth == null ->
             Text(
-                text = context.getString(R.string.compass_calibrating),
+                text = context.getString(R.string.compass_reading),
                 color = palette.textSecondary,
                 fontSize = 14.sp,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(horizontal = AppSpacing.screenHorizontal),
             )
-        else -> Unit
+        isFacingQibla ->
+            Text(
+                text = context.getString(R.string.compass_aligned),
+                color = Color(0xFF2E7D32),
+                fontSize = 15.sp,
+                fontWeight = FontWeight.SemiBold,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.padding(horizontal = AppSpacing.screenHorizontal),
+            )
+        else ->
+            Text(
+                text = context.getString(R.string.compass_hold_vertical_hint),
+                color = palette.textSecondary,
+                fontSize = 12.sp,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.padding(horizontal = AppSpacing.screenHorizontal),
+            )
+    }
+}
+
+/** True when the Qibla arrow on screen points at the fixed top marker (±10°). */
+private fun isFacingQibla(
+    qiblaBearing: Float,
+    deviceAzimuth: Float,
+    toleranceDegrees: Float = 10f,
+): Boolean {
+    var delta = qiblaBearing - deviceAzimuth
+    delta = ((delta % 360f) + 360f) % 360f
+    if (delta > 180f) delta = 360f - delta
+    return delta <= toleranceDegrees
+}
+
+private fun vibrateQiblaAligned(context: Context) {
+    try {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            val vibratorManager =
+                context.getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as? VibratorManager
+            vibratorManager?.defaultVibrator?.vibrate(
+                VibrationEffect.createOneShot(150, VibrationEffect.DEFAULT_AMPLITUDE),
+            )
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            @Suppress("DEPRECATION")
+            val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as? Vibrator
+            vibrator?.vibrate(VibrationEffect.createOneShot(150, VibrationEffect.DEFAULT_AMPLITUDE))
+        } else {
+            @Suppress("DEPRECATION")
+            val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as? Vibrator
+            vibrator?.vibrate(150)
+        }
+    } catch (_: Exception) {
+        // Haptic is optional.
     }
 }
 
 @Composable
 private fun QiblaCompassBox(
-    smoothAzimuth: Float,
+    deviceAzimuth: Float?,
     qiblaBearing: Float,
     palette: com.prayertime.ui.theme.CalendarPalette,
     modifier: Modifier = Modifier,
@@ -164,17 +280,25 @@ private fun QiblaCompassBox(
         contentAlignment = Alignment.Center,
     ) {
         val compassSize = minOf(maxWidth, maxHeight) * 0.85f
-        val qiblaAngle = qiblaBearing - smoothAzimuth
+        val heading = deviceAzimuth ?: return@BoxWithConstraints
         Canvas(modifier = Modifier.size(compassSize).aspectRatio(1f)) {
-            drawCompassContent(smoothAzimuth, qiblaAngle, palette)
+            drawCompassContent(
+                deviceAzimuth = heading,
+                qiblaBearing = qiblaBearing,
+                palette = palette,
+            )
         }
     }
 }
 
-/** All canvas drawing for the compass dial + arrow. */
+/**
+ * Two-layer rotation (classic Qibla compass):
+ * 1. Dial rotates by -deviceAzimuth (north stays toward real north).
+ * 2. Arrow rotates by qiblaBearing - deviceAzimuth.
+ */
 private fun androidx.compose.ui.graphics.drawscope.DrawScope.drawCompassContent(
-    smoothAzimuth: Float,
-    qiblaAngle: Float,
+    deviceAzimuth: Float,
+    qiblaBearing: Float,
     palette: com.prayertime.ui.theme.CalendarPalette,
 ) {
     val cx = size.width / 2f
@@ -197,8 +321,10 @@ private fun androidx.compose.ui.graphics.drawscope.DrawScope.drawCompassContent(
     drawCircle(color = ringColor, radius = radius, center = Offset(cx, cy), style = Stroke(width = 2.dp.toPx()))
     drawCircle(color = ringColor.copy(alpha = 0.15f), radius = radius * 0.97f, center = Offset(cx, cy), style = Stroke(width = 1.dp.toPx()))
 
-    // 2. Rotating dial
-    rotate(degrees = -smoothAzimuth, pivot = Offset(cx, cy)) {
+    val pivot = Offset(cx, cy)
+
+    // 2. Compass dial — opposite of current north heading
+    rotate(degrees = -deviceAzimuth, pivot = pivot) {
         val cardinals = listOf(0f to "N", 90f to "E", 180f to "S", 270f to "W")
         for ((angle, label) in cardinals) {
             val rad = Math.toRadians(angle.toDouble())
@@ -227,17 +353,53 @@ private fun androidx.compose.ui.graphics.drawscope.DrawScope.drawCompassContent(
         }
     }
 
-    // 3. Qibla arrow
-    val rad = Math.toRadians(qiblaAngle.toDouble())
-    val aSin = sin(rad).toFloat()
-    val aCos = cos(rad).toFloat()
+    // 3. Qibla arrow — qiblaBearing minus current heading (reference formula)
+    val arrowAngle = qiblaBearing - deviceAzimuth
+    rotate(degrees = arrowAngle, pivot = pivot) {
+        drawQiblaArrow(cx, cy, radius)
+    }
+
+    // 4. Fixed marker: top of phone / forward direction on screen
+    drawPhoneTopMarker(cx, cy, radius)
+
+    // 5. Center dot
+    drawCircle(palette.textPrimary.copy(alpha = 0.5f), radius = 2.5.dp.toPx(), center = Offset(cx, cy))
+}
+
+private fun androidx.compose.ui.graphics.drawscope.DrawScope.drawPhoneTopMarker(
+    cx: Float,
+    cy: Float,
+    radius: Float,
+) {
+    val tipY = cy - radius * 0.96f
+    val baseY = cy - radius * 0.88f
+    val halfW = 7.dp.toPx()
+    drawPath(
+        Path().apply {
+            moveTo(cx, tipY)
+            lineTo(cx - halfW, baseY)
+            lineTo(cx + halfW, baseY)
+            close()
+        },
+        color = Color(0xFF1565C0),
+    )
+}
+
+/** Arrow graphic pointing up (0°); caller applies [rotate] for screen angle. */
+private fun androidx.compose.ui.graphics.drawscope.DrawScope.drawQiblaArrow(
+    cx: Float,
+    cy: Float,
+    radius: Float,
+) {
+    val aSin = 0f
+    val aCos = 1f
     val arrowLength = radius * 0.72f
     val baseLength = radius * 0.08f
     val baseWidth = 8.dp.toPx()
     val baseCx = cx + baseLength * aSin
     val baseCy = cy - baseLength * aCos
-    val perpSin = cos(rad).toFloat()
-    val perpCos = (-sin(rad)).toFloat()
+    val perpSin = 1f
+    val perpCos = 0f
     drawPath(
         Path().apply {
             moveTo(cx + arrowLength * aSin, cy - arrowLength * aCos)
@@ -249,8 +411,30 @@ private fun androidx.compose.ui.graphics.drawscope.DrawScope.drawCompassContent(
     )
     drawCircle(Color(0xFFFFCDD2), radius = baseWidth * 0.4f, center = Offset(baseCx, baseCy))
 
-    // 4. Center dot
-    drawCircle(palette.textPrimary.copy(alpha = 0.5f), radius = 2.5.dp.toPx(), center = Offset(cx, cy))
+    // Kaaba icon at arrow tip
+    val kaabaSize = 10.dp.toPx()
+    val kx = cx + arrowLength * aSin
+    val ky = cy - arrowLength * aCos
+    // Kaaba body
+    drawRoundRect(
+        color = Color(0xFF2C2C2C),
+        topLeft = Offset(kx - kaabaSize / 2f, ky - kaabaSize * 1.3f),
+        size = androidx.compose.ui.geometry.Size(kaabaSize, kaabaSize * 1.3f),
+        cornerRadius = androidx.compose.ui.geometry.CornerRadius(2.dp.toPx(), 2.dp.toPx()),
+    )
+    // Gold door line
+    drawLine(
+        color = Color(0xFFD4A847),
+        start = Offset(kx - kaabaSize * 0.2f, ky - kaabaSize * 0.6f),
+        end = Offset(kx + kaabaSize * 0.2f, ky - kaabaSize * 0.6f),
+        strokeWidth = 2.dp.toPx(),
+    )
+    // Roof line
+    drawRect(
+        color = Color(0xFF1A1A1A),
+        topLeft = Offset(kx - kaabaSize * 0.6f, ky - kaabaSize * 1.45f),
+        size = androidx.compose.ui.geometry.Size(kaabaSize * 1.2f, kaabaSize * 0.15f),
+    )
 }
 
 @Composable
@@ -296,6 +480,86 @@ private fun QiblaCloseButton(
                     .defaultMinSize(minHeight = AppSpacing.touchTargetMin)
                     .clickable(onClick = onClose)
                     .padding(horizontal = 16.dp, vertical = 12.dp),
+        )
+    }
+}
+
+@Composable
+private fun QiblaCalibrationStatus(
+    accuracy: Int,
+    compassAvailable: Boolean,
+    resources: android.content.res.Resources,
+    onShowTips: () -> Unit,
+) {
+    if (!compassAvailable) return
+    val isLowAccuracy =
+        accuracy == SensorManager.SENSOR_STATUS_UNRELIABLE ||
+            accuracy == SensorManager.SENSOR_STATUS_ACCURACY_LOW
+    Column(
+        modifier = Modifier.fillMaxWidth().padding(horizontal = AppSpacing.screenHorizontal),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Spacer(modifier = Modifier.height(4.dp))
+        if (isLowAccuracy) {
+            Text(
+                text = resources.getString(R.string.compass_low_accuracy),
+                color = Color(0xFFE65100),
+                fontSize = 12.sp,
+                textAlign = TextAlign.Center,
+            )
+            Spacer(modifier = Modifier.height(4.dp))
+        }
+        Text(
+            text = resources.getString(R.string.compass_calibrate_tips),
+            color = Color(0xFF1565C0),
+            fontSize = 13.sp,
+            fontWeight = FontWeight.SemiBold,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.clickable(onClick = onShowTips).padding(8.dp),
+        )
+    }
+}
+
+@Composable
+private fun QiblaCalibrateHelp(
+    palette: com.prayertime.ui.theme.CalendarPalette,
+    onDismiss: () -> Unit,
+) {
+    Column(
+        modifier = Modifier.fillMaxWidth().padding(horizontal = AppSpacing.screenHorizontal),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Spacer(modifier = Modifier.height(4.dp))
+        Text(
+            text = stringResource(R.string.compass_calibrate_help_title),
+            color = palette.textPrimary,
+            fontSize = 14.sp,
+            fontWeight = FontWeight.SemiBold,
+            textAlign = TextAlign.Center,
+        )
+        Spacer(modifier = Modifier.height(6.dp))
+        Text(
+            text = stringResource(R.string.compass_calibrate_instruction),
+            color = palette.textSecondary,
+            fontSize = 11.sp,
+            textAlign = TextAlign.Center,
+            lineHeight = 15.sp,
+        )
+        Spacer(modifier = Modifier.height(8.dp))
+        Text(
+            text = stringResource(R.string.compass_align_hint),
+            color = palette.textPrimary,
+            fontSize = 11.sp,
+            fontWeight = FontWeight.Medium,
+            textAlign = TextAlign.Center,
+            lineHeight = 15.sp,
+        )
+        Text(
+            text = stringResource(R.string.compass_calibrate_cancel),
+            color = palette.textSecondary,
+            fontSize = 13.sp,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.clickable(onClick = onDismiss).padding(8.dp),
         )
     }
 }

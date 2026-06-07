@@ -121,7 +121,7 @@ class AppPreferencesDataSource
         }
 
         private fun writeAppThemeCache(theme: String) {
-            themeCachePrefs.edit().putString(APP_THEME_CACHE_KEY, theme).apply()
+            themeCachePrefs.edit().putString(APP_THEME_CACHE_KEY, theme).commit()
         }
 
         private fun writeAppLanguageCache(tag: String?) {
@@ -131,7 +131,7 @@ class AppPreferencesDataSource
                 } else {
                     putString(APP_LANGUAGE_CACHE_KEY, tag)
                 }
-            }.apply()
+            }.commit()
         }
 
         private val themeCachePrefs =

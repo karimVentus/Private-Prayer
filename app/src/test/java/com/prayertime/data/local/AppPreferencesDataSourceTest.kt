@@ -4,11 +4,13 @@ import androidx.test.core.app.ApplicationProvider
 import com.prayertime.ui.theme.AppTheme
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -19,6 +21,11 @@ import org.robolectric.annotation.Config
 @Config(sdk = [34])
 class AppPreferencesDataSourceTest {
     private fun prefs() = AppPreferencesDataSource(ApplicationProvider.getApplicationContext())
+
+    @Before
+    fun resetPreferences() {
+        runBlocking { prefs().resetToDefaults() }
+    }
 
     // ── Adhan enabled ──
 

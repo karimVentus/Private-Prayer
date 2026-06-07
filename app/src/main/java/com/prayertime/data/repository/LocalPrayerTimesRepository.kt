@@ -42,9 +42,13 @@ class LocalPrayerTimesRepository private constructor(
         }
     }
 
-    /** DataStore only — Room cache is kept for city-scoped reuse. */
+    /** DataStore city keys only — Room cache is kept for city-scoped reuse. */
     override suspend fun clearCityConfig() {
-        cityConfigDataSource.clear()
+        cityConfigDataSource.clearCitySelection()
+    }
+
+    override suspend fun resetCityStore() {
+        cityConfigDataSource.resetCityStore()
     }
 
     override suspend fun clearAllCaches() {

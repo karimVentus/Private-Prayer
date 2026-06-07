@@ -41,6 +41,7 @@ class PrayerTimeApplication : Application(), Configuration.Provider {
                 preferences.readAppLanguageTagOnce()
             AppLocale.apply(AppLocale.normalizeStoredTag(tag))
             preferences.warmAppThemeCache()
+            preferences.warmAppLanguageCache()
             runCatching { locationRepository.awaitReady() }
         }
     }

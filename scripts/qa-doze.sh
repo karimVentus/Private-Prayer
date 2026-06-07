@@ -15,7 +15,7 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 SDK="${ANDROID_HOME:-$HOME/Android/Sdk}"
 ADB="$SDK/platform-tools/adb"
-PACKAGE="${PRAYERTIME_PACKAGE:-com.prayertime.offline}"
+PACKAGE="${PRAYERTIME_PACKAGE:-com.prayertime}"
 
 die() {
   echo "[qa-doze] ERROR: $*" >&2

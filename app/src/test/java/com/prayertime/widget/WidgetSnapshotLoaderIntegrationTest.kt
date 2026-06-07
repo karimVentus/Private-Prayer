@@ -83,7 +83,8 @@ class WidgetSnapshotLoaderIntegrationTest {
             repository.saveCityConfig(CityConfig("Hameln", "DE", "Europe/Berlin"))
             val snapshot = loader.load()
             val context = ApplicationProvider.getApplicationContext<android.content.Context>()
-            val builder = WidgetRemoteViewsBuilder(context)
+            val preferences = AppPreferencesDataSource(context)
+            val builder = WidgetRemoteViewsBuilder(context, preferences)
 
             WidgetSize.entries.forEach { size ->
                 val views = builder.build(snapshot, size)

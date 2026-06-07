@@ -3,7 +3,6 @@ package com.prayertime.widget
 import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.Context
-import android.util.DisplayMetrics
 import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
@@ -72,39 +71,20 @@ class WidgetUpdater
         private fun widgetSizeFor(
             manager: AppWidgetManager,
             appWidgetId: Int,
-            density: Float,
+            @Suppress("UNUSED_PARAMETER") density: Float,
         ): WidgetSize {
             val info = runCatching { manager.getAppWidgetInfo(appWidgetId) }.getOrNull()
             if (info != null) {
-                val sizeByClass =
-                    when (info.provider.className) {
-                        PrayerTimeWidgetProviderSmallTall::class.java.name -> WidgetSize.SMALL_TALL
-                        PrayerTimeWidgetProviderSmallWide::class.java.name -> WidgetSize.SMALL_WIDE
-                        PrayerTimeWidgetProviderLarge::class.java.name -> WidgetSize.LARGE
-                        PrayerTimeWidgetProvider::class.java.name -> WidgetSize.MEDIUM
-                        else -> null
-                    }
-                if (sizeByClass != null) {
-                    return sizeByClass
+                return when (info.provider.className) {
+                    PrayerTimeWidgetProviderLarge::class.java.name -> WidgetSize.LARGE
+                    else -> WidgetSize.MEDIUM
                 }
             }
-            val widthDp =
-                if (info != null) {
-                    (info.minWidth / (density / DisplayMetrics.DENSITY_DEFAULT)).toInt()
-                } else {
-                    300
-                }
-            return when {
-                widthDp < 50 -> WidgetSize.SMALL_TALL
-                widthDp < 100 -> WidgetSize.SMALL_WIDE
-                else -> WidgetSize.MEDIUM
-            }
+            return WidgetSize.MEDIUM
         }
 
         private val providerComponents by lazy {
             listOf(
-                ComponentName(context, PrayerTimeWidgetProviderSmallTall::class.java),
-                ComponentName(context, PrayerTimeWidgetProviderSmallWide::class.java),
                 ComponentName(context, PrayerTimeWidgetProvider::class.java),
                 ComponentName(context, PrayerTimeWidgetProviderLarge::class.java),
             )

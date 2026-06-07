@@ -358,7 +358,7 @@ private fun QiblaCalibrationStatus(
     onCalibrate: () -> Unit,
 ) {
     if (!compassAvailable) return
-    val (label, showCalibrate) = when (accuracy) {
+    val (accuracyLabel, isLowAccuracy) = when (accuracy) {
         SensorManager.SENSOR_STATUS_UNRELIABLE,
         SensorManager.SENSOR_STATUS_ACCURACY_LOW ->
             resources.getString(R.string.compass_low_accuracy) to true
@@ -366,28 +366,33 @@ private fun QiblaCalibrationStatus(
             resources.getString(R.string.compass_accuracy_medium) to false
         else -> resources.getString(R.string.compass_accuracy_high) to false
     }
+    val buttonLabel = if (isLowAccuracy) {
+        resources.getString(R.string.compass_calibrate_action)
+    } else {
+        resources.getString(R.string.compass_recalibrate_action)
+    }
     Column(
         modifier = Modifier.fillMaxWidth().padding(horizontal = AppSpacing.screenHorizontal),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Spacer(modifier = Modifier.height(4.dp))
-        Text(
-            text = label,
-            color = if (showCalibrate) Color(0xFFE65100) else palette.textSecondary,
-            fontSize = 12.sp,
-            textAlign = TextAlign.Center,
-        )
-        if (showCalibrate) {
-            Spacer(modifier = Modifier.height(4.dp))
+        if (isLowAccuracy) {
             Text(
-                text = resources.getString(R.string.compass_calibrate_action),
-                color = Color(0xFF1565C0),
-                fontSize = 13.sp,
-                fontWeight = FontWeight.SemiBold,
+                text = accuracyLabel,
+                color = Color(0xFFE65100),
+                fontSize = 12.sp,
                 textAlign = TextAlign.Center,
-                modifier = Modifier.clickable(onClick = onCalibrate).padding(8.dp),
             )
+            Spacer(modifier = Modifier.height(4.dp))
         }
+        Text(
+            text = buttonLabel,
+            color = Color(0xFF1565C0),
+            fontSize = 13.sp,
+            fontWeight = FontWeight.SemiBold,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.clickable(onClick = onCalibrate).padding(8.dp),
+        )
     }
 }
 

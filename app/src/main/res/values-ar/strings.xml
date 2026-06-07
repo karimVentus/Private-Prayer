@@ -223,6 +223,7 @@
     <string name="compass_accuracy_high">تمت المعايرة ✓</string>
     <string name="compass_accuracy_medium">دقة البوصلة: متوسطة</string>
     <string name="compass_calibrate_action">معايرة</string>
+    <string name="compass_recalibrate_action">إعادة معايرة</string>
     <string name="compass_calibrate_instruction">حرّك جهازك بشكل الرقم 8 حتى تتم معايرة البوصلة.
 
 تأكد من عدم وجود مغناطيس أو أجسام معدنية قرب هاتفك.</string>

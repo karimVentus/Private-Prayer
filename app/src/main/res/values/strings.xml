@@ -227,6 +227,7 @@
     <string name="compass_accuracy_high">Compass calibrated ✓</string>
     <string name="compass_accuracy_medium">Compass accuracy: medium</string>
     <string name="compass_calibrate_action">Calibrate</string>
+    <string name="compass_recalibrate_action">Recalibrate</string>
     <string name="compass_calibrate_instruction">Move your device in a figure-eight pattern until the compass is calibrated.
 
 Make sure there are no magnets or metal objects near your phone.</string>

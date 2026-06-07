@@ -420,13 +420,31 @@ private fun QiblaCalibrationDialog(
                     style = MaterialTheme.typography.bodyMedium,
                     textAlign = TextAlign.Center,
                 )
-                Spacer(modifier = Modifier.height(24.dp))
+                Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = resources.getString(R.string.change_city_dialog_cancel),
-                    color = Color(0xFF1565C0),
-                    fontWeight = FontWeight.SemiBold,
-                    modifier = Modifier.clickable(onClick = onDismiss).padding(8.dp),
+                    text = resources.getString(R.string.compass_calibrate_watch),
+                    style = MaterialTheme.typography.bodySmall,
+                    textAlign = TextAlign.Center,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
+                Spacer(modifier = Modifier.height(24.dp))
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+                ) {
+                    Text(
+                        text = resources.getString(R.string.change_city_dialog_cancel),
+                        color = Color(0xFF757575),
+                        fontWeight = FontWeight.Normal,
+                        modifier = Modifier.clickable(onClick = onDismiss).padding(8.dp),
+                    )
+                    Text(
+                        text = resources.getString(R.string.compass_calibrate_done),
+                        color = Color(0xFF1565C0),
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.clickable(onClick = onDismiss).padding(8.dp),
+                    )
+                }
             }
         }
     }

@@ -231,4 +231,6 @@
     <string name="compass_calibrate_instruction">Move your device in a figure-eight pattern until the compass is calibrated.
 
 Make sure there are no magnets or metal objects near your phone.</string>
+    <string name="compass_calibrate_watch">Watch the compass needle — it will stabilize when calibrated.</string>
+    <string name="compass_calibrate_done">Done</string>
 </resources>

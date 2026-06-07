@@ -227,4 +227,6 @@
     <string name="compass_calibrate_instruction">حرّك جهازك بشكل الرقم 8 حتى تتم معايرة البوصلة.
 
 تأكد من عدم وجود مغناطيس أو أجسام معدنية قرب هاتفك.</string>
+    <string name="compass_calibrate_watch">راقب إبرة البوصلة — ستستقر عند اكتمال المعايرة.</string>
+    <string name="compass_calibrate_done">تم</string>
 </resources>

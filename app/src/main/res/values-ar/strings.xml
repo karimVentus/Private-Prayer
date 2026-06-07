@@ -217,16 +217,14 @@
     <!-- Qibla compass -->
     <string name="qibla_compass_title">بوصلة القبلة</string>
     <string name="compass_not_available">مستشعر البوصلة غير متوفر على هذا الجهاز.</string>
-    <string name="compass_calibrating">معايرة البوصلة… حرّك جهازك بشكل الرقم 8.</string>
+    <string name="compass_reading">جاري قراءة البوصلة…</string>
     <string name="qibla_bearing_format">القبلة: %1$d° (%2$s) من الشمال</string>
-    <string name="compass_low_accuracy">دقة البوصلة منخفضة. قم بالمعايرة للحصول على اتجاه أدق.</string>
-    <string name="compass_accuracy_high">تمت المعايرة ✓</string>
-    <string name="compass_accuracy_medium">دقة البوصلة: متوسطة</string>
-    <string name="compass_calibrate_action">معايرة</string>
-    <string name="compass_recalibrate_action">إعادة معايرة</string>
-    <string name="compass_calibrate_instruction">حرّك جهازك بشكل الرقم 8 حتى تتم معايرة البوصلة.
-
-تأكد من عدم وجود مغناطيس أو أجسام معدنية قرب هاتفك.</string>
-    <string name="compass_calibrate_watch">راقب إبرة البوصلة — ستستقر عند اكتمال المعايرة.</string>
-    <string name="compass_calibrate_done">تم</string>
+    <string name="compass_low_accuracy">دقة البوصلة منخفضة. جرّب نصائح المعايرة أدناه.</string>
+    <string name="compass_calibrate_tips">نصائح المعايرة</string>
+    <string name="compass_calibrate_help_title">تحسين دقة البوصلة</string>
+    <string name="compass_calibrate_instruction">حرّك الهاتف بشكل رقم 8 واسع لمدة 10–20 ثانية بعيداً عن المعادن والمغناطيس. هذا يساعد مستشعر المغناطيس — لا يوجد زر «تم» تلقائي.</string>
+    <string name="compass_align_hint">أمسك الهاتف عمودياً كالعادة — لا تضعه أفقياً ولا تميله. أدر جسمك كاملاً (مو الهاتف) حتى يلتقي السهم الأحمر بالعلامة الزرقاء أعلى دائرة البوصلة.</string>
+    <string name="compass_calibrate_cancel">إغلاق</string>
+    <string name="compass_hold_vertical_hint">الهاتف عمودي — أدر جسمك مو الموبايل. طابق السهم الأحمر مع العلامة الزرقاء على الدائرة.</string>
+    <string name="compass_aligned">أنت باتجاه القبلة ✓</string>
 </resources>

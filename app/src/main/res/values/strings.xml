@@ -221,16 +221,14 @@
     <!-- Qibla compass -->
     <string name="qibla_compass_title">Qibla Compass</string>
     <string name="compass_not_available">Compass sensor not available on this device.</string>
-    <string name="compass_calibrating">Calibrating compass… Move your device in a figure-eight pattern.</string>
+    <string name="compass_reading">Reading compass…</string>
     <string name="qibla_bearing_format">Qibla: %1$d° (%2$s) from North</string>
-    <string name="compass_low_accuracy">Compass accuracy is low. Calibrate for better direction.</string>
-    <string name="compass_accuracy_high">Compass calibrated ✓</string>
-    <string name="compass_accuracy_medium">Compass accuracy: medium</string>
-    <string name="compass_calibrate_action">Calibrate</string>
-    <string name="compass_recalibrate_action">Recalibrate</string>
-    <string name="compass_calibrate_instruction">Move your device in a figure-eight pattern until the compass is calibrated.
-
-Make sure there are no magnets or metal objects near your phone.</string>
-    <string name="compass_calibrate_watch">Watch the compass needle — it will stabilize when calibrated.</string>
-    <string name="compass_calibrate_done">Done</string>
+    <string name="compass_low_accuracy">Compass accuracy is low. Try the calibration tips below.</string>
+    <string name="compass_calibrate_tips">Calibration tips</string>
+    <string name="compass_calibrate_help_title">Improve compass accuracy</string>
+    <string name="compass_calibrate_instruction">Move your phone in a wide figure-eight for 10–20 seconds while away from metal objects and magnets. This helps the magnetometer — there is no automatic “done” step.</string>
+    <string name="compass_align_hint">Hold the phone upright as usual — do not lay it flat. Turn your whole body (not the phone) until the red arrow meets the blue marker at the top of the compass circle.</string>
+    <string name="compass_calibrate_cancel">Close</string>
+    <string name="compass_hold_vertical_hint">Upright phone, body turns — not the phone. Align the red arrow with the blue marker on the compass.</string>
+    <string name="compass_aligned">Facing Qibla ✓</string>
 </resources>

@@ -99,7 +99,7 @@ class AdhanNotificationHelper
                 }
                 AdhanAlertMode.SILENT -> {
                     builder
-                        .setPriority(NotificationCompat.PRIORITY_LOW)
+                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                         .setSilent(true)
                 }
             }

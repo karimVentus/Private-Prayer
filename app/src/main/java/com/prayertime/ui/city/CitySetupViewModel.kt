@@ -2,8 +2,10 @@ package com.prayertime.ui.city
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.prayertime.data.local.AppPreferencesDataSource
 import com.prayertime.data.repository.PrayerTimesRepository
 import com.prayertime.domain.model.CityConfig
+import com.prayertime.domain.model.CityListItem
 import com.prayertime.domain.model.CityResolutionResult
 import com.prayertime.domain.model.Country
 import com.prayertime.domain.model.SaveCityError
@@ -30,6 +32,7 @@ class CitySetupViewModel
         private val repository: PrayerTimesRepository,
         private val locationRepository: LocationRepository,
         private val searchLocations: SearchLocationsUseCase,
+        private val preferences: AppPreferencesDataSource,
         private val widgetUpdater: WidgetUpdater,
     ) : ViewModel() {
         private val _wizardStep = MutableStateFlow<WizardStep>(WizardStep.CountrySelection)
@@ -51,16 +54,16 @@ class CitySetupViewModel
         val catalogReady: StateFlow<Boolean> = _catalogReady.asStateFlow()
 
         val filteredCountries: StateFlow<List<Country>> =
-            combine(_countrySearchQuery, _catalogReady) { query, ready ->
-                if (ready) searchLocations.filterCountries(query) else emptyList()
+            combine(_countrySearchQuery, _catalogReady, preferences.appLanguageTag) { query, ready, languageTag ->
+                if (ready) searchLocations.filterCountries(query, languageTag) else emptyList()
             }.stateIn(viewModelScope, SharingStarted.Eagerly, emptyList())
 
-        val filteredCities: StateFlow<List<String>> =
-            combine(_wizardStep, _citySearchQuery, _catalogReady) { step, query, ready ->
+        val filteredCities: StateFlow<List<CityListItem>> =
+            combine(_wizardStep, _citySearchQuery, _catalogReady, preferences.appLanguageTag) { step, query, ready, languageTag ->
                 if (!ready || step !is WizardStep.CitySelection) {
                     emptyList()
                 } else {
-                    searchLocations.filterCities(step.country.code, query)
+                    searchLocations.filterCities(step.country.code, query, languageTag)
                 }
             }.stateIn(viewModelScope, SharingStarted.Eagerly, emptyList())
 
@@ -111,12 +114,14 @@ class CitySetupViewModel
             viewModelScope.launch {
                 _isSaving.value = true
                 locationRepository.awaitReady()
+                val canonical =
+                    locationRepository.resolveCanonicalCityName(step.country.code, name)
                 val offlineOnly = repository.offlineOnly.first()
                 val draft =
-                    when (val resolution = locationRepository.resolveCityCoordinates(step.country.code, name)) {
+                    when (val resolution = locationRepository.resolveCityCoordinates(step.country.code, canonical)) {
                         is CityResolutionResult.Found ->
                             CityConfig(
-                                cityName = name,
+                                cityName = canonical,
                                 countryCode = step.country.code,
                                 timezone = resolution.coords.timezone,
                                 latitude = resolution.coords.latitude,
@@ -130,7 +135,7 @@ class CitySetupViewModel
                                 return@launch
                             } else {
                                 CityConfig(
-                                    cityName = name,
+                                    cityName = canonical,
                                     countryCode = step.country.code,
                                     timezone = resolution.coords.timezone,
                                     latitude = resolution.coords.latitude,

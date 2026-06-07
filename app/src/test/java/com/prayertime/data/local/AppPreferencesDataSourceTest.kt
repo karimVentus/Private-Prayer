@@ -4,11 +4,13 @@ import androidx.test.core.app.ApplicationProvider
 import com.prayertime.ui.theme.AppTheme
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -19,6 +21,11 @@ import org.robolectric.annotation.Config
 @Config(sdk = [34])
 class AppPreferencesDataSourceTest {
     private fun prefs() = AppPreferencesDataSource(ApplicationProvider.getApplicationContext())
+
+    @Before
+    fun resetPreferences() {
+        runBlocking { prefs().resetToDefaults() }
+    }
 
     // ── Adhan enabled ──
 
@@ -49,10 +56,36 @@ class AppPreferencesDataSourceTest {
     // ── Language tag ──
 
     @Test
+    fun `resolveLanguageTagForStartup seeds ar on first launch`() =
+        runTest {
+            val p = prefs()
+            p.clearPreferencesForTests()
+            assertEquals("ar", p.resolveLanguageTagForStartup { "ar" })
+            assertEquals("ar", p.appLanguageTag.first())
+        }
+
+    @Test
+    fun `resolveLanguageTagForStartup seeds en on first launch`() =
+        runTest {
+            val p = prefs()
+            p.clearPreferencesForTests()
+            assertEquals("en", p.resolveLanguageTagForStartup { "en" })
+            assertEquals("en", p.appLanguageTag.first())
+        }
+
+    @Test
+    fun `resolveLanguageTagForStartup respects explicit user system choice`() =
+        runTest {
+            val p = prefs()
+            p.setAppLanguageTag(null, recordUserChoice = true)
+            assertNull(p.resolveLanguageTagForStartup())
+        }
+
+    @Test
     fun `language tag persists and reads back`() =
         runTest {
             val p = prefs()
-            p.setAppLanguageTag("ar")
+            p.setAppLanguageTag("ar", recordUserChoice = true)
             assertEquals("ar", p.appLanguageTag.first())
             assertEquals("ar", p.readAppLanguageTagOnce())
         }

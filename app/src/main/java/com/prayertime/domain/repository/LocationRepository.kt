@@ -13,6 +13,25 @@ interface LocationRepository {
 
     suspend fun awaitReady()
 
+    fun countryByCode(code: String): Country?
+
+    fun arabicCityName(
+        countryCode: String,
+        englishName: String,
+    ): String?
+
+    /** Map user input (English or Arabic display name) to canonical English catalog key. */
+    fun resolveCanonicalCityName(
+        countryCode: String,
+        input: String,
+    ): String
+
+    fun formatCityHeader(
+        cityName: String,
+        countryCode: String,
+        languageTag: String?,
+    ): String
+
     /** Resolve bundled coordinates for [countryCode] + [cityName] before persisting [CityConfig]. */
     fun resolveCityCoordinates(
         countryCode: String,

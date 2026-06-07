@@ -2,6 +2,7 @@ package com.prayertime.locale
 
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
+import java.util.Locale
 
 /** Applies per-app UI language via AppCompat (API 23+). Empty/null tag = follow system. */
 object AppLocale {
@@ -26,6 +27,14 @@ object AppLocale {
             }
         AppCompatDelegate.setApplicationLocales(locales)
     }
+
+    /** First-launch default: Arabic UI when the device primary locale is Arabic, else English. */
+    fun defaultTagFromSystem(): String =
+        if (Locale.getDefault().language.equals("ar", ignoreCase = true)) {
+            "ar"
+        } else {
+            "en"
+        }
 
     /** Normalizes persisted/DataStore tags for picker UI (null = system). */
     fun normalizeStoredTag(tag: String?): String? =

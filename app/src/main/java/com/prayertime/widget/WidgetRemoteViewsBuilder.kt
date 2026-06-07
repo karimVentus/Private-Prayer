@@ -8,6 +8,7 @@ import android.widget.RemoteViews
 import androidx.annotation.ColorRes
 import com.prayertime.PendingIntentRequestCodes
 import com.prayertime.R
+import com.prayertime.data.local.AppPreferencesDataSource
 import com.prayertime.domain.calculator.PrayerTimeCalculator
 import com.prayertime.domain.model.Prayer
 import com.prayertime.domain.model.PrayerTime
@@ -22,8 +23,6 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 enum class WidgetSize(val layoutRes: Int) {
-    SMALL_TALL(R.layout.widget_prayer_times_small_tall),
-    SMALL_WIDE(R.layout.widget_prayer_times_small_wide),
     MEDIUM(R.layout.widget_prayer_times_medium),
     LARGE(R.layout.widget_prayer_times_large),
 }
@@ -33,8 +32,9 @@ class WidgetRemoteViewsBuilder
     @Inject
     constructor(
         @ApplicationContext private val context: Context,
+        private val preferences: AppPreferencesDataSource,
     ) {
-        private fun localized(): Context = context.withAppWidgetLocale()
+        private fun localized(): Context = context.withAppWidgetLocale(preferences.readAppLanguageTagSync())
 
         private data class ColIds(
             val nameColId: Int,
@@ -71,7 +71,7 @@ class WidgetRemoteViewsBuilder
             val l10n = localized()
             val widgetColors = ThemePalettes.widget(snapshot.appTheme)
             val views = RemoteViews(context.packageName, size.layoutRes)
-            applyWidgetChrome(views, widgetColors, size)
+            applyWidgetChrome(views, widgetColors)
             views.setOnClickPendingIntent(R.id.widget_root, launchPendingIntent())
             when (snapshot.state) {
                 WidgetSnapshot.State.NO_CITY ->
@@ -99,8 +99,6 @@ class WidgetRemoteViewsBuilder
 
         fun initialLayoutFor(size: WidgetSize): Int =
             when (size) {
-                WidgetSize.SMALL_TALL -> R.layout.widget_initial_small_tall
-                WidgetSize.SMALL_WIDE -> R.layout.widget_initial_small_wide
                 WidgetSize.MEDIUM -> R.layout.widget_initial_medium
                 WidgetSize.LARGE -> R.layout.widget_initial_large
             }
@@ -112,24 +110,17 @@ class WidgetRemoteViewsBuilder
         private fun applyWidgetChrome(
             views: RemoteViews,
             colors: WidgetPalette,
-            size: WidgetSize,
         ) {
             views.setInt(R.id.widget_root, "setBackgroundResource", colors.backgroundDrawable)
             setTextColorIfPresent(views, R.id.widget_city, widgetColor(colors.textSecondary))
             setTextColorIfPresent(views, R.id.widget_hijri, widgetColor(colors.textSecondary))
             setTextColorIfPresent(views, R.id.widget_event, widgetColor(colors.textAccent))
             setTextColorIfPresent(views, R.id.widget_empty, widgetColor(colors.textSecondary))
-            setTextColorIfPresent(views, R.id.widget_next_prayer, widgetColor(colors.textPrimary))
-            setTextColorIfPresent(views, R.id.widget_countdown, widgetColor(colors.textAccent))
-            setTextColorIfPresent(views, R.id.widget_countdown_hours, widgetColor(colors.textAccent))
-            setTextColorIfPresent(views, R.id.widget_countdown_minutes, widgetColor(colors.textAccent))
             setTextColorIfPresent(views, R.id.widget_clock, widgetColor(colors.textSecondary))
-            if (size == WidgetSize.LARGE || size == WidgetSize.MEDIUM) {
-                colIds.forEach { ids ->
-                    setTextColorIfPresent(views, ids.prayerId, widgetColor(colors.textPrimary))
-                    setTextColorIfPresent(views, ids.timeId, widgetColor(colors.textPrimary))
-                    setTextColorIfPresent(views, ids.countdownId, widgetColor(colors.textPrimary))
-                }
+            colIds.forEach { ids ->
+                setTextColorIfPresent(views, ids.prayerId, widgetColor(colors.textPrimary))
+                setTextColorIfPresent(views, ids.timeId, widgetColor(colors.textPrimary))
+                setTextColorIfPresent(views, ids.countdownId, widgetColor(colors.textPrimary))
             }
         }
 
@@ -156,15 +147,6 @@ class WidgetRemoteViewsBuilder
             widgetColors: WidgetPalette,
         ) {
             when (size) {
-                WidgetSize.SMALL_TALL -> {
-                    views.setViewVisibility(R.id.widget_next_prayer, android.view.View.GONE)
-                    views.setViewVisibility(R.id.widget_countdown_hours, android.view.View.GONE)
-                    views.setViewVisibility(R.id.widget_countdown_minutes, android.view.View.GONE)
-                }
-                WidgetSize.SMALL_WIDE -> {
-                    views.setViewVisibility(R.id.widget_next_prayer, android.view.View.GONE)
-                    views.setViewVisibility(R.id.widget_countdown, android.view.View.GONE)
-                }
                 WidgetSize.MEDIUM -> {
                     views.setViewVisibility(R.id.widget_hijri, android.view.View.GONE)
                     views.setViewVisibility(R.id.widget_event, android.view.View.GONE)
@@ -197,20 +179,9 @@ class WidgetRemoteViewsBuilder
         ) {
             bindReady(views, snapshot, size, l10n, widgetColors)
             val staleLabel = l10n.getString(R.string.widget_stale)
-            when (size) {
-                WidgetSize.SMALL_TALL -> {
-                    views.setViewVisibility(R.id.widget_countdown_hours, android.view.View.GONE)
-                    views.setTextViewText(R.id.widget_countdown_minutes, staleLabel)
-                }
-                WidgetSize.SMALL_WIDE -> {
-                    views.setTextViewText(R.id.widget_countdown, staleLabel)
-                }
-                WidgetSize.MEDIUM, WidgetSize.LARGE -> {
-                    views.setViewVisibility(R.id.widget_empty, android.view.View.VISIBLE)
-                    views.setTextViewText(R.id.widget_empty, staleLabel)
-                    views.setTextColor(R.id.widget_empty, widgetColor(widgetColors.textAccent))
-                }
-            }
+            views.setViewVisibility(R.id.widget_empty, android.view.View.VISIBLE)
+            views.setTextViewText(R.id.widget_empty, staleLabel)
+            views.setTextColor(R.id.widget_empty, widgetColor(widgetColors.textAccent))
         }
 
         private fun bindError(
@@ -221,10 +192,7 @@ class WidgetRemoteViewsBuilder
             widgetColors: WidgetPalette,
         ) {
             val message = l10n.getString(R.string.widget_error)
-            if (
-                snapshot.hijriDate != null &&
-                (size == WidgetSize.MEDIUM || size == WidgetSize.LARGE)
-            ) {
+            if (snapshot.hijriDate != null) {
                 views.setViewVisibility(R.id.widget_empty, android.view.View.GONE)
                 when (size) {
                     WidgetSize.MEDIUM -> views.setViewVisibility(R.id.widget_city, android.view.View.GONE)
@@ -232,7 +200,6 @@ class WidgetRemoteViewsBuilder
                         views.setTextViewText(R.id.widget_city, snapshot.cityLabel)
                         views.setViewVisibility(R.id.widget_clock, android.view.View.GONE)
                     }
-                    else -> Unit
                 }
                 bindWidgetHijri(views, snapshot, l10n, widgetColors)
                 if (size == WidgetSize.MEDIUM) {
@@ -258,15 +225,13 @@ class WidgetRemoteViewsBuilder
             views.setViewVisibility(R.id.widget_empty, android.view.View.GONE)
 
             when (size) {
-                WidgetSize.SMALL_TALL -> bindSmallTall(views, snapshot, l10n, widgetColors)
-                WidgetSize.SMALL_WIDE -> bindSmallWide(views, snapshot, l10n, widgetColors)
                 WidgetSize.MEDIUM -> {
                     views.setViewVisibility(R.id.widget_city, android.view.View.GONE)
                     bindWidgetHijri(views, snapshot, l10n, widgetColors)
-                setViewVisibilityIfPresent(views, R.id.widget_header_band, android.view.View.VISIBLE)
-                setViewVisibilityIfPresent(views, R.id.widget_names_row, android.view.View.VISIBLE)
-                setViewVisibilityIfPresent(views, R.id.widget_times_row, android.view.View.VISIBLE)
-                bindColumns(
+                    setViewVisibilityIfPresent(views, R.id.widget_header_band, android.view.View.VISIBLE)
+                    setViewVisibilityIfPresent(views, R.id.widget_names_row, android.view.View.VISIBLE)
+                    setViewVisibilityIfPresent(views, R.id.widget_times_row, android.view.View.VISIBLE)
+                    bindColumns(
                         views,
                         snapshot,
                         l10n,
@@ -286,77 +251,6 @@ class WidgetRemoteViewsBuilder
                     views.setViewVisibility(R.id.widget_columns, android.view.View.VISIBLE)
                     bindColumns(views, snapshot, l10n, widgetColors)
                 }
-            }
-        }
-
-        private fun bindSmallTall(
-            views: RemoteViews,
-            snapshot: WidgetSnapshot,
-            l10n: Context,
-            widgetColors: WidgetPalette,
-        ) {
-            val nextPrayer = snapshot.nextPrayer
-            views.setTextViewText(
-                R.id.widget_next_prayer,
-                if (nextPrayer != null) l10n.getString(prayerRes(nextPrayer)) else "",
-            )
-            views.setTextColor(R.id.widget_next_prayer, widgetColor(widgetColors.textPrimary))
-            views.setViewVisibility(R.id.widget_next_prayer, android.view.View.VISIBLE)
-
-            val totalSeconds = snapshot.countdownMillis.coerceAtLeast(0L) / 1000
-            val hours = totalSeconds / 3600
-            val minutes = (totalSeconds % 3600) / 60
-
-            if (hours > 0) {
-                views.setTextViewText(
-                    R.id.widget_countdown_hours,
-                    l10n.getString(R.string.widget_hour_line, hours),
-                )
-                views.setViewVisibility(R.id.widget_countdown_hours, android.view.View.VISIBLE)
-                views.setTextColor(R.id.widget_countdown_hours, widgetColor(widgetColors.textAccent))
-            } else {
-                views.setViewVisibility(R.id.widget_countdown_hours, android.view.View.GONE)
-            }
-            views.setTextViewText(
-                R.id.widget_countdown_minutes,
-                l10n.getString(R.string.widget_minute_line, minutes),
-            )
-            views.setViewVisibility(R.id.widget_countdown_minutes, android.view.View.VISIBLE)
-            views.setTextColor(R.id.widget_countdown_minutes, widgetColor(widgetColors.textAccent))
-        }
-
-        private fun bindSmallWide(
-            views: RemoteViews,
-            snapshot: WidgetSnapshot,
-            l10n: Context,
-            widgetColors: WidgetPalette,
-        ) {
-            val nextPrayer = snapshot.nextPrayer
-            views.setTextViewText(
-                R.id.widget_next_prayer,
-                if (nextPrayer != null) l10n.getString(prayerRes(nextPrayer)) else "",
-            )
-            views.setViewVisibility(R.id.widget_next_prayer, android.view.View.VISIBLE)
-            views.setTextColor(R.id.widget_next_prayer, widgetColor(widgetColors.textPrimary))
-            views.setTextViewText(
-                R.id.widget_countdown,
-                formatWidgetCountdownLine(snapshot.countdownMillis, l10n),
-            )
-            views.setViewVisibility(R.id.widget_countdown, android.view.View.VISIBLE)
-            views.setTextColor(R.id.widget_countdown, widgetColor(widgetColors.textAccent))
-        }
-
-        private fun formatWidgetCountdownLine(
-            millis: Long,
-            l10n: Context,
-        ): String {
-            val totalSeconds = millis.coerceAtLeast(0L) / 1000
-            val hours = totalSeconds / 3600
-            val minutes = (totalSeconds % 3600) / 60
-            return if (hours > 0) {
-                l10n.getString(R.string.widget_countdown_full_line, hours, minutes)
-            } else {
-                l10n.getString(R.string.widget_minute_line, minutes)
             }
         }
 
@@ -425,8 +319,6 @@ class WidgetRemoteViewsBuilder
                 val countdownMillis =
                     columnCountdownMillis(
                         time = time,
-                        isNext = isNext,
-                        snapshotCountdownMillis = snapshot.countdownMillis,
                         now = now,
                         timezone = cityTimeZone,
                     )
@@ -467,16 +359,11 @@ class WidgetRemoteViewsBuilder
 
         private fun columnCountdownMillis(
             time: PrayerTime,
-            isNext: Boolean,
-            snapshotCountdownMillis: Long,
             now: Long,
             timezone: TimeZone,
         ): Long =
-            if (isNext) {
-                snapshotCountdownMillis.coerceAtLeast(0L)
-            } else {
-                PrayerTimeCalculator.millisUntilNextOccurrence(time.timestamp, now, timezone)
-            }
+            PrayerTimeCalculator.millisUntilNextOccurrence(time.timestamp, now, timezone)
+                .coerceAtLeast(0L)
 
         private fun hideColumn(
             views: RemoteViews,

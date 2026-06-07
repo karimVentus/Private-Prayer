@@ -12,5 +12,9 @@ interface CityConfigDataSource {
 
     suspend fun setOfflineOnly(enabled: Boolean)
 
-    suspend fun clear()
+    /** Removes saved city only; keeps privacy/offline mode preference. */
+    suspend fun clearCitySelection()
+
+    /** Clears the entire city DataStore (city + privacy mode). */
+    suspend fun resetCityStore()
 }

@@ -74,7 +74,17 @@ class CityConfigSerializer
             }
         }
 
-        override suspend fun clear() {
+        override suspend fun clearCitySelection() {
+            context.dataStore.edit { prefs ->
+                prefs.remove(cityNameKey)
+                prefs.remove(countryCodeKey)
+                prefs.remove(timezoneKey)
+                prefs.remove(latitudeKey)
+                prefs.remove(longitudeKey)
+            }
+        }
+
+        override suspend fun resetCityStore() {
             context.dataStore.edit { it.clear() }
         }
     }

@@ -4,6 +4,7 @@ import android.appwidget.AppWidgetManager
 import android.content.Context
 import com.prayertime.di.WidgetEntryPoint
 import dagger.hilt.android.EntryPointAccessors
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 open class PrayerTimeWidgetProvider : android.appwidget.AppWidgetProvider() {
@@ -15,7 +16,7 @@ open class PrayerTimeWidgetProvider : android.appwidget.AppWidgetProvider() {
         val updater = widgetUpdater(context)
         updater.applyThemeChrome(appWidgetIds, appWidgetManager)
         val pendingResult = goAsync()
-        val scope = widgetEntryPoint(context).widgetCoroutineScope()
+        val scope = coroutineScopeForUpdate(context)
         scope.launch {
             try {
                 performUpdate(context)
@@ -39,6 +40,9 @@ open class PrayerTimeWidgetProvider : android.appwidget.AppWidgetProvider() {
     }
 
     internal open fun widgetUpdater(context: Context): WidgetUpdater = widgetEntryPoint(context).widgetUpdater()
+
+    /** Robolectric tests override with [Dispatchers.Unconfined] — production uses IO-backed Hilt scope. */
+    internal open fun coroutineScopeForUpdate(context: Context): CoroutineScope = widgetEntryPoint(context).widgetCoroutineScope()
 
     private fun widgetEntryPoint(context: Context): WidgetEntryPoint =
         EntryPointAccessors.fromApplication(

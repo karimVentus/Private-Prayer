@@ -30,7 +30,7 @@ import androidx.compose.ui.unit.dp
 import com.prayertime.R
 import com.prayertime.domain.model.CityListItem
 import com.prayertime.domain.model.Country
-import com.prayertime.locale.LocationNames
+import com.prayertime.domain.util.LocationNames
 import com.prayertime.ui.city.CityInputActions
 import com.prayertime.ui.city.CityInputUiState
 import com.prayertime.ui.city.WizardStep

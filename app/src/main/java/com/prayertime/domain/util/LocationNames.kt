@@ -1,19 +1,20 @@
-package com.prayertime.locale
+package com.prayertime.domain.util
 
 import com.prayertime.domain.model.Country
 import java.util.Locale
 
-/** Localized display names for bundled country/city catalogs. */
 object LocationNames {
     fun effectiveLanguageTag(storedTag: String?): String {
-        val normalized = AppLocale.normalizeStoredTag(storedTag)
+        val normalized = normalizeTag(storedTag)
         if (normalized != null) return normalized
-        return if (Locale.getDefault().language.equals("ar", ignoreCase = true)) {
-            "ar"
-        } else {
-            "en"
-        }
+        return if (Locale.getDefault().language.equals("ar", ignoreCase = true)) "ar" else "en"
     }
+
+    private fun normalizeTag(tag: String?): String? =
+        when (tag?.trim()) {
+            null, "", "system" -> null
+            else -> tag.trim()
+        }
 
     fun countryDisplay(
         country: Country,
@@ -55,8 +56,30 @@ object LocationNames {
         query: String,
     ): Boolean {
         if (query.isBlank()) return true
-        val foldedQuery = TextNormalizer.foldForLookup(query)
-        return TextNormalizer.foldForLookup(primary).contains(foldedQuery) ||
-            TextNormalizer.foldForLookup(alternate).contains(foldedQuery)
+        val foldedQuery = normalizeForLookup(query)
+        return normalizeForLookup(primary).contains(foldedQuery) ||
+            normalizeForLookup(alternate).contains(foldedQuery)
+    }
+
+    private fun normalizeForLookup(text: String): String {
+        val sb = StringBuilder(text.length)
+        for (c in text.lowercase(Locale.ROOT)) {
+            when (c) {
+                'á', 'à', 'â', 'ä', 'ã', 'å', 'ā' -> sb.append('a')
+                'é', 'è', 'ê', 'ë', 'ē' -> sb.append('e')
+                'í', 'ì', 'î', 'ï', 'ī' -> sb.append('i')
+                'ó', 'ò', 'ô', 'ö', 'õ', 'ø', 'ō' -> sb.append('o')
+                'ú', 'ù', 'û', 'ü', 'ū' -> sb.append('u')
+                'ñ', 'ń' -> sb.append('n')
+                'ç', 'ć' -> sb.append('c')
+                'š' -> sb.append('s')
+                'ž' -> sb.append('z')
+                'đ' -> sb.append('d')
+                'ł' -> sb.append('l')
+                'ß' -> { sb.append('s'); sb.append('s') }
+                else -> sb.append(c)
+            }
+        }
+        return sb.toString()
     }
 }

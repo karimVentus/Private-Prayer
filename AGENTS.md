@@ -42,7 +42,7 @@ PrayerTime-/
 │   │   ├── screens/        # CityInputScreen, PrayerTimesScreen, QiblaScreen, AboutScreen (Settings UI), LanguagePickerDialog, HijriCalendarScreen, CalendarColors
 │   │   ├── theme/          # AppTheme, ThemePalettes, PrayerTimeTheme, LocalAppTheme, LocalCalendarPalette
 │   ├── worker/             # PrayerRefreshWork, PrayerTimeRefreshWorker, WidgetRefreshWork, WidgetUpdateWorker (@HiltWorker)
-│   ├── widget/              # PrayerTimeWidgetProvider (+SmallTall, +SmallWide, +Large), WidgetUpdater, WidgetSnapshotLoader, WidgetRemoteViewsBuilder, WidgetPrayerBoundaryScheduler, WidgetPrayerBoundaryReceiver, WidgetLocaleContext, WidgetDigitFormatter, CountdownFormatter
+│   ├── widget/              # PrayerTimeWidgetProvider (medium 5×1), PrayerTimeWidgetProviderLarge, WidgetUpdater, WidgetSnapshotLoader, WidgetRemoteViewsBuilder, WidgetPrayerBoundaryScheduler, WidgetPrayerBoundaryReceiver, WidgetLocaleContext, WidgetDigitFormatter, CountdownFormatter
 │   └── PrayerTimeApplication.kt  # @HiltAndroidApp, HiltWorkerFactory
 ├── app/src/test/java/      # JVM unit tests (single APK; includes network/Aladhan tests)
 ├── app/schemas/            # Room exported JSON (v4) — commit on version bumps
@@ -69,7 +69,7 @@ PrayerTime-/
 | 2G | Hilt DI, worker/engine tests, cache invalidation, About refresh | Done | — |
 | 2 manual | Adhan exact/fallback, emulator | Done | — |
 | 2H | Pre–Phase 3 polish — LocationRepository, Hilt network, Room schemas, locale EN/AR, RTL (2H-B.5), header/adhan fixes, `./dev` | Done | — |
-| 3 | Home screen widget — four providers, stale cache, locale/digits, provider E2E + real worker tests | Done | — |
+| 3 | Home screen widget — **two** providers (medium + large), stale cache, locale/digits, provider E2E + real worker tests | Done | — |
 | 4 | Hijri calendar — calculator, 10 events, Room v4, main + calendar + M/L widget, 19 tests | Done | — |
 | 5G | Audit / architecture hardening — split errors, TextNormalizer, catalog validation, test infra | Done (Jun 2026) | — |
 | 5E | UI polish — spacing, RTL, language picker, **three app themes**, Settings screen, portrait lock, Compose smoke | Done (Jun 2026) | — |
@@ -104,7 +104,7 @@ PrayerTime-/
 ### Unit test source sets
 - `src/test/java/` — all JVM unit tests (network + shared)
 - Run: `./gradlew testDebugUnitTest`
-- Live HTTP integration tests skip when offline or `PRAYERTIME_LIVE_HTTP=0` (default in CI); opt in with `PRAYERTIME_LIVE_HTTP=1` when network is available
+- Live HTTP integration tests skip unless `PRAYERTIME_LIVE_HTTP=1` (default off in CI); also skip when api.aladhan.com is unreachable
 
 ### Async LocationDataSource
 - `LocationCatalogInitializer` (Hilt `@Singleton`) calls `LocationDataSource.initialize()` at app startup — not from `LocalLocationRepository`
@@ -127,7 +127,7 @@ PrayerTime-/
 - **Single APK** (`com.prayertime`) — Aladhan stack in `src/main/`; user chooses offline-only vs network in Settings
 - `PrayerTimesRepository` is an interface — `OnlinePrayerTimesRepository` composes `LocalPrayerTimesRepository` + `PrayerApi`
 - **`offline_only` flag** (default true): zero HTTP when enabled; Aladhan when disabled
-- **Release shrinker:** `proguard-rules.pro` keeps `domain.model.**`, `data.remote.**`, and four `PrayerTimeWidgetProvider*` classes; `-dontwarn` for OkHttp/Retrofit
+- **Release shrinker:** `proguard-rules.pro` keeps `domain.model.**`, `data.remote.**`, and `PrayerTimeWidgetProvider` + `PrayerTimeWidgetProviderLarge`; `-dontwarn` for OkHttp/Retrofit
 
 ## APK sizes (debug builds)
 
@@ -150,7 +150,7 @@ PrayerTime-/
 - **Three themes:** `AppTheme.LIGHT` (default), `GREEN`, `DARK` — persisted in DataStore (`app_theme`)
 - **Compose:** `PrayerTimeTheme(theme)` + `ThemePalettes.materialScheme()`; calendar uses `LocalCalendarPalette` / `calendarPalette()`
 - **Settings:** user-facing **Settings** screen (`AboutScreen.kt`) — theme picker, privacy, adhan, refresh
-- **Widgets:** `WidgetSnapshot.appTheme`; `ThemePalettes.widget()` colors; per-theme `widget_col_highlight_{light,green,dark}.xml` (8dp radius); M-widget **5×1** three equal bands (header / names / times), **14sp** labels+times, **time-only** (no column countdown), unified next-prayer highlight via `widget_highlight_0..5` overlay
+- **Widgets (two providers):** `PrayerTimeWidgetProvider` (**medium**, `widget_info_medium` **5×1** horizontal-only) and `PrayerTimeWidgetProviderLarge` (**large**, resizable). Shared stack: `WidgetSnapshot.appTheme`, `ThemePalettes.widget()`, `WidgetRemoteViewsBuilder` (`WidgetSize.MEDIUM` | `LARGE`). Per-theme column highlight drawables: `widget_col_highlight_{light,green,dark}.xml` (8dp radius). **Medium:** three equal bands (Hijri header / short prayer names / times), **14sp**, **time-only** (`timeOnly=true`, no per-column countdown), next-prayer highlight via `widget_highlight_0..5` overlay on the times row. **Large:** city label, Hijri, live clock, six columns with prayer name + time + countdown. (Legacy SmallTall/SmallWide providers removed — consolidated into medium.)
 - **Per-prayer mute:** `PrayerTimesScreen` toggles → `muted_prayers` DataStore; `PrayerAlarmScheduler` schedules all six `Prayer` slots; `AdhanAlarmReceiver` no-ops when muted
 
 ## Graphify

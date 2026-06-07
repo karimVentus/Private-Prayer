@@ -3,7 +3,7 @@ package com.prayertime.domain.usecase
 import com.prayertime.domain.model.CityListItem
 import com.prayertime.domain.model.Country
 import com.prayertime.domain.repository.LocationRepository
-import com.prayertime.locale.LocationNames
+import com.prayertime.domain.util.LocationNames
 import javax.inject.Inject
 
 /** Filters bundled country/city catalogs for the setup wizard. */

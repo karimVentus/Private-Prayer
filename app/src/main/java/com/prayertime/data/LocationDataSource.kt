@@ -131,15 +131,37 @@ object LocationDataSource {
     /** Loaded catalog snapshot; null while loading or after failure. */
     internal fun loadedCatalog(): LocationCatalog? = synchronized(lock) { catalog }
 
+    fun arabicCityName(
+        countryCode: String,
+        englishName: String,
+    ): String? = loadedCatalog()?.citiesArByCountry?.get(countryCode)?.get(englishName)
+
+    fun resolveCanonicalCityName(
+        countryCode: String,
+        input: String,
+    ): String {
+        val cat = loadedCatalog() ?: error("LocationDataSource.initialize(context) must be called before use")
+        val trimmed = input.trim()
+        if (trimmed.isEmpty()) return trimmed
+        val cities = cat.citiesByCountry[countryCode] ?: return trimmed
+        cities.firstOrNull { TextNormalizer.foldForLookup(it) == TextNormalizer.foldForLookup(trimmed) }
+            ?.let { return it }
+        val arMap = cat.citiesArByCountry[countryCode] ?: emptyMap()
+        arMap.entries
+            .firstOrNull { TextNormalizer.foldForLookup(it.value) == TextNormalizer.foldForLookup(trimmed) }
+            ?.let { return it.key }
+        return trimmed
+    }
+
     fun resolveCityCoordinates(
         countryCode: String,
         cityName: String,
     ): CityResolutionResult {
         val cat = loadedCatalog() ?: error("LocationDataSource.initialize(context) must be called before use")
-        val normalized = cityName.trim()
-        val folded = TextNormalizer.foldForLookup(normalized)
+        val canonical = resolveCanonicalCityName(countryCode, cityName)
+        val folded = TextNormalizer.foldForLookup(canonical)
         val coords =
-            cat.knownCityCoords["${countryCode}_$normalized"]
+            cat.knownCityCoords["${countryCode}_$canonical"]
                 ?: cat.knownCityCoords.entries.firstOrNull { (k, _) ->
                     k.startsWith("${countryCode}_") &&
                         TextNormalizer.foldForLookup(k.removePrefix("${countryCode}_")) == folded
@@ -147,7 +169,7 @@ object LocationDataSource {
         return if (coords != null) {
             CityResolutionResult.Found(coords)
         } else {
-            cat.countryDefaults[countryCode]?.let { CityResolutionResult.Fallback(it, normalized, countryCode) }
+            cat.countryDefaults[countryCode]?.let { CityResolutionResult.Fallback(it, canonical, countryCode) }
                 ?: CityResolutionResult.InvalidCountry(countryCode)
         }
     }

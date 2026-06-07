@@ -7,8 +7,10 @@ import com.prayertime.domain.model.FetchError
 import com.prayertime.domain.model.Prayer
 import com.prayertime.domain.model.PrayerTime
 import com.prayertime.domain.model.PrayerTimesResult
+import com.prayertime.domain.repository.LocationRepository
 import com.prayertime.ui.theme.AppTheme
 import io.mockk.coEvery
+import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
@@ -20,10 +22,14 @@ import org.junit.Test
 class WidgetSnapshotLoaderTest {
     private val repository = mockk<PrayerTimesRepository>()
     private val preferences = mockk<AppPreferencesDataSource>()
-    private val loader = WidgetSnapshotLoader(repository, preferences)
+    private val locations = mockk<LocationRepository>()
+    private val loader = WidgetSnapshotLoader(repository, preferences, locations)
 
     init {
         coEvery { preferences.readAppThemeOnce() } returns AppTheme.DEFAULT_STORAGE_KEY
+        coEvery { preferences.readAppLanguageTagOnce() } returns null
+        coEvery { locations.awaitReady() } returns Unit
+        every { locations.formatCityHeader("Hameln", "DE", null) } returns "Hameln, Germany"
     }
 
     private val config =
@@ -57,7 +63,7 @@ class WidgetSnapshotLoaderTest {
                 PrayerTimesResult.Success(times, Prayer.FAJR, 60_000L)
             val snapshot = loader.load()
             assertEquals(WidgetSnapshot.State.READY, snapshot.state)
-            assertEquals("Hameln, DE", snapshot.cityLabel)
+            assertEquals("Hameln, Germany", snapshot.cityLabel)
             assertEquals(2, snapshot.times.size)
             assertEquals(Prayer.FAJR, snapshot.nextPrayer)
             assertNotNull(snapshot.hijriDate)

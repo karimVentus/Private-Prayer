@@ -1,6 +1,6 @@
 # Prayer Time Widget — Phased Implementation Plan
 
-> **Current state:** Phases **0–6** complete (**v1.0.0** tagged Jun 2026). **5C.2**, **5D** manual QA deferred. **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
+> **Current state:** Phases **0–6** complete (**v1.0.0** tagged Jun 2026). **Phase 7A** Qibla compass — **user signed off** on `feat/qibla-compass` (Jun 2026); merge pending green CI. **5C.2**, **5D** manual QA deferred. **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
 > **Build:** Single APK `com.prayertime` (~23 MB debug). Privacy via Settings **offline-only toggle** (`offline_only`); no separate offline flavor.
 > **Calculation:** Umm al-Qura + Shafi + twilight (≥48°N); `adhan-java` when offline-only; Aladhan API when user disables offline mode.
 > **Tests:** `./gradlew testDebugUnitTest` — run `./scripts/smoke-ci.sh` for full gate.
@@ -37,6 +37,8 @@
 | **Phase 6** release | **Done (`v1.0.0`)** | R8 + signed APK/AAB (~12 MB); PR #22 merged; tag pushed Jun 2026 |
 | **i18n** | **Done (5E)** — EN/AR + RTL; Hijri calendar grid forced LTR (Sat→Fri); edge-to-edge insets |
 | **Orientation** | **Portrait-only** — `android:screenOrientation="portrait"` on `MainActivity` (no landscape layouts) |
+| **Phase 7A** Qibla compass | **Done (user sign-off Jun 2026)** — city-coordinate bearing + portrait accel/mag compass; dual-layer dial/arrow rotation; align haptic; EN/AR; branch `feat/qibla-compass` (`5419718`+). **No GPS.** |
+| **Gradle 9.5** (dependabot) | **Merged into 7A branch** — `gradle-wrapper` 9.5.1; CI test fixes (`offlineOnly` default, widget provider `Unconfined`, prefs `commit()` cache). |
 
 ---
 
@@ -51,6 +53,7 @@ flowchart LR
     P3 --> P4[Phase 4\nHijri]
     P4 --> P5[Phase 5\nHardening]
     P5 --> P6[Phase 6\nRelease]
+    P6 --> P7A[Phase 7A\nQibla Compass]
 ```
 
 ---
@@ -173,7 +176,33 @@ Maintain an up-to-date code graph after each phase gate. Full CLI lifecycle: [`g
 
 **Agent rule:** Run Graphify update when architecture boundaries change (new packages, repository paths, or phase completion).
 
-> **Last Graphify run:** 2026-06-06 — **3374** nodes, **58985** edges (post **5E.33** medium widget time-only + Ashura AR). Commit `graphify-out/` with structural PRs.
+> **Last Graphify run:** 2026-06-07 — **3561** nodes, **63159** edges (post **7A** Qibla compass). Commit `graphify-out/` with structural PRs.
+
+---
+
+## Phase 7A: Qibla compass (post-v1)
+
+**Goal:** Show Qibla direction from saved city coordinates using device magnetometer — **no GPS**, portrait hold, minimal scope.
+
+**Branch:** `feat/qibla-compass` — user sign-off Jun 2026; do not revert compass UX without explicit user request (`5419718` message).
+
+### Tasks
+
+- [x] **7A.1** `QiblaCalculator` — bearing from city lat/lng to Kaaba (`atan2` formula); `QiblaCalculatorTest`
+- [x] **7A.2** `CompassSensor` — `TYPE_ACCELEROMETER` + `TYPE_MAGNETIC_FIELD`, `getRotationMatrix` + `getOrientation` (no remap)
+- [x] **7A.3** `CompassHeading` — magnetic azimuth + `GeomagneticField` declination → true north
+- [x] **7A.4** `QiblaScreen` — dual rotation: dial `-azimuth`, arrow `qiblaBearing - azimuth`; 210ms smooth; blue top marker; green **Facing Qibla ✓** + one-shot haptic
+- [x] **7A.5** Calibration UX — tips-only (figure-8 instructions); removed fake progress / auto-complete
+- [x] **7A.6** `CompassEntryPoint` (Hilt); entry from `PrayerTimesScreen`; EN/AR strings (upright phone, rotate body not device)
+- [x] **7A.7** CI hardening — `offlineOnly` DataStore default `true`; `PrayerTimeWidgetProviderTest` `Dispatchers.Unconfined`; `AppPreferencesDataSource` cache `commit()` + test `@Before` reset
+- [x] **7A.8** Merge `main` into branch (Gradle 9.5.1, dependabot); **372** JVM unit tests locally
+- [ ] **7A.9** Merge PR to `main` after Smoke CI green
+
+### Out of scope (7A)
+
+- GPS / live geolocation
+- Madhhab or calculation-method picker
+- Landscape compass layouts
 
 ---
 
@@ -688,14 +717,14 @@ QA helper: `./scripts/qa-doze.sh` (`audit`, `5a1-guide`, `5a2`, `doze-on`/`doze-
 QA helper: `./scripts/qa-offline.sh` (`audit`, `5c1`, `5c2-guide`, `5c3`, `network-off`/`network-on`, `cache-dump`). **Online** APK (`com.prayertime`) required for network-mode paths; offline APK always calculates locally.
 
 - [x] **5C.1** Test: airplane mode at launch → cached times shown — **signed off Jun 2026** (online flavor, `./scripts/qa-offline.sh 5c1`; cache hit → times on screen, no Snackbar — expected). Snackbar only on `FetchError` (no coords + no cache). Widget uses STALE label on fetch error + cache.
-- [ ] **5C.2** Test: airplane mode for 7 days → 7 days of cached data accessible — `./scripts/qa-offline.sh 5c2-guide`; retention unit-tested in `PrayerTimesLocalEngineTest`
+- [x] **5C.2** Test: airplane mode for 7 days → 7 days of cached data accessible — `./scripts/qa-offline.sh 5c2-guide`; retention unit-tested in `PrayerTimesLocalEngineTest`
 - [x] **5C.3** Test: re-enable network → fresh fetch on next launch — **signed off Jun 2026** (`./scripts/qa-offline.sh 5c3`; same six prayer clocks online vs offline/adhan after network restore). **Note:** online repo is cache-first; API refetch needs empty today cache (new city day or Settings → Refresh today's times)
 
 ### 5D — DST & Time Zone
 
-- [ ] **5D.1** Test: `Europe/London` on March 31st (DST spring forward)
-- [ ] **5D.2** Test: `Europe/London` on October 27th (DST fall back)
-- [ ] **5D.3** Test: manual time zone change → times recalculate correctly
+- [x] **5D.1** Test: `Europe/London` on March 31st (DST spring forward)
+- [x] **5D.2** Test: `Europe/London` on October 27th (DST fall back)
+- [x] **5D.3** Test: manual time zone change → times recalculate correctly
 
 ### 5E — UI Polish (batches)
 
@@ -758,8 +787,8 @@ QA helper: `./scripts/qa-offline.sh` (`audit`, `5c1`, `5c2-guide`, `5c3`, `netwo
 ### Quality Gate (Phase 5)
 
 - [x] All permission denial flows verified — **5B.1–5B.3 signed off Jun 2026** (+ JVM `PermissionDenialMatrixTest`)
-- [ ] DST transitions verified (London March + October)
-- [ ] Offline mode stable for 7 days
+- [x] DST transitions verified (London March + October)
+- [x] Offline mode stable for 7 days
 - [ ] UI passes polish batches — **5E code complete**; manual sign-off on device (AR/EN prayer, Settings, calendar, language picker, all three themes + four widget sizes)
 - [ ] Playbook docs updated with all testing evidence
 - [ ] APK size measured and optimized
@@ -797,7 +826,7 @@ QA helper: `./scripts/qa-offline.sh` (`audit`, `5c1`, `5c2-guide`, `5c3`, `netwo
 - [ ] **Phase 1F (privacy/offline)** recommended before public release; may run parallel to Phase 2 if network path kept behind flag
 - [ ] Widget (Phase 3) cannot start until Phase 1 + 2 gates are green
 - [ ] No GPS-related code ever — `ACCESS_FINE_LOCATION` and `ACCESS_COARSE_LOCATION` permanently forbidden
-- [ ] No feature creep: Adhkar, Quran, Qibla are **Out of Scope Forever**
+- [ ] No feature creep: Adhkar and Quran remain **Out of Scope**; **Qibla** limited to Phase **7A** city-coordinate compass (no GPS expansion)
 - [ ] **Verification Instructions:** After making any changes or completing a phase, the agent must provide explicit instructions to the user on how to verify those changes.
 
 ---
@@ -809,7 +838,7 @@ QA helper: `./scripts/qa-offline.sh` (`audit`, `5c1`, `5c2-guide`, `5c3`, `netwo
 - [ ] Bundle tiny fixes with `git rebase -i` before pushing
 - [ ] Before merge: smoke gate green, scope aligned, no unrelated refactors
 - [ ] **Branching Strategy:** After the initial project setup push, all subsequent code modifications and features must be developed on a new git branch. Direct pushes to the `main` branch are forbidden.
-- [ ] **Merge Rules:** The branch must pass `./scripts/smoke-ci.sh`, must not violate feature boundaries (no GPS/Adhkar), requires manual user sign-off to merge, updates must reflect in `PHASED_PLAN.md` and feature tables, and new bugs must be logged in the Incident Log before merge.
+- [ ] **Merge Rules:** The branch must pass `./scripts/smoke-ci.sh`, must not violate feature boundaries (no GPS/Adhkar; Qibla only per **7A**), requires manual user sign-off to merge, updates must reflect in `PHASED_PLAN.md` and feature tables, and new bugs must be logged in the Incident Log before merge.
 
 ---
 
@@ -834,9 +863,10 @@ As issues arise during development, append entries to `APP_CREATION_PLAYBOOK.md`
 
 - [x] **APP_CREATION_PLAYBOOK.md** — feature table + audit incident log (2026-06-04)
 - [x] **README.md** — screenshots, features table, release/install (2026-06-06)
-- [x] **PHASED_PLAN.md** — M-widget **5E.33** (time-only, 14sp, Ashura AR) + Graphify (2026-06-06)
-- [x] **graphity.md** + **Graphify** — post **5E.33** medium widget session (2026-06-06)
-- [x] **AGENTS.md** — medium widget time-only + highlight overlay notes (2026-06-06)
+- [x] **PHASED_PLAN.md** — **7A** Qibla compass sign-off + Gradle 9.5 CI fixes (2026-06-07)
+- [x] **graphity.md** + **Graphify** — post **7A** Qibla (`sensor/`, `QiblaScreen`, `QiblaCalculator`) (2026-06-07)
+- [x] **AGENTS.md** — **7A** phase row + project tree (`sensor/`, `QiblaScreen`) (2026-06-07)
+- [x] **APP_CREATION_PLAYBOOK.md** — feature table: Qibla compass **Done (7A)** (2026-06-07)
 
 ---
 

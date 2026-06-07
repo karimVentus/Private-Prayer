@@ -6,12 +6,14 @@ import com.prayertime.data.remote.NetworkMapper
 import com.prayertime.data.remote.PrayerApi
 import com.prayertime.domain.model.CityConfig
 import com.prayertime.domain.model.FetchError
-import com.prayertime.domain.model.Prayer
 import com.prayertime.domain.model.PrayerTimesResult
 import com.prayertime.domain.model.SaveCityResult
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
+
+/** Minimum prayer times expected from the API: 5 fard + 1 shuruq. */
+private const val REQUIRED_PRAYER_COUNT = 6
 
 /** Online flavor: network fetch when privacy mode is off; composes [LocalPrayerTimesRepository] for fallback. */
 class OnlinePrayerTimesRepository(
@@ -137,7 +139,7 @@ class OnlinePrayerTimesRepository(
                     response.date,
                     apiTimezone,
                 )
-            if (prayerTimes.size < Prayer.entries.size) return null
+            if (prayerTimes.size < REQUIRED_PRAYER_COUNT) return null
             engine.cacheToRoom(prayerTimes, cityKey, todayLabel)
             engine.cleanupOldEntries(cityKey, config.timezone)
             engine.buildResult(prayerTimes, apiTimezone)

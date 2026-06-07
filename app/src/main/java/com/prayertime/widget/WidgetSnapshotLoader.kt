@@ -7,6 +7,7 @@ import com.prayertime.domain.model.CityConfig
 import com.prayertime.domain.model.HijriDate
 import com.prayertime.domain.model.PrayerTimesResult
 import com.prayertime.domain.model.UpcomingEvent
+import com.prayertime.domain.repository.LocationRepository
 import com.prayertime.ui.theme.AppTheme
 import kotlinx.coroutines.flow.first
 import java.util.Calendar
@@ -20,11 +21,19 @@ class WidgetSnapshotLoader
     constructor(
         private val repository: PrayerTimesRepository,
         private val preferences: AppPreferencesDataSource,
+        private val locations: LocationRepository,
     ) {
         suspend fun load(): WidgetSnapshot {
             val appTheme = AppTheme.fromStorage(preferences.readAppThemeOnce())
             val config = repository.cityConfig.first() ?: return WidgetSnapshot(WidgetSnapshot.State.NO_CITY, appTheme = appTheme)
-            val cityLabel = "${config.cityName}, ${config.countryCode}"
+            locations.awaitReady()
+            val languageTag = preferences.readAppLanguageTagOnce()
+            val cityLabel =
+                locations.formatCityHeader(
+                    cityName = config.cityName,
+                    countryCode = config.countryCode,
+                    languageTag = languageTag,
+                )
             val hijriContext = loadHijriContext(config.timezone)
             return when (val result = repository.fetchTodayTimes(config)) {
                 is PrayerTimesResult.Success ->

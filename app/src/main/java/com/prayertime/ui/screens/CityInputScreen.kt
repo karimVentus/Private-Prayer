@@ -28,7 +28,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.prayertime.R
+import com.prayertime.domain.model.CityListItem
 import com.prayertime.domain.model.Country
+import com.prayertime.domain.util.LocationNames
 import com.prayertime.ui.city.CityInputActions
 import com.prayertime.ui.city.CityInputUiState
 import com.prayertime.ui.city.WizardStep
@@ -50,6 +52,7 @@ fun CityInputScreen(
                     modifier = Modifier.weight(1f).fillMaxWidth(),
                     searchQuery = state.countrySearchQuery,
                     countries = state.filteredCountries,
+                    languageTag = state.languageTag,
                     catalogReady = state.catalogReady,
                     onSearchQueryChanged = actions.onCountrySearchQueryChanged,
                     onCountrySelected = actions.selectCountry,
@@ -59,6 +62,7 @@ fun CityInputScreen(
                 CitySelectionStep(
                     modifier = Modifier.weight(1f).fillMaxWidth(),
                     country = step.country,
+                    languageTag = state.languageTag,
                     searchQuery = state.citySearchQuery,
                     cities = state.filteredCities,
                     catalogReady = state.catalogReady,
@@ -76,6 +80,7 @@ fun CityInputScreen(
 private fun CountrySelectionStep(
     searchQuery: String,
     countries: List<Country>,
+    languageTag: String?,
     catalogReady: Boolean,
     onSearchQueryChanged: (String) -> Unit,
     onCountrySelected: (Country) -> Unit,
@@ -136,7 +141,11 @@ private fun CountrySelectionStep(
                 }
                 else -> {
                     items(countries, key = { "${it.code}-${it.name}" }) { country ->
-                        CountryItem(country = country, onClick = { onCountrySelected(country) })
+                        CountryItem(
+                            country = country,
+                            languageTag = languageTag,
+                            onClick = { onCountrySelected(country) },
+                        )
                     }
                 }
             }
@@ -168,6 +177,7 @@ private fun searchFieldColors() =
 @Composable
 private fun CountryItem(
     country: Country,
+    languageTag: String?,
     onClick: () -> Unit,
 ) {
     Card(
@@ -186,7 +196,7 @@ private fun CountryItem(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Text(
-                text = country.name,
+                text = LocationNames.countryDisplay(country, languageTag),
                 style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier.weight(1f),
             )
@@ -202,8 +212,9 @@ private fun CountryItem(
 @Composable
 private fun CitySelectionStep(
     country: Country,
+    languageTag: String?,
     searchQuery: String,
-    cities: List<String>,
+    cities: List<CityListItem>,
     catalogReady: Boolean,
     showCustomCityFallback: Boolean,
     onSearchQueryChanged: (String) -> Unit,
@@ -227,7 +238,7 @@ private fun CitySelectionStep(
             Spacer(modifier = Modifier.weight(1f))
         }
         Text(
-            text = country.name,
+            text = LocationNames.countryDisplay(country, languageTag),
             style = MaterialTheme.typography.headlineMedium,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Start,
@@ -282,8 +293,11 @@ private fun CitySelectionStep(
                             )
                         }
                     }
-                    items(cities, key = { "${country.code}-$it" }) { city ->
-                        CityItem(city = city, onClick = { onCitySelected(city) })
+                    items(cities, key = { "${country.code}-${it.canonicalName}" }) { city ->
+                        CityItem(
+                            city = city.displayName,
+                            onClick = { onCitySelected(city.canonicalName) },
+                        )
                     }
                 }
             }

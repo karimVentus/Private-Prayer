@@ -36,7 +36,7 @@ class AdhanAlertDeliverer
         private fun playAdhanSound(soundPref: String) {
             val resId = AdhanSoundResolver.rawResFor(soundPref)
             try {
-                val player = MediaPlayer.create(context, resId) ?: return
+                val player = MediaPlayer()
                 player.setAudioAttributes(
                     AudioAttributes.Builder()
                         .setUsage(AudioAttributes.USAGE_ALARM)
@@ -44,6 +44,11 @@ class AdhanAlertDeliverer
                         .build(),
                 )
                 player.setOnCompletionListener { it.release() }
+                val fd = context.resources.openRawResourceFd(resId) ?: return
+                fd.use {
+                    player.setDataSource(it.fileDescriptor, it.startOffset, it.length)
+                }
+                player.prepare()
                 player.start()
             } catch (_: Exception) {
                 // Notification still shown if audio fails

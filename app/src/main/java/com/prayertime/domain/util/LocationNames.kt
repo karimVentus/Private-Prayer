@@ -1,19 +1,20 @@
-package com.prayertime.locale
+package com.prayertime.domain.util
 
 import com.prayertime.domain.model.Country
 import java.util.Locale
 
-/** Localized display names for bundled country/city catalogs. */
 object LocationNames {
     fun effectiveLanguageTag(storedTag: String?): String {
-        val normalized = AppLocale.normalizeStoredTag(storedTag)
+        val normalized = normalizeTag(storedTag)
         if (normalized != null) return normalized
-        return if (Locale.getDefault().language.equals("ar", ignoreCase = true)) {
-            "ar"
-        } else {
-            "en"
-        }
+        return if (Locale.getDefault().language.equals("ar", ignoreCase = true)) "ar" else "en"
     }
+
+    private fun normalizeTag(tag: String?): String? =
+        when (tag?.trim()) {
+            null, "", "system" -> null
+            else -> tag.trim()
+        }
 
     fun countryDisplay(
         country: Country,
@@ -55,8 +56,33 @@ object LocationNames {
         query: String,
     ): Boolean {
         if (query.isBlank()) return true
-        val foldedQuery = TextNormalizer.foldForLookup(query)
-        return TextNormalizer.foldForLookup(primary).contains(foldedQuery) ||
-            TextNormalizer.foldForLookup(alternate).contains(foldedQuery)
+        val foldedQuery = normalizeForLookup(query)
+        return normalizeForLookup(primary).contains(foldedQuery) ||
+            normalizeForLookup(alternate).contains(foldedQuery)
     }
+
+    private fun normalizeForLookup(text: String): String {
+        val sb = StringBuilder(text.length)
+        for (c in text.lowercase(Locale.ROOT)) {
+            sb.append(foldLatinAccent(c) ?: c.toString())
+        }
+        return sb.toString()
+    }
+
+    private fun foldLatinAccent(c: Char): String? =
+        when (c) {
+            'á', 'à', 'â', 'ä', 'ã', 'å', 'ā' -> "a"
+            'é', 'è', 'ê', 'ë', 'ē' -> "e"
+            'í', 'ì', 'î', 'ï', 'ī' -> "i"
+            'ó', 'ò', 'ô', 'ö', 'õ', 'ø', 'ō' -> "o"
+            'ú', 'ù', 'û', 'ü', 'ū' -> "u"
+            'ñ', 'ń' -> "n"
+            'ç', 'ć' -> "c"
+            'š' -> "s"
+            'ž' -> "z"
+            'đ' -> "d"
+            'ł' -> "l"
+            'ß' -> "ss"
+            else -> null
+        }
 }

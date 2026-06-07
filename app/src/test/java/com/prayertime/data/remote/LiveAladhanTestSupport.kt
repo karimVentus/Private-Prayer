@@ -15,12 +15,12 @@ internal object LiveAladhanTestSupport {
     private const val READ_TIMEOUT_SEC = 20L
 
     /**
-     * Live HTTP tests run when [api.aladhan.com](https://api.aladhan.com) is reachable.
-     * Set env `PRAYERTIME_LIVE_HTTP=0` to skip (e.g. air-gapped CI).
+     * Live HTTP tests are opt-in: set env `PRAYERTIME_LIVE_HTTP=1` (or `true`).
+     * When unset, tests skip (default for CI / air-gapped runs).
      */
     fun assumeLiveApiReachable() {
         org.junit.Assume.assumeTrue(
-            "Live Aladhan HTTP disabled (PRAYERTIME_LIVE_HTTP=0)",
+            "Live Aladhan HTTP disabled — set PRAYERTIME_LIVE_HTTP=1 to enable",
             isLiveHttpEnabled(),
         )
         org.junit.Assume.assumeTrue(
@@ -45,9 +45,9 @@ internal object LiveAladhanTestSupport {
         return AladhanApi(retrofit.create(AladhanApiService::class.java))
     }
 
-    private fun isLiveHttpEnabled(): Boolean {
-        val flag = System.getenv("PRAYERTIME_LIVE_HTTP") ?: return true
-        return flag != "0" && !flag.equals("false", ignoreCase = true)
+    internal fun isLiveHttpEnabled(envValue: String? = System.getenv("PRAYERTIME_LIVE_HTTP")): Boolean {
+        envValue ?: return false
+        return envValue == "1" || envValue.equals("true", ignoreCase = true)
     }
 
     private fun canReachAladhan(): Boolean =

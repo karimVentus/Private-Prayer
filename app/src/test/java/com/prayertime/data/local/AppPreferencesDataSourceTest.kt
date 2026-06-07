@@ -1,5 +1,6 @@
 package com.prayertime.data.local
 
+import android.content.Context
 import androidx.test.core.app.ApplicationProvider
 import com.prayertime.ui.theme.AppTheme
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -79,6 +80,40 @@ class AppPreferencesDataSourceTest {
             val p = prefs()
             p.setAppLanguageTag(null, recordUserChoice = true)
             assertNull(p.resolveLanguageTagForStartup())
+        }
+
+    @Test
+    fun `resolveLanguageTagForStartupSync uses device default when cache is cold`() {
+        val p = prefs()
+        runBlocking { p.clearPreferencesForTests() }
+        assertEquals("en", p.resolveLanguageTagForStartupSync { "en" })
+        assertFalse(p.readAppLanguageInitializedSync())
+    }
+
+    @Test
+    fun `resolveLanguageTagForStartupSync reads warmed cache without DataStore`() =
+        runTest {
+            val p = prefs()
+            p.setAppLanguageTag("ar", recordUserChoice = true)
+            assertEquals("ar", p.resolveLanguageTagForStartupSync())
+            assertTrue(p.readAppLanguageInitializedSync())
+        }
+
+    @Test
+    fun `warmAppLanguageCache syncs initialized flag to SharedPreferences`() =
+        runTest {
+            val p = prefs()
+            p.setAppLanguageTag("ar", recordUserChoice = true)
+            val context: Context = ApplicationProvider.getApplicationContext()
+            val editor = context.getSharedPreferences("widget_theme_cache", Context.MODE_PRIVATE).edit()
+            editor.clear()
+            editor.commit()
+            assertFalse(p.readAppLanguageInitializedSync())
+            assertNull(p.readAppLanguageTagSync())
+            p.warmAppLanguageCache()
+            assertEquals("ar", p.readAppLanguageTagSync())
+            assertTrue(p.readAppLanguageInitializedSync())
+            assertEquals("ar", p.resolveLanguageTagForStartupSync())
         }
 
     @Test

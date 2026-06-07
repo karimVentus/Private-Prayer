@@ -5,7 +5,7 @@ import com.prayertime.data.LocationDataSource
 import com.prayertime.domain.model.CityResolutionResult
 import com.prayertime.domain.model.Country
 import com.prayertime.domain.repository.LocationRepository
-import com.prayertime.locale.LocationNames
+import com.prayertime.domain.util.LocationNames
 import java.util.Locale
 import javax.inject.Inject
 import javax.inject.Singleton

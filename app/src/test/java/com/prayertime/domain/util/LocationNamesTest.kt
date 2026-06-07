@@ -1,4 +1,4 @@
-package com.prayertime.locale
+package com.prayertime.domain.util
 
 import com.prayertime.domain.model.Country
 import org.junit.Assert.assertEquals

@@ -195,6 +195,7 @@ internal class PrayerTimesLocalEngine(
 
     private fun parseCachedPrayer(name: String): Prayer =
         when (name) {
+            // Legacy: early schema versions stored this prayer as "DUHA".
             "DUHA" -> Prayer.SHURUQ
             else -> Prayer.valueOf(name)
         }

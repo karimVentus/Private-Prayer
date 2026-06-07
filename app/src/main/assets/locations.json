@@ -2308,7 +2308,6 @@
       "Kiffa",
       "Rosso",
       "Kaedi",
-      "Zouerat",
       "Atar",
       "Selibaby",
       "Tidjikja",
@@ -9212,11 +9211,6 @@
       "latitude": 11.769,
       "longitude": 34.35,
       "timezone": "Africa/Khartoum"
-    },
-    "MR_Zouerat": {
-      "latitude": 22.733,
-      "longitude": -12.467,
-      "timezone": "Africa/Nouakchott"
     },
     "DZ_Sidi Bel Abbes": {
       "latitude": 35.2,

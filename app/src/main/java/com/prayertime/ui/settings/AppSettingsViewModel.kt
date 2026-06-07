@@ -155,7 +155,7 @@ class AppSettingsViewModel internal constructor(
 
     suspend fun applyAppLanguage(tag: String?) {
         val normalized = AppLocale.normalizeStoredTag(tag)
-        preferences.setAppLanguageTag(normalized)
+        preferences.setAppLanguageTag(normalized, recordUserChoice = true)
         _appLanguageTag.value = normalized
         AppLocale.apply(normalized)
         onLocaleChanged()
@@ -179,7 +179,7 @@ class AppSettingsViewModel internal constructor(
         repository.resetCityStore()
         _offlineOnly.value = true
         _adhanNotificationsEnabled.value = false
-        _adhanPlayWhenSilent.value = false
+        _adhanPlayWhenSilent.value = true
         _appLanguageTag.value = null
         _adhanSound.value = AppPreferencesDataSource.DEFAULT_ADHAN_SOUND
         _appTheme.value = AppTheme.LIGHT

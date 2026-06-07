@@ -2,12 +2,15 @@ package com.prayertime.widget
 
 import android.appwidget.AppWidgetManager
 import android.content.Context
+import android.os.Looper
 import android.widget.TextView
 import androidx.test.core.app.ApplicationProvider
 import com.prayertime.R
 import com.prayertime.testing.WidgetTestSupport
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Assert.assertNotNull
@@ -68,7 +71,7 @@ class PrayerTimeWidgetProviderTest {
         runBlocking {
             val widgetId = WidgetTestSupport.registerMediumWidget(context)
             val updateFinished = CompletableDeferred<Unit>()
-            val testScope = CoroutineScope(coroutineContext)
+            val testScope = CoroutineScope(SupervisorJob() + Dispatchers.Unconfined)
             val provider =
                 object : PrayerTimeWidgetProvider() {
                     override fun widgetUpdater(context: Context) = stack.updater
@@ -83,10 +86,11 @@ class PrayerTimeWidgetProviderTest {
 
             provider.onUpdate(context, appWidgetManager, intArrayOf(widgetId))
             updateFinished.await()
+            Shadows.shadowOf(Looper.getMainLooper()).idle()
 
             val view = shadowWidgets.getViewFor(widgetId)
             assertNotNull(view)
-            val hijriLabel = view.findViewById<TextView>(R.id.widget_hijri)?.text?.toString().orEmpty()
-            assertTrue(hijriLabel.isNotBlank())
+            val prayerLabel = view.findViewById<TextView>(R.id.widget_prayer_0)?.text?.toString().orEmpty()
+            assertTrue(prayerLabel.isNotBlank())
         }
 }

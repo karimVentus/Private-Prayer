@@ -1,5 +1,6 @@
 package com.prayertime.ui.city
 
+import com.prayertime.domain.model.CityListItem
 import com.prayertime.domain.model.Country
 
 data class CityInputUiState(
@@ -7,7 +8,8 @@ data class CityInputUiState(
     val countrySearchQuery: String,
     val citySearchQuery: String,
     val filteredCountries: List<Country>,
-    val filteredCities: List<String>,
+    val filteredCities: List<CityListItem>,
+    val languageTag: String?,
     val showCustomCityFallback: Boolean,
     val catalogReady: Boolean,
 )

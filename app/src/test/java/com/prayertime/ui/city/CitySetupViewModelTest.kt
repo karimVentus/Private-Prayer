@@ -1,6 +1,7 @@
 package com.prayertime.ui.city
 
 import com.prayertime.data.LocationDataSourceTestSupport
+import com.prayertime.data.local.AppPreferencesDataSource
 import com.prayertime.data.local.InMemoryCityConfigDataSource
 import com.prayertime.data.repository.LocalLocationRepository
 import com.prayertime.domain.model.Country
@@ -9,10 +10,12 @@ import com.prayertime.domain.usecase.SearchLocationsUseCase
 import com.prayertime.testing.FakePrayerTimesRepository
 import com.prayertime.testing.clearViewModelForTest
 import com.prayertime.widget.WidgetUpdater
+import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
@@ -37,6 +40,10 @@ class CitySetupViewModelTest {
     private lateinit var repository: FakePrayerTimesRepository
     private lateinit var locationRepository: LocationRepository
     private val widgetUpdater = mockk<WidgetUpdater>(relaxed = true)
+    private val preferences =
+        mockk<AppPreferencesDataSource> {
+            every { appLanguageTag } returns flowOf(null)
+        }
     private val activeViewModels = mutableListOf<CitySetupViewModel>()
 
     @Before
@@ -60,6 +67,7 @@ class CitySetupViewModelTest {
             repository,
             locationRepository,
             SearchLocationsUseCase(locationRepository),
+            preferences,
             widgetUpdater,
         ).also {
             activeViewModels.add(it)
@@ -106,9 +114,14 @@ class CitySetupViewModelTest {
             vm.selectCountry(Country("Syria", "SY"))
             vm.onCitySearchQueryChanged("Dam")
             val filtered = vm.filteredCities.value
-            assertTrue(filtered.contains("Damascus"))
-            assertFalse(filtered.contains("Aleppo"))
-            assertTrue(filtered.all { it.contains("Dam", ignoreCase = true) })
+            assertTrue(filtered.any { it.canonicalName == "Damascus" })
+            assertFalse(filtered.any { it.canonicalName == "Aleppo" })
+            assertTrue(
+                filtered.all {
+                    it.canonicalName.contains("Dam", ignoreCase = true) ||
+                        it.displayName.contains("Dam", ignoreCase = true)
+                },
+            )
         }
 
     @Test
@@ -128,6 +141,30 @@ class CitySetupViewModelTest {
             assertFalse(vm.showCustomCityFallback)
             vm.onCitySearchQueryChanged("CustomTown")
             assertTrue(vm.showCustomCityFallback)
+        }
+
+    @Test
+    fun `saveCity resolves Arabic display name to canonical coords`() =
+        runTest(testDispatcher) {
+            val arPreferences =
+                mockk<AppPreferencesDataSource> {
+                    every { appLanguageTag } returns flowOf("ar")
+                }
+            val vm =
+                CitySetupViewModel(
+                    repository,
+                    locationRepository,
+                    SearchLocationsUseCase(locationRepository),
+                    arPreferences,
+                    widgetUpdater,
+                ).also { activeViewModels.add(it) }
+            vm.selectCountry(Country("Syria", "SY"))
+            vm.saveCity("دمشق")
+            advanceUntilIdle()
+            val config = citySource.cityConfig.first()
+            assertEquals("Damascus", config?.cityName)
+            assertEquals("Asia/Damascus", config?.timezone)
+            assertEquals(33.513, config?.latitude!!, 0.001)
         }
 
     @Test
@@ -185,6 +222,7 @@ class CitySetupViewModelTest {
                     failingRepo,
                     locationRepository,
                     SearchLocationsUseCase(locationRepository),
+                    preferences,
                     widgetUpdater,
                 ).also {
                     activeViewModels.add(it)

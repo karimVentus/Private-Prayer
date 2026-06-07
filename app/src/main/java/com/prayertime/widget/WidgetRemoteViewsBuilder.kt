@@ -156,6 +156,7 @@ class WidgetRemoteViewsBuilder
                     setViewVisibilityIfPresent(views, R.id.widget_times_row, android.view.View.GONE)
                     views.setViewVisibility(R.id.widget_city, android.view.View.GONE)
                     views.setViewVisibility(R.id.widget_columns, android.view.View.GONE)
+                    views.setViewVisibility(R.id.widget_prayer_block, android.view.View.GONE)
                 }
                 WidgetSize.LARGE -> {
                     views.setViewVisibility(R.id.widget_hijri, android.view.View.GONE)

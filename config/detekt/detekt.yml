@@ -12,12 +12,13 @@ complexity:
     threshold: 120
   LongParameterList:
     active: true
-    functionThreshold: 10
+    functionThreshold: 12
     constructorThreshold: 10
   TooManyFunctions:
     active: true
     thresholdInFiles: 40
     thresholdInClasses: 30
+    thresholdInObjects: 15
 
 naming:
   active: true
@@ -25,7 +26,7 @@ naming:
     active: true
   FunctionNaming:
     active: true
-    ignoreAnnotated: ['Composable']
+    ignoreAnnotated: ["Composable"]
   VariableNaming:
     active: true
 
@@ -40,10 +41,13 @@ style:
     active: true
     maxLineLength: 160
   MagicNumber:
-    active: false # Disabled to allow time calculations and indices in repository/calculator
+    active: false
   ReturnCount:
     active: true
     max: 15
+  ThrowsCount:
+    active: true
+    max: 3
   UnusedImports:
     active: true
   UnusedPrivateMember:

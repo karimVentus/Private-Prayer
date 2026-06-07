@@ -100,6 +100,13 @@ class PrayerTimesViewModel
             val dayAnchor = success.result.times.firstOrNull()?.timestamp ?: return
             if (needsCityDayRefresh(dayAnchor, success.timezone)) {
                 refreshTimesForNewDay()
+                return
+            }
+            // Detect manual clock changes: if current time is far from the expected
+            // prayer-day window (before Fajr-1h or after Fajr+25h), force refresh.
+            val now = System.currentTimeMillis()
+            if (now < dayAnchor - 3_600_000L || now > dayAnchor + 90_000_000L) {
+                refreshTimesForNewDay()
             }
         }
 

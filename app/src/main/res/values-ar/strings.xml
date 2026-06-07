@@ -182,6 +182,7 @@
     <string name="event_day_of_arafah_cell">عرفة</string>
     <string name="event_eid_al_adha_cell">الأضحى</string>
     <string name="calendar">التقويم</string>
+    <string name="qibla">القبلة</string>
     <string name="back_to_prayer_times">العودة لأوقات الصلاة</string>
     <string name="calendar_ramadan_first">بداية رمضان</string>
     <string name="calendar_ramadan_last">آخر يوم</string>
@@ -215,4 +216,9 @@
     <string name="annual_legend_ramadan">رمضان</string>
     <string name="annual_legend_hajj">الحج</string>
     <string name="annual_legend_eids">أعياد</string>
+    <!-- Qibla compass -->
+    <string name="qibla_compass_title">بوصلة القبلة</string>
+    <string name="compass_not_available">مستشعر البوصلة غير متوفر على هذا الجهاز.</string>
+    <string name="compass_calibrating">معايرة البوصلة… حرّك جهازك بشكل الرقم 8.</string>
+    <string name="qibla_bearing_format">القبلة: %1$d° (%2$s) من الشمال</string>
 </resources>

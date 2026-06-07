@@ -106,10 +106,10 @@ class WidgetReadmeScreenshotExportTest {
         }
         drainMainLooper()
         val builder = WidgetRemoteViewsBuilder(context, preferences)
-        val medium = renderToBitmap(context, builder.build(snapshot, WidgetSize.MEDIUM), mediumWidthPx(context))
+        val medium = renderToBitmap(builder.build(snapshot, WidgetSize.MEDIUM), mediumWidthPx(context))
         writePng(outDir.resolve(mediumName), medium)
         if (largeName.isNotEmpty()) {
-            val large = renderToBitmap(context, builder.build(snapshot, WidgetSize.LARGE), largeWidthPx(context))
+            val large = renderToBitmap(builder.build(snapshot, WidgetSize.LARGE), largeWidthPx(context))
             writePng(outDir.resolve(largeName), large)
             writePng(outDir.resolve(compositeName), stackVertical(medium, large, gapPx(context, 12)))
         }
@@ -164,7 +164,6 @@ class WidgetReadmeScreenshotExportTest {
         ).toInt()
 
     private fun renderToBitmap(
-        context: Context,
         views: RemoteViews,
         widthPx: Int,
     ): Bitmap {

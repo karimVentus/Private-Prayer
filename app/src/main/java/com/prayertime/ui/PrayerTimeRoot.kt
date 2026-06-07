@@ -63,6 +63,7 @@ import com.prayertime.ui.screens.HijriCalendarScreen
 import com.prayertime.ui.screens.LanguagePickerDialog
 import com.prayertime.ui.screens.PrayerTimesScreen
 import com.prayertime.ui.screens.PrivacyModeUiState
+import com.prayertime.ui.screens.QiblaScreen
 import com.prayertime.ui.screens.ThemeUiState
 import com.prayertime.ui.settings.AppSettingsViewModel
 import com.prayertime.ui.theme.PrayerTimeTheme
@@ -85,6 +86,7 @@ fun PrayerTimeRoot(activity: AppCompatActivity) {
                 val prayerState by prayerTimesViewModel.uiState.collectAsState()
                 val showAbout by settingsViewModel.showAbout.collectAsState()
                 var showCalendar by remember { mutableStateOf(false) }
+                var showQibla by remember { mutableStateOf(false) }
                 val snackbarHostState = remember { SnackbarHostState() }
 
                 PrayerTimeSideEffects(
@@ -98,6 +100,18 @@ fun PrayerTimeRoot(activity: AppCompatActivity) {
 
                 if (showAbout) {
                     PrayerTimeAboutRoute(activity, settingsViewModel, prayerTimesViewModel)
+                } else if (showQibla) {
+                    val success = prayerState as? PrayerTimesUiState.Success
+                    if (success != null && success.latitude != null && success.longitude != null) {
+                        QiblaScreen(
+                            latitude = success.latitude,
+                            longitude = success.longitude,
+                            cityLabel = success.city,
+                            onClose = { showQibla = false },
+                        )
+                    } else {
+                        showQibla = false
+                    }
                 } else if (showCalendar) {
                     val success = prayerState as? PrayerTimesUiState.Success
                     if (success != null) {
@@ -117,6 +131,7 @@ fun PrayerTimeRoot(activity: AppCompatActivity) {
                         prayerState,
                         snackbarHostState,
                         onCalendar = { showCalendar = true },
+                        onQibla = { showQibla = true },
                     )
                 }
             }
@@ -355,6 +370,7 @@ private fun PrayerTimeMainRoute(
     prayerState: PrayerTimesUiState,
     snackbarHostState: SnackbarHostState,
     onCalendar: () -> Unit,
+    onQibla: () -> Unit,
 ) {
     val wizardStep by citySetupViewModel.wizardStep.collectAsState()
     val countrySearchQuery by citySetupViewModel.countrySearchQuery.collectAsState()
@@ -424,6 +440,7 @@ private fun PrayerTimeMainRoute(
                                 PrayerTimesActions(
                                     onChangeCity = { showChangeCityConfirm = true },
                                     onCalendar = onCalendar,
+                                    onQibla = onQibla,
                                     onAbout = settingsViewModel::showAbout,
                                     onLanguage = { showLanguagePicker = true },
                                     onToggleMute = { prayer -> settingsViewModel.toggleMutedPrayer(prayer.name) },

@@ -44,13 +44,11 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
             try {
                 if (preferences.isPrayerMuted(prayer.name)) return@launch
                 val playWhenSilent = preferences.readAdhanPlayWhenSilentOnce()
-                adhanNotificationHelper.showPrayerNotification(
-                    prayer,
-                    AdhanAlertPolicy.effectiveMode(context, playWhenSilent),
-                )
-                // Always play adhan audio via MediaPlayer (USAGE_ALARM rings outside
-                // silent/vibrate); AdhanAlertPolicy only controls notification behavior.
-                playAdhanSound(context, soundPref)
+                val effectiveMode = AdhanAlertPolicy.effectiveMode(context, playWhenSilent)
+                adhanNotificationHelper.showPrayerNotification(prayer, effectiveMode)
+                if (AdhanAlertPolicy.shouldPlayAdhanAudio(context, playWhenSilent)) {
+                    playAdhanSound(context, soundPref)
+                }
             } finally {
                 pendingResult.finish()
             }

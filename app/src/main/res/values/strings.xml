@@ -124,8 +124,6 @@
     <string name="adhan_sound_easa_alhjlawey">Easa Al-Hijlawey</string>
 
     <!-- Home screen widget -->
-    <string name="widget_name_small_tall">Prayer Time (1×1)</string>
-    <string name="widget_name_small_wide">Prayer Time (2×1)</string>
     <string name="widget_name_medium">Prayer Time (M)</string>
     <string name="widget_name_large">Prayer Time (L)</string>
     <string name="widget_description">Today\'s prayer times and next prayer countdown</string>

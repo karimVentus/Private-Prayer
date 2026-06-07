@@ -45,7 +45,7 @@ class AppSettingsViewModel internal constructor(
     private val _adhanNotificationsEnabled = MutableStateFlow(false)
     val adhanNotificationsEnabled: StateFlow<Boolean> = _adhanNotificationsEnabled.asStateFlow()
 
-    private val _adhanPlayWhenSilent = MutableStateFlow(false)
+    private val _adhanPlayWhenSilent = MutableStateFlow(true)
     val adhanPlayWhenSilent: StateFlow<Boolean> = _adhanPlayWhenSilent.asStateFlow()
 
     private val _appLanguageTag = MutableStateFlow<String?>(null)
@@ -179,7 +179,7 @@ class AppSettingsViewModel internal constructor(
         repository.resetCityStore()
         _offlineOnly.value = true
         _adhanNotificationsEnabled.value = false
-        _adhanPlayWhenSilent.value = false
+        _adhanPlayWhenSilent.value = true
         _appLanguageTag.value = null
         _adhanSound.value = AppPreferencesDataSource.DEFAULT_ADHAN_SOUND
         _appTheme.value = AppTheme.LIGHT

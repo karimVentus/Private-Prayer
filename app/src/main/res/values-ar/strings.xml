@@ -122,8 +122,6 @@
     <string name="adhan_sound_easa_alhjlawey">عيسى الحجلاوي</string>
 
     <!-- Home screen widget -->
-    <string name="widget_name_small_tall">أوقات الصلاة (١×١)</string>
-    <string name="widget_name_small_wide">أوقات الصلاة (٢×١)</string>
     <string name="widget_name_medium">أوقات الصلاة (متوسط)</string>
     <string name="widget_name_large">أوقات الصلاة (كبير)</string>
     <string name="widget_description">أوقات الصلاة اليوم والعد التنازلي للصلاة التالية</string>

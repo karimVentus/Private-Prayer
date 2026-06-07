@@ -91,6 +91,7 @@ class ComposeScreenSmokeTest {
                             filteredCountries = listOf(Country("Germany", "DE")),
                             filteredCities = emptyList(),
                             showCustomCityFallback = false,
+                            languageTag = "en",
                             catalogReady = true,
                         ),
                     actions =

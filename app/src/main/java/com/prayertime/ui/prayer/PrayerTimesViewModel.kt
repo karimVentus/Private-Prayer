@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.prayertime.data.local.AppPreferencesDataSource
 import com.prayertime.data.repository.PrayerTimesRepository
-import com.prayertime.domain.repository.LocationRepository
 import com.prayertime.domain.calculator.HijriCalculator
 import com.prayertime.domain.calculator.PrayerTimeCalculator
 import com.prayertime.domain.model.CityConfig
@@ -15,6 +14,7 @@ import com.prayertime.domain.model.Prayer
 import com.prayertime.domain.model.PrayerTime
 import com.prayertime.domain.model.PrayerTimesResult
 import com.prayertime.domain.model.UpcomingEvent
+import com.prayertime.domain.repository.LocationRepository
 import com.prayertime.ui.LivePrayerCountdown
 import com.prayertime.ui.PrayerTimesErrorMapper
 import com.prayertime.widget.WidgetUpdater

@@ -2,8 +2,10 @@ package com.prayertime.domain.usecase
 
 import com.prayertime.data.LocationCatalog
 import com.prayertime.data.LocationDataSource
+import com.prayertime.data.repository.LocalLocationRepository
 import com.prayertime.domain.model.CityCoords
 import com.prayertime.domain.model.Country
+import com.prayertime.domain.repository.LocationRepository
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
@@ -67,5 +69,4 @@ class SearchLocationsUseCaseTest {
     }
 }
 
-private class TestLocationRepository : com.prayertime.domain.repository.LocationRepository by
-    com.prayertime.data.repository.LocalLocationRepository()
+private class TestLocationRepository : LocationRepository by LocalLocationRepository()

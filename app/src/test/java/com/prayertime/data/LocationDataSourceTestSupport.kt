@@ -2,9 +2,10 @@ package com.prayertime.data
 
 internal object LocationDataSourceTestSupport {
     fun initializeFromTestResource() {
-        val loader = checkNotNull(LocationDataSourceTestSupport::class.java.classLoader) {
-            "test classloader unavailable"
-        }
+        val loader =
+            checkNotNull(LocationDataSourceTestSupport::class.java.classLoader) {
+                "test classloader unavailable"
+            }
         val json =
             checkNotNull(loader.getResourceAsStream("locations.json")) {
                 "locations.json missing from test classpath — copy from src/main/assets"

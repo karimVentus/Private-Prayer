@@ -10,35 +10,27 @@ class TextNormalizerTest {
         assertEquals("osnabruck", TextNormalizer.foldForLookup("osnabruck"))
     }
 
-    // --- 5E.6: Arabic city name support ---
+    // --- Arabic location search: fold tashkeel + common letter variants ---
 
     @Test
-    fun `Arabic text without diacritics passes through unchanged`() {
-        // Arabic text without tashkeel (حركات) has no combining marks to strip
-        assertEquals("مكة", TextNormalizer.foldForLookup("مكة"))
-        assertEquals("القاهرة", TextNormalizer.foldForLookup("القاهرة"))
+    fun `Arabic text folds ta marbuta and alef variants for lookup`() {
+        assertEquals("مكه", TextNormalizer.foldForLookup("مكة"))
+        assertEquals("القاهره", TextNormalizer.foldForLookup("القاهرة"))
         assertEquals("دمشق", TextNormalizer.foldForLookup("دمشق"))
     }
 
     @Test
-    fun `Arabic text with diacritics has them stripped`() {
-        // Arabic with shadda, fatha, etc. — diacritics are stripped
-        val withTashkeel = "مَكَّةُ" // Mecca with diacritics
-        val withoutTashkeel = "مكة"
-        assertEquals(withoutTashkeel, TextNormalizer.foldForLookup(withTashkeel))
+    fun `Arabic text with diacritics folds to same form as plain text`() {
+        val withTashkeel = "مَكَّةُ"
+        assertEquals(TextNormalizer.foldForLookup("مكة"), TextNormalizer.foldForLookup(withTashkeel))
     }
 
     @Test
-    fun `Latin catalog names match Arabic-script input via foldForLookup`() {
-        // Latin-script catalog entry "Mecca" won't match Arabic "مكة"
-        // because the scripts differ. This test documents the current behavior:
-        // Arabic script queries won't find Latin catalog entries.
+    fun `Latin and Arabic script folds stay in separate buckets`() {
         val arabicQuery = TextNormalizer.foldForLookup("مكة")
         val latinEntry = TextNormalizer.foldForLookup("Mecca")
-        // Document the gap: Arabic ↔ Latin script mapping is not implemented
-        assertEquals(arabicQuery, "مكة")
-        assertEquals(latinEntry, "mecca")
-        // Scripts are different → no match (this is expected with Latin-only catalog)
+        assertEquals("مكه", arabicQuery)
+        assertEquals("mecca", latinEntry)
     }
 
     @Test

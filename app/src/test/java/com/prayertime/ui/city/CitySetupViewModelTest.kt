@@ -144,6 +144,30 @@ class CitySetupViewModelTest {
         }
 
     @Test
+    fun `saveCity resolves Arabic display name to canonical coords`() =
+        runTest(testDispatcher) {
+            val arPreferences =
+                mockk<AppPreferencesDataSource> {
+                    every { appLanguageTag } returns flowOf("ar")
+                }
+            val vm =
+                CitySetupViewModel(
+                    repository,
+                    locationRepository,
+                    SearchLocationsUseCase(locationRepository),
+                    arPreferences,
+                    widgetUpdater,
+                ).also { activeViewModels.add(it) }
+            vm.selectCountry(Country("Syria", "SY"))
+            vm.saveCity("دمشق")
+            advanceUntilIdle()
+            val config = citySource.cityConfig.first()
+            assertEquals("Damascus", config?.cityName)
+            assertEquals("Asia/Damascus", config?.timezone)
+            assertEquals(33.513, config?.latitude!!, 0.001)
+        }
+
+    @Test
     fun `saveCity persists enriched config`() =
         runTest(testDispatcher) {
             val vm = viewModel()

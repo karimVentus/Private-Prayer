@@ -26,6 +26,7 @@ object WidgetTestSupport {
         val database: AppDatabase,
         val citySource: InMemoryCityConfigDataSource,
         val repository: LocalPrayerTimesRepository,
+        val preferences: AppPreferencesDataSource,
         val loader: WidgetSnapshotLoader,
         val updater: WidgetUpdater,
         val boundaryScheduler: WidgetPrayerBoundaryScheduler,
@@ -58,13 +59,14 @@ object WidgetTestSupport {
         }
         val preferences = AppPreferencesDataSource(context)
         val loader = WidgetSnapshotLoader(repository, preferences)
-        val builder = WidgetRemoteViewsBuilder(context)
+        val builder = WidgetRemoteViewsBuilder(context, preferences)
         val updater = WidgetUpdater(context, preferences, loader, builder)
         val boundaryScheduler = WidgetPrayerBoundaryScheduler(loader)
         return Stack(
             database = database,
             citySource = citySource,
             repository = repository,
+            preferences = preferences,
             loader = loader,
             updater = updater,
             boundaryScheduler = boundaryScheduler,

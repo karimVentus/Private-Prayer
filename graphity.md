@@ -25,7 +25,7 @@
 Before initializing the graph, baseline code must exist so the AST parser has targets.
 
 1. Initialize the project and implement the **first vertical slice** (see `APP_CREATION_PLAYBOOK.md` §1.1).
-2. Run `./gradlew assembleOfflineDebug testOfflineDebugUnitTest` — must be green (see `scripts/smoke-ci.sh` for full gate).
+2. Run `./gradlew assembleDebug testDebugUnitTest` — must be green (see `scripts/smoke-ci.sh` for full gate).
 
 **PrayerTime- status:** Phases **0–6** complete (`v1.0.0` tagged Jun 2026). Post-release **5E.31** medium widget layout polish (Jun 2026). **Last graph:** see footer.
 

@@ -190,6 +190,10 @@ private fun HeaderActionRow(actions: PrayerTimesActions) {
             onClick = actions.onChangeCity,
         )
         HeaderActionButton(
+            label = stringResource(R.string.qibla),
+            onClick = actions.onQibla,
+        )
+        HeaderActionButton(
             label = stringResource(R.string.calendar),
             onClick = actions.onCalendar,
         )

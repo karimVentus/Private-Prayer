@@ -7,7 +7,7 @@ Fixes # (link the issue here)
 ## Checklist
 Before submitting this PR, please check the following:
 - [ ] Code builds successfully on local machine.
-- [ ] All unit tests pass (`./gradlew testOfflineDebugUnitTest testOnlineDebugUnitTest`).
+- [ ] All unit tests pass (`./gradlew testDebugUnitTest`)
 - [ ] Detekt lint checks pass (`./gradlew detekt`).
 - [ ] Changes have been verified on an emulator or real device.
 - [ ] No hardcoded configuration values or keys have been exposed.

@@ -48,12 +48,12 @@ class PrayerTimesRepositoryTest {
                 context, AppDatabase::class.java,
             ).allowMainThreadQueries().build()
         cityConfigSerializer = CityConfigSerializer(context)
-        runBlocking { cityConfigSerializer.clear() }
+        runBlocking { cityConfigSerializer.resetCityStore() }
     }
 
     @After
     fun teardown() {
-        runBlocking { cityConfigSerializer.clear() }
+        runBlocking { cityConfigSerializer.resetCityStore() }
         database.close()
     }
 

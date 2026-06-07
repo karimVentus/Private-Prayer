@@ -43,7 +43,7 @@ class AppPreferencesDataSource
 
         val adhanPlayWhenSilent: Flow<Boolean> =
             context.appSettingsStore.data.map { prefs ->
-                prefs[adhanPlayWhenSilentKey] ?: true
+                prefs[adhanPlayWhenSilentKey] ?: false
             }
 
         suspend fun setAdhanPlayWhenSilent(enabled: Boolean) {

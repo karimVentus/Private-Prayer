@@ -45,7 +45,7 @@ class AppSettingsViewModel internal constructor(
     private val _adhanNotificationsEnabled = MutableStateFlow(false)
     val adhanNotificationsEnabled: StateFlow<Boolean> = _adhanNotificationsEnabled.asStateFlow()
 
-    private val _adhanPlayWhenSilent = MutableStateFlow(true)
+    private val _adhanPlayWhenSilent = MutableStateFlow(false)
     val adhanPlayWhenSilent: StateFlow<Boolean> = _adhanPlayWhenSilent.asStateFlow()
 
     private val _appLanguageTag = MutableStateFlow<String?>(null)

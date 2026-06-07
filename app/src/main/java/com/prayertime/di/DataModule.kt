@@ -39,6 +39,7 @@ abstract class DataModule {
                 "prayer_times.db",
             )
                 .addMigrations(PrayerTimeMigrations.MIGRATION_1_2, PrayerTimeMigrations.MIGRATION_2_3, PrayerTimeMigrations.MIGRATION_3_4)
+                .fallbackToDestructiveMigration()
                 .build()
     }
 }

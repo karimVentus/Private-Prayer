@@ -163,7 +163,10 @@ class WidgetRemoteViewsBuilder
                     views.setViewVisibility(R.id.widget_event, android.view.View.GONE)
                     views.setTextViewText(R.id.widget_city, "")
                     views.setViewVisibility(R.id.widget_clock, android.view.View.GONE)
+                    setViewVisibilityIfPresent(views, R.id.widget_names_row, android.view.View.GONE)
+                    setViewVisibilityIfPresent(views, R.id.widget_times_row, android.view.View.GONE)
                     views.setViewVisibility(R.id.widget_columns, android.view.View.GONE)
+                    views.setViewVisibility(R.id.widget_prayer_block, android.view.View.GONE)
                 }
             }
             views.setViewVisibility(R.id.widget_empty, android.view.View.VISIBLE)
@@ -203,11 +206,14 @@ class WidgetRemoteViewsBuilder
                     }
                 }
                 bindWidgetHijri(views, snapshot, l10n, widgetColors)
-                if (size == WidgetSize.MEDIUM) {
+                if (size == WidgetSize.MEDIUM || size == WidgetSize.LARGE) {
                     setViewVisibilityIfPresent(views, R.id.widget_names_row, android.view.View.GONE)
                     setViewVisibilityIfPresent(views, R.id.widget_times_row, android.view.View.GONE)
                 }
                 views.setViewVisibility(R.id.widget_columns, android.view.View.GONE)
+                if (size == WidgetSize.LARGE) {
+                    views.setViewVisibility(R.id.widget_prayer_block, android.view.View.GONE)
+                }
                 views.setViewVisibility(R.id.widget_empty, android.view.View.VISIBLE)
                 views.setTextViewText(R.id.widget_empty, message)
                 views.setTextColor(R.id.widget_empty, widgetColor(widgetColors.textSecondary))
@@ -249,8 +255,18 @@ class WidgetRemoteViewsBuilder
                     views.setTextColor(R.id.widget_city, widgetColor(widgetColors.textSecondary))
                     bindWidgetHijri(views, snapshot, l10n, widgetColors)
                     views.setViewVisibility(R.id.widget_clock, android.view.View.VISIBLE)
-                    views.setViewVisibility(R.id.widget_columns, android.view.View.VISIBLE)
-                    bindColumns(views, snapshot, l10n, widgetColors)
+                    views.setViewVisibility(R.id.widget_prayer_block, android.view.View.VISIBLE)
+                    setViewVisibilityIfPresent(views, R.id.widget_names_row, android.view.View.VISIBLE)
+                    setViewVisibilityIfPresent(views, R.id.widget_times_row, android.view.View.VISIBLE)
+                    bindColumns(
+                        views,
+                        snapshot,
+                        l10n,
+                        widgetColors,
+                        timeOnly = true,
+                        useShortPrayerLabels = true,
+                        unifiedColumnHighlight = true,
+                    )
                 }
             }
         }

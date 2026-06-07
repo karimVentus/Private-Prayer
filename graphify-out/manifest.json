@@ -1,22 +1,22 @@
 {
   "/home/karimodora/Documents/GitHub/PrayerTime-/APP_CREATION_PLAYBOOK.md": {
-    "mtime": 1780858164.494495,
-    "ast_hash": "fc0da8da6e78cdee2c5e2cf56a549364",
+    "mtime": 1780866918.2554338,
+    "ast_hash": "bc4bed47712c048d2daf6ca0ad57b75b",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/ProjectIdea.md": {
-    "mtime": 1780857675.070417,
+    "mtime": 1780865929.1032512,
     "ast_hash": "0e0c2bdcecdda6cecd5ca76403e87a03",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/README.md": {
-    "mtime": 1780839400.076575,
+    "mtime": 1780858911.6013794,
     "ast_hash": "b2c984aceaccdaed865f56c00bfbd7da",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/graphity.md": {
-    "mtime": 1780858167.325049,
-    "ast_hash": "12d45a50fce854270b563d482826be1a",
+    "mtime": 1780866913.943373,
+    "ast_hash": "7de926c68cbf9ffa46c5a8bc682b7420",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/.vscode/settings.json": {
@@ -25,27 +25,27 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/build.gradle.kts": {
-    "mtime": 1780856835.599104,
+    "mtime": 1780858911.6017115,
     "ast_hash": "9b7d62d0dddf38f5a2c38e44b6cf319b",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/data/LocationDataSource.kt": {
-    "mtime": 1780756219.432586,
-    "ast_hash": "65fec7381eb9a5021d9e676d7e44ebed",
+    "mtime": 1780865929.0842514,
+    "ast_hash": "1f16bab33b6a6ee24a803ff0efde89f0",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/data/local/AppDatabase.kt": {
-    "mtime": 1780857672.1364205,
+    "mtime": 1780865915.1804342,
     "ast_hash": "e4e5178c5aacfe33322140c87a24e18f",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/data/local/CityConfigDataSource.kt": {
-    "mtime": 1780857675.050417,
+    "mtime": 1780865929.0700884,
     "ast_hash": "a13d3906184c1e5357c7d947c48377b2",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/data/local/CityConfigSerializer.kt": {
-    "mtime": 1780857037.3358746,
+    "mtime": 1780858911.6055133,
     "ast_hash": "dd09eddd5b9c7649dc271ff2b6a21ead",
     "semantic_hash": ""
   },
@@ -55,12 +55,12 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/data/local/PrayerTimeEntity.kt": {
-    "mtime": 1780857672.1364205,
+    "mtime": 1780865915.1804342,
     "ast_hash": "3cd7d2232ec470429aef9b3deafe2a8c",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/data/repository/PrayerTimesRepository.kt": {
-    "mtime": 1780857675.070417,
+    "mtime": 1780865929.0842514,
     "ast_hash": "36dd6e2ccd7439b6a512e489d3ae77f6",
     "semantic_hash": ""
   },
@@ -105,12 +105,12 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/ui/screens/CityInputScreen.kt": {
-    "mtime": 1780756219.4422305,
-    "ast_hash": "27189ff934f4935a4b3873fd1f7d14dd",
+    "mtime": 1780865929.0842514,
+    "ast_hash": "01ae5ebbaa3564405198519d717b3992",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/ui/screens/PrayerTimesScreen.kt": {
-    "mtime": 1780844461.0273743,
+    "mtime": 1780858911.6095362,
     "ast_hash": "6599ad5fe44b12e99aa0336d354a2250",
     "semantic_hash": ""
   },
@@ -120,7 +120,7 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/data/local/InMemoryCityConfigDataSource.kt": {
-    "mtime": 1780857675.070417,
+    "mtime": 1780865929.0862513,
     "ast_hash": "15cc7c16f58266e8e62669f2686920ed",
     "semantic_hash": ""
   },
@@ -130,7 +130,7 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/data/repository/PrayerTimesRepositoryTest.kt": {
-    "mtime": 1780857675.050417,
+    "mtime": 1780865929.0832515,
     "ast_hash": "b4d074dc63f4f44aa706be0570881821",
     "semantic_hash": ""
   },
@@ -150,12 +150,12 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/gradlew": {
-    "mtime": 1780856835.600299,
+    "mtime": 1780858911.6177018,
     "ast_hash": "45bf2667b1fbec0e07e42808dc662b6b",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/scripts/smoke-ci.sh": {
-    "mtime": 1780836546.9313817,
+    "mtime": 1780858911.652675,
     "ast_hash": "5093bf7c0f171d3b2dc77e1538e0f56f",
     "semantic_hash": ""
   },
@@ -165,23 +165,23 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/.github/workflows/smoke-ci.yml": {
-    "mtime": 1780856835.5989456,
+    "mtime": 1780858911.5995655,
     "ast_hash": "bd600253b948864f329837c45ccee856",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/AGENTS.md": {
-    "mtime": 1780858161.7480676,
-    "ast_hash": "b911f932c691c992956d8af4d8803132",
+    "mtime": 1780866916.0050375,
+    "ast_hash": "7e40abe824958073c8eb2e44f6705507",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/PHASED_PLAN.md": {
-    "mtime": 1780858157.5688298,
-    "ast_hash": "5362237a52307a8d910ce41d8f83cbdf",
+    "mtime": 1780866907.0542147,
+    "ast_hash": "4309a56dfe0c30ad1308f063cc466173",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/config/detekt/detekt.yml": {
-    "mtime": 1780778707.4696205,
-    "ast_hash": "13348bbdd70c273da30ebef9f83097fd",
+    "mtime": 1780859046.7852125,
+    "ast_hash": "56c2f48315b79bfeac16a5329524048d",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/domain/model/CityCoords.kt": {
@@ -190,7 +190,7 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/ui/screens/AboutScreen.kt": {
-    "mtime": 1780857675.050417,
+    "mtime": 1780865929.0762515,
     "ast_hash": "24dec526118851afefa19374f39312c8",
     "semantic_hash": ""
   },
@@ -210,28 +210,28 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/scripts/emu": {
-    "mtime": 1780857675.050417,
+    "mtime": 1780865929.0842514,
     "ast_hash": "95a7e1fe716b27c3c9613ea3c7332742",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/scripts/reset-app": {
-    "mtime": 1780857675.0514731,
+    "mtime": 1780865929.0842514,
     "ast_hash": "18fe5085fff604e4dd215aad807730e0",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/scripts/verify-offline": {
-    "mtime": 1780857675.050417,
+    "mtime": 1780865929.0842514,
     "ast_hash": "fbed583069d2d032c9d738febce8226f",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/PrayerTimeApplication.kt": {
-    "mtime": 1780856835.5888824,
-    "ast_hash": "4ed83afbdda42e3d1361e33ef716ff64",
+    "mtime": 1780863386.555397,
+    "ast_hash": "8583b5f0bf3917986239f97c2a833c28",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/alarm/AdhanAlarmReceiver.kt": {
-    "mtime": 1780857675.050417,
-    "ast_hash": "840358b17dfa3f462d9b9aa70c867a4b",
+    "mtime": 1780865929.0842514,
+    "ast_hash": "bf08bf95bcf0fc7a4daedf820e3a79d5",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/alarm/BootCompletedReceiver.kt": {
@@ -245,23 +245,23 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/data/local/AppPreferencesDataSource.kt": {
-    "mtime": 1780857764.674211,
-    "ast_hash": "c0b129f352ff4cfdd3e71798cfa09c9b",
+    "mtime": 1780865929.0762515,
+    "ast_hash": "8f18688f4774c796d7220d080a4172cf",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/notification/AdhanNotificationHelper.kt": {
-    "mtime": 1780857675.050417,
+    "mtime": 1780865929.0692515,
     "ast_hash": "a2cd057c10e9786f24c88850815e6469",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/permission/AdhanPermissions.kt": {
-    "mtime": 1780856835.5888824,
-    "ast_hash": "7a841ba5f61228ad9987b94699a1b421",
+    "mtime": 1780865929.1012511,
+    "ast_hash": "21687b34034884019a3e285d7e063ad2",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/ui/PrayerTimeRoot.kt": {
-    "mtime": 1780856835.5888824,
-    "ast_hash": "56c3c20c5510d76cc3d82ef7134ed159",
+    "mtime": 1780861417.4909222,
+    "ast_hash": "1e154759d8adfcdad8070225b5b7ecdd",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/worker/PrayerRefreshWork.kt": {
@@ -280,8 +280,8 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/data/local/AppPreferencesDataSourceTest.kt": {
-    "mtime": 1780857765.724488,
-    "ast_hash": "5298a24aba46f98120cb1afa6bba65b9",
+    "mtime": 1780863430.8021944,
+    "ast_hash": "9f1813b63c451be21c034baf79bbd5e4",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/scripts/emulator-start": {
@@ -295,22 +295,22 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/assets/locations.json": {
-    "mtime": 1780778707.440238,
-    "ast_hash": "7cb53d0d55d4e452d74eb2e0eda00ee7",
+    "mtime": 1780863125.309141,
+    "ast_hash": "e0acc20e10d6405829682b7b1f20f2c8",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/data/LocationCatalog.kt": {
-    "mtime": 1780756219.432586,
-    "ast_hash": "6f5837482061ae022cd58c3e8612b49a",
+    "mtime": 1780865929.0692515,
+    "ast_hash": "cbb69b1129906e92b683dd033503b4f3",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/data/LocationCatalogLoader.kt": {
-    "mtime": 1780756219.432586,
-    "ast_hash": "c4fd5805211347883c2fdb86e9911c65",
+    "mtime": 1780865929.0702515,
+    "ast_hash": "8badcab34e50ef1ff13e78210995d1f9",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/data/local/PrayerTimeMigrations.kt": {
-    "mtime": 1780857672.1364205,
+    "mtime": 1780865915.1804342,
     "ast_hash": "908e0cee0930f9078a5abbf602935825",
     "semantic_hash": ""
   },
@@ -325,23 +325,23 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/data/repository/LocalPrayerTimesRepository.kt": {
-    "mtime": 1780857675.050417,
+    "mtime": 1780865929.0700884,
     "ast_hash": "2f95bfdcad0e98991bb593bc4d618d8b",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/data/repository/PrayerTimesLocalEngine.kt": {
-    "mtime": 1780756219.4345858,
-    "ast_hash": "a35d91af87845461d392dbe5a9059492",
+    "mtime": 1780863377.3258178,
+    "ast_hash": "c470d29175432aebc58a05219603460f",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/di/AppConfigModule.kt": {
-    "mtime": 1780857675.050417,
+    "mtime": 1780865929.0832515,
     "ast_hash": "9116972d7db7f6332cfa1f05c078891f",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/di/DataModule.kt": {
-    "mtime": 1780756219.4358785,
-    "ast_hash": "1972d0eb816dfa445b4ee7ef52b23587",
+    "mtime": 1780863509.8770702,
+    "ast_hash": "c35a4e81eb0f844747610ac17439261a",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/di/DomainModule.kt": {
@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/domain/usecase/SearchLocationsUseCase.kt": {
-    "mtime": 1780756219.4393468,
-    "ast_hash": "fa18c8110416af251036eb78b00b665d",
+    "mtime": 1780865929.0692515,
+    "ast_hash": "78727ed9aae1ca9901c0f4548f534634",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/ui/LivePrayerCountdown.kt": {
@@ -365,8 +365,8 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/ui/city/CitySetupViewModel.kt": {
-    "mtime": 1780756219.4419138,
-    "ast_hash": "e0630ffdcc5e4765a9ffb7a06dfb480f",
+    "mtime": 1780865929.0862513,
+    "ast_hash": "2c09cd4b1b8677551b677a4d44b41da4",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/ui/city/WizardStep.kt": {
@@ -375,27 +375,27 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/ui/prayer/PrayerTimesUiState.kt": {
-    "mtime": 1780844461.027156,
+    "mtime": 1780858911.6095362,
     "ast_hash": "be404953bea479d6b4d3bd8b06642380",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/ui/prayer/PrayerTimesViewModel.kt": {
-    "mtime": 1780850025.39633,
-    "ast_hash": "9583d031e1950340b30a67e0b9f88d4d",
+    "mtime": 1780863296.8948927,
+    "ast_hash": "1525bac1687d59071ad6b6009b4ca4a6",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/ui/settings/AppSettingsViewModel.kt": {
-    "mtime": 1780848774.3685098,
-    "ast_hash": "c01a880cccec0cfc118b90e421bd6283",
+    "mtime": 1780858911.6102943,
+    "ast_hash": "8a169a5123ec769b3ed3f0055bf8c86c",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/data/LocationDataSourceTestSupport.kt": {
-    "mtime": 1780756219.5032752,
-    "ast_hash": "691ede664f6292409790b197538e7ce2",
+    "mtime": 1780865929.0692515,
+    "ast_hash": "86474cb8835e507cb868eb564babcbea",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/data/local/AppDatabaseMigrationTest.kt": {
-    "mtime": 1780857672.1364205,
+    "mtime": 1780865915.1804342,
     "ast_hash": "47cf38e68bf7fa775d574167dda4bfdd",
     "semantic_hash": ""
   },
@@ -410,17 +410,17 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/ui/city/CitySetupViewModelTest.kt": {
-    "mtime": 1780835241.1795285,
-    "ast_hash": "f32245b1b1a47a455f351d7211c5ca66",
+    "mtime": 1780859358.3097982,
+    "ast_hash": "6a69bff8f2cba036869407e5feea240d",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/ui/prayer/PrayerTimesViewModelTest.kt": {
-    "mtime": 1780756219.5075083,
-    "ast_hash": "9e5e06d6951dc4ab696f92eb3af4cf39",
+    "mtime": 1780865929.106251,
+    "ast_hash": "bb432b67377dfe5d264760427523cb19",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/ui/settings/AppSettingsViewModelTest.kt": {
-    "mtime": 1780778707.4689662,
+    "mtime": 1780858911.6138668,
     "ast_hash": "e35aafff6b1bede1cd1d6187369cb1a5",
     "semantic_hash": ""
   },
@@ -435,8 +435,8 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/resources/locations.json": {
-    "mtime": 1780778707.4406655,
-    "ast_hash": "7cb53d0d55d4e452d74eb2e0eda00ee7",
+    "mtime": 1780863127.5677645,
+    "ast_hash": "e0acc20e10d6405829682b7b1f20f2c8",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/scripts/export-locations-json.py": {
@@ -455,8 +455,8 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/data/repository/LocalLocationRepository.kt": {
-    "mtime": 1780756219.4345858,
-    "ast_hash": "9037a3dadc4d756f40b3d1d8891e75f2",
+    "mtime": 1780865929.0842514,
+    "ast_hash": "0d2116687da6b865f626e7f52afc608d",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/domain/model/Prayer.kt": {
@@ -465,13 +465,13 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/domain/repository/LocationRepository.kt": {
-    "mtime": 1780756219.4393468,
-    "ast_hash": "c343d46d3212ec0b77ed7f87465939c2",
+    "mtime": 1780865929.0842514,
+    "ast_hash": "c3bf3506ee6bee20d5dfe068621ab9b0",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/locale/AppLocale.kt": {
-    "mtime": 1780756219.4393468,
-    "ast_hash": "96f773092a7f673b57eb82cca774a4ab",
+    "mtime": 1780858911.6091127,
+    "ast_hash": "a5e0112ac9ebe377888f753fb85e95b4",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/ui/screens/LanguagePickerDialog.kt": {
@@ -495,7 +495,7 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/widget/PrayerTimeWidgetProvider.kt": {
-    "mtime": 1780857675.050417,
+    "mtime": 1780865929.0692515,
     "ast_hash": "284b1fb188a3c22ce4258b0eba5cf419",
     "semantic_hash": ""
   },
@@ -510,23 +510,23 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/widget/WidgetLocaleContext.kt": {
-    "mtime": 1780857675.050417,
+    "mtime": 1780865929.0692515,
     "ast_hash": "c8a4ac5ee3b7fa9e63539d86e57e7e83",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/widget/WidgetPrayerBoundaryReceiver.kt": {
-    "mtime": 1780857675.070417,
+    "mtime": 1780865929.0892513,
     "ast_hash": "f06429e370dfbed13887def6ba7fb696",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/widget/WidgetPrayerBoundaryScheduler.kt": {
-    "mtime": 1780857675.050417,
+    "mtime": 1780865929.0832515,
     "ast_hash": "5a55fb4aa53d468b19aa98f7c40e227c",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/widget/WidgetRemoteViewsBuilder.kt": {
-    "mtime": 1780857675.070417,
-    "ast_hash": "1a06bcd607b60d605339bcf767a96ec5",
+    "mtime": 1780865929.0842514,
+    "ast_hash": "5f0b0e3b810616246e028d3e3f2572ce",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/widget/WidgetSnapshot.kt": {
@@ -535,12 +535,12 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/widget/WidgetSnapshotLoader.kt": {
-    "mtime": 1780857675.050417,
-    "ast_hash": "1e1e1bedc5b1faeb737e61cad543202c",
+    "mtime": 1780861451.5623841,
+    "ast_hash": "9e5364f9ed5e03e015ca44a1dd3fa4f6",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/widget/WidgetUpdater.kt": {
-    "mtime": 1780857675.050417,
+    "mtime": 1780865929.0842514,
     "ast_hash": "bdbb6f40425a44d3affc5951d7967dbe",
     "semantic_hash": ""
   },
@@ -550,7 +550,7 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/worker/WidgetUpdateWorker.kt": {
-    "mtime": 1780857675.050417,
+    "mtime": 1780865929.0842514,
     "ast_hash": "9d4c9dab28e07837a57ff792cd625bf9",
     "semantic_hash": ""
   },
@@ -565,17 +565,17 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/widget/WidgetPrayerBoundarySchedulerTest.kt": {
-    "mtime": 1780857675.070417,
+    "mtime": 1780865929.1012511,
     "ast_hash": "2856ea44c71fb9519bb7a6701555401c",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/widget/WidgetSnapshotLoaderTest.kt": {
-    "mtime": 1780857675.070417,
-    "ast_hash": "8fbb66d3e368c908891e7e17fe4c63e0",
+    "mtime": 1780860756.6992373,
+    "ast_hash": "7a043d7b7f811b1e847dd8b48858211b",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/worker/WidgetRefreshWorkTest.kt": {
-    "mtime": 1780857675.070417,
+    "mtime": 1780865929.0872514,
     "ast_hash": "482c35dce36532b056193ab0b0f83693",
     "semantic_hash": ""
   },
@@ -630,7 +630,7 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/widget/WidgetRemoteViewsBuilderTest.kt": {
-    "mtime": 1780844461.254396,
+    "mtime": 1780858911.6150262,
     "ast_hash": "1a75892cada2f0e5c37fc445ead77987",
     "semantic_hash": ""
   },
@@ -645,12 +645,12 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/locale/TextNormalizer.kt": {
-    "mtime": 1780756219.4400914,
-    "ast_hash": "f9a52e71c5af31c7fdb85de33ce219a5",
+    "mtime": 1780865929.0770519,
+    "ast_hash": "da0efb4c05c87f1026d70a8f454f24a1",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/ui/screens/AnnualEventsView.kt": {
-    "mtime": 1780857675.050417,
+    "mtime": 1780865929.0842514,
     "ast_hash": "8f2554269f286cec12abc894d0d3d702",
     "semantic_hash": ""
   },
@@ -665,12 +665,12 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/locale/TextNormalizerTest.kt": {
-    "mtime": 1780756219.5059354,
-    "ast_hash": "31d568d55324887e1afd3da5c87a2fd6",
+    "mtime": 1780865929.0842514,
+    "ast_hash": "8433cc7b6a7a63511272b672e5e60488",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/testing/FakePrayerTimesRepository.kt": {
-    "mtime": 1780857675.070417,
+    "mtime": 1780865929.1012511,
     "ast_hash": "c53ba09a22811f1f933ace098b59ba1d",
     "semantic_hash": ""
   },
@@ -680,23 +680,23 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/testing/WidgetTestSupport.kt": {
-    "mtime": 1780857675.050417,
-    "ast_hash": "9f8c3d2850e57cb773d2ab08ff9a176b",
+    "mtime": 1780865929.0842514,
+    "ast_hash": "02467d212f300fee26a3088dead4b120",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/ui/prayer/PrayerTimesViewModelIntegrationTest.kt": {
-    "mtime": 1780756219.5073774,
-    "ast_hash": "0b532db22031d68306a5c58a97c6840d",
+    "mtime": 1780865929.0842514,
+    "ast_hash": "96d06987341f5fd1015fb1ac1e11ff76",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/widget/PrayerTimeWidgetProviderTest.kt": {
-    "mtime": 1780857115.9530241,
+    "mtime": 1780858911.6138668,
     "ast_hash": "ce7cd194a4de0c712dd856957c97f1a8",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/widget/WidgetSnapshotLoaderIntegrationTest.kt": {
-    "mtime": 1780857675.050417,
-    "ast_hash": "7625389e2eb341f2aa2d389ef4b08cc0",
+    "mtime": 1780865929.0842514,
+    "ast_hash": "19c0dddfe4b61cc2146ce01971e0646c",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/Audit.md": {
@@ -720,8 +720,8 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/ui/city/CityInputUiState.kt": {
-    "mtime": 1780756219.4417472,
-    "ast_hash": "2e516de2b7ac9816a53e4f2f215094ca",
+    "mtime": 1780865929.0842514,
+    "ast_hash": "0bf65520bf29feecb03b591bf10986fe",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/alarm/AdhanAlarmReceiverTest.kt": {
@@ -765,12 +765,12 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/scripts/qa-doze.sh": {
-    "mtime": 1780857675.0514731,
+    "mtime": 1780865929.0842514,
     "ast_hash": "fa7ad2d68ee82f5d85ee02ab9031c949",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/scripts/qa-offline.sh": {
-    "mtime": 1780857675.070417,
+    "mtime": 1780865929.0912514,
     "ast_hash": "d31e15b60923ec2962c0ecbc879f8cca",
     "semantic_hash": ""
   },
@@ -830,7 +830,7 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/PendingIntentRequestCodes.kt": {
-    "mtime": 1780857675.070417,
+    "mtime": 1780865929.1002512,
     "ast_hash": "8f8dfbbc8b014b2af5840d8e143e46ce",
     "semantic_hash": ""
   },
@@ -840,12 +840,12 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/alarm/ShowIntentFactory.kt": {
-    "mtime": 1780857675.050417,
+    "mtime": 1780865929.0770519,
     "ast_hash": "404f1a1c984be0e9f8e136f08096f11f",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/notification/AdhanSoundResolver.kt": {
-    "mtime": 1780857675.050417,
+    "mtime": 1780865929.0782514,
     "ast_hash": "dd99f9d74487a3f723ced0bc54551512",
     "semantic_hash": ""
   },
@@ -855,22 +855,22 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/data/local/CityConfigSerializerTest.kt": {
-    "mtime": 1780756219.504498,
-    "ast_hash": "ffb0332df54a5037a899c3599bd492c1",
+    "mtime": 1780863670.2449555,
+    "ast_hash": "ce046ffebb055c1e03231c4bd6115db0",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/ui/city/CitySetupViewModelAssetLoadTest.kt": {
-    "mtime": 1780756219.5070481,
-    "ast_hash": "e7b028c19969bd07a1df61ad448029db",
+    "mtime": 1780865929.0862513,
+    "ast_hash": "798e227ba46ccf5ca1c2853600f8b113",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/ui/screens/ComposeScreenSmokeTest.kt": {
-    "mtime": 1780844461.2540536,
-    "ast_hash": "0ce61a029b203abd0897d8c59bc403af",
+    "mtime": 1780859340.2510998,
+    "ast_hash": "1ecb08d373a1e107daa557c1cebbbd4d",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/worker/WidgetUpdateWorkerTest.kt": {
-    "mtime": 1780857675.0544171,
+    "mtime": 1780865929.0842514,
     "ast_hash": "26cb678ebefd59f30be3ba3e890245a3",
     "semantic_hash": ""
   },
@@ -905,7 +905,7 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/scripts/release-gate.sh": {
-    "mtime": 1780857675.070417,
+    "mtime": 1780865929.1012511,
     "ast_hash": "0b5aaf18c17f7cc2539ca4fdbe4b435b",
     "semantic_hash": ""
   },
@@ -965,172 +965,172 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/docs/screenshots/widgets-ar-dark.png": {
-    "mtime": 1780839385.9200506,
+    "mtime": 1780858911.6166399,
     "ast_hash": "2efb6cb7849983140c40179e7520d047",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/docs/screenshots/widgets-ar-light.png": {
-    "mtime": 1780839385.8802645,
+    "mtime": 1780858911.6170628,
     "ast_hash": "19dcdf3a44dfc10a2d628d3c6fd927a6",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/docs/screenshots/widgets-en-light.png": {
-    "mtime": 1780839385.848279,
+    "mtime": 1780858911.6177018,
     "ast_hash": "a1296e81f0fd0169d118c5215f556326",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/data/remote/AladhanApi.kt": {
-    "mtime": 1780778707.47605,
+    "mtime": 1780858911.6059546,
     "ast_hash": "be3830a84be358c48ec50fd0fbe3fb3b",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/data/remote/AladhanApiService.kt": {
-    "mtime": 1780778707.476249,
+    "mtime": 1780858911.6061788,
     "ast_hash": "ae6bbba60cd615e307ce1c74f908fd3c",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/data/remote/AladhanResponse.kt": {
-    "mtime": 1780778707.4763484,
+    "mtime": 1780858911.606329,
     "ast_hash": "8a4202b330882def12ea27afa39b5168",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/data/remote/NetworkMapper.kt": {
-    "mtime": 1780778707.4764025,
+    "mtime": 1780858911.6064177,
     "ast_hash": "ecb7b8afccece22e878868fd0056a335",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/data/remote/PrayerApi.kt": {
-    "mtime": 1780778707.4764662,
+    "mtime": 1780858911.6065114,
     "ast_hash": "f2298a176a52be5d552d6e95063e8b30",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/data/repository/OnlinePrayerTimesRepository.kt": {
-    "mtime": 1780778707.4765768,
-    "ast_hash": "be2a5a3508f5203020c7038547abbd0a",
+    "mtime": 1780865929.0692515,
+    "ast_hash": "9c53f17e4353afe6db778783443c0b92",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/di/CompassEntryPoint.kt": {
-    "mtime": 1780844461.0260453,
+    "mtime": 1780858911.6077914,
     "ast_hash": "ff1d60707e9d3bdf5331dad9dda4870e",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/di/NetworkModule.kt": {
-    "mtime": 1780778707.4766796,
+    "mtime": 1780858911.6086814,
     "ast_hash": "dc70f19883eeed6bf9793ff2a34a462b",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/di/RepositoryModule.kt": {
-    "mtime": 1780778707.476756,
+    "mtime": 1780858911.6088858,
     "ast_hash": "ef013db3288a0dae66383215bc11cca9",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/domain/calculator/QiblaCalculator.kt": {
-    "mtime": 1780844461.253398,
+    "mtime": 1780858911.608973,
     "ast_hash": "141464526d0297d1b02d0b73d7c55afe",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/notification/AdhanAlertPolicy.kt": {
-    "mtime": 1780778707.476856,
+    "mtime": 1780858911.6091805,
     "ast_hash": "ea517c30db938f78f582887c724d9143",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/sensor/CompassHeading.kt": {
-    "mtime": 1780855675.3688478,
+    "mtime": 1780858911.6093326,
     "ast_hash": "b8a548904a243442458789eaad0806eb",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/sensor/CompassSensor.kt": {
-    "mtime": 1780855677.029053,
-    "ast_hash": "9b4e1524be06be2d03d91c58f85da4ad",
+    "mtime": 1780858911.609387,
+    "ast_hash": "5f7ccee536f0139962070589f9da084e",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/ui/screens/QiblaScreen.kt": {
-    "mtime": 1780855923.9304674,
-    "ast_hash": "78abea6ffd9b39836ce8d4b053d888e9",
+    "mtime": 1780858911.810696,
+    "ast_hash": "e9e0b9c22c436dbe9d520a284677b4c6",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/widget/WidgetAlarmScheduling.kt": {
-    "mtime": 1780778707.476938,
+    "mtime": 1780858911.6102943,
     "ast_hash": "cbeda45f76beb643065ce1780f862c6d",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/widget/WidgetCountdownRefreshScheduler.kt": {
-    "mtime": 1780778707.4769924,
+    "mtime": 1780858911.6102943,
     "ast_hash": "644bfa7ef4e88208355ed09cd1d5c1f8",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/data/remote/AladhanApiLiveIntegrationTest.kt": {
-    "mtime": 1780778707.477063,
-    "ast_hash": "0dafcd6b3a54f428d7fd71beada10391",
+    "mtime": 1780863203.167124,
+    "ast_hash": "c049fbf33b31ab9fbd9c6201a2d8ad89",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/data/remote/AladhanApiMockWebServerTest.kt": {
-    "mtime": 1780778707.477149,
+    "mtime": 1780858911.6125767,
     "ast_hash": "ac1d3a7d558daec463683df3ac916ba6",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/data/remote/AladhanResponseParsingTest.kt": {
-    "mtime": 1780778707.4772093,
+    "mtime": 1780858911.6125767,
     "ast_hash": "d2b7daf7c1ed848ab7a7542f6d3ff263",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/data/remote/AladhanTestFixtures.kt": {
-    "mtime": 1780778707.4772449,
+    "mtime": 1780858911.6125767,
     "ast_hash": "7bfc200b937468921f62b302a483a1a4",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/data/remote/LiveAladhanTestSupport.kt": {
-    "mtime": 1780778707.4772806,
-    "ast_hash": "c93a0c640f45873e33cdb59d3e69a506",
+    "mtime": 1780863199.3835492,
+    "ast_hash": "e353b88ad62ac8107767d3d665a2d62d",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/data/remote/NetworkMapperTest.kt": {
-    "mtime": 1780778707.4773133,
+    "mtime": 1780858911.6127532,
     "ast_hash": "74aa8e422ec2d9d9c77927598e8ac7ee",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/data/remote/ScenarioPrayerApi.kt": {
-    "mtime": 1780778707.4773483,
+    "mtime": 1780858911.6127532,
     "ast_hash": "07ab2fec8b16da735b797e085c518a19",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/data/repository/OnlinePrayerTimesRepositoryTest.kt": {
-    "mtime": 1780778707.47744,
+    "mtime": 1780858911.6127532,
     "ast_hash": "f237398ac662bd72ca58f5b68580866c",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/domain/calculator/QiblaCalculatorTest.kt": {
-    "mtime": 1780844461.0278573,
+    "mtime": 1780858911.6127532,
     "ast_hash": "528fb18cedefb1402aa52ed3a5dfc2c4",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/notification/AdhanAlertPolicyTest.kt": {
-    "mtime": 1780778707.4775028,
+    "mtime": 1780858911.6127532,
     "ast_hash": "7dc165e3b06e28cbbace693778bab374",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/sensor/CompassHeadingTest.kt": {
-    "mtime": 1780855692.0815196,
+    "mtime": 1780858911.6127532,
     "ast_hash": "5f3c1b5155ad336cace051e7cd1a0536",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/widget/WidgetReadmeScreenshotExportTest.kt": {
-    "mtime": 1780844461.2541728,
+    "mtime": 1780858911.6147912,
     "ast_hash": "d6fe09741c5d439603a8fc7a4efa0ed2",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/widget/WidgetRemoteViewsBuilderLocaleTest.kt": {
-    "mtime": 1780844461.2542806,
+    "mtime": 1780858911.6147912,
     "ast_hash": "e0b0dda47bb22d8d7025ca6028ae191f",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/resources/aladhan/berlin_2024-06-03.json": {
-    "mtime": 1780778707.4775515,
+    "mtime": 1780858911.6150262,
     "ast_hash": "5a2d6cc28040980bfda20be371c93280",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/resources/aladhan/mecca_2024-06-03.json": {
-    "mtime": 1780778707.4775865,
+    "mtime": 1780858911.615381,
     "ast_hash": "0caea003abf1ecbf93dcc34440026515",
     "semantic_hash": ""
   },
@@ -1140,7 +1140,7 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/scripts/export-readme-widget-screenshots.sh": {
-    "mtime": 1780839288.0904546,
+    "mtime": 1780858911.6521099,
     "ast_hash": "aeafa6d9f12f3d93c18bc0a1afc7a8a0",
     "semantic_hash": ""
   },
@@ -1155,17 +1155,17 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/.github/dependabot.yml": {
-    "mtime": 1780770893.0477715,
-    "ast_hash": "78737d9f80abe43d69c05d89ebbc9fc0",
+    "mtime": 1780866911.209173,
+    "ast_hash": "67cd55319b3fd232b2e623da0cb17f6d",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/.github/pull_request_template.md": {
-    "mtime": 1780857675.050417,
+    "mtime": 1780865929.0842514,
     "ast_hash": "40b63ce2b922d781d8027d4398513e8a",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/CONTRIBUTING.md": {
-    "mtime": 1780857675.070417,
+    "mtime": 1780865929.1012511,
     "ast_hash": "3d4eab5acd7c7720d793191022c686da",
     "semantic_hash": ""
   },
@@ -1175,18 +1175,103 @@
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/docs/screenshots/widget-medium-ar-dark.png": {
-    "mtime": 1780839385.8041143,
+    "mtime": 1780858911.6157677,
     "ast_hash": "1af8ff7e70a67e280677daf5d234f8b0",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/docs/screenshots/widget-medium-ar-light.png": {
-    "mtime": 1780839385.6307752,
+    "mtime": 1780858911.6157677,
     "ast_hash": "563bc9f14f701df2a0140b2eacdd7bc3",
     "semantic_hash": ""
   },
   "/home/karimodora/Documents/GitHub/PrayerTime-/docs/screenshots/widget-medium-en-light.png": {
-    "mtime": 1780839385.3236558,
+    "mtime": 1780858911.6157677,
     "ast_hash": "c5b5c8a1c3f3d6dcbcf02333174e796c",
+    "semantic_hash": ""
+  },
+  "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/assets/cities_ar.json": {
+    "mtime": 1780863126.8285491,
+    "ast_hash": "e9ef101eb8fc191ab1dbfc09165ab64c",
+    "semantic_hash": ""
+  },
+  "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/domain/model/CityListItem.kt": {
+    "mtime": 1780858803.8345191,
+    "ast_hash": "1e5fadc8fffdaec1d17058385a88f644",
+    "semantic_hash": ""
+  },
+  "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/domain/model/PrayerWindow.kt": {
+    "mtime": 1780863402.959046,
+    "ast_hash": "6931dcdd2e600648bbaf2c7905aa4edd",
+    "semantic_hash": ""
+  },
+  "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/domain/util/LocationNames.kt": {
+    "mtime": 1780865929.0842514,
+    "ast_hash": "38e50e7ccaa61f2e9319a58c99703351",
+    "semantic_hash": ""
+  },
+  "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/main/java/com/prayertime/notification/AdhanAlertDeliverer.kt": {
+    "mtime": 1780864401.7773292,
+    "ast_hash": "58889d9e5008c55ebe461e0c5444877f",
+    "semantic_hash": ""
+  },
+  "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/data/remote/LiveAladhanTestSupportTest.kt": {
+    "mtime": 1780863204.628604,
+    "ast_hash": "b19e18d32d388f2fd99b08481055d48f",
+    "semantic_hash": ""
+  },
+  "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/data/repository/LocalLocationRepositoryFormatTest.kt": {
+    "mtime": 1780860729.2727497,
+    "ast_hash": "b11c67c6e09356064d025f40c9906fec",
+    "semantic_hash": ""
+  },
+  "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/domain/model/PrayerWindowTest.kt": {
+    "mtime": 1780861420.2653596,
+    "ast_hash": "3075bcc24a257f0eac2760210695f09c",
+    "semantic_hash": ""
+  },
+  "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/domain/usecase/SearchLocationsUseCaseTest.kt": {
+    "mtime": 1780859986.0911164,
+    "ast_hash": "096807ad51520c4193fcf0b2ea97693d",
+    "semantic_hash": ""
+  },
+  "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/domain/util/LocationNamesTest.kt": {
+    "mtime": 1780863253.3484526,
+    "ast_hash": "34fe86387b39ceff563678bef0640744",
+    "semantic_hash": ""
+  },
+  "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/locale/AppLocaleTest.kt": {
+    "mtime": 1780858911.6127532,
+    "ast_hash": "e334c2d13b1b7d37d619a806c85cb25b",
+    "semantic_hash": ""
+  },
+  "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/notification/AdhanSoundResolverTest.kt": {
+    "mtime": 1780865929.0912514,
+    "ast_hash": "7bf25c9bb4766567ac4a7193b13063a5",
+    "semantic_hash": ""
+  },
+  "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/ui/HijriDateFormatterTest.kt": {
+    "mtime": 1780865929.0832515,
+    "ast_hash": "56c285b72e80852a400a6760833042c7",
+    "semantic_hash": ""
+  },
+  "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/java/com/prayertime/ui/PrayerTimesErrorMapperTest.kt": {
+    "mtime": 1780865929.0842514,
+    "ast_hash": "d50f93aba88a1a9d70a4ed29a27b8b4f",
+    "semantic_hash": ""
+  },
+  "/home/karimodora/Documents/GitHub/PrayerTime-/app/src/test/resources/cities_ar.json": {
+    "mtime": 1780863127.2201157,
+    "ast_hash": "e9ef101eb8fc191ab1dbfc09165ab64c",
+    "semantic_hash": ""
+  },
+  "/home/karimodora/Documents/GitHub/PrayerTime-/scripts/.city-ar-cache.json": {
+    "mtime": 1780859660.0618253,
+    "ast_hash": "0d5eaf5918fe7f766845cea7d2e6d9e8",
+    "semantic_hash": ""
+  },
+  "/home/karimodora/Documents/GitHub/PrayerTime-/scripts/generate-cities-ar.py": {
+    "mtime": 1780858832.2047498,
+    "ast_hash": "028558e9b5c0b77bb3534f33318d59bf",
     "semantic_hash": ""
   }
 }

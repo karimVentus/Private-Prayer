@@ -23,9 +23,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
-import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
@@ -84,48 +82,57 @@ class PrayerTimesViewModelTest {
         Dispatchers.resetMain()
     }
 
-    private fun viewModel(): PrayerTimesViewModel =
+    private fun viewModel(enableCountdownTickerLoop: Boolean = false): PrayerTimesViewModel =
         PrayerTimesViewModel(repository, locationRepository, preferences, adhanAlertDeliverer, widgetUpdater).also {
+            it.enableCountdownTickerLoop = enableCountdownTickerLoop
             activeViewModels.add(it)
         }
+
+    /** Stops the 1s countdown loop before [runTest] drains the scheduler (avoids infinite delay hang). */
+    private fun disposeVm(vm: PrayerTimesViewModel) {
+        vm.clearViewModelForTest()
+        activeViewModels.remove(vm)
+    }
 
     @Test
     fun `clearCity sets NoCity immediately`() =
         runTest(testDispatcher) {
             val vm = viewModel()
-            advanceUntilIdle()
 
             vm.clearCity()
 
             assertEquals(PrayerTimesUiState.NoCity, vm.uiState.value)
             assertNull(vm.liveCountdown.value)
+            disposeVm(vm)
         }
 
     @Test
     fun `clearCity survives offlineOnly re-emit from datastore clear`() =
         runTest(testDispatcher) {
             val vm = viewModel()
-            advanceUntilIdle()
             vm.seedSuccessStateForTest(hamelnConfig, hamelnSuccessResult())
 
             vm.clearCity()
-            advanceUntilIdle()
 
             assertEquals(PrayerTimesUiState.NoCity, vm.uiState.value)
             assertNull(citySource.cityConfig.first())
+            disposeVm(vm)
         }
 
     @Test
-    fun `external config null while showing times transitions to NoCity`() {
-        runBlocking { citySource.save(hamelnConfig) }
-        val vm = viewModel()
-        assertTrue(vm.uiState.value is PrayerTimesUiState.Success)
+    fun `external config null while showing times transitions to NoCity`() =
+        runTest(testDispatcher) {
+            citySource.save(hamelnConfig)
+            repository.fetchOverride = { FakePrayerTimesRepository.defaultSuccessResult() }
+            val vm = viewModel()
+            assertTrue(vm.uiState.value is PrayerTimesUiState.Success)
 
-        citySource.emitCityConfig(null)
+            citySource.emitCityConfig(null)
 
-        assertEquals(PrayerTimesUiState.NoCity, vm.uiState.value)
-        assertNull(vm.liveCountdown.value)
-    }
+            assertEquals(PrayerTimesUiState.NoCity, vm.uiState.value)
+            assertNull(vm.liveCountdown.value)
+            disposeVm(vm)
+        }
 
     @Test
     fun `city not found keeps FetchError after config cleared`() =
@@ -133,10 +140,10 @@ class PrayerTimesViewModelTest {
             citySource.save(hamelnConfig)
             repository.fetchOverride = { PrayerTimesResult.Error(FetchError.CITY_NOT_FOUND) }
             val vm = viewModel()
-            advanceUntilIdle()
 
             assertTrue(vm.uiState.value is PrayerTimesUiState.FetchError)
             assertNull(citySource.cityConfig.first())
+            disposeVm(vm)
         }
 
     // --- Countdown: liveCountdown emitted after fetch ---
@@ -158,7 +165,7 @@ class PrayerTimesViewModelTest {
                 countdown!!.nextPrayer in prayerNames,
             )
             assertTrue("countdownMillis must be non-negative", countdown.countdownMillis >= 0L)
-            vm.clearCity()
+            disposeVm(vm)
         }
 
     @Test
@@ -173,6 +180,7 @@ class PrayerTimesViewModelTest {
 
             assertEquals(PrayerTimesUiState.NoCity, vm.uiState.value)
             assertNull(vm.liveCountdown.value)
+            disposeVm(vm)
         }
 
     @Test
@@ -181,10 +189,10 @@ class PrayerTimesViewModelTest {
             citySource.save(hamelnConfig)
             repository.fetchOverride = { PrayerTimesResult.Error(FetchError.NETWORK) }
             val vm = viewModel()
-            advanceUntilIdle()
 
             assertTrue(vm.uiState.value is PrayerTimesUiState.FetchError)
             assertNull(vm.liveCountdown.value)
+            disposeVm(vm)
         }
 
     @Test
@@ -238,10 +246,10 @@ class PrayerTimesViewModelTest {
                     countdown = staleCountdown,
                 )
             }
-            val vm = viewModel()
+            val vm = viewModel(enableCountdownTickerLoop = true)
             val live = vm.liveCountdown.value!!.countdownMillis
             assertTrue("ticker should replace stale fetch countdown", live < staleCountdown - 5_000L)
-            vm.clearCity()
+            disposeVm(vm)
         }
 
     @Test
@@ -268,12 +276,13 @@ class PrayerTimesViewModelTest {
                         countdown = 1_000L,
                     )
                 } else {
-                    FakePrayerTimesRepository.defaultSuccessResult()
+                    // Silent refresh failure — keeps Success UI without restarting the 1s ticker loop.
+                    PrayerTimesResult.Error(FetchError.NETWORK)
                 }
             }
-            val vm = viewModel()
+            val vm = viewModel(enableCountdownTickerLoop = true)
             assertEquals(2, fetchCount)
-            vm.clearCity()
+            disposeVm(vm)
         }
 
     @Test
@@ -297,9 +306,9 @@ class PrayerTimesViewModelTest {
                     countdown = 3_600_000L,
                 )
             }
-            val vm = viewModel()
+            val vm = viewModel(enableCountdownTickerLoop = true)
             verify(atLeast = 2) { widgetUpdater.requestImmediateUpdate() }
-            vm.clearCity()
+            disposeVm(vm)
         }
 
     @Test
@@ -316,13 +325,11 @@ class PrayerTimesViewModelTest {
                     set(Calendar.MILLISECOND, 0)
                 }.timeInMillis
             var fetchCount = 0
-            citySource.save(hamelnConfig)
             repository.fetchOverride = {
                 fetchCount++
-                FakePrayerTimesRepository.defaultSuccessResult()
+                PrayerTimesResult.Error(FetchError.NETWORK)
             }
             val vm = viewModel()
-            fetchCount = 0
             vm.seedSuccessStateForTest(
                 hamelnConfig,
                 PrayerTimesResult.Success(
@@ -333,7 +340,7 @@ class PrayerTimesViewModelTest {
             )
             vm.refreshIfPrayerDayStale()
             assertEquals(1, fetchCount)
-            vm.clearCity()
+            disposeVm(vm)
         }
 }
 

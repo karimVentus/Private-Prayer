@@ -16,8 +16,6 @@ import com.prayertime.ui.HijriDateFormatter
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -100,13 +98,11 @@ class WidgetRemoteViewsBuilderTest {
         val widget = applyWidget(builder.build(readySnapshot(hijri, times), WidgetSize.LARGE))
         assertEquals("Hameln, DE", widget.text(R.id.widget_city))
         assertEquals(HijriDateFormatter.format(hijri, context.resources), widget.text(R.id.widget_hijri))
-        assertEquals(context.getString(R.string.fajr), widget.text(R.id.widget_prayer_0))
+        assertEquals(context.getString(R.string.widget_m_fajr), widget.text(R.id.widget_prayer_0))
         assertEquals("04:00", widget.text(R.id.widget_time_0))
-        assertEquals(context.getString(R.string.dhuhr), widget.text(R.id.widget_prayer_2))
+        assertEquals(context.getString(R.string.widget_m_dhuhr), widget.text(R.id.widget_prayer_2))
         assertEquals("12:30", widget.text(R.id.widget_time_2))
-        val countdown = widget.text(R.id.widget_countdown_0)
-        assertTrue(countdown.isNotEmpty())
-        assertTrue(countdown.contains(context.getString(R.string.countdown_hours)))
+        assertEquals("", widget.text(R.id.widget_countdown_0))
     }
 
     @Test
@@ -119,27 +115,6 @@ class WidgetRemoteViewsBuilderTest {
         assertEquals("12:30", widget.text(R.id.widget_time_2))
         // Medium widget shows no countdown column
         assertEquals("", widget.text(R.id.widget_countdown_0))
-    }
-
-    @Test
-    fun build_readyLarge_countdownIgnoresStaleSnapshotValue() {
-        val times = sampleTimes()
-        val snapshot =
-            readySnapshot(HijriCalculator.gregorianToHijri(2024, 6, 4), times)
-                .copy(countdownMillis = 27 * 60_000L)
-        val widget = applyWidget(builder.build(snapshot, WidgetSize.LARGE))
-        val countdown = widget.text(R.id.widget_countdown_0)
-
-        // The builder must recalculate from the real timestamp — not use the stale 27-minute value.
-        // We verify intent (not "27", contains hours) rather than the exact string, because
-        // System.currentTimeMillis() is called independently inside the builder and in the test,
-        // and a millisecond difference at a minute boundary would produce a false mismatch.
-        assertFalse("Countdown must not use the stale 27-minute value", countdown.contains("27"))
-        assertTrue("Countdown must be non-empty", countdown.isNotEmpty())
-        assertTrue(
-            "Countdown must show hours (FAJR is ~2 h away)",
-            countdown.contains(context.getString(R.string.countdown_hours)),
-        )
     }
 
     // ── helpers ───────────────────────────────────────────────────────────────

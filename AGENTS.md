@@ -28,6 +28,7 @@ PrayerTime-/
 │   │   ├── model/          # Prayer.kt (SHURUQ), FetchError, SaveCityError, HijriModels.kt, …
 │   │   ├── repository/     # LocationRepository (interface)
 │   │   ├── calculator/     # PrayerTimeCalculator, LocalPrayerTimeCalculator, HijriCalculator, QiblaCalculator
+│   │   ├── util/           # LocationNames (AR city/country display + search folding)
 │   │   └── usecase/        # SearchLocationsUseCase
 │   ├── sensor/             # CompassSensor, CompassHeading (accel+mag, portrait Qibla)
 │   ├── locale/             # AppLocale, TextNormalizer (diacritic folding)
@@ -64,7 +65,7 @@ PrayerTime-/
 | 1F Privacy / offline-only | Done — offline_only flag, privacy UI, fallback rejection, diacritic lookup, tests | ✅ | — |
 | 2A Countdown | Done — live 1s ticker, wrap-to-tomorrow, city-TZ day-change refresh | ✅ | — |
 | 2B–2D | Adhan alarms, permissions, WorkManager daily refresh | Done | Manual QA signed off (Jun 2026) |
-| 2E | Unit tests (midnight, city TZ, DST, alarms, migrations, workers, engine) | Done — 303 shared / 344 online (41 online-only) | — |
+| 2E | Unit tests (midnight, city TZ, DST, alarms, migrations, workers, engine) | Done — **414** `@Test` in `app/src/test/java/` (64 files) | — |
 | 2F | Architecture hardening — ViewModel decomposition, city-scoped cache, async init, timezone consistency | Done | — |
 | 2G | Hilt DI, worker/engine tests, cache invalidation, About refresh | Done | — |
 | 2 manual | Adhan exact/fallback, emulator | Done | — |
@@ -75,7 +76,7 @@ PrayerTime-/
 | 5E | UI polish — spacing, RTL, language picker, **three app themes**, Settings screen, portrait lock, Compose smoke | Done (Jun 2026) | — |
 | 5 | Manual QA hardening — 5A, 5B, 5C.1/5C.3, 5F.1/5F.2 signed off (Jun 2026); 5A–5E automated (74); TLS; USE_EXACT_ALARM | **Active** | 5C.2, 5D |
 | 6 | Release — R8, signed APK/AAB | **Done (`v1.0.0`)** | Tagged Jun 2026; deferred QA: 5C.2, 5D |
-| 7A | Qibla compass — city bearing + portrait accel/mag sensor, align feedback | **Done (user sign-off Jun 2026)** | Merge `feat/qibla-compass` pending CI; adhan-permission WIP in `git stash` |
+| 7A | Qibla compass — city bearing + portrait accel/mag sensor, align feedback | **Done** — PR **#11** + **#12** merged Jun 2026 | — |
 
 ## Architecture (post-2F hardening)
 
@@ -161,7 +162,7 @@ After structural changes or phase completion:
 OPENAI_API_KEY="" graphify update . --no-cluster
 ```
 
-Details: [`graphity.md`](graphity.md). Diagrams: [`PHASED_PLAN.md`](PHASED_PLAN.md). **Last run:** 2026-06-07 — **3561** nodes, **63159** edges (**7A** Qibla compass).
+Details: [`graphity.md`](graphity.md). Diagrams: [`PHASED_PLAN.md`](PHASED_PLAN.md). **Last run:** 2026-06-07 — **5199** nodes, **69488** edges (**7A** merge + audit v2 / PR **#12**).
 
 ## Orientation
 

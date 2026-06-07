@@ -1,11 +1,11 @@
 # Prayer Time Widget — Phased Implementation Plan
 
-> **Current state:** Phases **0–6** complete (**v1.0.0** tagged Jun 2026). **Phase 7A** Qibla compass — **user signed off** on `feat/qibla-compass` (Jun 2026); merge pending green CI. **5C.2**, **5D** manual QA deferred. **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
+> **Current state:** Phases **0–6** complete (**v1.0.0** tagged Jun 2026). **Phase 7A** Qibla merged to `main` via PR **#11** (Jun 2026). Post-7A audit remediation on draft PR **#12** (`feat/qibla-compass`, 9 commits ahead of `main`). **5C.2**, **5D** manual QA deferred. **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
 > **Build:** Single APK `com.prayertime` (~23 MB debug). Privacy via Settings **offline-only toggle** (`offline_only`); no separate offline flavor.
 > **Calculation:** Umm al-Qura + Shafi + twilight (≥48°N); `adhan-java` when offline-only; Aladhan API when user disables offline mode.
 > **Tests:** `./gradlew testDebugUnitTest` — run `./scripts/smoke-ci.sh` for full gate.
 > **Docs language:** English. **Architecture graphs:** Graphify + Mermaid below.
-> **Phase gate (2026-06-07):** **5A** + **5B** + **5C.1/5C.3** + **5F.1/5F.2** manual QA signed off (emulator); **5A–5E** automated tests (**303** shared / **344** online); TLS pinning; audit **100/100**. **Phase 6** complete — **`v1.0.0`** tagged. **5C.2**, **5D** still open (non-blocking).
+> **Phase gate (2026-06-07):** **5A** + **5B** + **5C.1/5C.3** + **5F.1/5F.2** manual QA signed off (emulator); **414** JVM unit tests (`testDebugUnitTest`); TLS pinning. **Phase 6** complete — **`v1.0.0`** tagged. **5C.2**, **5D** still open (non-blocking).
 
 ---
 
@@ -14,11 +14,11 @@
 | Area | Status |
 |------|--------|
 | **Phase 2H** pre–Phase 3 polish | **Complete** — merged to main |
-| **Phase 3** widget | **Complete** — four providers, locale/digits, `STALE` cache fallback, `getCachedTodayTimes`, provider E2E + real worker stack (~22 widget-adjacent tests) |
+| **Phase 3** widget | **Complete** — **two** providers (medium 5×1 + large), locale/digits, `STALE` cache fallback, `getCachedTodayTimes`, provider E2E + real worker stack (~30 widget-adjacent tests) |
 | **Phase 4** Hijri + events | **Complete** — `HijriCalculator`, 10 events, Room v4, main + calendar + M/L widget, 19 tests |
 | **Phase 5G** audit / architecture | **Complete (Jun 2026)** — see §5G; `FetchError`/`SaveCityError`, `Prayer.SHURUQ`, `TextNormalizer`, catalog validation, online save fallback, test infra (FakeRepo, VM integration, MockWebServer) |
 | **Phase 5E** UI polish | **Complete (Jun 2026)** — theme/spacing, edge-to-edge, RTL, language picker, calendar layout, portrait lock; see §5E |
-| **Phase 5** hardening | **Done** — 5A–5E automated tests, sound picker, per-prayer mute, audit remediation (Jun 2026), Room v1–v4 schema tests, smoke-ci green (**303** / **344** JVM tests). |
+| **Phase 5** hardening | **Done** — 5A–5E automated tests, sound picker, per-prayer mute, audit remediation (Jun 2026), Room v1–v4 schema tests, smoke-ci green (**414** JVM tests). |
 | **TLS pinning (6.8)** | **Done** | leaf + SPKI pins for aladhan.com in network_security_config.xml; rotation script at scripts/verify-aladhan-pins.sh |
 | **BootCompletedReceiver fix** | **Done** | null-city and notifications-denied branches now cancel stale alarms |
 | **Adhan sound picker** | **Done** | 8 sounds, live preview, persisted preference, AR/EN labels |
@@ -30,15 +30,17 @@
 | **5C.1 / 5C.3 offline QA** | **Done (Jun 2026)** | 5C.1 airplane-at-launch cache hit (online flavor); 5C.3 network restore, same six prayer clocks online vs offline |
 | **Widget picker previews** | **Done (5E.28)** | `widget_preview_*` layouts + `xml-v31` `previewLayout`; static light sample (runtime widgets follow user theme) |
 | **Launcher icon** | **Done (5E.29)** | `ic_launcher_foreground` vector on green adaptive icon (replaces solid-white foreground) |
-| **App themes (5E.16–19)** | **Done (Jun 2026)** | Light / Green / Dark — `AppTheme`, `ThemePalettes`, Settings picker, calendar + all four widgets; per-theme column highlight on M/L widgets |
+| **App themes (5E.16–19)** | **Done (Jun 2026)** | Light / Green / Dark — `AppTheme`, `ThemePalettes`, Settings picker, calendar + M/L widgets; per-theme column highlight on M/L widgets |
 | **M-widget layout (5E.31–33)** | **Done (Jun 2026)** | 5×1 grid; 3 equal bands (header / names / times); short labels; **14sp** names+times; **time-only** (no column countdown); unified next-prayer highlight (`widget_highlight_*` overlay); phone QA signed off |
 | **5F.1 API 23 QA** | **Done (Jun 2026)** | `PrayerTimeAPI23` emulator — signed release APK; AR prayer screen + Settings; M widget; adhan toggle (`ic_stat_adhan` fix) |
 | **5F.2 API 34 QA** | **Done (Jun 2026)** | `PrayerTimeEmulator` (API 34) — release smoke, language picker, widget polish; emulator partial pass accepted |
 | **Phase 6** release | **Done (`v1.0.0`)** | R8 + signed APK/AAB (~12 MB); PR #22 merged; tag pushed Jun 2026 |
 | **i18n** | **Done (5E)** — EN/AR + RTL; Hijri calendar grid forced LTR (Sat→Fri); edge-to-edge insets |
 | **Orientation** | **Portrait-only** — `android:screenOrientation="portrait"` on `MainActivity` (no landscape layouts) |
-| **Phase 7A** Qibla compass | **Done (user sign-off Jun 2026)** — city-coordinate bearing + portrait accel/mag compass; dual-layer dial/arrow rotation; align haptic; EN/AR; branch `feat/qibla-compass` (`5419718`+). **No GPS.** |
-| **Gradle 9.5** (dependabot) | **Merged into 7A branch** — `gradle-wrapper` 9.5.1; CI test fixes (`offlineOnly` default, widget provider `Unconfined`, prefs `commit()` cache). |
+| **Phase 7A** Qibla compass | **Merged (`main`, PR #11 Jun 2026)** — city-coordinate bearing + portrait accel/mag compass; dual-layer dial/arrow rotation; align haptic; EN/AR (`5419718`). **No GPS.** |
+| **7A follow-up (PR #12)** | **Merged (Jun 2026)** — audit v2 fixes: `LocationNames` → `domain/util`, startup language sync (no `runBlocking`), VM test seams, live HTTP opt-in, `MR_Zouerate` dedupe, M-widget empty `widget_prayer_block` GONE, `MediaPlayer` alarm attrs, `fallbackToDestructiveMigration`, +19 tests |
+| **Gradle 9.5** | **Done** — `gradle-wrapper` 9.5.1 on `main`. **Dependabot AGP 9 / Compose BOM 2026 / coroutines 1.11** — close; pin stack AGP **8.7.3** + Kotlin **2.0.21** until coordinated upgrade |
+| **Arabic city names** | **Done (7A branch)** — `cities_ar.json` + `LocationNames`; Arabic search/header/widget when app language is `ar` |
 
 ---
 
@@ -176,7 +178,7 @@ Maintain an up-to-date code graph after each phase gate. Full CLI lifecycle: [`g
 
 **Agent rule:** Run Graphify update when architecture boundaries change (new packages, repository paths, or phase completion).
 
-> **Last Graphify run:** 2026-06-07 — **3561** nodes, **63159** edges (post **7A** Qibla compass). Commit `graphify-out/` with structural PRs.
+> **Last Graphify run:** 2026-06-07 — **5199** nodes, **69488** edges (post **7A** merge + PR **#12** audit remediation: `domain/util/LocationNames`, `AdhanAlertDeliverer`, test seams). Commit `graphify-out/` with structural PRs.
 
 ---
 
@@ -194,9 +196,10 @@ Maintain an up-to-date code graph after each phase gate. Full CLI lifecycle: [`g
 - [x] **7A.4** `QiblaScreen` — dual rotation: dial `-azimuth`, arrow `qiblaBearing - azimuth`; 210ms smooth; blue top marker; green **Facing Qibla ✓** + one-shot haptic
 - [x] **7A.5** Calibration UX — tips-only (figure-8 instructions); removed fake progress / auto-complete
 - [x] **7A.6** `CompassEntryPoint` (Hilt); entry from `PrayerTimesScreen`; EN/AR strings (upright phone, rotate body not device)
-- [x] **7A.7** CI hardening — `offlineOnly` DataStore default `true`; `PrayerTimeWidgetProviderTest` `Dispatchers.Unconfined`; `AppPreferencesDataSource` cache `commit()` + test `@Before` reset
-- [x] **7A.8** Merge `main` into branch (Gradle 9.5.1, dependabot); **372** JVM unit tests locally
-- [ ] **7A.9** Merge PR to `main` after Smoke CI green
+- [x] **7A.7** CI hardening — `offlineOnly` DataStore default `true`; `PrayerTimeWidgetProviderTest` `Dispatchers.Unconfined`; theme/language SharedPreferences mirror via `apply()` + `@WorkerThread`
+- [x] **7A.8** Merge `main` into branch (Gradle 9.5.1); **414** JVM unit tests (`testDebugUnitTest`)
+- [x] **7A.9** Merge PR **#11** to `main` (Qibla core) — Jun 2026
+- [x] **7A.10** Merge PR **#12** (post-7A audit remediation) — merged Jun 2026
 
 ### Out of scope (7A)
 
@@ -664,7 +667,7 @@ Phases **0–4** are complete. **5G** and **5E** code complete (portrait-only). 
 
 ### Quality Gate (Phase 5G)
 
-- [x] `./gradlew testOfflineDebugUnitTest testOnlineDebugUnitTest` — **303 / 344** green
+- [x] `./gradlew testDebugUnitTest` — **414** green (single APK / single test source set)
 - [x] `./scripts/smoke-ci.sh` green
 - [x] Graphify updated (2026-06-04 post-5G)
 - [x] AGENTS.md + PHASED_PLAN.md test counts and Room v4
@@ -695,6 +698,21 @@ Phases **0–4** are complete. **5G** and **5E** code complete (portrait-only). 
 - [x] **5G.41** Widget bind-time theme — `readAppThemeSync()` SharedPreferences mirror; `widget_initial_*` + sync `applyThemeChrome()`
 - [x] **5G.42** `LocationDataSource` — `loadGeneration` token; stale async loads ignored after `resetForTests()`
 - [x] **5G.43** Graphify updated — **3321** nodes, **50433** edges (2026-06-06)
+
+#### 5G addendum — Jun 7 session (audit v2 + 7A follow-up)
+
+- [x] **5G.44** `LocationNames` → `domain/util/` — removes domain→locale leak in `SearchLocationsUseCase`
+- [x] **5G.45** Startup language — `resolveLanguageTagForStartupSync()` (no `runBlocking` on main); async DataStore seed on IO
+- [x] **5G.46** `PrayerTimesViewModel` test seams — `seedSuccessStateForTest` / `seedLiveCountdownForTest` (no reflection)
+- [x] **5G.47** Live HTTP tests opt-in — `PRAYERTIME_LIVE_HTTP=1`; `LiveAladhanTestSupportTest`
+- [x] **5G.48** `AdhanPermissions.canScheduleExactAlarms` delegates to `PrayerAlarmScheduler.canUseExactAlarms`
+- [x] **5G.49** `locations.json` — remove duplicate `MR_Zouerat` (keep `MR_Zouerate`)
+- [x] **5G.50** `OnlinePrayerTimesRepository` — `REQUIRED_PRAYER_COUNT = 6` (not `Prayer.entries.size`)
+- [x] **5G.51** Room dev safety — `fallbackToDestructiveMigration()` in `DataModule`
+- [x] **5G.52** M-widget empty state — `bindEmpty(MEDIUM)` hides `widget_prayer_block`
+- [x] **5G.53** `AdhanAlertDeliverer` — `MediaPlayer()` + `setAudioAttributes` before `prepare()` (API 21–28 alarm routing)
+- [x] **5G.54** Test coverage — `AdhanSoundResolverTest`, `HijriDateFormatterTest`, `PrayerTimesErrorMapperTest`, `LocationNamesTest`, `CityConfigSerializer` edge cases (+19 tests → **414** total)
+- [x] **5G.55** Dependabot policy — ignore major/minor AGP, Compose BOM, coroutines bumps (pin AGP 8.7.3 stack)
 
 ---
 

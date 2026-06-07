@@ -21,9 +21,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
@@ -69,18 +72,24 @@ fun QiblaScreen(
     val context = LocalContext.current
     val compassSensor =
         remember(context) {
-            EntryPointAccessors
-                .fromApplication(context.applicationContext, CompassEntryPoint::class.java)
-                .compassSensor()
+            runCatching {
+                EntryPointAccessors
+                    .fromApplication(context.applicationContext, CompassEntryPoint::class.java)
+                    .compassSensor()
+            }.getOrNull()
         }
-    val azimuth by compassSensor.azimuth.collectAsState(initial = null)
+    val compassAvailable = compassSensor?.isAvailable ?: false
+    val palette = calendarPalette()
+
+    var azimuth by remember { mutableStateOf<Float?>(null) }
+    LaunchedEffect(compassSensor) {
+        compassSensor?.azimuth?.collect { azimuth = it }
+    }
     val smoothAzimuth by animateFloatAsState(
         targetValue = azimuth ?: 0f,
         animationSpec = tween(durationMillis = 600, easing = LinearEasing),
         label = "compassAzimuth",
     )
-    val compassAvailable = remember(compassSensor) { compassSensor.isAvailable }
-    val palette = calendarPalette()
 
     Column(
         modifier = modifier.fillMaxSize().background(palette.background),

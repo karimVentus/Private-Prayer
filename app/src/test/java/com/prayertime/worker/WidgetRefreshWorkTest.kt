@@ -60,6 +60,7 @@ class WidgetRefreshWorkTest {
                         WidgetUpdateWorker(
                             appContext,
                             workerParameters,
+                            stack.preferences,
                             stack.updater,
                             stack.boundaryScheduler,
                         )
@@ -137,6 +138,7 @@ class WidgetRefreshWorkTest {
                                         WidgetUpdateWorker(
                                             appContext,
                                             workerParameters,
+                                            noCityStack.preferences,
                                             noCityStack.updater,
                                             noCityStack.boundaryScheduler,
                                         )
@@ -150,7 +152,7 @@ class WidgetRefreshWorkTest {
 
                 val snapshot = noCityStack.loader.load()
                 assertEquals(WidgetSnapshot.State.NO_CITY, snapshot.state)
-                val views = WidgetRemoteViewsBuilder(context).build(snapshot, WidgetSize.MEDIUM)
+                val views = WidgetRemoteViewsBuilder(context, noCityStack.preferences).build(snapshot, WidgetSize.MEDIUM)
                 val emptyMessage =
                     views.apply(context, android.widget.FrameLayout(context))
                         .findViewById<TextView>(R.id.widget_empty)
@@ -178,7 +180,7 @@ class WidgetRefreshWorkTest {
             val snapshot = stack.loader.load()
             assertEquals(WidgetSnapshot.State.READY, snapshot.state)
             val root =
-                WidgetRemoteViewsBuilder(context)
+                WidgetRemoteViewsBuilder(context, stack.preferences)
                     .build(snapshot, WidgetSize.MEDIUM)
                     .apply(context, android.widget.FrameLayout(context))
             assertEquals(
@@ -199,7 +201,7 @@ class WidgetRefreshWorkTest {
             val snapshot = stack.loader.load()
             assertEquals(WidgetSnapshot.State.READY, snapshot.state)
             val fajr = context.getString(R.string.fajr)
-            val builder = WidgetRemoteViewsBuilder(context)
+            val builder = WidgetRemoteViewsBuilder(context, stack.preferences)
             listOf(WidgetSize.MEDIUM, WidgetSize.LARGE).forEach { size ->
                 val root =
                     builder.build(snapshot, size)
@@ -246,7 +248,7 @@ class WidgetRefreshWorkTest {
             val snapshot = stack.loader.load()
             assertEquals(WidgetSnapshot.State.READY, snapshot.state)
             val root =
-                WidgetRemoteViewsBuilder(context)
+                WidgetRemoteViewsBuilder(context, stack.preferences)
                     .build(snapshot, WidgetSize.MEDIUM)
                     .apply(context, android.widget.FrameLayout(context))
             assertTrue(

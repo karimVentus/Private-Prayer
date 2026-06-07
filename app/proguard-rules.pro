@@ -2,8 +2,6 @@
 -keep class com.prayertime.data.remote.** { *; }
 # AppWidgetManager instantiates providers by class name from the manifest.
 -keep class com.prayertime.widget.PrayerTimeWidgetProvider { *; }
--keep class com.prayertime.widget.PrayerTimeWidgetProviderSmallTall { *; }
--keep class com.prayertime.widget.PrayerTimeWidgetProviderSmallWide { *; }
 -keep class com.prayertime.widget.PrayerTimeWidgetProviderLarge { *; }
 -keepattributes Signature
 -keepattributes *Annotation*

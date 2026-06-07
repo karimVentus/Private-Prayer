@@ -26,13 +26,24 @@ class AppPreferencesDataSourceTest {
     fun `adhan enabled toggles true then false`() =
         runTest {
             val p = prefs()
-            // Set to known state first — DataStore persists across tests in Robolectric.
             p.setAdhanNotificationsEnabled(false)
             assertFalse(p.adhanNotificationsEnabled.first())
             p.setAdhanNotificationsEnabled(true)
             assertTrue(p.adhanNotificationsEnabled.first())
             p.setAdhanNotificationsEnabled(false)
             assertFalse(p.adhanNotificationsEnabled.first())
+        }
+
+    @Test
+    fun `adhan play when silent toggles and defaults false`() =
+        runTest {
+            val p = prefs()
+            assertFalse(p.adhanPlayWhenSilent.first())
+            p.setAdhanPlayWhenSilent(true)
+            assertTrue(p.adhanPlayWhenSilent.first())
+            assertTrue(p.readAdhanPlayWhenSilentOnce())
+            p.setAdhanPlayWhenSilent(false)
+            assertFalse(p.adhanPlayWhenSilent.first())
         }
 
     // ── Language tag ──
@@ -95,6 +106,15 @@ class AppPreferencesDataSourceTest {
             assertEquals(AppTheme.GREEN, p.readAppThemeSync())
         }
 
+    @Test
+    fun `warmAppLanguageCache syncs DataStore language to SharedPreferences`() =
+        runTest {
+            val p = prefs()
+            p.setAppLanguageTag("ar")
+            p.warmAppLanguageCache()
+            assertEquals("ar", p.readAppLanguageTagSync())
+        }
+
     // ── Round trip: all preferences survive multiple writes ──
 
     @Test
@@ -122,5 +142,26 @@ class AppPreferencesDataSourceTest {
             assertNull(p.appLanguageTag.first())
             assertEquals("adhan", p.adhanSound.first())
             assertEquals("light", p.appTheme.first())
+        }
+
+    @Test
+    fun `resetToDefaults clears all stored preferences`() =
+        runTest {
+            val p = prefs()
+            p.setAdhanNotificationsEnabled(true)
+            p.setAppLanguageTag("ar")
+            p.setAdhanSound("alhram")
+            p.setAppTheme("dark")
+            p.setMutedPrayers(setOf("FAJR", "ISHA"))
+
+            p.resetToDefaults()
+
+            assertFalse(p.adhanNotificationsEnabled.first())
+            assertNull(p.appLanguageTag.first())
+            assertEquals(AppPreferencesDataSource.DEFAULT_ADHAN_SOUND, p.adhanSound.first())
+            assertEquals(AppTheme.DEFAULT_STORAGE_KEY, p.appTheme.first())
+            assertTrue(p.mutedPrayers.first().isEmpty())
+            assertEquals(AppTheme.LIGHT, p.readAppThemeSync())
+            assertNull(p.readAppLanguageTagSync())
         }
 }

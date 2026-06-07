@@ -16,6 +16,13 @@
 
     <!-- PrayerTimesScreen -->
     <string name="change">Change</string>
+    <string name="change_city_dialog_title">Change city?</string>
+    <string name="change_city_dialog_message">You will return to the Welcome screen. Choose what to reset:</string>
+    <string name="change_city_dialog_city_only">City only</string>
+    <string name="change_city_dialog_city_only_hint">Remove country and city. Keeps theme, language, adhan, and other settings.</string>
+    <string name="change_city_dialog_reset_all">Reset everything</string>
+    <string name="change_city_dialog_reset_all_hint">Remove city and reset all settings to defaults.</string>
+    <string name="change_city_dialog_cancel">Cancel</string>
     <string name="language">Language</string>
     <string name="settings">Settings</string>
     <string name="language_dialog_title">App language</string>
@@ -101,6 +108,8 @@
     <string name="adhan_enabled_confirmation_body">You will get a notification at each prayer time. This message confirms notifications are working.</string>
     <string name="adhan_toggle">Adhan notifications</string>
     <string name="adhan_toggle_desc">Play Adhan and show a notification at Fajr, Shuruq, Dhuhr, Asr, Maghrib, and Isha.</string>
+    <string name="adhan_play_when_silent">Play when phone is silent</string>
+    <string name="adhan_play_when_silent_desc">Play Adhan audio even when the device is on silent or vibrate.</string>
     <string name="adhan_exact_alarm_notice">Exact alarms are off — Adhan may not fire on time in Doze or when the app is closed. Tap to allow Alarms &amp; reminders.</string>
     <string name="adhan_battery_optimization_notice">Optional: battery optimization is on — Adhan may be delayed on some phones. Tap to allow unrestricted background use.</string>
     <string name="adhan_notifications_denied">Notifications are off — enable them in system settings to hear Adhan.</string>
@@ -175,6 +184,7 @@
     <string name="event_day_of_arafah_cell">Arafah</string>
     <string name="event_eid_al_adha_cell">Adha</string>
     <string name="calendar">Calendar</string>
+    <string name="qibla">Qibla</string>
     <string name="back_to_prayer_times">Back to prayer times</string>
     <string name="calendar_ramadan_first">1st of Ramadan</string>
     <string name="calendar_ramadan_last">Last day</string>
@@ -210,4 +220,9 @@
     <string name="annual_legend_ramadan">Ramadan</string>
     <string name="annual_legend_hajj">Hajj</string>
     <string name="annual_legend_eids">Eids</string>
+    <!-- Qibla compass -->
+    <string name="qibla_compass_title">Qibla Compass</string>
+    <string name="compass_not_available">Compass sensor not available on this device.</string>
+    <string name="compass_calibrating">Calibrating compass… Move your device in a figure-eight pattern.</string>
+    <string name="qibla_bearing_format">Qibla: %1$d° (%2$s) from North</string>
 </resources>

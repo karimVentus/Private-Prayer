@@ -218,7 +218,7 @@ Public docs must reflect real maturity.
 | Architecture: Worker & engine tests | **Implemented** | `PrayerRefreshWorkTest`, `PrayerTimeRefreshWorkerTest`, `PrayerTimesLocalEngineTest`; worker refresh/retry/skip + periodic enqueue KEEP policy. |
 | Manual cache refresh | **Implemented** | About → **Refresh today's times** calls `invalidateTodayCache` then fetch; `BuildConfig.VERSION_NAME` on About screen. |
 | App language (EN / AR / system) | **Done (5E)** | `LanguagePickerDialog` (Compose `Dialog`, LTR option rows); `values-ar` + AppCompat locales; RTL prayer/About/wizard/calendar; portrait-only app |
-| Dev workflow (`./dev`) | **Implemented** | `scripts/emu` — boot emulator, `installOfflineDebug`, launch; `HEADLESS=1` for CI-style runs. |
+| Dev workflow (`./dev`) | **Implemented** | `scripts/emu` — boot emulator, `installDebug`, launch; `HEADLESS=1` for CI-style runs. |
 | Architecture: LocationRepository | **Implemented** | Domain `LocationRepository`; `LocalLocationRepository`; use case no longer binds to `LocationDataSource`. |
 | Architecture: Hilt network stack | **Implemented** | `NetworkModule` — `OkHttpClient`, `Retrofit`, injectable `AladhanApi` (online flavor only). |
 | TLS pinning (Aladhan API) | **Done (6.8)** | `network_security_config.xml` — leaf cert + SPKI backup for `aladhan.com`; `./scripts/verify-aladhan-pins.sh` |
@@ -274,7 +274,7 @@ if (!json.has("data") || !json.getJSONObject("data").has("timings")) {
 
 ### 4.4 Known Test Coverage Holes
 
-- [ ] **Offline City Validation (1F-E.4):** Missing test for a picker-listed city in a non-DE country without `knownCityCoords` entry → `CITY_NOT_FOUND`.
+- [x] **Offline City Validation (1F-E.4):** Covered by `offline_only` toggle + `PrayerTimesRepositoryTest` / geocode rejection — separate offline APK dropped (Jun 2026); one app with Settings privacy toggle.
 - [x] **Repository Fallback Rejection (1F-E.5):** `PrayerTimesRepositoryTest` — `offline save rejects fallback city with CITY_NOT_FOUND` + `online save rejects fallback city when geocode fails` (asserts `CityResolutionResult.Fallback` → `SaveCityResult.Error(CITY_NOT_FOUND)`, nothing persisted).
 - [x] **Umlaut Parity (1F-E.6):** `LocationDataSourceTest.every_germany_picker_city_resolves_to_found` + ASCII umlaut cases.
 - [x] **Phase 2E gaps (audit — time & notifications):** **2E.1–2E.4** in `PrayerTimeCalculatorTest` + `PrayerAlarmSchedulerTest` (midnight, city TZ, London DST, `ShadowAlarmManager`).
@@ -286,7 +286,7 @@ if (!json.has("data") || !json.getJSONObject("data").has("timings")) {
 - [x] **Spurious `knownCityCoords` keys (audit `DE_Ulrich`):** No `DE_Ulrich` in repo — likely misread of valid **`DE_Ulm`**. Actual orphan was **`DE_Offenbach`** (coords without picker entry); fixed by adding Offenbach to DE picker + `germany_known_coords_keys_match_picker_no_orphans` test.
 - [x] **Online response parsing (audit):** `AladhanTimingsMapperTest` (18 tests) covers all parsing paths, DST-aware timestamps, time normalization, edge cases. `NetworkMapperTest` (10 tests) covers every error classification branch.
 - [x] **Duplicate engine (audit):** `OnlinePrayerTimesRepository` was creating two `PrayerTimesLocalEngine` instances — fixed to share single instance via DI constructor.
-- [x] **Flavor isolation (audit):** Offline APK About screen shows static informational card, never a dead toggle. `PrivacyPolicyCard` hides network item when `!networkModeAvailable`. `PrayerTimesRepository` is interface, not base class.
+- [x] **Flavor isolation (audit):** Single APK; Settings privacy toggle for offline-only vs Aladhan. `PrayerTimesRepository` is interface; `OnlinePrayerTimesRepository` composes local + API.
 - [x] **ViewModel God Object (audit):** `MainViewModel` (380 lines) decomposed into `CitySetupViewModel` + `PrayerTimesViewModel` + `AppSettingsViewModel` + `SearchLocationsUseCase`.
 
 ---

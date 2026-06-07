@@ -6,7 +6,8 @@ import android.widget.TextView
 import androidx.test.core.app.ApplicationProvider
 import com.prayertime.R
 import com.prayertime.testing.WidgetTestSupport
-import kotlinx.coroutines.delay
+import kotlinx.coroutines.CompletableDeferred
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Assert.assertNotNull
@@ -66,13 +67,22 @@ class PrayerTimeWidgetProviderTest {
     fun onUpdate_finishesAsyncRefreshToAppWidgetManager() =
         runBlocking {
             val widgetId = WidgetTestSupport.registerMediumWidget(context)
+            val updateFinished = CompletableDeferred<Unit>()
+            val testScope = CoroutineScope(coroutineContext)
             val provider =
                 object : PrayerTimeWidgetProvider() {
                     override fun widgetUpdater(context: Context) = stack.updater
+
+                    override fun coroutineScopeForUpdate(context: Context): CoroutineScope = testScope
+
+                    override suspend fun performUpdate(context: Context) {
+                        super.performUpdate(context)
+                        updateFinished.complete(Unit)
+                    }
                 }
 
             provider.onUpdate(context, appWidgetManager, intArrayOf(widgetId))
-            delay(600)
+            updateFinished.await()
 
             val view = shadowWidgets.getViewFor(widgetId)
             assertNotNull(view)

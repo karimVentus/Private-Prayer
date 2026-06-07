@@ -18,6 +18,8 @@ sealed class PrayerTimesUiState {
     data class Success(
         val city: String,
         val timezone: String,
+        val latitude: Double? = null,
+        val longitude: Double? = null,
         val result: PrayerTimesResult.Success,
         val todayHijriDate: HijriDate? = null,
         val upcomingEvent: UpcomingEvent? = null,
@@ -27,6 +29,7 @@ sealed class PrayerTimesUiState {
 data class PrayerTimesActions(
     val onChangeCity: () -> Unit,
     val onCalendar: () -> Unit,
+    val onQibla: () -> Unit,
     val onAbout: () -> Unit,
     val onLanguage: () -> Unit,
     val onToggleMute: (Prayer) -> Unit,

@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
@@ -43,17 +44,18 @@ import com.prayertime.ui.theme.AppTheme
 
 data class PrivacyModeUiState(
     val offlineOnly: Boolean,
-    val networkModeAvailable: Boolean,
     val onOfflineOnlyChanged: (Boolean) -> Unit,
 )
 
 data class AdhanNotificationsUiState(
     val enabled: Boolean,
+    val playWhenSilent: Boolean,
     val notificationsGranted: Boolean,
     val exactAlarmsGranted: Boolean,
     val batteryOptimizationExempt: Boolean,
     val adhanSound: String,
     val onEnabledChanged: (Boolean) -> Unit,
+    val onPlayWhenSilentChanged: (Boolean) -> Unit,
     val onRequestNotifications: () -> Unit,
     val onRequestExactAlarms: () -> Unit,
     val onRequestBatteryOptimization: () -> Unit,
@@ -101,11 +103,7 @@ fun AboutScreen(
         )
         Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
 
-        if (privacy.networkModeAvailable) {
-            PrivacyModeCard(privacy.offlineOnly, privacy.onOfflineOnlyChanged)
-        } else {
-            OfflineOnlyBuildCard()
-        }
+        PrivacyModeCard(privacy.offlineOnly, privacy.onOfflineOnlyChanged)
         Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
 
         ThemePickerCard(theme.selected, theme.onThemeChanged)
@@ -117,7 +115,7 @@ fun AboutScreen(
         RefreshTimesCard(onRefreshTimes = onRefreshTimes)
         Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
 
-        PrivacyPolicyCard(privacy.networkModeAvailable)
+        PrivacyPolicyCard()
         Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
 
         CalculationMethodCard()
@@ -207,8 +205,11 @@ private fun RefreshTimesCard(onRefreshTimes: () -> Unit) {
                 textAlign = TextAlign.Start,
                 modifier = Modifier.fillMaxWidth(),
             )
-            Spacer(modifier = Modifier.height(8.dp))
-            AppTextButton(onClick = onRefreshTimes) {
+            Spacer(modifier = Modifier.height(12.dp))
+            Button(
+                onClick = onRefreshTimes,
+                modifier = Modifier.fillMaxWidth(),
+            ) {
                 Text(stringResource(R.string.refresh_times_action))
             }
         }
@@ -275,6 +276,28 @@ private fun AdhanNotificationsCard(adhan: AdhanNotificationsUiState) {
                 )
             }
             if (enabled) {
+                Spacer(modifier = Modifier.height(12.dp))
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Column(modifier = Modifier.weight(1f)) {
+                        Text(
+                            text = stringResource(R.string.adhan_play_when_silent),
+                            style = MaterialTheme.typography.bodyMedium,
+                        )
+                        Text(
+                            text = stringResource(R.string.adhan_play_when_silent_desc),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+                    Switch(
+                        checked = adhan.playWhenSilent,
+                        onCheckedChange = adhan.onPlayWhenSilentChanged,
+                    )
+                }
                 Spacer(modifier = Modifier.height(12.dp))
                 AdhanSoundPicker(
                     selected = adhan.adhanSound,
@@ -382,33 +405,6 @@ private fun AdhanSoundPicker(
 }
 
 @Composable
-private fun OfflineOnlyBuildCard() {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
-    ) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            Text(
-                text = stringResource(R.string.privacy_mode),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = stringResource(R.string.offline_apk_fixed_desc),
-                style = MaterialTheme.typography.bodyMedium,
-            )
-            Spacer(modifier = Modifier.height(4.dp))
-            Text(
-                text = stringResource(R.string.offline_desc),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-        }
-    }
-}
-
-@Composable
 private fun PrivacyModeCard(
     offlineOnly: Boolean,
     onOfflineOnlyChanged: (Boolean) -> Unit,
@@ -455,7 +451,7 @@ private fun PrivacyModeCard(
 }
 
 @Composable
-private fun PrivacyPolicyCard(networkModeAvailable: Boolean) {
+private fun PrivacyPolicyCard() {
     Card(
         modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
@@ -471,11 +467,9 @@ private fun PrivacyPolicyCard(networkModeAvailable: Boolean) {
             Text(
                 text = stringResource(R.string.privacy_offline_item),
             )
-            if (networkModeAvailable) {
-                Text(
-                    text = stringResource(R.string.privacy_network_item),
-                )
-            }
+            Text(
+                text = stringResource(R.string.privacy_network_item),
+            )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
                 text = stringResource(R.string.privacy_never_used),

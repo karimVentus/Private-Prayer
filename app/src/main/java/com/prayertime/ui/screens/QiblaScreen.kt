@@ -20,9 +20,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -45,7 +42,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.window.Dialog
 import com.prayertime.R
 import com.prayertime.di.CompassEntryPoint
 import com.prayertime.domain.calculator.QiblaCalculator
@@ -88,12 +84,21 @@ fun QiblaScreen(
 
     var azimuth by remember { mutableStateOf<Float?>(null) }
     var accuracy by remember { mutableStateOf(SensorManager.SENSOR_STATUS_ACCURACY_HIGH) }
-    var showCalibrationDialog by remember { mutableStateOf(false) }
+    var isCalibrating by remember { mutableStateOf(false) }
     LaunchedEffect(compassSensor) {
         compassSensor?.azimuth?.collect { azimuth = it }
     }
     LaunchedEffect(compassSensor) {
         compassSensor?.accuracy?.collect { accuracy = it }
+    }
+    // When calibrating and accuracy hits HIGH → vibrate + auto-close
+    LaunchedEffect(isCalibrating, accuracy) {
+        if (isCalibrating && accuracy >= SensorManager.SENSOR_STATUS_ACCURACY_HIGH) {
+            (context.getSystemService(android.content.Context.VIBRATOR_SERVICE) as? android.os.Vibrator)?.vibrate(
+                android.os.VibrationEffect.createOneShot(200, android.os.VibrationEffect.DEFAULT_AMPLITUDE)
+            )
+            isCalibrating = false
+        }
     }
     val smoothAzimuth by animateFloatAsState(
         targetValue = azimuth ?: 0f,
@@ -115,12 +120,18 @@ fun QiblaScreen(
             modifier = Modifier.weight(1f),
         )
         QiblaInfoLabels(qiblaBearing, cardinalDir, cityLabel, palette, context.resources)
-        QiblaCalibrationStatus(accuracy, compassAvailable, palette, context.resources, onCalibrate = { showCalibrationDialog = true })
+        if (isCalibrating) {
+            QiblaCalibrationActive(palette, context.resources)
+        } else {
+            QiblaCalibrationStatus(
+                accuracy = accuracy,
+                compassAvailable = compassAvailable,
+                palette = palette,
+                resources = context.resources,
+                onCalibrate = { isCalibrating = true },
+            )
+        }
         QiblaCloseButton(onClose, palette, context.resources)
-    }
-
-    if (showCalibrationDialog) {
-        QiblaCalibrationDialog(onDismiss = { showCalibrationDialog = false }, resources = context.resources)
     }
 }
 
@@ -397,55 +408,27 @@ private fun QiblaCalibrationStatus(
 }
 
 @Composable
-private fun QiblaCalibrationDialog(
-    onDismiss: () -> Unit,
+private fun QiblaCalibrationActive(
+    palette: com.prayertime.ui.theme.CalendarPalette,
     resources: android.content.res.Resources,
 ) {
-    Dialog(onDismissRequest = onDismiss) {
-        Card(
-            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-            modifier = Modifier.padding(16.dp),
-        ) {
-            Column(
-                modifier = Modifier.padding(24.dp),
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                Text(
-                    text = resources.getString(R.string.compass_calibrate_action),
-                    style = MaterialTheme.typography.titleLarge,
-                )
-                Spacer(modifier = Modifier.height(16.dp))
-                Text(
-                    text = resources.getString(R.string.compass_calibrate_instruction),
-                    style = MaterialTheme.typography.bodyMedium,
-                    textAlign = TextAlign.Center,
-                )
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(
-                    text = resources.getString(R.string.compass_calibrate_watch),
-                    style = MaterialTheme.typography.bodySmall,
-                    textAlign = TextAlign.Center,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                Spacer(modifier = Modifier.height(24.dp))
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceEvenly,
-                ) {
-                    Text(
-                        text = resources.getString(R.string.change_city_dialog_cancel),
-                        color = Color(0xFF757575),
-                        fontWeight = FontWeight.Normal,
-                        modifier = Modifier.clickable(onClick = onDismiss).padding(8.dp),
-                    )
-                    Text(
-                        text = resources.getString(R.string.compass_calibrate_done),
-                        color = Color(0xFF1565C0),
-                        fontWeight = FontWeight.Bold,
-                        modifier = Modifier.clickable(onClick = onDismiss).padding(8.dp),
-                    )
-                }
-            }
-        }
+    Column(
+        modifier = Modifier.fillMaxWidth().padding(horizontal = AppSpacing.screenHorizontal),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Spacer(modifier = Modifier.height(4.dp))
+        Text(
+            text = resources.getString(R.string.compass_calibrating),
+            color = Color(0xFFE65100),
+            fontSize = 13.sp,
+            fontWeight = FontWeight.SemiBold,
+            textAlign = TextAlign.Center,
+        )
+        Text(
+            text = resources.getString(R.string.compass_calibrate_watch),
+            color = palette.textSecondary,
+            fontSize = 11.sp,
+            textAlign = TextAlign.Center,
+        )
     }
 }

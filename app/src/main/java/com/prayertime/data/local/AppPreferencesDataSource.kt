@@ -32,7 +32,7 @@ class AppPreferencesDataSource
 
         val adhanNotificationsEnabled: Flow<Boolean> =
             context.appSettingsStore.data.map { prefs ->
-                prefs[adhanEnabledKey] ?: false
+                prefs[adhanEnabledKey] ?: true
             }
 
         suspend fun setAdhanNotificationsEnabled(enabled: Boolean) {

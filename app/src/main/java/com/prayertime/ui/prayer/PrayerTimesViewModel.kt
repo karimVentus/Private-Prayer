@@ -3,7 +3,9 @@ package com.prayertime.ui.prayer
 import android.os.SystemClock
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.prayertime.data.local.AppPreferencesDataSource
 import com.prayertime.data.repository.PrayerTimesRepository
+import com.prayertime.domain.repository.LocationRepository
 import com.prayertime.domain.calculator.HijriCalculator
 import com.prayertime.domain.calculator.PrayerTimeCalculator
 import com.prayertime.domain.model.CityConfig
@@ -35,6 +37,8 @@ class PrayerTimesViewModel
     @Inject
     constructor(
         private val repository: PrayerTimesRepository,
+        private val locationRepository: LocationRepository,
+        private val preferences: AppPreferencesDataSource,
         private val widgetUpdater: WidgetUpdater,
     ) : ViewModel() {
         private val _uiState = MutableStateFlow<PrayerTimesUiState>(PrayerTimesUiState.Loading)
@@ -67,7 +71,27 @@ class PrayerTimesViewModel
                     }
                 }
             }
+            viewModelScope.launch {
+                preferences.appLanguageTag.collect { languageTag ->
+                    val success = _uiState.value as? PrayerTimesUiState.Success ?: return@collect
+                    val config = currentConfig ?: return@collect
+                    _uiState.value =
+                        success.copy(
+                            city = formatCityHeader(config, languageTag),
+                        )
+                }
+            }
         }
+
+        private fun formatCityHeader(
+            config: CityConfig,
+            languageTag: String?,
+        ): String =
+            locationRepository.formatCityHeader(
+                cityName = config.cityName,
+                countryCode = config.countryCode,
+                languageTag = languageTag,
+            )
 
         fun clearCity(clearAllPrayerCache: Boolean = false) {
             currentConfig = null
@@ -135,13 +159,14 @@ class PrayerTimesViewModel
                 stopCountdownTicker()
             }
             val offlineOnly = repository.offlineOnly.first()
+            val languageTag = preferences.readAppLanguageTagOnce()
             when (val result = repository.fetchTodayTimes(config)) {
                 is PrayerTimesResult.Success -> {
                     startCountdownTicker(result.times, config.timezone, result.nextPrayer, result.countdown)
                     widgetUpdater.requestImmediateUpdate()
                     _uiState.value =
                         PrayerTimesUiState.Success(
-                            city = "${config.cityName}, ${config.countryCode}",
+                            city = formatCityHeader(config, languageTag),
                             timezone = config.timezone,
                             latitude = config.latitude,
                             longitude = config.longitude,

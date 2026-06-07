@@ -1,6 +1,9 @@
 package com.prayertime.ui.prayer
 
+import com.prayertime.data.LocationDataSourceTestSupport
+import com.prayertime.data.local.AppPreferencesDataSource
 import com.prayertime.data.local.InMemoryCityConfigDataSource
+import com.prayertime.data.repository.LocalLocationRepository
 import com.prayertime.domain.calculator.PrayerTimeCalculator
 import com.prayertime.domain.model.CityConfig
 import com.prayertime.domain.model.FetchError
@@ -12,12 +15,15 @@ import com.prayertime.testing.clearViewModelForTest
 import com.prayertime.ui.LivePrayerCountdown
 import com.prayertime.widget.WidgetUpdater
 import io.mockk.clearMocks
+import io.mockk.coEvery
+import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
@@ -45,6 +51,12 @@ class PrayerTimesViewModelTest {
     private lateinit var citySource: InMemoryCityConfigDataSource
     private lateinit var repository: FakePrayerTimesRepository
     private val widgetUpdater = mockk<WidgetUpdater>(relaxed = true)
+    private val locationRepository = LocalLocationRepository()
+    private val preferences =
+        mockk<AppPreferencesDataSource> {
+            every { appLanguageTag } returns flowOf(null)
+            coEvery { readAppLanguageTagOnce() } returns null
+        }
     private val activeViewModels = mutableListOf<PrayerTimesViewModel>()
 
     private val hamelnConfig =
@@ -59,6 +71,7 @@ class PrayerTimesViewModelTest {
     @Before
     fun setup() {
         Dispatchers.setMain(testDispatcher)
+        LocationDataSourceTestSupport.initializeFromTestResource()
         clearMocks(widgetUpdater)
         citySource = InMemoryCityConfigDataSource()
         repository = FakePrayerTimesRepository.forPrayerTimes(citySource)
@@ -72,7 +85,7 @@ class PrayerTimesViewModelTest {
     }
 
     private fun viewModel(): PrayerTimesViewModel =
-        PrayerTimesViewModel(repository, widgetUpdater).also {
+        PrayerTimesViewModel(repository, locationRepository, preferences, widgetUpdater).also {
             activeViewModels.add(it)
         }
 

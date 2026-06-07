@@ -2,14 +2,17 @@ package com.prayertime.ui.city
 
 import androidx.test.core.app.ApplicationProvider
 import com.prayertime.data.LocationDataSource
+import com.prayertime.data.local.AppPreferencesDataSource
 import com.prayertime.data.local.InMemoryCityConfigDataSource
 import com.prayertime.data.repository.LocalLocationRepository
 import com.prayertime.domain.usecase.SearchLocationsUseCase
 import com.prayertime.testing.FakePrayerTimesRepository
 import com.prayertime.testing.clearViewModelForTest
 import com.prayertime.widget.WidgetUpdater
+import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
@@ -56,6 +59,9 @@ class CitySetupViewModelAssetLoadTest {
                     FakePrayerTimesRepository.forCitySetup(InMemoryCityConfigDataSource()),
                     locationRepository,
                     SearchLocationsUseCase(locationRepository),
+                    mockk<AppPreferencesDataSource> {
+                        every { appLanguageTag } returns flowOf(null)
+                    },
                     mockk<WidgetUpdater>(relaxed = true),
                 ).also { activeViewModels.add(it) }
 

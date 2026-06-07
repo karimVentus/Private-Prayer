@@ -157,7 +157,6 @@ fun QiblaScreen(
             QiblaCalibrationStatus(
                 accuracy = accuracy,
                 compassAvailable = compassAvailable,
-                palette = palette,
                 resources = context.resources,
                 onShowTips = { showCalibrateHelp = true },
             )
@@ -489,7 +488,6 @@ private fun QiblaCloseButton(
 private fun QiblaCalibrationStatus(
     accuracy: Int,
     compassAvailable: Boolean,
-    palette: com.prayertime.ui.theme.CalendarPalette,
     resources: android.content.res.Resources,
     onShowTips: () -> Unit,
 ) {

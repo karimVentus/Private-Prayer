@@ -42,6 +42,14 @@ class TextNormalizerTest {
     }
 
     @Test
+    fun `Arabic alef variants normalize for search`() {
+        assertEquals(
+            TextNormalizer.foldForLookup("المانيا"),
+            TextNormalizer.foldForLookup("ألمانيا"),
+        )
+    }
+
+    @Test
     fun `Mixed script names are preserved`() {
         // NFD normalization strips accents → "café" becomes "cafe"
         assertEquals("cafe", TextNormalizer.foldForLookup("Café"))

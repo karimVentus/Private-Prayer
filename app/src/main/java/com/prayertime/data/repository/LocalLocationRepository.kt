@@ -5,6 +5,7 @@ import com.prayertime.data.LocationDataSource
 import com.prayertime.domain.model.CityResolutionResult
 import com.prayertime.domain.model.Country
 import com.prayertime.domain.repository.LocationRepository
+import com.prayertime.locale.LocationNames
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -23,6 +24,28 @@ class LocalLocationRepository
 
         override suspend fun awaitReady() {
             LocationDataSource.awaitReady()
+        }
+
+        override fun countryByCode(code: String): Country? = accessibleCatalog()?.countries?.firstOrNull { it.code == code }
+
+        override fun arabicCityName(
+            countryCode: String,
+            englishName: String,
+        ): String? = LocationDataSource.arabicCityName(countryCode, englishName)
+
+        override fun resolveCanonicalCityName(
+            countryCode: String,
+            input: String,
+        ): String = LocationDataSource.resolveCanonicalCityName(countryCode, input)
+
+        override fun formatCityHeader(
+            cityName: String,
+            countryCode: String,
+            languageTag: String?,
+        ): String {
+            val country = countryByCode(countryCode) ?: return "$cityName, $countryCode"
+            val arabic = arabicCityName(countryCode, cityName)
+            return LocationNames.formatCityHeader(cityName, country, arabic, languageTag)
         }
 
         override fun resolveCityCoordinates(

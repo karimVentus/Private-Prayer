@@ -458,6 +458,7 @@ private fun PrayerTimeMainRoute(
                                 citySearchQuery = citySearchQuery,
                                 filteredCountries = filteredCountries,
                                 filteredCities = filteredCities,
+                                languageTag = appLanguageTag,
                                 showCustomCityFallback = citySetupViewModel.showCustomCityFallback,
                                 catalogReady = catalogReady,
                             ),

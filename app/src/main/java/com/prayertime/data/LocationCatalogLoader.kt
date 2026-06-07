@@ -8,14 +8,22 @@ import java.io.InputStream
 
 internal object LocationCatalogLoader {
     private const val ASSET_NAME = "locations.json"
+    private const val CITIES_AR_ASSET = "cities_ar.json"
 
     class InvalidCatalogException(message: String, cause: Throwable? = null) : IllegalArgumentException(message, cause)
 
-    fun loadFromAssets(assets: android.content.res.AssetManager): LocationCatalog = assets.open(ASSET_NAME).use(::load)
+    fun loadFromAssets(assets: android.content.res.AssetManager): LocationCatalog {
+        val catalog = assets.open(ASSET_NAME).use(::load)
+        val citiesAr = loadCitiesArFromAssets(assets)
+        return catalog.copy(citiesArByCountry = citiesAr)
+    }
 
     fun load(input: InputStream): LocationCatalog = parse(input.bufferedReader().readText())
 
-    fun parse(json: String): LocationCatalog {
+    fun parse(
+        json: String,
+        citiesArByCountry: Map<String, Map<String, String>> = emptyMap(),
+    ): LocationCatalog {
         val root =
             try {
                 JSONObject(json)
@@ -32,10 +40,51 @@ internal object LocationCatalogLoader {
         return LocationCatalog(
             countries = countries,
             citiesByCountry = citiesByCountry,
+            citiesArByCountry = citiesArByCountry,
             countryDefaults = countryDefaults,
             knownCityCoords = knownCityCoords,
         )
     }
+
+    fun parseCitiesAr(json: String): Map<String, Map<String, String>> {
+        val root =
+            try {
+                JSONObject(json)
+            } catch (e: Exception) {
+                throw InvalidCatalogException("Arabic city catalog root must be a JSON object", e)
+            }
+        val result = linkedMapOf<String, Map<String, String>>()
+        root.keys().forEach { countryCode ->
+            val countryObj =
+                try {
+                    root.getJSONObject(countryCode)
+                } catch (e: Exception) {
+                    throw InvalidCatalogException("cities_ar['$countryCode'] must be an object", e)
+                }
+            val cityMap = linkedMapOf<String, String>()
+            countryObj.keys().forEach { englishName ->
+                try {
+                    cityMap[englishName] = countryObj.getString(englishName)
+                } catch (e: Exception) {
+                    throw InvalidCatalogException(
+                        "cities_ar['$countryCode']['$englishName'] must be a string",
+                        e,
+                    )
+                }
+            }
+            result[countryCode] = cityMap
+        }
+        return result
+    }
+
+    private fun loadCitiesArFromAssets(assets: android.content.res.AssetManager): Map<String, Map<String, String>> =
+        try {
+            assets.open(CITIES_AR_ASSET).use { stream ->
+                parseCitiesAr(stream.bufferedReader().readText())
+            }
+        } catch (_: Exception) {
+            emptyMap()
+        }
 
     private fun requireObject(
         root: JSONObject,

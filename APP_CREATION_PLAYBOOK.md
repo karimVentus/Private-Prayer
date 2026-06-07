@@ -8,7 +8,7 @@
 
 Build the Prayer Time Widget application with absolute integrity:
 
-- [ ] **Honest Scope:** No GPS, no additional features (Adhkar, Quran, or Qibla direction).
+- [ ] **Honest Scope:** No GPS; no Adhkar or Quran. Qibla limited to Phase **7A** city-coordinate compass (signed off Jun 2026).
 - [ ] **Fixed Architectural Boundaries:** Complete separation between UI, time calculation logic, local storage, and notifications.
 - [ ] **Deterministic Error Handling:** Defining behavior for scenarios involving lack of internet connectivity, data retrieval failures, or invalid city names.
 - [ ] **Test Evidence:** Verifying time calculations — including DST adjustments — while offline.
@@ -232,7 +232,8 @@ Public docs must reflect real maturity.
 | TLS pinning (Phase 6.8) | **Done** | SHA-256 pins for api.aladhan.com (leaf + SPKI backup). Expires 2027-01-01. |
 | BootCompletedReceiver stale alarms | **Fixed** | Null-city and notifications-denied boot paths now explicitly cancel stale alarm intents. |
 | Phase 5 hardening (Doze, perms, offline, DST, UI) | **Done (5A-5E code + partial manual Jun 2026)** | 5A, 5B, 5C.1, 5C.3, 5F.1, 5F.2 signed off on emulator. 5F.3 Pixel only; Samsung/Nova deferred. Remaining: 5C.2, 5D. |
-| GPS / Qibla / Quran | **Out of Scope (Forever)** | These features will never be added. |
+| Qibla compass (city coords + magnetometer) | **Done (7A, Jun 2026)** | `QiblaScreen`, `QiblaCalculator`, `CompassSensor`/`CompassHeading`; portrait hold; dual-layer rotation; align haptic; **no GPS**. User sign-off on `feat/qibla-compass`. |
+| GPS / Adhkar / Quran | **Out of Scope** | No live geolocation; no Adhkar or Quran modules. |
 | Adhan sound picker | **Implemented** | 8 sounds with live preview, persisted to DataStore, EN/AR labels. AdhanAlarmReceiver reads preference at alarm time. |
 | Madhhab / calculation method picker | **Out of Scope (post-launch)** | Deferred indefinitely. App uses Umm al-Qura + Shafi only — no user-facing method or jurisprudential school selector. |
 

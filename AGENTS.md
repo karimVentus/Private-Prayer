@@ -27,18 +27,19 @@ PrayerTime-/
 │   ├── domain/
 │   │   ├── model/          # Prayer.kt (SHURUQ), FetchError, SaveCityError, HijriModels.kt, …
 │   │   ├── repository/     # LocationRepository (interface)
-│   │   ├── calculator/     # PrayerTimeCalculator, LocalPrayerTimeCalculator, HijriCalculator
+│   │   ├── calculator/     # PrayerTimeCalculator, LocalPrayerTimeCalculator, HijriCalculator, QiblaCalculator
 │   │   └── usecase/        # SearchLocationsUseCase
+│   ├── sensor/             # CompassSensor, CompassHeading (accel+mag, portrait Qibla)
 │   ├── locale/             # AppLocale, TextNormalizer (diacritic folding)
 │   ├── notification/       # AdhanNotificationHelper
 │   ├── permission/         # AdhanPermissions
-│   ├── di/                 # Hilt modules (DataModule, DomainModule, AppConfigModule, NetworkModule, RepositoryModule, LocationCatalogInitializer)
+│   ├── di/                 # Hilt modules (DataModule, DomainModule, AppConfigModule, NetworkModule, RepositoryModule, LocationCatalogInitializer, CompassEntryPoint)
 │   ├── ui/
 │   │   ├── MainActivity.kt, PrayerTimeRoot.kt
 │   │   ├── city/           # CitySetupViewModel, WizardStep
 │   │   ├── prayer/         # PrayerTimesViewModel, PrayerTimesUiState
 │   │   ├── settings/       # AppSettingsViewModel
-│   │   ├── screens/        # CityInputScreen, PrayerTimesScreen, AboutScreen (Settings UI), LanguagePickerDialog, HijriCalendarScreen, CalendarColors
+│   │   ├── screens/        # CityInputScreen, PrayerTimesScreen, QiblaScreen, AboutScreen (Settings UI), LanguagePickerDialog, HijriCalendarScreen, CalendarColors
 │   │   ├── theme/          # AppTheme, ThemePalettes, PrayerTimeTheme, LocalAppTheme, LocalCalendarPalette
 │   ├── worker/             # PrayerRefreshWork, PrayerTimeRefreshWorker, WidgetRefreshWork, WidgetUpdateWorker (@HiltWorker)
 │   ├── widget/              # PrayerTimeWidgetProvider (+SmallTall, +SmallWide, +Large), WidgetUpdater, WidgetSnapshotLoader, WidgetRemoteViewsBuilder, WidgetPrayerBoundaryScheduler, WidgetPrayerBoundaryReceiver, WidgetLocaleContext, WidgetDigitFormatter, CountdownFormatter
@@ -74,6 +75,7 @@ PrayerTime-/
 | 5E | UI polish — spacing, RTL, language picker, **three app themes**, Settings screen, portrait lock, Compose smoke | Done (Jun 2026) | — |
 | 5 | Manual QA hardening — 5A, 5B, 5C.1/5C.3, 5F.1/5F.2 signed off (Jun 2026); 5A–5E automated (74); TLS; USE_EXACT_ALARM | **Active** | 5C.2, 5D |
 | 6 | Release — R8, signed APK/AAB | **Done (`v1.0.0`)** | Tagged Jun 2026; deferred QA: 5C.2, 5D |
+| 7A | Qibla compass — city bearing + portrait accel/mag sensor, align feedback | **Done (user sign-off Jun 2026)** | Merge `feat/qibla-compass` pending CI; adhan-permission WIP in `git stash` |
 
 ## Architecture (post-2F hardening)
 
@@ -159,7 +161,7 @@ After structural changes or phase completion:
 OPENAI_API_KEY="" graphify update . --no-cluster
 ```
 
-Details: [`graphity.md`](graphity.md). Diagrams: [`PHASED_PLAN.md`](PHASED_PLAN.md). **Last run:** 2026-06-06 — **3374** nodes, **58985** edges (**5E.33** time-only M-widget + Ashura AR).
+Details: [`graphity.md`](graphity.md). Diagrams: [`PHASED_PLAN.md`](PHASED_PLAN.md). **Last run:** 2026-06-07 — **3561** nodes, **63159** edges (**7A** Qibla compass).
 
 ## Orientation
 
@@ -170,5 +172,5 @@ Details: [`graphity.md`](graphity.md). Diagrams: [`PHASED_PLAN.md`](PHASED_PLAN.
 - **Verification:** After changes: `./dev` (boot `PrayerTimeEmulator`, install debug, launch). Package `com.prayertime`. Headless: `./dev --headless`. CI: `./scripts/smoke-ci.sh`. After dependency bumps: full `./scripts/smoke-ci.sh` before merge.
 - **Instrumented tests:** `./gradlew connectedDebugAndroidTest` — Room migration tests (requires emulator/device; not part of smoke-ci).
 - **Branching:** Feature work on branches; no direct push to `main`.
-- **Merge:** `./scripts/smoke-ci.sh` green, scope respected (no GPS / Adhkar / Qibla), user sign-off, update `PHASED_PLAN.md` + playbook feature table.
+- **Merge:** `./scripts/smoke-ci.sh` green, scope respected (no GPS / Adhkar; Qibla only per Phase 7A), user sign-off, update `PHASED_PLAN.md` + playbook feature table.
 - **Docs language:** English for plans and agent-facing docs.

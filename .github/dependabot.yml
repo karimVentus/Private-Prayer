@@ -9,9 +9,18 @@ updates:
       - dependency-name: "org.jetbrains.kotlin.plugin.compose"
       - dependency-name: "org.jetbrains.kotlin.android"
       - dependency-name: "com.google.devtools.ksp"
+      # AGP pinned at 8.7.3 until Kotlin/Compose coordinated upgrade
+      - dependency-name: "com.android.application"
       # Room 2.6.1 → 2.8.x requires kotlinx.serialization version bump (AbstractMethodError)
       - dependency-name: "androidx.room:room-runtime"
       - dependency-name: "androidx.room:room-ktx"
       - dependency-name: "androidx.room:room-compiler"
-      # AGP pinned at 8.7.3 until Kotlin/Compose coordinated upgrade
-      - dependency-name: "com.android.application"
+      # Hilt stack pinned (2.52 / 1.2.0) — bump together
+      - dependency-name: "com.google.dagger:hilt-android"
+      - dependency-name: "com.google.dagger:hilt-android-compiler"
+      - dependency-name: "androidx.hilt:hilt-navigation-compose"
+      - dependency-name: "androidx.hilt:hilt-work"
+      - dependency-name: "androidx.hilt:hilt-compiler"
+      # kotlinx-coroutines — android + test must bump together
+      - dependency-name: "org.jetbrains.kotlinx:kotlinx-coroutines-android"
+      - dependency-name: "org.jetbrains.kotlinx:kotlinx-coroutines-test"

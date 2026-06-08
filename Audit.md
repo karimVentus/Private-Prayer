@@ -29,12 +29,12 @@ Recount: `rg -c '@Test' app/src/test/java app/src/testOnline/java --glob '*.kt'`
 | 3 themes (LIGHT, GREEN, DARK) + DataStore | ✅ | `AppTheme`, `ThemePalettes`, preferences |
 | 4 widget providers + locale/digits | ✅ | Providers, layouts, `WidgetDigitFormatter` |
 | Hijri Kuwaiti tabular + 10 events + Room v4 columns | ✅ | `HijriCalculator`, `IslamicEvent`, entity columns |
-| Per-prayer mute (all six slots incl. Shuruq) | ✅ | DataStore `muted_prayers`, UI toggles, scheduler |
+| Per-prayer mute (UI on all six rows; alarms on five fard) | ✅ | DataStore `muted_prayers`, UI toggles; `Prayer.adhanAlarmPrayers` |
 | 1s countdown ticker | ✅ | `PrayerTimesViewModel` monotonic loop |
 | TLS pinning `aladhan.com` | ✅ | `network_security_config.xml` |
 | Portrait-only | ✅ | Manifest |
 | Boot reschedule | ✅ | `BootCompletedReceiver` + `BootPrayerTimesResolver` |
-| `locations.json` bundled (~78 KB) | ✅ | Assets + `LocationCatalogLoader` |
+| `locations.json` bundled (187 KB, 9,221 lines) | ✅ | Assets + `LocationCatalogLoader`; expanded via `scripts/expand_locations.py` |
 | No mock/spurious data in `src/main/` | ✅ | Test doubles only in `src/test*` |
 
 **AGENTS.md accuracy:** claims verified; test counts **303 / 344**.

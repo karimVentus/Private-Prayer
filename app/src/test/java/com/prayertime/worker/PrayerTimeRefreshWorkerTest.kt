@@ -17,7 +17,6 @@ import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Assert.assertEquals
@@ -49,7 +48,6 @@ class PrayerTimeRefreshWorkerTest {
             .grantPermissions(android.Manifest.permission.POST_NOTIFICATIONS)
         preferences = mockk(relaxed = true)
         every { preferences.adhanNotificationsEnabled } returns adhanEnabled
-        every { preferences.adhanSound } returns flowOf("adhan")
         coEvery { preferences.setAdhanNotificationsEnabled(any()) } coAnswers {
             adhanEnabled.value = firstArg()
         }

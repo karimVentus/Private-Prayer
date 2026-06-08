@@ -53,7 +53,7 @@ For Android, define environments explicitly:
 
 Prerequisites before starting the Widget:
 
-    - [x] Green smoke gate for the core application (`./gradlew testDebugUnitTest` BUILD SUCCESSFUL, **413** test methods).
+    - [x] Green smoke gate for the core application (`./gradlew testDebugUnitTest` BUILD SUCCESSFUL, **414** test methods).
 - [x] Time calculation logic runs offline via adhan-java (no network dependency for daily calc).
 - [x] "City not found" error: `SaveCityResult.Error` blocks geocode failure from persisting; Snackbar shown; NoCity race suppressed.
 - [x] Database correctly saves and restores the entry for "Damascus, SY" (DataStore contract test passes).
@@ -205,7 +205,7 @@ Public docs must reflect real maturity.
 | Countdown to the Next Prayer | **Implemented** | Live 1s ticker managed by `PrayerTimesViewModel` (not Composable); wraps to tomorrow after Isha; city-TZ midnight rollover via `needsPrayerDayRefresh`. |
 | Change City | **Implemented** | "Change" clears city, returns to country wizard. City-scoped cache survives switching — Hameln→Berlin→Hameln hits cache. |
 | Save-Time City Validation | **Implemented** | `SaveCityResult` blocks persistence on geocode failure. Snackbar error + clear. |
-| Full-Audio Adhan Notification | **Implemented** | About toggle; `AdhanAlarmReceiver` + `res/raw/adhan.mp3`; exact/inexact alarms; boot reschedule; all six slots schedulable (incl. Shuruq). |
+| Full-Audio Adhan Notification | **Implemented** | About toggle; `AdhanAlarmReceiver` + `res/raw/adhan.mp3`; exact/inexact alarms; boot reschedule; five fard slots via `Prayer.adhanAlarmPrayers` (**SHURUQ** display-only). |
 | Per-prayer mute toggles | **Implemented (5E.22–23)** | `PrayerTimesScreen` bell icons on every row; `muted_prayers` DataStore; `AdhanAlarmReceiver` skips muted; Material outlined icons + theme tints. |
 | Automatic Daylight Saving Time Adjustment | **Implemented** | `PrayerTimeCalculator.needsPrayerDayRefresh` uses `TimeZone.getTimeZone(cityTZ)` for all day-boundary checks. DST-aware mapper tests. |
 | Architecture: ViewModel decomposition | **Implemented** | `MainViewModel` (380 lines) → `CitySetupViewModel` + `PrayerTimesViewModel` + `AppSettingsViewModel` + `SearchLocationsUseCase`. |
@@ -430,7 +430,7 @@ For every sensitive operation, document:
 - [x] 6. Implement Backend: `PrayerTimesRepository` — adhan-java local calc for daily times; Aladhan API used for geocode only on save. Room cache + offline fallback.
 - [x] 7. Error Normalization: `NetworkMapper` → `FetchError`; save path → `SaveCityError`.
 - [x] 8. User-facing errors: Display `Snackbar`; invalid city not persisted (SaveCityResult).
-- [x] 9. Tests: **413** unit methods — `app/src/test/java/` (56 files; single APK). Includes `FakePrayerTimesRepository`, `ComposeScreenSmokeTest`, `PrayerTimesViewModelIntegrationTest`, `AladhanApiMockWebServerTest`, `PrayerTimeWidgetProviderTest`, `QiblaCalculatorTest`, `LocationNamesTest`, `LiveAladhanTestSupportTest`.
+- [x] 9. Tests: **414** unit methods — `app/src/test/java/` (56 files; single APK). Includes `FakePrayerTimesRepository`, `ComposeScreenSmokeTest`, `PrayerTimesViewModelIntegrationTest`, `AladhanApiMockWebServerTest`, `PrayerTimeWidgetProviderTest`, `QiblaCalculatorTest`, `LocationNamesTest`, `LiveAladhanTestSupportTest`.
 - [ ] 10. Truthful Docs: Update README with accurate feature list — *in progress*.
 - [x] 11. Freeze Scope: Core app stable before widget/Hijri phases (Phases 3–4 complete).
 - [x] 12. Migration: Hijri calendar and events added without altering core prayer-time pipeline (Phase 4).
@@ -554,7 +554,7 @@ For every sensitive operation, document:
 - **Symptom:** Audit report (2026-06-04) flagged non-atomic Room cache writes, silent Aladhan parse failures, shared `ErrorType` across fetch/save, `Prayer.DUHA` semantic mismatch, duplicated test fakes, widget path mocked.
 - **Root cause:** Phase 3–4 velocity; incremental hardening deferred to Phase 5.
 - **Impact:** Potential wrong prayer times on malformed API input; compile-time error conflation; test gaps on widget and HTTP wire path.
-- **Fix implemented:** Phase **5G** + **5E** + **7A** — see `PHASED_PLAN.md` §5G/§5E/§7A (atomic `cacheToRoom`, audit v2 Jun 2026, Qibla compass, **413** tests green).
+- **Fix implemented:** Phase **5G** + **5E** + **7A** — see `PHASED_PLAN.md` §5G/§5E/§7A (atomic `cacheToRoom`, audit v2 Jun 2026, Qibla compass, **414** tests green).
 - [x] **Preventive action:** Graphify + AGENTS.md + `Audit.md` updated; architectural audit items closed; manual QA (5A–5F) tracked separately.
 
 #### Comprehensive codebase audit — reconciliation (Jun 2026)

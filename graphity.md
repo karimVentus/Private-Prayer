@@ -108,7 +108,7 @@ Tick **Graphify** checkbox in `PHASED_PLAN.md` for that phase.
 | Data (main) | `PrayerTimesRepository`, `LocalPrayerTimesRepository`, `LocalLocationRepository`, `LocationCatalogInitializer`, `PrayerTimesLocalEngine`, `AladhanTimingsMapper`, `LocationDataSource`, `LocationCatalogLoader`, `CityConfigSerializer`, `AppDatabase` (v4), `PrayerTimeMigrations` (`MIGRATION_1_2`…`3_4`), `app/schemas/` (1–4.json) |
 | Data (online only) | `OnlinePrayerTimesRepository` (composes local + `PrayerApi`), `AladhanApi`, `AladhanResponse`, `NetworkMapper`, `NetworkModule` (+ debug `HttpLoggingInterceptor`); `network_security_config.xml` TLS pins for `aladhan.com`; `./scripts/verify-aladhan-pins.sh` |
 | App | `@HiltAndroidApp` `PrayerTimeApplication`; flavor `RepositoryModule` in `src/offline/` / `src/online/` |
-| Domain (main) | `LocalPrayerTimeCalculator`, `PrayerTimeCalculator`, `HijriCalculator`, `QiblaCalculator`, `LocationNames` (`domain/util`), `LocationRepository`, `SearchLocationsUseCase`, `FetchError`, `SaveCityError`, `Prayer` (`SHURUQ` slot), `PrayerWindow` |
+| Domain (main) | `LocalPrayerTimeCalculator`, `PrayerTimeCalculator`, `HijriCalculator`, `QiblaCalculator`, `LocationNames` (`domain/util`), `LocationRepository`, `SearchLocationsUseCase`, `FetchError`, `SaveCityError`, `Prayer` (`SHURUQ` display-only; `adhanAlarmPrayers`), `PrayerWindow` |
 | Sensor (main) | `CompassSensor` (accel + magnetometer), `CompassHeading` (azimuth + declination), `CompassEntryPoint` |
 | DI (main + flavor) | `DataModule`, `DomainModule`, `AppConfigModule`, `RepositoryModule`, `NetworkModule` (online), `WidgetEntryPoint`, `CompassEntryPoint` |
 | Worker (main) | `PrayerRefreshWork`, `PrayerTimeRefreshWorker`, `WidgetRefreshWork`, `WidgetUpdateWorker` (`@HiltWorker`) |
@@ -116,6 +116,6 @@ Tick **Graphify** checkbox in `PHASED_PLAN.md` for that phase.
 
 Use the graph to avoid stale imports when refactoring repository ↔ flavor-specific API ↔ calculator paths. **Do not** expect `PrayerApi` under `src/main/` after the flavor split.
 
-**Test counts (Jun 2026):** **413** `@Test` in `app/src/test/java/` (56 files, single APK). Recount: `rg '@Test' app/src/test --glob '*.kt' -c | awk -F: '{s+=$2} END {print s}'`.
+**Test counts (Jun 2026):** **414** JVM `@Test` in `app/src/test/java/` (56 files) + **3** instrumented (`androidTest`). Recount: `rg -c '@Test' app/src/test --glob '*.kt' | awk -F: '{s+=$2} END {print s}'`.
 
-**Last Graphify run:** 2026-06-08 — **5206** nodes, **75823** edges (post PR **#13** L-widget: `widget_large_prayer_block.xml`).
+**Last Graphify run:** 2026-06-08 — **5239** nodes, **86633** edges (audit remediation v3 / v1.1.3).

@@ -2,18 +2,13 @@ package com.prayertime.permission
 
 import android.content.Context
 import androidx.test.core.app.ApplicationProvider
-import com.prayertime.data.local.AppPreferencesDataSource
 import com.prayertime.data.local.InMemoryCityConfigDataSource
 import com.prayertime.domain.model.CityConfig
 import com.prayertime.testing.FakePrayerTimesRepository
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
-import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
-import kotlinx.coroutines.test.setMain
-import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
@@ -38,21 +33,13 @@ class PermissionDenialMatrixTest {
     private val testDispatcher = UnconfinedTestDispatcher()
     private lateinit var citySource: InMemoryCityConfigDataSource
     private lateinit var repository: FakePrayerTimesRepository
-    private lateinit var preferences: AppPreferencesDataSource
     private lateinit var context: Context
 
     @Before
     fun setup() {
-        Dispatchers.setMain(testDispatcher)
         citySource = InMemoryCityConfigDataSource()
         repository = FakePrayerTimesRepository.forPrayerTimes(citySource)
-        preferences = AppPreferencesDataSource(ApplicationProvider.getApplicationContext())
         context = ApplicationProvider.getApplicationContext()
-    }
-
-    @After
-    fun teardown() {
-        Dispatchers.resetMain()
     }
 
     // ── 5B.3.1: Repository level — prayer times available without any permissions ──

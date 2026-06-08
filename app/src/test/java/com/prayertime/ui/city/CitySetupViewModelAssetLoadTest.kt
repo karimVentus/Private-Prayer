@@ -36,6 +36,7 @@ class CitySetupViewModelAssetLoadTest {
 
     @Before
     fun setup() {
+        Dispatchers.resetMain()
         Dispatchers.setMain(testDispatcher)
         LocationDataSource.resetForTests()
     }

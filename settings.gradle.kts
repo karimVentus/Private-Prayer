@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "PrayerTime"
+rootProject.name = "Hayya"
 include(":app")

@@ -1,6 +1,7 @@
-# Prayer Time Widget — Phased Implementation Plan
+# Hayya (حيا) — Phased Implementation Plan
 
-> **Current state:** Phases **0–7A** complete on `main` (Jun 2026). **`v1.0.0`** tagged. PR **#11** (Qibla), **#12** (audit v2), **#13** (L-widget layout + docs), **#14** (custom adhan sounds) merged. **No active feature phase** — branch new work from `main`. **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
+> **Product:** **Hayya** (EN) / **حيا** (AR) — privacy-first prayer-times app. Package **`com.prayertime`** unchanged.
+> **Current state:** Phases **0–7A** complete on `main` (Jun 2026). Release **`v1.1.2`** — Hayya rebrand, Settings **About** (repo link), sideload APK. PR **#11**–**#14** merged. **No active feature phase** — branch new work from `main`. **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
 > **Build:** Single APK `com.prayertime` (~23 MB debug). Privacy via Settings **offline-only toggle** (`offline_only`); no separate offline flavor.
 > **Calculation:** Umm al-Qura + Shafi + twilight (≥48°N); `adhan-java` when offline-only; Aladhan API when user disables offline mode.
 > **Tests:** `./gradlew testDebugUnitTest` — **413** JVM `@Test` (56 files); run `./scripts/smoke-ci.sh` for full gate.
@@ -23,6 +24,7 @@
 | **BootCompletedReceiver fix** | **Done** | null-city and notifications-denied branches now cancel stale alarms |
 | **Adhan sound picker** | **Done** | 8 sounds, live preview, persisted preference, AR/EN labels |
 | **Per-prayer mute** | **Done** | 🔔/🔕 toggle per prayer, persisted to DataStore, receiver checks before sound/notification |
+| **UI refinements** | **Done (Jun 2026)** — Material You dynamic color, 4-tab bottom nav, card shadows, enlarged countdown, custom Typography, Material icons |
 | **Custom adhan sounds** | **Done (PR #14)** — import `.mp3/.ogg/.wav` files, play from internal storage (`custom_adhans/`), fallback to default if missing, delete button in picker |
 | **Comprehensive audit (Jun 2026)** | **Done** | `Audit.md` reconciled; score **100/100**; dead widget resource removed |
 | **Adhan Doze fix (Jun 2026)** | **Done** | `USE_EXACT_ALARM` manifest; `setAlarmClock` Doze-safe; exact-alarm Settings notice; `ExactAlarmPermissionReceiver`; `qa-doze.sh` inexact-alarm warn |
@@ -46,6 +48,10 @@
 | **L-widget polish (PR #13)** | **Merged (Jun 2026)** — `widget_large_prayer_block.xml` shares M-widget 3-band column layout; readable L-widget fonts; `PrayerTimesViewModel` ticker test seam (fixes `runTest` hang) |
 | **Gradle 9.5** | **Done** — `gradle-wrapper` 9.5.1 on `main`. **Dependabot AGP 9 / Compose BOM 2026 / coroutines 1.11** — close; pin stack AGP **8.7.3** + Kotlin **2.0.21** until coordinated upgrade |
 | **Arabic city names** | **Done (7A)** — `cities_ar.json` + `LocationNames`; Arabic search/header/widget when app language is `ar` |
+| **Hayya rebrand** | **Done (Jun 2026)** — product name **Hayya** / **حيا** (`app_name`, widgets, Settings version, GitHub release APK `Hayya-v*.apk`); package `com.prayertime` unchanged |
+| **Release v1.1.1** | **Done** — Hayya rebrand APK on GitHub Releases |
+| **Settings About** | **Done (v1.1.2)** — `AboutCard` at bottom of Settings: app description, GitHub repo link, version |
+| **Release v1.1.2** | **Done** — signed `Hayya-v1.1.2.apk` on GitHub Releases |
 
 ---
 
@@ -901,6 +907,8 @@ As issues arise during development, append entries to `APP_CREATION_PLAYBOOK.md`
 - [x] **AGENTS.md** — **7A** phase row + project tree (`sensor/`, `QiblaScreen`) (2026-06-07)
 - [x] **APP_CREATION_PLAYBOOK.md** — feature table: Qibla compass **Done (7A)** (2026-06-07)
 - [x] **Post-7A baseline** — PR **#13** L-widget, Graphify **5206** nodes, clean-continuation section, `graphifyy` install docs (2026-06-08)
+- [x] **Hayya rebrand + v1.1.1** — `app_name` Hayya/حيا, release `Hayya-v1.1.1.apk`, README/AGENTS/playbook/PRIVACY (2026-06-08)
+- [x] **v1.1.2** — Settings About section, dependabot AndroidX pins, release scripts, CI androidx pin `resolutionStrategy` (2026-06-08)
 - [x] **Phase 5 manual QA closure** — **5C.2**, **5D**, **5F.3** user sign-off; removed retired scope items from plan (2026-06-08)
 
 ---

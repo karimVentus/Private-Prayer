@@ -1,4 +1,4 @@
-# Prayer Times (أوقات الصلاة)
+# Hayya (حيا)
 
 [English](#english) | [العربية](#arabic)
 
@@ -16,7 +16,7 @@ Pick a country and city from a bundled catalog, get accurate daily times (Umm al
 
 | | |
 |---|---|
-| **Version** | 1.0.0 |
+| **Version** | 1.1.2 |
 | **Package** | `com.prayertime` |
 | **Min SDK** | 23 · **Target** 35 |
 | **Tests** | JVM unit tests via `./gradlew testDebugUnitTest` |
@@ -94,23 +94,36 @@ See [`PHASED_PLAN.md`](PHASED_PLAN.md) for the full roadmap and Mermaid diagrams
 
 ## Install (release)
 
-Requires JDK 21, Android SDK, and a local `keystore.properties` (copy from `keystore.properties.example`; never commit the keystore or passwords).
+### Users (download APK)
+
+Get the latest signed APK from **[GitHub Releases](https://github.com/karimVentus/Private-Prayer/releases)** (`Hayya-v*.apk`).
+
+1. Download the APK on your phone (or sideload via `adb install -r Hayya-v1.1.2.apk`).
+2. Allow install from your browser/files app when prompted (Android “unknown sources”).
+3. Open **Hayya** and complete the city wizard.
+
+### Maintainers (build + publish)
+
+Requires JDK 21+, Android SDK, `gh` CLI, and a one-time upload keystore (gitignored).
 
 ```sh
-export JAVA_HOME=$HOME/jdk21
+export JAVA_HOME=$HOME/jdk21   # or Temurin 21
 export ANDROID_HOME=$HOME/Android/Sdk
-./gradlew assembleRelease
-adb install -r app/build/outputs/apk/release/app-release.apk
+
+# First time only — pick a strong password and back up ~/prayertime-upload.jks
+PRAYERTIME_KEYSTORE_PASSWORD='your-password' ./scripts/setup-release-signing.sh
+
+./scripts/smoke-ci.sh          # full CI before tagging
+./scripts/publish-release.sh v1.1.2   # build, package dist/, create GitHub Release
 ```
 
 | Artifact | Path | Size |
 |----------|------|------|
-| Signed APK | `app/build/outputs/apk/release/app-release.apk` | ~12 MB |
-| Signed AAB | `app/build/outputs/bundle/release/app-release.aab` | Play Store |
+| Signed APK | `dist/release/Hayya-v1.1.2.apk` | ~12 MB |
+| Signed AAB | `app/build/outputs/bundle/release/app-release.aab` | Play Store (`PUBLISH_AAB=1`) |
 
 ```sh
-./scripts/release-gate.sh   # APK size gate (≤ 13 MB)
-./scripts/smoke-ci.sh       # full CI before merge/tag
+./scripts/release-gate.sh    # assembleRelease + size gate (≤ 13 MB)
 ```
 
 ---
@@ -178,13 +191,13 @@ See repository license file. Prayer calculation uses [`adhan-java`](https://gith
 
 # العربية
 
-**تطبيق أوقات الصلاة يركز على الخصوصية — بدون نظام تحديد المواقع (GPS)، وبدون حساب شخصي.**
+**حيا — تطبيق أوقات صلاة يركز على الخصوصية، بدون GPS وبدون حساب.**
 
 اختر الدولة والمدينة من دليل مدمج داخل التطبيق، واحصل على أوقات صلاة يومية دقيقة (تقويم أم القرى، والمذهب الشافعي)، وعد تنازلي مباشر للصلاة القادمة، وتنبيهات أذان اختيارية، وأداتين للشاشة الرئيسية (متوسطة + كبيرة)، وتقويم هجري مع عشرة مناسبات إسلامية. التطبيق متوفر باللغتين العربية والإنجليزية مع دعم كامل للاتجاه من اليمين إلى اليسار (RTL)، وثلاثة سمات (مظهر فاتح، أخضر، داكن).
 
 | | |
 |---|---|
-| **الإصدار** | 1.0.0 |
+| **الإصدار** | 1.1.1 |
 | **حزمة التطبيق** | `com.prayertime` |
 | **الحد الأدنى لـ SDK** | 23 · **المستهدف** 35 |
 | **الاختبارات** | `./gradlew testDebugUnitTest` |
@@ -261,13 +274,21 @@ See repository license file. Prayer calculation uses [`adhan-java`](https://gith
 
 ## التثبيت (النسخة النهائية - Release)
 
-يتطلب التثبيت وجود JDK 21، و Android SDK، وملف `keystore.properties` محلي (انسخه من `keystore.properties.example`؛ لا تقم أبداً برفع ملف keystore أو كلمات المرور إلى المستودع).
+### للمستخدمين (تنزيل APK)
+
+حمّل أحدث APK موقّع من **[إصدارات GitHub](https://github.com/karimVentus/Private-Prayer/releases)** (`PrayerTime-v*.apk`).
+
+1. نزّل الملف على هاتفك (أو ثبّت عبر `adb install -r Hayya-v1.1.2.apk`).
+2. اسمح بالتثبيت من المتصفح/مدير الملفات عند الطلب.
+3. افتح التطبيق وأكمل معالج اختيار المدينة.
+
+### للمطورين (بناء ونشر)
 
 ```sh
 export JAVA_HOME=$HOME/jdk21
 export ANDROID_HOME=$HOME/Android/Sdk
-./gradlew assembleRelease
-adb install -r app/build/outputs/apk/release/app-release.apk
+PRAYERTIME_KEYSTORE_PASSWORD='your-password' ./scripts/setup-release-signing.sh
+./scripts/publish-release.sh v1.1.2
 ```
 
 | الملف الناتج | المسار | الحجم |

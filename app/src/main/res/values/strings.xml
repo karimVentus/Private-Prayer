@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Prayer Times</string>
+    <string name="app_name">Hayya</string>
     <string name="bismillah_header">☾  بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ  ☾</string>
 
     <!-- CityInputScreen -->
@@ -25,6 +25,10 @@
     <string name="change_city_dialog_cancel">Cancel</string>
     <string name="language">Language</string>
     <string name="settings">Settings</string>
+    <string name="nav_prayer_times">Prayer</string>
+    <string name="nav_qibla">Qibla</string>
+    <string name="nav_calendar">Calendar</string>
+    <string name="nav_settings">Settings</string>
     <string name="language_dialog_title">App language</string>
     <string name="language_system">System default</string>
     <string name="language_english">English</string>
@@ -36,6 +40,7 @@
     <string name="theme_dark">Dark</string>
     <string name="privacy_mode_badge">Privacy mode — no network</string>
     <string name="next_label">Next: %1$s in %2$s</string>
+    <string name="next_prayer_label">Next: %1$s</string>
 
     <!-- Prayer names -->
     <string name="fajr">Fajr</string>
@@ -97,7 +102,11 @@
     <string name="refresh_times_title">Refresh times</string>
     <string name="refresh_times_desc">Recalculate or re-download today\'s prayer times if cached values look wrong. Changing city keeps past cache for faster return.</string>
     <string name="refresh_times_action">Refresh today\'s times</string>
-    <string name="version">Prayer Times v%1$s</string>
+    <string name="version">Hayya v%1$s</string>
+    <string name="about_section">About</string>
+    <string name="about_description">Hayya is a privacy-first prayer times app: pick your city, get accurate daily times (Umm al-Qura, Shafi), optional adhan alerts, home-screen widgets, Hijri calendar, and Qibla direction — without GPS or an account.</string>
+    <string name="about_repo_link">Source code on GitHub</string>
+    <string name="about_repo_url" translatable="false">https://github.com/karimVentus/Private-Prayer</string>
 
     <!-- Adhan notifications -->
     <string name="adhan_channel_name">Adhan</string>
@@ -126,8 +135,8 @@
     <string name="adhan_sound_delete">Delete</string>
 
     <!-- Home screen widget -->
-    <string name="widget_name_medium">Prayer Time (M)</string>
-    <string name="widget_name_large">Prayer Time (L)</string>
+    <string name="widget_name_medium">Hayya (M)</string>
+    <string name="widget_name_large">Hayya (L)</string>
     <string name="widget_description">Today\'s prayer times and next prayer countdown</string>
     <string name="widget_preview_city">Hameln, DE</string>
     <string name="widget_preview_hijri">10 Dhul Hijjah 1446</string>
@@ -185,7 +194,7 @@
     <string name="event_eid_al_adha_cell">Adha</string>
     <string name="calendar">Calendar</string>
     <string name="qibla">Qibla</string>
-    <string name="back_to_prayer_times">Back to prayer times</string>
+    <string name="back_to_prayer_times">Back to Hayya</string>
     <string name="calendar_ramadan_first">1st of Ramadan</string>
     <string name="calendar_ramadan_last">Last day</string>
     <string name="calendar_tab_monthly">Monthly</string>

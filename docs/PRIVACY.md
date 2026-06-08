@@ -1,8 +1,8 @@
-# Privacy Policy — Prayer Times
+# Privacy Policy — Hayya (حيا)
 
-**Last updated:** 2026-06-03
+**Last updated:** 2026-06-08
 
-Prayer Times is a privacy-respecting Android application for viewing Islamic prayer times. This policy explains what data the app collects, sends, and stores.
+Hayya (حيا) is a privacy-respecting Android application for viewing Islamic prayer times. This policy explains what data the app collects, sends, and stores.
 
 ## Network usage
 

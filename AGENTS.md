@@ -1,4 +1,4 @@
-# AGENTS — PrayerTime- Project Setup
+# AGENTS — Hayya (حيا) Project Setup
 
 ## Build environment
 
@@ -15,7 +15,7 @@ export ANDROID_HOME=$HOME/Android/Sdk
 ## Project structure (current)
 
 ```
-PrayerTime-/
+Hayya/  (repo folder may still be Private-Prayer; package com.prayertime)
 ├── app/src/main/java/com/prayertime/
 │   ├── alarm/              # AdhanAlarmReceiver, BootCompletedReceiver, PrayerAlarmScheduler
 │   ├── data/
@@ -153,6 +153,7 @@ PrayerTime-/
 - **Compose:** `PrayerTimeTheme(theme)` + `ThemePalettes.materialScheme()`; calendar uses `LocalCalendarPalette` / `calendarPalette()`
 - **Settings:** user-facing **Settings** screen (`AboutScreen.kt`) — theme picker, privacy, adhan, refresh
 - **Widgets (two providers):** `PrayerTimeWidgetProvider` (**medium**, `widget_info_medium` **5×1** horizontal-only) and `PrayerTimeWidgetProviderLarge` (**large**, resizable). Shared stack: `WidgetSnapshot.appTheme`, `ThemePalettes.widget()`, `WidgetRemoteViewsBuilder` (`WidgetSize.MEDIUM` | `LARGE`). Per-theme column highlight drawables: `widget_col_highlight_{light,green,dark}.xml` (8dp radius). **Medium:** three equal bands (Hijri header / short prayer names / times), **14sp**, **time-only** (`timeOnly=true`, no per-column countdown), next-prayer highlight via `widget_highlight_0..5` overlay on the times row. **Large:** city label, Hijri, live clock; prayer grid via `widget_large_prayer_block.xml` (M-aligned 3-band columns) + per-column countdown. (Legacy SmallTall/SmallWide providers removed — consolidated into medium.)
+- **Bottom navigation:** 4-tab `NavigationBar` (Prayer 🕌 / Qibla 🧭 / Calendar 📅 / Settings ⚙️) with `NavHost` — replaces boolean-flag if/else. "Change" city `TextButton` kept in header.
 - **Custom adhan sounds:** `AdhanAlertDeliverer` + `AdhanSoundResolver` — user-imported audio files (`custom_` key prefix, `custom_adhans/` dir), merged UI picker with play/delete, fallback to default if file missing
 - **Per-prayer mute:** `PrayerTimesScreen` toggles → `muted_prayers` DataStore; `PrayerAlarmScheduler` schedules all six `Prayer` slots; `AdhanAlarmReceiver` no-ops when muted
 

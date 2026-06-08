@@ -24,3 +24,10 @@ updates:
       # kotlinx-coroutines — android + test must bump together
       - dependency-name: "org.jetbrains.kotlinx:kotlinx-coroutines-android"
       - dependency-name: "org.jetbrains.kotlinx:kotlinx-coroutines-test"
+      # AndroidX — activity 1.13+ / core 1.19+ need compileSdk 36–37 + AGP 8.9+/9.1+ (pinned at 8.7.3 / SDK 35)
+      - dependency-name: "androidx.activity:activity-compose"
+      - dependency-name: "androidx.activity:activity-ktx"
+      - dependency-name: "androidx.activity:activity"
+      - dependency-name: "androidx.core:core-ktx"
+      - dependency-name: "androidx.core:core"
+      - dependency-name: "androidx.appcompat:appcompat"

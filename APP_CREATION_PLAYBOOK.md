@@ -1,12 +1,12 @@
-# Prayer Time Widget — Application Creation Playbook
+# Hayya (حيا) — Application Creation Playbook
 
-> **This is an engineering guide specific to the Prayer Time Widget project:** a lightweight, city-based Android prayer-times app with a fixed shipped feature set (Phases 0–7A). The incident log contains case studies from real development that illustrate each principle in practice. Update it whenever a new problem appears.
+> **This is an engineering guide for Hayya (حيا):** a lightweight, city-based Android prayer-times app with a fixed shipped feature set (Phases 0–7A). Package **`com.prayertime`** unchanged. The incident log contains case studies from real development that illustrate each principle in practice. Update it whenever a new problem appears.
 
 ---
 
 ## 0) Purpose of this playbook
 
-Build the Prayer Time Widget application with absolute integrity:
+Build the Hayya application with absolute integrity:
 
 - [x] **Honest Scope:** Shipped feature set complete (Phases **0–7A**). New work requires an explicit phase in `PHASED_PLAN.md`.
 - [ ] **Fixed Architectural Boundaries:** Complete separation between UI, time calculation logic, local storage, and notifications.
@@ -234,6 +234,8 @@ Public docs must reflect real maturity.
 | Phase 5 hardening (Doze, perms, offline, DST, UI) | **Done (Jun 2026)** | 5A–5F signed off (emulator + device), incl. **5C.2**, **5D**, **5F.3** user verification. |
 | Qibla compass (city coords + magnetometer) | **Done (7A, Jun 2026)** | `QiblaScreen`, `QiblaCalculator`, `CompassSensor`/`CompassHeading`; portrait hold; dual-layer rotation; align haptic. Merged PR **#11**–**#13**. |
 | L-widget layout parity | **Done (PR #13, Jun 2026)** | `widget_large_prayer_block.xml`; M-aligned columns + readable fonts; VM ticker test seam. |
+| Product name (Hayya / حيا) | **Done (v1.1.1)** | Launcher + widgets + Settings version string; GitHub release `Hayya-v*.apk`; package `com.prayertime` unchanged. |
+| Settings About section | **Done (v1.1.2)** | Bottom of Settings: Hayya description, GitHub repo link (`about_repo_url`), version line. |
 | Adhan sound picker | **Implemented** | 8 sounds with live preview, persisted to DataStore, EN/AR labels. AdhanAlarmReceiver reads preference at alarm time. |
 
 - [ ] Never market future capabilities as done.

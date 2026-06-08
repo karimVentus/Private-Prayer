@@ -1,7 +1,17 @@
 #!/usr/bin/env bash
 set -e
 
-export JAVA_HOME="${JAVA_HOME:-$HOME/jdk21}"
+if [[ -z "${JAVA_HOME:-}" ]]; then
+    if [[ -d "$HOME/jdk21" ]]; then
+        JAVA_HOME="$HOME/jdk21"
+    elif [[ -d "$HOME/.local/share/mise/installs/java/temurin-21.0.11+10.0.LTS" ]]; then
+        JAVA_HOME="$HOME/.local/share/mise/installs/java/temurin-21.0.11+10.0.LTS"
+    else
+        echo "[release-gate] ERROR: set JAVA_HOME to JDK 21 (Temurin). JDK 25+ breaks AGP jlink."
+        exit 1
+    fi
+fi
+export JAVA_HOME
 export ANDROID_HOME="${ANDROID_HOME:-$HOME/Android/Sdk}"
 unset ANDROID_SDK_ROOT
 

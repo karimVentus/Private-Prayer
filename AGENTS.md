@@ -129,6 +129,7 @@ PrayerTime-/
 - `PrayerTimesRepository` is an interface — `OnlinePrayerTimesRepository` composes `LocalPrayerTimesRepository` + `PrayerApi`
 - **`offline_only` flag** (default true): zero HTTP when enabled; Aladhan when disabled
 - **Release shrinker:** `proguard-rules.pro` keeps `domain.model.**`, `data.remote.**`, and `PrayerTimeWidgetProvider` + `PrayerTimeWidgetProviderLarge`; `-dontwarn` for OkHttp/Retrofit
+- **Dependabot:** pinned ignores for Kotlin/AGP/Room/Hilt/coroutines in `.github/dependabot.yml` — bump only on coordinated upgrade
 
 ## APK sizes (debug builds)
 

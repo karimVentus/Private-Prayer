@@ -122,6 +122,8 @@
     <string name="adhan_sound_almadina2">Al-Madina 2</string>
     <string name="adhan_sound_alsbeawey">Al-Subeawey</string>
     <string name="adhan_sound_easa_alhjlawey">Easa Al-Hijlawey</string>
+    <string name="adhan_sound_add_custom">Add custom sound</string>
+    <string name="adhan_sound_delete">Delete</string>
 
     <!-- Home screen widget -->
     <string name="widget_name_medium">Prayer Time (M)</string>

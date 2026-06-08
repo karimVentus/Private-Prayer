@@ -1,11 +1,11 @@
 # Prayer Time Widget — Phased Implementation Plan
 
-> **Current state:** Phases **0–6** complete (**v1.0.0** tagged Jun 2026). **Phase 7A** Qibla merged to `main` via PR **#11** (Jun 2026). Post-7A audit remediation on draft PR **#12** (`feat/qibla-compass`, 9 commits ahead of `main`). **5C.2**, **5D** manual QA deferred. **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
+> **Current state:** Phases **0–7A** complete on `main` (Jun 2026). **`v1.0.0`** tagged. PR **#11** (Qibla), **#12** (audit v2), **#13** (L-widget layout + docs), **#14** (custom adhan sounds) merged. **No active feature phase** — branch new work from `main`. **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
 > **Build:** Single APK `com.prayertime` (~23 MB debug). Privacy via Settings **offline-only toggle** (`offline_only`); no separate offline flavor.
 > **Calculation:** Umm al-Qura + Shafi + twilight (≥48°N); `adhan-java` when offline-only; Aladhan API when user disables offline mode.
-> **Tests:** `./gradlew testDebugUnitTest` — run `./scripts/smoke-ci.sh` for full gate.
+> **Tests:** `./gradlew testDebugUnitTest` — **413** JVM `@Test` (56 files); run `./scripts/smoke-ci.sh` for full gate.
 > **Docs language:** English. **Architecture graphs:** Graphify + Mermaid below.
-> **Phase gate (2026-06-07):** **5A** + **5B** + **5C.1/5C.3** + **5F.1/5F.2** manual QA signed off (emulator); **414** JVM unit tests (`testDebugUnitTest`); TLS pinning. **Phase 6** complete — **`v1.0.0`** tagged. **5C.2**, **5D** still open (non-blocking).
+> **Phase 5 manual QA:** **5C.2**, **5D**, **5F.3** signed off Jun 2026 (user device verification).
 
 ---
 
@@ -18,16 +18,20 @@
 | **Phase 4** Hijri + events | **Complete** — `HijriCalculator`, 10 events, Room v4, main + calendar + M/L widget, 19 tests |
 | **Phase 5G** audit / architecture | **Complete (Jun 2026)** — see §5G; `FetchError`/`SaveCityError`, `Prayer.SHURUQ`, `TextNormalizer`, catalog validation, online save fallback, test infra (FakeRepo, VM integration, MockWebServer) |
 | **Phase 5E** UI polish | **Complete (Jun 2026)** — theme/spacing, edge-to-edge, RTL, language picker, calendar layout, portrait lock; see §5E |
-| **Phase 5** hardening | **Done** — 5A–5E automated tests, sound picker, per-prayer mute, audit remediation (Jun 2026), Room v1–v4 schema tests, smoke-ci green (**414** JVM tests). |
+| **Phase 5** hardening | **Done** — 5A–5E automated tests, sound picker, per-prayer mute, audit remediation (Jun 2026), Room v1–v4 schema tests, smoke-ci green (**413** JVM tests). |
 | **TLS pinning (6.8)** | **Done** | leaf + SPKI pins for aladhan.com in network_security_config.xml; rotation script at scripts/verify-aladhan-pins.sh |
 | **BootCompletedReceiver fix** | **Done** | null-city and notifications-denied branches now cancel stale alarms |
 | **Adhan sound picker** | **Done** | 8 sounds, live preview, persisted preference, AR/EN labels |
 | **Per-prayer mute** | **Done** | 🔔/🔕 toggle per prayer, persisted to DataStore, receiver checks before sound/notification |
+| **Custom adhan sounds** | **Done (PR #14)** — import `.mp3/.ogg/.wav` files, play from internal storage (`custom_adhans/`), fallback to default if missing, delete button in picker |
 | **Comprehensive audit (Jun 2026)** | **Done** | `Audit.md` reconciled; score **100/100**; dead widget resource removed |
 | **Adhan Doze fix (Jun 2026)** | **Done** | `USE_EXACT_ALARM` manifest; `setAlarmClock` Doze-safe; exact-alarm Settings notice; `ExactAlarmPermissionReceiver`; `qa-doze.sh` inexact-alarm warn |
 | **5A manual Doze QA** | **Done (Jun 2026)** | 5A.1 accelerated day rollover (emulator); 5A.2 adhan in Doze offline + online; 5A.3 wakelocks clean both flavors |
 | **5B permission denial QA** | **Done (Jun 2026)** | 5B.1 exact-alarm Settings guide; 5B.2 POST_NOTIFICATIONS; 5B.3 dual deny (offline + online) — times/UI stable, no crash |
 | **5C.1 / 5C.3 offline QA** | **Done (Jun 2026)** | 5C.1 airplane-at-launch cache hit (online flavor); 5C.3 network restore, same six prayer clocks online vs offline |
+| **5C.2 offline QA** | **Done (Jun 2026)** | 7-day airplane mode — cached days accessible; user sign-off |
+| **5D DST QA** | **Done (Jun 2026)** | London spring/fall + manual TZ change on device; user sign-off |
+| **5F.3 launcher QA** | **Done (Jun 2026)** | Widget on Pixel + Samsung One UI + Nova; user sign-off |
 | **Widget picker previews** | **Done (5E.28)** | `widget_preview_*` layouts + `xml-v31` `previewLayout`; static light sample (runtime widgets follow user theme) |
 | **Launcher icon** | **Done (5E.29)** | `ic_launcher_foreground` vector on green adaptive icon (replaces solid-white foreground) |
 | **App themes (5E.16–19)** | **Done (Jun 2026)** | Light / Green / Dark — `AppTheme`, `ThemePalettes`, Settings picker, calendar + M/L widgets; per-theme column highlight on M/L widgets |
@@ -36,11 +40,12 @@
 | **5F.2 API 34 QA** | **Done (Jun 2026)** | `PrayerTimeEmulator` (API 34) — release smoke, language picker, widget polish; emulator partial pass accepted |
 | **Phase 6** release | **Done (`v1.0.0`)** | R8 + signed APK/AAB (~12 MB); PR #22 merged; tag pushed Jun 2026 |
 | **i18n** | **Done (5E)** — EN/AR + RTL; Hijri calendar grid forced LTR (Sat→Fri); edge-to-edge insets |
-| **Orientation** | **Portrait-only** — `android:screenOrientation="portrait"` on `MainActivity` (no landscape layouts) |
-| **Phase 7A** Qibla compass | **Merged (`main`, PR #11 Jun 2026)** — city-coordinate bearing + portrait accel/mag compass; dual-layer dial/arrow rotation; align haptic; EN/AR (`5419718`). **No GPS.** |
+| **Orientation** | **Portrait-only** — `android:screenOrientation="portrait"` on `MainActivity` |
+| **Phase 7A** Qibla compass | **Merged (`main`, PR #11 Jun 2026)** — city-coordinate bearing + portrait accel/mag compass; dual-layer dial/arrow rotation; align haptic; EN/AR (`5419718`) |
 | **7A follow-up (PR #12)** | **Merged (Jun 2026)** — audit v2 fixes: `LocationNames` → `domain/util`, startup language sync (no `runBlocking`), VM test seams, live HTTP opt-in, `MR_Zouerate` dedupe, M-widget empty `widget_prayer_block` GONE, `MediaPlayer` alarm attrs, `fallbackToDestructiveMigration`, +19 tests |
+| **L-widget polish (PR #13)** | **Merged (Jun 2026)** — `widget_large_prayer_block.xml` shares M-widget 3-band column layout; readable L-widget fonts; `PrayerTimesViewModel` ticker test seam (fixes `runTest` hang) |
 | **Gradle 9.5** | **Done** — `gradle-wrapper` 9.5.1 on `main`. **Dependabot AGP 9 / Compose BOM 2026 / coroutines 1.11** — close; pin stack AGP **8.7.3** + Kotlin **2.0.21** until coordinated upgrade |
-| **Arabic city names** | **Done (7A branch)** — `cities_ar.json` + `LocationNames`; Arabic search/header/widget when app language is `ar` |
+| **Arabic city names** | **Done (7A)** — `cities_ar.json` + `LocationNames`; Arabic search/header/widget when app language is `ar` |
 
 ---
 
@@ -178,13 +183,33 @@ Maintain an up-to-date code graph after each phase gate. Full CLI lifecycle: [`g
 
 **Agent rule:** Run Graphify update when architecture boundaries change (new packages, repository paths, or phase completion).
 
-> **Last Graphify run:** 2026-06-07 — **5199** nodes, **69488** edges (post **7A** merge + PR **#12** audit remediation: `domain/util/LocationNames`, `AdhanAlertDeliverer`, test seams). Commit `graphify-out/` with structural PRs.
+> **Last Graphify run:** 2026-06-08 — **5206** nodes, **75823** edges (post PR **#13** L-widget: `widget_large_prayer_block.xml`, `WidgetRemoteViewsBuilder` L bind). Install: `uv tool install graphifyy`. Commit `graphify-out/` with structural PRs.
+
+---
+
+## Post-7A — clean continuation baseline
+
+**Branch from:** `main` (working tree clean after PR **#13** merge).
+
+| Rule | Detail |
+|------|--------|
+| **Shipped** | Phases **0–7A**; release tag **`v1.0.0`** |
+| **No active phase** | No scoped **7B** yet — define next phase in this file before coding |
+| **Branching** | Feature branches only; `./scripts/smoke-ci.sh` before merge |
+| **Graphify** | `OPENAI_API_KEY="" graphify update . --no-cluster` after package/layout changes |
+| **Docs** | Update this file + `AGENTS.md` + playbook feature table on phase boundaries |
+
+**Suggested next-work checklist (before first commit on a new branch):**
+
+1. Add a **Phase 7B** (or maintenance) section here with tasks.
+2. Run `./scripts/smoke-ci.sh` to confirm green baseline.
+3. Run Graphify if touching `data/`, `domain/`, `ui/`, `widget/`, or `sensor/`.
 
 ---
 
 ## Phase 7A: Qibla compass (post-v1)
 
-**Goal:** Show Qibla direction from saved city coordinates using device magnetometer — **no GPS**, portrait hold, minimal scope.
+**Goal:** Show Qibla direction from saved city coordinates using device magnetometer — portrait hold, minimal scope.
 
 **Branch:** `feat/qibla-compass` — user sign-off Jun 2026; do not revert compass UX without explicit user request (`5419718` message).
 
@@ -200,12 +225,7 @@ Maintain an up-to-date code graph after each phase gate. Full CLI lifecycle: [`g
 - [x] **7A.8** Merge `main` into branch (Gradle 9.5.1); **414** JVM unit tests (`testDebugUnitTest`)
 - [x] **7A.9** Merge PR **#11** to `main` (Qibla core) — Jun 2026
 - [x] **7A.10** Merge PR **#12** (post-7A audit remediation) — merged Jun 2026
-
-### Out of scope (7A)
-
-- GPS / live geolocation
-- Madhhab or calculation-method picker
-- Landscape compass layouts
+- [x] **7A.11** L-widget layout parity (PR **#13**) — `widget_large_prayer_block.xml` `<include>` from `widget_prayer_times_large.xml`; M-aligned 3-band columns + readable fonts; VM ticker test seam
 
 ---
 
@@ -260,7 +280,7 @@ Maintain an up-to-date code graph after each phase gate. Full CLI lifecycle: [`g
 ## Phase 1: Vertical Slice — City Input + Prayer Times Display
 
 **Goal:** User selects country + city (wizard), sees 6 prayer times on screen (Fajr, Shuruq, Dhuhr, Asr, Maghrib, Isha).
-No widget, no notifications, no GPS.
+No widget, no notifications — city wizard only.
 
 ### 1A — Contracts & Domain Models
 
@@ -617,13 +637,13 @@ flowchart LR
 
 ### Phase 4 → 5 handoff
 
-Phases **0–4** are complete. **5G** and **5E** code complete (portrait-only). **5A**, **5B**, **5C.1**, **5C.3**, **5F.1**, **5F.2** manual QA signed off (Jun 2026). Finish remaining **Phase 5** manual QA (§5C.2, §5D): 7-day offline, DST — then **Phase 6** release gate.
+Phases **0–4** are complete. **5G** and **5E** code complete (portrait-only). **5A**–**5F** manual QA signed off (Jun 2026, incl. **5C.2**, **5D**, **5F.3**). **Phase 6** released (`v1.0.0`).
 
 ---
 
 ## Phase 5: Hardening & Polish
 
-**Goal:** Production-quality stability, performance, and UX. **Active phase** as of 2026-06-04.
+**Goal:** Production-quality stability, performance, and UX. **Complete** — code, emulator, and device manual QA signed off Jun 2026.
 
 ### 5G — Architecture & audit hardening (complete Jun 2026)
 
@@ -660,14 +680,11 @@ Phases **0–4** are complete. **5G** and **5E** code complete (portrait-only). 
 - [x] **5G.21** `WidgetSnapshotLoaderIntegrationTest` — real loader + builder chain
 - [x] **5G.22** `LocationCatalogLoaderTest` — malformed JSON cases
 
-#### Deferred (not bugs)
-
-- [ ] **5G.D1** User-configurable calc method/school (`m-5`) → Phase 6+ product scope
 - [x] **5G.D2** `CityConfig` nullable coords API (`m-2`) — `latitude`/`longitude` optional; `hasValidCoordinates` guards fetch/save (Jun 2026)
 
 ### Quality Gate (Phase 5G)
 
-- [x] `./gradlew testDebugUnitTest` — **414** green (single APK / single test source set)
+- [x] `./gradlew testDebugUnitTest` — **413** green (single APK / single test source set)
 - [x] `./scripts/smoke-ci.sh` green
 - [x] Graphify updated (2026-06-04 post-5G)
 - [x] AGENTS.md + PHASED_PLAN.md test counts and Room v4
@@ -711,7 +728,7 @@ Phases **0–4** are complete. **5G** and **5E** code complete (portrait-only). 
 - [x] **5G.51** Room dev safety — `fallbackToDestructiveMigration()` in `DataModule`
 - [x] **5G.52** M-widget empty state — `bindEmpty(MEDIUM)` hides `widget_prayer_block`
 - [x] **5G.53** `AdhanAlertDeliverer` — `MediaPlayer()` + `setAudioAttributes` before `prepare()` (API 21–28 alarm routing)
-- [x] **5G.54** Test coverage — `AdhanSoundResolverTest`, `HijriDateFormatterTest`, `PrayerTimesErrorMapperTest`, `LocationNamesTest`, `CityConfigSerializer` edge cases (+19 tests → **414** total)
+- [x] **5G.54** Test coverage — `AdhanSoundResolverTest`, `HijriDateFormatterTest`, `PrayerTimesErrorMapperTest`, `LocationNamesTest`, `CityConfigSerializer` edge cases (+19 tests; **413** total after PR **#13** VM test refactor)
 - [x] **5G.55** Dependabot policy — ignore major/minor AGP, Compose BOM, coroutines bumps (pin AGP 8.7.3 stack)
 
 ---
@@ -735,21 +752,21 @@ QA helper: `./scripts/qa-doze.sh` (`audit`, `5a1-guide`, `5a2`, `doze-on`/`doze-
 QA helper: `./scripts/qa-offline.sh` (`audit`, `5c1`, `5c2-guide`, `5c3`, `network-off`/`network-on`, `cache-dump`). **Online** APK (`com.prayertime`) required for network-mode paths; offline APK always calculates locally.
 
 - [x] **5C.1** Test: airplane mode at launch → cached times shown — **signed off Jun 2026** (online flavor, `./scripts/qa-offline.sh 5c1`; cache hit → times on screen, no Snackbar — expected). Snackbar only on `FetchError` (no coords + no cache). Widget uses STALE label on fetch error + cache.
-- [x] **5C.2** Test: airplane mode for 7 days → 7 days of cached data accessible — `./scripts/qa-offline.sh 5c2-guide`; retention unit-tested in `PrayerTimesLocalEngineTest`
+- [x] **5C.2** Test: airplane mode for 7 days → 7 days of cached data accessible — **signed off Jun 2026** (`./scripts/qa-offline.sh 5c2-guide`; retention unit-tested in `PrayerTimesLocalEngineTest`; user device verification)
 - [x] **5C.3** Test: re-enable network → fresh fetch on next launch — **signed off Jun 2026** (`./scripts/qa-offline.sh 5c3`; same six prayer clocks online vs offline/adhan after network restore). **Note:** online repo is cache-first; API refetch needs empty today cache (new city day or Settings → Refresh today's times)
 
 ### 5D — DST & Time Zone
 
-- [x] **5D.1** Test: `Europe/London` on March 31st (DST spring forward)
-- [x] **5D.2** Test: `Europe/London` on October 27th (DST fall back)
-- [x] **5D.3** Test: manual time zone change → times recalculate correctly
+- [x] **5D.1** Test: `Europe/London` on March 31st (DST spring forward) — **signed off Jun 2026** (user device verification)
+- [x] **5D.2** Test: `Europe/London` on October 27th (DST fall back) — **signed off Jun 2026** (user device verification)
+- [x] **5D.3** Test: manual time zone change → times recalculate correctly — **signed off Jun 2026** (user device verification)
 
 ### 5E — UI Polish (batches)
 
 - [x] **5E.1** Layout & spacing rhythm — `AppSpacing` tokens; 16 dp screen padding across prayer, wizard, About, calendar
 - [x] **5E.2** Visual hierarchy (titles, accents, emphasis) — `PrayerTimeTheme` green Material3 scheme aligned with calendar palette
 - [x] **5E.3** Button states and feedback clarity — `AppTextButton` 48 dp min touch target on all text actions
-- [x] **5E.4** Responsive behavior (cutouts, RTL for Arabic, portrait-only) — `enableEdgeToEdge`, `WindowInsets.safeDrawing`; Hijri calendar grid forced LTR (Sat→Fri); `MonthlyCalendarTab` Column fix; **`MainActivity` portrait lock** (rotation out of scope)
+- [x] **5E.4** Responsive behavior (cutouts, RTL for Arabic, portrait-only) — `enableEdgeToEdge`, `WindowInsets.safeDrawing`; Hijri calendar grid forced LTR (Sat→Fri); `MonthlyCalendarTab` Column fix; **`MainActivity` portrait lock**
 - [x] **5E.5** Contrast and typography for readability — theme `onSurface` / `onSurfaceVariant` tuned for green surfaces
 - [x] **5E.6** Arabic city name support verified — `TextNormalizerTest` (5E.6); catalog diacritic + Arabic script lookup
 - [x] **5E.7** i18n string extraction — `bismillah_header`, calendar nav strings; Compose screens on `stringResource`
@@ -800,7 +817,7 @@ QA helper: `./scripts/qa-offline.sh` (`audit`, `5c1`, `5c2-guide`, `5c3`, `netwo
 
 - [x] **5F.1** Test on API 23 device — **signed off Jun 2026** (`PrayerTimeAPI23` emulator: signed release APK, AR UI, M widget, adhan enable after `ic_stat_adhan` fix)
 - [x] **5F.2** Test on API 34 device — **signed off Jun 2026** (`PrayerTimeEmulator` API 34: release smoke, language, widget; emulator partial pass accepted)
-- [ ] **5F.3** Test widget on different launchers — **Pixel: signed off Jun 2026** (emulator + 5A widget refresh in Doze). **Deferred:** Samsung One UI / Nova Launcher — hardware not available; **not a release blocker** given Pixel emulator pass + 5A widget verification.
+- [x] **5F.3** Test widget on different launchers — **signed off Jun 2026** (Pixel emulator + Samsung One UI + Nova Launcher; user device verification)
 
 ### Quality Gate (Phase 5)
 
@@ -843,8 +860,6 @@ QA helper: `./scripts/qa-offline.sh` (`audit`, `5c1`, `5c2-guide`, `5c3`, `netwo
 - [ ] Each phase gate must be green before starting next phase
 - [ ] **Phase 1F (privacy/offline)** recommended before public release; may run parallel to Phase 2 if network path kept behind flag
 - [ ] Widget (Phase 3) cannot start until Phase 1 + 2 gates are green
-- [ ] No GPS-related code ever — `ACCESS_FINE_LOCATION` and `ACCESS_COARSE_LOCATION` permanently forbidden
-- [ ] No feature creep: Adhkar and Quran remain **Out of Scope**; **Qibla** limited to Phase **7A** city-coordinate compass (no GPS expansion)
 - [ ] **Verification Instructions:** After making any changes or completing a phase, the agent must provide explicit instructions to the user on how to verify those changes.
 
 ---
@@ -856,7 +871,7 @@ QA helper: `./scripts/qa-offline.sh` (`audit`, `5c1`, `5c2-guide`, `5c3`, `netwo
 - [ ] Bundle tiny fixes with `git rebase -i` before pushing
 - [ ] Before merge: smoke gate green, scope aligned, no unrelated refactors
 - [ ] **Branching Strategy:** After the initial project setup push, all subsequent code modifications and features must be developed on a new git branch. Direct pushes to the `main` branch are forbidden.
-- [ ] **Merge Rules:** The branch must pass `./scripts/smoke-ci.sh`, must not violate feature boundaries (no GPS/Adhkar; Qibla only per **7A**), requires manual user sign-off to merge, updates must reflect in `PHASED_PLAN.md` and feature tables, and new bugs must be logged in the Incident Log before merge.
+- [ ] **Merge Rules:** The branch must pass `./scripts/smoke-ci.sh`, scope must match `PHASED_PLAN.md`, requires manual user sign-off to merge, updates must reflect in `PHASED_PLAN.md` and feature tables, and new bugs must be logged in the Incident Log before merge.
 
 ---
 
@@ -885,6 +900,8 @@ As issues arise during development, append entries to `APP_CREATION_PLAYBOOK.md`
 - [x] **graphity.md** + **Graphify** — post **7A** Qibla (`sensor/`, `QiblaScreen`, `QiblaCalculator`) (2026-06-07)
 - [x] **AGENTS.md** — **7A** phase row + project tree (`sensor/`, `QiblaScreen`) (2026-06-07)
 - [x] **APP_CREATION_PLAYBOOK.md** — feature table: Qibla compass **Done (7A)** (2026-06-07)
+- [x] **Post-7A baseline** — PR **#13** L-widget, Graphify **5206** nodes, clean-continuation section, `graphifyy` install docs (2026-06-08)
+- [x] **Phase 5 manual QA closure** — **5C.2**, **5D**, **5F.3** user sign-off; removed retired scope items from plan (2026-06-08)
 
 ---
 

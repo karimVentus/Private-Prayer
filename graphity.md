@@ -27,7 +27,7 @@ Before initializing the graph, baseline code must exist so the AST parser has ta
 1. Initialize the project and implement the **first vertical slice** (see `APP_CREATION_PLAYBOOK.md` §1.1).
 2. Run `./gradlew assembleDebug testDebugUnitTest` — must be green (see `scripts/smoke-ci.sh` for full gate).
 
-**PrayerTime- status:** Phases **0–6** complete (`v1.0.0` tagged Jun 2026). **Phase 7A** Qibla compass signed off Jun 2026 (`feat/qibla-compass`). **Last graph:** see footer.
+**PrayerTime- status:** Phases **0–7A** complete on `main` (`v1.0.0` tagged Jun 2026). PR **#11**–**#13** merged. **No active feature phase** — see `PHASED_PLAN.md` §Post-7A. **Last graph:** see footer.
 
 ---
 
@@ -35,8 +35,9 @@ Before initializing the graph, baseline code must exist so the AST parser has ta
 
 ```bash
 which graphify
-# If missing:
-pnpm install -g graphify-cli
+# If missing (official PyPI package — CLI command is still `graphify`):
+uv tool install graphifyy
+# Alternatives: pipx install graphifyy
 ```
 
 ---
@@ -102,7 +103,7 @@ Tick **Graphify** checkbox in `PHASED_PLAN.md` for that phase.
 |-------|----------------|
 | UI (main) | `MainActivity` (portrait-only), `PrayerTimeRoot`, `CityInputScreen`, `PrayerTimesScreen` (per-prayer mute toggles, Qibla entry), `QiblaScreen` (dual-layer compass dial + arrow, align haptic), `AboutScreen` (Settings UI), `HijriCalendarScreen`, `AnnualEventsView`, `LanguagePickerDialog` (Compose `Dialog`), `AppSpacing`, `PrayerTimeTheme`, `AppTheme`, `ThemePalettes`, `LocalAppTheme`, `LocalCalendarPalette`, `CitySetupViewModel`, `PrayerTimesViewModel`, `AppSettingsViewModel` |
 | Locale (main) | `AppLocale`, `TextNormalizer` — per-app language + diacritic folding |
-| Widget (main) | `PrayerTimeWidgetProvider` (medium 5×1) + `PrayerTimeWidgetProviderLarge`, `WidgetUpdater`, `WidgetSnapshotLoader`, `WidgetRemoteViewsBuilder` (`timeOnly` medium, `widget_prayer_block` empty GONE), `widget_prayer_times_medium.xml` (3-band), `widget_preview_*` / `widget_initial_*`, `WidgetPrayerBoundaryScheduler`, `WidgetPrayerBoundaryReceiver`, `WidgetLocaleContext`, `WidgetDigitFormatter`, `widget_col_highlight_{light,green,dark}.xml`, `WidgetRefreshWork`, `WidgetUpdateWorker` |
+| Widget (main) | `PrayerTimeWidgetProvider` (medium 5×1) + `PrayerTimeWidgetProviderLarge`, `WidgetUpdater`, `WidgetSnapshotLoader`, `WidgetRemoteViewsBuilder` (`timeOnly` medium, `widget_prayer_block` empty GONE), `widget_prayer_times_medium.xml` (3-band), `widget_large_prayer_block.xml` (L-widget M-aligned grid), `widget_prayer_times_large.xml`, `widget_preview_*` / `widget_initial_*`, `WidgetPrayerBoundaryScheduler`, `WidgetPrayerBoundaryReceiver`, `WidgetLocaleContext`, `WidgetDigitFormatter`, `widget_col_highlight_{light,green,dark}.xml`, `WidgetRefreshWork`, `WidgetUpdateWorker` |
 | Hijri (main) | `HijriCalculator`, `HijriModels`, `HijriDateFormatter` (`eventNameCellRes`), `HijriCalendarScreen` (`headerDayText`), `CalendarColors` |
 | Data (main) | `PrayerTimesRepository`, `LocalPrayerTimesRepository`, `LocalLocationRepository`, `LocationCatalogInitializer`, `PrayerTimesLocalEngine`, `AladhanTimingsMapper`, `LocationDataSource`, `LocationCatalogLoader`, `CityConfigSerializer`, `AppDatabase` (v4), `PrayerTimeMigrations` (`MIGRATION_1_2`…`3_4`), `app/schemas/` (1–4.json) |
 | Data (online only) | `OnlinePrayerTimesRepository` (composes local + `PrayerApi`), `AladhanApi`, `AladhanResponse`, `NetworkMapper`, `NetworkModule` (+ debug `HttpLoggingInterceptor`); `network_security_config.xml` TLS pins for `aladhan.com`; `./scripts/verify-aladhan-pins.sh` |
@@ -111,10 +112,10 @@ Tick **Graphify** checkbox in `PHASED_PLAN.md` for that phase.
 | Sensor (main) | `CompassSensor` (accel + magnetometer), `CompassHeading` (azimuth + declination), `CompassEntryPoint` |
 | DI (main + flavor) | `DataModule`, `DomainModule`, `AppConfigModule`, `RepositoryModule`, `NetworkModule` (online), `WidgetEntryPoint`, `CompassEntryPoint` |
 | Worker (main) | `PrayerRefreshWork`, `PrayerTimeRefreshWorker`, `WidgetRefreshWork`, `WidgetUpdateWorker` (`@HiltWorker`) |
-| Tests (shared) | `FakePrayerTimesRepository`, `PrayerTimesViewModelIntegrationTest`, `PrayerTimesLocalEngineTest`, `LocationCatalogLoaderTest`, `LocalLocationRepositoryTest`, `LocationNamesTest`, `WidgetSnapshotLoaderIntegrationTest`, `PrayerTimeWidgetProviderTest`, `WidgetRefreshWorkTest`, `TextNormalizerTest`, `HijriCalculatorTest`, `QiblaCalculatorTest`, `CompassHeadingTest`, `AdhanSoundResolverTest`, `HijriDateFormatterTest`, `PrayerTimesErrorMapperTest`, `LiveAladhanTestSupportTest`, `AppDatabaseMigrationTest` (v1→v4), `AppDatabaseMigrationInstrumentedTest`, `ComposeScreenSmokeTest`, `OnlinePrayerTimesRepositoryTest`, `AladhanApiMockWebServerTest` |
+| Tests (shared) | `FakePrayerTimesRepository`, `PrayerTimesViewModelIntegrationTest`, `PrayerTimesLocalEngineTest`, `LocationCatalogLoaderTest`, `LocalLocationRepositoryTest`, `LocationNamesTest`, `WidgetSnapshotLoaderIntegrationTest`, `PrayerTimeWidgetProviderTest`, `WidgetRefreshWorkTest`, `TextNormalizerTest`, `HijriCalculatorTest`, `AdhanAlertDeliverer` (custom + built-in playback, fallback), `QiblaCalculatorTest`, `CompassHeadingTest`, `AdhanSoundResolverTest`, `HijriDateFormatterTest`, `PrayerTimesErrorMapperTest`, `LiveAladhanTestSupportTest`, `AppDatabaseMigrationTest` (v1→v4), `AppDatabaseMigrationInstrumentedTest`, `ComposeScreenSmokeTest`, `OnlinePrayerTimesRepositoryTest`, `AladhanApiMockWebServerTest` |
 
 Use the graph to avoid stale imports when refactoring repository ↔ flavor-specific API ↔ calculator paths. **Do not** expect `PrayerApi` under `src/main/` after the flavor split.
 
-**Test counts (Jun 2026):** **414** `@Test` in `app/src/test/java/` (64 files, single APK). Recount: `rg -c '@Test' app/src/test --glob '*.kt' | awk -F: '{s+=$2} END {print s}'`.
+**Test counts (Jun 2026):** **413** `@Test` in `app/src/test/java/` (56 files, single APK). Recount: `rg '@Test' app/src/test --glob '*.kt' -c | awk -F: '{s+=$2} END {print s}'`.
 
-**Last Graphify run:** 2026-06-07 — **5199** nodes, **69488** edges (post-**7A** merge + audit v2 / PR **#12**).
+**Last Graphify run:** 2026-06-08 — **5206** nodes, **75823** edges (post PR **#13** L-widget: `widget_large_prayer_block.xml`).

@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import com.prayertime.domain.model.Prayer
 import com.prayertime.notification.AdhanAlertDeliverer
-import com.prayertime.notification.AdhanSoundResolver
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -44,7 +43,5 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
     companion object {
         const val ACTION_PRAYER_ALARM = "com.prayertime.ACTION_PRAYER_ALARM"
         const val EXTRA_PRAYER = "extra_prayer"
-        const val EXTRA_ADHAN_SOUND = "extra_adhan_sound"
-        const val DEFAULT_ADHAN_SOUND = AdhanSoundResolver.DEFAULT_KEY
     }
 }

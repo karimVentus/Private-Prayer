@@ -8,34 +8,29 @@ import android.os.Build
 import com.prayertime.PendingIntentRequestCodes
 import com.prayertime.domain.model.Prayer
 import com.prayertime.domain.model.PrayerTime
-import com.prayertime.notification.AdhanSoundResolver
 
 object PrayerAlarmScheduler {
-    private val schedulablePrayers = Prayer.entries.toSet()
-
     /**
      * @param useReliableAlarms When true, uses [AlarmManager.setAlarmClock] (Doze-safe). Requires
      * [AlarmManager.canScheduleExactAlarms] on API 31+ ([USE_EXACT_ALARM] or user-granted
      * [SCHEDULE_EXACT_ALARM]); otherwise falls back to inexact [AlarmManager.setAndAllowWhileIdle].
-     * @param adhanSound The DataStore preference key for the selected adhan sound (e.g. "adhan").
      */
     fun schedulePrayerAlarms(
         context: Context,
         times: List<PrayerTime>,
         useReliableAlarms: Boolean,
-        adhanSound: String = "adhan",
     ) {
         cancelAllPrayerAlarms(context)
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as? AlarmManager ?: return
         val now = System.currentTimeMillis()
         val upcoming =
             times.filter { time ->
-                time.prayer in schedulablePrayers && time.timestamp > now
+                time.prayer in Prayer.adhanAlarmPrayers && time.timestamp > now
             }
         val showIntent = if (useReliableAlarms) showPendingIntent(context) else null
 
         for (time in upcoming) {
-            val pendingIntent = pendingIntentFor(context, time.prayer, adhanSound)
+            val pendingIntent = pendingIntentFor(context, time.prayer)
             scheduleOne(
                 alarmManager = alarmManager,
                 triggerAtMs = time.timestamp,
@@ -48,20 +43,15 @@ object PrayerAlarmScheduler {
 
     fun cancelAllPrayerAlarms(context: Context) {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as? AlarmManager ?: return
-        for (prayer in schedulablePrayers) {
-            // Extras do not affect PendingIntent identity; default key suffices for cancel lookup.
-            val intent = intentFor(context, prayer, AdhanSoundResolver.DEFAULT_KEY)
+        for (prayer in Prayer.adhanAlarmPrayers) {
             val pending =
-                PendingIntent.getBroadcast(
+                adhanAlarmPendingIntent(
                     context,
-                    requestCode(prayer),
-                    intent,
+                    prayer,
                     PendingIntent.FLAG_NO_CREATE or PendingIntent.FLAG_IMMUTABLE,
-                )
-            if (pending != null) {
-                alarmManager.cancel(pending)
-                pending.cancel()
-            }
+                ) ?: continue
+            alarmManager.cancel(pending)
+            pending.cancel()
         }
     }
 
@@ -111,26 +101,35 @@ object PrayerAlarmScheduler {
     private fun pendingIntentFor(
         context: Context,
         prayer: Prayer,
-        adhanSound: String,
-    ): PendingIntent {
-        val intent = intentFor(context, prayer, adhanSound)
-        return PendingIntent.getBroadcast(
+    ): PendingIntent =
+        checkNotNull(
+            adhanAlarmPendingIntent(
+                context,
+                prayer,
+                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
+            ),
+        )
+
+    /** Canonical adhan alarm [PendingIntent]; schedule and cancel must share this builder. */
+    private fun adhanAlarmPendingIntent(
+        context: Context,
+        prayer: Prayer,
+        flags: Int,
+    ): PendingIntent? =
+        PendingIntent.getBroadcast(
             context,
             requestCode(prayer),
-            intent,
-            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
+            intentFor(context, prayer),
+            flags,
         )
-    }
 
     private fun intentFor(
         context: Context,
         prayer: Prayer,
-        adhanSound: String,
     ): Intent =
         Intent(context, AdhanAlarmReceiver::class.java).apply {
             action = AdhanAlarmReceiver.ACTION_PRAYER_ALARM
             putExtra(AdhanAlarmReceiver.EXTRA_PRAYER, prayer.name)
-            putExtra(AdhanAlarmReceiver.EXTRA_ADHAN_SOUND, adhanSound)
         }
 
     private fun requestCode(prayer: Prayer): Int = PendingIntentRequestCodes.adhanPrayer(prayer)

@@ -65,7 +65,7 @@ Hayya/  (repo folder may still be Private-Prayer; package com.prayertime)
 | 1F Privacy / offline-only | Done — offline_only flag, privacy UI, fallback rejection, diacritic lookup, tests | ✅ | — |
 | 2A Countdown | Done — live 1s ticker, wrap-to-tomorrow, city-TZ day-change refresh | ✅ | — |
 | 2B–2D | Adhan alarms, permissions, WorkManager daily refresh | Done | Manual QA signed off (Jun 2026) |
-| 2E | Unit tests (midnight, city TZ, DST, alarms, migrations, workers, engine) | Done — **413** `@Test` in `app/src/test/java/` (56 files) | — |
+| 2E | Unit tests (midnight, city TZ, DST, alarms, migrations, workers, engine) | Done — **414** `@Test` in `app/src/test/java/` (56 files) | — |
 | 2F | Architecture hardening — ViewModel decomposition, city-scoped cache, async init, timezone consistency | Done | — |
 | 2G | Hilt DI, worker/engine tests, cache invalidation, About refresh | Done | — |
 | 2 manual | Adhan exact/fallback, emulator | Done | — |
@@ -96,6 +96,7 @@ Hayya/  (repo folder may still be Private-Prayer; package com.prayertime)
 - Switching cities no longer wipes cache — Hameln→Berlin→Hameln hits cache
 - `clearCityConfig()` clears DataStore only; Room cache kept by design. Recovery: Settings → **Refresh today's times** (`invalidateTodayCache`) or `clearAllCaches()`
 - **Room schema:** version **4** (current). `exportSchema = true`; KSP writes `app/schemas/com.prayertime.data.local.AppDatabase/<version>.json` (commit on version bumps). Migrations: `MIGRATION_1_2`, `MIGRATION_2_3`, `MIGRATION_3_4` in `PrayerTimeMigrations.kt`. Next schema change → bump `@Database(version)`, add `MIGRATION_4_5`, commit new schema JSON
+- **Room migration tests:** **CI gate** — exported schema JSON (v1–v4) + JVM `AppDatabaseMigrationTest` (3 tests, Robolectric, runs in `testDebugUnitTest`). **Optional** — `AppDatabaseMigrationInstrumentedTest` (3 tests, `MigrationTestHelper` validates against exported JSON on device; not in `smoke-ci.sh`)
 
 ### Boot-time adhan reschedule
 - `BootCompletedReceiver.rescheduleAfterBoot()` runs on `BOOT_COMPLETED` / `LOCKED_BOOT_COMPLETED`
@@ -111,7 +112,7 @@ Hayya/  (repo folder may still be Private-Prayer; package com.prayertime)
 - `LocationCatalogInitializer` (Hilt `@Singleton`) calls `LocationDataSource.initialize()` at app startup — not from `LocalLocationRepository`
 - `initialize()` kicks off JSON parsing on `Dispatchers.IO` — returns immediately, no main-thread block
 - `suspend fun awaitReady()` for coroutine callers; sync list accessors return empty while loading; `NOT_STARTED` throws
-- `locations.json` (78 KB, 4,258 lines) in `assets/` — no hardcoded Kotlin maps
+- `locations.json` (187 KB, 9,221 lines) in `assets/` — no hardcoded Kotlin maps; expanded via `scripts/expand_locations.py`
 
 ### Timezone consistency
 - Staleness check uses `needsPrayerDayRefresh(lastFetch, now, cityTZ)` — not a flat 25-hour epoch threshold
@@ -155,7 +156,7 @@ Hayya/  (repo folder may still be Private-Prayer; package com.prayertime)
 - **Widgets (two providers):** `PrayerTimeWidgetProvider` (**medium**, `widget_info_medium` **5×1** horizontal-only) and `PrayerTimeWidgetProviderLarge` (**large**, resizable). Shared stack: `WidgetSnapshot.appTheme`, `ThemePalettes.widget()`, `WidgetRemoteViewsBuilder` (`WidgetSize.MEDIUM` | `LARGE`). Per-theme column highlight drawables: `widget_col_highlight_{light,green,dark}.xml` (8dp radius). **Medium:** three equal bands (Hijri header / short prayer names / times), **14sp**, **time-only** (`timeOnly=true`, no per-column countdown), next-prayer highlight via `widget_highlight_0..5` overlay on the times row. **Large:** city label, Hijri, live clock; prayer grid via `widget_large_prayer_block.xml` (M-aligned 3-band columns) + per-column countdown. (Legacy SmallTall/SmallWide providers removed — consolidated into medium.)
 - **Bottom navigation:** 4-tab `NavigationBar` (Prayer 🕌 / Qibla 🧭 / Calendar 📅 / Settings ⚙️) with `NavHost` — replaces boolean-flag if/else. "Change" city `TextButton` kept in header.
 - **Custom adhan sounds:** `AdhanAlertDeliverer` + `AdhanSoundResolver` — user-imported audio files (`custom_` key prefix, `custom_adhans/` dir), merged UI picker with play/delete, fallback to default if file missing
-- **Per-prayer mute:** `PrayerTimesScreen` toggles → `muted_prayers` DataStore; `PrayerAlarmScheduler` schedules all six `Prayer` slots; `AdhanAlarmReceiver` no-ops when muted
+- **Per-prayer mute:** `PrayerTimesScreen` toggles → `muted_prayers` DataStore; `PrayerAlarmScheduler` schedules `Prayer.adhanAlarmPrayers` (five fard; **SHURUQ** display-only); `AdhanAlarmReceiver` no-ops when muted
 
 ## Graphify
 
@@ -165,7 +166,7 @@ After structural changes or phase completion:
 OPENAI_API_KEY="" graphify update . --no-cluster
 ```
 
-Details: [`graphity.md`](graphity.md). Diagrams: [`PHASED_PLAN.md`](PHASED_PLAN.md). **Last run:** 2026-06-08 — **5206** nodes, **75823** edges (PR **#13** L-widget). Install: `uv tool install graphifyy`.
+Details: [`graphity.md`](graphity.md). Diagrams: [`PHASED_PLAN.md`](PHASED_PLAN.md). **Last run:** 2026-06-08 — **5239** nodes, **86633** edges (audit remediation v3 / v1.1.3). Install: `uv tool install graphifyy`.
 
 ## Orientation
 
@@ -174,7 +175,7 @@ Details: [`graphity.md`](graphity.md). Diagrams: [`PHASED_PLAN.md`](PHASED_PLAN.
 ## Agent rules
 
 - **Verification:** After changes: `./dev` (boot `PrayerTimeEmulator`, install debug, launch). Package `com.prayertime`. Headless: `./dev --headless`. CI: `./scripts/smoke-ci.sh`. After dependency bumps: full `./scripts/smoke-ci.sh` before merge.
-- **Instrumented tests:** `./gradlew connectedDebugAndroidTest` — Room migration tests (requires emulator/device; not part of smoke-ci).
+- **Instrumented tests (optional):** `./gradlew connectedDebugAndroidTest` — only `AppDatabaseMigrationInstrumentedTest` (3 tests); requires emulator/device, not part of `smoke-ci.sh`. JVM migration coverage is sufficient for schema bumps; run instrumented when validating `MigrationTestHelper` against a real framework SQLite stack.
 - **Branching:** Feature work on branches; no direct push to `main`.
 - **Merge:** `./scripts/smoke-ci.sh` green, scope matches `PHASED_PLAN.md`, user sign-off, update `PHASED_PLAN.md` + playbook feature table.
 - **Docs language:** English for plans and agent-facing docs.

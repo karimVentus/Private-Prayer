@@ -1,5 +1,7 @@
 package com.prayertime.ui.screens
 
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -41,6 +43,7 @@ import com.prayertime.notification.AdhanSoundResolver
 import com.prayertime.ui.components.AppTextButton
 import com.prayertime.ui.theme.AppSpacing
 import com.prayertime.ui.theme.AppTheme
+import java.io.File
 
 data class PrivacyModeUiState(
     val offlineOnly: Boolean,
@@ -54,12 +57,15 @@ data class AdhanNotificationsUiState(
     val exactAlarmsGranted: Boolean,
     val batteryOptimizationExempt: Boolean,
     val adhanSound: String,
+    val customSoundsVersion: Int,
     val onEnabledChanged: (Boolean) -> Unit,
     val onPlayWhenSilentChanged: (Boolean) -> Unit,
     val onRequestNotifications: () -> Unit,
     val onRequestExactAlarms: () -> Unit,
     val onRequestBatteryOptimization: () -> Unit,
     val onAdhanSoundChanged: (String) -> Unit,
+    val onImportCustomSound: (android.net.Uri) -> Unit,
+    val onDeleteCustomSound: (String) -> Unit,
 )
 
 data class ThemeUiState(
@@ -301,7 +307,10 @@ private fun AdhanNotificationsCard(adhan: AdhanNotificationsUiState) {
                 Spacer(modifier = Modifier.height(12.dp))
                 AdhanSoundPicker(
                     selected = adhan.adhanSound,
+                    customSoundsVersion = adhan.customSoundsVersion,
                     onSelected = adhan.onAdhanSoundChanged,
+                    onImport = adhan.onImportCustomSound,
+                    onDelete = adhan.onDeleteCustomSound,
                 )
             }
         }
@@ -311,10 +320,15 @@ private fun AdhanNotificationsCard(adhan: AdhanNotificationsUiState) {
 @Composable
 private fun AdhanSoundPicker(
     selected: String,
+    customSoundsVersion: Int,
     onSelected: (String) -> Unit,
+    onImport: (android.net.Uri) -> Unit,
+    onDelete: (String) -> Unit,
 ) {
     val context = LocalContext.current
-    val options = AdhanSoundResolver.options
+    val options = remember(customSoundsVersion) {
+        AdhanSoundResolver.mergedOptions(context)
+    }
     var playingKey by remember { mutableStateOf<String?>(null) }
     var mediaPlayer by remember { mutableStateOf<android.media.MediaPlayer?>(null) }
 
@@ -333,6 +347,11 @@ private fun AdhanSoundPicker(
         onDispose { stopPlayback() }
     }
 
+    val audioPicker =
+        rememberLauncherForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+            if (uri != null) onImport(uri)
+        }
+
     Text(
         text = stringResource(R.string.adhan_sound_picker),
         style = MaterialTheme.typography.titleSmall,
@@ -342,7 +361,6 @@ private fun AdhanSoundPicker(
 
     options.forEach { option ->
         val key = option.storageKey
-        val labelRes = option.labelRes
         val isSelected = key == selected
         val isPlaying = key == playingKey
 
@@ -361,8 +379,21 @@ private fun AdhanSoundPicker(
                         stopPlayback()
                     } else {
                         stopPlayback()
-                        val resId = option.rawRes
-                        val mp = android.media.MediaPlayer.create(context, resId)
+                        val mp: android.media.MediaPlayer? =
+                            if (option.isCustom) {
+                                val filePath = AdhanSoundResolver.filePathForCustom(context, key)
+                                val file = File(filePath)
+                                if (file.exists()) {
+                                    android.media.MediaPlayer().apply {
+                                        setDataSource(filePath)
+                                        prepare()
+                                    }
+                                } else {
+                                    null
+                                }
+                            } else {
+                                android.media.MediaPlayer.create(context, option.rawRes)
+                            }
                         if (mp != null) {
                             mp.setOnCompletionListener {
                                 it.release()
@@ -384,7 +415,7 @@ private fun AdhanSoundPicker(
 
             // Sound name
             Text(
-                text = stringResource(labelRes),
+                text = option.label,
                 style = MaterialTheme.typography.bodyMedium,
                 fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal,
                 color =
@@ -396,11 +427,30 @@ private fun AdhanSoundPicker(
                 modifier = Modifier.padding(start = 4.dp).weight(1f),
             )
 
+            // Delete button for custom sounds
+            if (option.isCustom) {
+                TextButton(
+                    onClick = { onDelete(key) },
+                    modifier = Modifier.defaultMinSize(minWidth = 40.dp, minHeight = 40.dp),
+                ) {
+                    Text(
+                        stringResource(R.string.adhan_sound_delete),
+                        fontSize = 12.sp,
+                        color = MaterialTheme.colorScheme.error,
+                    )
+                }
+            }
+
             // Checkmark for selected
             if (isSelected) {
                 Text("✓", color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.Bold)
             }
         }
+    }
+
+    Spacer(modifier = Modifier.height(8.dp))
+    TextButton(onClick = { audioPicker.launch("audio/*") }) {
+        Text(stringResource(R.string.adhan_sound_add_custom))
     }
 }
 

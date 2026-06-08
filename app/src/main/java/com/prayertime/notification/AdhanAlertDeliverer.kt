@@ -7,6 +7,7 @@ import com.prayertime.data.local.AppPreferencesDataSource
 import com.prayertime.domain.model.Prayer
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.first
+import java.io.File
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -34,7 +35,6 @@ class AdhanAlertDeliverer
         }
 
         private fun playAdhanSound(soundPref: String) {
-            val resId = AdhanSoundResolver.rawResFor(soundPref)
             try {
                 val player = MediaPlayer()
                 player.setAudioAttributes(
@@ -44,10 +44,28 @@ class AdhanAlertDeliverer
                         .build(),
                 )
                 player.setOnCompletionListener { it.release() }
-                val fd = context.resources.openRawResourceFd(resId) ?: return
-                fd.use {
-                    player.setDataSource(it.fileDescriptor, it.startOffset, it.length)
+
+                if (AdhanSoundResolver.isCustom(soundPref)) {
+                    val filePath = AdhanSoundResolver.filePathForCustom(context, soundPref)
+                    val file = File(filePath)
+                    if (file.exists()) {
+                        player.setDataSource(filePath)
+                    } else {
+                        // Fallback to default if custom file is missing
+                        val resId = AdhanSoundResolver.rawResFor(AdhanSoundResolver.DEFAULT_KEY)
+                        val fd = context.resources.openRawResourceFd(resId) ?: return
+                        fd.use {
+                            player.setDataSource(it.fileDescriptor, it.startOffset, it.length)
+                        }
+                    }
+                } else {
+                    val resId = AdhanSoundResolver.rawResFor(soundPref)
+                    val fd = context.resources.openRawResourceFd(resId) ?: return
+                    fd.use {
+                        player.setDataSource(it.fileDescriptor, it.startOffset, it.length)
+                    }
                 }
+
                 player.prepare()
                 player.start()
             } catch (_: Exception) {

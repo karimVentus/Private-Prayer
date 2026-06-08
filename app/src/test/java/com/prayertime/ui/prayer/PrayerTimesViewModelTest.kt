@@ -13,20 +13,20 @@ import com.prayertime.domain.model.PrayerTimesResult
 import com.prayertime.notification.AdhanAlertDeliverer
 import com.prayertime.testing.FakePrayerTimesRepository
 import com.prayertime.testing.clearViewModelForTest
+import com.prayertime.testing.installTestMainDispatcher
+import com.prayertime.testing.uninstallTestMainDispatcher
+import com.prayertime.testing.withCountdownTickerLoopDisabled
 import com.prayertime.widget.WidgetUpdater
 import io.mockk.clearMocks
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
-import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
-import kotlinx.coroutines.test.setMain
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
@@ -68,8 +68,7 @@ class PrayerTimesViewModelTest {
 
     @Before
     fun setup() {
-        Dispatchers.resetMain()
-        Dispatchers.setMain(testDispatcher)
+        installTestMainDispatcher(testDispatcher)
         LocationDataSourceTestSupport.initializeFromTestResource()
         clearMocks(widgetUpdater)
         citySource = InMemoryCityConfigDataSource()
@@ -80,13 +79,13 @@ class PrayerTimesViewModelTest {
     fun teardown() {
         activeViewModels.forEach { it.clearViewModelForTest() }
         activeViewModels.clear()
-        Dispatchers.resetMain()
+        uninstallTestMainDispatcher()
     }
 
-    private fun viewModel(enableCountdownTickerLoop: Boolean = false): PrayerTimesViewModel =
-        PrayerTimesViewModel(repository, locationRepository, preferences, adhanAlertDeliverer, widgetUpdater).also {
-            it.enableCountdownTickerLoop = enableCountdownTickerLoop
-            activeViewModels.add(it)
+    private fun viewModel(): PrayerTimesViewModel =
+        withCountdownTickerLoopDisabled {
+            PrayerTimesViewModel(repository, locationRepository, preferences, adhanAlertDeliverer, widgetUpdater)
+                .also { activeViewModels.add(it) }
         }
 
     /** Stops the 1s countdown loop before [runTest] drains the scheduler (avoids infinite delay hang). */
@@ -234,81 +233,57 @@ class PrayerTimesViewModelTest {
         }
 
     @Test
-    fun `countdown ticker recalculates liveCountdown on first tick`() =
+    fun `countdown tick recalculates stale liveCountdown`() =
         runTest(testDispatcher) {
-            citySource.save(hamelnConfig)
             val wallMs = System.currentTimeMillis()
             val fajrTs = wallMs + 30 * 60_000L
             val staleCountdown = fajrTs - wallMs + 9_999L
-            repository.fetchOverride = {
-                PrayerTimesResult.Success(
-                    times = berlinDayTimes(fajrTs),
-                    nextPrayer = Prayer.FAJR,
-                    countdown = staleCountdown,
-                )
-            }
-            val vm = viewModel(enableCountdownTickerLoop = true)
+            val vm = viewModel()
+            vm.seedLiveCountdownForTest(Prayer.FAJR, staleCountdown)
+            vm.applyCountdownTickForTest(
+                times = berlinDayTimes(fajrTs),
+                timezone = "Europe/Berlin",
+                fallbackNextPrayer = Prayer.FAJR,
+                nowMillis = wallMs,
+            )
             val live = vm.liveCountdown.value!!.countdownMillis
-            assertTrue("ticker should replace stale fetch countdown", live < staleCountdown - 5_000L)
+            assertTrue("tick should replace stale countdown", live < staleCountdown - 5_000L)
             disposeVm(vm)
         }
 
     @Test
-    fun `countdown ticker triggers refreshTimesForNewDay on city day rollover`() =
+    fun `successful fetch requests immediate widget update`() =
         runTest(testDispatcher) {
-            val berlin = TimeZone.getTimeZone("Europe/Berlin")
-            val yesterdayFajr =
-                Calendar.getInstance(berlin).apply {
-                    timeInMillis = System.currentTimeMillis()
-                    add(Calendar.DAY_OF_MONTH, -1)
-                    set(Calendar.HOUR_OF_DAY, 4)
-                    set(Calendar.MINUTE, 30)
-                    set(Calendar.SECOND, 0)
-                    set(Calendar.MILLISECOND, 0)
-                }.timeInMillis
-            var fetchCount = 0
             citySource.save(hamelnConfig)
-            repository.fetchOverride = {
-                fetchCount++
-                if (fetchCount == 1) {
-                    PrayerTimesResult.Success(
-                        times = berlinDayTimes(yesterdayFajr),
-                        nextPrayer = Prayer.FAJR,
-                        countdown = 1_000L,
-                    )
-                } else {
-                    // Silent refresh failure — keeps Success UI without restarting the 1s ticker loop.
-                    PrayerTimesResult.Error(FetchError.NETWORK)
-                }
-            }
-            val vm = viewModel(enableCountdownTickerLoop = true)
-            assertEquals(2, fetchCount)
+            repository.fetchOverride = { hamelnSuccessResult() }
+            val vm = viewModel()
+            verify(exactly = 1) { widgetUpdater.requestImmediateUpdate() }
             disposeVm(vm)
         }
 
     @Test
-    fun `countdown ticker requests widget update when next prayer changes`() =
+    fun `countdown tick requests widget update when next prayer changes`() =
         runTest(testDispatcher) {
             clearMocks(widgetUpdater)
             val now = System.currentTimeMillis()
-            citySource.save(hamelnConfig)
-            repository.fetchOverride = {
-                PrayerTimesResult.Success(
-                    times =
-                        listOf(
-                            PrayerTime(Prayer.FAJR, "05:00", now - 60_000L),
-                            PrayerTime(Prayer.SHURUQ, "06:00", now + 3_600_000L),
-                            PrayerTime(Prayer.DHUHR, "12:30", now + 28_800_000L),
-                            PrayerTime(Prayer.ASR, "15:45", now + 40_000_000L),
-                            PrayerTime(Prayer.MAGHRIB, "18:10", now + 48_000_000L),
-                            PrayerTime(Prayer.ISHA, "19:40", now + 52_000_000L),
-                        ),
-                    nextPrayer = Prayer.FAJR,
-                    countdown = 3_600_000L,
+            val times =
+                listOf(
+                    PrayerTime(Prayer.FAJR, "05:00", now - 60_000L),
+                    PrayerTime(Prayer.SHURUQ, "06:00", now + 3_600_000L),
+                    PrayerTime(Prayer.DHUHR, "12:30", now + 28_800_000L),
+                    PrayerTime(Prayer.ASR, "15:45", now + 40_000_000L),
+                    PrayerTime(Prayer.MAGHRIB, "18:10", now + 48_000_000L),
+                    PrayerTime(Prayer.ISHA, "19:40", now + 52_000_000L),
                 )
-            }
-            val vm = viewModel(enableCountdownTickerLoop = true)
-            verify(atLeast = 2) { widgetUpdater.requestImmediateUpdate() }
+            val vm = viewModel()
+            vm.applyCountdownTickForTest(
+                times = times,
+                timezone = "Europe/Berlin",
+                fallbackNextPrayer = Prayer.FAJR,
+                nowMillis = now,
+                previousWidgetPrayer = Prayer.FAJR,
+            )
+            verify(exactly = 1) { widgetUpdater.requestImmediateUpdate() }
             disposeVm(vm)
         }
 

@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -62,6 +61,7 @@ import java.util.TimeZone
 fun HijriCalendarScreen(
     timezone: String,
     onClose: () -> Unit,
+    showBackLink: Boolean = true,
     modifier: Modifier = Modifier,
 ) {
     val palette = calendarPalette()
@@ -97,20 +97,22 @@ fun HijriCalendarScreen(
             }
         }
 
-        Row(
-            modifier = Modifier.fillMaxWidth().navigationBarsPadding(),
-            horizontalArrangement = Arrangement.End,
-        ) {
-            Text(
-                text = resources.getString(R.string.back_to_prayer_times),
-                color = palette.textSecondary,
-                fontSize = 11.sp,
-                modifier =
-                    Modifier
-                        .defaultMinSize(minHeight = AppSpacing.touchTargetMin)
-                        .clickable(onClick = onClose)
-                        .padding(horizontal = 16.dp, vertical = 12.dp),
-            )
+        if (showBackLink) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.End,
+            ) {
+                Text(
+                    text = resources.getString(R.string.back_to_prayer_times),
+                    color = palette.textSecondary,
+                    fontSize = 11.sp,
+                    modifier =
+                        Modifier
+                            .defaultMinSize(minHeight = AppSpacing.touchTargetMin)
+                            .clickable(onClick = onClose)
+                            .padding(horizontal = 16.dp, vertical = 12.dp),
+                )
+            }
         }
     }
 }

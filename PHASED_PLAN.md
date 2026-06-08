@@ -1,7 +1,7 @@
 # Hayya (حيا) — Phased Implementation Plan
 
 > **Product:** **Hayya** (EN) / **حيا** (AR) — privacy-first prayer-times app. Package **`com.prayertime`** unchanged.
-> **Current state:** Phases **0–7A** complete on `main` (Jun 2026). Release **`v1.1.4`** — theme palette fix, refresh-times `forceRefresh`, prayer-screen language button. PR **#33** (audit v3) merged. **No active feature phase** — branch new work from `main`. **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
+> **Current state:** Phases **0–7A** complete on `main` (Jun 2026). Release **`v1.1.5`** — compact bottom nav (`AppBottomNavigationBar`), edge-to-edge inset fix, `background`=`surface` themes, Qibla README screenshot. **No active feature phase** — branch new work from `main`. **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
 > **Build:** Single APK `com.prayertime` (~23 MB debug). Privacy via Settings **offline-only toggle** (`offline_only`); no separate offline flavor.
 > **Calculation:** Umm al-Qura + Shafi + twilight (≥48°N); `adhan-java` when offline-only; Aladhan API when user disables offline mode.
 > **Tests:** `./gradlew testDebugUnitTest` — **414** JVM `@Test` (56 files); run `./scripts/smoke-ci.sh` for full gate.
@@ -56,6 +56,8 @@
 | **Release v1.1.3** | **Done** — signed `Hayya-v1.1.3.apk` on GitHub Releases |
 | **UI fixes v1.1.4 (Jun 2026)** | **Done** — static theme colors (no Material You override); `fetchTodayTimes(forceRefresh)`; refresh snackbar; **Language** button on prayer header beside **Change** |
 | **Release v1.1.4** | **Done** — signed `Hayya-v1.1.4.apk` on GitHub Releases |
+| **UI fixes v1.1.5 (Jun 2026)** | **Done** — `AppBottomNavigationBar` (56dp, single nav inset); remove nested prayer `Scaffold`; theme `background`=`surface`; safe test Main dispatcher helpers; mock countdown tick VM tests (`withCountdownTickerLoopDisabled`); Qibla screenshot in README |
+| **Release v1.1.5** | **Done** — signed `Hayya-v1.1.5.apk` on GitHub Releases |
 
 ---
 
@@ -193,7 +195,7 @@ Maintain an up-to-date code graph after each phase gate. Full CLI lifecycle: [`g
 
 **Agent rule:** Run Graphify update when architecture boundaries change (new packages, repository paths, or phase completion).
 
-> **Last Graphify run:** 2026-06-08 — **5241** nodes, **93040** edges (v1.1.4: theme palette, `forceRefresh`, language header button). Install: `uv tool install graphifyy`. Commit `graphify-out/` with structural PRs.
+> **Last Graphify run:** 2026-06-08 — **5252** nodes, **99405** edges (v1.1.5: `AppBottomNavigationBar`, inset/theme fixes). Install: `uv tool install graphifyy`. Commit `graphify-out/` with structural PRs.
 
 ---
 
@@ -915,6 +917,7 @@ As issues arise during development, append entries to `APP_CREATION_PLAYBOOK.md`
 - [x] **v1.1.2** — Settings About section, dependabot AndroidX pins, release scripts, CI androidx pin `resolutionStrategy` (2026-06-08)
 - [x] **v1.1.3** — audit remediation v3: `Prayer.adhanAlarmPrayers`, dead `EXTRA_ADHAN_SOUND` removed, `adhanAlarmPendingIntent`, `locations.json` 187 KB docs, `dist/` gitignore, **414** JVM tests (2026-06-08)
 - [x] **v1.1.4** — theme palette fix, `forceRefresh` for Settings refresh, prayer-screen language picker button, snackbar feedback (2026-06-08)
+- [x] **v1.1.5** — compact bottom nav, edge-to-edge inset fix, prayer screen layout, JVM test Main dispatcher helpers, Qibla README screenshot (2026-06-08)
 - [x] **Phase 5 manual QA closure** — **5C.2**, **5D**, **5F.3** user sign-off; removed retired scope items from plan (2026-06-08)
 
 ---

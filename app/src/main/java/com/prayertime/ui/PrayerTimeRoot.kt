@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBars
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CalendarMonth
 import androidx.compose.material.icons.filled.Explore
@@ -24,10 +25,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -47,7 +45,6 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
@@ -70,7 +67,8 @@ import com.prayertime.permission.AdhanPermissions
 import com.prayertime.ui.city.CityInputActions
 import com.prayertime.ui.city.CityInputUiState
 import com.prayertime.ui.city.CitySetupViewModel
-import com.prayertime.ui.components.screenSafeInsets
+import com.prayertime.ui.components.AppBottomNavItem
+import com.prayertime.ui.components.AppBottomNavigationBar
 import com.prayertime.ui.prayer.PrayerTimesActions
 import com.prayertime.ui.prayer.PrayerTimesUiState
 import com.prayertime.ui.prayer.PrayerTimesViewModel
@@ -87,20 +85,12 @@ import com.prayertime.ui.settings.AppSettingsViewModel
 import com.prayertime.ui.theme.PrayerTimeTheme
 import kotlinx.coroutines.launch
 
-/** Bottom navigation destinations. */
-private data class BottomNavItem(
-    val route: String,
-    val labelRes: Int,
-    val selectedIcon: ImageVector,
-    val unselectedIcon: ImageVector,
-)
-
 private val bottomNavItems =
     listOf(
-        BottomNavItem("prayer_times", R.string.nav_prayer_times, Icons.Filled.Mosque, Icons.Outlined.Mosque),
-        BottomNavItem("qibla", R.string.nav_qibla, Icons.Filled.Explore, Icons.Outlined.Explore),
-        BottomNavItem("calendar", R.string.nav_calendar, Icons.Filled.CalendarMonth, Icons.Outlined.CalendarMonth),
-        BottomNavItem("settings", R.string.nav_settings, Icons.Filled.Settings, Icons.Outlined.Settings),
+        AppBottomNavItem("prayer_times", R.string.nav_prayer_times, Icons.Filled.Mosque, Icons.Outlined.Mosque),
+        AppBottomNavItem("qibla", R.string.nav_qibla, Icons.Filled.Explore, Icons.Outlined.Explore),
+        AppBottomNavItem("calendar", R.string.nav_calendar, Icons.Filled.CalendarMonth, Icons.Outlined.CalendarMonth),
+        AppBottomNavItem("settings", R.string.nav_settings, Icons.Filled.Settings, Icons.Outlined.Settings),
     )
 
 @Suppress("LongMethod")
@@ -337,7 +327,6 @@ private fun PrayerTimeMainRoute(
     prayerTimesViewModel: PrayerTimesViewModel,
     settingsViewModel: AppSettingsViewModel,
     prayerState: PrayerTimesUiState,
-    snackbarHostState: SnackbarHostState,
     onCalendar: () -> Unit,
     onQibla: () -> Unit,
 ) {
@@ -381,72 +370,62 @@ private fun PrayerTimeMainRoute(
         onDismiss = { showLanguagePicker = false },
     )
 
-    Scaffold(
-        contentWindowInsets = WindowInsets(0),
-        snackbarHost = { SnackbarHost(snackbarHostState) },
-    ) { padding ->
-        Box(
-            modifier =
-                Modifier
-                    .fillMaxSize()
-                    .padding(padding),
-        ) {
-            when {
-                prayerState is PrayerTimesUiState.Loading || isSaving -> {
-                    PrayerTimeMainLoading()
-                }
-                prayerState is PrayerTimesUiState.Success -> {
-                    val success = prayerState as PrayerTimesUiState.Success
-                    key(success.timezone, success.result.times.first().timestamp) {
-                        PrayerTimesScreen(
-                            city = success.city,
-                            todayHijriDate = success.todayHijriDate,
-                            upcomingEvent = success.upcomingEvent,
-                            result = success.result,
-                            liveCountdownFlow = prayerTimesViewModel.liveCountdown,
-                            offlineOnly = offlineOnly,
-                            actions =
-                                PrayerTimesActions(
-                                    onChangeCity = { showChangeCityConfirm = true },
-                                    onCalendar = onCalendar,
-                                    onQibla = onQibla,
-                                    onAbout = settingsViewModel::showAbout,
-                                    onLanguage = { showLanguagePicker = true },
-                                    onToggleMute = { prayer ->
-                                        val wasMuted = mutedPrayers.contains(prayer.name)
-                                        settingsViewModel.toggleMutedPrayer(prayer.name)
-                                        if (wasMuted) {
-                                            prayerTimesViewModel.playAdhanIfPrayerWindow(prayer)
-                                        }
-                                    },
-                                    mutedPrayers = mutedPrayers,
-                                ),
-                        )
-                    }
-                }
-                else -> {
-                    CityInputScreen(
-                        state =
-                            CityInputUiState(
-                                wizardStep = wizardStep,
-                                countrySearchQuery = countrySearchQuery,
-                                citySearchQuery = citySearchQuery,
-                                filteredCountries = filteredCountries,
-                                filteredCities = filteredCities,
-                                languageTag = appLanguageTag,
-                                showCustomCityFallback = citySetupViewModel.showCustomCityFallback,
-                                catalogReady = catalogReady,
-                            ),
+    Box(modifier = Modifier.fillMaxSize()) {
+        when {
+            prayerState is PrayerTimesUiState.Loading || isSaving -> {
+                PrayerTimeMainLoading()
+            }
+            prayerState is PrayerTimesUiState.Success -> {
+                val success = prayerState as PrayerTimesUiState.Success
+                key(success.timezone, success.result.times.first().timestamp) {
+                    PrayerTimesScreen(
+                        city = success.city,
+                        todayHijriDate = success.todayHijriDate,
+                        upcomingEvent = success.upcomingEvent,
+                        result = success.result,
+                        liveCountdownFlow = prayerTimesViewModel.liveCountdown,
+                        offlineOnly = offlineOnly,
                         actions =
-                            CityInputActions(
-                                onCountrySearchQueryChanged = citySetupViewModel::onCountrySearchQueryChanged,
-                                onCitySearchQueryChanged = citySetupViewModel::onCitySearchQueryChanged,
-                                selectCountry = citySetupViewModel::selectCountry,
-                                clearSelectedCountry = citySetupViewModel::clearSelectedCountry,
-                                saveCity = citySetupViewModel::saveCity,
+                            PrayerTimesActions(
+                                onChangeCity = { showChangeCityConfirm = true },
+                                onCalendar = onCalendar,
+                                onQibla = onQibla,
+                                onAbout = settingsViewModel::showAbout,
+                                onLanguage = { showLanguagePicker = true },
+                                onToggleMute = { prayer ->
+                                    val wasMuted = mutedPrayers.contains(prayer.name)
+                                    settingsViewModel.toggleMutedPrayer(prayer.name)
+                                    if (wasMuted) {
+                                        prayerTimesViewModel.playAdhanIfPrayerWindow(prayer)
+                                    }
+                                },
+                                mutedPrayers = mutedPrayers,
                             ),
                     )
                 }
+            }
+            else -> {
+                CityInputScreen(
+                    state =
+                        CityInputUiState(
+                            wizardStep = wizardStep,
+                            countrySearchQuery = countrySearchQuery,
+                            citySearchQuery = citySearchQuery,
+                            filteredCountries = filteredCountries,
+                            filteredCities = filteredCities,
+                            languageTag = appLanguageTag,
+                            showCustomCityFallback = citySetupViewModel.showCustomCityFallback,
+                            catalogReady = catalogReady,
+                        ),
+                    actions =
+                        CityInputActions(
+                            onCountrySearchQueryChanged = citySetupViewModel::onCountrySearchQueryChanged,
+                            onCitySearchQueryChanged = citySetupViewModel::onCitySearchQueryChanged,
+                            selectCountry = citySetupViewModel::selectCountry,
+                            clearSelectedCountry = citySetupViewModel::clearSelectedCountry,
+                            saveCity = citySetupViewModel::saveCity,
+                        ),
+                )
             }
         }
     }
@@ -558,32 +537,22 @@ private fun PrayerTimeNavHost(
     }
 
     Scaffold(
-        contentWindowInsets = WindowInsets(0),
+        containerColor = MaterialTheme.colorScheme.surface,
+        contentWindowInsets = WindowInsets.statusBars,
         snackbarHost = { SnackbarHost(snackbarHostState) },
         bottomBar = {
-            NavigationBar {
-                bottomNavItems.forEach { item ->
-                    val selected = currentRoute == item.route
-                    NavigationBarItem(
-                        selected = selected,
-                        onClick = {
-                            if (currentRoute != item.route) {
-                                navController.navigate(item.route) {
-                                    popUpTo(navController.graph.findStartDestination().id)
-                                    launchSingleTop = true
-                                }
-                            }
-                        },
-                        icon = {
-                            Icon(
-                                imageVector = if (selected) item.selectedIcon else item.unselectedIcon,
-                                contentDescription = stringResource(item.labelRes),
-                            )
-                        },
-                        label = { Text(stringResource(item.labelRes)) },
-                    )
-                }
-            }
+            AppBottomNavigationBar(
+                items = bottomNavItems,
+                currentRoute = currentRoute,
+                onItemSelected = { route ->
+                    if (currentRoute != route) {
+                        navController.navigate(route) {
+                            popUpTo(navController.graph.findStartDestination().id)
+                            launchSingleTop = true
+                        }
+                    }
+                },
+            )
         },
     ) { padding ->
         NavHost(
@@ -598,7 +567,6 @@ private fun PrayerTimeNavHost(
                     prayerTimesViewModel = prayerTimesViewModel,
                     settingsViewModel = settingsViewModel,
                     prayerState = prayerState,
-                    snackbarHostState = snackbarHostState,
                     onCalendar = {},
                     onQibla = {},
                 )
@@ -610,6 +578,7 @@ private fun PrayerTimeNavHost(
                         latitude = success.latitude,
                         longitude = success.longitude,
                         cityLabel = success.city,
+                        showBackLink = false,
                         onClose = { navController.popBackStack() },
                     )
                 } else {
@@ -620,8 +589,8 @@ private fun PrayerTimeNavHost(
                 val success = prayerState as? PrayerTimesUiState.Success
                 if (success != null) {
                     HijriCalendarScreen(
-                        modifier = Modifier.screenSafeInsets(),
                         timezone = success.timezone,
+                        showBackLink = false,
                         onClose = { navController.popBackStack() },
                     )
                 } else {
@@ -643,7 +612,6 @@ private fun PrayerTimeNavHost(
                     notificationsGranted = adhanPermissions.notificationsGranted,
                 )
                 AboutScreen(
-                    modifier = Modifier.screenSafeInsets(),
                     theme = ThemeUiState(selected = aboutTheme, onThemeChanged = settingsViewModel::setAppTheme),
                     privacy =
                         PrivacyModeUiState(

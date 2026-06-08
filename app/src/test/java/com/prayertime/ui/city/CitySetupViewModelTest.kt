@@ -9,18 +9,17 @@ import com.prayertime.domain.repository.LocationRepository
 import com.prayertime.domain.usecase.SearchLocationsUseCase
 import com.prayertime.testing.FakePrayerTimesRepository
 import com.prayertime.testing.clearViewModelForTest
+import com.prayertime.testing.installTestMainDispatcher
+import com.prayertime.testing.uninstallTestMainDispatcher
 import com.prayertime.widget.WidgetUpdater
 import io.mockk.every
 import io.mockk.mockk
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
-import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
-import kotlinx.coroutines.test.setMain
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
@@ -48,8 +47,7 @@ class CitySetupViewModelTest {
 
     @Before
     fun setup() {
-        Dispatchers.resetMain()
-        Dispatchers.setMain(testDispatcher)
+        installTestMainDispatcher(testDispatcher)
         LocationDataSourceTestSupport.initializeFromTestResource()
         locationRepository = LocalLocationRepository()
         citySource = InMemoryCityConfigDataSource()
@@ -60,7 +58,7 @@ class CitySetupViewModelTest {
     fun teardown() {
         activeViewModels.forEach { it.clearViewModelForTest() }
         activeViewModels.clear()
-        Dispatchers.resetMain()
+        uninstallTestMainDispatcher()
     }
 
     private fun viewModel(): CitySetupViewModel =

@@ -75,6 +75,8 @@ class ComposeScreenSmokeTest {
             }
         }
         composeRule.onNodeWithText("Hameln, DE").assertIsDisplayed()
+        composeRule.onNodeWithText(context.getString(R.string.language)).assertIsDisplayed()
+        composeRule.onNodeWithText(context.getString(R.string.change)).assertIsDisplayed()
         composeRule.onNodeWithText(context.getString(R.string.fajr)).assertIsDisplayed()
     }
 

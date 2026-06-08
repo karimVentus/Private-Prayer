@@ -3,6 +3,7 @@ package com.prayertime.ui.prayer
 import android.os.SystemClock
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.prayertime.R
 import com.prayertime.data.local.AppPreferencesDataSource
 import com.prayertime.data.repository.PrayerTimesRepository
 import com.prayertime.domain.calculator.HijriCalculator
@@ -23,8 +24,11 @@ import com.prayertime.widget.WidgetUpdater
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.first
@@ -50,7 +54,11 @@ class PrayerTimesViewModel
         private val _liveCountdown = MutableStateFlow<LivePrayerCountdown?>(null)
         val liveCountdown: StateFlow<LivePrayerCountdown?> = _liveCountdown.asStateFlow()
 
+        private val _refreshFeedback = MutableSharedFlow<Int>(extraBufferCapacity = 1)
+        val refreshFeedback: SharedFlow<Int> = _refreshFeedback.asSharedFlow()
+
         private var countdownJob: Job? = null
+        private var refreshJob: Job? = null
         private var currentConfig: CityConfig? = null
         private var lastWidgetPrayer: Prayer? = null
 
@@ -124,7 +132,7 @@ class PrayerTimesViewModel
         }
 
         fun refreshTimes() {
-            refreshTimesInternal(showLoading = true, bypassCache = true)
+            refreshTimesInternal(showLoading = false, forceRefresh = true, notifyResult = true)
         }
 
         /** City-calendar midnight rollover: reload times without replacing the screen with Loading. */
@@ -153,21 +161,30 @@ class PrayerTimesViewModel
 
         private fun refreshTimesInternal(
             showLoading: Boolean,
-            bypassCache: Boolean = false,
+            forceRefresh: Boolean = false,
+            notifyResult: Boolean = false,
         ) {
-            val config = currentConfig ?: return
-            if (_uiState.value is PrayerTimesUiState.Loading) return
-            viewModelScope.launch {
-                if (bypassCache) {
-                    repository.invalidateTodayCache(config)
+            refreshJob?.cancel()
+            refreshJob =
+                viewModelScope.launch {
+                    val config = repository.cityConfig.first() ?: currentConfig ?: return@launch
+                    if (forceRefresh) {
+                        repository.invalidateTodayCache(config)
+                    }
+                    fetchTimes(
+                        config = config,
+                        showLoading = showLoading,
+                        forceRefresh = forceRefresh,
+                        notifyResult = notifyResult,
+                    )
                 }
-                fetchTimes(config, showLoading)
-            }
         }
 
         private suspend fun fetchTimes(
             config: CityConfig,
             showLoading: Boolean = true,
+            forceRefresh: Boolean = false,
+            notifyResult: Boolean = false,
         ) {
             currentConfig = config
             val previousSuccess = _uiState.value as? PrayerTimesUiState.Success
@@ -178,7 +195,7 @@ class PrayerTimesViewModel
             val offlineOnly = repository.offlineOnly.first()
             locationRepository.awaitReady()
             val languageTag = preferences.readAppLanguageTagOnce()
-            when (val result = repository.fetchTodayTimes(config)) {
+            when (val result = repository.fetchTodayTimes(config, forceRefresh = forceRefresh)) {
                 is PrayerTimesResult.Success -> {
                     startCountdownTicker(result.times, config.timezone, result.nextPrayer, result.countdown)
                     widgetUpdater.requestImmediateUpdate()
@@ -192,6 +209,9 @@ class PrayerTimesViewModel
                             todayHijriDate = todayHijriDate(config.timezone),
                             upcomingEvent = upcomingEvent(config.timezone),
                         )
+                    if (notifyResult) {
+                        _refreshFeedback.tryEmit(R.string.refresh_times_success)
+                    }
                 }
                 is PrayerTimesResult.Error -> {
                     if (result.type == FetchError.CITY_NOT_FOUND) {
@@ -201,9 +221,19 @@ class PrayerTimesViewModel
                                 PrayerTimesErrorMapper.fetchError(result.type, offlineOnly),
                             )
                         clearCityConfig()
+                        if (notifyResult) {
+                            _refreshFeedback.tryEmit(
+                                PrayerTimesErrorMapper.fetchError(result.type, offlineOnly),
+                            )
+                        }
                         return
                     }
                     if (!showLoading && previousSuccess != null) {
+                        if (notifyResult) {
+                            _refreshFeedback.tryEmit(
+                                PrayerTimesErrorMapper.fetchError(result.type, offlineOnly),
+                            )
+                        }
                         return
                     }
                     stopCountdownTicker()
@@ -211,6 +241,11 @@ class PrayerTimesViewModel
                         PrayerTimesUiState.FetchError(
                             PrayerTimesErrorMapper.fetchError(result.type, offlineOnly),
                         )
+                    if (notifyResult) {
+                        _refreshFeedback.tryEmit(
+                            PrayerTimesErrorMapper.fetchError(result.type, offlineOnly),
+                        )
+                    }
                 }
             }
         }

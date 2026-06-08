@@ -102,6 +102,7 @@
     <string name="refresh_times_title">Refresh times</string>
     <string name="refresh_times_desc">Recalculate or re-download today\'s prayer times if cached values look wrong. Changing city keeps past cache for faster return.</string>
     <string name="refresh_times_action">Refresh today\'s times</string>
+    <string name="refresh_times_success">Today\'s prayer times updated</string>
     <string name="version">Hayya v%1$s</string>
     <string name="about_section">About</string>
     <string name="about_description">Hayya is a privacy-first prayer times app: pick your city, get accurate daily times (Umm al-Qura, Shafi), optional adhan alerts, home-screen widgets, Hijri calendar, and Qibla direction — without GPS or an account.</string>

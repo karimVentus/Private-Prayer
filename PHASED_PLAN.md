@@ -1,7 +1,7 @@
 # Hayya (حيا) — Phased Implementation Plan
 
 > **Product:** **Hayya** (EN) / **حيا** (AR) — privacy-first prayer-times app. Package **`com.prayertime`** unchanged.
-> **Current state:** Phases **0–7A** complete on `main` (Jun 2026). Release **`v1.1.3`** — comprehensive audit remediation (SHURUQ alarm, dead intent extras, docs). PR **#11**–**#14**, **#27** merged. **No active feature phase** — branch new work from `main`. **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
+> **Current state:** Phases **0–7A** complete on `main` (Jun 2026). Release **`v1.1.4`** — theme palette fix, refresh-times `forceRefresh`, prayer-screen language button. PR **#33** (audit v3) merged. **No active feature phase** — branch new work from `main`. **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
 > **Build:** Single APK `com.prayertime` (~23 MB debug). Privacy via Settings **offline-only toggle** (`offline_only`); no separate offline flavor.
 > **Calculation:** Umm al-Qura + Shafi + twilight (≥48°N); `adhan-java` when offline-only; Aladhan API when user disables offline mode.
 > **Tests:** `./gradlew testDebugUnitTest` — **414** JVM `@Test` (56 files); run `./scripts/smoke-ci.sh` for full gate.
@@ -24,7 +24,7 @@
 | **BootCompletedReceiver fix** | **Done** | null-city and notifications-denied branches now cancel stale alarms |
 | **Adhan sound picker** | **Done** | 8 sounds, live preview, persisted preference, AR/EN labels |
 | **Per-prayer mute** | **Done** | 🔔/🔕 toggle per prayer, persisted to DataStore, receiver checks before sound/notification |
-| **UI refinements** | **Done (Jun 2026)** — Material You dynamic color, 4-tab bottom nav, card shadows, enlarged countdown, custom Typography, Material icons |
+| **UI refinements** | **Done (Jun 2026)** — three static theme palettes (`ThemePalettes`), 4-tab bottom nav, card shadows, enlarged countdown, custom Typography, Material icons |
 | **Custom adhan sounds** | **Done (PR #14)** — import `.mp3/.ogg/.wav` files, play from internal storage (`custom_adhans/`), fallback to default if missing, delete button in picker |
 | **Comprehensive audit (Jun 2026)** | **Done** | `Audit.md` reconciled; score **100/100**; dead widget resource removed |
 | **Adhan Doze fix (Jun 2026)** | **Done** | `USE_EXACT_ALARM` manifest; `setAlarmClock` Doze-safe; exact-alarm Settings notice; `ExactAlarmPermissionReceiver`; `qa-doze.sh` inexact-alarm warn |
@@ -54,6 +54,8 @@
 | **Release v1.1.2** | **Done** — signed `Hayya-v1.1.2.apk` on GitHub Releases |
 | **Audit remediation v3 (Jun 2026)** | **Done** — `Prayer.adhanAlarmPrayers` (SHURUQ display-only); remove dead `EXTRA_ADHAN_SOUND`; shared `adhanAlarmPendingIntent`; `locations.json` 187 KB doc fix; `dist/` gitignore; Room test docs |
 | **Release v1.1.3** | **Done** — signed `Hayya-v1.1.3.apk` on GitHub Releases |
+| **UI fixes v1.1.4 (Jun 2026)** | **Done** — static theme colors (no Material You override); `fetchTodayTimes(forceRefresh)`; refresh snackbar; **Language** button on prayer header beside **Change** |
+| **Release v1.1.4** | **Done** — signed `Hayya-v1.1.4.apk` on GitHub Releases |
 
 ---
 
@@ -191,7 +193,7 @@ Maintain an up-to-date code graph after each phase gate. Full CLI lifecycle: [`g
 
 **Agent rule:** Run Graphify update when architecture boundaries change (new packages, repository paths, or phase completion).
 
-> **Last Graphify run:** 2026-06-08 — **5239** nodes, **86633** edges (audit remediation v3: `Prayer.adhanAlarmPrayers`, alarm intent cleanup). Install: `uv tool install graphifyy`. Commit `graphify-out/` with structural PRs.
+> **Last Graphify run:** 2026-06-08 — **5241** nodes, **93040** edges (v1.1.4: theme palette, `forceRefresh`, language header button). Install: `uv tool install graphifyy`. Commit `graphify-out/` with structural PRs.
 
 ---
 
@@ -912,6 +914,7 @@ As issues arise during development, append entries to `APP_CREATION_PLAYBOOK.md`
 - [x] **Hayya rebrand + v1.1.1** — `app_name` Hayya/حيا, release `Hayya-v1.1.1.apk`, README/AGENTS/playbook/PRIVACY (2026-06-08)
 - [x] **v1.1.2** — Settings About section, dependabot AndroidX pins, release scripts, CI androidx pin `resolutionStrategy` (2026-06-08)
 - [x] **v1.1.3** — audit remediation v3: `Prayer.adhanAlarmPrayers`, dead `EXTRA_ADHAN_SOUND` removed, `adhanAlarmPendingIntent`, `locations.json` 187 KB docs, `dist/` gitignore, **414** JVM tests (2026-06-08)
+- [x] **v1.1.4** — theme palette fix, `forceRefresh` for Settings refresh, prayer-screen language picker button, snackbar feedback (2026-06-08)
 - [x] **Phase 5 manual QA closure** — **5C.2**, **5D**, **5F.3** user sign-off; removed retired scope items from plan (2026-06-08)
 
 ---

@@ -549,6 +549,13 @@ private fun PrayerTimeNavHost(
 ) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
+    val context = LocalContext.current
+
+    LaunchedEffect(prayerTimesViewModel) {
+        prayerTimesViewModel.refreshFeedback.collect { messageRes ->
+            snackbarHostState.showSnackbar(context.getString(messageRes))
+        }
+    }
 
     Scaffold(
         contentWindowInsets = WindowInsets(0),

@@ -30,7 +30,10 @@ interface PrayerTimesRepository {
     /** Drops today's cached prayer times for [config]'s city so the next fetch recalculates or re-downloads. */
     suspend fun invalidateTodayCache(config: CityConfig)
 
-    suspend fun fetchTodayTimes(config: CityConfig): PrayerTimesResult
+    suspend fun fetchTodayTimes(
+        config: CityConfig,
+        forceRefresh: Boolean = false,
+    ): PrayerTimesResult
 
     /** Room cache for today's city date only — does not calculate or call the network. */
     suspend fun getCachedTodayTimes(config: CityConfig): PrayerTimesResult?

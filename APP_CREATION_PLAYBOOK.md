@@ -216,8 +216,8 @@ Public docs must reflect real maturity.
 | Architecture: Flavor isolation | **Implemented** | `PrayerTimesRepository` is interface; `OnlinePrayerTimesRepository` composes `LocalPrayerTimesRepository` + shared `PrayerTimesLocalEngine`; offline APK never shows dead toggle. |
 | Architecture: Hilt DI | **Implemented** | `@HiltAndroidApp`, flavor `RepositoryModule`, `@HiltViewModel`, `@HiltWorker`; removed manual `PrayerTimeViewModelFactory` and flavor `PrayerTimeApp`. |
 | Architecture: Worker & engine tests | **Implemented** | `PrayerRefreshWorkTest`, `PrayerTimeRefreshWorkerTest`, `PrayerTimesLocalEngineTest`; worker refresh/retry/skip + periodic enqueue KEEP policy. |
-| Manual cache refresh | **Implemented** | About → **Refresh today's times** calls `invalidateTodayCache` then fetch; `BuildConfig.VERSION_NAME` on About screen. |
-| App language (EN / AR / system) | **Done (5E)** | `LanguagePickerDialog` (Compose `Dialog`, LTR option rows); `values-ar` + AppCompat locales; RTL prayer/About/wizard/calendar; portrait-only app |
+| Manual cache refresh | **Implemented** | Settings → **Refresh today's times** uses `fetchTodayTimes(forceRefresh)` + snackbar; `BuildConfig.VERSION_NAME` on About screen. |
+| App language (EN / AR / system) | **Done (5E)** | `LanguagePickerDialog`; **Language** button on prayer header (beside **Change**); `values-ar` + AppCompat locales; RTL prayer/Settings/wizard/calendar; portrait-only app |
 | Dev workflow (`./dev`) | **Implemented** | `scripts/emu` — boot emulator, `installDebug`, launch; `HEADLESS=1` for CI-style runs. |
 | Architecture: LocationRepository | **Implemented** | Domain `LocationRepository`; `LocalLocationRepository`; use case no longer binds to `LocationDataSource`. |
 | Architecture: Hilt network stack | **Implemented** | `NetworkModule` — `OkHttpClient`, `Retrofit`, injectable `AladhanApi` (online flavor only). |

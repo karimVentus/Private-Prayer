@@ -101,6 +101,7 @@
     <string name="refresh_times_title">تحديث الأوقات</string>
     <string name="refresh_times_desc">أعد حساب أو تنزيل أوقات اليوم إذا بدت القيم المخزّنة خاطئة. تغيير المدينة يحافظ على الذاكرة المؤقتة للعودة السريعة.</string>
     <string name="refresh_times_action">تحديث أوقات اليوم</string>
+    <string name="refresh_times_success">تم تحديث أوقات اليوم</string>
     <string name="version">حيا v%1$s</string>
     <string name="about_section">حول</string>
     <string name="about_description">حيا تطبيق أوقات صلاة يركز على الخصوصية: اختر مدينتك، واحصل على أوقات يومية دقيقة (أم القرى، شافعي)، وتنبيهات أذان اختيارية، وأدوات للشاشة الرئيسية، وتقويم هجري، واتجاه القبلة — دون GPS ودون حساب.</string>

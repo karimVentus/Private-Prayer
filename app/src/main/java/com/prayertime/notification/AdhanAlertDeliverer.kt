@@ -44,32 +44,38 @@ class AdhanAlertDeliverer
                         .build(),
                 )
                 player.setOnCompletionListener { it.release() }
-
-                if (AdhanSoundResolver.isCustom(soundPref)) {
-                    val filePath = AdhanSoundResolver.filePathForCustom(context, soundPref)
-                    val file = File(filePath)
-                    if (file.exists()) {
-                        player.setDataSource(filePath)
-                    } else {
-                        // Fallback to default if custom file is missing
-                        val resId = AdhanSoundResolver.rawResFor(AdhanSoundResolver.DEFAULT_KEY)
-                        val fd = context.resources.openRawResourceFd(resId) ?: return
-                        fd.use {
-                            player.setDataSource(it.fileDescriptor, it.startOffset, it.length)
-                        }
-                    }
-                } else {
-                    val resId = AdhanSoundResolver.rawResFor(soundPref)
-                    val fd = context.resources.openRawResourceFd(resId) ?: return
-                    fd.use {
-                        player.setDataSource(it.fileDescriptor, it.startOffset, it.length)
-                    }
-                }
-
+                setAdhanDataSource(player, soundPref) ?: return
                 player.prepare()
                 player.start()
             } catch (_: Exception) {
                 // Notification still shown if audio fails
             }
+        }
+
+        private fun setAdhanDataSource(
+            player: MediaPlayer,
+            soundPref: String,
+        ): Boolean {
+            if (AdhanSoundResolver.isCustom(soundPref)) {
+                val filePath = AdhanSoundResolver.filePathForCustom(context, soundPref)
+                val file = File(filePath)
+                return if (file.exists()) {
+                    player.setDataSource(filePath)
+                    true
+                } else {
+                    setRawDataSource(player, AdhanSoundResolver.DEFAULT_KEY)
+                }
+            }
+            return setRawDataSource(player, soundPref)
+        }
+
+        private fun setRawDataSource(
+            player: MediaPlayer,
+            key: String,
+        ): Boolean {
+            val resId = AdhanSoundResolver.rawResFor(key)
+            val fd = context.resources.openRawResourceFd(resId) ?: return false
+            fd.use { player.setDataSource(it.fileDescriptor, it.startOffset, it.length) }
+            return true
         }
     }

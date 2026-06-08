@@ -25,6 +25,8 @@ object AdhanSoundResolver {
         @RawRes val rawRes: Int = 0,
     )
 
+    private val AUDIO_EXTENSIONS = setOf("mp3", "ogg", "wav", "flac", "m4a", "aac")
+
     private val catalog: List<Option> =
         listOf(
             Option(DEFAULT_KEY, R.string.adhan_sound_default, R.raw.adhan),
@@ -65,7 +67,7 @@ object AdhanSoundResolver {
         val dir = customDir(context)
         if (!dir.exists() || !dir.isDirectory) return emptyList()
         return dir.listFiles()
-            ?.filter { it.isFile && it.name.lowercase().let { n -> n.endsWith(".mp3") || n.endsWith(".ogg") || n.endsWith(".wav") || n.endsWith(".flac") || n.endsWith(".m4a") || n.endsWith(".aac") } }
+            ?.filter { it.isFile && isAudioFile(it.name) }
             ?.sortedBy { it.name.lowercase() }
             ?: emptyList()
     }
@@ -89,5 +91,10 @@ object AdhanSoundResolver {
             )
         }
         return builtIn + custom
+    }
+
+    private fun isAudioFile(fileName: String): Boolean {
+        val ext = fileName.substringAfterLast('.', "").lowercase()
+        return ext in AUDIO_EXTENSIONS
     }
 }

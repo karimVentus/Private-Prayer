@@ -58,6 +58,8 @@
 | **Release v1.1.4** | **Done** — signed `Hayya-v1.1.4.apk` on GitHub Releases |
 | **UI fixes v1.1.5 (Jun 2026)** | **Done** — `AppBottomNavigationBar` (56dp, single nav inset); remove nested prayer `Scaffold`; theme `background`=`surface`; safe test Main dispatcher helpers; mock countdown tick VM tests (`withCountdownTickerLoopDisabled`); Qibla screenshot in README |
 | **Release v1.1.5** | **Done** — signed `Hayya-v1.1.5.apk` on GitHub Releases |
+| **Widget L v1.1.6 (Jun 2026)** | **Done** — restore per-column countdown; shrink next-prayer highlight to times row only |
+| **Release v1.1.6** | **Done** — signed `Hayya-v1.1.6.apk` on GitHub Releases |
 
 ---
 

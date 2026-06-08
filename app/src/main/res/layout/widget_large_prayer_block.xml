@@ -5,56 +5,6 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/widget_highlight_row"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:baselineAligned="false"
-            android:orientation="horizontal">
-
-            <FrameLayout
-                android:id="@+id/widget_highlight_0"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginHorizontal="1dp" />
-
-            <FrameLayout
-                android:id="@+id/widget_highlight_1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginHorizontal="1dp" />
-
-            <FrameLayout
-                android:id="@+id/widget_highlight_2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginHorizontal="1dp" />
-
-            <FrameLayout
-                android:id="@+id/widget_highlight_3"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginHorizontal="1dp" />
-
-            <FrameLayout
-                android:id="@+id/widget_highlight_4"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginHorizontal="1dp" />
-
-            <FrameLayout
-                android:id="@+id/widget_highlight_5"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginHorizontal="1dp" />
-        </LinearLayout>
-
-        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -196,15 +146,71 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Row 3: prayer times — ⅓ height -->
-    <LinearLayout
-        android:id="@+id/widget_times_row"
+    <!-- Row 3: times + countdown — highlight band wraps this row only (not prayer names) -->
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:baselineAligned="false"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/widget_highlight_row"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:paddingVertical="2dp">
+
+            <FrameLayout
+                android:id="@+id/widget_highlight_0"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="1dp"
+                android:layout_weight="1" />
+
+            <FrameLayout
+                android:id="@+id/widget_highlight_1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="1dp"
+                android:layout_weight="1" />
+
+            <FrameLayout
+                android:id="@+id/widget_highlight_2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="1dp"
+                android:layout_weight="1" />
+
+            <FrameLayout
+                android:id="@+id/widget_highlight_3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="1dp"
+                android:layout_weight="1" />
+
+            <FrameLayout
+                android:id="@+id/widget_highlight_4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="1dp"
+                android:layout_weight="1" />
+
+            <FrameLayout
+                android:id="@+id/widget_highlight_5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="1dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/widget_times_row"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:baselineAligned="false"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingVertical="2dp">
 
         <LinearLayout
             android:id="@+id/widget_time_col_0"
@@ -229,8 +235,14 @@
 
             <TextView
                 android:id="@+id/widget_countdown_0"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:textAlignment="center"
+                android:textColor="@color/widget_text_secondary"
+                android:textSize="11sp"
                 android:visibility="gone" />
         </LinearLayout>
 
@@ -257,8 +269,14 @@
 
             <TextView
                 android:id="@+id/widget_countdown_1"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:textAlignment="center"
+                android:textColor="@color/widget_text_secondary"
+                android:textSize="11sp"
                 android:visibility="gone" />
         </LinearLayout>
 
@@ -285,8 +303,14 @@
 
             <TextView
                 android:id="@+id/widget_countdown_2"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:textAlignment="center"
+                android:textColor="@color/widget_text_secondary"
+                android:textSize="11sp"
                 android:visibility="gone" />
         </LinearLayout>
 
@@ -313,8 +337,14 @@
 
             <TextView
                 android:id="@+id/widget_countdown_3"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:textAlignment="center"
+                android:textColor="@color/widget_text_secondary"
+                android:textSize="11sp"
                 android:visibility="gone" />
         </LinearLayout>
 
@@ -341,8 +371,14 @@
 
             <TextView
                 android:id="@+id/widget_countdown_4"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:textAlignment="center"
+                android:textColor="@color/widget_text_secondary"
+                android:textSize="11sp"
                 android:visibility="gone" />
         </LinearLayout>
 
@@ -369,11 +405,18 @@
 
             <TextView
                 android:id="@+id/widget_countdown_5"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:textAlignment="center"
+                android:textColor="@color/widget_text_secondary"
+                android:textSize="11sp"
                 android:visibility="gone" />
         </LinearLayout>
-    </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
 
         </LinearLayout>
     </FrameLayout>

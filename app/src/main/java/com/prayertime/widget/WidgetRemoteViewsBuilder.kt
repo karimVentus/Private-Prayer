@@ -244,10 +244,8 @@ class WidgetRemoteViewsBuilder
                         l10n,
                         widgetColors,
                         compactCountdown = true,
-                        inlineCountdown = false,
-                        timeOnly = true,
                         useShortPrayerLabels = true,
-                        unifiedColumnHighlight = true,
+                        highlightNextTimeColumnOnly = true,
                     )
                 }
                 WidgetSize.LARGE -> {
@@ -281,6 +279,7 @@ class WidgetRemoteViewsBuilder
             timeOnly: Boolean = false,
             useShortPrayerLabels: Boolean = false,
             unifiedColumnHighlight: Boolean = false,
+            highlightNextTimeColumnOnly: Boolean = false,
         ) {
             val now = System.currentTimeMillis()
             val cityTimeZone = TimeZone.getTimeZone(snapshot.timezone.ifBlank { TimeZone.getDefault().id })
@@ -294,6 +293,10 @@ class WidgetRemoteViewsBuilder
                 mediumHighlightIds.forEach { highlightId ->
                     views.setViewVisibility(highlightId, View.VISIBLE)
                     views.setInt(highlightId, "setBackgroundResource", 0)
+                }
+            } else {
+                mediumHighlightIds.forEach { highlightId ->
+                    views.setViewVisibility(highlightId, View.GONE)
                 }
             }
             colIds.forEachIndexed { index, ids ->
@@ -315,8 +318,13 @@ class WidgetRemoteViewsBuilder
                     views.setInt(ids.nameColId, "setBackgroundResource", 0)
                     views.setInt(ids.timeColId, "setBackgroundResource", 0)
                 } else if (isNext) {
-                    views.setInt(ids.nameColId, "setBackgroundResource", widgetColors.rowHighlightDrawable)
-                    views.setInt(ids.timeColId, "setBackgroundResource", widgetColors.rowHighlightDrawable)
+                    if (highlightNextTimeColumnOnly) {
+                        views.setInt(ids.nameColId, "setBackgroundResource", 0)
+                        views.setInt(ids.timeColId, "setBackgroundResource", widgetColors.rowHighlightDrawable)
+                    } else {
+                        views.setInt(ids.nameColId, "setBackgroundResource", widgetColors.rowHighlightDrawable)
+                        views.setInt(ids.timeColId, "setBackgroundResource", widgetColors.rowHighlightDrawable)
+                    }
                 } else {
                     views.setInt(ids.nameColId, "setBackgroundResource", 0)
                     views.setInt(ids.timeColId, "setBackgroundResource", 0)

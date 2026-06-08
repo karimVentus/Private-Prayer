@@ -106,6 +106,10 @@
     <string name="about_section">حول</string>
     <string name="about_description">حيا تطبيق أوقات صلاة يركز على الخصوصية: اختر مدينتك، واحصل على أوقات يومية دقيقة (أم القرى، شافعي)، وتنبيهات أذان اختيارية، وأدوات للشاشة الرئيسية، وتقويم هجري، واتجاه القبلة — دون GPS ودون حساب.</string>
     <string name="about_repo_link">الكود المصدري على GitHub</string>
+    <string name="about_share">مشاركة التطبيق</string>
+    <string name="about_share_chooser">مشاركة حيا عبر</string>
+    <string name="share_app_subject">حيا — أوقات الصلاة</string>
+    <string name="share_app_message">حيا (Hayya) — تطبيق أوقات صلاة يركز على الخصوصية.\n\nبدون GPS • بدون إعلانات • أوفلاين أولاً • أذان مخصص • قبلة • ويدجيتس • تقويم هجري\n\nالتنزيل: %1$s\nالإصدار %2$s</string>
 
     <string name="adhan_channel_name">الأذان</string>
     <string name="adhan_channel_desc">تذكير بوقت الصلاة مع صوت الأذان</string>

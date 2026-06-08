@@ -602,6 +602,13 @@ private fun AboutCard() {
                     },
             )
             Spacer(modifier = Modifier.height(12.dp))
+            Button(
+                onClick = { shareApp(context) },
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                Text(stringResource(R.string.about_share))
+            }
+            Spacer(modifier = Modifier.height(12.dp))
             Text(
                 text = stringResource(R.string.version, BuildConfig.VERSION_NAME),
                 style = MaterialTheme.typography.bodySmall,
@@ -609,6 +616,25 @@ private fun AboutCard() {
             )
         }
     }
+}
+
+private fun shareApp(context: Context) {
+    val releasesUrl = context.getString(R.string.about_releases_url)
+    val message =
+        context.getString(
+            R.string.share_app_message,
+            releasesUrl,
+            BuildConfig.VERSION_NAME,
+        )
+    val shareIntent =
+        Intent(Intent.ACTION_SEND).apply {
+            type = "text/plain"
+            putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.share_app_subject))
+            putExtra(Intent.EXTRA_TEXT, message)
+        }
+    context.startActivity(
+        Intent.createChooser(shareIntent, context.getString(R.string.about_share_chooser)),
+    )
 }
 
 @Composable

@@ -117,8 +117,10 @@ class WidgetRemoteViewsBuilderTest {
             )
         assertEquals("04:00", widget.text(R.id.widget_time_0))
         assertEquals("12:30", widget.text(R.id.widget_time_2))
-        // Medium widget shows no countdown column
-        assertEquals("", widget.text(R.id.widget_countdown_0))
+        assertTrue(
+            "M-widget shows compact countdown under each time",
+            widget.text(R.id.widget_countdown_0).isNotEmpty(),
+        )
     }
 
     // ── helpers ───────────────────────────────────────────────────────────────

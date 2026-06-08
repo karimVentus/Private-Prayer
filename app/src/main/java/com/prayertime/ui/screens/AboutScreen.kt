@@ -1,5 +1,6 @@
 package com.prayertime.ui.screens
 
+import android.content.Context
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.clickable
@@ -37,7 +38,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import android.content.Context
 import com.prayertime.BuildConfig
 import com.prayertime.R
 import com.prayertime.notification.AdhanSoundResolver
@@ -319,7 +319,6 @@ private fun AdhanNotificationsCard(adhan: AdhanNotificationsUiState) {
 }
 
 @Composable
-
 private fun AdhanSoundPicker(
     selected: String,
     customSoundsVersion: Int,
@@ -328,9 +327,10 @@ private fun AdhanSoundPicker(
     onDelete: (String) -> Unit,
 ) {
     val context = LocalContext.current
-    val options = remember(customSoundsVersion) {
-        AdhanSoundResolver.mergedOptions(context)
-    }
+    val options =
+        remember(customSoundsVersion) {
+            AdhanSoundResolver.mergedOptions(context)
+        }
     var playingKey by remember { mutableStateOf<String?>(null) }
     var mediaPlayer by remember { mutableStateOf<android.media.MediaPlayer?>(null) }
 
@@ -383,8 +383,11 @@ private fun AdhanSoundPicker(
             isPlaying = option.storageKey == playingKey,
             onSelected = { onSelected(option.storageKey) },
             onPlayPause = {
-                if (option.storageKey == playingKey) stopPlayback()
-                else playOption(option)
+                if (option.storageKey == playingKey) {
+                    stopPlayback()
+                } else {
+                    playOption(option)
+                }
             },
             onDelete = if (option.isCustom) ({ onDelete(option.storageKey) }) else null,
         )
@@ -445,8 +448,11 @@ private fun AdhanSoundPickerRow(
             style = MaterialTheme.typography.bodyMedium,
             fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal,
             color =
-                if (isSelected) MaterialTheme.colorScheme.primary
-                else MaterialTheme.colorScheme.onSurface,
+                if (isSelected) {
+                    MaterialTheme.colorScheme.primary
+                } else {
+                    MaterialTheme.colorScheme.onSurface
+                },
             modifier = Modifier.padding(start = 4.dp).weight(1f),
         )
 
@@ -468,8 +474,8 @@ private fun AdhanSoundPickerRow(
         }
     }
 }
-@Composable
 
+@Composable
 private fun PrivacyModeCard(
     offlineOnly: Boolean,
     onOfflineOnlyChanged: (Boolean) -> Unit,

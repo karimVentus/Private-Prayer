@@ -42,8 +42,7 @@ object AdhanSoundResolver {
     val options: List<Option> = catalog
 
     @RawRes
-    fun rawResFor(storageKey: String): Int =
-        catalog.firstOrNull { it.storageKey == storageKey }?.rawRes ?: R.raw.adhan
+    fun rawResFor(storageKey: String): Int = catalog.firstOrNull { it.storageKey == storageKey }?.rawRes ?: R.raw.adhan
 
     fun isCustom(storageKey: String): Boolean = storageKey.startsWith(CUSTOM_PREFIX)
 
@@ -51,7 +50,10 @@ object AdhanSoundResolver {
     fun customDir(context: Context): File = File(context.filesDir, CUSTOM_DIR)
 
     /** Returns the absolute file path for a custom sound key. */
-    fun filePathForCustom(context: Context, storageKey: String): String {
+    fun filePathForCustom(
+        context: Context,
+        storageKey: String,
+    ): String {
         val fileName = storageKey.removePrefix(CUSTOM_PREFIX)
         return File(customDir(context), fileName).absolutePath
     }
@@ -74,22 +76,24 @@ object AdhanSoundResolver {
 
     /** Merged list of built-in and custom display options for the picker UI. */
     fun mergedOptions(context: Context): List<DisplayOption> {
-        val builtIn = options.map { opt ->
-            DisplayOption(
-                storageKey = opt.storageKey,
-                label = context.getString(opt.labelRes),
-                isCustom = false,
-                rawRes = opt.rawRes,
-            )
-        }
-        val custom = listCustomFiles(context).map { file ->
-            val key = CUSTOM_PREFIX + file.name
-            DisplayOption(
-                storageKey = key,
-                label = file.nameWithoutExtension,
-                isCustom = true,
-            )
-        }
+        val builtIn =
+            options.map { opt ->
+                DisplayOption(
+                    storageKey = opt.storageKey,
+                    label = context.getString(opt.labelRes),
+                    isCustom = false,
+                    rawRes = opt.rawRes,
+                )
+            }
+        val custom =
+            listCustomFiles(context).map { file ->
+                val key = CUSTOM_PREFIX + file.name
+                DisplayOption(
+                    storageKey = key,
+                    label = file.nameWithoutExtension,
+                    isCustom = true,
+                )
+            }
         return builtIn + custom
     }
 

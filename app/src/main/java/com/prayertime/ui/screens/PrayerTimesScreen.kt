@@ -68,7 +68,8 @@ fun PrayerTimesScreen(
                 upcomingEvent,
                 offlineOnly,
                 liveCountdownFlow,
-                actions.onChangeCity,
+                onChangeCity = actions.onChangeCity,
+                onLanguage = actions.onLanguage,
             )
             Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
         }
@@ -87,6 +88,7 @@ private fun PrayerTimesHeader(
     offlineOnly: Boolean,
     liveCountdownFlow: StateFlow<LivePrayerCountdown?>,
     onChangeCity: () -> Unit,
+    onLanguage: () -> Unit,
 ) {
     val context = LocalContext.current
     Column(modifier = Modifier.fillMaxWidth()) {
@@ -102,6 +104,9 @@ private fun PrayerTimesHeader(
                 overflow = TextOverflow.Ellipsis,
                 modifier = Modifier.weight(1f),
             )
+            TextButton(onClick = onLanguage) {
+                Text(stringResource(R.string.language), style = MaterialTheme.typography.labelLarge)
+            }
             TextButton(onClick = onChangeCity) {
                 Text(stringResource(R.string.change), style = MaterialTheme.typography.labelLarge)
             }

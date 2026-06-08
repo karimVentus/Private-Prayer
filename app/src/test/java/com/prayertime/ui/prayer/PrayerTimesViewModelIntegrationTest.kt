@@ -54,6 +54,7 @@ class PrayerTimesViewModelIntegrationTest {
 
     @Before
     fun setup() {
+        Dispatchers.resetMain()
         Dispatchers.setMain(testDispatcher)
         LocationDataSourceTestSupport.initializeFromTestResource()
         citySource = InMemoryCityConfigDataSource()

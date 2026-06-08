@@ -118,4 +118,4 @@ Use the graph to avoid stale imports when refactoring repository ↔ flavor-spec
 
 **Test counts (Jun 2026):** **414** JVM `@Test` in `app/src/test/java/` (56 files) + **3** instrumented (`androidTest`). Recount: `rg -c '@Test' app/src/test --glob '*.kt' | awk -F: '{s+=$2} END {print s}'`.
 
-**Last Graphify run:** 2026-06-08 — **5239** nodes, **86633** edges (audit remediation v3 / v1.1.3).
+**Last Graphify run:** 2026-06-08 — **5241** nodes, **93040** edges (v1.1.4 UI fixes).

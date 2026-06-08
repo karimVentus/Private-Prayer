@@ -48,6 +48,7 @@ class CitySetupViewModelTest {
 
     @Before
     fun setup() {
+        Dispatchers.resetMain()
         Dispatchers.setMain(testDispatcher)
         LocationDataSourceTestSupport.initializeFromTestResource()
         locationRepository = LocalLocationRepository()

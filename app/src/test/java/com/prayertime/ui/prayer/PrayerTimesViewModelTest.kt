@@ -68,6 +68,7 @@ class PrayerTimesViewModelTest {
 
     @Before
     fun setup() {
+        Dispatchers.resetMain()
         Dispatchers.setMain(testDispatcher)
         LocationDataSourceTestSupport.initializeFromTestResource()
         clearMocks(widgetUpdater)

@@ -98,10 +98,18 @@ class OnlinePrayerTimesRepository(
         local.invalidateTodayCache(config)
     }
 
-    override suspend fun fetchTodayTimes(config: CityConfig): PrayerTimesResult {
+    override suspend fun fetchTodayTimes(
+        config: CityConfig,
+        forceRefresh: Boolean,
+    ): PrayerTimesResult {
         val cityKey = engine.cityKeyFrom(config)
         val todayLabel = engine.todayDateLabel(config.timezone)
-        val cache = engine.getCachedTimes(cityKey, todayLabel, config.timezone)
+        val cache =
+            if (forceRefresh) {
+                null
+            } else {
+                engine.getCachedTimes(cityKey, todayLabel, config.timezone)
+            }
 
         if (!cityConfigDataSource.offlineOnly.first()) {
             if (cache != null) {

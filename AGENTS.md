@@ -166,7 +166,7 @@ After structural changes or phase completion:
 OPENAI_API_KEY="" graphify update . --no-cluster
 ```
 
-Details: [`graphity.md`](graphity.md). Diagrams: [`PHASED_PLAN.md`](PHASED_PLAN.md). **Last run:** 2026-06-08 — **5239** nodes, **86633** edges (audit remediation v3 / v1.1.3). Install: `uv tool install graphifyy`.
+Details: [`graphity.md`](graphity.md). Diagrams: [`PHASED_PLAN.md`](PHASED_PLAN.md). **Last run:** 2026-06-08 — **5241** nodes, **93040** edges (v1.1.4 UI fixes). Install: `uv tool install graphifyy`.
 
 ## Orientation
 

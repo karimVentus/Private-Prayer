@@ -39,6 +39,7 @@ class AppSettingsViewModelTest {
 
     @Before
     fun setup() {
+        Dispatchers.resetMain()
         Dispatchers.setMain(testDispatcher)
         database =
             Room.inMemoryDatabaseBuilder(

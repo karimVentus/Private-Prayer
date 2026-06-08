@@ -63,7 +63,10 @@ class FakePrayerTimesRepository private constructor(
 
     override suspend fun invalidateTodayCache(config: CityConfig) = Unit
 
-    override suspend fun fetchTodayTimes(config: CityConfig): PrayerTimesResult {
+    override suspend fun fetchTodayTimes(
+        config: CityConfig,
+        forceRefresh: Boolean,
+    ): PrayerTimesResult {
         fetchInvoked = true
         return fetchOverride?.invoke()
             ?: if (workerCityConfig != null) {

@@ -170,7 +170,7 @@ class AppPreferencesDataSource
 
         @WorkerThread
         private fun writeAppThemeCache(theme: String) {
-            themeCachePrefs.edit().putString(APP_THEME_CACHE_KEY, theme).apply()
+            themeCachePrefs.edit().putString(APP_THEME_CACHE_KEY, theme).commit()
         }
 
         /** Sync read for startup/widget bind — mirrors DataStore via [writeAppLanguageCache]. */
@@ -184,12 +184,12 @@ class AppPreferencesDataSource
                 } else {
                     putString(APP_LANGUAGE_CACHE_KEY, tag)
                 }
-            }.apply()
+            }.commit()
         }
 
         @WorkerThread
         private fun writeAppLanguageInitializedCache(initialized: Boolean) {
-            themeCachePrefs.edit().putBoolean(APP_LANGUAGE_INITIALIZED_CACHE_KEY, initialized).apply()
+            themeCachePrefs.edit().putBoolean(APP_LANGUAGE_INITIALIZED_CACHE_KEY, initialized).commit()
         }
 
         private val themeCachePrefs =

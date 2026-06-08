@@ -104,10 +104,10 @@ class AppPreferencesDataSourceTest {
         runTest {
             val p = prefs()
             p.setAppLanguageTag("ar", recordUserChoice = true)
+            assertEquals("ar", p.readAppLanguageTagSync())
+            assertTrue(p.readAppLanguageInitializedSync())
             val context: Context = ApplicationProvider.getApplicationContext()
-            val editor = context.getSharedPreferences("widget_theme_cache", Context.MODE_PRIVATE).edit()
-            editor.clear()
-            editor.commit()
+            context.getSharedPreferences("widget_theme_cache", Context.MODE_PRIVATE).edit().clear().commit()
             assertFalse(p.readAppLanguageInitializedSync())
             assertNull(p.readAppLanguageTagSync())
             p.warmAppLanguageCache()

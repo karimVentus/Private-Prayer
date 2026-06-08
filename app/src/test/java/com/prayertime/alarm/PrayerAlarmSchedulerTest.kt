@@ -30,8 +30,23 @@ class PrayerAlarmSchedulerTest {
         PrayerAlarmScheduler.schedulePrayerAlarms(context, times, useReliableAlarms = true)
 
         val shadow = shadowAlarmManager(context)
-        assertEquals(5, shadow.scheduledAlarms.size)
+        assertEquals(4, shadow.scheduledAlarms.size)
         assertTrue(shadow.scheduledAlarms.all { it.getType() == AlarmManager.RTC_WAKEUP })
+    }
+
+    @Test
+    fun `schedulePrayerAlarms does not schedule SHURUQ`() {
+        val context = ApplicationProvider.getApplicationContext<Context>()
+        val now = System.currentTimeMillis()
+        val times =
+            listOf(
+                PrayerTime(Prayer.SHURUQ, "06:30", now + 3_600_000),
+            )
+
+        PrayerAlarmScheduler.schedulePrayerAlarms(context, times, useReliableAlarms = true)
+
+        val shadow = shadowAlarmManager(context)
+        assertEquals(0, shadow.scheduledAlarms.size)
     }
 
     @Test
@@ -41,7 +56,7 @@ class PrayerAlarmSchedulerTest {
         val times = sampleTimes(now)
         val expectedTriggers =
             times
-                .filter { it.prayer in Prayer.entries.toSet() }
+                .filter { it.prayer in Prayer.adhanAlarmPrayers }
                 .filter { it.timestamp > now }
                 .map { it.timestamp }
                 .toSet()
@@ -62,7 +77,7 @@ class PrayerAlarmSchedulerTest {
         PrayerAlarmScheduler.schedulePrayerAlarms(context, times, useReliableAlarms = true)
 
         val shadow = shadowAlarmManager(context)
-        assertEquals(5, shadow.scheduledAlarms.size)
+        assertEquals(4, shadow.scheduledAlarms.size)
     }
 
     @Test
@@ -74,10 +89,10 @@ class PrayerAlarmSchedulerTest {
         PrayerAlarmScheduler.schedulePrayerAlarms(context, times, useReliableAlarms = false)
 
         val shadow = shadowAlarmManager(context)
-        assertEquals(5, shadow.scheduledAlarms.size)
+        assertEquals(4, shadow.scheduledAlarms.size)
         val expectedTriggers =
             times
-                .filter { it.prayer in Prayer.entries.toSet() }
+                .filter { it.prayer in Prayer.adhanAlarmPrayers }
                 .filter { it.timestamp > now }
                 .map { it.timestamp }
                 .toSet()
@@ -91,7 +106,7 @@ class PrayerAlarmSchedulerTest {
         PrayerAlarmScheduler.schedulePrayerAlarms(context, sampleTimes(now), useReliableAlarms = true)
 
         val shadow = shadowAlarmManager(context)
-        assertEquals(5, shadow.scheduledAlarms.size)
+        assertEquals(4, shadow.scheduledAlarms.size)
 
         PrayerAlarmScheduler.cancelAllPrayerAlarms(context)
 
@@ -113,12 +128,12 @@ class PrayerAlarmSchedulerTest {
             }
         PrayerAlarmScheduler.schedulePrayerAlarms(context, shifted, useReliableAlarms = true)
 
-        assertEquals(5, shadow.scheduledAlarms.size)
+        assertEquals(4, shadow.scheduledAlarms.size)
         val secondTriggers = shadow.scheduledAlarms.map { it.triggerAtTime }.toSet()
         assertTrue(firstTriggers.none { it in secondTriggers })
         val expectedSecond =
             shifted
-                .filter { it.prayer in Prayer.entries.toSet() }
+                .filter { it.prayer in Prayer.adhanAlarmPrayers }
                 .filter { it.timestamp > now }
                 .map { it.timestamp }
                 .toSet()
@@ -174,10 +189,10 @@ class PrayerAlarmSchedulerTest {
         PrayerAlarmScheduler.schedulePrayerAlarms(context, times, useReliableAlarms = false)
 
         val shadow = shadowAlarmManager(context)
-        assertEquals(5, shadow.scheduledAlarms.size)
+        assertEquals(4, shadow.scheduledAlarms.size)
         val expectedTriggers =
             times
-                .filter { it.prayer in Prayer.entries.toSet() }
+                .filter { it.prayer in Prayer.adhanAlarmPrayers }
                 .filter { it.timestamp > now }
                 .map { it.timestamp }
                 .toSet()
@@ -222,8 +237,8 @@ class PrayerAlarmSchedulerTest {
         PrayerAlarmScheduler.schedulePrayerAlarms(context, times, useReliableAlarms = false)
 
         val shadow = shadowAlarmManager(context)
-        // Fajr is in the past, so 5 future prayers remain
-        assertEquals(5, shadow.scheduledAlarms.size)
+        // Fajr is in the past and Shuruq is excluded, so 4 future fard prayers remain
+        assertEquals(4, shadow.scheduledAlarms.size)
         // All alarms should be RTC_WAKEUP (inexact via setAndAllowWhileIdle on API 23+)
         assertTrue(shadow.scheduledAlarms.all { it.getType() == AlarmManager.RTC_WAKEUP })
     }

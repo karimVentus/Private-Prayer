@@ -27,7 +27,6 @@ object AdhanAlarmRescheduler {
                 widgetUpdater.requestImmediateUpdate()
                 return
             }
-        val sound = preferences.adhanSound.first()
         when (val resolved = BootPrayerTimesResolver.resolve(repository, config)) {
             is PrayerTimesResult.Success ->
                 if (AdhanPermissions.areNotificationsAllowed(context)) {
@@ -35,7 +34,6 @@ object AdhanAlarmRescheduler {
                         context,
                         resolved.times,
                         useReliableAlarms = true,
-                        adhanSound = sound,
                     )
                 } else {
                     PrayerAlarmScheduler.cancelAllPrayerAlarms(context)

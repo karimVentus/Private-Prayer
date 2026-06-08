@@ -1,10 +1,10 @@
 # Hayya (حيا) — Phased Implementation Plan
 
 > **Product:** **Hayya** (EN) / **حيا** (AR) — privacy-first prayer-times app. Package **`com.prayertime`** unchanged.
-> **Current state:** Phases **0–7A** complete on `main` (Jun 2026). Release **`v1.1.2`** — Hayya rebrand, Settings **About** (repo link), sideload APK. PR **#11**–**#14** merged. **No active feature phase** — branch new work from `main`. **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
+> **Current state:** Phases **0–7A** complete on `main` (Jun 2026). Release **`v1.1.3`** — comprehensive audit remediation (SHURUQ alarm, dead intent extras, docs). PR **#11**–**#14**, **#27** merged. **No active feature phase** — branch new work from `main`. **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
 > **Build:** Single APK `com.prayertime` (~23 MB debug). Privacy via Settings **offline-only toggle** (`offline_only`); no separate offline flavor.
 > **Calculation:** Umm al-Qura + Shafi + twilight (≥48°N); `adhan-java` when offline-only; Aladhan API when user disables offline mode.
-> **Tests:** `./gradlew testDebugUnitTest` — **413** JVM `@Test` (56 files); run `./scripts/smoke-ci.sh` for full gate.
+> **Tests:** `./gradlew testDebugUnitTest` — **414** JVM `@Test` (56 files); run `./scripts/smoke-ci.sh` for full gate.
 > **Docs language:** English. **Architecture graphs:** Graphify + Mermaid below.
 > **Phase 5 manual QA:** **5C.2**, **5D**, **5F.3** signed off Jun 2026 (user device verification).
 
@@ -19,7 +19,7 @@
 | **Phase 4** Hijri + events | **Complete** — `HijriCalculator`, 10 events, Room v4, main + calendar + M/L widget, 19 tests |
 | **Phase 5G** audit / architecture | **Complete (Jun 2026)** — see §5G; `FetchError`/`SaveCityError`, `Prayer.SHURUQ`, `TextNormalizer`, catalog validation, online save fallback, test infra (FakeRepo, VM integration, MockWebServer) |
 | **Phase 5E** UI polish | **Complete (Jun 2026)** — theme/spacing, edge-to-edge, RTL, language picker, calendar layout, portrait lock; see §5E |
-| **Phase 5** hardening | **Done** — 5A–5E automated tests, sound picker, per-prayer mute, audit remediation (Jun 2026), Room v1–v4 schema tests, smoke-ci green (**413** JVM tests). |
+| **Phase 5** hardening | **Done** — 5A–5E automated tests, sound picker, per-prayer mute, audit remediation (Jun 2026), Room v1–v4 schema tests, smoke-ci green (**414** JVM tests). |
 | **TLS pinning (6.8)** | **Done** | leaf + SPKI pins for aladhan.com in network_security_config.xml; rotation script at scripts/verify-aladhan-pins.sh |
 | **BootCompletedReceiver fix** | **Done** | null-city and notifications-denied branches now cancel stale alarms |
 | **Adhan sound picker** | **Done** | 8 sounds, live preview, persisted preference, AR/EN labels |
@@ -52,6 +52,8 @@
 | **Release v1.1.1** | **Done** — Hayya rebrand APK on GitHub Releases |
 | **Settings About** | **Done (v1.1.2)** — `AboutCard` at bottom of Settings: app description, GitHub repo link, version |
 | **Release v1.1.2** | **Done** — signed `Hayya-v1.1.2.apk` on GitHub Releases |
+| **Audit remediation v3 (Jun 2026)** | **Done** — `Prayer.adhanAlarmPrayers` (SHURUQ display-only); remove dead `EXTRA_ADHAN_SOUND`; shared `adhanAlarmPendingIntent`; `locations.json` 187 KB doc fix; `dist/` gitignore; Room test docs |
+| **Release v1.1.3** | **Done** — signed `Hayya-v1.1.3.apk` on GitHub Releases |
 
 ---
 
@@ -189,7 +191,7 @@ Maintain an up-to-date code graph after each phase gate. Full CLI lifecycle: [`g
 
 **Agent rule:** Run Graphify update when architecture boundaries change (new packages, repository paths, or phase completion).
 
-> **Last Graphify run:** 2026-06-08 — **5206** nodes, **75823** edges (post PR **#13** L-widget: `widget_large_prayer_block.xml`, `WidgetRemoteViewsBuilder` L bind). Install: `uv tool install graphifyy`. Commit `graphify-out/` with structural PRs.
+> **Last Graphify run:** 2026-06-08 — **5239** nodes, **86633** edges (audit remediation v3: `Prayer.adhanAlarmPrayers`, alarm intent cleanup). Install: `uv tool install graphifyy`. Commit `graphify-out/` with structural PRs.
 
 ---
 
@@ -473,7 +475,7 @@ flowchart LR
 - [x] **2E.1** Countdown: midnight boundary — `PrayerTimeCalculator.isSameDay()` unit tests (4 tests: same day, across midnight, same-day wrap, year boundary)
 - [x] **2E.2** Countdown: city TZ day rollover — `PrayerTimesViewModel.refreshIfPrayerDayStale()` uses `config.timezone` via `needsPrayerDayRefresh()`; tests cover city vs UTC mismatch. **Audit (device TZ ≠ city TZ): resolved** — e.g. London device + Makkah (`Asia/Riyadh`) refreshes at Riyadh midnight, not London midnight.
 - [x] **2E.3** Countdown: DST transition day (Europe/London, March 31st) — 4 tests: same-day across DST gap, before/after gap still same day, day-before vs DST-day separation, countdown across DST gap
-- [x] **2E.4** Notification: alarm scheduling — `PrayerAlarmSchedulerTest` (Robolectric `ShadowAlarmManager`): future prayer count (all six slots incl. Shuruq), trigger timestamps, `RTC_WAKEUP`, exact vs inexact fallback
+- [x] **2E.4** Notification: alarm scheduling — `PrayerAlarmSchedulerTest` (Robolectric `ShadowAlarmManager`): future fard count (five slots; **SHURUQ** excluded), trigger timestamps, `RTC_WAKEUP`, exact vs inexact fallback
 
 ### Quality Gate (Phase 2)
 
@@ -800,7 +802,7 @@ QA helper: `./scripts/qa-offline.sh` (`audit`, `5c1`, `5c2-guide`, `5c3`, `netwo
 
 - [x] **5E.21** `CityInputScreen` catalog UX — show wizard immediately with `catalogReady` inline loading; no full-screen block while `locations.json` parses
 - [x] **5E.22** `PrayerTimesScreen` per-prayer mute toggles — Material outlined `Notifications` / `NotificationsOff`; theme `primary` / `onSurfaceVariant` tints on all 6 rows (replaces emoji bells)
-- [x] **5E.23** Per-prayer mute wiring — `muted_prayers` DataStore; toggle on every slot including **Shuruq**; `PrayerAlarmScheduler` schedules all six `Prayer` values; `AdhanAlarmReceiver` skips muted prayers
+- [x] **5E.23** Per-prayer mute wiring — `muted_prayers` DataStore; toggle on every UI row including **Shuruq**; `PrayerAlarmScheduler` schedules `Prayer.adhanAlarmPrayers` (five fard); `AdhanAlarmReceiver` / `AdhanAlertDeliverer` skip muted
 - [x] **5E.24** Graphify updated — **3265** nodes, **46206** edges (2026-06-06)
 
 #### 5E addendum — Jun 6 session (audit polish + widget picker)
@@ -909,6 +911,7 @@ As issues arise during development, append entries to `APP_CREATION_PLAYBOOK.md`
 - [x] **Post-7A baseline** — PR **#13** L-widget, Graphify **5206** nodes, clean-continuation section, `graphifyy` install docs (2026-06-08)
 - [x] **Hayya rebrand + v1.1.1** — `app_name` Hayya/حيا, release `Hayya-v1.1.1.apk`, README/AGENTS/playbook/PRIVACY (2026-06-08)
 - [x] **v1.1.2** — Settings About section, dependabot AndroidX pins, release scripts, CI androidx pin `resolutionStrategy` (2026-06-08)
+- [x] **v1.1.3** — audit remediation v3: `Prayer.adhanAlarmPrayers`, dead `EXTRA_ADHAN_SOUND` removed, `adhanAlarmPendingIntent`, `locations.json` 187 KB docs, `dist/` gitignore, **414** JVM tests (2026-06-08)
 - [x] **Phase 5 manual QA closure** — **5C.2**, **5D**, **5F.3** user sign-off; removed retired scope items from plan (2026-06-08)
 
 ---

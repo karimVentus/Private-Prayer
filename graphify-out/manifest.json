@@ -10,8 +10,8 @@
     "semantic_hash": ""
   },
   "app/build.gradle.kts": {
-    "mtime": 1780948540.9579823,
-    "ast_hash": "4a547f2d198bf9f6f4e60575c91e4329",
+    "mtime": 1780952356.367251,
+    "ast_hash": "d4b30b4f8ba3be1342636b56aceae0c8",
     "semantic_hash": ""
   },
   "app/schemas/com.prayertime.data.local.AppDatabase/1.json": {
@@ -115,8 +115,8 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/data/local/AppPreferencesDataSource.kt": {
-    "mtime": 1780931911.1252966,
-    "ast_hash": "8f18688f4774c796d7220d080a4172cf",
+    "mtime": 1780950044.6763813,
+    "ast_hash": "1155bea835b83d462d96cef780c8b127",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/data/local/CityConfigDataSource.kt": {
@@ -415,8 +415,8 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/PrayerTimeRoot.kt": {
-    "mtime": 1780948313.157508,
-    "ast_hash": "0bd67547fcd05778f731882a6c1efd37",
+    "mtime": 1780952143.8289518,
+    "ast_hash": "5725744a5c1ea9b7490ad8be7f1c4fc6",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/PrayerTimesErrorMapper.kt": {
@@ -445,8 +445,8 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/components/ScreenInsets.kt": {
-    "mtime": 1780931911.126835,
-    "ast_hash": "807dfd5aa4f52929f1d6191c1277ec24",
+    "mtime": 1780951082.699128,
+    "ast_hash": "16a8e2270537cff3e16efa9a11c78317",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/prayer/PrayerTimesUiState.kt": {
@@ -455,13 +455,13 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/prayer/PrayerTimesViewModel.kt": {
-    "mtime": 1780948352.2201664,
-    "ast_hash": "c1492e2af94f42204a778b40dd8caa79",
+    "mtime": 1780949149.4050686,
+    "ast_hash": "ce5d2ac1a653ce12a1608a3dbd649659",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/screens/AboutScreen.kt": {
-    "mtime": 1780946368.2059686,
-    "ast_hash": "b4c48d50be27a18aa6f74d8c5541a23d",
+    "mtime": 1780951292.290931,
+    "ast_hash": "07e6cbf0aaa72a1e5ea36e9d42d19fcd",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/screens/AnnualEventsView.kt": {
@@ -485,8 +485,8 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/screens/HijriCalendarScreen.kt": {
-    "mtime": 1780931911.1270351,
-    "ast_hash": "ab8643b9ef420b862c5bb50f37eb7e57",
+    "mtime": 1780951801.8935194,
+    "ast_hash": "0078ff1ea6feee0f3d928cf264e503c7",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/screens/LanguagePickerDialog.kt": {
@@ -495,13 +495,13 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/screens/PrayerTimesScreen.kt": {
-    "mtime": 1780948133.8833861,
-    "ast_hash": "3eaf3f729fa042844869f096435e1ea0",
+    "mtime": 1780952135.3780649,
+    "ast_hash": "1d2b36db15a898e21223f2c33255a252",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/screens/QiblaScreen.kt": {
-    "mtime": 1780931911.1270351,
-    "ast_hash": "e9e0b9c22c436dbe9d520a284677b4c6",
+    "mtime": 1780951796.1463873,
+    "ast_hash": "b4340cf9afb8a6855288af90804a9a77",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/settings/AppSettingsViewModel.kt": {
@@ -530,8 +530,8 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/theme/ThemePalettes.kt": {
-    "mtime": 1780931911.1274633,
-    "ast_hash": "534c52ba4c7294a35f0188bfffb153ec",
+    "mtime": 1780951288.8249187,
+    "ast_hash": "f7d5180b2ce1a6b57b2f84d47a583310",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/widget/CountdownFormatter.kt": {
@@ -660,8 +660,8 @@
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/data/local/AppPreferencesDataSourceTest.kt": {
-    "mtime": 1780931911.16089,
-    "ast_hash": "9f1813b63c451be21c034baf79bbd5e4",
+    "mtime": 1780950045.1354368,
+    "ast_hash": "a422fb5db0c447d84018911bfbceecbe",
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/data/local/CityConfigSerializerTest.kt": {
@@ -810,8 +810,8 @@
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/permission/PermissionDenialMatrixTest.kt": {
-    "mtime": 1780931911.1617138,
-    "ast_hash": "42229c11761bcb245a612af647ef164d",
+    "mtime": 1780949332.4855871,
+    "ast_hash": "7a46afc0807292c170e83a747725c616",
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/sensor/CompassHeadingTest.kt": {
@@ -825,8 +825,8 @@
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/testing/ViewModelTestSupport.kt": {
-    "mtime": 1780931911.1618423,
-    "ast_hash": "22a4fe961711a111d77aa793a522d6a7",
+    "mtime": 1780951487.622352,
+    "ast_hash": "4fbd5bef968bae77efa66941a56e1562",
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/testing/WidgetTestSupport.kt": {
@@ -845,23 +845,23 @@
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/ui/city/CitySetupViewModelAssetLoadTest.kt": {
-    "mtime": 1780931911.1619012,
-    "ast_hash": "798e227ba46ccf5ca1c2853600f8b113",
+    "mtime": 1780951490.6482818,
+    "ast_hash": "360d0bab226d21317b7af155915ed4e3",
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/ui/city/CitySetupViewModelTest.kt": {
-    "mtime": 1780931911.1619797,
-    "ast_hash": "6a69bff8f2cba036869407e5feea240d",
+    "mtime": 1780951489.0449932,
+    "ast_hash": "b1dcdb17ca2b35e85faf85dd48c330a4",
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/ui/prayer/PrayerTimesViewModelIntegrationTest.kt": {
-    "mtime": 1780931911.1619797,
-    "ast_hash": "96d06987341f5fd1015fb1ac1e11ff76",
+    "mtime": 1780951498.3070068,
+    "ast_hash": "090a91d719aa08f34957f727ececccd9",
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/ui/prayer/PrayerTimesViewModelTest.kt": {
-    "mtime": 1780931911.1620505,
-    "ast_hash": "79e0a92a18a55659033d47c1ecc0f4ea",
+    "mtime": 1780951496.690104,
+    "ast_hash": "7ae88c258d4f8f4f6b3c862b9b11ec5a",
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/ui/screens/ComposeScreenSmokeTest.kt": {
@@ -870,8 +870,8 @@
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/ui/settings/AppSettingsViewModelTest.kt": {
-    "mtime": 1780940418.6269596,
-    "ast_hash": "d5a3d7be530ae82a8ff348294ca7bdb1",
+    "mtime": 1780951492.0636585,
+    "ast_hash": "539f7fb1b339ebef90f7d7d193d7c4a6",
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/widget/CountdownFormatterTest.kt": {
@@ -1080,8 +1080,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1780947209.250372,
-    "ast_hash": "117d7f1488186422b35aa0e855e4843e",
+    "mtime": 1780952361.5539489,
+    "ast_hash": "e4daf31cdd8bedcb30ae860751f82e2f",
     "semantic_hash": ""
   },
   "APP_CREATION_PLAYBOOK.md": {
@@ -1100,8 +1100,8 @@
     "semantic_hash": ""
   },
   "PHASED_PLAN.md": {
-    "mtime": 1780948543.4294348,
-    "ast_hash": "695556eff3d2e1b2809d6007305952f5",
+    "mtime": 1780952366.1051204,
+    "ast_hash": "fb3809ba3204d3e084ed95b1a8734955",
     "semantic_hash": ""
   },
   "ProjectIdea.md": {
@@ -1110,8 +1110,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1780948545.18641,
-    "ast_hash": "eb66f629ffc4700537ed8074c735582d",
+    "mtime": 1780952369.2437816,
+    "ast_hash": "45d02a776346c7b84d9b3c166db2d1d5",
     "semantic_hash": ""
   },
   "SECURITY.md": {
@@ -1145,8 +1145,8 @@
     "semantic_hash": ""
   },
   "graphity.md": {
-    "mtime": 1780947209.31974,
-    "ast_hash": "29fbd0c67315a18d2ce7f89caf2159bc",
+    "mtime": 1780952365.3599026,
+    "ast_hash": "622f01a7120af946d07d7edb93ce873a",
     "semantic_hash": ""
   },
   "docs/screenshots/city-wizard-ar-dark.png": {
@@ -1282,6 +1282,16 @@
   "scripts/setup-release-signing.sh": {
     "mtime": 1780946368.2067678,
     "ast_hash": "0e41d48ee3aa019feb995e6d6f27450e",
+    "semantic_hash": ""
+  },
+  "app/src/main/java/com/prayertime/ui/components/AppBottomNavigationBar.kt": {
+    "mtime": 1780952131.8921804,
+    "ast_hash": "bca4179858e3071d6a55e4041d6fe37f",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/qibla-compass-ar-dark.png": {
+    "mtime": 1780951784.6157503,
+    "ast_hash": "85ae1c66e597ce16604ce156d4e541da",
     "semantic_hash": ""
   }
 }

@@ -2,6 +2,7 @@ package com.prayertime.ui.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -59,6 +60,7 @@ fun PrayerTimesScreen(
             Modifier
                 .fillMaxSize()
                 .padding(horizontal = AppSpacing.screenHorizontal),
+        contentPadding = PaddingValues(bottom = 8.dp),
     ) {
         item(key = "prayer_header") {
             BismillahHeader()

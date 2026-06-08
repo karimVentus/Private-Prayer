@@ -22,7 +22,6 @@ import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
@@ -72,6 +71,7 @@ fun QiblaScreen(
     longitude: Double,
     cityLabel: String,
     onClose: () -> Unit,
+    showBackLink: Boolean = true,
     modifier: Modifier = Modifier,
 ) {
     val qiblaBearing = remember(latitude, longitude) { QiblaCalculator.bearing(latitude, longitude) }
@@ -161,7 +161,9 @@ fun QiblaScreen(
                 onShowTips = { showCalibrateHelp = true },
             )
         }
-        QiblaCloseButton(onClose, palette, context.resources)
+        if (showBackLink) {
+            QiblaCloseButton(onClose, palette, context.resources)
+        }
     }
 }
 
@@ -468,7 +470,7 @@ private fun QiblaCloseButton(
     resources: android.content.res.Resources,
 ) {
     Row(
-        modifier = Modifier.fillMaxWidth().navigationBarsPadding(),
+        modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.End,
     ) {
         Text(

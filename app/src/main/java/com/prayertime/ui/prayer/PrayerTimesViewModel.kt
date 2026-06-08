@@ -65,7 +65,16 @@ class PrayerTimesViewModel
         /** Unit tests: false skips the infinite 1s delay loop (initial [liveCountdown] still set). */
         internal var enableCountdownTickerLoop: Boolean = true
 
+        companion object {
+            /**
+             * Set before constructing in unit tests — [init] reads this before launching collectors
+             * (required with [UnconfinedTestDispatcher], which runs coroutines during construction).
+             */
+            internal var countdownTickerLoopEnabledOverride: Boolean? = null
+        }
+
         init {
+            countdownTickerLoopEnabledOverride?.let { enableCountdownTickerLoop = it }
             viewModelScope.launch {
                 repository.cityConfig.collect { config ->
                     if (config != null) {
@@ -286,21 +295,7 @@ class PrayerTimesViewModel
                             refreshTimesForNewDay()
                             return@launch
                         }
-                        val nextPrayer = PrayerTimeCalculator.getNextPrayer(times, now, cityTz) ?: fallbackNextPrayer
-                        if (nextPrayer != lastWidgetPrayer) {
-                            lastWidgetPrayer = nextPrayer
-                            widgetUpdater.requestImmediateUpdate()
-                        }
-                        _liveCountdown.value =
-                            LivePrayerCountdown(
-                                nextPrayer = nextPrayer,
-                                countdownMillis =
-                                    PrayerTimeCalculator.getCountdownToNext(
-                                        times,
-                                        now,
-                                        cityTz,
-                                    ),
-                            )
+                        emitCountdownTick(times, timezone, fallbackNextPrayer, now)
                         nextTickElapsed += 1_000L
                         delay((nextTickElapsed - SystemClock.elapsedRealtime()).coerceAtLeast(0L))
                     }
@@ -382,6 +377,39 @@ class PrayerTimesViewModel
             countdownMillis: Long,
         ) {
             _liveCountdown.value = LivePrayerCountdown(nextPrayer, countdownMillis)
+        }
+
+        /** Test seam — one ticker iteration without the 1s loop. */
+        internal fun applyCountdownTickForTest(
+            times: List<PrayerTime>,
+            timezone: String,
+            fallbackNextPrayer: Prayer,
+            nowMillis: Long = System.currentTimeMillis(),
+            previousWidgetPrayer: Prayer? = null,
+        ) {
+            if (previousWidgetPrayer != null) {
+                lastWidgetPrayer = previousWidgetPrayer
+            }
+            emitCountdownTick(times, timezone, fallbackNextPrayer, nowMillis)
+        }
+
+        private fun emitCountdownTick(
+            times: List<PrayerTime>,
+            timezone: String,
+            fallbackNextPrayer: Prayer,
+            now: Long,
+        ) {
+            val cityTz = TimeZone.getTimeZone(timezone)
+            val nextPrayer = PrayerTimeCalculator.getNextPrayer(times, now, cityTz) ?: fallbackNextPrayer
+            if (nextPrayer != lastWidgetPrayer) {
+                lastWidgetPrayer = nextPrayer
+                widgetUpdater.requestImmediateUpdate()
+            }
+            _liveCountdown.value =
+                LivePrayerCountdown(
+                    nextPrayer = nextPrayer,
+                    countdownMillis = PrayerTimeCalculator.getCountdownToNext(times, now, cityTz),
+                )
         }
 
         override fun onCleared() {

@@ -5,8 +5,10 @@ import android.content.Intent
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -14,7 +16,6 @@ import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -84,53 +85,59 @@ fun AboutScreen(
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Column(
+    Box(
         modifier =
             modifier
                 .fillMaxSize()
-                .padding(AppSpacing.screenHorizontal)
-                .navigationBarsPadding()
-                .verticalScroll(rememberScrollState()),
+                .background(MaterialTheme.colorScheme.surface),
     ) {
-        BismillahHeader()
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
+        Column(
+            modifier =
+                Modifier
+                    .fillMaxSize()
+                    .padding(AppSpacing.screenHorizontal)
+                    .verticalScroll(rememberScrollState()),
         ) {
-            AppTextButton(onClick = onBack) {
-                Text(stringResource(R.string.back))
+            BismillahHeader()
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                AppTextButton(onClick = onBack) {
+                    Text(stringResource(R.string.back))
+                }
             }
+
+            Text(
+                text = stringResource(R.string.settings_title),
+                style = MaterialTheme.typography.headlineMedium,
+                fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Start,
+                modifier = Modifier.fillMaxWidth(),
+            )
+            Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
+
+            PrivacyModeCard(privacy.offlineOnly, privacy.onOfflineOnlyChanged)
+            Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
+
+            ThemePickerCard(theme.selected, theme.onThemeChanged)
+            Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
+
+            AdhanNotificationsCard(adhan = adhan)
+            Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
+
+            RefreshTimesCard(onRefreshTimes = onRefreshTimes)
+            Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
+
+            PrivacyPolicyCard()
+            Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
+
+            CalculationMethodCard()
+            Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
+
+            AboutCard()
+            Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
         }
-
-        Text(
-            text = stringResource(R.string.settings_title),
-            style = MaterialTheme.typography.headlineMedium,
-            fontWeight = FontWeight.Bold,
-            textAlign = TextAlign.Start,
-            modifier = Modifier.fillMaxWidth(),
-        )
-        Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
-
-        PrivacyModeCard(privacy.offlineOnly, privacy.onOfflineOnlyChanged)
-        Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
-
-        ThemePickerCard(theme.selected, theme.onThemeChanged)
-        Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
-
-        AdhanNotificationsCard(adhan = adhan)
-        Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
-
-        RefreshTimesCard(onRefreshTimes = onRefreshTimes)
-        Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
-
-        PrivacyPolicyCard()
-        Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
-
-        CalculationMethodCard()
-        Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
-
-        AboutCard()
-        Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
     }
 }
 

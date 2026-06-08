@@ -1,6 +1,6 @@
 # Prayer Time Widget — Application Creation Playbook
 
-> **This is an engineering guide specific to the Prayer Time Widget project:** a lightweight, specialized Android application that operates without GPS and features a highly specific set of functionalities. The incident log contains case studies from real development that illustrate each principle in practice. Update it whenever a new problem appears.
+> **This is an engineering guide specific to the Prayer Time Widget project:** a lightweight, city-based Android prayer-times app with a fixed shipped feature set (Phases 0–7A). The incident log contains case studies from real development that illustrate each principle in practice. Update it whenever a new problem appears.
 
 ---
 
@@ -8,7 +8,7 @@
 
 Build the Prayer Time Widget application with absolute integrity:
 
-- [ ] **Honest Scope:** No GPS; no Adhkar or Quran. Qibla limited to Phase **7A** city-coordinate compass (signed off Jun 2026).
+- [x] **Honest Scope:** Shipped feature set complete (Phases **0–7A**). New work requires an explicit phase in `PHASED_PLAN.md`.
 - [ ] **Fixed Architectural Boundaries:** Complete separation between UI, time calculation logic, local storage, and notifications.
 - [ ] **Deterministic Error Handling:** Defining behavior for scenarios involving lack of internet connectivity, data retrieval failures, or invalid city names.
 - [ ] **Test Evidence:** Verifying time calculations — including DST adjustments — while offline.
@@ -53,7 +53,7 @@ For Android, define environments explicitly:
 
 Prerequisites before starting the Widget:
 
-    - [x] Green smoke gate for the core application (`./gradlew testDebugUnitTest` BUILD SUCCESSFUL, **414** test methods).
+    - [x] Green smoke gate for the core application (`./gradlew testDebugUnitTest` BUILD SUCCESSFUL, **413** test methods).
 - [x] Time calculation logic runs offline via adhan-java (no network dependency for daily calc).
 - [x] "City not found" error: `SaveCityResult.Error` blocks geocode failure from persisting; Snackbar shown; NoCity race suppressed.
 - [x] Database correctly saves and restores the entry for "Damascus, SY" (DataStore contract test passes).
@@ -200,7 +200,7 @@ Public docs must reflect real maturity.
 
 | Feature | Status | Notes |
 |---|---|---|
-| Displaying Six Daily Prayer Times (No GPS) | **Implemented** | Wizard → local geocode + adhan-java calc → city-scoped Room cache (cityKey). UI: Fajr, Shuruq, Dhuhr, Asr, Maghrib, Isha. Hameln/Berlin verified. |
+| Displaying Six Daily Prayer Times | **Implemented** | Wizard → local geocode + adhan-java calc → city-scoped Room cache (cityKey). UI: Fajr, Shuruq, Dhuhr, Asr, Maghrib, Isha. Hameln/Berlin verified. |
 | Privacy / offline-only (no Aladhan) | **Implemented** | `offline_only` flag (default true), About toggle (hidden on offline APK — static info card), repository guards, tests. Umlaut key mismatch fixed. |
 | Countdown to the Next Prayer | **Implemented** | Live 1s ticker managed by `PrayerTimesViewModel` (not Composable); wraps to tomorrow after Isha; city-TZ midnight rollover via `needsPrayerDayRefresh`. |
 | Change City | **Implemented** | "Change" clears city, returns to country wizard. City-scoped cache survives switching — Hameln→Berlin→Hameln hits cache. |
@@ -223,7 +223,7 @@ Public docs must reflect real maturity.
 | Architecture: Hilt network stack | **Implemented** | `NetworkModule` — `OkHttpClient`, `Retrofit`, injectable `AladhanApi` (online flavor only). |
 | TLS pinning (Aladhan API) | **Done (6.8)** | `network_security_config.xml` — leaf cert + SPKI backup for `aladhan.com`; `./scripts/verify-aladhan-pins.sh` |
 | Architecture: Room schema export | **Implemented** | `exportSchema = true`; `app/schemas/.../4.json` in VCS (`MIGRATION_3_4`). |
-| The Widget | **Implemented** | Four providers; theme sync at bind; **M-widget** 5×1 three-band layout, **14sp** names/times, **time-only** (countdown on S/L only), unified next-prayer highlight; picker previews; locale + Eastern Arabic digits; provider E2E + real worker stack. |
+| The Widget | **Implemented** | Two providers (medium 5×1 + large); theme sync at bind; **M-widget** 5×1 three-band layout, **14sp** names/times, **time-only** (no M countdown); **L-widget** M-aligned grid via `widget_large_prayer_block.xml` + per-column countdown; picker previews; locale + Eastern Arabic digits; provider E2E + real worker stack. |
 | Hijri Calendar and Events | **Implemented** | `HijriCalculator`, 10 events, Room v4, main subtitle + banner, monthly calendar (`headerDayText`, `eventNameCellRes`), M/L widget Hijri/event, 19 tests. |
 | Phase 5G audit / architecture | **Implemented (Jun 2026)** | Comprehensive audits closed — `TextNormalizer`, `FetchError`/`SaveCityError`, `Prayer.SHURUQ`, Room migrations 1→4, `AdhanAlarmReceiver` goAsync, `LocationCatalogInitializer`. See `PHASED_PLAN.md` §5G + `Audit.md`. |
 | Widget picker previews | **Implemented (5E.28)** | Sample prayer-time layouts in picker (API 31+ `previewLayout`); static light chrome — placed widgets follow user theme. |
@@ -231,11 +231,10 @@ Public docs must reflect real maturity.
 | Release build (R8 + signed) | **Done (Phase 6)** | offline + online APK/AAB; `keystore.properties.example`; `scripts/release-gate.sh`; README Release section |
 | TLS pinning (Phase 6.8) | **Done** | SHA-256 pins for api.aladhan.com (leaf + SPKI backup). Expires 2027-01-01. |
 | BootCompletedReceiver stale alarms | **Fixed** | Null-city and notifications-denied boot paths now explicitly cancel stale alarm intents. |
-| Phase 5 hardening (Doze, perms, offline, DST, UI) | **Done (5A-5E code + partial manual Jun 2026)** | 5A, 5B, 5C.1, 5C.3, 5F.1, 5F.2 signed off on emulator. 5F.3 Pixel only; Samsung/Nova deferred. Remaining: 5C.2, 5D. |
-| Qibla compass (city coords + magnetometer) | **Done (7A, Jun 2026)** | `QiblaScreen`, `QiblaCalculator`, `CompassSensor`/`CompassHeading`; portrait hold; dual-layer rotation; align haptic; **no GPS**. User sign-off on `feat/qibla-compass`. |
-| GPS / Adhkar / Quran | **Out of Scope** | No live geolocation; no Adhkar or Quran modules. |
+| Phase 5 hardening (Doze, perms, offline, DST, UI) | **Done (Jun 2026)** | 5A–5F signed off (emulator + device), incl. **5C.2**, **5D**, **5F.3** user verification. |
+| Qibla compass (city coords + magnetometer) | **Done (7A, Jun 2026)** | `QiblaScreen`, `QiblaCalculator`, `CompassSensor`/`CompassHeading`; portrait hold; dual-layer rotation; align haptic. Merged PR **#11**–**#13**. |
+| L-widget layout parity | **Done (PR #13, Jun 2026)** | `widget_large_prayer_block.xml`; M-aligned columns + readable fonts; VM ticker test seam. |
 | Adhan sound picker | **Implemented** | 8 sounds with live preview, persisted to DataStore, EN/AR labels. AdhanAlarmReceiver reads preference at alarm time. |
-| Madhhab / calculation method picker | **Out of Scope (post-launch)** | Deferred indefinitely. App uses Umm al-Qura + Shafi only — no user-facing method or jurisprudential school selector. |
 
 - [ ] Never market future capabilities as done.
 
@@ -358,7 +357,7 @@ Do not push every tiny commit individually (e.g., "fix typo", "fix typo2"). Inst
 ### 6.6 Merge Rules
 
 - [ ] The branch must pass the full verification suite `./scripts/smoke-ci.sh` successfully with zero errors.
-- [ ] The branch must not introduce any features that are out of scope (like GPS or Adhkar).
+- [ ] The branch scope must match the active phase in `PHASED_PLAN.md`.
 - [ ] The agent is forbidden from merging their own PR/branch without explicit approval and manual sign-off from the user.
 - [ ] The Phased Plan (PHASED_PLAN.md) and Feature Table (APP_CREATION_PLAYBOOK.md) must be updated to reflect the completed state before merging.
 - [ ] Any resolved bugs must be added to the Incident Log before the branch is merged.
@@ -429,7 +428,7 @@ For every sensitive operation, document:
 - [x] 6. Implement Backend: `PrayerTimesRepository` — adhan-java local calc for daily times; Aladhan API used for geocode only on save. Room cache + offline fallback.
 - [x] 7. Error Normalization: `NetworkMapper` → `FetchError`; save path → `SaveCityError`.
 - [x] 8. User-facing errors: Display `Snackbar`; invalid city not persisted (SaveCityResult).
-- [x] 9. Tests: **414** unit methods — `app/src/test/java/` (64 files; single APK). Includes `FakePrayerTimesRepository`, `ComposeScreenSmokeTest`, `PrayerTimesViewModelIntegrationTest`, `AladhanApiMockWebServerTest`, `PrayerTimeWidgetProviderTest`, `QiblaCalculatorTest`, `LocationNamesTest`, `LiveAladhanTestSupportTest`.
+- [x] 9. Tests: **413** unit methods — `app/src/test/java/` (56 files; single APK). Includes `FakePrayerTimesRepository`, `ComposeScreenSmokeTest`, `PrayerTimesViewModelIntegrationTest`, `AladhanApiMockWebServerTest`, `PrayerTimeWidgetProviderTest`, `QiblaCalculatorTest`, `LocationNamesTest`, `LiveAladhanTestSupportTest`.
 - [ ] 10. Truthful Docs: Update README with accurate feature list — *in progress*.
 - [x] 11. Freeze Scope: Core app stable before widget/Hijri phases (Phases 3–4 complete).
 - [x] 12. Migration: Hijri calendar and events added without altering core prayer-time pipeline (Phase 4).
@@ -553,7 +552,7 @@ For every sensitive operation, document:
 - **Symptom:** Audit report (2026-06-04) flagged non-atomic Room cache writes, silent Aladhan parse failures, shared `ErrorType` across fetch/save, `Prayer.DUHA` semantic mismatch, duplicated test fakes, widget path mocked.
 - **Root cause:** Phase 3–4 velocity; incremental hardening deferred to Phase 5.
 - **Impact:** Potential wrong prayer times on malformed API input; compile-time error conflation; test gaps on widget and HTTP wire path.
-- **Fix implemented:** Phase **5G** + **5E** + **7A** — see `PHASED_PLAN.md` §5G/§5E/§7A (atomic `cacheToRoom`, audit v2 Jun 2026, Qibla compass, **414** tests green).
+- **Fix implemented:** Phase **5G** + **5E** + **7A** — see `PHASED_PLAN.md` §5G/§5E/§7A (atomic `cacheToRoom`, audit v2 Jun 2026, Qibla compass, **413** tests green).
 - [x] **Preventive action:** Graphify + AGENTS.md + `Audit.md` updated; architectural audit items closed; manual QA (5A–5F) tracked separately.
 
 #### Comprehensive codebase audit — reconciliation (Jun 2026)

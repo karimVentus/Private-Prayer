@@ -6,7 +6,7 @@ It has been adapted from a general template to suit the nature of this project: 
 0) Purpose of this playbook (For this project)
 To build the Prayer Time Widget application with absolute integrity:
 
-Honest Scope: No GPS, no additional features (such as *Adhkar*, Quran, or Qibla direction).
+Honest Scope: Shipped feature set complete (Phases 0–7A). New work requires an explicit phase in PHASED_PLAN.md.
 
 Fixed Architectural Boundaries: Complete separation between the User Interface, time calculation logic, local storage, and notifications.
 
@@ -113,7 +113,7 @@ Testing.
 
 3.2 Feature Status Table
 Feature | Status | Notes
-Six Daily Prayer Times + Shuruq (No GPS) | **Implemented** | Wizard → Aladhan (Umm al-Qura + Shafi) + adhan-java fallback → 6 times. Hameln/Berlin verified.
+Six Daily Prayer Times + Shuruq | **Implemented** | Wizard → Aladhan (Umm al-Qura + Shafi) + adhan-java fallback → 6 times. Hameln/Berlin verified.
 | Countdown to Next Prayer | **Implemented** | Live 1s ticker, wraps to tomorrow's first prayer after Isha, midnight-safe. |
 Change City | **Implemented** | "Change" button → clear DataStore → re-enter city.
 | Offline Support | **Implemented** | Offline-only default (`offline_only=true`), About toggle, adhan-java local calc, Room cache; API is optional legacy mode. |
@@ -121,7 +121,6 @@ Full-Audio Adhan Notification | **Planned** | Phase 2.
 Automatic Daylight Saving Time Adjustment | **Planned** | Relies on `java.time.ZoneId`.
 Widget | **Planned** | Phase 3.
 Hijri Calendar and Events | **Planned** | Phase 4.
-GPS / Qibla / Quran | **Out of Scope (Forever)** | These features will never be added.
 4) Testing Strategy Lessons
 4.1 The Minimum Testing Ladder
 Contract Tests: Is the `CityConfig` I save identical to the one I read back? (DataStore test).
@@ -183,7 +182,7 @@ After the initial project setup push, all subsequent code modifications and feat
 
 6.6 Merge Rules
 - The branch must pass the full verification suite `./scripts/smoke-ci.sh` successfully with zero errors.
-- The branch must not introduce any features that are out of scope (like GPS or Adhkar).
+- The branch scope must match the active phase in PHASED_PLAN.md.
 - The agent is forbidden from merging their own PR/branch without explicit approval and manual sign-off from the user.
 - The Phased Plan (PHASED_PLAN.md) and Feature Table (APP_CREATION_PLAYBOOK.md) must be updated to reflect the completed state before merging.
 - Any resolved bugs must be added to the Incident Log before the branch is merged.

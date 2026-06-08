@@ -1,5 +1,8 @@
 package com.prayertime.ui.screens
 
+import android.content.Context
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -41,6 +44,7 @@ import com.prayertime.notification.AdhanSoundResolver
 import com.prayertime.ui.components.AppTextButton
 import com.prayertime.ui.theme.AppSpacing
 import com.prayertime.ui.theme.AppTheme
+import java.io.File
 
 data class PrivacyModeUiState(
     val offlineOnly: Boolean,
@@ -54,12 +58,15 @@ data class AdhanNotificationsUiState(
     val exactAlarmsGranted: Boolean,
     val batteryOptimizationExempt: Boolean,
     val adhanSound: String,
+    val customSoundsVersion: Int,
     val onEnabledChanged: (Boolean) -> Unit,
     val onPlayWhenSilentChanged: (Boolean) -> Unit,
     val onRequestNotifications: () -> Unit,
     val onRequestExactAlarms: () -> Unit,
     val onRequestBatteryOptimization: () -> Unit,
     val onAdhanSoundChanged: (String) -> Unit,
+    val onImportCustomSound: (android.net.Uri) -> Unit,
+    val onDeleteCustomSound: (String) -> Unit,
 )
 
 data class ThemeUiState(
@@ -301,7 +308,10 @@ private fun AdhanNotificationsCard(adhan: AdhanNotificationsUiState) {
                 Spacer(modifier = Modifier.height(12.dp))
                 AdhanSoundPicker(
                     selected = adhan.adhanSound,
+                    customSoundsVersion = adhan.customSoundsVersion,
                     onSelected = adhan.onAdhanSoundChanged,
+                    onImport = adhan.onImportCustomSound,
+                    onDelete = adhan.onDeleteCustomSound,
                 )
             }
         }
@@ -311,14 +321,19 @@ private fun AdhanNotificationsCard(adhan: AdhanNotificationsUiState) {
 @Composable
 private fun AdhanSoundPicker(
     selected: String,
+    customSoundsVersion: Int,
     onSelected: (String) -> Unit,
+    onImport: (android.net.Uri) -> Unit,
+    onDelete: (String) -> Unit,
 ) {
     val context = LocalContext.current
-    val options = AdhanSoundResolver.options
+    val options =
+        remember(customSoundsVersion) {
+            AdhanSoundResolver.mergedOptions(context)
+        }
     var playingKey by remember { mutableStateOf<String?>(null) }
     var mediaPlayer by remember { mutableStateOf<android.media.MediaPlayer?>(null) }
 
-    // Stop playback and release player
     fun stopPlayback() {
         mediaPlayer?.apply {
             if (isPlaying) stop()
@@ -328,10 +343,31 @@ private fun AdhanSoundPicker(
         playingKey = null
     }
 
-    // Clean up when leaving the screen
+    fun playOption(option: AdhanSoundResolver.DisplayOption) {
+        stopPlayback()
+        val mp = createMediaPlayerForOption(context, option)
+        if (mp != null) {
+            mp.setOnCompletionListener {
+                it.release()
+                if (mediaPlayer === it) {
+                    mediaPlayer = null
+                    playingKey = null
+                }
+            }
+            mp.start()
+            mediaPlayer = mp
+            playingKey = option.storageKey
+        }
+    }
+
     DisposableEffect(Unit) {
         onDispose { stopPlayback() }
     }
+
+    val audioPicker =
+        rememberLauncherForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+            if (uri != null) onImport(uri)
+        }
 
     Text(
         text = stringResource(R.string.adhan_sound_picker),
@@ -341,65 +377,100 @@ private fun AdhanSoundPicker(
     Spacer(modifier = Modifier.height(4.dp))
 
     options.forEach { option ->
-        val key = option.storageKey
-        val labelRes = option.labelRes
-        val isSelected = key == selected
-        val isPlaying = key == playingKey
+        AdhanSoundPickerRow(
+            option = option,
+            isSelected = option.storageKey == selected,
+            isPlaying = option.storageKey == playingKey,
+            onSelected = { onSelected(option.storageKey) },
+            onPlayPause = {
+                if (option.storageKey == playingKey) {
+                    stopPlayback()
+                } else {
+                    playOption(option)
+                }
+            },
+            onDelete = if (option.isCustom) ({ onDelete(option.storageKey) }) else null,
+        )
+    }
 
-        Row(
-            modifier =
-                Modifier
-                    .fillMaxWidth()
-                    .clickable { onSelected(key) }
-                    .padding(vertical = 2.dp),
-            verticalAlignment = Alignment.CenterVertically,
+    Spacer(modifier = Modifier.height(8.dp))
+    TextButton(onClick = { audioPicker.launch("audio/*") }) {
+        Text(stringResource(R.string.adhan_sound_add_custom))
+    }
+}
+
+private fun createMediaPlayerForOption(
+    context: Context,
+    option: AdhanSoundResolver.DisplayOption,
+): android.media.MediaPlayer? {
+    return if (option.isCustom) {
+        val filePath = AdhanSoundResolver.filePathForCustom(context, option.storageKey)
+        val file = File(filePath)
+        if (file.exists()) {
+            android.media.MediaPlayer().apply {
+                setDataSource(filePath)
+                prepare()
+            }
+        } else {
+            null
+        }
+    } else {
+        android.media.MediaPlayer.create(context, option.rawRes)
+    }
+}
+
+@Composable
+private fun AdhanSoundPickerRow(
+    option: AdhanSoundResolver.DisplayOption,
+    isSelected: Boolean,
+    isPlaying: Boolean,
+    onSelected: () -> Unit,
+    onPlayPause: () -> Unit,
+    onDelete: (() -> Unit)?,
+) {
+    Row(
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .clickable { onSelected() }
+                .padding(vertical = 2.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        TextButton(
+            onClick = onPlayPause,
+            modifier = Modifier.defaultMinSize(minWidth = 40.dp, minHeight = 40.dp),
         ) {
-            // Play / pause button
-            TextButton(
-                onClick = {
-                    if (isPlaying) {
-                        stopPlayback()
-                    } else {
-                        stopPlayback()
-                        val resId = option.rawRes
-                        val mp = android.media.MediaPlayer.create(context, resId)
-                        if (mp != null) {
-                            mp.setOnCompletionListener {
-                                it.release()
-                                if (mediaPlayer === it) {
-                                    mediaPlayer = null
-                                    playingKey = null
-                                }
-                            }
-                            mp.start()
-                            mediaPlayer = mp
-                            playingKey = key
-                        }
-                    }
+            Text(if (isPlaying) "⏹" else "▶", fontSize = 14.sp)
+        }
+
+        Text(
+            text = option.label,
+            style = MaterialTheme.typography.bodyMedium,
+            fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal,
+            color =
+                if (isSelected) {
+                    MaterialTheme.colorScheme.primary
+                } else {
+                    MaterialTheme.colorScheme.onSurface
                 },
+            modifier = Modifier.padding(start = 4.dp).weight(1f),
+        )
+
+        if (onDelete != null) {
+            TextButton(
+                onClick = onDelete,
                 modifier = Modifier.defaultMinSize(minWidth = 40.dp, minHeight = 40.dp),
             ) {
-                Text(if (isPlaying) "⏹" else "▶", fontSize = 14.sp)
+                Text(
+                    stringResource(R.string.adhan_sound_delete),
+                    fontSize = 12.sp,
+                    color = MaterialTheme.colorScheme.error,
+                )
             }
+        }
 
-            // Sound name
-            Text(
-                text = stringResource(labelRes),
-                style = MaterialTheme.typography.bodyMedium,
-                fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal,
-                color =
-                    if (isSelected) {
-                        MaterialTheme.colorScheme.primary
-                    } else {
-                        MaterialTheme.colorScheme.onSurface
-                    },
-                modifier = Modifier.padding(start = 4.dp).weight(1f),
-            )
-
-            // Checkmark for selected
-            if (isSelected) {
-                Text("✓", color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.Bold)
-            }
+        if (isSelected) {
+            Text("✓", color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.Bold)
         }
     }
 }

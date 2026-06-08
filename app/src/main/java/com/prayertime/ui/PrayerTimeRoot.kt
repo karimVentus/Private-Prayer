@@ -200,6 +200,7 @@ private fun PrayerTimeAboutRoute(
     val adhanEnabled by settingsViewModel.adhanNotificationsEnabled.collectAsState()
     val adhanPlayWhenSilent by settingsViewModel.adhanPlayWhenSilent.collectAsState()
     val adhanSound by settingsViewModel.adhanSound.collectAsState()
+    val customSoundsVersion by settingsViewModel.customSoundsVersion.collectAsState()
     val appTheme by settingsViewModel.appTheme.collectAsState()
     val adhanPermissions = rememberAboutAdhanPermissions(activity, settingsViewModel)
     AboutAdhanAlarmScheduler(
@@ -231,10 +232,13 @@ private fun PrayerTimeAboutRoute(
                 adhanSound = adhanSound,
                 onEnabledChanged = adhanPermissions.onEnabledChanged,
                 onPlayWhenSilentChanged = settingsViewModel::setAdhanPlayWhenSilent,
+                customSoundsVersion = customSoundsVersion,
                 onRequestNotifications = adhanPermissions.requestNotifications,
                 onRequestExactAlarms = adhanPermissions.onRequestExactAlarms,
                 onRequestBatteryOptimization = adhanPermissions.onRequestBatteryOptimization,
                 onAdhanSoundChanged = settingsViewModel::setAdhanSound,
+                onImportCustomSound = settingsViewModel::importCustomSound,
+                onDeleteCustomSound = settingsViewModel::deleteCustomSound,
             ),
         onRefreshTimes = {
             settingsViewModel.hideAbout()

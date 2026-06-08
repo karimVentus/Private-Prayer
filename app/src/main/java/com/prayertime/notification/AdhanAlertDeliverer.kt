@@ -7,6 +7,7 @@ import com.prayertime.data.local.AppPreferencesDataSource
 import com.prayertime.domain.model.Prayer
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.first
+import java.io.File
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -34,7 +35,6 @@ class AdhanAlertDeliverer
         }
 
         private fun playAdhanSound(soundPref: String) {
-            val resId = AdhanSoundResolver.rawResFor(soundPref)
             try {
                 val player = MediaPlayer()
                 player.setAudioAttributes(
@@ -44,14 +44,38 @@ class AdhanAlertDeliverer
                         .build(),
                 )
                 player.setOnCompletionListener { it.release() }
-                val fd = context.resources.openRawResourceFd(resId) ?: return
-                fd.use {
-                    player.setDataSource(it.fileDescriptor, it.startOffset, it.length)
-                }
+                setAdhanDataSource(player, soundPref) ?: return
                 player.prepare()
                 player.start()
             } catch (_: Exception) {
                 // Notification still shown if audio fails
             }
+        }
+
+        private fun setAdhanDataSource(
+            player: MediaPlayer,
+            soundPref: String,
+        ): Boolean {
+            if (AdhanSoundResolver.isCustom(soundPref)) {
+                val filePath = AdhanSoundResolver.filePathForCustom(context, soundPref)
+                val file = File(filePath)
+                return if (file.exists()) {
+                    player.setDataSource(filePath)
+                    true
+                } else {
+                    setRawDataSource(player, AdhanSoundResolver.DEFAULT_KEY)
+                }
+            }
+            return setRawDataSource(player, soundPref)
+        }
+
+        private fun setRawDataSource(
+            player: MediaPlayer,
+            key: String,
+        ): Boolean {
+            val resId = AdhanSoundResolver.rawResFor(key)
+            val fd = context.resources.openRawResourceFd(resId) ?: return false
+            fd.use { player.setDataSource(it.fileDescriptor, it.startOffset, it.length) }
+            return true
         }
     }

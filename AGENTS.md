@@ -65,7 +65,7 @@ PrayerTime-/
 | 1F Privacy / offline-only | Done — offline_only flag, privacy UI, fallback rejection, diacritic lookup, tests | ✅ | — |
 | 2A Countdown | Done — live 1s ticker, wrap-to-tomorrow, city-TZ day-change refresh | ✅ | — |
 | 2B–2D | Adhan alarms, permissions, WorkManager daily refresh | Done | Manual QA signed off (Jun 2026) |
-| 2E | Unit tests (midnight, city TZ, DST, alarms, migrations, workers, engine) | Done — **414** `@Test` in `app/src/test/java/` (64 files) | — |
+| 2E | Unit tests (midnight, city TZ, DST, alarms, migrations, workers, engine) | Done — **413** `@Test` in `app/src/test/java/` (56 files) | — |
 | 2F | Architecture hardening — ViewModel decomposition, city-scoped cache, async init, timezone consistency | Done | — |
 | 2G | Hilt DI, worker/engine tests, cache invalidation, About refresh | Done | — |
 | 2 manual | Adhan exact/fallback, emulator | Done | — |
@@ -74,9 +74,9 @@ PrayerTime-/
 | 4 | Hijri calendar — calculator, 10 events, Room v4, main + calendar + M/L widget, 19 tests | Done | — |
 | 5G | Audit / architecture hardening — split errors, TextNormalizer, catalog validation, test infra | Done (Jun 2026) | — |
 | 5E | UI polish — spacing, RTL, language picker, **three app themes**, Settings screen, portrait lock, Compose smoke | Done (Jun 2026) | — |
-| 5 | Manual QA hardening — 5A, 5B, 5C.1/5C.3, 5F.1/5F.2 signed off (Jun 2026); 5A–5E automated (74); TLS; USE_EXACT_ALARM | **Active** | 5C.2, 5D |
-| 6 | Release — R8, signed APK/AAB | **Done (`v1.0.0`)** | Tagged Jun 2026; deferred QA: 5C.2, 5D |
-| 7A | Qibla compass — city bearing + portrait accel/mag sensor, align feedback | **Done** — PR **#11** + **#12** merged Jun 2026 | — |
+| 5 | Manual QA hardening — 5A–5F signed off (Jun 2026, incl. 5C.2, 5D, 5F.3); 5A–5E automated; TLS; USE_EXACT_ALARM | **Done** | — |
+| 6 | Release — R8, signed APK/AAB | **Done (`v1.0.0`)** | Tagged Jun 2026 |
+| 7A | Qibla compass — city bearing + portrait accel/mag sensor, align feedback | **Done** — PR **#11** + **#12** + **#13** (L-widget) merged Jun 2026 | — |
 
 ## Architecture (post-2F hardening)
 
@@ -151,7 +151,8 @@ PrayerTime-/
 - **Three themes:** `AppTheme.LIGHT` (default), `GREEN`, `DARK` — persisted in DataStore (`app_theme`)
 - **Compose:** `PrayerTimeTheme(theme)` + `ThemePalettes.materialScheme()`; calendar uses `LocalCalendarPalette` / `calendarPalette()`
 - **Settings:** user-facing **Settings** screen (`AboutScreen.kt`) — theme picker, privacy, adhan, refresh
-- **Widgets (two providers):** `PrayerTimeWidgetProvider` (**medium**, `widget_info_medium` **5×1** horizontal-only) and `PrayerTimeWidgetProviderLarge` (**large**, resizable). Shared stack: `WidgetSnapshot.appTheme`, `ThemePalettes.widget()`, `WidgetRemoteViewsBuilder` (`WidgetSize.MEDIUM` | `LARGE`). Per-theme column highlight drawables: `widget_col_highlight_{light,green,dark}.xml` (8dp radius). **Medium:** three equal bands (Hijri header / short prayer names / times), **14sp**, **time-only** (`timeOnly=true`, no per-column countdown), next-prayer highlight via `widget_highlight_0..5` overlay on the times row. **Large:** city label, Hijri, live clock, six columns with prayer name + time + countdown. (Legacy SmallTall/SmallWide providers removed — consolidated into medium.)
+- **Widgets (two providers):** `PrayerTimeWidgetProvider` (**medium**, `widget_info_medium` **5×1** horizontal-only) and `PrayerTimeWidgetProviderLarge` (**large**, resizable). Shared stack: `WidgetSnapshot.appTheme`, `ThemePalettes.widget()`, `WidgetRemoteViewsBuilder` (`WidgetSize.MEDIUM` | `LARGE`). Per-theme column highlight drawables: `widget_col_highlight_{light,green,dark}.xml` (8dp radius). **Medium:** three equal bands (Hijri header / short prayer names / times), **14sp**, **time-only** (`timeOnly=true`, no per-column countdown), next-prayer highlight via `widget_highlight_0..5` overlay on the times row. **Large:** city label, Hijri, live clock; prayer grid via `widget_large_prayer_block.xml` (M-aligned 3-band columns) + per-column countdown. (Legacy SmallTall/SmallWide providers removed — consolidated into medium.)
+- **Custom adhan sounds:** `AdhanAlertDeliverer` + `AdhanSoundResolver` — user-imported audio files (`custom_` key prefix, `custom_adhans/` dir), merged UI picker with play/delete, fallback to default if file missing
 - **Per-prayer mute:** `PrayerTimesScreen` toggles → `muted_prayers` DataStore; `PrayerAlarmScheduler` schedules all six `Prayer` slots; `AdhanAlarmReceiver` no-ops when muted
 
 ## Graphify
@@ -162,16 +163,16 @@ After structural changes or phase completion:
 OPENAI_API_KEY="" graphify update . --no-cluster
 ```
 
-Details: [`graphity.md`](graphity.md). Diagrams: [`PHASED_PLAN.md`](PHASED_PLAN.md). **Last run:** 2026-06-07 — **5199** nodes, **69488** edges (**7A** merge + audit v2 / PR **#12**).
+Details: [`graphity.md`](graphity.md). Diagrams: [`PHASED_PLAN.md`](PHASED_PLAN.md). **Last run:** 2026-06-08 — **5206** nodes, **75823** edges (PR **#13** L-widget). Install: `uv tool install graphifyy`.
 
 ## Orientation
 
-- **Portrait-only:** `MainActivity` `android:screenOrientation="portrait"` — no landscape layouts or rotation QA.
+- **Portrait-only:** `MainActivity` `android:screenOrientation="portrait"`.
 
 ## Agent rules
 
 - **Verification:** After changes: `./dev` (boot `PrayerTimeEmulator`, install debug, launch). Package `com.prayertime`. Headless: `./dev --headless`. CI: `./scripts/smoke-ci.sh`. After dependency bumps: full `./scripts/smoke-ci.sh` before merge.
 - **Instrumented tests:** `./gradlew connectedDebugAndroidTest` — Room migration tests (requires emulator/device; not part of smoke-ci).
 - **Branching:** Feature work on branches; no direct push to `main`.
-- **Merge:** `./scripts/smoke-ci.sh` green, scope respected (no GPS / Adhkar; Qibla only per Phase 7A), user sign-off, update `PHASED_PLAN.md` + playbook feature table.
+- **Merge:** `./scripts/smoke-ci.sh` green, scope matches `PHASED_PLAN.md`, user sign-off, update `PHASED_PLAN.md` + playbook feature table.
 - **Docs language:** English for plans and agent-facing docs.

@@ -68,6 +68,7 @@ class AppSettingsViewModelTest {
                 widgetRefreshCount++
             },
             adhanNotificationHelper = null,
+            appContext = ApplicationProvider.getApplicationContext(),
         ).also {
             activeViewModels.add(it)
         }

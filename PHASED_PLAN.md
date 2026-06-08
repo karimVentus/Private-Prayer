@@ -1,6 +1,6 @@
 # Prayer Time Widget — Phased Implementation Plan
 
-> **Current state:** Phases **0–7A** complete on `main` (Jun 2026). **`v1.0.0`** tagged. PR **#11** (Qibla), **#12** (audit v2), **#13** (L-widget layout + docs) merged. **No active feature phase** — branch new work from `main`. **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
+> **Current state:** Phases **0–7A** complete on `main` (Jun 2026). **`v1.0.0`** tagged. PR **#11** (Qibla), **#12** (audit v2), **#13** (L-widget layout + docs), **#14** (custom adhan sounds) merged. **No active feature phase** — branch new work from `main`. **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
 > **Build:** Single APK `com.prayertime` (~23 MB debug). Privacy via Settings **offline-only toggle** (`offline_only`); no separate offline flavor.
 > **Calculation:** Umm al-Qura + Shafi + twilight (≥48°N); `adhan-java` when offline-only; Aladhan API when user disables offline mode.
 > **Tests:** `./gradlew testDebugUnitTest` — **413** JVM `@Test` (56 files); run `./scripts/smoke-ci.sh` for full gate.

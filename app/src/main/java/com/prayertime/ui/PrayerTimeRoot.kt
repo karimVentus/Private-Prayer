@@ -11,12 +11,23 @@ import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.CalendarMonth
+import androidx.compose.material.icons.filled.Explore
+import androidx.compose.material.icons.filled.Mosque
+import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.outlined.CalendarMonth
+import androidx.compose.material.icons.outlined.Explore
+import androidx.compose.material.icons.outlined.Mosque
+import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -36,6 +47,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
@@ -46,6 +58,12 @@ import androidx.compose.ui.window.Dialog
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.LifecycleResumeEffect
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
 import com.prayertime.R
 import com.prayertime.alarm.PrayerAlarmScheduler
 import com.prayertime.permission.AdhanPermissions
@@ -69,6 +87,23 @@ import com.prayertime.ui.settings.AppSettingsViewModel
 import com.prayertime.ui.theme.PrayerTimeTheme
 import kotlinx.coroutines.launch
 
+/** Bottom navigation destinations. */
+private data class BottomNavItem(
+    val route: String,
+    val labelRes: Int,
+    val selectedIcon: ImageVector,
+    val unselectedIcon: ImageVector,
+)
+
+private val bottomNavItems =
+    listOf(
+        BottomNavItem("prayer_times", R.string.nav_prayer_times, Icons.Filled.Mosque, Icons.Outlined.Mosque),
+        BottomNavItem("qibla", R.string.nav_qibla, Icons.Filled.Explore, Icons.Outlined.Explore),
+        BottomNavItem("calendar", R.string.nav_calendar, Icons.Filled.CalendarMonth, Icons.Outlined.CalendarMonth),
+        BottomNavItem("settings", R.string.nav_settings, Icons.Filled.Settings, Icons.Outlined.Settings),
+    )
+
+@Suppress("LongMethod")
 @Composable
 fun PrayerTimeRoot(activity: AppCompatActivity) {
     val layoutDirection =
@@ -84,10 +119,10 @@ fun PrayerTimeRoot(activity: AppCompatActivity) {
                 val citySetupViewModel: CitySetupViewModel = hiltViewModel()
                 val prayerTimesViewModel: PrayerTimesViewModel = hiltViewModel()
                 val prayerState by prayerTimesViewModel.uiState.collectAsState()
-                val showAbout by settingsViewModel.showAbout.collectAsState()
-                var showCalendar by remember { mutableStateOf(false) }
-                var showQibla by remember { mutableStateOf(false) }
                 val snackbarHostState = remember { SnackbarHostState() }
+                val navController = rememberNavController()
+                val offlineOnly by settingsViewModel.offlineOnly.collectAsState()
+                var showChangeCityConfirm by remember { mutableStateOf(false) }
 
                 PrayerTimeSideEffects(
                     activity,
@@ -98,42 +133,35 @@ fun PrayerTimeRoot(activity: AppCompatActivity) {
                     snackbarHostState,
                 )
 
-                if (showAbout) {
-                    PrayerTimeAboutRoute(activity, settingsViewModel, prayerTimesViewModel)
-                } else if (showQibla) {
-                    val success = prayerState as? PrayerTimesUiState.Success
-                    if (success != null && success.latitude != null && success.longitude != null) {
-                        QiblaScreen(
-                            latitude = success.latitude,
-                            longitude = success.longitude,
-                            cityLabel = success.city,
-                            onClose = { showQibla = false },
-                        )
-                    } else {
-                        showQibla = false
-                    }
-                } else if (showCalendar) {
-                    val success = prayerState as? PrayerTimesUiState.Success
-                    if (success != null) {
-                        HijriCalendarRoute(
-                            timezone = success.timezone,
-                            onClose = { showCalendar = false },
-                        )
-                    } else {
-                        showCalendar = false
-                    }
-                } else {
-                    PrayerTimeMainRoute(
-                        activity,
-                        citySetupViewModel,
-                        prayerTimesViewModel,
-                        settingsViewModel,
-                        prayerState,
-                        snackbarHostState,
-                        onCalendar = { showCalendar = true },
-                        onQibla = { showQibla = true },
+                if (showChangeCityConfirm) {
+                    ChangeCityConfirmDialog(
+                        onCityOnly = {
+                            showChangeCityConfirm = false
+                            citySetupViewModel.resetWizard()
+                            prayerTimesViewModel.clearCity()
+                        },
+                        onResetAll = {
+                            showChangeCityConfirm = false
+                            citySetupViewModel.resetWizard()
+                            activity.lifecycleScope.launch {
+                                settingsViewModel.resetAllSettings()
+                                prayerTimesViewModel.clearCity(clearAllPrayerCache = true)
+                            }
+                        },
+                        onDismiss = { showChangeCityConfirm = false },
                     )
                 }
+
+                PrayerTimeNavHost(
+                    navController,
+                    activity,
+                    citySetupViewModel,
+                    prayerTimesViewModel,
+                    settingsViewModel,
+                    prayerState,
+                    offlineOnly,
+                    snackbarHostState,
+                )
             }
         }
     }
@@ -188,64 +216,6 @@ private fun PrayerTimeSideEffects(
             adhanSound = adhanSound,
         )
     }
-}
-
-@Composable
-private fun PrayerTimeAboutRoute(
-    activity: AppCompatActivity,
-    settingsViewModel: AppSettingsViewModel,
-    prayerTimesViewModel: PrayerTimesViewModel,
-) {
-    val offlineOnly by settingsViewModel.offlineOnly.collectAsState()
-    val adhanEnabled by settingsViewModel.adhanNotificationsEnabled.collectAsState()
-    val adhanPlayWhenSilent by settingsViewModel.adhanPlayWhenSilent.collectAsState()
-    val adhanSound by settingsViewModel.adhanSound.collectAsState()
-    val customSoundsVersion by settingsViewModel.customSoundsVersion.collectAsState()
-    val appTheme by settingsViewModel.appTheme.collectAsState()
-    val adhanPermissions = rememberAboutAdhanPermissions(activity, settingsViewModel)
-    AboutAdhanAlarmScheduler(
-        activity = activity,
-        prayerTimesViewModel = prayerTimesViewModel,
-        adhanEnabled = adhanEnabled,
-        adhanSound = adhanSound,
-        notificationsGranted = adhanPermissions.notificationsGranted,
-    )
-    AboutScreen(
-        modifier = Modifier.screenSafeInsets(),
-        theme =
-            ThemeUiState(
-                selected = appTheme,
-                onThemeChanged = settingsViewModel::setAppTheme,
-            ),
-        privacy =
-            PrivacyModeUiState(
-                offlineOnly = offlineOnly,
-                onOfflineOnlyChanged = settingsViewModel::setOfflineOnly,
-            ),
-        adhan =
-            AdhanNotificationsUiState(
-                enabled = adhanEnabled,
-                playWhenSilent = adhanPlayWhenSilent,
-                notificationsGranted = adhanPermissions.notificationsGranted,
-                exactAlarmsGranted = adhanPermissions.exactAlarmsGranted,
-                batteryOptimizationExempt = adhanPermissions.batteryOptimizationExempt,
-                adhanSound = adhanSound,
-                onEnabledChanged = adhanPermissions.onEnabledChanged,
-                onPlayWhenSilentChanged = settingsViewModel::setAdhanPlayWhenSilent,
-                customSoundsVersion = customSoundsVersion,
-                onRequestNotifications = adhanPermissions.requestNotifications,
-                onRequestExactAlarms = adhanPermissions.onRequestExactAlarms,
-                onRequestBatteryOptimization = adhanPermissions.onRequestBatteryOptimization,
-                onAdhanSoundChanged = settingsViewModel::setAdhanSound,
-                onImportCustomSound = settingsViewModel::importCustomSound,
-                onDeleteCustomSound = settingsViewModel::deleteCustomSound,
-            ),
-        onRefreshTimes = {
-            settingsViewModel.hideAbout()
-            prayerTimesViewModel.refreshTimes()
-        },
-        onBack = settingsViewModel::hideAbout,
-    )
 }
 
 private data class AboutAdhanPermissionHandles(
@@ -417,7 +387,7 @@ private fun PrayerTimeMainRoute(
     )
 
     Scaffold(
-        contentWindowInsets = WindowInsets.safeDrawing,
+        contentWindowInsets = WindowInsets(0),
         snackbarHost = { SnackbarHost(snackbarHostState) },
     ) { padding ->
         Box(
@@ -568,14 +538,139 @@ private fun PrayerTimeLanguagePickerGate(
     )
 }
 
+// --- Bottom navigation + NavHost ---
+
 @Composable
-private fun HijriCalendarRoute(
-    timezone: String,
-    onClose: () -> Unit,
+@Suppress("LongMethod")
+private fun PrayerTimeNavHost(
+    navController: NavHostController,
+    activity: AppCompatActivity,
+    citySetupViewModel: CitySetupViewModel,
+    prayerTimesViewModel: PrayerTimesViewModel,
+    settingsViewModel: AppSettingsViewModel,
+    prayerState: PrayerTimesUiState,
+    offlineOnly: Boolean,
+    snackbarHostState: SnackbarHostState,
 ) {
-    HijriCalendarScreen(
-        modifier = Modifier.screenSafeInsets(),
-        timezone = timezone,
-        onClose = onClose,
-    )
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = navBackStackEntry?.destination?.route
+
+    Scaffold(
+        contentWindowInsets = WindowInsets(0),
+        snackbarHost = { SnackbarHost(snackbarHostState) },
+        bottomBar = {
+            NavigationBar {
+                bottomNavItems.forEach { item ->
+                    val selected = currentRoute == item.route
+                    NavigationBarItem(
+                        selected = selected,
+                        onClick = {
+                            if (currentRoute != item.route) {
+                                navController.navigate(item.route) {
+                                    popUpTo(navController.graph.findStartDestination().id)
+                                    launchSingleTop = true
+                                }
+                            }
+                        },
+                        icon = {
+                            Icon(
+                                imageVector = if (selected) item.selectedIcon else item.unselectedIcon,
+                                contentDescription = stringResource(item.labelRes),
+                            )
+                        },
+                        label = { Text(stringResource(item.labelRes)) },
+                    )
+                }
+            }
+        },
+    ) { padding ->
+        NavHost(
+            navController = navController,
+            startDestination = "prayer_times",
+            modifier = Modifier.padding(padding),
+        ) {
+            composable("prayer_times") {
+                PrayerTimeMainRoute(
+                    activity = activity,
+                    citySetupViewModel = citySetupViewModel,
+                    prayerTimesViewModel = prayerTimesViewModel,
+                    settingsViewModel = settingsViewModel,
+                    prayerState = prayerState,
+                    snackbarHostState = snackbarHostState,
+                    onCalendar = {},
+                    onQibla = {},
+                )
+            }
+            composable("qibla") {
+                val success = prayerState as? PrayerTimesUiState.Success
+                if (success?.latitude != null && success.longitude != null) {
+                    QiblaScreen(
+                        latitude = success.latitude,
+                        longitude = success.longitude,
+                        cityLabel = success.city,
+                        onClose = { navController.popBackStack() },
+                    )
+                } else {
+                    LaunchedEffect(Unit) { navController.navigate("prayer_times") { popUpTo(0) { inclusive = true } } }
+                }
+            }
+            composable("calendar") {
+                val success = prayerState as? PrayerTimesUiState.Success
+                if (success != null) {
+                    HijriCalendarScreen(
+                        modifier = Modifier.screenSafeInsets(),
+                        timezone = success.timezone,
+                        onClose = { navController.popBackStack() },
+                    )
+                } else {
+                    LaunchedEffect(Unit) { navController.navigate("prayer_times") { popUpTo(0) { inclusive = true } } }
+                }
+            }
+            composable("settings") {
+                val adhanEnabled by settingsViewModel.adhanNotificationsEnabled.collectAsState()
+                val adhanPlayWhenSilent by settingsViewModel.adhanPlayWhenSilent.collectAsState()
+                val adhanSound by settingsViewModel.adhanSound.collectAsState()
+                val customSoundsVersion by settingsViewModel.customSoundsVersion.collectAsState()
+                val adhanPermissions = rememberAboutAdhanPermissions(activity, settingsViewModel)
+                val aboutTheme by settingsViewModel.appTheme.collectAsState()
+
+                AboutAdhanAlarmScheduler(
+                    activity = activity,
+                    prayerTimesViewModel = prayerTimesViewModel,
+                    adhanEnabled = adhanEnabled,
+                    adhanSound = adhanSound,
+                    notificationsGranted = adhanPermissions.notificationsGranted,
+                )
+                AboutScreen(
+                    modifier = Modifier.screenSafeInsets(),
+                    theme = ThemeUiState(selected = aboutTheme, onThemeChanged = settingsViewModel::setAppTheme),
+                    privacy =
+                        PrivacyModeUiState(
+                            offlineOnly = offlineOnly,
+                            onOfflineOnlyChanged = settingsViewModel::setOfflineOnly,
+                        ),
+                    adhan =
+                        AdhanNotificationsUiState(
+                            enabled = adhanEnabled,
+                            playWhenSilent = adhanPlayWhenSilent,
+                            notificationsGranted = adhanPermissions.notificationsGranted,
+                            exactAlarmsGranted = adhanPermissions.exactAlarmsGranted,
+                            batteryOptimizationExempt = adhanPermissions.batteryOptimizationExempt,
+                            adhanSound = adhanSound,
+                            onEnabledChanged = adhanPermissions.onEnabledChanged,
+                            onPlayWhenSilentChanged = settingsViewModel::setAdhanPlayWhenSilent,
+                            customSoundsVersion = customSoundsVersion,
+                            onRequestNotifications = adhanPermissions.requestNotifications,
+                            onRequestExactAlarms = adhanPermissions.onRequestExactAlarms,
+                            onRequestBatteryOptimization = adhanPermissions.onRequestBatteryOptimization,
+                            onAdhanSoundChanged = settingsViewModel::setAdhanSound,
+                            onImportCustomSound = settingsViewModel::importCustomSound,
+                            onDeleteCustomSound = settingsViewModel::deleteCustomSound,
+                        ),
+                    onRefreshTimes = { prayerTimesViewModel.refreshTimes() },
+                    onBack = { navController.popBackStack() },
+                )
+            }
+        }
+    }
 }

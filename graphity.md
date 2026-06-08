@@ -1,6 +1,6 @@
-# Graphify — Knowledge Graph Playbook (PrayerTime-)
+# Graphify — Knowledge Graph Playbook (Hayya)
 
-> **Repo:** PrayerTime- Android (Kotlin / Compose).  
+> **Repo:** Hayya (حيا) Android app (Kotlin / Compose). Package `com.prayertime`.  
 > **Phased plan:** [`PHASED_PLAN.md`](PHASED_PLAN.md) (Mermaid diagrams + Graphify maintenance table).  
 > **Agents:** Run Graphify after phase gates and when `data/`, `domain/`, or `ui/` boundaries change.
 

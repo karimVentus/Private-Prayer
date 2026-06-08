@@ -24,8 +24,8 @@ android {
         applicationId = "com.prayertime"
         minSdk = 23
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0.0"
+        versionCode = 4
+        versionName = "1.1.2"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -87,6 +87,19 @@ ksp {
     arg("room.schemaLocation", "$projectDir/schemas")
 }
 
+configurations.all {
+    resolutionStrategy {
+        // AGP 8.7.3 + compileSdk 35 — block transitive bumps until coordinated upgrade
+        force(
+            "androidx.activity:activity:1.9.3",
+            "androidx.activity:activity-ktx:1.9.3",
+            "androidx.activity:activity-compose:1.9.3",
+            "androidx.core:core:1.13.1",
+            "androidx.core:core-ktx:1.13.1",
+        )
+    }
+}
+
 dependencies {
     // Compose BOM
     val composeBom = platform("androidx.compose:compose-bom:2024.11.00")
@@ -96,6 +109,7 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.material:material-icons-extended")
     implementation("androidx.compose.foundation:foundation")
+    implementation("androidx.navigation:navigation-compose:2.8.7")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     testImplementation("androidx.compose.ui:ui-test-junit4")

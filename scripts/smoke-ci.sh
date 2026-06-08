@@ -2,8 +2,8 @@
 set -e
 
 # Setup JDK and Android SDK Paths
-export JAVA_HOME=$HOME/jdk21
-export ANDROID_HOME=$HOME/Android/Sdk
+export JAVA_HOME="${JAVA_HOME:-$HOME/jdk21}"
+export ANDROID_HOME="${ANDROID_HOME:-$HOME/Android/Sdk}"
 unset ANDROID_SDK_ROOT
 
 echo "=============================================="

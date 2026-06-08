@@ -98,7 +98,7 @@ See [`PHASED_PLAN.md`](PHASED_PLAN.md) for the full roadmap and Mermaid diagrams
 
 Get the latest signed APK from **[GitHub Releases](https://github.com/karimVentus/Private-Prayer/releases)** (`Hayya-v*.apk`).
 
-1. Download the APK on your phone (or sideload via `adb install -r Hayya-v1.1.2.apk`).
+1. Download the APK on your phone (or sideload via `adb install -r Hayya-v1.1.3.apk`).
 2. Allow install from your browser/files app when prompted (Android “unknown sources”).
 3. Open **Hayya** and complete the city wizard.
 
@@ -114,12 +114,12 @@ export ANDROID_HOME=$HOME/Android/Sdk
 PRAYERTIME_KEYSTORE_PASSWORD='your-password' ./scripts/setup-release-signing.sh
 
 ./scripts/smoke-ci.sh          # full CI before tagging
-./scripts/publish-release.sh v1.1.2   # build, package dist/, create GitHub Release
+./scripts/publish-release.sh v1.1.3   # build, package dist/, create GitHub Release
 ```
 
 | Artifact | Path | Size |
 |----------|------|------|
-| Signed APK | `dist/release/Hayya-v1.1.2.apk` | ~12 MB |
+| Signed APK | `dist/release/Hayya-v1.1.3.apk` | ~12 MB |
 | Signed AAB | `app/build/outputs/bundle/release/app-release.aab` | Play Store (`PUBLISH_AAB=1`) |
 
 ```sh
@@ -278,7 +278,7 @@ See repository license file. Prayer calculation uses [`adhan-java`](https://gith
 
 حمّل أحدث APK موقّع من **[إصدارات GitHub](https://github.com/karimVentus/Private-Prayer/releases)** (`PrayerTime-v*.apk`).
 
-1. نزّل الملف على هاتفك (أو ثبّت عبر `adb install -r Hayya-v1.1.2.apk`).
+1. نزّل الملف على هاتفك (أو ثبّت عبر `adb install -r Hayya-v1.1.3.apk`).
 2. اسمح بالتثبيت من المتصفح/مدير الملفات عند الطلب.
 3. افتح التطبيق وأكمل معالج اختيار المدينة.
 
@@ -288,7 +288,7 @@ See repository license file. Prayer calculation uses [`adhan-java`](https://gith
 export JAVA_HOME=$HOME/jdk21
 export ANDROID_HOME=$HOME/Android/Sdk
 PRAYERTIME_KEYSTORE_PASSWORD='your-password' ./scripts/setup-release-signing.sh
-./scripts/publish-release.sh v1.1.2
+./scripts/publish-release.sh v1.1.3
 ```
 
 | الملف الناتج | المسار | الحجم |

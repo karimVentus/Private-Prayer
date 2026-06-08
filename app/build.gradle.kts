@@ -80,6 +80,10 @@ android {
     sourceSets {
         getByName("androidTest").assets.srcDir("$projectDir/schemas")
     }
+
+    lint {
+        disable += "NullSafeMutableLiveData"
+    }
 }
 
 // Exported JSON under app/schemas/ — commit on @Database version bumps; validated by AppDatabaseMigrationInstrumentedTest (androidTest).

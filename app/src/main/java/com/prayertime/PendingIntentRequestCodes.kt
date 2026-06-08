@@ -5,8 +5,10 @@ import com.prayertime.domain.model.Prayer
 /**
  * App-wide [android.app.PendingIntent] request codes.
  *
- * PendingIntent identity is `(requestCode, component, intent action)` — duplicate codes with
- * different components are fine, but reuse within the same component causes silent collisions.
+ * PendingIntent identity is `(requestCode, component, intent action)` — extras are ignored.
+ * Duplicate codes with different components are fine; reuse within the same component causes
+ * silent collisions. [com.prayertime.alarm.PrayerAlarmScheduler] schedule/cancel share one
+ * intent builder per prayer so lookup stays symmetric.
  *
  * | Range   | Code(s)              | Owner |
  * |---------|----------------------|-------|

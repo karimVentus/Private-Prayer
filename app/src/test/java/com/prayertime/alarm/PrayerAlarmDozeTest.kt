@@ -83,7 +83,7 @@ class PrayerAlarmDozeTest {
         PrayerAlarmScheduler.schedulePrayerAlarms(context, sampleTimes(now), useReliableAlarms = true)
 
         val shadow = shadowAlarm(context)
-        assertEquals(5, shadow.scheduledAlarms.size)
+        assertEquals(4, shadow.scheduledAlarms.size)
 
         // Every alarm must have AlarmClockInfo → the system treats them as
         // alarm-clock events that bypass Doze and App Standby.
@@ -141,7 +141,7 @@ class PrayerAlarmDozeTest {
         PrayerAlarmScheduler.schedulePrayerAlarms(context, sampleTimes(now), useReliableAlarms = false)
 
         val shadow = shadowAlarm(context)
-        assertEquals(5, shadow.scheduledAlarms.size)
+        assertEquals(4, shadow.scheduledAlarms.size)
 
         // setAndAllowWhileIdle produces RTC_WAKEUP type alarms that also
         // bypass Doze (the WhileIdle suffix means "fire even in idle states")
@@ -169,8 +169,8 @@ class PrayerAlarmDozeTest {
         assertTrue(fallbackShadow.scheduledAlarms.all { it.type == AlarmManager.RTC_WAKEUP })
 
         // Both paths ensure alarms wake the device — Doze-compatible
-        assertEquals(5, reliableShadow.scheduledAlarms.size)
-        assertEquals(5, fallbackShadow.scheduledAlarms.size)
+        assertEquals(4, reliableShadow.scheduledAlarms.size)
+        assertEquals(4, fallbackShadow.scheduledAlarms.size)
     }
 
     @Test

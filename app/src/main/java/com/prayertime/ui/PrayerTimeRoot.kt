@@ -178,7 +178,6 @@ private fun PrayerTimeSideEffects(
 ) {
     val context = LocalContext.current
     val adhanEnabled by settingsViewModel.adhanNotificationsEnabled.collectAsState()
-    val adhanSound by settingsViewModel.adhanSound.collectAsState()
     val saveError by citySetupViewModel.saveError.collectAsState()
 
     LifecycleResumeEffect(activity, lifecycleOwner = activity) {
@@ -200,7 +199,6 @@ private fun PrayerTimeSideEffects(
 
     LaunchedEffect(
         adhanEnabled,
-        adhanSound,
         AdhanPermissions.areNotificationsAllowed(context),
         (prayerState as? PrayerTimesUiState.Success)?.result?.times?.map { it.timestamp },
     ) {
@@ -213,7 +211,6 @@ private fun PrayerTimeSideEffects(
             context,
             success.result.times,
             useReliableAlarms = true,
-            adhanSound = adhanSound,
         )
     }
 }
@@ -314,13 +311,12 @@ private fun AboutAdhanAlarmScheduler(
     activity: AppCompatActivity,
     prayerTimesViewModel: PrayerTimesViewModel,
     adhanEnabled: Boolean,
-    adhanSound: String,
     notificationsGranted: Boolean,
 ) {
     val prayerState by prayerTimesViewModel.uiState.collectAsState()
     val successTimestamps =
         (prayerState as? PrayerTimesUiState.Success)?.result?.times?.map { it.timestamp }
-    LaunchedEffect(adhanEnabled, adhanSound, notificationsGranted, successTimestamps) {
+    LaunchedEffect(adhanEnabled, notificationsGranted, successTimestamps) {
         if (!adhanEnabled || !notificationsGranted) {
             PrayerAlarmScheduler.cancelAllPrayerAlarms(activity)
             return@LaunchedEffect
@@ -330,7 +326,6 @@ private fun AboutAdhanAlarmScheduler(
             activity,
             success.result.times,
             useReliableAlarms = true,
-            adhanSound = adhanSound,
         )
     }
 }
@@ -638,7 +633,6 @@ private fun PrayerTimeNavHost(
                     activity = activity,
                     prayerTimesViewModel = prayerTimesViewModel,
                     adhanEnabled = adhanEnabled,
-                    adhanSound = adhanSound,
                     notificationsGranted = adhanPermissions.notificationsGranted,
                 )
                 AboutScreen(

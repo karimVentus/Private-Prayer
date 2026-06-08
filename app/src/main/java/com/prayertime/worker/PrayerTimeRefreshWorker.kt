@@ -29,12 +29,10 @@ class PrayerTimeRefreshWorker
                 is PrayerTimesResult.Success -> {
                     val adhanEnabled = preferences.adhanNotificationsEnabled.first()
                     if (adhanEnabled && AdhanPermissions.areNotificationsAllowed(applicationContext)) {
-                        val sound = preferences.adhanSound.first()
                         PrayerAlarmScheduler.schedulePrayerAlarms(
                             applicationContext,
                             result.times,
                             useReliableAlarms = true,
-                            adhanSound = sound,
                         )
                     }
                     Result.success()

@@ -16,6 +16,7 @@ import com.prayertime.ui.HijriDateFormatter
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -102,7 +103,10 @@ class WidgetRemoteViewsBuilderTest {
         assertEquals("04:00", widget.text(R.id.widget_time_0))
         assertEquals(context.getString(R.string.widget_m_dhuhr), widget.text(R.id.widget_prayer_2))
         assertEquals("12:30", widget.text(R.id.widget_time_2))
-        assertEquals("", widget.text(R.id.widget_countdown_0))
+        assertTrue(
+            "L-widget next-prayer column shows countdown",
+            widget.text(R.id.widget_countdown_0).contains("h"),
+        )
     }
 
     @Test

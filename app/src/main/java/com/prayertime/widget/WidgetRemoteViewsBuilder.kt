@@ -263,7 +263,7 @@ class WidgetRemoteViewsBuilder
                         snapshot,
                         l10n,
                         widgetColors,
-                        timeOnly = true,
+                        compactCountdown = true,
                         useShortPrayerLabels = true,
                         unifiedColumnHighlight = true,
                     )

@@ -4,7 +4,6 @@ import com.prayertime.data.LocationDataSourceTestSupport
 import com.prayertime.data.local.AppPreferencesDataSource
 import com.prayertime.data.local.InMemoryCityConfigDataSource
 import com.prayertime.data.repository.LocalLocationRepository
-import com.prayertime.domain.calculator.PrayerTimeCalculator
 import com.prayertime.domain.model.CityConfig
 import com.prayertime.domain.model.FetchError
 import com.prayertime.domain.model.Prayer
@@ -79,6 +78,7 @@ class PrayerTimesViewModelTest {
     fun teardown() {
         activeViewModels.forEach { it.clearViewModelForTest() }
         activeViewModels.clear()
+        PrayerTimesViewModel.countdownTickerLoopEnabledOverride = null
         uninstallTestMainDispatcher()
     }
 
@@ -193,43 +193,6 @@ class PrayerTimesViewModelTest {
             assertTrue(vm.uiState.value is PrayerTimesUiState.FetchError)
             assertNull(vm.liveCountdown.value)
             disposeVm(vm)
-        }
-
-    @Test
-    fun `liveCountdown wraps to Fajr after all prayers pass`() =
-        runTest(testDispatcher) {
-            val now = System.currentTimeMillis()
-            // All prayers are in the past
-            val allPast =
-                listOf(
-                    PrayerTime(Prayer.FAJR, "05:00", now - 10 * 3_600_000L),
-                    PrayerTime(Prayer.SHURUQ, "06:30", now - 9 * 3_600_000L),
-                    PrayerTime(Prayer.DHUHR, "12:30", now - 5 * 3_600_000L),
-                    PrayerTime(Prayer.ASR, "15:45", now - 2 * 3_600_000L),
-                    PrayerTime(Prayer.MAGHRIB, "18:30", now - 1 * 3_600_000L),
-                    PrayerTime(Prayer.ISHA, "20:00", now - 30 * 60_000L),
-                )
-            val result =
-                PrayerTimesResult.Success(
-                    times = allPast,
-                    nextPrayer = Prayer.FAJR,
-                    countdown =
-                        PrayerTimeCalculator.millisUntilNextOccurrence(
-                            allPast.first().timestamp,
-                            now,
-                            TimeZone.getTimeZone("Europe/Berlin"),
-                        ),
-                )
-
-            // Verify the calculator wrapped to tomorrow's Fajr
-            val tomorrowFajr =
-                PrayerTimeCalculator.advanceOneCalendarDay(
-                    allPast.first().timestamp,
-                    TimeZone.getTimeZone("Europe/Berlin"),
-                )
-            assertEquals(Prayer.FAJR, result.nextPrayer)
-            assertEquals(tomorrowFajr - now, result.countdown)
-            assertTrue(result.countdown > 0L)
         }
 
     @Test

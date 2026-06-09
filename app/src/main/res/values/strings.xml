@@ -13,6 +13,13 @@
     <string name="back"><![CDATA[< Back]]></string>
     <string name="search_cities_hint">Search cities or type any name</string>
     <string name="use_city">Use &quot;%s&quot;</string>
+    <string name="manual_coords_title">Enter coordinates for %s</string>
+    <string name="manual_coords_latitude">Latitude</string>
+    <string name="manual_coords_longitude">Longitude</string>
+    <string name="manual_coords_timezone">Timezone</string>
+    <string name="manual_coords_save">Save</string>
+    <string name="manual_coords_hint">Enter coordinates from latlong.net or Google Maps</string>
+    <string name="enter_coords_manually">Enter coordinates manually</string>
 
     <!-- PrayerTimesScreen -->
     <string name="change">Change</string>
@@ -73,6 +80,7 @@
     <string name="error_save_city_not_found">City not found. Please check the spelling or try another city.</string>
     <string name="error_save_invalid_response">Could not read prayer data from the server. Please try again.</string>
     <string name="error_save_unknown">An unexpected error occurred while saving this city. Please try again.</string>
+    <string name="error_save_invalid_coordinates">Invalid coordinates. Latitude must be between -90 and 90, longitude between -180 and 180.</string>
     <string name="error_fetch_network_offline">Could not calculate times locally. Please try again.</string>
     <string name="error_fetch_network_online">Network mode could not refresh times. Enable Offline-only mode in Settings for zero-network calculation.</string>
     <string name="error_fetch_city_not_found">City not found. Please check the name or select another city.</string>

@@ -1,6 +1,6 @@
 # Phase 8 — City catalog coordinates + manual entry
 
-**Status:** Planned (not started in code). Branch from `main`.
+**Status:** **8A complete** on `feat/manual-coords-wizard`. **8B** (Europe coords) next. Branch from `main` after 8A merge.
 
 ---
 
@@ -57,12 +57,12 @@ flowchart TD
 
 ## Tasks
 
-### 8A — Manual coordinates UI (ship first)
+### 8A — Manual coordinates UI (complete)
 
-- [ ] **8A.1** `WizardStep.ManualCoordinates` + lat/lng fields, validation, EN/AR copy
-- [ ] **8A.2** `saveCityWithManualCoordinates()` — bypass fallback rejection
-- [ ] **8A.3** Show manual-entry card when search empty or “coordinates not found?”
-- [ ] **8A.4** Unit tests — offline save, invalid coords rejected, country TZ
+- [x] **8A.1** `WizardStep.ManualCoords` + lat/lng/timezone fields, validation, EN/AR copy
+- [x] **8A.2** `saveManualCoords()` — `CityConfig.hasValidCoordinates` bypasses fallback rejection
+- [x] **8A.3** `ManualCoordsOption` card on city fallback (“Enter coordinates manually”)
+- [x] **8A.4** Unit tests — offline save, invalid coords rejected, country default TZ (7 tests)
 
 ### 8B–8E — Regional coord fill
 

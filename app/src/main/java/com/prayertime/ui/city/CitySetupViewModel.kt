@@ -158,4 +158,73 @@ class CitySetupViewModel
                 _isSaving.value = false
             }
         }
+
+        fun requestManualCoords(cityName: String) {
+            val step = _wizardStep.value
+            if (step !is WizardStep.CitySelection) return
+            val canonical =
+                locationRepository.resolveCanonicalCityName(step.country.code, cityName.trim())
+            val defaultTz =
+                when (val resolution = locationRepository.resolveCityCoordinates(step.country.code, canonical)) {
+                    is CityResolutionResult.Found -> resolution.coords.timezone
+                    is CityResolutionResult.Fallback -> resolution.coords.timezone
+                    is CityResolutionResult.InvalidCountry -> "UTC"
+                }
+            _wizardStep.value =
+                WizardStep.ManualCoords(
+                    country = step.country,
+                    cityName = canonical.ifBlank { cityName.trim() },
+                    defaultTimezone = defaultTz,
+                )
+        }
+
+        fun saveManualCoords(
+            cityName: String,
+            latitudeText: String,
+            longitudeText: String,
+            timezone: String,
+        ) {
+            val step = _wizardStep.value as? WizardStep.ManualCoords ?: return
+
+            viewModelScope.launch {
+                val lat = latitudeText.trim().toDoubleOrNull()
+                val lng = longitudeText.trim().toDoubleOrNull()
+                val tz = timezone.trim()
+                val offlineOnly = repository.offlineOnly.first()
+
+                if (lat == null || lng == null || tz.isBlank()) {
+                    _saveError.value =
+                        PrayerTimesErrorMapper.saveError(SaveCityError.INVALID_COORDINATES, offlineOnly)
+                    return@launch
+                }
+                if (lat < -90.0 || lat > 90.0 || lng < -180.0 || lng > 180.0) {
+                    _saveError.value =
+                        PrayerTimesErrorMapper.saveError(SaveCityError.INVALID_COORDINATES, offlineOnly)
+                    return@launch
+                }
+
+                _isSaving.value = true
+                val draft =
+                    CityConfig(
+                        cityName = cityName.trim().ifBlank { step.cityName },
+                        countryCode = step.country.code,
+                        timezone = tz,
+                        latitude = lat,
+                        longitude = lng,
+                    )
+                when (val result = repository.saveCityConfig(draft)) {
+                    is SaveCityResult.Success -> widgetUpdater.requestImmediateUpdate()
+                    is SaveCityResult.Error -> {
+                        _saveError.value =
+                            PrayerTimesErrorMapper.saveError(result.type, offlineOnly)
+                    }
+                }
+                _isSaving.value = false
+            }
+        }
+
+        fun backFromManualCoords() {
+            val step = _wizardStep.value as? WizardStep.ManualCoords ?: return
+            _wizardStep.value = WizardStep.CitySelection(step.country)
+        }
     }

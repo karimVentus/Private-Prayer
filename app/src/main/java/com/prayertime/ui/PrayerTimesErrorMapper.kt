@@ -20,6 +20,7 @@ object PrayerTimesErrorMapper {
                 }
             SaveCityError.CITY_NOT_FOUND -> R.string.error_save_city_not_found
             SaveCityError.INVALID_COUNTRY -> R.string.error_save_invalid_response
+            SaveCityError.INVALID_COORDINATES -> R.string.error_save_invalid_coordinates
             SaveCityError.UNKNOWN -> R.string.error_save_unknown
         }
 

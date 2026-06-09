@@ -233,4 +233,96 @@ class CitySetupViewModelTest {
 
             assertEquals(com.prayertime.R.string.error_save_network_online, vm.saveError.value)
         }
+
+    @Test
+    fun `requestManualCoords advances to ManualCoords with country default timezone`() =
+        runTest(testDispatcher) {
+            val vm = viewModel()
+            vm.selectCountry(Country("Germany", "DE"))
+            vm.requestManualCoords("UnknownVillage")
+            val step = vm.wizardStep.value
+            assertTrue(step is WizardStep.ManualCoords)
+            step as WizardStep.ManualCoords
+            assertEquals("DE", step.country.code)
+            assertEquals("UnknownVillage", step.cityName)
+            assertEquals("Europe/Berlin", step.defaultTimezone)
+        }
+
+    @Test
+    fun `saveManualCoords persists config offline`() =
+        runTest(testDispatcher) {
+            citySource.setOfflineOnly(true)
+            val vm = viewModel()
+            vm.selectCountry(Country("Germany", "DE"))
+            vm.requestManualCoords("CustomTown")
+            vm.saveManualCoords("CustomTown", "52.1", "9.8", "Europe/Berlin")
+            advanceUntilIdle()
+            val config = citySource.cityConfig.first()
+            assertEquals("CustomTown", config?.cityName)
+            assertEquals("DE", config?.countryCode)
+            assertEquals(52.1, config?.latitude!!, 0.001)
+            assertEquals(9.8, config?.longitude!!, 0.001)
+            assertEquals("Europe/Berlin", config?.timezone)
+            assertEquals(null, vm.saveError.value)
+        }
+
+    @Test
+    fun `saveManualCoords rejects out of range latitude`() =
+        runTest(testDispatcher) {
+            val vm = viewModel()
+            vm.selectCountry(Country("Germany", "DE"))
+            vm.requestManualCoords("CustomTown")
+            vm.saveManualCoords("CustomTown", "91", "9.8", "Europe/Berlin")
+            advanceUntilIdle()
+            assertEquals(null, citySource.cityConfig.first())
+            assertEquals(com.prayertime.R.string.error_save_invalid_coordinates, vm.saveError.value)
+        }
+
+    @Test
+    fun `saveManualCoords rejects out of range longitude`() =
+        runTest(testDispatcher) {
+            val vm = viewModel()
+            vm.selectCountry(Country("Germany", "DE"))
+            vm.requestManualCoords("CustomTown")
+            vm.saveManualCoords("CustomTown", "52.1", "181", "Europe/Berlin")
+            advanceUntilIdle()
+            assertEquals(null, citySource.cityConfig.first())
+            assertEquals(com.prayertime.R.string.error_save_invalid_coordinates, vm.saveError.value)
+        }
+
+    @Test
+    fun `saveManualCoords rejects blank timezone`() =
+        runTest(testDispatcher) {
+            val vm = viewModel()
+            vm.selectCountry(Country("Germany", "DE"))
+            vm.requestManualCoords("CustomTown")
+            vm.saveManualCoords("CustomTown", "52.1", "9.8", "   ")
+            advanceUntilIdle()
+            assertEquals(null, citySource.cityConfig.first())
+            assertEquals(com.prayertime.R.string.error_save_invalid_coordinates, vm.saveError.value)
+        }
+
+    @Test
+    fun `saveManualCoords rejects non-numeric coordinates`() =
+        runTest(testDispatcher) {
+            val vm = viewModel()
+            vm.selectCountry(Country("Germany", "DE"))
+            vm.requestManualCoords("CustomTown")
+            vm.saveManualCoords("CustomTown", "north", "east", "Europe/Berlin")
+            advanceUntilIdle()
+            assertEquals(null, citySource.cityConfig.first())
+            assertEquals(com.prayertime.R.string.error_save_invalid_coordinates, vm.saveError.value)
+        }
+
+    @Test
+    fun `backFromManualCoords returns to city selection`() =
+        runTest(testDispatcher) {
+            val vm = viewModel()
+            vm.selectCountry(Country("Germany", "DE"))
+            vm.requestManualCoords("CustomTown")
+            vm.backFromManualCoords()
+            val step = vm.wizardStep.value
+            assertTrue(step is WizardStep.CitySelection)
+            assertEquals("DE", (step as WizardStep.CitySelection).country.code)
+        }
 }

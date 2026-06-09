@@ -424,6 +424,9 @@ private fun PrayerTimeMainRoute(
                             selectCountry = citySetupViewModel::selectCountry,
                             clearSelectedCountry = citySetupViewModel::clearSelectedCountry,
                             saveCity = citySetupViewModel::saveCity,
+                            requestManualCoords = citySetupViewModel::requestManualCoords,
+                            saveManualCoords = citySetupViewModel::saveManualCoords,
+                            backFromManualCoords = citySetupViewModel::backFromManualCoords,
                         ),
                 )
             }

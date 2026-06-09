@@ -20,4 +20,7 @@ data class CityInputActions(
     val selectCountry: (Country) -> Unit,
     val clearSelectedCountry: () -> Unit,
     val saveCity: (String) -> Unit,
+    val requestManualCoords: (String) -> Unit,
+    val saveManualCoords: (cityName: String, latitude: String, longitude: String, timezone: String) -> Unit,
+    val backFromManualCoords: () -> Unit,
 )

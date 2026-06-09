@@ -1,6 +1,6 @@
 # Phase 8 — City catalog coordinates + manual entry
 
-**Status:** **8A** + **8B complete** on `feat/city-coords-europe` (574/574 EU picker cities). **8C** (Africa) next.
+**Status:** **8A** + **8B** + **8C** on `feat/city-coords-africa` (407/407 Africa picker cities). **8D** (Asia) next.
 
 ---
 
@@ -70,9 +70,14 @@ flowchart TD
 - [x] **8B.2** 440 coords added; EU picker 574/574 covered; MD `countryDefaults` → `Europe/Chisinau`
 - [x] **8B.3** `LocationDataSourceTest` — `every_europe_picker_city_resolves_to_found`
 
-### 8C–8E — Regional coord fill
+### 8C — Africa coord fill (complete)
 
-- [ ] **8C** Africa
+- [x] **8C.1** `scripts/fill_africa_coords.py` — OSM Nominatim + `.africa-coords-cache.json`
+- [x] **8C.2** 100 coords added; Africa picker 407/407 covered
+- [x] **8C.3** `LocationDataSourceTest` — `every_africa_picker_city_resolves_to_found`
+
+### 8D–8E — Regional coord fill
+
 - [ ] **8D** Asia
 - [ ] **8E** America
 

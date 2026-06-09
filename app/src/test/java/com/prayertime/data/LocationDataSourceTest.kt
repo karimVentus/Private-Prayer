@@ -152,6 +152,46 @@ class LocationDataSourceTest {
     }
 
     @Test
+    fun every_africa_picker_city_resolves_to_found() {
+        val africaCountryCodes =
+            listOf(
+                "DJ", "DZ", "EG", "ET", "GH", "KE", "KM", "LY", "MA", "MR",
+                "NG", "SD", "SL", "SN", "SO", "TN", "TZ", "ZA",
+            )
+        val failures = mutableListOf<String>()
+        for (countryCode in africaCountryCodes) {
+            val cities = LocationDataSource.loadedCatalog()?.citiesByCountry[countryCode] ?: emptyList()
+            for (city in cities) {
+                when (LocationDataSource.resolveCityCoordinates(countryCode, city)) {
+                    is CityResolutionResult.Found -> {}
+                    else -> failures.add("$countryCode:$city")
+                }
+            }
+        }
+        assertTrue(
+            "Africa picker cities without exact coords: ${failures.take(10)}${if (failures.size > 10) "..." else ""}",
+            failures.isEmpty(),
+        )
+    }
+
+    @Test
+    fun africa_reference_city_coords_match() {
+        val lagos = LocationDataSource.resolveCityCoordinates("NG", "Lagos")
+        assertTrue(lagos is CityResolutionResult.Found)
+        lagos as CityResolutionResult.Found
+        assertEquals(6.455, lagos.coords.latitude, 0.1)
+        assertEquals(3.394, lagos.coords.longitude, 0.1)
+        assertEquals("Africa/Lagos", lagos.coords.timezone)
+
+        val nairobi = LocationDataSource.resolveCityCoordinates("KE", "Nairobi")
+        assertTrue(nairobi is CityResolutionResult.Found)
+        nairobi as CityResolutionResult.Found
+        assertEquals(-1.283, nairobi.coords.latitude, 0.1)
+        assertEquals(36.817, nairobi.coords.longitude, 0.1)
+        assertEquals("Africa/Nairobi", nairobi.coords.timezone)
+    }
+
+    @Test
     fun europe_reference_city_coords_match() {
         val paris = LocationDataSource.resolveCityCoordinates("FR", "Paris")
         assertTrue(paris is CityResolutionResult.Found)

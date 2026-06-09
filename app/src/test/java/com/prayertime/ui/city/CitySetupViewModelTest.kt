@@ -1,5 +1,6 @@
 package com.prayertime.ui.city
 
+import com.prayertime.data.LocationDataSource
 import com.prayertime.data.LocationDataSourceTestSupport
 import com.prayertime.data.local.AppPreferencesDataSource
 import com.prayertime.data.local.InMemoryCityConfigDataSource
@@ -48,6 +49,7 @@ class CitySetupViewModelTest {
     @Before
     fun setup() {
         installTestMainDispatcher(testDispatcher)
+        LocationDataSource.resetForTests()
         LocationDataSourceTestSupport.initializeFromTestResource()
         locationRepository = LocalLocationRepository()
         citySource = InMemoryCityConfigDataSource()
@@ -59,6 +61,7 @@ class CitySetupViewModelTest {
         activeViewModels.forEach { it.clearViewModelForTest() }
         activeViewModels.clear()
         uninstallTestMainDispatcher()
+        LocationDataSource.resetForTests()
     }
 
     private fun viewModel(): CitySetupViewModel =
@@ -157,6 +160,8 @@ class CitySetupViewModelTest {
                     arPreferences,
                     widgetUpdater,
                 ).also { activeViewModels.add(it) }
+            advanceUntilIdle()
+            assertTrue(vm.catalogReady.value)
             vm.selectCountry(Country("Syria", "SY"))
             vm.saveCity("دمشق")
             advanceUntilIdle()

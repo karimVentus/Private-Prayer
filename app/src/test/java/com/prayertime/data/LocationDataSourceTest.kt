@@ -231,6 +231,11 @@ class LocationDataSourceTest {
     }
 
     @Test
+    fun resolveCanonicalCityName_maps_arabic_display_to_english_key() {
+        assertEquals("Damascus", LocationDataSource.resolveCanonicalCityName("SY", "دمشق"))
+    }
+
+    @Test
     fun russian_cities_have_arabic_transliterations() {
         assertEquals("يكاترينبورغ", LocationDataSource.arabicCityName("RU", "Yekaterinburg"))
         assertEquals("بيرم", LocationDataSource.arabicCityName("RU", "Perm"))

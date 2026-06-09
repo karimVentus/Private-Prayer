@@ -57,8 +57,9 @@ flowchart LR
 | **8C** | Africa `knownCityCoords` fill (407 cities) — **done** (PR **#44**) |
 | **8D** | Asia `knownCityCoords` fill (920 cities) — **done** (PR **#45**) |
 | **8E** | Americas `knownCityCoords` fill (105 cities) — **done** (PR **#46**) |
-| **8F** | Catalog tail AU/RU/BY/NZ + full **2056/2056** — **done** (`feat/city-coords-tail`) |
-| **Release v1.2.0** | Tag + GitHub APK after 8F merge |
+| **8F** | Catalog tail AU/RU/BY/NZ — **done** (PR **#47**) |
+| **8C.4 / 8G** | Fill empty Africa + remaining 38 countries — **2766/2766** — **done** |
+| **Release v1.2.0** | Tag + GitHub APK after **#47** merge |
 
 Details: [Phase 8 — City catalog](Phase-8-City-Catalog)
 

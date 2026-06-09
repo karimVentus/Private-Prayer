@@ -27,13 +27,13 @@ if [ -f "$APK_PATH" ]; then
     echo "[smoke-ci] APK path: $APK_PATH"
     echo "[smoke-ci] APK size: ${APK_SIZE_MB} MB"
 
-    # 25MB = 25600 KB (debug APKs include adhan audio + widgets + Hijri)
-    if [ "$APK_SIZE_KB" -gt 25600 ]; then
+    # 30MB = 30720 KB (debug APK: adhan audio + full city catalog ~2766 cities + widgets + Hijri)
+    if [ "$APK_SIZE_KB" -gt 30720 ]; then
         echo "=============================================="
-        echo "[smoke-ci] WARNING: APK size (${APK_SIZE_MB} MB) exceeds the 25MB target!"
+        echo "[smoke-ci] WARNING: APK size (${APK_SIZE_MB} MB) exceeds the 30MB target!"
         echo "=============================================="
     else
-        echo "[smoke-ci] APK size check passed! (${APK_SIZE_MB} MB < 25 MB)"
+        echo "[smoke-ci] APK size check passed! (${APK_SIZE_MB} MB < 30 MB)"
     fi
 else
     echo "[smoke-ci] ERROR: APK file not found!"

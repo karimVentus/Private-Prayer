@@ -3037,6 +3037,858 @@
       "Bambao",
       "Moya",
       "Iconi"
+    ],
+    "AO": [
+      "Luanda",
+      "Huambo",
+      "Lobito",
+      "Benguela",
+      "Lubango",
+      "Namibe",
+      "Malanje",
+      "Soyo",
+      "Cabinda",
+      "Uige"
+    ],
+    "BF": [
+      "Ouagadougou",
+      "Bobo-Dioulasso",
+      "Koudougou",
+      "Banfora",
+      "Ouahigouya",
+      "Pouytenga",
+      "Fada N'Gourma",
+      "Dedougou",
+      "Tenkodogo",
+      "Hounde"
+    ],
+    "BI": [
+      "Bujumbura",
+      "Gitega",
+      "Ngozi",
+      "Rumonge",
+      "Muyinga",
+      "Ruyigi",
+      "Kayanza",
+      "Bururi",
+      "Makamba",
+      "Bubanza"
+    ],
+    "BJ": [
+      "Cotonou",
+      "Porto-Novo",
+      "Parakou",
+      "Djougou",
+      "Bohicon",
+      "Abomey-Calavi",
+      "Natitingou",
+      "Lokossa",
+      "Ouidah",
+      "Abomey"
+    ],
+    "BW": [
+      "Gaborone",
+      "Francistown",
+      "Maun",
+      "Serowe",
+      "Kanye",
+      "Mahalapye",
+      "Molepolole",
+      "Mogoditshane",
+      "Lobatse",
+      "Selibe Phikwe"
+    ],
+    "CD": [
+      "Kinshasa",
+      "Lubumbashi",
+      "Mbuji-Mayi",
+      "Kisangani",
+      "Kananga",
+      "Goma",
+      "Bukavu",
+      "Kolwezi",
+      "Tshikapa",
+      "Matadi"
+    ],
+    "CF": [
+      "Bangui",
+      "Bimbo",
+      "Berberati",
+      "Carnot",
+      "Bambari",
+      "Bouar",
+      "Bossangoa",
+      "Bria",
+      "Bangassou",
+      "Nola"
+    ],
+    "CG": [
+      "Brazzaville",
+      "Pointe-Noire",
+      "Dolisie",
+      "Nkayi",
+      "Owando",
+      "Ouesso",
+      "Loandjili",
+      "Madingou",
+      "Gamboma",
+      "Impfondo"
+    ],
+    "CI": [
+      "Abidjan",
+      "Bouake",
+      "Daloa",
+      "Yamoussoukro",
+      "San-Pedro",
+      "Korhogo",
+      "Man",
+      "Divo",
+      "Gagnoa",
+      "Anyama"
+    ],
+    "CM": [
+      "Douala",
+      "Yaounde",
+      "Garoua",
+      "Bamenda",
+      "Maroua",
+      "Bafoussam",
+      "Ngaoundere",
+      "Bertoua",
+      "Kumba",
+      "Limbe"
+    ],
+    "CV": [
+      "Praia",
+      "Mindelo",
+      "Santa Maria",
+      "Espargos",
+      "Assomada",
+      "Porto Novo",
+      "Sao Filipe",
+      "Tarrafal",
+      "Ribeira Grande",
+      "Sal Rei"
+    ],
+    "ER": [
+      "Asmara",
+      "Keren",
+      "Massawa",
+      "Assab",
+      "Mendefera",
+      "Barentu",
+      "Adi Keyh",
+      "Dekemhare",
+      "Akordat",
+      "Senafe"
+    ],
+    "GA": [
+      "Libreville",
+      "Port-Gentil",
+      "Franceville",
+      "Oyem",
+      "Moanda",
+      "Mouila",
+      "Lambarene",
+      "Tchibanga",
+      "Koulamoutou",
+      "Makokou"
+    ],
+    "GM": [
+      "Banjul",
+      "Serekunda",
+      "Brikama",
+      "Bakau",
+      "Farafenni",
+      "Lamin",
+      "Sukuta",
+      "Brufut",
+      "Gunjur",
+      "Basse Santa Su"
+    ],
+    "GN": [
+      "Conakry",
+      "Nzerekore",
+      "Kankan",
+      "Kindia",
+      "Labe",
+      "Mamou",
+      "Boke",
+      "Siguiri",
+      "Gueckedou",
+      "Dalaba"
+    ],
+    "GQ": [
+      "Malabo",
+      "Bata",
+      "Ebebiyin",
+      "Aconibe",
+      "Anisoc",
+      "Luba",
+      "Evinayong",
+      "Mongomo",
+      "Ebolowa",
+      "Mbini"
+    ],
+    "GW": [
+      "Bissau",
+      "Bafata",
+      "Gabu",
+      "Bissora",
+      "Bolama",
+      "Cacheu",
+      "Catio",
+      "Mansoa",
+      "Bubaque",
+      "Farim"
+    ],
+    "LR": [
+      "Monrovia",
+      "Gbarnga",
+      "Buchanan",
+      "Ganta",
+      "Kakata",
+      "Bensonville",
+      "Harper",
+      "Voinjama",
+      "Zwedru",
+      "Pleebo"
+    ],
+    "LS": [
+      "Maseru",
+      "Teyateyaneng",
+      "Mafeteng",
+      "Hlotse",
+      "Mohale's Hoek",
+      "Quthing",
+      "Qacha's Nek",
+      "Butha-Buthe",
+      "Mokhotlong",
+      "Thaba-Tseka"
+    ],
+    "MG": [
+      "Antananarivo",
+      "Toamasina",
+      "Antsirabe",
+      "Mahajanga",
+      "Fianarantsoa",
+      "Toliara",
+      "Antsiranana",
+      "Ambovombe",
+      "Ambanja",
+      "Moramanga"
+    ],
+    "ML": [
+      "Bamako",
+      "Sikasso",
+      "Mopti",
+      "Koutiala",
+      "Segou",
+      "Gao",
+      "Kayes",
+      "Kati",
+      "Markala",
+      "Koulikoro"
+    ],
+    "MW": [
+      "Lilongwe",
+      "Blantyre",
+      "Mzuzu",
+      "Zomba",
+      "Karonga",
+      "Kasungu",
+      "Mangochi",
+      "Salima",
+      "Nkhotakota",
+      "Rumphi"
+    ],
+    "MZ": [
+      "Maputo",
+      "Matola",
+      "Nampula",
+      "Beira",
+      "Chimoio",
+      "Nacala",
+      "Quelimane",
+      "Tete",
+      "Xai-Xai",
+      "Pemba"
+    ],
+    "NA": [
+      "Windhoek",
+      "Rundu",
+      "Walvis Bay",
+      "Oshakati",
+      "Swakopmund",
+      "Katima Mulilo",
+      "Grootfontein",
+      "Rehoboth",
+      "Otjiwarongo",
+      "Okahandja"
+    ],
+    "NE": [
+      "Niamey",
+      "Zinder",
+      "Maradi",
+      "Agadez",
+      "Tahoua",
+      "Dosso",
+      "Diffa",
+      "Birni N'Konni",
+      "Tessaoua",
+      "Arlit"
+    ],
+    "RW": [
+      "Kigali",
+      "Huye",
+      "Muhanga",
+      "Musanze",
+      "Rubavu",
+      "Byumba",
+      "Rusizi",
+      "Karongi",
+      "Rwamagana",
+      "Nyanza"
+    ],
+    "SC": [
+      "Victoria",
+      "Anse Boileau",
+      "Beau Vallon",
+      "Takamaka",
+      "Port Glaud",
+      "Baie Lazare",
+      "Grand Anse",
+      "Cascade",
+      "Bel Ombre",
+      "Anse Royale"
+    ],
+    "SZ": [
+      "Mbabane",
+      "Manzini",
+      "Big Bend",
+      "Malkerns",
+      "Nhlangano",
+      "Siteki",
+      "Matsapha",
+      "Piggs Peak",
+      "Lobamba",
+      "Mhlume"
+    ],
+    "TD": [
+      "N'Djamena",
+      "Moundou",
+      "Abeche",
+      "Sarh",
+      "Kelo",
+      "Koumra",
+      "Pala",
+      "Am Timan",
+      "Bongor",
+      "Mongo"
+    ],
+    "TG": [
+      "Lome",
+      "Sokode",
+      "Kara",
+      "Kpalime",
+      "Atakpame",
+      "Dapaong",
+      "Tsevie",
+      "Aneho",
+      "Bassar",
+      "Mango"
+    ],
+    "UG": [
+      "Kampala",
+      "Gulu",
+      "Lira",
+      "Mbarara",
+      "Jinja",
+      "Mbale",
+      "Masaka",
+      "Entebbe",
+      "Fort Portal",
+      "Arua"
+    ],
+    "ZM": [
+      "Lusaka",
+      "Kitwe",
+      "Ndola",
+      "Kabwe",
+      "Chingola",
+      "Mufulira",
+      "Livingstone",
+      "Luanshya",
+      "Chipata",
+      "Kasama"
+    ],
+    "ZW": [
+      "Harare",
+      "Bulawayo",
+      "Chitungwiza",
+      "Mutare",
+      "Gweru",
+      "Kwekwe",
+      "Masvingo",
+      "Kadoma",
+      "Marondera",
+      "Victoria Falls"
+    ],
+    "BB": [
+      "Bridgetown",
+      "Speightstown",
+      "Oistins",
+      "Holetown",
+      "Bathsheba",
+      "Crane",
+      "Six Cross Roads",
+      "Warrens",
+      "Black Rock",
+      "Hastings"
+    ],
+    "BO": [
+      "La Paz",
+      "Santa Cruz",
+      "Cochabamba",
+      "Sucre",
+      "Oruro",
+      "Tarija",
+      "Potosi",
+      "Trinidad",
+      "Cobija",
+      "Yacuiba"
+    ],
+    "BS": [
+      "Nassau",
+      "Freeport",
+      "West End",
+      "Marsh Harbour",
+      "Coopers Town",
+      "High Rock",
+      "Clarence Town",
+      "Dunmore Town",
+      "Alice Town",
+      "George Town"
+    ],
+    "BT": [
+      "Thimphu",
+      "Phuntsholing",
+      "Punakha",
+      "Gelephu",
+      "Paro",
+      "Trashigang",
+      "Mongar",
+      "Jakar",
+      "Samdrup Jongkhar",
+      "Wangdue Phodrang"
+    ],
+    "BZ": [
+      "Belize City",
+      "Belmopan",
+      "San Ignacio",
+      "Orange Walk",
+      "Dangriga",
+      "Corozal",
+      "San Pedro",
+      "Punta Gorda",
+      "Benque Viejo del Carmen",
+      "Placencia"
+    ],
+    "CR": [
+      "San Jose",
+      "Alajuela",
+      "Cartago",
+      "Heredia",
+      "Limon",
+      "Puntarenas",
+      "Liberia",
+      "San Isidro",
+      "Quesada",
+      "Curridabat"
+    ],
+    "CU": [
+      "Havana",
+      "Santiago de Cuba",
+      "Camaguey",
+      "Holguin",
+      "Guantanamo",
+      "Santa Clara",
+      "Bayamo",
+      "Cienfuegos",
+      "Pinar del Rio",
+      "Matanzas"
+    ],
+    "DM": [
+      "Roseau",
+      "Portsmouth",
+      "Marigot",
+      "Berekua",
+      "Mahaut",
+      "Saint Joseph",
+      "Wesley",
+      "Salisbury",
+      "La Plaine",
+      "Castle Bruce"
+    ],
+    "DO": [
+      "Santo Domingo",
+      "Santiago de los Caballeros",
+      "La Romana",
+      "San Pedro de Macoris",
+      "San Francisco de Macoris",
+      "Puerto Plata",
+      "La Vega",
+      "Barahona",
+      "San Cristobal",
+      "Higuey"
+    ],
+    "EC": [
+      "Guayaquil",
+      "Quito",
+      "Cuenca",
+      "Santo Domingo",
+      "Machala",
+      "Duran",
+      "Manta",
+      "Portoviejo",
+      "Loja",
+      "Ambato"
+    ],
+    "FJ": [
+      "Suva",
+      "Lautoka",
+      "Nadi",
+      "Labasa",
+      "Ba",
+      "Levuka",
+      "Sigatoka",
+      "Rakiraki",
+      "Nausori",
+      "Savusavu"
+    ],
+    "FM": [
+      "Palikir",
+      "Weno",
+      "Kolonia",
+      "Tofol",
+      "Colonia",
+      "Lelu",
+      "Nema",
+      "Satowan",
+      "Lukunor",
+      "Kuttu"
+    ],
+    "GD": [
+      "St. George's",
+      "Gouyave",
+      "Grenville",
+      "Victoria",
+      "Sauteurs",
+      "Hillsborough",
+      "Woburn",
+      "Grand Roy",
+      "Concord",
+      "Tivoli"
+    ],
+    "GT": [
+      "Guatemala City",
+      "Mixco",
+      "Villa Nueva",
+      "Quetzaltenango",
+      "Escuintla",
+      "San Juan Sacatepequez",
+      "Villa Canales",
+      "Petapa",
+      "Chinautla",
+      "Huehuetenango"
+    ],
+    "GY": [
+      "Georgetown",
+      "Linden",
+      "New Amsterdam",
+      "Anna Regina",
+      "Bartica",
+      "Skeldon",
+      "Rosignol",
+      "Mahaica",
+      "Fort Wellington",
+      "Lethem"
+    ],
+    "HN": [
+      "Tegucigalpa",
+      "San Pedro Sula",
+      "Choloma",
+      "La Ceiba",
+      "El Progreso",
+      "Choluteca",
+      "Comayagua",
+      "Puerto Cortes",
+      "La Lima",
+      "Danli"
+    ],
+    "HT": [
+      "Port-au-Prince",
+      "Carrefour",
+      "Delmas",
+      "Petion-Ville",
+      "Gonaives",
+      "Cap-Haitien",
+      "Les Cayes",
+      "Jacmel",
+      "Saint-Marc",
+      "Verrettes"
+    ],
+    "JM": [
+      "Kingston",
+      "Montego Bay",
+      "Spanish Town",
+      "Portmore",
+      "Mandeville",
+      "May Pen",
+      "Old Harbour",
+      "Linstead",
+      "Half Way Tree",
+      "Savanna-la-Mar"
+    ],
+    "KI": [
+      "Tarawa",
+      "Betio",
+      "Bairiki",
+      "Bikenibeu",
+      "Teaoraereke",
+      "Ambo",
+      "Banraeaba",
+      "Taburao",
+      "Tabuki",
+      "Roreti"
+    ],
+    "KR": [
+      "Seoul",
+      "Busan",
+      "Incheon",
+      "Daegu",
+      "Daejeon",
+      "Gwangju",
+      "Suwon",
+      "Ulsan",
+      "Changwon",
+      "Seongnam"
+    ],
+    "LC": [
+      "Castries",
+      "Bisee",
+      "Vieux Fort",
+      "Micoud",
+      "Soufriere",
+      "Dennery",
+      "Gros Islet",
+      "Anse La Raye",
+      "Canaries",
+      "Laborie"
+    ],
+    "MH": [
+      "Majuro",
+      "Ebeye",
+      "Laura",
+      "Rairok",
+      "Ajeltake",
+      "Rita",
+      "Wotje",
+      "Jaluit",
+      "Kwajalein",
+      "Arno"
+    ],
+    "MX": [
+      "Mexico City",
+      "Guadalajara",
+      "Monterrey",
+      "Puebla",
+      "Tijuana",
+      "Leon",
+      "Ciudad Juarez",
+      "Zapopan",
+      "Merida",
+      "San Luis Potosi"
+    ],
+    "NI": [
+      "Managua",
+      "Leon",
+      "Masaya",
+      "Chinandega",
+      "Matagalpa",
+      "Esteli",
+      "Granada",
+      "Jinotepe",
+      "Bluefields",
+      "Rivas"
+    ],
+    "NR": [
+      "Yaren",
+      "Aiwo",
+      "Anabar",
+      "Anetan",
+      "Anibare",
+      "Baiti",
+      "Boe",
+      "Buada",
+      "Denigomodu",
+      "Meneng"
+    ],
+    "PA": [
+      "Panama City",
+      "San Miguelito",
+      "David",
+      "Colon",
+      "La Chorrera",
+      "Penonome",
+      "Chitre",
+      "Santiago",
+      "Aguadulce",
+      "Arraijan"
+    ],
+    "PG": [
+      "Port Moresby",
+      "Lae",
+      "Mount Hagen",
+      "Madang",
+      "Goroka",
+      "Kokopo",
+      "Mendi",
+      "Kimbe",
+      "Bulolo",
+      "Wewak"
+    ],
+    "PY": [
+      "Asuncion",
+      "Ciudad del Este",
+      "San Lorenzo",
+      "Luque",
+      "Capiata",
+      "Lambare",
+      "Fernando de la Mora",
+      "Limpio",
+      "Nemby",
+      "Encarnacion"
+    ],
+    "SM": [
+      "San Marino",
+      "Serravalle",
+      "Borgo Maggiore",
+      "Domagnano",
+      "Fiorentino",
+      "Acquaviva",
+      "Faetano",
+      "Chiesanuova",
+      "Montegiardino",
+      "Dogana"
+    ],
+    "SR": [
+      "Paramaribo",
+      "Lelydorp",
+      "Nieuw Nickerie",
+      "Moengo",
+      "Nieuw Amsterdam",
+      "Marienburg",
+      "Wageningen",
+      "Albina",
+      "Groningen",
+      "Brokopondo"
+    ],
+    "SV": [
+      "San Salvador",
+      "Santa Ana",
+      "San Miguel",
+      "Mejicanos",
+      "Soyapango",
+      "Santa Tecla",
+      "Apopa",
+      "Delgado",
+      "Ahuachapan",
+      "Ilopango"
+    ],
+    "TL": [
+      "Dili",
+      "Baucau",
+      "Maliana",
+      "Suai",
+      "Liquica",
+      "Ermera",
+      "Aileu",
+      "Manatuto",
+      "Viqueque",
+      "Same"
+    ],
+    "TO": [
+      "Nuku'alofa",
+      "Neiafu",
+      "Haveluloto",
+      "Vaini",
+      "Pangai",
+      "Ohonua",
+      "Mu'a",
+      "Ha'ateiho",
+      "Kolonga",
+      "Nukunuku"
+    ],
+    "TT": [
+      "Port of Spain",
+      "San Fernando",
+      "Chaguanas",
+      "Arima",
+      "Point Fortin",
+      "Tunapuna",
+      "Scarborough",
+      "Princes Town",
+      "Diego Martin",
+      "Siparia"
+    ],
+    "TV": [
+      "Funafuti",
+      "Vaiaku",
+      "Savave",
+      "Tanrake",
+      "Asau",
+      "Lolua",
+      "Tonga",
+      "Niulakita",
+      "Motufoua",
+      "Fagatua"
+    ],
+    "TW": [
+      "Taipei",
+      "Kaohsiung",
+      "Taichung",
+      "Tainan",
+      "Hsinchu",
+      "Keelung",
+      "Chiayi",
+      "Changhua",
+      "Pingtung",
+      "Taoyuan"
+    ],
+    "VU": [
+      "Port Vila",
+      "Luganville",
+      "Norsup",
+      "Isangel",
+      "Lakatoro",
+      "Sola",
+      "Longana",
+      "Port Olry",
+      "Saratamata",
+      "Lenakel"
+    ],
+    "WS": [
+      "Apia",
+      "Vaitele",
+      "Faleula",
+      "Siusega",
+      "Malie",
+      "Afega",
+      "Leulumoega",
+      "Fasitoouta",
+      "Vailoa",
+      "Safotu"
     ]
   },
   "countryDefaults": {
@@ -3974,6 +4826,11 @@
       "latitude": -16.0,
       "longitude": 167.0,
       "timezone": "Pacific/Efate"
+    },
+    "TO": {
+      "latitude": -21.2,
+      "longitude": -175.2,
+      "timezone": "Pacific/Tongatapu"
     }
   },
   "knownCityCoords": {
@@ -14246,6 +15103,3556 @@
       "latitude": 48.708,
       "longitude": 44.515,
       "timezone": "Europe/Moscow"
+    },
+    "AO_Luanda": {
+      "latitude": -8.827,
+      "longitude": 13.244,
+      "timezone": "Africa/Luanda"
+    },
+    "AO_Huambo": {
+      "latitude": -12.777,
+      "longitude": 15.735,
+      "timezone": "Africa/Luanda"
+    },
+    "AO_Lobito": {
+      "latitude": -12.351,
+      "longitude": 13.546,
+      "timezone": "Africa/Luanda"
+    },
+    "AO_Benguela": {
+      "latitude": -12.579,
+      "longitude": 13.404,
+      "timezone": "Africa/Luanda"
+    },
+    "AO_Lubango": {
+      "latitude": -14.92,
+      "longitude": 13.49,
+      "timezone": "Africa/Luanda"
+    },
+    "AO_Namibe": {
+      "latitude": -15.267,
+      "longitude": 12.706,
+      "timezone": "Africa/Luanda"
+    },
+    "AO_Malanje": {
+      "latitude": -9.535,
+      "longitude": 16.936,
+      "timezone": "Africa/Luanda"
+    },
+    "AO_Soyo": {
+      "latitude": -6.139,
+      "longitude": 12.369,
+      "timezone": "Africa/Luanda"
+    },
+    "AO_Cabinda": {
+      "latitude": -5.056,
+      "longitude": 12.321,
+      "timezone": "Africa/Luanda"
+    },
+    "AO_Uige": {
+      "latitude": -7.617,
+      "longitude": 15.058,
+      "timezone": "Africa/Luanda"
+    },
+    "BF_Ouagadougou": {
+      "latitude": 12.368,
+      "longitude": -1.527,
+      "timezone": "Africa/Ouagadougou"
+    },
+    "BF_Bobo-Dioulasso": {
+      "latitude": 11.177,
+      "longitude": -4.296,
+      "timezone": "Africa/Ouagadougou"
+    },
+    "BF_Koudougou": {
+      "latitude": 12.251,
+      "longitude": -2.365,
+      "timezone": "Africa/Ouagadougou"
+    },
+    "BF_Banfora": {
+      "latitude": 10.643,
+      "longitude": -4.753,
+      "timezone": "Africa/Ouagadougou"
+    },
+    "BF_Ouahigouya": {
+      "latitude": 13.581,
+      "longitude": -2.418,
+      "timezone": "Africa/Ouagadougou"
+    },
+    "BF_Pouytenga": {
+      "latitude": 12.247,
+      "longitude": -0.426,
+      "timezone": "Africa/Ouagadougou"
+    },
+    "BF_Fada N'Gourma": {
+      "latitude": 14.357,
+      "longitude": -0.753,
+      "timezone": "Africa/Ouagadougou"
+    },
+    "BF_Dedougou": {
+      "latitude": 12.463,
+      "longitude": -3.46,
+      "timezone": "Africa/Ouagadougou"
+    },
+    "BF_Tenkodogo": {
+      "latitude": 11.783,
+      "longitude": -0.365,
+      "timezone": "Africa/Ouagadougou"
+    },
+    "BF_Hounde": {
+      "latitude": 11.492,
+      "longitude": -3.521,
+      "timezone": "Africa/Ouagadougou"
+    },
+    "BI_Bujumbura": {
+      "latitude": -3.364,
+      "longitude": 29.368,
+      "timezone": "Africa/Bujumbura"
+    },
+    "BI_Gitega": {
+      "latitude": -3.428,
+      "longitude": 29.925,
+      "timezone": "Africa/Bujumbura"
+    },
+    "BI_Ngozi": {
+      "latitude": -2.878,
+      "longitude": 29.899,
+      "timezone": "Africa/Bujumbura"
+    },
+    "BI_Rumonge": {
+      "latitude": -3.876,
+      "longitude": 29.471,
+      "timezone": "Africa/Bujumbura"
+    },
+    "BI_Muyinga": {
+      "latitude": -2.734,
+      "longitude": 30.317,
+      "timezone": "Africa/Bujumbura"
+    },
+    "BI_Ruyigi": {
+      "latitude": -3.457,
+      "longitude": 30.349,
+      "timezone": "Africa/Bujumbura"
+    },
+    "BI_Kayanza": {
+      "latitude": -3.021,
+      "longitude": 29.646,
+      "timezone": "Africa/Bujumbura"
+    },
+    "BI_Bururi": {
+      "latitude": -3.858,
+      "longitude": 29.584,
+      "timezone": "Africa/Bujumbura"
+    },
+    "BI_Makamba": {
+      "latitude": -4.198,
+      "longitude": 29.807,
+      "timezone": "Africa/Bujumbura"
+    },
+    "BI_Bubanza": {
+      "latitude": -3.115,
+      "longitude": 29.401,
+      "timezone": "Africa/Bujumbura"
+    },
+    "BJ_Cotonou": {
+      "latitude": 6.368,
+      "longitude": 2.425,
+      "timezone": "Africa/Porto-Novo"
+    },
+    "BJ_Porto-Novo": {
+      "latitude": 6.499,
+      "longitude": 2.625,
+      "timezone": "Africa/Porto-Novo"
+    },
+    "BJ_Parakou": {
+      "latitude": 9.34,
+      "longitude": 2.628,
+      "timezone": "Africa/Porto-Novo"
+    },
+    "BJ_Djougou": {
+      "latitude": 9.711,
+      "longitude": 1.665,
+      "timezone": "Africa/Porto-Novo"
+    },
+    "BJ_Bohicon": {
+      "latitude": 7.182,
+      "longitude": 2.07,
+      "timezone": "Africa/Porto-Novo"
+    },
+    "BJ_Abomey-Calavi": {
+      "latitude": 6.454,
+      "longitude": 2.354,
+      "timezone": "Africa/Porto-Novo"
+    },
+    "BJ_Natitingou": {
+      "latitude": 10.305,
+      "longitude": 1.381,
+      "timezone": "Africa/Porto-Novo"
+    },
+    "BJ_Lokossa": {
+      "latitude": 6.646,
+      "longitude": 1.717,
+      "timezone": "Africa/Porto-Novo"
+    },
+    "BJ_Ouidah": {
+      "latitude": 6.367,
+      "longitude": 2.085,
+      "timezone": "Africa/Porto-Novo"
+    },
+    "BJ_Abomey": {
+      "latitude": 7.182,
+      "longitude": 1.994,
+      "timezone": "Africa/Porto-Novo"
+    },
+    "BW_Gaborone": {
+      "latitude": -24.658,
+      "longitude": 25.909,
+      "timezone": "Africa/Gaborone"
+    },
+    "BW_Francistown": {
+      "latitude": -21.166,
+      "longitude": 27.503,
+      "timezone": "Africa/Gaborone"
+    },
+    "BW_Maun": {
+      "latitude": -19.986,
+      "longitude": 23.422,
+      "timezone": "Africa/Gaborone"
+    },
+    "BW_Serowe": {
+      "latitude": -22.398,
+      "longitude": 26.703,
+      "timezone": "Africa/Gaborone"
+    },
+    "BW_Kanye": {
+      "latitude": -24.977,
+      "longitude": 25.336,
+      "timezone": "Africa/Gaborone"
+    },
+    "BW_Mahalapye": {
+      "latitude": -23.112,
+      "longitude": 26.833,
+      "timezone": "Africa/Gaborone"
+    },
+    "BW_Molepolole": {
+      "latitude": -24.406,
+      "longitude": 25.515,
+      "timezone": "Africa/Gaborone"
+    },
+    "BW_Mogoditshane": {
+      "latitude": -24.628,
+      "longitude": 25.869,
+      "timezone": "Africa/Gaborone"
+    },
+    "BW_Lobatse": {
+      "latitude": -25.21,
+      "longitude": 25.682,
+      "timezone": "Africa/Gaborone"
+    },
+    "BW_Selibe Phikwe": {
+      "latitude": -21.979,
+      "longitude": 27.837,
+      "timezone": "Africa/Gaborone"
+    },
+    "CD_Kinshasa": {
+      "latitude": -4.322,
+      "longitude": 15.312,
+      "timezone": "Africa/Kinshasa"
+    },
+    "CD_Lubumbashi": {
+      "latitude": -11.664,
+      "longitude": 27.483,
+      "timezone": "Africa/Lubumbashi"
+    },
+    "CD_Mbuji-Mayi": {
+      "latitude": -6.126,
+      "longitude": 23.6,
+      "timezone": "Africa/Lubumbashi"
+    },
+    "CD_Kisangani": {
+      "latitude": 0.518,
+      "longitude": 25.206,
+      "timezone": "Africa/Lubumbashi"
+    },
+    "CD_Kananga": {
+      "latitude": -5.895,
+      "longitude": 22.409,
+      "timezone": "Africa/Lubumbashi"
+    },
+    "CD_Goma": {
+      "latitude": -1.667,
+      "longitude": 29.226,
+      "timezone": "Africa/Lubumbashi"
+    },
+    "CD_Bukavu": {
+      "latitude": -2.506,
+      "longitude": 28.859,
+      "timezone": "Africa/Lubumbashi"
+    },
+    "CD_Kolwezi": {
+      "latitude": -10.717,
+      "longitude": 25.467,
+      "timezone": "Africa/Lubumbashi"
+    },
+    "CD_Tshikapa": {
+      "latitude": -6.64,
+      "longitude": 20.541,
+      "timezone": "Africa/Lubumbashi"
+    },
+    "CD_Matadi": {
+      "latitude": -5.826,
+      "longitude": 13.461,
+      "timezone": "Africa/Kinshasa"
+    },
+    "CF_Bangui": {
+      "latitude": 4.364,
+      "longitude": 18.584,
+      "timezone": "Africa/Bangui"
+    },
+    "CF_Bimbo": {
+      "latitude": 4.323,
+      "longitude": 18.525,
+      "timezone": "Africa/Bangui"
+    },
+    "CF_Berberati": {
+      "latitude": 4.259,
+      "longitude": 15.788,
+      "timezone": "Africa/Bangui"
+    },
+    "CF_Carnot": {
+      "latitude": 4.942,
+      "longitude": 15.869,
+      "timezone": "Africa/Bangui"
+    },
+    "CF_Bambari": {
+      "latitude": 5.768,
+      "longitude": 20.676,
+      "timezone": "Africa/Bangui"
+    },
+    "CF_Bouar": {
+      "latitude": 5.935,
+      "longitude": 15.592,
+      "timezone": "Africa/Bangui"
+    },
+    "CF_Bossangoa": {
+      "latitude": 6.492,
+      "longitude": 17.446,
+      "timezone": "Africa/Bangui"
+    },
+    "CF_Bria": {
+      "latitude": 6.539,
+      "longitude": 21.987,
+      "timezone": "Africa/Bangui"
+    },
+    "CF_Bangassou": {
+      "latitude": 4.744,
+      "longitude": 22.823,
+      "timezone": "Africa/Bangui"
+    },
+    "CF_Nola": {
+      "latitude": 3.522,
+      "longitude": 16.054,
+      "timezone": "Africa/Bangui"
+    },
+    "CG_Brazzaville": {
+      "latitude": -4.269,
+      "longitude": 15.271,
+      "timezone": "Africa/Brazzaville"
+    },
+    "CG_Pointe-Noire": {
+      "latitude": -4.798,
+      "longitude": 11.85,
+      "timezone": "Africa/Brazzaville"
+    },
+    "CG_Dolisie": {
+      "latitude": -4.201,
+      "longitude": 12.679,
+      "timezone": "Africa/Brazzaville"
+    },
+    "CG_Nkayi": {
+      "latitude": -4.184,
+      "longitude": 13.288,
+      "timezone": "Africa/Brazzaville"
+    },
+    "CG_Owando": {
+      "latitude": -0.483,
+      "longitude": 15.897,
+      "timezone": "Africa/Brazzaville"
+    },
+    "CG_Ouesso": {
+      "latitude": 1.61,
+      "longitude": 16.051,
+      "timezone": "Africa/Brazzaville"
+    },
+    "CG_Loandjili": {
+      "latitude": -4.738,
+      "longitude": 11.94,
+      "timezone": "Africa/Brazzaville"
+    },
+    "CG_Madingou": {
+      "latitude": -4.164,
+      "longitude": 13.552,
+      "timezone": "Africa/Brazzaville"
+    },
+    "CG_Gamboma": {
+      "latitude": -1.871,
+      "longitude": 15.878,
+      "timezone": "Africa/Brazzaville"
+    },
+    "CG_Impfondo": {
+      "latitude": 1.624,
+      "longitude": 18.061,
+      "timezone": "Africa/Brazzaville"
+    },
+    "CI_Abidjan": {
+      "latitude": 5.32,
+      "longitude": -4.016,
+      "timezone": "Africa/Abidjan"
+    },
+    "CI_Bouake": {
+      "latitude": 7.689,
+      "longitude": -5.028,
+      "timezone": "Africa/Abidjan"
+    },
+    "CI_Daloa": {
+      "latitude": 6.887,
+      "longitude": -6.453,
+      "timezone": "Africa/Abidjan"
+    },
+    "CI_Yamoussoukro": {
+      "latitude": 6.82,
+      "longitude": -5.278,
+      "timezone": "Africa/Abidjan"
+    },
+    "CI_San-Pedro": {
+      "latitude": 4.759,
+      "longitude": -6.646,
+      "timezone": "Africa/Abidjan"
+    },
+    "CI_Korhogo": {
+      "latitude": 9.458,
+      "longitude": -5.632,
+      "timezone": "Africa/Abidjan"
+    },
+    "CI_Man": {
+      "latitude": 7.41,
+      "longitude": -7.55,
+      "timezone": "Africa/Abidjan"
+    },
+    "CI_Divo": {
+      "latitude": 5.841,
+      "longitude": -5.355,
+      "timezone": "Africa/Abidjan"
+    },
+    "CI_Gagnoa": {
+      "latitude": 6.133,
+      "longitude": -5.951,
+      "timezone": "Africa/Abidjan"
+    },
+    "CI_Anyama": {
+      "latitude": 5.496,
+      "longitude": -4.051,
+      "timezone": "Africa/Abidjan"
+    },
+    "CM_Douala": {
+      "latitude": 4.043,
+      "longitude": 9.706,
+      "timezone": "Africa/Douala"
+    },
+    "CM_Yaounde": {
+      "latitude": 3.869,
+      "longitude": 11.521,
+      "timezone": "Africa/Douala"
+    },
+    "CM_Garoua": {
+      "latitude": 9.307,
+      "longitude": 13.393,
+      "timezone": "Africa/Douala"
+    },
+    "CM_Bamenda": {
+      "latitude": 5.961,
+      "longitude": 10.152,
+      "timezone": "Africa/Douala"
+    },
+    "CM_Maroua": {
+      "latitude": 10.603,
+      "longitude": 14.328,
+      "timezone": "Africa/Douala"
+    },
+    "CM_Bafoussam": {
+      "latitude": 5.476,
+      "longitude": 10.422,
+      "timezone": "Africa/Douala"
+    },
+    "CM_Ngaoundere": {
+      "latitude": 7.321,
+      "longitude": 13.588,
+      "timezone": "Africa/Douala"
+    },
+    "CM_Bertoua": {
+      "latitude": 4.578,
+      "longitude": 13.684,
+      "timezone": "Africa/Douala"
+    },
+    "CM_Kumba": {
+      "latitude": 4.638,
+      "longitude": 9.441,
+      "timezone": "Africa/Douala"
+    },
+    "CM_Limbe": {
+      "latitude": 4.01,
+      "longitude": 9.207,
+      "timezone": "Africa/Douala"
+    },
+    "CV_Praia": {
+      "latitude": 14.916,
+      "longitude": -23.51,
+      "timezone": "Atlantic/Cape_Verde"
+    },
+    "CV_Mindelo": {
+      "latitude": 16.887,
+      "longitude": -24.986,
+      "timezone": "Atlantic/Cape_Verde"
+    },
+    "CV_Santa Maria": {
+      "latitude": 16.599,
+      "longitude": -22.905,
+      "timezone": "Atlantic/Cape_Verde"
+    },
+    "CV_Espargos": {
+      "latitude": 16.758,
+      "longitude": -22.943,
+      "timezone": "Atlantic/Cape_Verde"
+    },
+    "CV_Assomada": {
+      "latitude": 15.098,
+      "longitude": -23.667,
+      "timezone": "Atlantic/Cape_Verde"
+    },
+    "CV_Porto Novo": {
+      "latitude": 17.021,
+      "longitude": -25.067,
+      "timezone": "Atlantic/Cape_Verde"
+    },
+    "CV_Sao Filipe": {
+      "latitude": 14.921,
+      "longitude": -24.442,
+      "timezone": "Atlantic/Cape_Verde"
+    },
+    "CV_Tarrafal": {
+      "latitude": 15.266,
+      "longitude": -23.723,
+      "timezone": "Atlantic/Cape_Verde"
+    },
+    "CV_Ribeira Grande": {
+      "latitude": 17.139,
+      "longitude": -25.137,
+      "timezone": "Atlantic/Cape_Verde"
+    },
+    "CV_Sal Rei": {
+      "latitude": 16.176,
+      "longitude": -22.917,
+      "timezone": "Atlantic/Cape_Verde"
+    },
+    "ER_Asmara": {
+      "latitude": 15.339,
+      "longitude": 38.933,
+      "timezone": "Africa/Asmara"
+    },
+    "ER_Keren": {
+      "latitude": 15.78,
+      "longitude": 38.454,
+      "timezone": "Africa/Asmara"
+    },
+    "ER_Massawa": {
+      "latitude": 15.603,
+      "longitude": 39.464,
+      "timezone": "Africa/Asmara"
+    },
+    "ER_Assab": {
+      "latitude": 13.009,
+      "longitude": 42.744,
+      "timezone": "Africa/Asmara"
+    },
+    "ER_Mendefera": {
+      "latitude": 14.884,
+      "longitude": 38.813,
+      "timezone": "Africa/Asmara"
+    },
+    "ER_Barentu": {
+      "latitude": 15.106,
+      "longitude": 37.589,
+      "timezone": "Africa/Asmara"
+    },
+    "ER_Adi Keyh": {
+      "latitude": 14.848,
+      "longitude": 39.372,
+      "timezone": "Africa/Asmara"
+    },
+    "ER_Dekemhare": {
+      "latitude": 15.068,
+      "longitude": 39.048,
+      "timezone": "Africa/Asmara"
+    },
+    "ER_Akordat": {
+      "latitude": 15.55,
+      "longitude": 37.886,
+      "timezone": "Africa/Asmara"
+    },
+    "ER_Senafe": {
+      "latitude": 14.702,
+      "longitude": 39.424,
+      "timezone": "Africa/Asmara"
+    },
+    "GA_Libreville": {
+      "latitude": 0.409,
+      "longitude": 9.442,
+      "timezone": "Africa/Libreville"
+    },
+    "GA_Port-Gentil": {
+      "latitude": -0.715,
+      "longitude": 8.779,
+      "timezone": "Africa/Libreville"
+    },
+    "GA_Franceville": {
+      "latitude": -1.634,
+      "longitude": 13.589,
+      "timezone": "Africa/Libreville"
+    },
+    "GA_Oyem": {
+      "latitude": 1.6,
+      "longitude": 11.575,
+      "timezone": "Africa/Libreville"
+    },
+    "GA_Moanda": {
+      "latitude": -1.555,
+      "longitude": 13.222,
+      "timezone": "Africa/Libreville"
+    },
+    "GA_Mouila": {
+      "latitude": -1.863,
+      "longitude": 11.059,
+      "timezone": "Africa/Libreville"
+    },
+    "GA_Lambarene": {
+      "latitude": -0.694,
+      "longitude": 10.224,
+      "timezone": "Africa/Libreville"
+    },
+    "GA_Tchibanga": {
+      "latitude": -2.917,
+      "longitude": 10.996,
+      "timezone": "Africa/Libreville"
+    },
+    "GA_Koulamoutou": {
+      "latitude": -1.134,
+      "longitude": 12.467,
+      "timezone": "Africa/Libreville"
+    },
+    "GA_Makokou": {
+      "latitude": 0.562,
+      "longitude": 12.853,
+      "timezone": "Africa/Libreville"
+    },
+    "GM_Banjul": {
+      "latitude": 13.455,
+      "longitude": -16.576,
+      "timezone": "Africa/Banjul"
+    },
+    "GM_Serekunda": {
+      "latitude": 13.434,
+      "longitude": -16.686,
+      "timezone": "Africa/Banjul"
+    },
+    "GM_Brikama": {
+      "latitude": 13.259,
+      "longitude": -16.5,
+      "timezone": "Africa/Banjul"
+    },
+    "GM_Bakau": {
+      "latitude": 13.477,
+      "longitude": -16.678,
+      "timezone": "Africa/Banjul"
+    },
+    "GM_Farafenni": {
+      "latitude": 13.572,
+      "longitude": -15.598,
+      "timezone": "Africa/Banjul"
+    },
+    "GM_Lamin": {
+      "latitude": 13.387,
+      "longitude": -16.644,
+      "timezone": "Africa/Banjul"
+    },
+    "GM_Sukuta": {
+      "latitude": 13.415,
+      "longitude": -16.708,
+      "timezone": "Africa/Banjul"
+    },
+    "GM_Brufut": {
+      "latitude": 13.381,
+      "longitude": -16.752,
+      "timezone": "Africa/Banjul"
+    },
+    "GM_Gunjur": {
+      "latitude": 13.176,
+      "longitude": -16.76,
+      "timezone": "Africa/Banjul"
+    },
+    "GM_Basse Santa Su": {
+      "latitude": 13.31,
+      "longitude": -14.215,
+      "timezone": "Africa/Banjul"
+    },
+    "GN_Conakry": {
+      "latitude": 9.517,
+      "longitude": -13.7,
+      "timezone": "Africa/Conakry"
+    },
+    "GN_Nzerekore": {
+      "latitude": 8.393,
+      "longitude": -8.857,
+      "timezone": "Africa/Conakry"
+    },
+    "GN_Kankan": {
+      "latitude": 10.625,
+      "longitude": -9.318,
+      "timezone": "Africa/Conakry"
+    },
+    "GN_Kindia": {
+      "latitude": 10.115,
+      "longitude": -13.192,
+      "timezone": "Africa/Conakry"
+    },
+    "GN_Labe": {
+      "latitude": 11.761,
+      "longitude": -12.012,
+      "timezone": "Africa/Conakry"
+    },
+    "GN_Mamou": {
+      "latitude": 10.662,
+      "longitude": -12.114,
+      "timezone": "Africa/Conakry"
+    },
+    "GN_Boke": {
+      "latitude": 11.341,
+      "longitude": -13.944,
+      "timezone": "Africa/Conakry"
+    },
+    "GN_Siguiri": {
+      "latitude": 11.42,
+      "longitude": -9.175,
+      "timezone": "Africa/Conakry"
+    },
+    "GN_Gueckedou": {
+      "latitude": 8.682,
+      "longitude": -10.205,
+      "timezone": "Africa/Conakry"
+    },
+    "GN_Dalaba": {
+      "latitude": 10.691,
+      "longitude": -12.252,
+      "timezone": "Africa/Conakry"
+    },
+    "GQ_Malabo": {
+      "latitude": 3.742,
+      "longitude": 8.774,
+      "timezone": "Africa/Malabo"
+    },
+    "GQ_Bata": {
+      "latitude": 2.006,
+      "longitude": 9.909,
+      "timezone": "Africa/Malabo"
+    },
+    "GQ_Ebebiyin": {
+      "latitude": 2.154,
+      "longitude": 11.337,
+      "timezone": "Africa/Malabo"
+    },
+    "GQ_Aconibe": {
+      "latitude": 1.357,
+      "longitude": 10.93,
+      "timezone": "Africa/Malabo"
+    },
+    "GQ_Anisoc": {
+      "latitude": 1.844,
+      "longitude": 10.748,
+      "timezone": "Africa/Malabo"
+    },
+    "GQ_Luba": {
+      "latitude": 3.46,
+      "longitude": 8.554,
+      "timezone": "Africa/Malabo"
+    },
+    "GQ_Evinayong": {
+      "latitude": 1.439,
+      "longitude": 10.552,
+      "timezone": "Africa/Malabo"
+    },
+    "GQ_Mongomo": {
+      "latitude": 1.628,
+      "longitude": 11.318,
+      "timezone": "Africa/Malabo"
+    },
+    "GQ_Ebolowa": {
+      "latitude": 1.481,
+      "longitude": 10.493,
+      "timezone": "Africa/Malabo"
+    },
+    "GQ_Mbini": {
+      "latitude": 1.584,
+      "longitude": 9.616,
+      "timezone": "Africa/Malabo"
+    },
+    "GW_Bissau": {
+      "latitude": 11.861,
+      "longitude": -15.583,
+      "timezone": "Africa/Bissau"
+    },
+    "GW_Bafata": {
+      "latitude": 12.135,
+      "longitude": -14.75,
+      "timezone": "Africa/Bissau"
+    },
+    "GW_Gabu": {
+      "latitude": 12.117,
+      "longitude": -14.176,
+      "timezone": "Africa/Bissau"
+    },
+    "GW_Bissora": {
+      "latitude": 12.224,
+      "longitude": -15.451,
+      "timezone": "Africa/Bissau"
+    },
+    "GW_Bolama": {
+      "latitude": 11.28,
+      "longitude": -16.029,
+      "timezone": "Africa/Bissau"
+    },
+    "GW_Cacheu": {
+      "latitude": 12.274,
+      "longitude": -16.165,
+      "timezone": "Africa/Bissau"
+    },
+    "GW_Catio": {
+      "latitude": 11.284,
+      "longitude": -15.255,
+      "timezone": "Africa/Bissau"
+    },
+    "GW_Mansoa": {
+      "latitude": 12.067,
+      "longitude": -15.316,
+      "timezone": "Africa/Bissau"
+    },
+    "GW_Bubaque": {
+      "latitude": 11.3,
+      "longitude": -15.831,
+      "timezone": "Africa/Bissau"
+    },
+    "GW_Farim": {
+      "latitude": 12.482,
+      "longitude": -15.22,
+      "timezone": "Africa/Bissau"
+    },
+    "LR_Monrovia": {
+      "latitude": 6.32,
+      "longitude": -10.806,
+      "timezone": "Africa/Monrovia"
+    },
+    "LR_Gbarnga": {
+      "latitude": 6.996,
+      "longitude": -9.471,
+      "timezone": "Africa/Monrovia"
+    },
+    "LR_Buchanan": {
+      "latitude": 5.881,
+      "longitude": -10.049,
+      "timezone": "Africa/Monrovia"
+    },
+    "LR_Ganta": {
+      "latitude": 7.233,
+      "longitude": -8.986,
+      "timezone": "Africa/Monrovia"
+    },
+    "LR_Kakata": {
+      "latitude": 6.532,
+      "longitude": -10.349,
+      "timezone": "Africa/Monrovia"
+    },
+    "LR_Bensonville": {
+      "latitude": 5.927,
+      "longitude": -9.957,
+      "timezone": "Africa/Monrovia"
+    },
+    "LR_Harper": {
+      "latitude": 4.379,
+      "longitude": -7.706,
+      "timezone": "Africa/Monrovia"
+    },
+    "LR_Voinjama": {
+      "latitude": 8.245,
+      "longitude": -9.809,
+      "timezone": "Africa/Monrovia"
+    },
+    "LR_Zwedru": {
+      "latitude": 6.069,
+      "longitude": -8.134,
+      "timezone": "Africa/Monrovia"
+    },
+    "LR_Pleebo": {
+      "latitude": 4.589,
+      "longitude": -7.673,
+      "timezone": "Africa/Monrovia"
+    },
+    "LS_Maseru": {
+      "latitude": -29.31,
+      "longitude": 27.478,
+      "timezone": "Africa/Maseru"
+    },
+    "LS_Teyateyaneng": {
+      "latitude": -29.152,
+      "longitude": 27.743,
+      "timezone": "Africa/Maseru"
+    },
+    "LS_Mafeteng": {
+      "latitude": -29.789,
+      "longitude": 27.442,
+      "timezone": "Africa/Maseru"
+    },
+    "LS_Hlotse": {
+      "latitude": -28.871,
+      "longitude": 28.043,
+      "timezone": "Africa/Maseru"
+    },
+    "LS_Mohale's Hoek": {
+      "latitude": -30.07,
+      "longitude": 27.804,
+      "timezone": "Africa/Maseru"
+    },
+    "LS_Quthing": {
+      "latitude": -30.36,
+      "longitude": 27.986,
+      "timezone": "Africa/Maseru"
+    },
+    "LS_Qacha's Nek": {
+      "latitude": -29.966,
+      "longitude": 28.738,
+      "timezone": "Africa/Maseru"
+    },
+    "LS_Butha-Buthe": {
+      "latitude": -28.803,
+      "longitude": 28.564,
+      "timezone": "Africa/Maseru"
+    },
+    "LS_Mokhotlong": {
+      "latitude": -29.219,
+      "longitude": 29.035,
+      "timezone": "Africa/Maseru"
+    },
+    "LS_Thaba-Tseka": {
+      "latitude": -29.57,
+      "longitude": 28.594,
+      "timezone": "Africa/Maseru"
+    },
+    "MG_Antananarivo": {
+      "latitude": -18.91,
+      "longitude": 47.526,
+      "timezone": "Indian/Antananarivo"
+    },
+    "MG_Toamasina": {
+      "latitude": -18.155,
+      "longitude": 49.41,
+      "timezone": "Indian/Antananarivo"
+    },
+    "MG_Antsirabe": {
+      "latitude": -19.871,
+      "longitude": 47.035,
+      "timezone": "Indian/Antananarivo"
+    },
+    "MG_Mahajanga": {
+      "latitude": -15.718,
+      "longitude": 46.317,
+      "timezone": "Indian/Antananarivo"
+    },
+    "MG_Fianarantsoa": {
+      "latitude": -21.456,
+      "longitude": 47.085,
+      "timezone": "Indian/Antananarivo"
+    },
+    "MG_Toliara": {
+      "latitude": -23.354,
+      "longitude": 43.67,
+      "timezone": "Indian/Antananarivo"
+    },
+    "MG_Antsiranana": {
+      "latitude": -12.278,
+      "longitude": 49.291,
+      "timezone": "Indian/Antananarivo"
+    },
+    "MG_Ambovombe": {
+      "latitude": -25.178,
+      "longitude": 46.088,
+      "timezone": "Indian/Antananarivo"
+    },
+    "MG_Ambanja": {
+      "latitude": -13.676,
+      "longitude": 48.453,
+      "timezone": "Indian/Antananarivo"
+    },
+    "MG_Moramanga": {
+      "latitude": -18.947,
+      "longitude": 48.23,
+      "timezone": "Indian/Antananarivo"
+    },
+    "ML_Bamako": {
+      "latitude": 12.613,
+      "longitude": -7.985,
+      "timezone": "Africa/Bamako"
+    },
+    "ML_Sikasso": {
+      "latitude": 11.53,
+      "longitude": -6.866,
+      "timezone": "Africa/Bamako"
+    },
+    "ML_Mopti": {
+      "latitude": 14.514,
+      "longitude": -3.646,
+      "timezone": "Africa/Bamako"
+    },
+    "ML_Koutiala": {
+      "latitude": 12.387,
+      "longitude": -5.46,
+      "timezone": "Africa/Bamako"
+    },
+    "ML_Segou": {
+      "latitude": 13.442,
+      "longitude": -6.268,
+      "timezone": "Africa/Bamako"
+    },
+    "ML_Gao": {
+      "latitude": 16.279,
+      "longitude": -0.041,
+      "timezone": "Africa/Bamako"
+    },
+    "ML_Kayes": {
+      "latitude": 13.8,
+      "longitude": -10.225,
+      "timezone": "Africa/Bamako"
+    },
+    "ML_Kati": {
+      "latitude": 12.739,
+      "longitude": -8.068,
+      "timezone": "Africa/Bamako"
+    },
+    "ML_Markala": {
+      "latitude": 13.686,
+      "longitude": -6.069,
+      "timezone": "Africa/Bamako"
+    },
+    "ML_Koulikoro": {
+      "latitude": 13.481,
+      "longitude": -7.611,
+      "timezone": "Africa/Bamako"
+    },
+    "MW_Lilongwe": {
+      "latitude": -13.988,
+      "longitude": 33.768,
+      "timezone": "Africa/Blantyre"
+    },
+    "MW_Blantyre": {
+      "latitude": -15.786,
+      "longitude": 35.004,
+      "timezone": "Africa/Blantyre"
+    },
+    "MW_Mzuzu": {
+      "latitude": -11.461,
+      "longitude": 34.023,
+      "timezone": "Africa/Blantyre"
+    },
+    "MW_Zomba": {
+      "latitude": -15.386,
+      "longitude": 35.327,
+      "timezone": "Africa/Blantyre"
+    },
+    "MW_Karonga": {
+      "latitude": -10.085,
+      "longitude": 33.866,
+      "timezone": "Africa/Blantyre"
+    },
+    "MW_Kasungu": {
+      "latitude": -12.992,
+      "longitude": 33.472,
+      "timezone": "Africa/Blantyre"
+    },
+    "MW_Mangochi": {
+      "latitude": -14.141,
+      "longitude": 35.327,
+      "timezone": "Africa/Blantyre"
+    },
+    "MW_Salima": {
+      "latitude": -13.763,
+      "longitude": 34.452,
+      "timezone": "Africa/Blantyre"
+    },
+    "MW_Nkhotakota": {
+      "latitude": -12.832,
+      "longitude": 34.033,
+      "timezone": "Africa/Blantyre"
+    },
+    "MW_Rumphi": {
+      "latitude": -10.791,
+      "longitude": 33.851,
+      "timezone": "Africa/Blantyre"
+    },
+    "MZ_Maputo": {
+      "latitude": -25.966,
+      "longitude": 32.567,
+      "timezone": "Africa/Maputo"
+    },
+    "MZ_Matola": {
+      "latitude": -25.967,
+      "longitude": 32.467,
+      "timezone": "Africa/Maputo"
+    },
+    "MZ_Nampula": {
+      "latitude": -14.967,
+      "longitude": 39.271,
+      "timezone": "Africa/Maputo"
+    },
+    "MZ_Beira": {
+      "latitude": -19.834,
+      "longitude": 34.836,
+      "timezone": "Africa/Maputo"
+    },
+    "MZ_Chimoio": {
+      "latitude": -19.144,
+      "longitude": 33.478,
+      "timezone": "Africa/Maputo"
+    },
+    "MZ_Nacala": {
+      "latitude": -14.558,
+      "longitude": 40.686,
+      "timezone": "Africa/Maputo"
+    },
+    "MZ_Quelimane": {
+      "latitude": -17.878,
+      "longitude": 36.89,
+      "timezone": "Africa/Maputo"
+    },
+    "MZ_Tete": {
+      "latitude": -15.521,
+      "longitude": 32.768,
+      "timezone": "Africa/Maputo"
+    },
+    "MZ_Xai-Xai": {
+      "latitude": -25.044,
+      "longitude": 33.641,
+      "timezone": "Africa/Maputo"
+    },
+    "MZ_Pemba": {
+      "latitude": -12.974,
+      "longitude": 40.522,
+      "timezone": "Africa/Maputo"
+    },
+    "NA_Windhoek": {
+      "latitude": -22.578,
+      "longitude": 17.077,
+      "timezone": "Africa/Windhoek"
+    },
+    "NA_Rundu": {
+      "latitude": -17.914,
+      "longitude": 19.767,
+      "timezone": "Africa/Windhoek"
+    },
+    "NA_Walvis Bay": {
+      "latitude": -22.956,
+      "longitude": 14.507,
+      "timezone": "Africa/Windhoek"
+    },
+    "NA_Oshakati": {
+      "latitude": -17.783,
+      "longitude": 15.699,
+      "timezone": "Africa/Windhoek"
+    },
+    "NA_Swakopmund": {
+      "latitude": -22.677,
+      "longitude": 14.529,
+      "timezone": "Africa/Windhoek"
+    },
+    "NA_Katima Mulilo": {
+      "latitude": -17.507,
+      "longitude": 24.279,
+      "timezone": "Africa/Windhoek"
+    },
+    "NA_Grootfontein": {
+      "latitude": -19.564,
+      "longitude": 18.104,
+      "timezone": "Africa/Windhoek"
+    },
+    "NA_Rehoboth": {
+      "latitude": -23.315,
+      "longitude": 17.082,
+      "timezone": "Africa/Windhoek"
+    },
+    "NA_Otjiwarongo": {
+      "latitude": -20.461,
+      "longitude": 16.651,
+      "timezone": "Africa/Windhoek"
+    },
+    "NA_Okahandja": {
+      "latitude": -21.979,
+      "longitude": 16.913,
+      "timezone": "Africa/Windhoek"
+    },
+    "NE_Niamey": {
+      "latitude": 13.525,
+      "longitude": 2.11,
+      "timezone": "Africa/Niamey"
+    },
+    "NE_Zinder": {
+      "latitude": 13.806,
+      "longitude": 8.989,
+      "timezone": "Africa/Niamey"
+    },
+    "NE_Maradi": {
+      "latitude": 13.501,
+      "longitude": 7.103,
+      "timezone": "Africa/Niamey"
+    },
+    "NE_Agadez": {
+      "latitude": 16.973,
+      "longitude": 7.991,
+      "timezone": "Africa/Niamey"
+    },
+    "NE_Tahoua": {
+      "latitude": 14.89,
+      "longitude": 5.262,
+      "timezone": "Africa/Niamey"
+    },
+    "NE_Dosso": {
+      "latitude": 13.05,
+      "longitude": 3.194,
+      "timezone": "Africa/Niamey"
+    },
+    "NE_Diffa": {
+      "latitude": 13.313,
+      "longitude": 12.614,
+      "timezone": "Africa/Niamey"
+    },
+    "NE_Birni N'Konni": {
+      "latitude": 13.792,
+      "longitude": 5.248,
+      "timezone": "Africa/Niamey"
+    },
+    "NE_Tessaoua": {
+      "latitude": 13.756,
+      "longitude": 7.99,
+      "timezone": "Africa/Niamey"
+    },
+    "NE_Arlit": {
+      "latitude": 18.739,
+      "longitude": 7.393,
+      "timezone": "Africa/Niamey"
+    },
+    "RW_Kigali": {
+      "latitude": -1.953,
+      "longitude": 30.114,
+      "timezone": "Africa/Kigali"
+    },
+    "RW_Huye": {
+      "latitude": -2.591,
+      "longitude": 29.745,
+      "timezone": "Africa/Kigali"
+    },
+    "RW_Muhanga": {
+      "latitude": -2.085,
+      "longitude": 29.753,
+      "timezone": "Africa/Kigali"
+    },
+    "RW_Musanze": {
+      "latitude": -1.506,
+      "longitude": 29.636,
+      "timezone": "Africa/Kigali"
+    },
+    "RW_Rubavu": {
+      "latitude": -1.702,
+      "longitude": 29.259,
+      "timezone": "Africa/Kigali"
+    },
+    "RW_Byumba": {
+      "latitude": -1.579,
+      "longitude": 30.068,
+      "timezone": "Africa/Kigali"
+    },
+    "RW_Rusizi": {
+      "latitude": -2.557,
+      "longitude": 29.193,
+      "timezone": "Africa/Kigali"
+    },
+    "RW_Karongi": {
+      "latitude": -2.055,
+      "longitude": 29.35,
+      "timezone": "Africa/Kigali"
+    },
+    "RW_Rwamagana": {
+      "latitude": -1.979,
+      "longitude": 30.354,
+      "timezone": "Africa/Kigali"
+    },
+    "RW_Nyanza": {
+      "latitude": -2.343,
+      "longitude": 29.77,
+      "timezone": "Africa/Kigali"
+    },
+    "SC_Victoria": {
+      "latitude": -4.623,
+      "longitude": 55.452,
+      "timezone": "Indian/Mahe"
+    },
+    "SC_Anse Boileau": {
+      "latitude": -4.711,
+      "longitude": 55.484,
+      "timezone": "Indian/Mahe"
+    },
+    "SC_Beau Vallon": {
+      "latitude": -4.61,
+      "longitude": 55.438,
+      "timezone": "Indian/Mahe"
+    },
+    "SC_Takamaka": {
+      "latitude": -4.785,
+      "longitude": 55.512,
+      "timezone": "Indian/Mahe"
+    },
+    "SC_Port Glaud": {
+      "latitude": -4.664,
+      "longitude": 55.418,
+      "timezone": "Indian/Mahe"
+    },
+    "SC_Baie Lazare": {
+      "latitude": -4.753,
+      "longitude": 55.481,
+      "timezone": "Indian/Mahe"
+    },
+    "SC_Grand Anse": {
+      "latitude": -4.599,
+      "longitude": 55.507,
+      "timezone": "Indian/Mahe"
+    },
+    "SC_Cascade": {
+      "latitude": -4.669,
+      "longitude": 55.497,
+      "timezone": "Indian/Mahe"
+    },
+    "SC_Bel Ombre": {
+      "latitude": -4.619,
+      "longitude": 55.411,
+      "timezone": "Indian/Mahe"
+    },
+    "SC_Anse Royale": {
+      "latitude": -4.74,
+      "longitude": 55.51,
+      "timezone": "Indian/Mahe"
+    },
+    "SZ_Mbabane": {
+      "latitude": -26.326,
+      "longitude": 31.145,
+      "timezone": "Africa/Mbabane"
+    },
+    "SZ_Manzini": {
+      "latitude": -26.498,
+      "longitude": 31.375,
+      "timezone": "Africa/Mbabane"
+    },
+    "SZ_Big Bend": {
+      "latitude": -26.791,
+      "longitude": 31.938,
+      "timezone": "Africa/Mbabane"
+    },
+    "SZ_Malkerns": {
+      "latitude": -26.532,
+      "longitude": 31.189,
+      "timezone": "Africa/Mbabane"
+    },
+    "SZ_Nhlangano": {
+      "latitude": -27.113,
+      "longitude": 31.201,
+      "timezone": "Africa/Mbabane"
+    },
+    "SZ_Siteki": {
+      "latitude": -26.454,
+      "longitude": 31.946,
+      "timezone": "Africa/Mbabane"
+    },
+    "SZ_Matsapha": {
+      "latitude": -26.494,
+      "longitude": 31.308,
+      "timezone": "Africa/Mbabane"
+    },
+    "SZ_Piggs Peak": {
+      "latitude": -25.962,
+      "longitude": 31.248,
+      "timezone": "Africa/Mbabane"
+    },
+    "SZ_Lobamba": {
+      "latitude": -26.446,
+      "longitude": 31.208,
+      "timezone": "Africa/Mbabane"
+    },
+    "SZ_Mhlume": {
+      "latitude": -26.048,
+      "longitude": 31.816,
+      "timezone": "Africa/Mbabane"
+    },
+    "TD_N'Djamena": {
+      "latitude": 12.119,
+      "longitude": 15.05,
+      "timezone": "Africa/Ndjamena"
+    },
+    "TD_Moundou": {
+      "latitude": 8.565,
+      "longitude": 16.074,
+      "timezone": "Africa/Ndjamena"
+    },
+    "TD_Abeche": {
+      "latitude": 13.828,
+      "longitude": 20.828,
+      "timezone": "Africa/Ndjamena"
+    },
+    "TD_Sarh": {
+      "latitude": 9.141,
+      "longitude": 18.394,
+      "timezone": "Africa/Ndjamena"
+    },
+    "TD_Kelo": {
+      "latitude": 9.314,
+      "longitude": 15.787,
+      "timezone": "Africa/Ndjamena"
+    },
+    "TD_Koumra": {
+      "latitude": 8.919,
+      "longitude": 17.548,
+      "timezone": "Africa/Ndjamena"
+    },
+    "TD_Pala": {
+      "latitude": 9.366,
+      "longitude": 14.91,
+      "timezone": "Africa/Ndjamena"
+    },
+    "TD_Am Timan": {
+      "latitude": 11.04,
+      "longitude": 20.283,
+      "timezone": "Africa/Ndjamena"
+    },
+    "TD_Bongor": {
+      "latitude": 10.282,
+      "longitude": 15.371,
+      "timezone": "Africa/Ndjamena"
+    },
+    "TD_Mongo": {
+      "latitude": 12.184,
+      "longitude": 18.684,
+      "timezone": "Africa/Ndjamena"
+    },
+    "TG_Lome": {
+      "latitude": 6.13,
+      "longitude": 1.216,
+      "timezone": "Africa/Lome"
+    },
+    "TG_Sokode": {
+      "latitude": 8.987,
+      "longitude": 1.136,
+      "timezone": "Africa/Lome"
+    },
+    "TG_Kara": {
+      "latitude": 9.541,
+      "longitude": 0.788,
+      "timezone": "Africa/Lome"
+    },
+    "TG_Kpalime": {
+      "latitude": 6.911,
+      "longitude": 0.632,
+      "timezone": "Africa/Lome"
+    },
+    "TG_Atakpame": {
+      "latitude": 7.532,
+      "longitude": 1.122,
+      "timezone": "Africa/Lome"
+    },
+    "TG_Dapaong": {
+      "latitude": 10.86,
+      "longitude": 0.204,
+      "timezone": "Africa/Lome"
+    },
+    "TG_Tsevie": {
+      "latitude": 6.423,
+      "longitude": 1.21,
+      "timezone": "Africa/Lome"
+    },
+    "TG_Aneho": {
+      "latitude": 6.229,
+      "longitude": 1.594,
+      "timezone": "Africa/Lome"
+    },
+    "TG_Bassar": {
+      "latitude": 9.25,
+      "longitude": 0.772,
+      "timezone": "Africa/Lome"
+    },
+    "TG_Mango": {
+      "latitude": 10.357,
+      "longitude": 0.477,
+      "timezone": "Africa/Lome"
+    },
+    "UG_Kampala": {
+      "latitude": 0.318,
+      "longitude": 32.581,
+      "timezone": "Africa/Kampala"
+    },
+    "UG_Gulu": {
+      "latitude": 3.035,
+      "longitude": 32.38,
+      "timezone": "Africa/Kampala"
+    },
+    "UG_Lira": {
+      "latitude": 2.332,
+      "longitude": 32.95,
+      "timezone": "Africa/Kampala"
+    },
+    "UG_Mbarara": {
+      "latitude": -0.418,
+      "longitude": 30.574,
+      "timezone": "Africa/Kampala"
+    },
+    "UG_Jinja": {
+      "latitude": 0.575,
+      "longitude": 33.281,
+      "timezone": "Africa/Kampala"
+    },
+    "UG_Mbale": {
+      "latitude": 0.977,
+      "longitude": 34.202,
+      "timezone": "Africa/Kampala"
+    },
+    "UG_Masaka": {
+      "latitude": -0.483,
+      "longitude": 31.832,
+      "timezone": "Africa/Kampala"
+    },
+    "UG_Entebbe": {
+      "latitude": 0.061,
+      "longitude": 32.47,
+      "timezone": "Africa/Kampala"
+    },
+    "UG_Fort Portal": {
+      "latitude": 0.656,
+      "longitude": 30.278,
+      "timezone": "Africa/Kampala"
+    },
+    "UG_Arua": {
+      "latitude": 2.836,
+      "longitude": 30.961,
+      "timezone": "Africa/Kampala"
+    },
+    "ZM_Lusaka": {
+      "latitude": -15.416,
+      "longitude": 28.282,
+      "timezone": "Africa/Lusaka"
+    },
+    "ZM_Kitwe": {
+      "latitude": -12.82,
+      "longitude": 28.216,
+      "timezone": "Africa/Lusaka"
+    },
+    "ZM_Ndola": {
+      "latitude": -12.969,
+      "longitude": 28.637,
+      "timezone": "Africa/Lusaka"
+    },
+    "ZM_Kabwe": {
+      "latitude": -14.443,
+      "longitude": 28.447,
+      "timezone": "Africa/Lusaka"
+    },
+    "ZM_Chingola": {
+      "latitude": -12.547,
+      "longitude": 27.86,
+      "timezone": "Africa/Lusaka"
+    },
+    "ZM_Mufulira": {
+      "latitude": -12.551,
+      "longitude": 28.241,
+      "timezone": "Africa/Lusaka"
+    },
+    "ZM_Livingstone": {
+      "latitude": -17.853,
+      "longitude": 25.861,
+      "timezone": "Africa/Lusaka"
+    },
+    "ZM_Luanshya": {
+      "latitude": -13.132,
+      "longitude": 28.418,
+      "timezone": "Africa/Lusaka"
+    },
+    "ZM_Chipata": {
+      "latitude": -13.639,
+      "longitude": 32.646,
+      "timezone": "Africa/Lusaka"
+    },
+    "ZM_Kasama": {
+      "latitude": -10.204,
+      "longitude": 31.188,
+      "timezone": "Africa/Lusaka"
+    },
+    "ZW_Harare": {
+      "latitude": -17.857,
+      "longitude": 31.06,
+      "timezone": "Africa/Harare"
+    },
+    "ZW_Bulawayo": {
+      "latitude": -20.105,
+      "longitude": 28.543,
+      "timezone": "Africa/Harare"
+    },
+    "ZW_Chitungwiza": {
+      "latitude": -18.014,
+      "longitude": 31.073,
+      "timezone": "Africa/Harare"
+    },
+    "ZW_Mutare": {
+      "latitude": -18.975,
+      "longitude": 32.67,
+      "timezone": "Africa/Harare"
+    },
+    "ZW_Gweru": {
+      "latitude": -19.462,
+      "longitude": 29.821,
+      "timezone": "Africa/Harare"
+    },
+    "ZW_Kwekwe": {
+      "latitude": -18.928,
+      "longitude": 29.814,
+      "timezone": "Africa/Harare"
+    },
+    "ZW_Masvingo": {
+      "latitude": -20.745,
+      "longitude": 31.334,
+      "timezone": "Africa/Harare"
+    },
+    "ZW_Kadoma": {
+      "latitude": -18.337,
+      "longitude": 29.914,
+      "timezone": "Africa/Harare"
+    },
+    "ZW_Marondera": {
+      "latitude": -18.19,
+      "longitude": 31.546,
+      "timezone": "Africa/Harare"
+    },
+    "ZW_Victoria Falls": {
+      "latitude": -17.923,
+      "longitude": 25.848,
+      "timezone": "Africa/Harare"
+    },
+    "BB_Bridgetown": {
+      "latitude": 13.098,
+      "longitude": -59.618,
+      "timezone": "America/Barbados"
+    },
+    "BB_Speightstown": {
+      "latitude": 13.25,
+      "longitude": -59.642,
+      "timezone": "America/Barbados"
+    },
+    "BB_Oistins": {
+      "latitude": 13.063,
+      "longitude": -59.542,
+      "timezone": "America/Barbados"
+    },
+    "BB_Holetown": {
+      "latitude": 13.186,
+      "longitude": -59.637,
+      "timezone": "America/Barbados"
+    },
+    "BB_Bathsheba": {
+      "latitude": 13.213,
+      "longitude": -59.523,
+      "timezone": "America/Barbados"
+    },
+    "BB_Crane": {
+      "latitude": 13.105,
+      "longitude": -59.447,
+      "timezone": "America/Barbados"
+    },
+    "BB_Six Cross Roads": {
+      "latitude": 13.092,
+      "longitude": -59.533,
+      "timezone": "America/Barbados"
+    },
+    "BB_Warrens": {
+      "latitude": 13.14,
+      "longitude": -59.608,
+      "timezone": "America/Barbados"
+    },
+    "BB_Black Rock": {
+      "latitude": 13.127,
+      "longitude": -59.626,
+      "timezone": "America/Barbados"
+    },
+    "BB_Hastings": {
+      "latitude": 13.075,
+      "longitude": -59.599,
+      "timezone": "America/Barbados"
+    },
+    "BO_La Paz": {
+      "latitude": -16.53,
+      "longitude": -68.195,
+      "timezone": "America/La_Paz"
+    },
+    "BO_Santa Cruz": {
+      "latitude": -17.783,
+      "longitude": -63.182,
+      "timezone": "America/La_Paz"
+    },
+    "BO_Cochabamba": {
+      "latitude": -17.401,
+      "longitude": -66.168,
+      "timezone": "America/La_Paz"
+    },
+    "BO_Sucre": {
+      "latitude": -19.048,
+      "longitude": -65.259,
+      "timezone": "America/La_Paz"
+    },
+    "BO_Oruro": {
+      "latitude": -18.667,
+      "longitude": -67.667,
+      "timezone": "America/La_Paz"
+    },
+    "BO_Tarija": {
+      "latitude": -21.583,
+      "longitude": -63.833,
+      "timezone": "America/La_Paz"
+    },
+    "BO_Potosi": {
+      "latitude": -19.588,
+      "longitude": -65.754,
+      "timezone": "America/La_Paz"
+    },
+    "BO_Trinidad": {
+      "latitude": -14.835,
+      "longitude": -64.904,
+      "timezone": "America/La_Paz"
+    },
+    "BO_Cobija": {
+      "latitude": -11.018,
+      "longitude": -68.754,
+      "timezone": "America/La_Paz"
+    },
+    "BO_Yacuiba": {
+      "latitude": -22.014,
+      "longitude": -63.678,
+      "timezone": "America/La_Paz"
+    },
+    "BS_Nassau": {
+      "latitude": 25.078,
+      "longitude": -77.338,
+      "timezone": "America/Nassau"
+    },
+    "BS_Freeport": {
+      "latitude": 26.536,
+      "longitude": -78.695,
+      "timezone": "America/Nassau"
+    },
+    "BS_West End": {
+      "latitude": 26.685,
+      "longitude": -78.965,
+      "timezone": "America/Nassau"
+    },
+    "BS_Marsh Harbour": {
+      "latitude": 26.538,
+      "longitude": -77.061,
+      "timezone": "America/Nassau"
+    },
+    "BS_Coopers Town": {
+      "latitude": 26.873,
+      "longitude": -77.514,
+      "timezone": "America/Nassau"
+    },
+    "BS_High Rock": {
+      "latitude": 26.626,
+      "longitude": -78.283,
+      "timezone": "America/Nassau"
+    },
+    "BS_Clarence Town": {
+      "latitude": 23.092,
+      "longitude": -74.961,
+      "timezone": "America/Nassau"
+    },
+    "BS_Dunmore Town": {
+      "latitude": 25.499,
+      "longitude": -76.636,
+      "timezone": "America/Nassau"
+    },
+    "BS_Alice Town": {
+      "latitude": 25.727,
+      "longitude": -79.297,
+      "timezone": "America/Nassau"
+    },
+    "BS_George Town": {
+      "latitude": 23.516,
+      "longitude": -75.779,
+      "timezone": "America/Nassau"
+    },
+    "BT_Thimphu": {
+      "latitude": 27.471,
+      "longitude": 89.634,
+      "timezone": "Asia/Thimphu"
+    },
+    "BT_Phuntsholing": {
+      "latitude": 26.864,
+      "longitude": 89.384,
+      "timezone": "Asia/Thimphu"
+    },
+    "BT_Punakha": {
+      "latitude": 27.584,
+      "longitude": 89.859,
+      "timezone": "Asia/Thimphu"
+    },
+    "BT_Gelephu": {
+      "latitude": 26.87,
+      "longitude": 90.486,
+      "timezone": "Asia/Thimphu"
+    },
+    "BT_Paro": {
+      "latitude": 27.465,
+      "longitude": 89.318,
+      "timezone": "Asia/Thimphu"
+    },
+    "BT_Trashigang": {
+      "latitude": 27.331,
+      "longitude": 91.552,
+      "timezone": "Asia/Thimphu"
+    },
+    "BT_Mongar": {
+      "latitude": 27.209,
+      "longitude": 91.158,
+      "timezone": "Asia/Thimphu"
+    },
+    "BT_Jakar": {
+      "latitude": 27.549,
+      "longitude": 90.752,
+      "timezone": "Asia/Thimphu"
+    },
+    "BT_Samdrup Jongkhar": {
+      "latitude": 26.875,
+      "longitude": 91.551,
+      "timezone": "Asia/Thimphu"
+    },
+    "BT_Wangdue Phodrang": {
+      "latitude": 27.488,
+      "longitude": 89.901,
+      "timezone": "Asia/Thimphu"
+    },
+    "BZ_Belize City": {
+      "latitude": 17.5,
+      "longitude": -88.199,
+      "timezone": "America/Belize"
+    },
+    "BZ_Belmopan": {
+      "latitude": 17.25,
+      "longitude": -88.77,
+      "timezone": "America/Belize"
+    },
+    "BZ_San Ignacio": {
+      "latitude": 17.153,
+      "longitude": -89.076,
+      "timezone": "America/Belize"
+    },
+    "BZ_Orange Walk": {
+      "latitude": 17.783,
+      "longitude": -88.862,
+      "timezone": "America/Belize"
+    },
+    "BZ_Dangriga": {
+      "latitude": 16.967,
+      "longitude": -88.225,
+      "timezone": "America/Belize"
+    },
+    "BZ_Corozal": {
+      "latitude": 18.228,
+      "longitude": -88.292,
+      "timezone": "America/Belize"
+    },
+    "BZ_San Pedro": {
+      "latitude": 17.92,
+      "longitude": -87.962,
+      "timezone": "America/Belize"
+    },
+    "BZ_Punta Gorda": {
+      "latitude": 16.099,
+      "longitude": -88.808,
+      "timezone": "America/Belize"
+    },
+    "BZ_Benque Viejo del Carmen": {
+      "latitude": 17.075,
+      "longitude": -89.139,
+      "timezone": "America/Belize"
+    },
+    "BZ_Placencia": {
+      "latitude": 16.516,
+      "longitude": -88.367,
+      "timezone": "America/Belize"
+    },
+    "CR_San Jose": {
+      "latitude": -34.754,
+      "longitude": -58.355,
+      "timezone": "America/Costa_Rica"
+    },
+    "CR_Alajuela": {
+      "latitude": 10.452,
+      "longitude": -84.466,
+      "timezone": "America/Costa_Rica"
+    },
+    "CR_Cartago": {
+      "latitude": 9.816,
+      "longitude": -83.694,
+      "timezone": "America/Costa_Rica"
+    },
+    "CR_Heredia": {
+      "latitude": 10.377,
+      "longitude": -84.014,
+      "timezone": "America/Costa_Rica"
+    },
+    "CR_Limon": {
+      "latitude": 10.1,
+      "longitude": -83.343,
+      "timezone": "America/Costa_Rica"
+    },
+    "CR_Puntarenas": {
+      "latitude": 9.095,
+      "longitude": -84.2,
+      "timezone": "America/Costa_Rica"
+    },
+    "CR_Liberia": {
+      "latitude": 10.632,
+      "longitude": -85.439,
+      "timezone": "America/Costa_Rica"
+    },
+    "CR_San Isidro": {
+      "latitude": 10.03,
+      "longitude": -84.032,
+      "timezone": "America/Costa_Rica"
+    },
+    "CR_Quesada": {
+      "latitude": 10.326,
+      "longitude": -84.43,
+      "timezone": "America/Costa_Rica"
+    },
+    "CR_Curridabat": {
+      "latitude": 9.916,
+      "longitude": -84.031,
+      "timezone": "America/Costa_Rica"
+    },
+    "CU_Havana": {
+      "latitude": 23.135,
+      "longitude": -82.359,
+      "timezone": "America/Havana"
+    },
+    "CU_Santiago de Cuba": {
+      "latitude": 20.021,
+      "longitude": -75.829,
+      "timezone": "America/Havana"
+    },
+    "CU_Camaguey": {
+      "latitude": 21.375,
+      "longitude": -77.915,
+      "timezone": "America/Havana"
+    },
+    "CU_Holguin": {
+      "latitude": 20.889,
+      "longitude": -76.268,
+      "timezone": "America/Havana"
+    },
+    "CU_Guantanamo": {
+      "latitude": 20.249,
+      "longitude": -74.458,
+      "timezone": "America/Havana"
+    },
+    "CU_Santa Clara": {
+      "latitude": 22.407,
+      "longitude": -79.965,
+      "timezone": "America/Havana"
+    },
+    "CU_Bayamo": {
+      "latitude": 20.404,
+      "longitude": -76.668,
+      "timezone": "America/Havana"
+    },
+    "CU_Cienfuegos": {
+      "latitude": 22.146,
+      "longitude": -80.453,
+      "timezone": "America/Havana"
+    },
+    "CU_Pinar del Rio": {
+      "latitude": 22.38,
+      "longitude": -83.629,
+      "timezone": "America/Havana"
+    },
+    "CU_Matanzas": {
+      "latitude": 23.047,
+      "longitude": -81.578,
+      "timezone": "America/Havana"
+    },
+    "DM_Roseau": {
+      "latitude": 15.299,
+      "longitude": -61.387,
+      "timezone": "America/Dominica"
+    },
+    "DM_Portsmouth": {
+      "latitude": 15.576,
+      "longitude": -61.456,
+      "timezone": "America/Dominica"
+    },
+    "DM_Marigot": {
+      "latitude": 15.536,
+      "longitude": -61.279,
+      "timezone": "America/Dominica"
+    },
+    "DM_Berekua": {
+      "latitude": 15.24,
+      "longitude": -61.315,
+      "timezone": "America/Dominica"
+    },
+    "DM_Mahaut": {
+      "latitude": 15.363,
+      "longitude": -61.397,
+      "timezone": "America/Dominica"
+    },
+    "DM_Saint Joseph": {
+      "latitude": 15.406,
+      "longitude": -61.424,
+      "timezone": "America/Dominica"
+    },
+    "DM_Wesley": {
+      "latitude": 15.564,
+      "longitude": -61.311,
+      "timezone": "America/Dominica"
+    },
+    "DM_Salisbury": {
+      "latitude": 15.437,
+      "longitude": -61.436,
+      "timezone": "America/Dominica"
+    },
+    "DM_La Plaine": {
+      "latitude": 15.329,
+      "longitude": -61.246,
+      "timezone": "America/Dominica"
+    },
+    "DM_Castle Bruce": {
+      "latitude": 15.442,
+      "longitude": -61.257,
+      "timezone": "America/Dominica"
+    },
+    "DO_Santo Domingo": {
+      "latitude": 18.471,
+      "longitude": -69.892,
+      "timezone": "America/Santo_Domingo"
+    },
+    "DO_Santiago de los Caballeros": {
+      "latitude": 19.451,
+      "longitude": -70.695,
+      "timezone": "America/Santo_Domingo"
+    },
+    "DO_La Romana": {
+      "latitude": 18.423,
+      "longitude": -68.966,
+      "timezone": "America/Santo_Domingo"
+    },
+    "DO_San Pedro de Macoris": {
+      "latitude": 18.608,
+      "longitude": -69.489,
+      "timezone": "America/Santo_Domingo"
+    },
+    "DO_San Francisco de Macoris": {
+      "latitude": 19.297,
+      "longitude": -70.257,
+      "timezone": "America/Santo_Domingo"
+    },
+    "DO_Puerto Plata": {
+      "latitude": 19.798,
+      "longitude": -70.693,
+      "timezone": "America/Santo_Domingo"
+    },
+    "DO_La Vega": {
+      "latitude": 19.031,
+      "longitude": -70.727,
+      "timezone": "America/Santo_Domingo"
+    },
+    "DO_Barahona": {
+      "latitude": 18.189,
+      "longitude": -71.229,
+      "timezone": "America/Santo_Domingo"
+    },
+    "DO_San Cristobal": {
+      "latitude": 18.416,
+      "longitude": -70.11,
+      "timezone": "America/Santo_Domingo"
+    },
+    "DO_Higuey": {
+      "latitude": 18.615,
+      "longitude": -68.708,
+      "timezone": "America/Santo_Domingo"
+    },
+    "EC_Guayaquil": {
+      "latitude": -2.19,
+      "longitude": -79.887,
+      "timezone": "America/Guayaquil"
+    },
+    "EC_Quito": {
+      "latitude": -0.22,
+      "longitude": -78.512,
+      "timezone": "America/Guayaquil"
+    },
+    "EC_Cuenca": {
+      "latitude": -2.897,
+      "longitude": -79.004,
+      "timezone": "America/Guayaquil"
+    },
+    "EC_Santo Domingo": {
+      "latitude": -0.254,
+      "longitude": -79.171,
+      "timezone": "America/Guayaquil"
+    },
+    "EC_Machala": {
+      "latitude": -3.315,
+      "longitude": -79.951,
+      "timezone": "America/Guayaquil"
+    },
+    "EC_Duran": {
+      "latitude": -2.213,
+      "longitude": -79.79,
+      "timezone": "America/Guayaquil"
+    },
+    "EC_Manta": {
+      "latitude": -0.949,
+      "longitude": -80.719,
+      "timezone": "America/Guayaquil"
+    },
+    "EC_Portoviejo": {
+      "latitude": -3.481,
+      "longitude": -80.225,
+      "timezone": "America/Guayaquil"
+    },
+    "EC_Loja": {
+      "latitude": -4.053,
+      "longitude": -79.805,
+      "timezone": "America/Guayaquil"
+    },
+    "EC_Ambato": {
+      "latitude": -1.242,
+      "longitude": -78.629,
+      "timezone": "America/Guayaquil"
+    },
+    "FJ_Suva": {
+      "latitude": -18.142,
+      "longitude": 178.442,
+      "timezone": "Pacific/Fiji"
+    },
+    "FJ_Lautoka": {
+      "latitude": -17.605,
+      "longitude": 177.448,
+      "timezone": "Pacific/Fiji"
+    },
+    "FJ_Nadi": {
+      "latitude": -17.799,
+      "longitude": 177.418,
+      "timezone": "Pacific/Fiji"
+    },
+    "FJ_Labasa": {
+      "latitude": -16.433,
+      "longitude": 179.366,
+      "timezone": "Pacific/Fiji"
+    },
+    "FJ_Ba": {
+      "latitude": -17.118,
+      "longitude": 177.392,
+      "timezone": "Pacific/Fiji"
+    },
+    "FJ_Levuka": {
+      "latitude": -17.681,
+      "longitude": 178.833,
+      "timezone": "Pacific/Fiji"
+    },
+    "FJ_Sigatoka": {
+      "latitude": -18.138,
+      "longitude": 177.508,
+      "timezone": "Pacific/Fiji"
+    },
+    "FJ_Rakiraki": {
+      "latitude": -17.378,
+      "longitude": 178.153,
+      "timezone": "Pacific/Fiji"
+    },
+    "FJ_Nausori": {
+      "latitude": -18.029,
+      "longitude": 178.529,
+      "timezone": "Pacific/Fiji"
+    },
+    "FJ_Savusavu": {
+      "latitude": -16.78,
+      "longitude": 179.333,
+      "timezone": "Pacific/Fiji"
+    },
+    "FM_Palikir": {
+      "latitude": 6.921,
+      "longitude": 158.163,
+      "timezone": "Pacific/Pohnpei"
+    },
+    "FM_Weno": {
+      "latitude": 7.44,
+      "longitude": 151.857,
+      "timezone": "Pacific/Pohnpei"
+    },
+    "FM_Kolonia": {
+      "latitude": 6.964,
+      "longitude": 158.209,
+      "timezone": "Pacific/Pohnpei"
+    },
+    "FM_Tofol": {
+      "latitude": 5.326,
+      "longitude": 163.009,
+      "timezone": "Pacific/Pohnpei"
+    },
+    "FM_Colonia": {
+      "latitude": 9.516,
+      "longitude": 138.122,
+      "timezone": "Pacific/Pohnpei"
+    },
+    "FM_Lelu": {
+      "latitude": 5.332,
+      "longitude": 163.024,
+      "timezone": "Pacific/Pohnpei"
+    },
+    "FM_Nema": {
+      "latitude": 6.963,
+      "longitude": 152.575,
+      "timezone": "Pacific/Pohnpei"
+    },
+    "FM_Satowan": {
+      "latitude": 5.331,
+      "longitude": 153.738,
+      "timezone": "Pacific/Pohnpei"
+    },
+    "FM_Lukunor": {
+      "latitude": 5.496,
+      "longitude": 153.785,
+      "timezone": "Pacific/Pohnpei"
+    },
+    "FM_Kuttu": {
+      "latitude": 5.459,
+      "longitude": 153.456,
+      "timezone": "Pacific/Pohnpei"
+    },
+    "GD_St. George's": {
+      "latitude": 12.053,
+      "longitude": -61.75,
+      "timezone": "America/Grenada"
+    },
+    "GD_Gouyave": {
+      "latitude": 12.167,
+      "longitude": -61.73,
+      "timezone": "America/Grenada"
+    },
+    "GD_Grenville": {
+      "latitude": 12.123,
+      "longitude": -61.623,
+      "timezone": "America/Grenada"
+    },
+    "GD_Victoria": {
+      "latitude": 12.195,
+      "longitude": -61.705,
+      "timezone": "America/Grenada"
+    },
+    "GD_Sauteurs": {
+      "latitude": 12.225,
+      "longitude": -61.638,
+      "timezone": "America/Grenada"
+    },
+    "GD_Hillsborough": {
+      "latitude": 12.483,
+      "longitude": -61.457,
+      "timezone": "America/Grenada"
+    },
+    "GD_Woburn": {
+      "latitude": 12.023,
+      "longitude": -61.736,
+      "timezone": "America/Grenada"
+    },
+    "GD_Grand Roy": {
+      "latitude": 12.132,
+      "longitude": -61.746,
+      "timezone": "America/Grenada"
+    },
+    "GD_Concord": {
+      "latitude": 12.118,
+      "longitude": -61.739,
+      "timezone": "America/Grenada"
+    },
+    "GD_Tivoli": {
+      "latitude": 12.173,
+      "longitude": -61.62,
+      "timezone": "America/Grenada"
+    },
+    "GT_Guatemala City": {
+      "latitude": 14.642,
+      "longitude": -90.513,
+      "timezone": "America/Guatemala"
+    },
+    "GT_Mixco": {
+      "latitude": 14.61,
+      "longitude": -90.6,
+      "timezone": "America/Guatemala"
+    },
+    "GT_Villa Nueva": {
+      "latitude": 14.531,
+      "longitude": -90.596,
+      "timezone": "America/Guatemala"
+    },
+    "GT_Quetzaltenango": {
+      "latitude": 14.846,
+      "longitude": -91.519,
+      "timezone": "America/Guatemala"
+    },
+    "GT_Escuintla": {
+      "latitude": 14.192,
+      "longitude": -91.026,
+      "timezone": "America/Guatemala"
+    },
+    "GT_San Juan Sacatepequez": {
+      "latitude": 14.784,
+      "longitude": -90.658,
+      "timezone": "America/Guatemala"
+    },
+    "GT_Villa Canales": {
+      "latitude": 14.483,
+      "longitude": -90.533,
+      "timezone": "America/Guatemala"
+    },
+    "GT_Petapa": {
+      "latitude": 14.498,
+      "longitude": -90.556,
+      "timezone": "America/Guatemala"
+    },
+    "GT_Chinautla": {
+      "latitude": 14.742,
+      "longitude": -90.483,
+      "timezone": "America/Guatemala"
+    },
+    "GT_Huehuetenango": {
+      "latitude": 15.606,
+      "longitude": -91.644,
+      "timezone": "America/Guatemala"
+    },
+    "GY_Georgetown": {
+      "latitude": 6.803,
+      "longitude": -58.146,
+      "timezone": "America/Guyana"
+    },
+    "GY_Linden": {
+      "latitude": 6.01,
+      "longitude": -58.312,
+      "timezone": "America/Guyana"
+    },
+    "GY_New Amsterdam": {
+      "latitude": 6.243,
+      "longitude": -57.517,
+      "timezone": "America/Guyana"
+    },
+    "GY_Anna Regina": {
+      "latitude": 7.262,
+      "longitude": -58.482,
+      "timezone": "America/Guyana"
+    },
+    "GY_Bartica": {
+      "latitude": 6.405,
+      "longitude": -58.621,
+      "timezone": "America/Guyana"
+    },
+    "GY_Skeldon": {
+      "latitude": 5.885,
+      "longitude": -57.141,
+      "timezone": "America/Guyana"
+    },
+    "GY_Rosignol": {
+      "latitude": 6.275,
+      "longitude": -57.539,
+      "timezone": "America/Guyana"
+    },
+    "GY_Mahaica": {
+      "latitude": 6.682,
+      "longitude": -57.923,
+      "timezone": "America/Guyana"
+    },
+    "GY_Fort Wellington": {
+      "latitude": 6.392,
+      "longitude": -57.596,
+      "timezone": "America/Guyana"
+    },
+    "GY_Lethem": {
+      "latitude": 3.375,
+      "longitude": -59.796,
+      "timezone": "America/Guyana"
+    },
+    "HN_Tegucigalpa": {
+      "latitude": 14.106,
+      "longitude": -87.205,
+      "timezone": "America/Tegucigalpa"
+    },
+    "HN_San Pedro Sula": {
+      "latitude": 15.511,
+      "longitude": -88.013,
+      "timezone": "America/Tegucigalpa"
+    },
+    "HN_Choloma": {
+      "latitude": 15.613,
+      "longitude": -87.951,
+      "timezone": "America/Tegucigalpa"
+    },
+    "HN_La Ceiba": {
+      "latitude": 15.783,
+      "longitude": -86.792,
+      "timezone": "America/Tegucigalpa"
+    },
+    "HN_El Progreso": {
+      "latitude": 15.401,
+      "longitude": -87.812,
+      "timezone": "America/Tegucigalpa"
+    },
+    "HN_Choluteca": {
+      "latitude": 13.371,
+      "longitude": -87.071,
+      "timezone": "America/Tegucigalpa"
+    },
+    "HN_Comayagua": {
+      "latitude": 18.141,
+      "longitude": -66.196,
+      "timezone": "America/Tegucigalpa"
+    },
+    "HN_Puerto Cortes": {
+      "latitude": 15.851,
+      "longitude": -87.943,
+      "timezone": "America/Tegucigalpa"
+    },
+    "HN_La Lima": {
+      "latitude": 15.44,
+      "longitude": -87.928,
+      "timezone": "America/Tegucigalpa"
+    },
+    "HN_Danli": {
+      "latitude": 14.032,
+      "longitude": -86.568,
+      "timezone": "America/Tegucigalpa"
+    },
+    "HT_Port-au-Prince": {
+      "latitude": 18.547,
+      "longitude": -72.34,
+      "timezone": "America/Port-au-Prince"
+    },
+    "HT_Carrefour": {
+      "latitude": 18.535,
+      "longitude": -72.409,
+      "timezone": "America/Port-au-Prince"
+    },
+    "HT_Delmas": {
+      "latitude": 18.552,
+      "longitude": -72.292,
+      "timezone": "America/Port-au-Prince"
+    },
+    "HT_Petion-Ville": {
+      "latitude": 18.513,
+      "longitude": -72.29,
+      "timezone": "America/Port-au-Prince"
+    },
+    "HT_Gonaives": {
+      "latitude": 19.452,
+      "longitude": -72.689,
+      "timezone": "America/Port-au-Prince"
+    },
+    "HT_Cap-Haitien": {
+      "latitude": 19.76,
+      "longitude": -72.203,
+      "timezone": "America/Port-au-Prince"
+    },
+    "HT_Les Cayes": {
+      "latitude": 18.194,
+      "longitude": -73.751,
+      "timezone": "America/Port-au-Prince"
+    },
+    "HT_Jacmel": {
+      "latitude": 18.235,
+      "longitude": -72.538,
+      "timezone": "America/Port-au-Prince"
+    },
+    "HT_Saint-Marc": {
+      "latitude": 19.102,
+      "longitude": -72.7,
+      "timezone": "America/Port-au-Prince"
+    },
+    "HT_Verrettes": {
+      "latitude": 19.051,
+      "longitude": -72.467,
+      "timezone": "America/Port-au-Prince"
+    },
+    "JM_Kingston": {
+      "latitude": 17.971,
+      "longitude": -76.793,
+      "timezone": "America/Jamaica"
+    },
+    "JM_Montego Bay": {
+      "latitude": 18.472,
+      "longitude": -77.922,
+      "timezone": "America/Jamaica"
+    },
+    "JM_Spanish Town": {
+      "latitude": 17.996,
+      "longitude": -76.954,
+      "timezone": "America/Jamaica"
+    },
+    "JM_Portmore": {
+      "latitude": 17.972,
+      "longitude": -76.874,
+      "timezone": "America/Jamaica"
+    },
+    "JM_Mandeville": {
+      "latitude": 18.043,
+      "longitude": -77.507,
+      "timezone": "America/Jamaica"
+    },
+    "JM_May Pen": {
+      "latitude": 17.975,
+      "longitude": -77.258,
+      "timezone": "America/Jamaica"
+    },
+    "JM_Old Harbour": {
+      "latitude": 17.938,
+      "longitude": -77.113,
+      "timezone": "America/Jamaica"
+    },
+    "JM_Linstead": {
+      "latitude": 18.137,
+      "longitude": -77.03,
+      "timezone": "America/Jamaica"
+    },
+    "JM_Half Way Tree": {
+      "latitude": 18.012,
+      "longitude": -76.797,
+      "timezone": "America/Jamaica"
+    },
+    "JM_Savanna-la-Mar": {
+      "latitude": 18.217,
+      "longitude": -78.133,
+      "timezone": "America/Jamaica"
+    },
+    "KI_Tarawa": {
+      "latitude": 1.485,
+      "longitude": 172.969,
+      "timezone": "Pacific/Tarawa"
+    },
+    "KI_Betio": {
+      "latitude": 1.357,
+      "longitude": 172.932,
+      "timezone": "Pacific/Tarawa"
+    },
+    "KI_Bairiki": {
+      "latitude": 1.33,
+      "longitude": 172.978,
+      "timezone": "Pacific/Tarawa"
+    },
+    "KI_Bikenibeu": {
+      "latitude": 1.366,
+      "longitude": 173.123,
+      "timezone": "Pacific/Tarawa"
+    },
+    "KI_Teaoraereke": {
+      "latitude": 1.335,
+      "longitude": 173.016,
+      "timezone": "Pacific/Tarawa"
+    },
+    "KI_Ambo": {
+      "latitude": 1.353,
+      "longitude": 173.041,
+      "timezone": "Pacific/Tarawa"
+    },
+    "KI_Banraeaba": {
+      "latitude": 1.344,
+      "longitude": 173.033,
+      "timezone": "Pacific/Tarawa"
+    },
+    "KI_Taburao": {
+      "latitude": 0.091,
+      "longitude": 173.68,
+      "timezone": "Pacific/Tarawa"
+    },
+    "KI_Tabuki": {
+      "latitude": 1.429,
+      "longitude": 173.09,
+      "timezone": "Pacific/Tarawa"
+    },
+    "KI_Roreti": {
+      "latitude": -2.654,
+      "longitude": 176.832,
+      "timezone": "Pacific/Tarawa"
+    },
+    "KR_Seoul": {
+      "latitude": 37.567,
+      "longitude": 126.978,
+      "timezone": "Asia/Seoul"
+    },
+    "KR_Busan": {
+      "latitude": 35.18,
+      "longitude": 129.075,
+      "timezone": "Asia/Seoul"
+    },
+    "KR_Incheon": {
+      "latitude": 37.456,
+      "longitude": 126.705,
+      "timezone": "Asia/Seoul"
+    },
+    "KR_Daegu": {
+      "latitude": 35.871,
+      "longitude": 128.601,
+      "timezone": "Asia/Seoul"
+    },
+    "KR_Daejeon": {
+      "latitude": 36.35,
+      "longitude": 127.385,
+      "timezone": "Asia/Seoul"
+    },
+    "KR_Gwangju": {
+      "latitude": 35.16,
+      "longitude": 126.853,
+      "timezone": "Asia/Seoul"
+    },
+    "KR_Suwon": {
+      "latitude": 37.263,
+      "longitude": 127.029,
+      "timezone": "Asia/Seoul"
+    },
+    "KR_Ulsan": {
+      "latitude": 35.539,
+      "longitude": 129.312,
+      "timezone": "Asia/Seoul"
+    },
+    "KR_Changwon": {
+      "latitude": 35.228,
+      "longitude": 128.682,
+      "timezone": "Asia/Seoul"
+    },
+    "KR_Seongnam": {
+      "latitude": 37.42,
+      "longitude": 127.126,
+      "timezone": "Asia/Seoul"
+    },
+    "LC_Castries": {
+      "latitude": 14.01,
+      "longitude": -60.99,
+      "timezone": "America/St_Lucia"
+    },
+    "LC_Bisee": {
+      "latitude": 13.967,
+      "longitude": -60.974,
+      "timezone": "America/St_Lucia"
+    },
+    "LC_Vieux Fort": {
+      "latitude": 13.773,
+      "longitude": -60.958,
+      "timezone": "America/St_Lucia"
+    },
+    "LC_Micoud": {
+      "latitude": 13.827,
+      "longitude": -60.943,
+      "timezone": "America/St_Lucia"
+    },
+    "LC_Soufriere": {
+      "latitude": 13.857,
+      "longitude": -61.057,
+      "timezone": "America/St_Lucia"
+    },
+    "LC_Dennery": {
+      "latitude": 13.924,
+      "longitude": -60.925,
+      "timezone": "America/St_Lucia"
+    },
+    "LC_Gros Islet": {
+      "latitude": 14.08,
+      "longitude": -60.952,
+      "timezone": "America/St_Lucia"
+    },
+    "LC_Anse La Raye": {
+      "latitude": 13.915,
+      "longitude": -61.008,
+      "timezone": "America/St_Lucia"
+    },
+    "LC_Canaries": {
+      "latitude": 13.895,
+      "longitude": -61.029,
+      "timezone": "America/St_Lucia"
+    },
+    "LC_Laborie": {
+      "latitude": 13.79,
+      "longitude": -61.005,
+      "timezone": "America/St_Lucia"
+    },
+    "MH_Majuro": {
+      "latitude": 7.091,
+      "longitude": 171.382,
+      "timezone": "Pacific/Majuro"
+    },
+    "MH_Ebeye": {
+      "latitude": 8.78,
+      "longitude": 167.738,
+      "timezone": "Pacific/Majuro"
+    },
+    "MH_Laura": {
+      "latitude": 7.146,
+      "longitude": 171.035,
+      "timezone": "Pacific/Majuro"
+    },
+    "MH_Rairok": {
+      "latitude": 7.076,
+      "longitude": 171.322,
+      "timezone": "Pacific/Majuro"
+    },
+    "MH_Ajeltake": {
+      "latitude": 7.075,
+      "longitude": 171.171,
+      "timezone": "Pacific/Majuro"
+    },
+    "MH_Rita": {
+      "latitude": 7.122,
+      "longitude": 171.363,
+      "timezone": "Pacific/Majuro"
+    },
+    "MH_Wotje": {
+      "latitude": 9.453,
+      "longitude": 170.072,
+      "timezone": "Pacific/Majuro"
+    },
+    "MH_Jaluit": {
+      "latitude": 6.0,
+      "longitude": 169.583,
+      "timezone": "Pacific/Majuro"
+    },
+    "MH_Kwajalein": {
+      "latitude": 8.736,
+      "longitude": 167.738,
+      "timezone": "Pacific/Majuro"
+    },
+    "MH_Arno": {
+      "latitude": 7.081,
+      "longitude": 171.656,
+      "timezone": "Pacific/Majuro"
+    },
+    "MX_Mexico City": {
+      "latitude": 19.321,
+      "longitude": -99.151,
+      "timezone": "America/Mexico_City"
+    },
+    "MX_Guadalajara": {
+      "latitude": 20.672,
+      "longitude": -103.338,
+      "timezone": "America/Mexico_City"
+    },
+    "MX_Monterrey": {
+      "latitude": 25.68,
+      "longitude": -100.315,
+      "timezone": "America/Mexico_City"
+    },
+    "MX_Puebla": {
+      "latitude": 18.833,
+      "longitude": -98.0,
+      "timezone": "America/Mexico_City"
+    },
+    "MX_Tijuana": {
+      "latitude": 32.532,
+      "longitude": -117.02,
+      "timezone": "America/Tijuana"
+    },
+    "MX_Leon": {
+      "latitude": 21.077,
+      "longitude": -101.64,
+      "timezone": "America/Mexico_City"
+    },
+    "MX_Ciudad Juarez": {
+      "latitude": 31.691,
+      "longitude": -106.425,
+      "timezone": "America/Oaxaca"
+    },
+    "MX_Zapopan": {
+      "latitude": 20.721,
+      "longitude": -103.391,
+      "timezone": "America/Mexico_City"
+    },
+    "MX_Merida": {
+      "latitude": 21.012,
+      "longitude": -89.605,
+      "timezone": "America/Merida"
+    },
+    "MX_San Luis Potosi": {
+      "latitude": 22.001,
+      "longitude": -99.019,
+      "timezone": "America/Mexico_City"
+    },
+    "NI_Managua": {
+      "latitude": 12.155,
+      "longitude": -86.274,
+      "timezone": "America/Managua"
+    },
+    "NI_Leon": {
+      "latitude": 21.075,
+      "longitude": -101.639,
+      "timezone": "America/Managua"
+    },
+    "NI_Masaya": {
+      "latitude": 11.974,
+      "longitude": -86.096,
+      "timezone": "America/Managua"
+    },
+    "NI_Chinandega": {
+      "latitude": 12.778,
+      "longitude": -87.27,
+      "timezone": "America/Managua"
+    },
+    "NI_Matagalpa": {
+      "latitude": 12.94,
+      "longitude": -85.696,
+      "timezone": "America/Managua"
+    },
+    "NI_Esteli": {
+      "latitude": 13.093,
+      "longitude": -86.356,
+      "timezone": "America/Managua"
+    },
+    "NI_Granada": {
+      "latitude": 11.93,
+      "longitude": -85.954,
+      "timezone": "America/Managua"
+    },
+    "NI_Jinotepe": {
+      "latitude": 11.849,
+      "longitude": -86.199,
+      "timezone": "America/Managua"
+    },
+    "NI_Bluefields": {
+      "latitude": 11.604,
+      "longitude": -83.561,
+      "timezone": "America/Managua"
+    },
+    "NI_Rivas": {
+      "latitude": 11.442,
+      "longitude": -85.759,
+      "timezone": "America/Managua"
+    },
+    "NR_Yaren": {
+      "latitude": -0.547,
+      "longitude": 166.916,
+      "timezone": "Pacific/Nauru"
+    },
+    "NR_Aiwo": {
+      "latitude": -0.533,
+      "longitude": 166.913,
+      "timezone": "Pacific/Nauru"
+    },
+    "NR_Anabar": {
+      "latitude": -0.514,
+      "longitude": 166.951,
+      "timezone": "Pacific/Nauru"
+    },
+    "NR_Anetan": {
+      "latitude": -0.511,
+      "longitude": 166.944,
+      "timezone": "Pacific/Nauru"
+    },
+    "NR_Anibare": {
+      "latitude": -0.531,
+      "longitude": 166.951,
+      "timezone": "Pacific/Nauru"
+    },
+    "NR_Baiti": {
+      "latitude": -0.515,
+      "longitude": 166.933,
+      "timezone": "Pacific/Nauru"
+    },
+    "NR_Boe": {
+      "latitude": -0.542,
+      "longitude": 166.916,
+      "timezone": "Pacific/Nauru"
+    },
+    "NR_Buada": {
+      "latitude": -0.534,
+      "longitude": 166.926,
+      "timezone": "Pacific/Nauru"
+    },
+    "NR_Denigomodu": {
+      "latitude": -0.524,
+      "longitude": 166.917,
+      "timezone": "Pacific/Nauru"
+    },
+    "NR_Meneng": {
+      "latitude": -0.545,
+      "longitude": 166.94,
+      "timezone": "Pacific/Nauru"
+    },
+    "PA_Panama City": {
+      "latitude": 8.971,
+      "longitude": -79.534,
+      "timezone": "America/Panama"
+    },
+    "PA_San Miguelito": {
+      "latitude": 9.055,
+      "longitude": -79.493,
+      "timezone": "America/Panama"
+    },
+    "PA_David": {
+      "latitude": 8.437,
+      "longitude": -82.429,
+      "timezone": "America/Panama"
+    },
+    "PA_Colon": {
+      "latitude": 9.193,
+      "longitude": -79.653,
+      "timezone": "America/Panama"
+    },
+    "PA_La Chorrera": {
+      "latitude": 8.884,
+      "longitude": -79.78,
+      "timezone": "America/Panama"
+    },
+    "PA_Penonome": {
+      "latitude": 8.509,
+      "longitude": -80.357,
+      "timezone": "America/Panama"
+    },
+    "PA_Chitre": {
+      "latitude": 8.601,
+      "longitude": -79.062,
+      "timezone": "America/Panama"
+    },
+    "PA_Santiago": {
+      "latitude": 8.099,
+      "longitude": -80.98,
+      "timezone": "America/Panama"
+    },
+    "PA_Aguadulce": {
+      "latitude": 8.209,
+      "longitude": -80.604,
+      "timezone": "America/Panama"
+    },
+    "PA_Arraijan": {
+      "latitude": 8.99,
+      "longitude": -79.679,
+      "timezone": "America/Panama"
+    },
+    "PG_Port Moresby": {
+      "latitude": -9.474,
+      "longitude": 147.16,
+      "timezone": "Pacific/Port_Moresby"
+    },
+    "PG_Lae": {
+      "latitude": -6.73,
+      "longitude": 147.001,
+      "timezone": "Pacific/Port_Moresby"
+    },
+    "PG_Mount Hagen": {
+      "latitude": -5.859,
+      "longitude": 144.232,
+      "timezone": "Pacific/Port_Moresby"
+    },
+    "PG_Madang": {
+      "latitude": -5.0,
+      "longitude": 145.5,
+      "timezone": "Pacific/Port_Moresby"
+    },
+    "PG_Goroka": {
+      "latitude": -6.073,
+      "longitude": 145.393,
+      "timezone": "Pacific/Port_Moresby"
+    },
+    "PG_Kokopo": {
+      "latitude": -4.343,
+      "longitude": 152.269,
+      "timezone": "Pacific/Port_Moresby"
+    },
+    "PG_Mendi": {
+      "latitude": -6.139,
+      "longitude": 143.658,
+      "timezone": "Pacific/Port_Moresby"
+    },
+    "PG_Kimbe": {
+      "latitude": -5.556,
+      "longitude": 150.153,
+      "timezone": "Pacific/Port_Moresby"
+    },
+    "PG_Bulolo": {
+      "latitude": -7.202,
+      "longitude": 146.644,
+      "timezone": "Pacific/Port_Moresby"
+    },
+    "PG_Wewak": {
+      "latitude": -3.554,
+      "longitude": 143.627,
+      "timezone": "Pacific/Port_Moresby"
+    },
+    "PY_Asuncion": {
+      "latitude": -25.28,
+      "longitude": -57.634,
+      "timezone": "America/Asuncion"
+    },
+    "PY_Ciudad del Este": {
+      "latitude": -25.517,
+      "longitude": -54.617,
+      "timezone": "America/Asuncion"
+    },
+    "PY_San Lorenzo": {
+      "latitude": -25.343,
+      "longitude": -57.509,
+      "timezone": "America/Asuncion"
+    },
+    "PY_Luque": {
+      "latitude": -25.267,
+      "longitude": -57.493,
+      "timezone": "America/Asuncion"
+    },
+    "PY_Capiata": {
+      "latitude": -25.355,
+      "longitude": -57.443,
+      "timezone": "America/Asuncion"
+    },
+    "PY_Lambare": {
+      "latitude": -25.346,
+      "longitude": -57.626,
+      "timezone": "America/Asuncion"
+    },
+    "PY_Fernando de la Mora": {
+      "latitude": -25.328,
+      "longitude": -57.552,
+      "timezone": "America/Asuncion"
+    },
+    "PY_Limpio": {
+      "latitude": -25.173,
+      "longitude": -57.478,
+      "timezone": "America/Asuncion"
+    },
+    "PY_Nemby": {
+      "latitude": -25.392,
+      "longitude": -57.547,
+      "timezone": "America/Asuncion"
+    },
+    "PY_Encarnacion": {
+      "latitude": -25.364,
+      "longitude": -57.593,
+      "timezone": "America/Asuncion"
+    },
+    "SM_San Marino": {
+      "latitude": 43.936,
+      "longitude": 12.447,
+      "timezone": "Europe/San_Marino"
+    },
+    "SM_Serravalle": {
+      "latitude": 43.97,
+      "longitude": 12.48,
+      "timezone": "Europe/San_Marino"
+    },
+    "SM_Borgo Maggiore": {
+      "latitude": 43.941,
+      "longitude": 12.447,
+      "timezone": "Europe/San_Marino"
+    },
+    "SM_Domagnano": {
+      "latitude": 43.948,
+      "longitude": 12.469,
+      "timezone": "Europe/San_Marino"
+    },
+    "SM_Fiorentino": {
+      "latitude": 43.91,
+      "longitude": 12.458,
+      "timezone": "Europe/San_Marino"
+    },
+    "SM_Acquaviva": {
+      "latitude": 43.946,
+      "longitude": 12.419,
+      "timezone": "Europe/San_Marino"
+    },
+    "SM_Faetano": {
+      "latitude": 43.927,
+      "longitude": 12.497,
+      "timezone": "Europe/San_Marino"
+    },
+    "SM_Chiesanuova": {
+      "latitude": 43.905,
+      "longitude": 12.422,
+      "timezone": "Europe/San_Marino"
+    },
+    "SM_Montegiardino": {
+      "latitude": 43.909,
+      "longitude": 12.485,
+      "timezone": "Europe/San_Marino"
+    },
+    "SM_Dogana": {
+      "latitude": 43.981,
+      "longitude": 12.489,
+      "timezone": "Europe/San_Marino"
+    },
+    "SR_Paramaribo": {
+      "latitude": 5.824,
+      "longitude": -55.166,
+      "timezone": "America/Paramaribo"
+    },
+    "SR_Lelydorp": {
+      "latitude": 5.694,
+      "longitude": -55.214,
+      "timezone": "America/Paramaribo"
+    },
+    "SR_Nieuw Nickerie": {
+      "latitude": 5.942,
+      "longitude": -56.989,
+      "timezone": "America/Paramaribo"
+    },
+    "SR_Moengo": {
+      "latitude": 5.692,
+      "longitude": -54.522,
+      "timezone": "America/Paramaribo"
+    },
+    "SR_Nieuw Amsterdam": {
+      "latitude": 5.88,
+      "longitude": -55.085,
+      "timezone": "America/Paramaribo"
+    },
+    "SR_Marienburg": {
+      "latitude": 5.878,
+      "longitude": -55.044,
+      "timezone": "America/Paramaribo"
+    },
+    "SR_Wageningen": {
+      "latitude": 5.771,
+      "longitude": -56.688,
+      "timezone": "America/Paramaribo"
+    },
+    "SR_Albina": {
+      "latitude": 5.498,
+      "longitude": -54.057,
+      "timezone": "America/Paramaribo"
+    },
+    "SR_Groningen": {
+      "latitude": 5.8,
+      "longitude": -55.467,
+      "timezone": "America/Paramaribo"
+    },
+    "SR_Brokopondo": {
+      "latitude": 4.882,
+      "longitude": -55.073,
+      "timezone": "America/Paramaribo"
+    },
+    "SV_San Salvador": {
+      "latitude": 13.698,
+      "longitude": -89.191,
+      "timezone": "America/El_Salvador"
+    },
+    "SV_Santa Ana": {
+      "latitude": 13.995,
+      "longitude": -89.557,
+      "timezone": "America/El_Salvador"
+    },
+    "SV_San Miguel": {
+      "latitude": 13.48,
+      "longitude": -88.177,
+      "timezone": "America/El_Salvador"
+    },
+    "SV_Mejicanos": {
+      "latitude": 13.722,
+      "longitude": -89.187,
+      "timezone": "America/El_Salvador"
+    },
+    "SV_Soyapango": {
+      "latitude": 13.704,
+      "longitude": -89.15,
+      "timezone": "America/El_Salvador"
+    },
+    "SV_Santa Tecla": {
+      "latitude": 13.674,
+      "longitude": -89.289,
+      "timezone": "America/El_Salvador"
+    },
+    "SV_Apopa": {
+      "latitude": 13.801,
+      "longitude": -89.179,
+      "timezone": "America/El_Salvador"
+    },
+    "SV_Delgado": {
+      "latitude": 13.713,
+      "longitude": -89.174,
+      "timezone": "America/El_Salvador"
+    },
+    "SV_Ahuachapan": {
+      "latitude": 13.921,
+      "longitude": -89.846,
+      "timezone": "America/El_Salvador"
+    },
+    "SV_Ilopango": {
+      "latitude": 13.671,
+      "longitude": -89.045,
+      "timezone": "America/El_Salvador"
+    },
+    "TL_Dili": {
+      "latitude": -8.554,
+      "longitude": 125.578,
+      "timezone": "Asia/Dili"
+    },
+    "TL_Baucau": {
+      "latitude": -8.479,
+      "longitude": 126.453,
+      "timezone": "Asia/Dili"
+    },
+    "TL_Maliana": {
+      "latitude": -8.99,
+      "longitude": 125.208,
+      "timezone": "Asia/Dili"
+    },
+    "TL_Suai": {
+      "latitude": -9.249,
+      "longitude": 125.362,
+      "timezone": "Asia/Dili"
+    },
+    "TL_Liquica": {
+      "latitude": -8.655,
+      "longitude": 125.275,
+      "timezone": "Asia/Dili"
+    },
+    "TL_Ermera": {
+      "latitude": -8.817,
+      "longitude": 125.383,
+      "timezone": "Asia/Dili"
+    },
+    "TL_Aileu": {
+      "latitude": -8.705,
+      "longitude": 125.663,
+      "timezone": "Asia/Dili"
+    },
+    "TL_Manatuto": {
+      "latitude": -8.767,
+      "longitude": 125.934,
+      "timezone": "Asia/Dili"
+    },
+    "TL_Viqueque": {
+      "latitude": -8.809,
+      "longitude": 126.322,
+      "timezone": "Asia/Dili"
+    },
+    "TL_Same": {
+      "latitude": -9.005,
+      "longitude": 125.648,
+      "timezone": "Asia/Dili"
+    },
+    "TO_Nuku'alofa": {
+      "latitude": -21.136,
+      "longitude": -175.203,
+      "timezone": "Pacific/Tongatapu"
+    },
+    "TO_Neiafu": {
+      "latitude": -18.652,
+      "longitude": -173.983,
+      "timezone": "Pacific/Tongatapu"
+    },
+    "TO_Haveluloto": {
+      "latitude": -21.15,
+      "longitude": -175.216,
+      "timezone": "Pacific/Tongatapu"
+    },
+    "TO_Vaini": {
+      "latitude": -21.193,
+      "longitude": -175.177,
+      "timezone": "Pacific/Tongatapu"
+    },
+    "TO_Pangai": {
+      "latitude": -19.805,
+      "longitude": -174.349,
+      "timezone": "Pacific/Tongatapu"
+    },
+    "TO_Ohonua": {
+      "latitude": -21.341,
+      "longitude": -174.956,
+      "timezone": "Pacific/Tongatapu"
+    },
+    "TO_Mu'a": {
+      "latitude": -21.149,
+      "longitude": -175.183,
+      "timezone": "Pacific/Tongatapu"
+    },
+    "TO_Ha'ateiho": {
+      "latitude": -21.158,
+      "longitude": -175.204,
+      "timezone": "Pacific/Tongatapu"
+    },
+    "TO_Kolonga": {
+      "latitude": -21.127,
+      "longitude": -175.072,
+      "timezone": "Pacific/Tongatapu"
+    },
+    "TO_Nukunuku": {
+      "latitude": -21.132,
+      "longitude": -175.3,
+      "timezone": "Pacific/Tongatapu"
+    },
+    "TT_Port of Spain": {
+      "latitude": 10.657,
+      "longitude": -61.518,
+      "timezone": "America/Port_of_Spain"
+    },
+    "TT_San Fernando": {
+      "latitude": 10.281,
+      "longitude": -61.465,
+      "timezone": "America/Port_of_Spain"
+    },
+    "TT_Chaguanas": {
+      "latitude": 10.515,
+      "longitude": -61.408,
+      "timezone": "America/Port_of_Spain"
+    },
+    "TT_Arima": {
+      "latitude": 10.637,
+      "longitude": -61.283,
+      "timezone": "America/Port_of_Spain"
+    },
+    "TT_Point Fortin": {
+      "latitude": 10.176,
+      "longitude": -61.683,
+      "timezone": "America/Port_of_Spain"
+    },
+    "TT_Tunapuna": {
+      "latitude": 10.644,
+      "longitude": -61.391,
+      "timezone": "America/Port_of_Spain"
+    },
+    "TT_Scarborough": {
+      "latitude": 11.185,
+      "longitude": -60.735,
+      "timezone": "America/Port_of_Spain"
+    },
+    "TT_Princes Town": {
+      "latitude": 10.205,
+      "longitude": -61.281,
+      "timezone": "America/Port_of_Spain"
+    },
+    "TT_Diego Martin": {
+      "latitude": 10.714,
+      "longitude": -61.579,
+      "timezone": "America/Port_of_Spain"
+    },
+    "TT_Siparia": {
+      "latitude": 10.147,
+      "longitude": -61.579,
+      "timezone": "America/Port_of_Spain"
+    },
+    "TV_Funafuti": {
+      "latitude": -8.52,
+      "longitude": 179.198,
+      "timezone": "Pacific/Funafuti"
+    },
+    "TV_Vaiaku": {
+      "latitude": -8.525,
+      "longitude": 179.195,
+      "timezone": "Pacific/Funafuti"
+    },
+    "TV_Savave": {
+      "latitude": -8.028,
+      "longitude": 178.314,
+      "timezone": "Pacific/Funafuti"
+    },
+    "TV_Tanrake": {
+      "latitude": -7.247,
+      "longitude": 177.147,
+      "timezone": "Pacific/Funafuti"
+    },
+    "TV_Asau": {
+      "latitude": -7.489,
+      "longitude": 178.68,
+      "timezone": "Pacific/Funafuti"
+    },
+    "TV_Lolua": {
+      "latitude": -8.535,
+      "longitude": 179.121,
+      "timezone": "Pacific/Funafuti"
+    },
+    "TV_Tonga": {
+      "latitude": -6.288,
+      "longitude": 176.315,
+      "timezone": "Pacific/Funafuti"
+    },
+    "TV_Niulakita": {
+      "latitude": -10.789,
+      "longitude": 179.473,
+      "timezone": "Pacific/Funafuti"
+    },
+    "TV_Motufoua": {
+      "latitude": -7.47,
+      "longitude": 178.683,
+      "timezone": "Pacific/Funafuti"
+    },
+    "TV_Fagatua": {
+      "latitude": -8.553,
+      "longitude": 179.077,
+      "timezone": "Pacific/Funafuti"
+    },
+    "TW_Taipei": {
+      "latitude": 25.038,
+      "longitude": 121.564,
+      "timezone": "Asia/Taipei"
+    },
+    "TW_Kaohsiung": {
+      "latitude": 22.626,
+      "longitude": 120.29,
+      "timezone": "Asia/Taipei"
+    },
+    "TW_Taichung": {
+      "latitude": 24.256,
+      "longitude": 120.523,
+      "timezone": "Asia/Taipei"
+    },
+    "TW_Tainan": {
+      "latitude": 22.991,
+      "longitude": 120.185,
+      "timezone": "Asia/Taipei"
+    },
+    "TW_Hsinchu": {
+      "latitude": 24.84,
+      "longitude": 121.018,
+      "timezone": "Asia/Taipei"
+    },
+    "TW_Keelung": {
+      "latitude": 25.132,
+      "longitude": 121.745,
+      "timezone": "Asia/Taipei"
+    },
+    "TW_Chiayi": {
+      "latitude": 23.459,
+      "longitude": 120.293,
+      "timezone": "Asia/Taipei"
+    },
+    "TW_Changhua": {
+      "latitude": 24.076,
+      "longitude": 120.544,
+      "timezone": "Asia/Taipei"
+    },
+    "TW_Pingtung": {
+      "latitude": 22.683,
+      "longitude": 120.488,
+      "timezone": "Asia/Taipei"
+    },
+    "TW_Taoyuan": {
+      "latitude": 24.993,
+      "longitude": 121.301,
+      "timezone": "Asia/Taipei"
+    },
+    "VU_Port Vila": {
+      "latitude": -17.739,
+      "longitude": 168.317,
+      "timezone": "Pacific/Efate"
+    },
+    "VU_Luganville": {
+      "latitude": -15.512,
+      "longitude": 167.178,
+      "timezone": "Pacific/Efate"
+    },
+    "VU_Norsup": {
+      "latitude": -16.057,
+      "longitude": 167.41,
+      "timezone": "Pacific/Efate"
+    },
+    "VU_Isangel": {
+      "latitude": -19.541,
+      "longitude": 169.281,
+      "timezone": "Pacific/Efate"
+    },
+    "VU_Lakatoro": {
+      "latitude": -16.107,
+      "longitude": 167.418,
+      "timezone": "Pacific/Efate"
+    },
+    "VU_Sola": {
+      "latitude": -13.853,
+      "longitude": 167.537,
+      "timezone": "Pacific/Efate"
+    },
+    "VU_Longana": {
+      "latitude": -15.303,
+      "longitude": 167.971,
+      "timezone": "Pacific/Efate"
+    },
+    "VU_Port Olry": {
+      "latitude": -15.043,
+      "longitude": 167.071,
+      "timezone": "Pacific/Efate"
+    },
+    "VU_Saratamata": {
+      "latitude": -15.287,
+      "longitude": 167.991,
+      "timezone": "Pacific/Efate"
+    },
+    "VU_Lenakel": {
+      "latitude": -19.532,
+      "longitude": 169.268,
+      "timezone": "Pacific/Efate"
+    },
+    "WS_Apia": {
+      "latitude": -13.835,
+      "longitude": -171.763,
+      "timezone": "Pacific/Apia"
+    },
+    "WS_Vaitele": {
+      "latitude": -13.828,
+      "longitude": -171.825,
+      "timezone": "Pacific/Apia"
+    },
+    "WS_Faleula": {
+      "latitude": -13.796,
+      "longitude": -171.832,
+      "timezone": "Pacific/Apia"
+    },
+    "WS_Siusega": {
+      "latitude": -13.838,
+      "longitude": -171.818,
+      "timezone": "Pacific/Apia"
+    },
+    "WS_Malie": {
+      "latitude": -13.803,
+      "longitude": -171.843,
+      "timezone": "Pacific/Apia"
+    },
+    "WS_Afega": {
+      "latitude": -13.8,
+      "longitude": -171.852,
+      "timezone": "Pacific/Apia"
+    },
+    "WS_Leulumoega": {
+      "latitude": -13.827,
+      "longitude": -171.961,
+      "timezone": "Pacific/Apia"
+    },
+    "WS_Fasitoouta": {
+      "latitude": -13.814,
+      "longitude": -171.945,
+      "timezone": "Pacific/Apia"
+    },
+    "WS_Vailoa": {
+      "latitude": -13.751,
+      "longitude": -172.311,
+      "timezone": "Pacific/Apia"
+    },
+    "WS_Safotu": {
+      "latitude": -13.463,
+      "longitude": -172.398,
+      "timezone": "Pacific/Apia"
     }
   }
 }

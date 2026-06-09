@@ -163,6 +163,82 @@ class LocationDataSourceTest {
     }
 
     @Test
+    fun every_catalog_country_has_picker_cities() {
+        val catalog = LocationDataSource.loadedCatalog()!!
+        val failures =
+            catalog.countries
+                .map { it.code }
+                .filter { (catalog.citiesByCountry[it] ?: emptyList()).isEmpty() }
+        assertTrue(
+            "Catalog countries without picker cities: $failures",
+            failures.isEmpty(),
+        )
+    }
+
+    @Test
+    fun every_african_catalog_country_has_picker_cities() {
+        val africaCodes =
+            setOf(
+                "DZ", "AO", "BJ", "BW", "BF", "BI", "CV", "CM", "CF", "TD", "KM", "CG", "CD", "CI",
+                "DJ", "EG", "GQ", "ER", "SZ", "ET", "GA", "GM", "GH", "GN", "GW", "KE", "LS", "LR",
+                "LY", "MG", "MW", "ML", "MR", "MA", "MZ", "NA", "NE", "NG", "RW", "SC", "SL", "SN",
+                "SO", "ZA", "SD", "TZ", "TG", "TN", "UG", "ZM", "ZW",
+            )
+        val catalog = LocationDataSource.loadedCatalog()!!
+        val catalogCodes = catalog.countries.map { it.code }.toSet()
+        val failures =
+            africaCodes
+                .filter { it in catalogCodes }
+                .filter { (catalog.citiesByCountry[it] ?: emptyList()).isEmpty() }
+        assertTrue(
+            "African countries without picker cities: $failures",
+            failures.isEmpty(),
+        )
+    }
+
+    @Test
+    fun remaining_expansion_reference_city_coords_match() {
+        val guatemala = LocationDataSource.resolveCityCoordinates("GT", "Guatemala City")
+        assertTrue(guatemala is CityResolutionResult.Found)
+        guatemala as CityResolutionResult.Found
+        assertEquals(14.642, guatemala.coords.latitude, 0.1)
+        assertEquals(-90.513, guatemala.coords.longitude, 0.1)
+        assertEquals("America/Guatemala", guatemala.coords.timezone)
+
+        val nassau = LocationDataSource.resolveCityCoordinates("BS", "Nassau")
+        assertTrue(nassau is CityResolutionResult.Found)
+        nassau as CityResolutionResult.Found
+        assertEquals(25.078, nassau.coords.latitude, 0.1)
+        assertEquals(-77.338, nassau.coords.longitude, 0.1)
+        assertEquals("America/Nassau", nassau.coords.timezone)
+    }
+
+    @Test
+    fun africa_expansion_reference_city_coords_match() {
+        val luanda = LocationDataSource.resolveCityCoordinates("AO", "Luanda")
+        assertTrue(luanda is CityResolutionResult.Found)
+        luanda as CityResolutionResult.Found
+        assertEquals(-8.827, luanda.coords.latitude, 0.1)
+        assertEquals(13.244, luanda.coords.longitude, 0.1)
+        assertEquals("Africa/Luanda", luanda.coords.timezone)
+
+        val kinshasa = LocationDataSource.resolveCityCoordinates("CD", "Kinshasa")
+        assertTrue(kinshasa is CityResolutionResult.Found)
+        kinshasa as CityResolutionResult.Found
+        assertEquals(-4.322, kinshasa.coords.latitude, 0.15)
+        assertEquals(15.312, kinshasa.coords.longitude, 0.15)
+        assertEquals("Africa/Kinshasa", kinshasa.coords.timezone)
+    }
+
+    @Test
+    fun russian_cities_have_arabic_transliterations() {
+        assertEquals("يكاترينبورغ", LocationDataSource.arabicCityName("RU", "Yekaterinburg"))
+        assertEquals("بيرم", LocationDataSource.arabicCityName("RU", "Perm"))
+        assertEquals("فورونيج", LocationDataSource.arabicCityName("RU", "Voronezh"))
+        assertEquals("فولغوغراد", LocationDataSource.arabicCityName("RU", "Volgograd"))
+    }
+
+    @Test
     fun americas_reference_city_coords_match() {
         val saoPaulo = LocationDataSource.resolveCityCoordinates("BR", "São Paulo")
         assertTrue(saoPaulo is CityResolutionResult.Found)

@@ -17,3 +17,5 @@ captures/
 .externalNativeBuild/
 .kotlin/
 graphify-out/cache/
+__pycache__/
+scripts/__pycache__/

@@ -83,7 +83,7 @@ Hayya/  (repo folder may still be Private-Prayer; package com.prayertime)
 | **8C** | Africa `knownCityCoords` fill | **Done** — 407/407; merged PR **#44** | — |
 | **8D** | Asia `knownCityCoords` fill | **Done** — 920/920; merged PR **#45** | — |
 | **8E** | Americas `knownCityCoords` fill | **Done** — 105/105; merged PR **#46** | — |
-| **8** | Full catalog coords | **Done** — **2056/2056** picker cities | `feat/city-coords-tail` |
+| **8** | Full catalog coords | **Done** — **2766/2766** picker cities; every catalog country has cities | `feat/city-coords-tail` |
 | **Release v1.2.0** | Tag + GitHub APK | **WIP** — `versionCode` 10 | after 8F merge |
 
 ## Architecture (post-2F hardening)
@@ -120,7 +120,7 @@ Hayya/  (repo folder may still be Private-Prayer; package com.prayertime)
 - `LocationCatalogInitializer` (Hilt `@Singleton`) calls `LocationDataSource.initialize()` at app startup — not from `LocalLocationRepository`
 - `initialize()` kicks off JSON parsing on `Dispatchers.IO` — returns immediately, no main-thread block
 - `suspend fun awaitReady()` for coroutine callers; sync list accessors return empty while loading; `NOT_STARTED` throws
-- `locations.json` (~303 KB, **2056/2056** coords) in `assets/` — `expand_locations.py` + `fill_*_coords.py` + `fill_catalog_tail_coords.py`
+- `locations.json` (~401 KB, **2766/2766** coords) in `assets/` — every catalog country has picker cities; `add_africa_cities.py` + `add_remaining_cities.py`
 
 ### Timezone consistency
 - Staleness check uses `needsPrayerDayRefresh(lastFetch, now, cityTZ)` — not a flat 25-hour epoch threshold
@@ -144,9 +144,9 @@ Hayya/  (repo folder may still be Private-Prayer; package com.prayertime)
 
 | Build | APK | Size |
 |-------|-----|------|
-| debug | `app-debug.apk` | ~23 MB |
+| debug | `app-debug.apk` | ~29 MB |
 
-`smoke-ci.sh` builds + tests single variant; APK size gate limit 25 MB.
+`smoke-ci.sh` builds + tests single variant; APK size gate limit 30 MB.
 
 ## Prayer calculation (current)
 

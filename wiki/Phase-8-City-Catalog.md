@@ -1,6 +1,6 @@
 # Phase 8 — City catalog coordinates + manual entry
 
-**Status:** **Complete** — **2056/2056** picker cities have `knownCityCoords` on `feat/city-coords-tail`. Manual lat/lng wizard (8A) remains fallback for custom names.
+**Status:** **Complete** — **2766/2766** picker cities; every catalog country has ≥10 cities + coords on `feat/city-coords-tail` (PR **#47**). Manual lat/lng wizard (8A) remains fallback for custom names.
 
 ---
 
@@ -91,7 +91,9 @@ flowchart TD
 ### 8F — Release + catalog tail (complete)
 
 - [x] **8F.1** `scripts/fill_catalog_tail_coords.py` — AU/RU/BY/NZ (47 cities)
-- [x] **8F.2** Global **2056/2056** coverage; README; `versionCode` 10
+- [x] **8F.2** Global **2766/2766** coverage; README; `versionCode` 10
+- [x] **8C.4** Africa empty countries (+330 cities)
+- [x] **8G** Americas/Caribbean/Pacific/KR/TW/BT (+380 cities)
 - [ ] **8F.3** Tag **`v1.2.0`** + GitHub release APK
 
 ---

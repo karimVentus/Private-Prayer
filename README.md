@@ -8,7 +8,7 @@
 
 [![Smoke CI](https://github.com/karimVentus/Private-Prayer/actions/workflows/smoke-ci.yml/badge.svg)](https://github.com/karimVentus/Private-Prayer/actions/workflows/smoke-ci.yml)
 
-Open-source Android app for accurate daily prayer times — pick your city from **2,000+ bundled locations** (all with offline coordinates) or **enter coordinates manually**, live countdown, optional adhan (including **custom imported sounds**), Qibla compass, home-screen widgets, and a full Hijri calendar. **No tracking, no ads, no GPS.**
+Open-source Android app for accurate daily prayer times — pick your city from **2,700+ bundled locations** (all with offline coordinates) or **enter coordinates manually**, live countdown, optional adhan (including **custom imported sounds**), Qibla compass, home-screen widgets, and a full Hijri calendar. **No tracking, no ads, no GPS.**
 
 ---
 
@@ -18,7 +18,7 @@ Open-source Android app for accurate daily prayer times — pick your city from 
 
 **Privacy-first • Simple • Offline-first**
 
-Hayya is an open-source Android prayer-times app built around **privacy** and **simplicity**. Choose your city from a bundled catalog of **2,056 locations** — each with offline coordinates (or enter lat/lng manually for custom places), get accurate times (Umm al-Qura + Shafi), a live countdown to the next prayer, optional adhan notifications with **custom sound import**, a portrait Qibla compass with geographic calibration, two home-screen widgets, and a Hijri calendar with ten Islamic events — **without GPS, accounts, or network calls by default**.
+Hayya is an open-source Android prayer-times app built around **privacy** and **simplicity**. Choose your city from a bundled catalog of **2,766 locations** — each with offline coordinates (or enter lat/lng manually for custom places), get accurate times (Umm al-Qura + Shafi), a live countdown to the next prayer, optional adhan notifications with **custom sound import**, a portrait Qibla compass with geographic calibration, two home-screen widgets, and a Hijri calendar with ten Islamic events — **without GPS, accounts, or network calls by default**.
 
 | | |
 |---|---|
@@ -32,7 +32,7 @@ Hayya is an open-source Android prayer-times app built around **privacy** and **
 - **Privacy by default** — offline-only mode (no network); user can enable optional Aladhan API in Settings
 - **Custom adhan** — import and manage your own adhan audio files
 - **Qibla compass** — city bearing + geomagnetic correction + accelerometer/magnetometer (no GPS)
-- **Full offline catalog** — all 2,056 picker cities ship with bundled lat/lng/timezone
+- **Full offline catalog** — all 2,766 picker cities ship with bundled lat/lng/timezone
 - **Manual coordinates** — enter lat/lng for custom places not in the catalog (works offline)
 - **Widgets** — medium (5×1 schedule) + large (clock + per-prayer countdown); Eastern Arabic digits in AR
 - **Hijri calendar** — monthly grid + ten Islamic events
@@ -89,7 +89,7 @@ Portrait compass using accelerometer + magnetometer; city bearing from bundled c
 
 ### Settings & setup
 
-Offline-only privacy toggle, theme picker, adhan notifications, custom sound import, **Share** button, and country/city wizard (2,056 cities with coords + manual entry, no GPS).
+Offline-only privacy toggle, theme picker, adhan notifications, custom sound import, **Share** button, and country/city wizard (2,766 cities with coords + manual entry, no GPS).
 
 | Settings | City wizard |
 |:---:|:---:|
@@ -230,7 +230,7 @@ Open source — see the repository license file. Prayer calculation uses [`adhan
 
 **حي على الصلاة — خصوصية أولاً • بساطة • أوفلاين أولاً**
 
-**Hayya** تطبيق أندرويد مفتوح المصدر يركز على **الخصوصية** و**البساطة**. اختر مدينتك من **2056 مدينة** مدمجة بإحداثيات أوفلاين (أو أدخل الإحداثيات يدوياً لأماكن مخصصة)، واحصل على أوقات صلاة دقيقة (أم القرى + الشافعي)، عد تنازلي حي، أذان مخصص (استيراد ملفاتك الخاصة)، بوصلة قبلة مع معايرة جغرافية، ويدجيتس، وتقويم هجري كامل — **بدون تتبع أو إعلانات أو GPS**.
+**Hayya** تطبيق أندرويد مفتوح المصدر يركز على **الخصوصية** و**البساطة**. اختر مدينتك من **2766 مدينة** مدمجة بإحداثيات أوفلاين (أو أدخل الإحداثيات يدوياً لأماكن مخصصة)، واحصل على أوقات صلاة دقيقة (أم القرى + الشافعي)، عد تنازلي حي، أذان مخصص (استيراد ملفاتك الخاصة)، بوصلة قبلة مع معايرة جغرافية، ويدجيتس، وتقويم هجري كامل — **بدون تتبع أو إعلانات أو GPS**.
 
 | | |
 |---|---|
@@ -244,7 +244,7 @@ Open source — see the repository license file. Prayer calculation uses [`adhan
 - **خصوصية قصوى**: وضع أوفلاين افتراضي (لا طلبات شبكة)، يمكن إيقاف الشبكة كلياً من الإعدادات
 - **أذان مخصص**: استيراد وإدارة ملفات الصوت الخاصة بك
 - **بوصلة قبلة**: تعمل بدون GPS باستخدام إحداثيات المدينة والتصحيح الجغرافي وحساسات الهاتف
-- **كتالوج أوفلاين كامل**: جميع مدن الاختيار الـ 2056 مع إحداثيات مدمجة
+- **كتالوج أوفلاين كامل**: جميع مدن الاختيار الـ 2766 مع إحداثيات مدمجة
 - **إحداثيات يدوية**: أدخل خط العرض/الطول لأماكن مخصصة غير موجودة في الكتالوج (يعمل أوفلاين)
 - **ويدجيتس**: متوسطة + كبيرة مع عد تنازلي + أرقام عربية شرقية
 - **تقويم هجري**: شهري + مناسبات إسلامية (10 مناسبات)
@@ -301,7 +301,7 @@ Open source — see the repository license file. Prayer calculation uses [`adhan
 
 ### الإعدادات وإعدادات التشغيل الأول
 
-مفتاح الخصوصية للعمل دون اتصال بالشبكة، مغير السمة، تنبيهات الأذان، استيراد أذان مخصص، زر **مشاركة التطبيق**، ومعالج إعداد الدولة والمدينة (2056 مدينة بإحداثيات + إدخال يدوي، دون GPS).
+مفتاح الخصوصية للعمل دون اتصال بالشبكة، مغير السمة، تنبيهات الأذان، استيراد أذان مخصص، زر **مشاركة التطبيق**، ومعالج إعداد الدولة والمدينة (2766 مدينة بإحداثيات + إدخال يدوي، دون GPS).
 
 | Settings | City wizard |
 |:---:|:---:|

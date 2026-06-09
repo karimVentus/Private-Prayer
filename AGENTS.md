@@ -83,8 +83,8 @@ Hayya/  (repo folder may still be Private-Prayer; package com.prayertime)
 | **8C** | Africa `knownCityCoords` fill | **Done** — 407/407; merged PR **#44** | — |
 | **8D** | Asia `knownCityCoords` fill | **Done** — 920/920; merged PR **#45** | — |
 | **8E** | Americas `knownCityCoords` fill | **Done** — 105/105; merged PR **#46** | — |
-| **8** | Full catalog coords | **Done** — **2766/2766** picker cities; every catalog country has cities | `feat/city-coords-tail` |
-| **Release v1.2.0** | Tag + GitHub APK | **WIP** — `versionCode` 10 | after 8F merge |
+| **8** | Full catalog coords | **Done** — **2766/2766**; PR **#48** merged | — |
+| **Release v1.2.0** | Tag + GitHub APK | **Done** — **v1.2.0** Jun 2026 | — |
 
 ## Architecture (post-2F hardening)
 

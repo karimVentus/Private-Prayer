@@ -59,7 +59,7 @@ flowchart LR
 | **8E** | Americas `knownCityCoords` fill (105 cities) — **done** (PR **#46**) |
 | **8F** | Catalog tail AU/RU/BY/NZ — **done** (PR **#47**) |
 | **8C.4 / 8G** | Fill empty Africa + remaining 38 countries — **2766/2766** — **done** |
-| **Release v1.2.0** | Tag + GitHub APK after **#47** merge |
+| **Release v1.2.0** | **Done** — [v1.2.0](https://github.com/karimVentus/Private-Prayer/releases/tag/v1.2.0) |
 
 Details: [Phase 8 — City catalog](Phase-8-City-Catalog)
 

@@ -1,7 +1,7 @@
 # Hayya (حيا) — Phased Implementation Plan
 
 > **Product:** **Hayya** (EN) / **حيا** (AR) — privacy-first prayer-times app. Package **`com.prayertime`** unchanged.
-> **Current state:** Phases **0–8G** complete on `feat/city-coords-tail` (PR **#47**). Catalog **2766/2766** picker cities with `knownCityCoords`; **0** empty catalog countries. **`v1.2.0`** release after merge. **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
+> **Current state:** Phases **0–8G** + **`v1.2.0`** release complete on `main`. Catalog **2766/2766** picker cities with `knownCityCoords`; **0** empty catalog countries. **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
 > **Build:** Single APK `com.prayertime` (~23 MB debug). Privacy via Settings **offline-only toggle** (`offline_only`); no separate offline flavor.
 > **Calculation:** Umm al-Qura + Shafi + twilight (≥48°N); `adhan-java` when offline-only; Aladhan API when user disables offline mode.
 > **Tests:** `./gradlew testDebugUnitTest` — **438** JVM `@Test` (56 files); run `./scripts/smoke-ci.sh` for full gate.
@@ -60,14 +60,14 @@
 | **Release v1.1.5** | **Done** — signed `Hayya-v1.1.5.apk` on GitHub Releases |
 | **Widget L v1.1.6 (Jun 2026)** | **Done** — restore per-column countdown; shrink next-prayer highlight to times row only |
 | **Release v1.1.6** | **Done** — signed `Hayya-v1.1.6.apk` on GitHub Releases |
-| **Phase 7B** compass calibration | **Complete** — geographic declination, upright gate, accuracy UI, ±15° offset; PR **#42**; release **`v1.2.0`** WIP |
+| **Phase 7B** compass calibration | **Complete** — geographic declination, upright gate, accuracy UI, ±15° offset; PR **#42** |
 | **Phase 8A** manual lat/lng wizard | **Complete** — `feat/manual-coords-wizard`; see §8 |
 | **Phase 8B** Europe city coords | **Complete** — 574/574 EU picker cities; merged PR **#43** |
 | **Phase 8C** Africa city coords | **Complete** — 407/407; merged PR **#44** |
 | **Phase 8D** Asia city coords | **Complete** — 920/920; merged PR **#45** |
 | **Phase 8E** Americas city coords | **Complete** — 105/105; merged PR **#46** |
 | **Phase 8** city catalog | **Complete** — **2766/2766** picker cities; 8C.4 Africa + 8G remaining; PR **#47** |
-| **Release v1.2.0** | **WIP** — `versionCode` 10; tag + GitHub APK after **#47** merge |
+| **Release v1.2.0** | **Done** — `Hayya-v1.2.0.apk` (~13 MB release); tag **v1.2.0** |
 
 ---
 
@@ -217,9 +217,9 @@ Maintain an up-to-date code graph after each phase gate. Full CLI lifecycle: [`g
 
 | Rule | Detail |
 |------|--------|
-| **Shipped** | Phases **0–8G** (catalog **2766/2766**); **`v1.2.0`** on `feat/city-coords-tail` |
-| **Active** | Merge PR **#47**, tag **`v1.2.0`**, `./scripts/publish-release.sh` |
-| **Branching** | `./scripts/smoke-ci.sh` green before merge; debug APK gate **30 MB** |
+| **Shipped** | Phases **0–8G** (catalog **2766/2766**); PR **#48** on `main` |
+| **Active** | — (Phase 8 + v1.2.0 shipped) |
+| **Branching** | Release from `main`; `./scripts/smoke-ci.sh` before tag |
 | **Graphify** | After `locations.json` complete — run `graphify update` |
 
 ---
@@ -293,7 +293,7 @@ Maintain an up-to-date code graph after each phase gate. Full CLI lifecycle: [`g
 - [x] **8F.1** `scripts/fill_catalog_tail_coords.py` — AU/RU/BY/NZ (47 coords); per-city TZ for AU/RU
 - [x] **8F.2** Catalog tail + global expansion → **2766/2766**; README updated; `versionCode` 10 / `versionName` 1.2.0
 - [x] **8F.3** Tests — `every_picker_city_has_bundled_coords` + Perth/Moscow spot checks
-- [ ] **8F.4** Tag **`v1.2.0`** + GitHub release (post-merge)
+- [x] **8F.4** Tag **`v1.2.0`** + GitHub release
 
 See [wiki/Phase-8-City-Catalog](https://github.com/karimVentus/Private-Prayer/wiki/Phase-8-City-Catalog) for wizard flow diagram.
 

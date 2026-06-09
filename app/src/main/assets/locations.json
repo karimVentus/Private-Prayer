@@ -11921,6 +11921,1606 @@
       "latitude": -26.675,
       "longitude": 27.926,
       "timezone": "Africa/Johannesburg"
+    },
+    "AF_Kabul": {
+      "latitude": 34.527,
+      "longitude": 69.185,
+      "timezone": "Asia/Kabul"
+    },
+    "AF_Kandahar": {
+      "latitude": 31.621,
+      "longitude": 65.716,
+      "timezone": "Asia/Kabul"
+    },
+    "AF_Herat": {
+      "latitude": 34.349,
+      "longitude": 62.216,
+      "timezone": "Asia/Kabul"
+    },
+    "AF_Mazar-i-Sharif": {
+      "latitude": 36.709,
+      "longitude": 67.111,
+      "timezone": "Asia/Kabul"
+    },
+    "AF_Jalalabad": {
+      "latitude": 34.43,
+      "longitude": 70.46,
+      "timezone": "Asia/Kabul"
+    },
+    "AF_Kunduz": {
+      "latitude": 36.871,
+      "longitude": 68.756,
+      "timezone": "Asia/Kabul"
+    },
+    "AF_Balkh": {
+      "latitude": 36.758,
+      "longitude": 66.898,
+      "timezone": "Asia/Kabul"
+    },
+    "AF_Bamyan": {
+      "latitude": 34.75,
+      "longitude": 67.25,
+      "timezone": "Asia/Kabul"
+    },
+    "AF_Ghazni": {
+      "latitude": 33.545,
+      "longitude": 68.413,
+      "timezone": "Asia/Kabul"
+    },
+    "AF_Khost": {
+      "latitude": 33.401,
+      "longitude": 69.891,
+      "timezone": "Asia/Kabul"
+    },
+    "AF_Faizabad": {
+      "latitude": 37.216,
+      "longitude": 70.613,
+      "timezone": "Asia/Kabul"
+    },
+    "AF_Lashkar Gah": {
+      "latitude": 31.55,
+      "longitude": 64.552,
+      "timezone": "Asia/Kabul"
+    },
+    "AF_Taloqan": {
+      "latitude": 36.735,
+      "longitude": 69.541,
+      "timezone": "Asia/Kabul"
+    },
+    "AF_Sheberghan": {
+      "latitude": 36.582,
+      "longitude": 65.727,
+      "timezone": "Asia/Kabul"
+    },
+    "AF_Maimana": {
+      "latitude": 36.527,
+      "longitude": 65.033,
+      "timezone": "Asia/Kabul"
+    },
+    "AM_Yerevan": {
+      "latitude": 40.178,
+      "longitude": 44.513,
+      "timezone": "Asia/Yerevan"
+    },
+    "AM_Gyumri": {
+      "latitude": 40.785,
+      "longitude": 43.842,
+      "timezone": "Asia/Yerevan"
+    },
+    "AM_Vanadzor": {
+      "latitude": 40.811,
+      "longitude": 44.485,
+      "timezone": "Asia/Yerevan"
+    },
+    "AM_Vagharshapat": {
+      "latitude": 40.163,
+      "longitude": 44.293,
+      "timezone": "Asia/Yerevan"
+    },
+    "AM_Hrazdan": {
+      "latitude": 40.52,
+      "longitude": 44.75,
+      "timezone": "Asia/Yerevan"
+    },
+    "AM_Kapan": {
+      "latitude": 39.208,
+      "longitude": 46.405,
+      "timezone": "Asia/Yerevan"
+    },
+    "AM_Armavir": {
+      "latitude": 40.156,
+      "longitude": 44.039,
+      "timezone": "Asia/Yerevan"
+    },
+    "AM_Artashat": {
+      "latitude": 39.957,
+      "longitude": 44.547,
+      "timezone": "Asia/Yerevan"
+    },
+    "AM_Gavar": {
+      "latitude": 40.351,
+      "longitude": 45.127,
+      "timezone": "Asia/Yerevan"
+    },
+    "AM_Ijevan": {
+      "latitude": 40.878,
+      "longitude": 45.144,
+      "timezone": "Asia/Yerevan"
+    },
+    "AZ_Baku": {
+      "latitude": 40.376,
+      "longitude": 49.833,
+      "timezone": "Asia/Baku"
+    },
+    "AZ_Ganja": {
+      "latitude": 40.68,
+      "longitude": 46.36,
+      "timezone": "Asia/Baku"
+    },
+    "AZ_Sumgait": {
+      "latitude": 40.596,
+      "longitude": 49.67,
+      "timezone": "Asia/Baku"
+    },
+    "AZ_Mingachevir": {
+      "latitude": 40.765,
+      "longitude": 47.052,
+      "timezone": "Asia/Baku"
+    },
+    "AZ_Lankaran": {
+      "latitude": 38.754,
+      "longitude": 48.854,
+      "timezone": "Asia/Baku"
+    },
+    "AZ_Shirvan": {
+      "latitude": 39.93,
+      "longitude": 48.934,
+      "timezone": "Asia/Baku"
+    },
+    "AZ_Nakhchivan": {
+      "latitude": 39.217,
+      "longitude": 45.407,
+      "timezone": "Asia/Baku"
+    },
+    "AZ_Shaki": {
+      "latitude": 41.203,
+      "longitude": 47.18,
+      "timezone": "Asia/Baku"
+    },
+    "AZ_Yevlakh": {
+      "latitude": 40.612,
+      "longitude": 47.147,
+      "timezone": "Asia/Baku"
+    },
+    "AZ_Khachmaz": {
+      "latitude": 41.466,
+      "longitude": 48.801,
+      "timezone": "Asia/Baku"
+    },
+    "BD_Khulna": {
+      "latitude": 22.937,
+      "longitude": 89.285,
+      "timezone": "Asia/Dhaka"
+    },
+    "BD_Rajshahi": {
+      "latitude": 24.629,
+      "longitude": 89.038,
+      "timezone": "Asia/Dhaka"
+    },
+    "BD_Sylhet": {
+      "latitude": 24.736,
+      "longitude": 91.685,
+      "timezone": "Asia/Dhaka"
+    },
+    "BD_Barisal": {
+      "latitude": 22.493,
+      "longitude": 90.355,
+      "timezone": "Asia/Dhaka"
+    },
+    "BD_Rangpur": {
+      "latitude": 25.638,
+      "longitude": 89.083,
+      "timezone": "Asia/Dhaka"
+    },
+    "BD_Mymensingh": {
+      "latitude": 24.889,
+      "longitude": 90.385,
+      "timezone": "Asia/Dhaka"
+    },
+    "BD_Comilla": {
+      "latitude": 23.461,
+      "longitude": 91.181,
+      "timezone": "Asia/Dhaka"
+    },
+    "BD_Narayanganj": {
+      "latitude": 23.624,
+      "longitude": 90.499,
+      "timezone": "Asia/Dhaka"
+    },
+    "BD_Gazipur": {
+      "latitude": 24.0,
+      "longitude": 90.418,
+      "timezone": "Asia/Dhaka"
+    },
+    "BD_Jessore": {
+      "latitude": 23.167,
+      "longitude": 89.209,
+      "timezone": "Asia/Dhaka"
+    },
+    "BD_Bogra": {
+      "latitude": 24.85,
+      "longitude": 89.373,
+      "timezone": "Asia/Dhaka"
+    },
+    "BD_Dinajpur": {
+      "latitude": 25.626,
+      "longitude": 88.635,
+      "timezone": "Asia/Dhaka"
+    },
+    "BD_Cox's Bazar": {
+      "latitude": 21.442,
+      "longitude": 91.971,
+      "timezone": "Asia/Dhaka"
+    },
+    "BN_Bandar Seri Begawan": {
+      "latitude": 4.89,
+      "longitude": 114.942,
+      "timezone": "Asia/Brunei"
+    },
+    "BN_Kuala Belait": {
+      "latitude": 4.585,
+      "longitude": 114.193,
+      "timezone": "Asia/Brunei"
+    },
+    "BN_Seria": {
+      "latitude": 4.614,
+      "longitude": 114.33,
+      "timezone": "Asia/Brunei"
+    },
+    "BN_Tutong": {
+      "latitude": 4.683,
+      "longitude": 114.656,
+      "timezone": "Asia/Brunei"
+    },
+    "BN_Bangar": {
+      "latitude": 4.708,
+      "longitude": 115.072,
+      "timezone": "Asia/Brunei"
+    },
+    "CN_Beijing": {
+      "latitude": 39.906,
+      "longitude": 116.391,
+      "timezone": "Asia/Shanghai"
+    },
+    "CN_Shanghai": {
+      "latitude": 31.231,
+      "longitude": 121.47,
+      "timezone": "Asia/Shanghai"
+    },
+    "CN_Guangzhou": {
+      "latitude": 23.129,
+      "longitude": 113.259,
+      "timezone": "Asia/Shanghai"
+    },
+    "CN_Shenzhen": {
+      "latitude": 22.545,
+      "longitude": 114.055,
+      "timezone": "Asia/Shanghai"
+    },
+    "CN_Chengdu": {
+      "latitude": 30.66,
+      "longitude": 104.063,
+      "timezone": "Asia/Shanghai"
+    },
+    "CN_Nanjing": {
+      "latitude": 32.044,
+      "longitude": 118.779,
+      "timezone": "Asia/Shanghai"
+    },
+    "CN_Wuhan": {
+      "latitude": 30.579,
+      "longitude": 114.292,
+      "timezone": "Asia/Shanghai"
+    },
+    "CN_Xi'an": {
+      "latitude": 34.261,
+      "longitude": 108.942,
+      "timezone": "Asia/Shanghai"
+    },
+    "CN_Hangzhou": {
+      "latitude": 30.249,
+      "longitude": 120.205,
+      "timezone": "Asia/Shanghai"
+    },
+    "CN_Chongqing": {
+      "latitude": 30.055,
+      "longitude": 107.875,
+      "timezone": "Asia/Shanghai"
+    },
+    "CN_Tianjin": {
+      "latitude": 39.303,
+      "longitude": 117.416,
+      "timezone": "Asia/Shanghai"
+    },
+    "CN_Suzhou": {
+      "latitude": 31.311,
+      "longitude": 120.621,
+      "timezone": "Asia/Shanghai"
+    },
+    "CN_Harbin": {
+      "latitude": 45.759,
+      "longitude": 126.628,
+      "timezone": "Asia/Shanghai"
+    },
+    "CN_Qingdao": {
+      "latitude": 36.066,
+      "longitude": 120.378,
+      "timezone": "Asia/Shanghai"
+    },
+    "CN_Dalian": {
+      "latitude": 39.74,
+      "longitude": 122.256,
+      "timezone": "Asia/Shanghai"
+    },
+    "GE_Tbilisi": {
+      "latitude": 41.693,
+      "longitude": 44.801,
+      "timezone": "Asia/Tbilisi"
+    },
+    "GE_Batumi": {
+      "latitude": 41.651,
+      "longitude": 41.636,
+      "timezone": "Asia/Tbilisi"
+    },
+    "GE_Kutaisi": {
+      "latitude": 42.272,
+      "longitude": 42.705,
+      "timezone": "Asia/Tbilisi"
+    },
+    "GE_Rustavi": {
+      "latitude": 41.543,
+      "longitude": 45.011,
+      "timezone": "Asia/Tbilisi"
+    },
+    "GE_Zugdidi": {
+      "latitude": 42.507,
+      "longitude": 41.872,
+      "timezone": "Asia/Tbilisi"
+    },
+    "GE_Gori": {
+      "latitude": 41.982,
+      "longitude": 44.112,
+      "timezone": "Asia/Tbilisi"
+    },
+    "GE_Poti": {
+      "latitude": 42.142,
+      "longitude": 41.675,
+      "timezone": "Asia/Tbilisi"
+    },
+    "GE_Telavi": {
+      "latitude": 41.92,
+      "longitude": 45.47,
+      "timezone": "Asia/Tbilisi"
+    },
+    "GE_Akhaltsikhe": {
+      "latitude": 41.64,
+      "longitude": 42.986,
+      "timezone": "Asia/Tbilisi"
+    },
+    "GE_Mtskheta": {
+      "latitude": 41.846,
+      "longitude": 44.72,
+      "timezone": "Asia/Tbilisi"
+    },
+    "ID_Medan": {
+      "latitude": 3.589,
+      "longitude": 98.674,
+      "timezone": "Asia/Jakarta"
+    },
+    "ID_Semarang": {
+      "latitude": -6.99,
+      "longitude": 110.423,
+      "timezone": "Asia/Jakarta"
+    },
+    "ID_Makassar": {
+      "latitude": -5.134,
+      "longitude": 119.412,
+      "timezone": "Asia/Jakarta"
+    },
+    "ID_Palembang": {
+      "latitude": -2.989,
+      "longitude": 104.757,
+      "timezone": "Asia/Jakarta"
+    },
+    "ID_Tangerang": {
+      "latitude": -6.176,
+      "longitude": 106.638,
+      "timezone": "Asia/Jakarta"
+    },
+    "ID_Depok": {
+      "latitude": -6.407,
+      "longitude": 106.816,
+      "timezone": "Asia/Jakarta"
+    },
+    "ID_Batam": {
+      "latitude": 1.103,
+      "longitude": 104.038,
+      "timezone": "Asia/Jakarta"
+    },
+    "ID_Bogor": {
+      "latitude": -6.596,
+      "longitude": 106.797,
+      "timezone": "Asia/Jakarta"
+    },
+    "ID_Pekanbaru": {
+      "latitude": 0.526,
+      "longitude": 101.452,
+      "timezone": "Asia/Jakarta"
+    },
+    "ID_Bandar Lampung": {
+      "latitude": -5.446,
+      "longitude": 105.264,
+      "timezone": "Asia/Jakarta"
+    },
+    "ID_Padang": {
+      "latitude": -0.925,
+      "longitude": 100.363,
+      "timezone": "Asia/Jakarta"
+    },
+    "ID_Denpasar": {
+      "latitude": -8.665,
+      "longitude": 115.218,
+      "timezone": "Asia/Jakarta"
+    },
+    "IL_Jerusalem": {
+      "latitude": 31.779,
+      "longitude": 35.226,
+      "timezone": "UTC"
+    },
+    "IL_Tel Aviv": {
+      "latitude": 32.085,
+      "longitude": 34.782,
+      "timezone": "UTC"
+    },
+    "IL_Haifa": {
+      "latitude": 32.819,
+      "longitude": 34.998,
+      "timezone": "UTC"
+    },
+    "IL_Rishon LeZion": {
+      "latitude": 31.964,
+      "longitude": 34.81,
+      "timezone": "UTC"
+    },
+    "IL_Petah Tikva": {
+      "latitude": 32.087,
+      "longitude": 34.885,
+      "timezone": "UTC"
+    },
+    "IL_Ashdod": {
+      "latitude": 31.798,
+      "longitude": 34.653,
+      "timezone": "UTC"
+    },
+    "IL_Netanya": {
+      "latitude": 32.329,
+      "longitude": 34.857,
+      "timezone": "UTC"
+    },
+    "IL_Beersheba": {
+      "latitude": 31.246,
+      "longitude": 34.793,
+      "timezone": "UTC"
+    },
+    "IL_Holon": {
+      "latitude": 32.019,
+      "longitude": 34.78,
+      "timezone": "UTC"
+    },
+    "IL_Ramat Gan": {
+      "latitude": 32.069,
+      "longitude": 34.825,
+      "timezone": "UTC"
+    },
+    "IN_Hyderabad": {
+      "latitude": 17.361,
+      "longitude": 78.474,
+      "timezone": "Asia/Kolkata"
+    },
+    "IN_Ahmedabad": {
+      "latitude": 23.022,
+      "longitude": 72.58,
+      "timezone": "Asia/Kolkata"
+    },
+    "IN_Chennai": {
+      "latitude": 13.084,
+      "longitude": 80.27,
+      "timezone": "Asia/Kolkata"
+    },
+    "IN_Kolkata": {
+      "latitude": 22.573,
+      "longitude": 88.364,
+      "timezone": "Asia/Kolkata"
+    },
+    "IN_Surat": {
+      "latitude": 21.209,
+      "longitude": 72.832,
+      "timezone": "Asia/Kolkata"
+    },
+    "IN_Pune": {
+      "latitude": 18.521,
+      "longitude": 73.855,
+      "timezone": "Asia/Kolkata"
+    },
+    "IN_Jaipur": {
+      "latitude": 26.915,
+      "longitude": 75.819,
+      "timezone": "Asia/Kolkata"
+    },
+    "IN_Lucknow": {
+      "latitude": 26.838,
+      "longitude": 80.935,
+      "timezone": "Asia/Kolkata"
+    },
+    "IN_Kanpur": {
+      "latitude": 26.461,
+      "longitude": 80.322,
+      "timezone": "Asia/Kolkata"
+    },
+    "IN_Nagpur": {
+      "latitude": 21.15,
+      "longitude": 79.082,
+      "timezone": "Asia/Kolkata"
+    },
+    "IN_Indore": {
+      "latitude": 22.72,
+      "longitude": 75.868,
+      "timezone": "Asia/Kolkata"
+    },
+    "IN_Thane": {
+      "latitude": 19.365,
+      "longitude": 73.369,
+      "timezone": "Asia/Kolkata"
+    },
+    "IR_Tehran": {
+      "latitude": 35.689,
+      "longitude": 51.39,
+      "timezone": "Asia/Tehran"
+    },
+    "IR_Mashhad": {
+      "latitude": 36.297,
+      "longitude": 59.606,
+      "timezone": "Asia/Tehran"
+    },
+    "IR_Isfahan": {
+      "latitude": 32.671,
+      "longitude": 51.665,
+      "timezone": "Asia/Tehran"
+    },
+    "IR_Shiraz": {
+      "latitude": 29.606,
+      "longitude": 52.538,
+      "timezone": "Asia/Tehran"
+    },
+    "IR_Tabriz": {
+      "latitude": 38.074,
+      "longitude": 46.298,
+      "timezone": "Asia/Tehran"
+    },
+    "IR_Karaj": {
+      "latitude": 35.822,
+      "longitude": 50.99,
+      "timezone": "Asia/Tehran"
+    },
+    "IR_Qom": {
+      "latitude": 34.642,
+      "longitude": 50.88,
+      "timezone": "Asia/Tehran"
+    },
+    "IR_Ahvaz": {
+      "latitude": 31.323,
+      "longitude": 48.679,
+      "timezone": "Asia/Tehran"
+    },
+    "IR_Kermanshah": {
+      "latitude": 34.379,
+      "longitude": 46.701,
+      "timezone": "Asia/Tehran"
+    },
+    "IR_Yazd": {
+      "latitude": 32.041,
+      "longitude": 54.666,
+      "timezone": "Asia/Tehran"
+    },
+    "IR_Zahedan": {
+      "latitude": 29.491,
+      "longitude": 60.864,
+      "timezone": "Asia/Tehran"
+    },
+    "IR_Rasht": {
+      "latitude": 37.27,
+      "longitude": 49.589,
+      "timezone": "Asia/Tehran"
+    },
+    "IR_Hamadan": {
+      "latitude": 34.973,
+      "longitude": 48.656,
+      "timezone": "Asia/Tehran"
+    },
+    "IR_Arak": {
+      "latitude": 34.086,
+      "longitude": 49.689,
+      "timezone": "Asia/Tehran"
+    },
+    "IR_Urmia": {
+      "latitude": 37.548,
+      "longitude": 45.067,
+      "timezone": "Asia/Tehran"
+    },
+    "JP_Tokyo": {
+      "latitude": 35.677,
+      "longitude": 139.764,
+      "timezone": "Asia/Tokyo"
+    },
+    "JP_Yokohama": {
+      "latitude": 35.45,
+      "longitude": 139.634,
+      "timezone": "Asia/Tokyo"
+    },
+    "JP_Osaka": {
+      "latitude": 34.694,
+      "longitude": 135.501,
+      "timezone": "Asia/Tokyo"
+    },
+    "JP_Nagoya": {
+      "latitude": 35.185,
+      "longitude": 136.9,
+      "timezone": "Asia/Tokyo"
+    },
+    "JP_Sapporo": {
+      "latitude": 43.062,
+      "longitude": 141.354,
+      "timezone": "Asia/Tokyo"
+    },
+    "JP_Fukuoka": {
+      "latitude": 33.625,
+      "longitude": 130.618,
+      "timezone": "Asia/Tokyo"
+    },
+    "JP_Kyoto": {
+      "latitude": 34.992,
+      "longitude": 135.764,
+      "timezone": "Asia/Tokyo"
+    },
+    "JP_Kobe": {
+      "latitude": 34.693,
+      "longitude": 135.194,
+      "timezone": "Asia/Tokyo"
+    },
+    "JP_Kawasaki": {
+      "latitude": 35.531,
+      "longitude": 139.704,
+      "timezone": "Asia/Tokyo"
+    },
+    "JP_Saitama": {
+      "latitude": 35.975,
+      "longitude": 139.416,
+      "timezone": "Asia/Tokyo"
+    },
+    "JP_Hiroshima": {
+      "latitude": 34.392,
+      "longitude": 132.452,
+      "timezone": "Asia/Tokyo"
+    },
+    "JP_Sendai": {
+      "latitude": 38.268,
+      "longitude": 140.869,
+      "timezone": "Asia/Tokyo"
+    },
+    "JP_Chiba": {
+      "latitude": 35.549,
+      "longitude": 140.265,
+      "timezone": "Asia/Tokyo"
+    },
+    "JP_Niigata": {
+      "latitude": 37.645,
+      "longitude": 138.767,
+      "timezone": "Asia/Tokyo"
+    },
+    "JP_Hamamatsu": {
+      "latitude": 34.711,
+      "longitude": 137.726,
+      "timezone": "Asia/Tokyo"
+    },
+    "KG_Bishkek": {
+      "latitude": 42.876,
+      "longitude": 74.604,
+      "timezone": "Asia/Bishkek"
+    },
+    "KG_Osh": {
+      "latitude": 40.108,
+      "longitude": 73.193,
+      "timezone": "Asia/Bishkek"
+    },
+    "KG_Jalal-Abad": {
+      "latitude": 41.001,
+      "longitude": 73.018,
+      "timezone": "Asia/Bishkek"
+    },
+    "KG_Karakol": {
+      "latitude": 42.492,
+      "longitude": 78.397,
+      "timezone": "Asia/Bishkek"
+    },
+    "KG_Tokmok": {
+      "latitude": 42.838,
+      "longitude": 75.295,
+      "timezone": "Asia/Bishkek"
+    },
+    "KG_Naryn": {
+      "latitude": 41.285,
+      "longitude": 75.461,
+      "timezone": "Asia/Bishkek"
+    },
+    "KG_Batken": {
+      "latitude": 39.793,
+      "longitude": 70.851,
+      "timezone": "Asia/Bishkek"
+    },
+    "KG_Talas": {
+      "latitude": 42.445,
+      "longitude": 72.287,
+      "timezone": "Asia/Bishkek"
+    },
+    "KG_Kara-Balta": {
+      "latitude": 42.801,
+      "longitude": 73.852,
+      "timezone": "Asia/Bishkek"
+    },
+    "KG_Balykchy": {
+      "latitude": 42.457,
+      "longitude": 76.196,
+      "timezone": "Asia/Bishkek"
+    },
+    "KH_Phnom Penh": {
+      "latitude": 11.573,
+      "longitude": 104.858,
+      "timezone": "Asia/Phnom_Penh"
+    },
+    "KH_Siem Reap": {
+      "latitude": 13.362,
+      "longitude": 103.859,
+      "timezone": "Asia/Phnom_Penh"
+    },
+    "KH_Battambang": {
+      "latitude": 12.926,
+      "longitude": 103.232,
+      "timezone": "Asia/Phnom_Penh"
+    },
+    "KH_Sihanoukville": {
+      "latitude": 10.622,
+      "longitude": 103.522,
+      "timezone": "Asia/Phnom_Penh"
+    },
+    "KH_Kampong Cham": {
+      "latitude": 12.117,
+      "longitude": 105.208,
+      "timezone": "Asia/Phnom_Penh"
+    },
+    "KH_Pursat": {
+      "latitude": 12.466,
+      "longitude": 103.743,
+      "timezone": "Asia/Phnom_Penh"
+    },
+    "KH_Takeo": {
+      "latitude": 10.936,
+      "longitude": 104.78,
+      "timezone": "Asia/Phnom_Penh"
+    },
+    "KH_Kampot": {
+      "latitude": 10.631,
+      "longitude": 104.133,
+      "timezone": "Asia/Phnom_Penh"
+    },
+    "KH_Kratie": {
+      "latitude": 12.678,
+      "longitude": 106.058,
+      "timezone": "Asia/Phnom_Penh"
+    },
+    "KH_Prey Veng": {
+      "latitude": 11.366,
+      "longitude": 105.456,
+      "timezone": "Asia/Phnom_Penh"
+    },
+    "KZ_Nur-Sultan": {
+      "latitude": 51.128,
+      "longitude": 71.431,
+      "timezone": "Asia/Almaty"
+    },
+    "KZ_Almaty": {
+      "latitude": 43.236,
+      "longitude": 76.946,
+      "timezone": "Asia/Almaty"
+    },
+    "KZ_Shymkent": {
+      "latitude": 42.315,
+      "longitude": 69.588,
+      "timezone": "Asia/Almaty"
+    },
+    "KZ_Karagandy": {
+      "latitude": 49.177,
+      "longitude": 74.181,
+      "timezone": "Asia/Almaty"
+    },
+    "KZ_Aktobe": {
+      "latitude": 50.284,
+      "longitude": 57.23,
+      "timezone": "Asia/Almaty"
+    },
+    "KZ_Taraz": {
+      "latitude": 42.902,
+      "longitude": 71.377,
+      "timezone": "Asia/Almaty"
+    },
+    "KZ_Pavlodar": {
+      "latitude": 51.811,
+      "longitude": 76.429,
+      "timezone": "Asia/Almaty"
+    },
+    "KZ_Oskemen": {
+      "latitude": 49.944,
+      "longitude": 82.624,
+      "timezone": "Asia/Almaty"
+    },
+    "KZ_Kyzylorda": {
+      "latitude": 45.206,
+      "longitude": 63.916,
+      "timezone": "Asia/Almaty"
+    },
+    "KZ_Atyrau": {
+      "latitude": 47.661,
+      "longitude": 50.806,
+      "timezone": "Asia/Almaty"
+    },
+    "LA_Vientiane": {
+      "latitude": 17.964,
+      "longitude": 102.613,
+      "timezone": "Asia/Vientiane"
+    },
+    "LA_Luang Prabang": {
+      "latitude": 19.889,
+      "longitude": 102.136,
+      "timezone": "Asia/Vientiane"
+    },
+    "LA_Pakse": {
+      "latitude": 15.12,
+      "longitude": 105.804,
+      "timezone": "Asia/Vientiane"
+    },
+    "LA_Savannakhet": {
+      "latitude": 16.5,
+      "longitude": 105.716,
+      "timezone": "Asia/Vientiane"
+    },
+    "LA_Thakhek": {
+      "latitude": 17.395,
+      "longitude": 104.806,
+      "timezone": "Asia/Vientiane"
+    },
+    "LA_Muang Xay": {
+      "latitude": 20.693,
+      "longitude": 101.985,
+      "timezone": "Asia/Vientiane"
+    },
+    "LA_Phonsavan": {
+      "latitude": 19.45,
+      "longitude": 103.192,
+      "timezone": "Asia/Vientiane"
+    },
+    "LA_Xam Neua": {
+      "latitude": 20.415,
+      "longitude": 104.045,
+      "timezone": "Asia/Vientiane"
+    },
+    "LA_Salavan": {
+      "latitude": 15.871,
+      "longitude": 106.339,
+      "timezone": "Asia/Vientiane"
+    },
+    "LA_Attapeu": {
+      "latitude": 14.791,
+      "longitude": 107.101,
+      "timezone": "Asia/Vientiane"
+    },
+    "LK_Colombo": {
+      "latitude": 6.939,
+      "longitude": 79.854,
+      "timezone": "Asia/Colombo"
+    },
+    "LK_Kandy": {
+      "latitude": 7.293,
+      "longitude": 80.635,
+      "timezone": "Asia/Colombo"
+    },
+    "LK_Galle": {
+      "latitude": 6.033,
+      "longitude": 80.215,
+      "timezone": "Asia/Colombo"
+    },
+    "LK_Jaffna": {
+      "latitude": 9.665,
+      "longitude": 80.009,
+      "timezone": "Asia/Colombo"
+    },
+    "LK_Negombo": {
+      "latitude": 7.209,
+      "longitude": 79.833,
+      "timezone": "Asia/Colombo"
+    },
+    "LK_Matara": {
+      "latitude": 5.948,
+      "longitude": 80.548,
+      "timezone": "Asia/Colombo"
+    },
+    "LK_Batticaloa": {
+      "latitude": 7.838,
+      "longitude": 81.557,
+      "timezone": "Asia/Colombo"
+    },
+    "LK_Trincomalee": {
+      "latitude": 8.576,
+      "longitude": 81.234,
+      "timezone": "Asia/Colombo"
+    },
+    "LK_Kurunegala": {
+      "latitude": 7.487,
+      "longitude": 80.365,
+      "timezone": "Asia/Colombo"
+    },
+    "LK_Anuradhapura": {
+      "latitude": 8.335,
+      "longitude": 80.411,
+      "timezone": "Asia/Colombo"
+    },
+    "MM_Yangon": {
+      "latitude": 16.797,
+      "longitude": 96.161,
+      "timezone": "Asia/Yangon"
+    },
+    "MM_Mandalay": {
+      "latitude": 21.96,
+      "longitude": 96.095,
+      "timezone": "Asia/Yangon"
+    },
+    "MM_Naypyidaw": {
+      "latitude": 19.775,
+      "longitude": 96.103,
+      "timezone": "Asia/Yangon"
+    },
+    "MM_Mawlamyine": {
+      "latitude": 16.491,
+      "longitude": 97.628,
+      "timezone": "Asia/Yangon"
+    },
+    "MM_Bago": {
+      "latitude": 18.246,
+      "longitude": 96.1,
+      "timezone": "Asia/Yangon"
+    },
+    "MM_Pathein": {
+      "latitude": 16.783,
+      "longitude": 94.733,
+      "timezone": "Asia/Yangon"
+    },
+    "MM_Taunggyi": {
+      "latitude": 20.787,
+      "longitude": 97.039,
+      "timezone": "Asia/Yangon"
+    },
+    "MM_Sittwe": {
+      "latitude": 20.139,
+      "longitude": 92.897,
+      "timezone": "Asia/Yangon"
+    },
+    "MM_Monywa": {
+      "latitude": 22.118,
+      "longitude": 95.132,
+      "timezone": "Asia/Yangon"
+    },
+    "MM_Myeik": {
+      "latitude": 12.432,
+      "longitude": 98.596,
+      "timezone": "Asia/Yangon"
+    },
+    "MN_Ulaanbaatar": {
+      "latitude": 47.918,
+      "longitude": 106.918,
+      "timezone": "Asia/Ulaanbaatar"
+    },
+    "MN_Erdenet": {
+      "latitude": 49.028,
+      "longitude": 104.044,
+      "timezone": "Asia/Ulaanbaatar"
+    },
+    "MN_Darkhan": {
+      "latitude": 49.492,
+      "longitude": 105.936,
+      "timezone": "Asia/Ulaanbaatar"
+    },
+    "MN_Choibalsan": {
+      "latitude": 48.069,
+      "longitude": 114.524,
+      "timezone": "Asia/Ulaanbaatar"
+    },
+    "MN_Mörön": {
+      "latitude": 43.881,
+      "longitude": 120.094,
+      "timezone": "Asia/Ulaanbaatar"
+    },
+    "MN_Khovd": {
+      "latitude": 46.9,
+      "longitude": 92.296,
+      "timezone": "Asia/Ulaanbaatar"
+    },
+    "MN_Ulgii": {
+      "latitude": 48.968,
+      "longitude": 89.968,
+      "timezone": "Asia/Ulaanbaatar"
+    },
+    "MN_Bayankhongor": {
+      "latitude": 45.238,
+      "longitude": 99.515,
+      "timezone": "Asia/Ulaanbaatar"
+    },
+    "MN_Arvaikheer": {
+      "latitude": 46.268,
+      "longitude": 102.786,
+      "timezone": "Asia/Ulaanbaatar"
+    },
+    "MN_Ulaangom": {
+      "latitude": 49.983,
+      "longitude": 92.067,
+      "timezone": "Asia/Ulaanbaatar"
+    },
+    "MV_Malé": {
+      "latitude": 4.176,
+      "longitude": 73.508,
+      "timezone": "Indian/Maldives"
+    },
+    "MV_Addu City": {
+      "latitude": -0.626,
+      "longitude": 73.179,
+      "timezone": "Indian/Maldives"
+    },
+    "MV_Fuvahmulah": {
+      "latitude": -0.295,
+      "longitude": 73.424,
+      "timezone": "Indian/Maldives"
+    },
+    "MV_Kulhudhuffushi": {
+      "latitude": 6.623,
+      "longitude": 73.069,
+      "timezone": "Indian/Maldives"
+    },
+    "MV_Hithadhoo": {
+      "latitude": 1.796,
+      "longitude": 73.388,
+      "timezone": "Indian/Maldives"
+    },
+    "MY_Kuala Lumpur": {
+      "latitude": 3.152,
+      "longitude": 101.694,
+      "timezone": "Asia/Kuala_Lumpur"
+    },
+    "MY_Penang": {
+      "latitude": 5.357,
+      "longitude": 100.304,
+      "timezone": "Asia/Kuala_Lumpur"
+    },
+    "MY_Johor Bahru": {
+      "latitude": 1.458,
+      "longitude": 103.765,
+      "timezone": "Asia/Kuala_Lumpur"
+    },
+    "MY_Kota Kinabalu": {
+      "latitude": 5.978,
+      "longitude": 116.073,
+      "timezone": "Asia/Kuala_Lumpur"
+    },
+    "MY_Kuching": {
+      "latitude": 1.56,
+      "longitude": 110.345,
+      "timezone": "Asia/Kuala_Lumpur"
+    },
+    "MY_Ipoh": {
+      "latitude": 4.599,
+      "longitude": 101.09,
+      "timezone": "Asia/Kuala_Lumpur"
+    },
+    "MY_Shah Alam": {
+      "latitude": 3.074,
+      "longitude": 101.519,
+      "timezone": "Asia/Kuala_Lumpur"
+    },
+    "MY_Malacca": {
+      "latitude": 2.329,
+      "longitude": 102.288,
+      "timezone": "Asia/Kuala_Lumpur"
+    },
+    "MY_Petaling Jaya": {
+      "latitude": 3.099,
+      "longitude": 101.645,
+      "timezone": "Asia/Kuala_Lumpur"
+    },
+    "MY_Subang Jaya": {
+      "latitude": 3.051,
+      "longitude": 101.582,
+      "timezone": "Asia/Kuala_Lumpur"
+    },
+    "MY_Kuala Terengganu": {
+      "latitude": 5.314,
+      "longitude": 103.136,
+      "timezone": "Asia/Kuala_Lumpur"
+    },
+    "MY_Kota Bharu": {
+      "latitude": 6.125,
+      "longitude": 102.238,
+      "timezone": "Asia/Kuala_Lumpur"
+    },
+    "MY_Alor Setar": {
+      "latitude": 6.123,
+      "longitude": 100.368,
+      "timezone": "Asia/Kuala_Lumpur"
+    },
+    "MY_Miri": {
+      "latitude": 4.394,
+      "longitude": 113.988,
+      "timezone": "Asia/Kuala_Lumpur"
+    },
+    "MY_Kuantan": {
+      "latitude": 3.797,
+      "longitude": 103.322,
+      "timezone": "Asia/Kuala_Lumpur"
+    },
+    "NP_Kathmandu": {
+      "latitude": 27.708,
+      "longitude": 85.321,
+      "timezone": "Asia/Kathmandu"
+    },
+    "NP_Pokhara": {
+      "latitude": 28.21,
+      "longitude": 83.991,
+      "timezone": "Asia/Kathmandu"
+    },
+    "NP_Bharatpur": {
+      "latitude": 27.681,
+      "longitude": 84.43,
+      "timezone": "Asia/Kathmandu"
+    },
+    "NP_Lalitpur": {
+      "latitude": 27.677,
+      "longitude": 85.317,
+      "timezone": "Asia/Kathmandu"
+    },
+    "NP_Birgunj": {
+      "latitude": 27.014,
+      "longitude": 84.876,
+      "timezone": "Asia/Kathmandu"
+    },
+    "NP_Butwal": {
+      "latitude": 27.7,
+      "longitude": 83.466,
+      "timezone": "Asia/Kathmandu"
+    },
+    "NP_Dharan": {
+      "latitude": 26.813,
+      "longitude": 87.284,
+      "timezone": "Asia/Kathmandu"
+    },
+    "NP_Biratnagar": {
+      "latitude": 26.462,
+      "longitude": 87.282,
+      "timezone": "Asia/Kathmandu"
+    },
+    "NP_Janakpur": {
+      "latitude": 26.728,
+      "longitude": 85.925,
+      "timezone": "Asia/Kathmandu"
+    },
+    "NP_Hetauda": {
+      "latitude": 27.43,
+      "longitude": 85.033,
+      "timezone": "Asia/Kathmandu"
+    },
+    "PH_Manila": {
+      "latitude": 14.59,
+      "longitude": 120.98,
+      "timezone": "Asia/Manila"
+    },
+    "PH_Quezon City": {
+      "latitude": 8.659,
+      "longitude": 123.422,
+      "timezone": "Asia/Manila"
+    },
+    "PH_Davao City": {
+      "latitude": 7.065,
+      "longitude": 125.608,
+      "timezone": "Asia/Manila"
+    },
+    "PH_Cebu City": {
+      "latitude": 10.293,
+      "longitude": 123.902,
+      "timezone": "Asia/Manila"
+    },
+    "PH_Zamboanga City": {
+      "latitude": 6.905,
+      "longitude": 122.076,
+      "timezone": "Asia/Manila"
+    },
+    "PH_General Santos": {
+      "latitude": 6.113,
+      "longitude": 125.172,
+      "timezone": "Asia/Manila"
+    },
+    "PH_Bacolod": {
+      "latitude": 10.676,
+      "longitude": 122.951,
+      "timezone": "Asia/Manila"
+    },
+    "PH_Iloilo City": {
+      "latitude": 10.693,
+      "longitude": 122.573,
+      "timezone": "Asia/Manila"
+    },
+    "PH_Butuan": {
+      "latitude": 8.947,
+      "longitude": 125.543,
+      "timezone": "Asia/Manila"
+    },
+    "PH_Cagayan de Oro": {
+      "latitude": 8.476,
+      "longitude": 124.642,
+      "timezone": "Asia/Manila"
+    },
+    "PH_Angeles City": {
+      "latitude": 15.139,
+      "longitude": 120.588,
+      "timezone": "Asia/Manila"
+    },
+    "PH_Baguio": {
+      "latitude": 16.412,
+      "longitude": 120.593,
+      "timezone": "Asia/Manila"
+    },
+    "PH_Olongapo": {
+      "latitude": 14.839,
+      "longitude": 120.284,
+      "timezone": "Asia/Manila"
+    },
+    "PH_Tarlac City": {
+      "latitude": 15.486,
+      "longitude": 120.589,
+      "timezone": "Asia/Manila"
+    },
+    "PH_Batangas": {
+      "latitude": 13.915,
+      "longitude": 121.087,
+      "timezone": "Asia/Manila"
+    },
+    "PK_Faisalabad": {
+      "latitude": 31.422,
+      "longitude": 73.092,
+      "timezone": "Asia/Karachi"
+    },
+    "PK_Rawalpindi": {
+      "latitude": 33.592,
+      "longitude": 73.054,
+      "timezone": "Asia/Karachi"
+    },
+    "PK_Multan": {
+      "latitude": 30.198,
+      "longitude": 71.472,
+      "timezone": "Asia/Karachi"
+    },
+    "PK_Peshawar": {
+      "latitude": 34.012,
+      "longitude": 71.579,
+      "timezone": "Asia/Karachi"
+    },
+    "PK_Quetta": {
+      "latitude": 24.914,
+      "longitude": 67.121,
+      "timezone": "Asia/Karachi"
+    },
+    "PK_Sialkot": {
+      "latitude": 32.494,
+      "longitude": 74.542,
+      "timezone": "Asia/Karachi"
+    },
+    "PK_Gujranwala": {
+      "latitude": 32.153,
+      "longitude": 74.193,
+      "timezone": "Asia/Karachi"
+    },
+    "PK_Hyderabad": {
+      "latitude": 25.382,
+      "longitude": 68.333,
+      "timezone": "Asia/Karachi"
+    },
+    "PK_Bahawalpur": {
+      "latitude": 29.403,
+      "longitude": 71.652,
+      "timezone": "Asia/Karachi"
+    },
+    "PK_Sukkur": {
+      "latitude": 27.701,
+      "longitude": 68.866,
+      "timezone": "Asia/Karachi"
+    },
+    "PK_Larkana": {
+      "latitude": 27.556,
+      "longitude": 68.21,
+      "timezone": "Asia/Karachi"
+    },
+    "PK_Jhelum": {
+      "latitude": 32.929,
+      "longitude": 73.726,
+      "timezone": "Asia/Karachi"
+    },
+    "SG_Singapore": {
+      "latitude": 1.29,
+      "longitude": 103.852,
+      "timezone": "Asia/Singapore"
+    },
+    "TH_Bangkok": {
+      "latitude": 13.752,
+      "longitude": 100.494,
+      "timezone": "Asia/Bangkok"
+    },
+    "TH_Chiang Mai": {
+      "latitude": 18.788,
+      "longitude": 98.986,
+      "timezone": "Asia/Bangkok"
+    },
+    "TH_Phuket": {
+      "latitude": 7.937,
+      "longitude": 98.353,
+      "timezone": "Asia/Bangkok"
+    },
+    "TH_Pattaya": {
+      "latitude": 12.937,
+      "longitude": 100.887,
+      "timezone": "Asia/Bangkok"
+    },
+    "TH_Nonthaburi": {
+      "latitude": 13.861,
+      "longitude": 100.346,
+      "timezone": "Asia/Bangkok"
+    },
+    "TH_Nakhon Ratchasima": {
+      "latitude": 14.975,
+      "longitude": 102.098,
+      "timezone": "Asia/Bangkok"
+    },
+    "TH_Chiang Rai": {
+      "latitude": 19.759,
+      "longitude": 99.673,
+      "timezone": "Asia/Bangkok"
+    },
+    "TH_Hat Yai": {
+      "latitude": 7.007,
+      "longitude": 100.469,
+      "timezone": "Asia/Bangkok"
+    },
+    "TH_Khon Kaen": {
+      "latitude": 16.602,
+      "longitude": 102.635,
+      "timezone": "Asia/Bangkok"
+    },
+    "TH_Udon Thani": {
+      "latitude": 17.521,
+      "longitude": 102.668,
+      "timezone": "Asia/Bangkok"
+    },
+    "TJ_Dushanbe": {
+      "latitude": 38.577,
+      "longitude": 68.785,
+      "timezone": "Asia/Dushanbe"
+    },
+    "TJ_Khujand": {
+      "latitude": 40.284,
+      "longitude": 69.619,
+      "timezone": "Asia/Dushanbe"
+    },
+    "TJ_Kulob": {
+      "latitude": 37.908,
+      "longitude": 69.774,
+      "timezone": "Asia/Dushanbe"
+    },
+    "TJ_Bokhtar": {
+      "latitude": 37.838,
+      "longitude": 68.781,
+      "timezone": "Asia/Dushanbe"
+    },
+    "TJ_Istaravshan": {
+      "latitude": 39.908,
+      "longitude": 68.996,
+      "timezone": "Asia/Dushanbe"
+    },
+    "TJ_Tursunzoda": {
+      "latitude": 38.514,
+      "longitude": 68.232,
+      "timezone": "Asia/Dushanbe"
+    },
+    "TJ_Panjakent": {
+      "latitude": 39.496,
+      "longitude": 67.614,
+      "timezone": "Asia/Dushanbe"
+    },
+    "TJ_Vahdat": {
+      "latitude": 38.561,
+      "longitude": 69.017,
+      "timezone": "Asia/Dushanbe"
+    },
+    "TJ_Konibodom": {
+      "latitude": 40.291,
+      "longitude": 70.425,
+      "timezone": "Asia/Dushanbe"
+    },
+    "TJ_Isfara": {
+      "latitude": 39.944,
+      "longitude": 70.506,
+      "timezone": "Asia/Dushanbe"
+    },
+    "TM_Ashgabat": {
+      "latitude": 37.94,
+      "longitude": 58.382,
+      "timezone": "Asia/Ashgabat"
+    },
+    "TM_Turkmenabat": {
+      "latitude": 39.073,
+      "longitude": 63.583,
+      "timezone": "Asia/Ashgabat"
+    },
+    "TM_Dashoguz": {
+      "latitude": 41.833,
+      "longitude": 59.971,
+      "timezone": "Asia/Ashgabat"
+    },
+    "TM_Mary": {
+      "latitude": 37.594,
+      "longitude": 61.84,
+      "timezone": "Asia/Ashgabat"
+    },
+    "TM_Balkanabat": {
+      "latitude": 39.512,
+      "longitude": 54.354,
+      "timezone": "Asia/Ashgabat"
+    },
+    "TM_Konye-Urgench": {
+      "latitude": 42.326,
+      "longitude": 59.153,
+      "timezone": "Asia/Ashgabat"
+    },
+    "TM_Bayramaly": {
+      "latitude": 37.612,
+      "longitude": 62.172,
+      "timezone": "Asia/Ashgabat"
+    },
+    "TM_Tejen": {
+      "latitude": 37.385,
+      "longitude": 60.503,
+      "timezone": "Asia/Ashgabat"
+    },
+    "TM_Turkmenbashi": {
+      "latitude": 37.932,
+      "longitude": 58.43,
+      "timezone": "Asia/Ashgabat"
+    },
+    "TM_Abadan": {
+      "latitude": 38.033,
+      "longitude": 58.317,
+      "timezone": "Asia/Ashgabat"
+    },
+    "UZ_Tashkent": {
+      "latitude": 41.312,
+      "longitude": 69.279,
+      "timezone": "Asia/Tashkent"
+    },
+    "UZ_Samarkand": {
+      "latitude": 39.655,
+      "longitude": 66.976,
+      "timezone": "Asia/Tashkent"
+    },
+    "UZ_Bukhara": {
+      "latitude": 39.776,
+      "longitude": 64.415,
+      "timezone": "Asia/Tashkent"
+    },
+    "UZ_Namangan": {
+      "latitude": 41.0,
+      "longitude": 71.673,
+      "timezone": "Asia/Tashkent"
+    },
+    "UZ_Andijan": {
+      "latitude": 40.783,
+      "longitude": 72.351,
+      "timezone": "Asia/Tashkent"
+    },
+    "UZ_Fergana": {
+      "latitude": 40.376,
+      "longitude": 71.791,
+      "timezone": "Asia/Tashkent"
+    },
+    "UZ_Nukus": {
+      "latitude": 42.46,
+      "longitude": 59.618,
+      "timezone": "Asia/Tashkent"
+    },
+    "UZ_Termez": {
+      "latitude": 37.244,
+      "longitude": 67.283,
+      "timezone": "Asia/Tashkent"
+    },
+    "UZ_Jizzakh": {
+      "latitude": 40.133,
+      "longitude": 67.823,
+      "timezone": "Asia/Tashkent"
+    },
+    "UZ_Khiva": {
+      "latitude": 41.378,
+      "longitude": 60.364,
+      "timezone": "Asia/Tashkent"
+    },
+    "VN_Hanoi": {
+      "latitude": 21.028,
+      "longitude": 105.854,
+      "timezone": "Asia/Ho_Chi_Minh"
+    },
+    "VN_Ho Chi Minh City": {
+      "latitude": 10.925,
+      "longitude": 106.725,
+      "timezone": "Asia/Ho_Chi_Minh"
+    },
+    "VN_Da Nang": {
+      "latitude": 16.067,
+      "longitude": 108.214,
+      "timezone": "Asia/Ho_Chi_Minh"
+    },
+    "VN_Hai Phong": {
+      "latitude": 20.862,
+      "longitude": 106.68,
+      "timezone": "Asia/Ho_Chi_Minh"
+    },
+    "VN_Can Tho": {
+      "latitude": 10.036,
+      "longitude": 105.787,
+      "timezone": "Asia/Ho_Chi_Minh"
+    },
+    "VN_Nha Trang": {
+      "latitude": 12.208,
+      "longitude": 109.287,
+      "timezone": "Asia/Ho_Chi_Minh"
+    },
+    "VN_Hue": {
+      "latitude": 16.464,
+      "longitude": 107.586,
+      "timezone": "Asia/Ho_Chi_Minh"
+    },
+    "VN_Da Lat": {
+      "latitude": 11.949,
+      "longitude": 108.437,
+      "timezone": "Asia/Ho_Chi_Minh"
+    },
+    "VN_Vung Tau": {
+      "latitude": 10.348,
+      "longitude": 107.074,
+      "timezone": "Asia/Ho_Chi_Minh"
+    },
+    "VN_Quy Nhon": {
+      "latitude": 13.755,
+      "longitude": 109.177,
+      "timezone": "Asia/Ho_Chi_Minh"
     }
   }
 }

@@ -175,6 +175,48 @@ class LocationDataSourceTest {
     }
 
     @Test
+    fun every_asia_picker_city_resolves_to_found() {
+        val asiaCountryCodes =
+            listOf(
+                "AF", "AM", "AZ", "BH", "BD", "BN", "KH", "CN", "GE", "IN", "ID", "IR", "IQ", "IL",
+                "JO", "JP", "KZ", "KW", "KG", "LA", "LB", "MY", "MV", "MN", "MM", "NP", "OM", "PK",
+                "PS", "PH", "QA", "SA", "SG", "KR", "LK", "SY", "TW", "TJ", "TH", "TL", "TR", "TM",
+                "AE", "UZ", "VN", "YE",
+            )
+        val failures = mutableListOf<String>()
+        for (countryCode in asiaCountryCodes) {
+            val cities = LocationDataSource.loadedCatalog()?.citiesByCountry[countryCode] ?: emptyList()
+            for (city in cities) {
+                when (LocationDataSource.resolveCityCoordinates(countryCode, city)) {
+                    is CityResolutionResult.Found -> {}
+                    else -> failures.add("$countryCode:$city")
+                }
+            }
+        }
+        assertTrue(
+            "Asia picker cities without exact coords: ${failures.take(10)}${if (failures.size > 10) "..." else ""}",
+            failures.isEmpty(),
+        )
+    }
+
+    @Test
+    fun asia_reference_city_coords_match() {
+        val tokyo = LocationDataSource.resolveCityCoordinates("JP", "Tokyo")
+        assertTrue(tokyo is CityResolutionResult.Found)
+        tokyo as CityResolutionResult.Found
+        assertEquals(35.694, tokyo.coords.latitude, 0.1)
+        assertEquals(139.754, tokyo.coords.longitude, 0.1)
+        assertEquals("Asia/Tokyo", tokyo.coords.timezone)
+
+        val singapore = LocationDataSource.resolveCityCoordinates("SG", "Singapore")
+        assertTrue(singapore is CityResolutionResult.Found)
+        singapore as CityResolutionResult.Found
+        assertEquals(1.357, singapore.coords.latitude, 0.1)
+        assertEquals(103.819, singapore.coords.longitude, 0.1)
+        assertEquals("Asia/Singapore", singapore.coords.timezone)
+    }
+
+    @Test
     fun africa_reference_city_coords_match() {
         val lagos = LocationDataSource.resolveCityCoordinates("NG", "Lagos")
         assertTrue(lagos is CityResolutionResult.Found)

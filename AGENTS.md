@@ -80,8 +80,9 @@ Hayya/  (repo folder may still be Private-Prayer; package com.prayertime)
 | **7B** | Compass geographic calibration + UI | **Done** — geographic declination, upright gate, accuracy UI, user fine-offset, 3 tests; merged PR **#42** Jun 2026 | — |
 | **8A** | Manual lat/lng coordinates wizard | **Done** — `WizardStep.ManualCoords`, validation, EN/AR strings | `feat/manual-coords-wizard` |
 | **8B** | Europe `knownCityCoords` fill | **Done** — 574/574 EU picker cities; merged PR **#43** | — |
-| **8C** | Africa `knownCityCoords` fill | **Done** — 407/407 Africa picker cities; `scripts/fill_africa_coords.py` | `feat/city-coords-africa` |
-| **8D** | Asia `knownCityCoords` fill | **Planned** — branch `feat/city-coords-asia` after 8C merge | — |
+| **8C** | Africa `knownCityCoords` fill | **Done** — 407/407; merged PR **#44** | — |
+| **8D** | Asia `knownCityCoords` fill | **Done** — 920/920; `scripts/fill_asia_coords.py` | `feat/city-coords-asia` |
+| **8E** | America `knownCityCoords` fill | **Planned** — branch `feat/city-coords-america` after 8D merge | — |
 
 ## Architecture (post-2F hardening)
 
@@ -117,7 +118,7 @@ Hayya/  (repo folder may still be Private-Prayer; package com.prayertime)
 - `LocationCatalogInitializer` (Hilt `@Singleton`) calls `LocationDataSource.initialize()` at app startup — not from `LocalLocationRepository`
 - `initialize()` kicks off JSON parsing on `Dispatchers.IO` — returns immediately, no main-thread block
 - `suspend fun awaitReady()` for coroutine callers; sync list accessors return empty while loading; `NOT_STARTED` throws
-- `locations.json` (~250 KB) in `assets/` — no hardcoded Kotlin maps; expanded via `scripts/expand_locations.py` + regional `fill_*_coords.py`
+- `locations.json` (~286 KB) in `assets/` — no hardcoded Kotlin maps; expanded via `scripts/expand_locations.py` + regional `fill_*_coords.py`
 
 ### Timezone consistency
 - Staleness check uses `needsPrayerDayRefresh(lastFetch, now, cityTZ)` — not a flat 25-hour epoch threshold

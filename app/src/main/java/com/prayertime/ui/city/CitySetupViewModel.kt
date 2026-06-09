@@ -197,7 +197,7 @@ class CitySetupViewModel
                         PrayerTimesErrorMapper.saveError(SaveCityError.INVALID_COORDINATES, offlineOnly)
                     return@launch
                 }
-                if (lat < -90.0 || lat > 90.0 || lng < -180.0 || lng > 180.0) {
+                if (!isValidCoordinateRange(lat, lng)) {
                     _saveError.value =
                         PrayerTimesErrorMapper.saveError(SaveCityError.INVALID_COORDINATES, offlineOnly)
                     return@launch
@@ -227,4 +227,9 @@ class CitySetupViewModel
             val step = _wizardStep.value as? WizardStep.ManualCoords ?: return
             _wizardStep.value = WizardStep.CitySelection(step.country)
         }
+
+        private fun isValidCoordinateRange(
+            latitude: Double,
+            longitude: Double,
+        ): Boolean = latitude in -90.0..90.0 && longitude in -180.0..180.0
     }

@@ -303,7 +303,6 @@ private fun CitySelectionStep(
                         item(key = "manual-coords-entry") {
                             Spacer(modifier = Modifier.height(AppSpacing.itemGap))
                             ManualCoordsOption(
-                                query = searchQuery,
                                 onClick = { onManualCoordsRequested(searchQuery.trim()) },
                             )
                         }
@@ -367,10 +366,7 @@ private fun CustomCityFallback(
 }
 
 @Composable
-private fun ManualCoordsOption(
-    query: String,
-    onClick: () -> Unit,
-) {
+private fun ManualCoordsOption(onClick: () -> Unit) {
     Card(
         modifier =
             Modifier
@@ -445,88 +441,112 @@ private fun ManualCoordsStep(
             modifier = Modifier.fillMaxWidth(),
         )
         Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
-        OutlinedTextField(
-            value = latitudeText,
-            onValueChange = { latitudeText = it },
-            label = { Text(stringResource(R.string.manual_coords_latitude)) },
-            placeholder = { Text("e.g. 52.1048") },
-            singleLine = true,
-            modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(16.dp),
-            colors = searchFieldColors(),
-            keyboardOptions =
-                KeyboardOptions(
-                    keyboardType = KeyboardType.Decimal,
-                    imeAction = ImeAction.Next,
-                ),
-        )
-        Spacer(modifier = Modifier.height(AppSpacing.itemGap))
-        OutlinedTextField(
-            value = longitudeText,
-            onValueChange = { longitudeText = it },
-            label = { Text(stringResource(R.string.manual_coords_longitude)) },
-            placeholder = { Text("e.g. 9.3566") },
-            singleLine = true,
-            modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(16.dp),
-            colors = searchFieldColors(),
-            keyboardOptions =
-                KeyboardOptions(
-                    keyboardType = KeyboardType.Decimal,
-                    imeAction = ImeAction.Next,
-                ),
-        )
-        Spacer(modifier = Modifier.height(AppSpacing.itemGap))
-        OutlinedTextField(
-            value = timezoneText,
-            onValueChange = { timezoneText = it },
-            label = { Text(stringResource(R.string.manual_coords_timezone)) },
-            placeholder = { Text("e.g. Europe/Berlin") },
-            singleLine = true,
-            modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(16.dp),
-            colors = searchFieldColors(),
-            keyboardOptions =
-                KeyboardOptions(
-                    keyboardType = KeyboardType.Uri,
-                    imeAction = ImeAction.Done,
-                ),
+        ManualCoordsFormFields(
+            latitudeText = latitudeText,
+            onLatitudeChange = { latitudeText = it },
+            longitudeText = longitudeText,
+            onLongitudeChange = { longitudeText = it },
+            timezoneText = timezoneText,
+            onTimezoneChange = { timezoneText = it },
         )
         Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
-        Text(
-            text = stringResource(R.string.manual_coords_hint),
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            textAlign = TextAlign.Start,
-            modifier = Modifier.fillMaxWidth(),
+        ManualCoordsSaveCard(
+            onClick = { onSave(cityName, latitudeText, longitudeText, timezoneText) },
         )
-        Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
-        Card(
-            modifier =
-                Modifier
-                    .fillMaxWidth()
-                    .clickable {
-                        onSave(cityName, latitudeText, longitudeText, timezoneText)
-                    },
-            shape = RoundedCornerShape(12.dp),
-            colors =
-                CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.primary,
-                ),
-            elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+    }
+}
+
+@Composable
+private fun ManualCoordsFormFields(
+    latitudeText: String,
+    onLatitudeChange: (String) -> Unit,
+    longitudeText: String,
+    onLongitudeChange: (String) -> Unit,
+    timezoneText: String,
+    onTimezoneChange: (String) -> Unit,
+) {
+    OutlinedTextField(
+        value = latitudeText,
+        onValueChange = onLatitudeChange,
+        label = { Text(stringResource(R.string.manual_coords_latitude)) },
+        placeholder = { Text("e.g. 52.1048") },
+        singleLine = true,
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(16.dp),
+        colors = searchFieldColors(),
+        keyboardOptions =
+            KeyboardOptions(
+                keyboardType = KeyboardType.Decimal,
+                imeAction = ImeAction.Next,
+            ),
+    )
+    Spacer(modifier = Modifier.height(AppSpacing.itemGap))
+    OutlinedTextField(
+        value = longitudeText,
+        onValueChange = onLongitudeChange,
+        label = { Text(stringResource(R.string.manual_coords_longitude)) },
+        placeholder = { Text("e.g. 9.3566") },
+        singleLine = true,
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(16.dp),
+        colors = searchFieldColors(),
+        keyboardOptions =
+            KeyboardOptions(
+                keyboardType = KeyboardType.Decimal,
+                imeAction = ImeAction.Next,
+            ),
+    )
+    Spacer(modifier = Modifier.height(AppSpacing.itemGap))
+    OutlinedTextField(
+        value = timezoneText,
+        onValueChange = onTimezoneChange,
+        label = { Text(stringResource(R.string.manual_coords_timezone)) },
+        placeholder = { Text("e.g. Europe/Berlin") },
+        singleLine = true,
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(16.dp),
+        colors = searchFieldColors(),
+        keyboardOptions =
+            KeyboardOptions(
+                keyboardType = KeyboardType.Uri,
+                imeAction = ImeAction.Done,
+            ),
+    )
+    Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
+    Text(
+        text = stringResource(R.string.manual_coords_hint),
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        textAlign = TextAlign.Start,
+        modifier = Modifier.fillMaxWidth(),
+    )
+}
+
+@Composable
+private fun ManualCoordsSaveCard(onClick: () -> Unit) {
+    Card(
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .clickable(onClick = onClick),
+        shape = RoundedCornerShape(12.dp),
+        colors =
+            CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.primary,
+            ),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+    ) {
+        Row(
+            modifier = Modifier.fillMaxWidth().padding(AppSpacing.cardPadding),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically,
         ) {
-            Row(
-                modifier = Modifier.fillMaxWidth().padding(AppSpacing.cardPadding),
-                horizontalArrangement = Arrangement.Center,
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text(
-                    text = stringResource(R.string.manual_coords_save),
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onPrimary,
-                )
-            }
+            Text(
+                text = stringResource(R.string.manual_coords_save),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onPrimary,
+            )
         }
     }
 }

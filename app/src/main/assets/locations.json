@@ -11421,6 +11421,506 @@
       "latitude": 42.484,
       "longitude": 20.743,
       "timezone": "Europe/Belgrade"
+    },
+    "ET_Addis Ababa": {
+      "latitude": 9.036,
+      "longitude": 38.752,
+      "timezone": "Africa/Addis_Ababa"
+    },
+    "ET_Dire Dawa": {
+      "latitude": 9.591,
+      "longitude": 41.98,
+      "timezone": "Africa/Addis_Ababa"
+    },
+    "ET_Mekelle": {
+      "latitude": 13.497,
+      "longitude": 39.477,
+      "timezone": "Africa/Addis_Ababa"
+    },
+    "ET_Gonder": {
+      "latitude": 12.61,
+      "longitude": 37.467,
+      "timezone": "Africa/Addis_Ababa"
+    },
+    "ET_Bahir Dar": {
+      "latitude": 11.595,
+      "longitude": 37.388,
+      "timezone": "Africa/Addis_Ababa"
+    },
+    "ET_Awasa": {
+      "latitude": 7.048,
+      "longitude": 38.479,
+      "timezone": "Africa/Addis_Ababa"
+    },
+    "ET_Jimma": {
+      "latitude": 7.676,
+      "longitude": 36.848,
+      "timezone": "Africa/Addis_Ababa"
+    },
+    "ET_Adama": {
+      "latitude": 8.541,
+      "longitude": 39.271,
+      "timezone": "Africa/Addis_Ababa"
+    },
+    "ET_Dessie": {
+      "latitude": 11.123,
+      "longitude": 39.635,
+      "timezone": "Africa/Addis_Ababa"
+    },
+    "ET_Jijiga": {
+      "latitude": 9.351,
+      "longitude": 42.8,
+      "timezone": "Africa/Addis_Ababa"
+    },
+    "GH_Accra": {
+      "latitude": 5.557,
+      "longitude": -0.201,
+      "timezone": "Africa/Accra"
+    },
+    "GH_Kumasi": {
+      "latitude": 6.699,
+      "longitude": -1.623,
+      "timezone": "Africa/Accra"
+    },
+    "GH_Tamale": {
+      "latitude": 9.405,
+      "longitude": -0.842,
+      "timezone": "Africa/Accra"
+    },
+    "GH_Sekondi-Takoradi": {
+      "latitude": 4.927,
+      "longitude": -1.749,
+      "timezone": "Africa/Accra"
+    },
+    "GH_Cape Coast": {
+      "latitude": 5.108,
+      "longitude": -1.242,
+      "timezone": "Africa/Accra"
+    },
+    "GH_Tema": {
+      "latitude": 5.66,
+      "longitude": -0.01,
+      "timezone": "Africa/Accra"
+    },
+    "GH_Obuasi": {
+      "latitude": 6.212,
+      "longitude": -1.689,
+      "timezone": "Africa/Accra"
+    },
+    "GH_Sunyani": {
+      "latitude": 7.338,
+      "longitude": -2.331,
+      "timezone": "Africa/Accra"
+    },
+    "GH_Koforidua": {
+      "latitude": 6.1,
+      "longitude": -0.261,
+      "timezone": "Africa/Accra"
+    },
+    "GH_Wa": {
+      "latitude": 10.062,
+      "longitude": -2.502,
+      "timezone": "Africa/Accra"
+    },
+    "KE_Nairobi": {
+      "latitude": -1.302,
+      "longitude": 36.829,
+      "timezone": "Africa/Nairobi"
+    },
+    "KE_Mombasa": {
+      "latitude": -4.051,
+      "longitude": 39.667,
+      "timezone": "Africa/Nairobi"
+    },
+    "KE_Kisumu": {
+      "latitude": -0.103,
+      "longitude": 34.754,
+      "timezone": "Africa/Nairobi"
+    },
+    "KE_Nakuru": {
+      "latitude": -0.28,
+      "longitude": 36.071,
+      "timezone": "Africa/Nairobi"
+    },
+    "KE_Eldoret": {
+      "latitude": 0.52,
+      "longitude": 35.272,
+      "timezone": "Africa/Nairobi"
+    },
+    "KE_Thika": {
+      "latitude": -1.037,
+      "longitude": 37.078,
+      "timezone": "Africa/Nairobi"
+    },
+    "KE_Malindi": {
+      "latitude": -3.23,
+      "longitude": 39.975,
+      "timezone": "Africa/Nairobi"
+    },
+    "KE_Kitale": {
+      "latitude": 1.018,
+      "longitude": 35.0,
+      "timezone": "Africa/Nairobi"
+    },
+    "KE_Nyeri": {
+      "latitude": -0.321,
+      "longitude": 36.93,
+      "timezone": "Africa/Nairobi"
+    },
+    "KE_Machakos": {
+      "latitude": -1.279,
+      "longitude": 37.395,
+      "timezone": "Africa/Nairobi"
+    },
+    "KM_Moroni": {
+      "latitude": -11.704,
+      "longitude": 43.252,
+      "timezone": "Indian/Comoro"
+    },
+    "KM_Mitsamiouli": {
+      "latitude": -11.385,
+      "longitude": 43.384,
+      "timezone": "Indian/Comoro"
+    },
+    "KM_Fomboni": {
+      "latitude": -12.284,
+      "longitude": 43.743,
+      "timezone": "Indian/Comoro"
+    },
+    "KM_Domoni": {
+      "latitude": -12.179,
+      "longitude": 44.497,
+      "timezone": "Indian/Comoro"
+    },
+    "KM_Mutsamudu": {
+      "latitude": -12.169,
+      "longitude": 44.394,
+      "timezone": "Indian/Comoro"
+    },
+    "KM_Sima": {
+      "latitude": -12.245,
+      "longitude": 44.409,
+      "timezone": "Indian/Comoro"
+    },
+    "KM_Ouani": {
+      "latitude": -12.161,
+      "longitude": 44.448,
+      "timezone": "Indian/Comoro"
+    },
+    "KM_Bambao": {
+      "latitude": -12.202,
+      "longitude": 44.517,
+      "timezone": "Indian/Comoro"
+    },
+    "KM_Moya": {
+      "latitude": -12.279,
+      "longitude": 44.429,
+      "timezone": "Indian/Comoro"
+    },
+    "KM_Iconi": {
+      "latitude": -11.745,
+      "longitude": 43.238,
+      "timezone": "Indian/Comoro"
+    },
+    "NG_Lagos": {
+      "latitude": 6.455,
+      "longitude": 3.394,
+      "timezone": "Africa/Lagos"
+    },
+    "NG_Abuja": {
+      "latitude": 9.064,
+      "longitude": 7.489,
+      "timezone": "Africa/Lagos"
+    },
+    "NG_Kano": {
+      "latitude": 11.994,
+      "longitude": 8.522,
+      "timezone": "Africa/Lagos"
+    },
+    "NG_Ibadan": {
+      "latitude": 7.379,
+      "longitude": 3.897,
+      "timezone": "Africa/Lagos"
+    },
+    "NG_Benin City": {
+      "latitude": 6.333,
+      "longitude": 5.622,
+      "timezone": "Africa/Lagos"
+    },
+    "NG_Port Harcourt": {
+      "latitude": 4.768,
+      "longitude": 7.019,
+      "timezone": "Africa/Lagos"
+    },
+    "NG_Kaduna": {
+      "latitude": 10.383,
+      "longitude": 7.853,
+      "timezone": "Africa/Lagos"
+    },
+    "NG_Enugu": {
+      "latitude": 6.554,
+      "longitude": 7.414,
+      "timezone": "Africa/Lagos"
+    },
+    "NG_Zaria": {
+      "latitude": 11.025,
+      "longitude": 7.652,
+      "timezone": "Africa/Lagos"
+    },
+    "NG_Jos": {
+      "latitude": 9.918,
+      "longitude": 8.898,
+      "timezone": "Africa/Lagos"
+    },
+    "NG_Ilorin": {
+      "latitude": 8.496,
+      "longitude": 4.548,
+      "timezone": "Africa/Lagos"
+    },
+    "NG_Oyo": {
+      "latitude": 8.215,
+      "longitude": 3.564,
+      "timezone": "Africa/Lagos"
+    },
+    "NG_Warri": {
+      "latitude": 5.519,
+      "longitude": 5.748,
+      "timezone": "Africa/Lagos"
+    },
+    "NG_Abeokuta": {
+      "latitude": 7.161,
+      "longitude": 3.348,
+      "timezone": "Africa/Lagos"
+    },
+    "NG_Calabar": {
+      "latitude": 4.98,
+      "longitude": 8.337,
+      "timezone": "Africa/Lagos"
+    },
+    "SL_Freetown": {
+      "latitude": 8.479,
+      "longitude": -13.268,
+      "timezone": "Africa/Freetown"
+    },
+    "SL_Bo": {
+      "latitude": 7.964,
+      "longitude": -11.748,
+      "timezone": "Africa/Freetown"
+    },
+    "SL_Kenema": {
+      "latitude": 7.886,
+      "longitude": -11.186,
+      "timezone": "Africa/Freetown"
+    },
+    "SL_Makeni": {
+      "latitude": 8.888,
+      "longitude": -12.044,
+      "timezone": "Africa/Freetown"
+    },
+    "SL_Koidu": {
+      "latitude": 8.642,
+      "longitude": -10.972,
+      "timezone": "Africa/Freetown"
+    },
+    "SL_Port Loko": {
+      "latitude": 8.764,
+      "longitude": -12.782,
+      "timezone": "Africa/Freetown"
+    },
+    "SL_Kabala": {
+      "latitude": 9.588,
+      "longitude": -11.55,
+      "timezone": "Africa/Freetown"
+    },
+    "SL_Pujehun": {
+      "latitude": 7.357,
+      "longitude": -11.723,
+      "timezone": "Africa/Freetown"
+    },
+    "SL_Bonthe": {
+      "latitude": 7.529,
+      "longitude": -12.513,
+      "timezone": "Africa/Freetown"
+    },
+    "SL_Kailahun": {
+      "latitude": 8.282,
+      "longitude": -10.555,
+      "timezone": "Africa/Freetown"
+    },
+    "SN_Dakar": {
+      "latitude": 14.693,
+      "longitude": -17.448,
+      "timezone": "Africa/Dakar"
+    },
+    "SN_Thiès": {
+      "latitude": 14.793,
+      "longitude": -16.924,
+      "timezone": "Africa/Dakar"
+    },
+    "SN_Saint-Louis": {
+      "latitude": 16.499,
+      "longitude": -15.801,
+      "timezone": "Africa/Dakar"
+    },
+    "SN_Ziguinchor": {
+      "latitude": 12.563,
+      "longitude": -16.272,
+      "timezone": "Africa/Dakar"
+    },
+    "SN_Kaolack": {
+      "latitude": 14.139,
+      "longitude": -16.076,
+      "timezone": "Africa/Dakar"
+    },
+    "SN_Touba": {
+      "latitude": 14.865,
+      "longitude": -15.876,
+      "timezone": "Africa/Dakar"
+    },
+    "SN_Mbour": {
+      "latitude": 14.421,
+      "longitude": -16.971,
+      "timezone": "Africa/Dakar"
+    },
+    "SN_Diourbel": {
+      "latitude": 14.784,
+      "longitude": -16.032,
+      "timezone": "Africa/Dakar"
+    },
+    "SN_Louga": {
+      "latitude": 15.397,
+      "longitude": -15.678,
+      "timezone": "Africa/Dakar"
+    },
+    "SN_Tambacounda": {
+      "latitude": 13.869,
+      "longitude": -13.319,
+      "timezone": "Africa/Dakar"
+    },
+    "TZ_Dar es Salaam": {
+      "latitude": -6.816,
+      "longitude": 39.28,
+      "timezone": "Africa/Dar_es_Salaam"
+    },
+    "TZ_Dodoma": {
+      "latitude": -6.179,
+      "longitude": 35.747,
+      "timezone": "Africa/Dar_es_Salaam"
+    },
+    "TZ_Mwanza": {
+      "latitude": -2.52,
+      "longitude": 32.901,
+      "timezone": "Africa/Dar_es_Salaam"
+    },
+    "TZ_Arusha": {
+      "latitude": -3.37,
+      "longitude": 36.688,
+      "timezone": "Africa/Dar_es_Salaam"
+    },
+    "TZ_Zanzibar City": {
+      "latitude": -6.1,
+      "longitude": 39.321,
+      "timezone": "Africa/Dar_es_Salaam"
+    },
+    "TZ_Mbeya": {
+      "latitude": -8.613,
+      "longitude": 33.334,
+      "timezone": "Africa/Dar_es_Salaam"
+    },
+    "TZ_Morogoro": {
+      "latitude": -7.084,
+      "longitude": 37.423,
+      "timezone": "Africa/Dar_es_Salaam"
+    },
+    "TZ_Tanga": {
+      "latitude": -5.202,
+      "longitude": 38.228,
+      "timezone": "Africa/Dar_es_Salaam"
+    },
+    "TZ_Tabora": {
+      "latitude": -5.191,
+      "longitude": 32.508,
+      "timezone": "Africa/Dar_es_Salaam"
+    },
+    "TZ_Kigoma": {
+      "latitude": -4.513,
+      "longitude": 30.005,
+      "timezone": "Africa/Dar_es_Salaam"
+    },
+    "ZA_Johannesburg": {
+      "latitude": -26.205,
+      "longitude": 28.05,
+      "timezone": "Africa/Johannesburg"
+    },
+    "ZA_Cape Town": {
+      "latitude": -33.929,
+      "longitude": 18.417,
+      "timezone": "Africa/Johannesburg"
+    },
+    "ZA_Durban": {
+      "latitude": -29.862,
+      "longitude": 31.01,
+      "timezone": "Africa/Johannesburg"
+    },
+    "ZA_Pretoria": {
+      "latitude": -25.735,
+      "longitude": 28.191,
+      "timezone": "Africa/Johannesburg"
+    },
+    "ZA_Port Elizabeth": {
+      "latitude": -33.962,
+      "longitude": 25.619,
+      "timezone": "Africa/Johannesburg"
+    },
+    "ZA_Bloemfontein": {
+      "latitude": -29.116,
+      "longitude": 26.215,
+      "timezone": "Africa/Johannesburg"
+    },
+    "ZA_East London": {
+      "latitude": -33.019,
+      "longitude": 27.9,
+      "timezone": "Africa/Johannesburg"
+    },
+    "ZA_Pietermaritzburg": {
+      "latitude": -29.6,
+      "longitude": 30.379,
+      "timezone": "Africa/Johannesburg"
+    },
+    "ZA_Nelspruit": {
+      "latitude": -25.473,
+      "longitude": 30.977,
+      "timezone": "Africa/Johannesburg"
+    },
+    "ZA_Rustenburg": {
+      "latitude": -25.666,
+      "longitude": 27.241,
+      "timezone": "Africa/Johannesburg"
+    },
+    "ZA_Polokwane": {
+      "latitude": -23.906,
+      "longitude": 29.461,
+      "timezone": "Africa/Johannesburg"
+    },
+    "ZA_Kimberley": {
+      "latitude": -28.738,
+      "longitude": 24.764,
+      "timezone": "Africa/Johannesburg"
+    },
+    "ZA_George": {
+      "latitude": -33.96,
+      "longitude": 22.459,
+      "timezone": "Africa/Johannesburg"
+    },
+    "ZA_Upington": {
+      "latitude": -28.456,
+      "longitude": 21.242,
+      "timezone": "Africa/Johannesburg"
+    },
+    "ZA_Vereeniging": {
+      "latitude": -26.675,
+      "longitude": 27.926,
+      "timezone": "Africa/Johannesburg"
     }
   }
 }

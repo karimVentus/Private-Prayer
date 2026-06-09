@@ -44,6 +44,19 @@ class WidgetRemoteViewsBuilder
             val countdownId: Int,
         )
 
+        private data class ColumnTimeBind(
+            val now: Long,
+            val cityTimeZone: TimeZone,
+            val useArabicDigits: Boolean,
+            val primaryColor: Int,
+            val accentColor: Int,
+            val compactCountdown: Boolean,
+            val inlineCountdown: Boolean,
+            val timeOnly: Boolean,
+            val countdownHoursLabel: String,
+            val countdownMinutesLabel: String,
+        )
+
         private val colIds =
             listOf(
                 ColIds(R.id.widget_col_0, R.id.widget_time_col_0, R.id.widget_prayer_0, R.id.widget_time_0, R.id.widget_countdown_0),
@@ -289,6 +302,58 @@ class WidgetRemoteViewsBuilder
             val countdownHoursLabel = l10n.getString(R.string.countdown_hours)
             val countdownMinutesLabel = l10n.getString(R.string.countdown_minutes)
             val times = snapshot.times.take(colIds.size)
+            prepareMediumHighlightOverlays(views, unifiedColumnHighlight)
+            colIds.forEachIndexed { index, ids ->
+                val time = times.getOrNull(index)
+                if (time == null) {
+                    hideColumn(views, ids, unifiedColumnHighlight, index)
+                    return@forEachIndexed
+                }
+                views.setViewVisibility(ids.nameColId, View.VISIBLE)
+                views.setViewVisibility(ids.timeColId, View.VISIBLE)
+                val isNext = time.prayer == snapshot.nextPrayer
+                applyColumnHighlight(
+                    views,
+                    ids,
+                    columnIndex = index,
+                    isNext = isNext,
+                    widgetColors = widgetColors,
+                    unifiedColumnHighlight = unifiedColumnHighlight,
+                    highlightNextTimeColumnOnly = highlightNextTimeColumnOnly,
+                )
+                views.setTextViewText(
+                    ids.prayerId,
+                    l10n.getString(prayerLabelRes(time.prayer, useShortPrayerLabels)),
+                )
+                bindColumnTimeViews(
+                    views = views,
+                    ids = ids,
+                    time = time,
+                    isNext = isNext,
+                    bind =
+                        ColumnTimeBind(
+                            now = now,
+                            cityTimeZone = cityTimeZone,
+                            useArabicDigits = useArabicDigits,
+                            primaryColor = primaryColor,
+                            accentColor = accentColor,
+                            compactCountdown = compactCountdown,
+                            inlineCountdown = inlineCountdown,
+                            timeOnly = timeOnly,
+                            countdownHoursLabel = countdownHoursLabel,
+                            countdownMinutesLabel = countdownMinutesLabel,
+                        ),
+                )
+                val rowColor = if (isNext) accentColor else primaryColor
+                views.setTextColor(ids.timeId, rowColor)
+                views.setTextColor(ids.prayerId, rowColor)
+            }
+        }
+
+        private fun prepareMediumHighlightOverlays(
+            views: RemoteViews,
+            unifiedColumnHighlight: Boolean,
+        ) {
             if (unifiedColumnHighlight) {
                 mediumHighlightIds.forEach { highlightId ->
                     views.setViewVisibility(highlightId, View.VISIBLE)
@@ -299,88 +364,101 @@ class WidgetRemoteViewsBuilder
                     views.setViewVisibility(highlightId, View.GONE)
                 }
             }
-            colIds.forEachIndexed { index, ids ->
-                val time = times.getOrNull(index)
-                if (time == null) {
-                    hideColumn(views, ids, unifiedColumnHighlight, index)
-                    return@forEachIndexed
-                }
-                views.setViewVisibility(ids.nameColId, View.VISIBLE)
-                views.setViewVisibility(ids.timeColId, View.VISIBLE)
-                val isNext = time.prayer == snapshot.nextPrayer
-                if (unifiedColumnHighlight) {
-                    val highlightId = mediumHighlightIds[index]
-                    if (isNext) {
-                        views.setInt(highlightId, "setBackgroundResource", widgetColors.rowHighlightDrawable)
-                    } else {
-                        views.setInt(highlightId, "setBackgroundResource", 0)
-                    }
-                    views.setInt(ids.nameColId, "setBackgroundResource", 0)
-                    views.setInt(ids.timeColId, "setBackgroundResource", 0)
-                } else if (isNext) {
-                    if (highlightNextTimeColumnOnly) {
-                        views.setInt(ids.nameColId, "setBackgroundResource", 0)
-                        views.setInt(ids.timeColId, "setBackgroundResource", widgetColors.rowHighlightDrawable)
-                    } else {
-                        views.setInt(ids.nameColId, "setBackgroundResource", widgetColors.rowHighlightDrawable)
-                        views.setInt(ids.timeColId, "setBackgroundResource", widgetColors.rowHighlightDrawable)
-                    }
-                } else {
-                    views.setInt(ids.nameColId, "setBackgroundResource", 0)
-                    views.setInt(ids.timeColId, "setBackgroundResource", 0)
-                }
-                views.setTextViewText(
-                    ids.prayerId,
-                    l10n.getString(
-                        if (useShortPrayerLabels) {
-                            mediumPrayerLabelRes(time.prayer)
-                        } else {
-                            prayerRes(time.prayer)
-                        },
-                    ),
-                )
-                val displayTime = localizeWidgetDigits(time.displayTime, useArabicDigits)
+        }
 
-                val countdownMillis =
-                    columnCountdownMillis(
-                        time = time,
-                        now = now,
-                        timezone = cityTimeZone,
-                    )
-                val countdownText =
-                    if (compactCountdown) {
-                        CountdownFormatter.formatCompact(
-                            countdownMillis,
-                            countdownHoursLabel,
-                            countdownMinutesLabel,
-                        )
-                    } else {
-                        CountdownFormatter.format(
-                            countdownMillis,
-                            countdownHoursLabel,
-                            countdownMinutesLabel,
-                        )
-                    }
-                val localizedCountdown = localizeWidgetDigits(countdownText, useArabicDigits)
-                if (timeOnly) {
+        private fun applyColumnHighlight(
+            views: RemoteViews,
+            ids: ColIds,
+            columnIndex: Int,
+            isNext: Boolean,
+            widgetColors: WidgetPalette,
+            unifiedColumnHighlight: Boolean,
+            highlightNextTimeColumnOnly: Boolean,
+        ) {
+            if (unifiedColumnHighlight) {
+                val highlightId = mediumHighlightIds[columnIndex]
+                if (isNext) {
+                    views.setInt(highlightId, "setBackgroundResource", widgetColors.rowHighlightDrawable)
+                } else {
+                    views.setInt(highlightId, "setBackgroundResource", 0)
+                }
+                views.setInt(ids.nameColId, "setBackgroundResource", 0)
+                views.setInt(ids.timeColId, "setBackgroundResource", 0)
+                return
+            }
+            if (isNext) {
+                if (highlightNextTimeColumnOnly) {
+                    views.setInt(ids.nameColId, "setBackgroundResource", 0)
+                    views.setInt(ids.timeColId, "setBackgroundResource", widgetColors.rowHighlightDrawable)
+                } else {
+                    views.setInt(ids.nameColId, "setBackgroundResource", widgetColors.rowHighlightDrawable)
+                    views.setInt(ids.timeColId, "setBackgroundResource", widgetColors.rowHighlightDrawable)
+                }
+            } else {
+                views.setInt(ids.nameColId, "setBackgroundResource", 0)
+                views.setInt(ids.timeColId, "setBackgroundResource", 0)
+            }
+        }
+
+        private fun bindColumnTimeViews(
+            views: RemoteViews,
+            ids: ColIds,
+            time: PrayerTime,
+            isNext: Boolean,
+            bind: ColumnTimeBind,
+        ) {
+            val displayTime = localizeWidgetDigits(time.displayTime, bind.useArabicDigits)
+            val localizedCountdown =
+                localizeWidgetDigits(
+                    formatColumnCountdown(time, bind),
+                    bind.useArabicDigits,
+                )
+            when {
+                bind.timeOnly -> {
                     views.setTextViewText(ids.timeId, displayTime)
                     views.setViewVisibility(ids.countdownId, View.GONE)
-                } else if (inlineCountdown) {
+                }
+                bind.inlineCountdown -> {
                     views.setTextViewText(ids.timeId, "$displayTime $localizedCountdown")
                     views.setTextViewText(ids.countdownId, "")
                     views.setViewVisibility(ids.countdownId, View.GONE)
-                } else {
+                }
+                else -> {
                     views.setTextViewText(ids.timeId, displayTime)
                     views.setTextViewText(ids.countdownId, localizedCountdown)
                     views.setViewVisibility(ids.countdownId, View.VISIBLE)
-                    views.setTextColor(ids.countdownId, if (isNext) accentColor else primaryColor)
+                    views.setTextColor(
+                        ids.countdownId,
+                        if (isNext) bind.accentColor else bind.primaryColor,
+                    )
                 }
-
-                val rowColor = if (isNext) accentColor else primaryColor
-                views.setTextColor(ids.timeId, rowColor)
-                views.setTextColor(ids.prayerId, rowColor)
             }
         }
+
+        private fun formatColumnCountdown(
+            time: PrayerTime,
+            bind: ColumnTimeBind,
+        ): String {
+            val countdownMillis = columnCountdownMillis(time, bind.now, bind.cityTimeZone)
+            return if (bind.compactCountdown) {
+                CountdownFormatter.formatCompact(
+                    countdownMillis,
+                    bind.countdownHoursLabel,
+                    bind.countdownMinutesLabel,
+                )
+            } else {
+                CountdownFormatter.format(
+                    countdownMillis,
+                    bind.countdownHoursLabel,
+                    bind.countdownMinutesLabel,
+                )
+            }
+        }
+
+        private fun prayerLabelRes(
+            prayer: Prayer,
+            useShortPrayerLabels: Boolean,
+        ): Int = if (useShortPrayerLabels) mediumPrayerLabelRes(prayer) else prayerRes(prayer)
 
         private fun columnCountdownMillis(
             time: PrayerTime,

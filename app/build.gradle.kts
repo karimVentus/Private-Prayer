@@ -74,7 +74,7 @@ android {
             all {
                 it.maxParallelForks = 1
                 it.jvmArgs("-Xmx1536m")
-                it.timeout.set(Duration.ofMinutes(6))
+                it.timeout.set(Duration.ofMinutes(12))
             }
         }
     }

@@ -86,11 +86,24 @@ class PrayerTimeWidgetProviderTest {
 
             provider.onUpdate(context, appWidgetManager, intArrayOf(widgetId))
             updateFinished.await()
-            Shadows.shadowOf(Looper.getMainLooper()).idle()
 
-            val view = shadowWidgets.getViewFor(widgetId)
-            assertNotNull(view)
-            val prayerLabel = view.findViewById<TextView>(R.id.widget_prayer_0)?.text?.toString().orEmpty()
+            val prayerLabel = awaitNonBlankPrayerLabel(widgetId)
             assertTrue(prayerLabel.isNotBlank())
         }
+
+    /**
+     * [PrayerTimeWidgetProvider.onUpdate] applies theme chrome first (initial layout has no prayer row).
+     * Robolectric may return that shell until the async refresh RemoteViews land — poll on slow CI.
+     */
+    private fun awaitNonBlankPrayerLabel(widgetId: Int): String {
+        var label = ""
+        repeat(100) {
+            Shadows.shadowOf(Looper.getMainLooper()).idle()
+            label =
+                shadowWidgets.getViewFor(widgetId)
+                    ?.findViewById<TextView>(R.id.widget_prayer_0)?.text?.toString().orEmpty()
+            if (label.isNotBlank()) return label
+        }
+        return label
+    }
 }

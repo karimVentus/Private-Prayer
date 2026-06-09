@@ -232,4 +232,15 @@ class AppPreferencesDataSourceTest {
             assertEquals(AppTheme.LIGHT, p.readAppThemeSync())
             assertNull(p.readAppLanguageTagSync())
         }
+
+    @Test
+    fun `compass heading offset persists and clears at zero`() =
+        runTest {
+            val p = prefs()
+            assertEquals(0f, p.compassHeadingOffsetDegrees.first())
+            p.setCompassHeadingOffsetDegrees(7f)
+            assertEquals(7f, p.compassHeadingOffsetDegrees.first())
+            p.setCompassHeadingOffsetDegrees(0f)
+            assertEquals(0f, p.compassHeadingOffsetDegrees.first())
+        }
 }

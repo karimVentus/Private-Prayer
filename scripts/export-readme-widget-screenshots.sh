@@ -2,7 +2,8 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
-export JAVA_HOME="${JAVA_HOME:-$HOME/jdk21}"
+# shellcheck source=scripts/resolve-java-home.sh
+source "$ROOT_DIR/scripts/resolve-java-home.sh"
 export ANDROID_HOME="${ANDROID_HOME:-$HOME/Android/Sdk}"
 export PRAYERTIME_EXPORT_SCREENSHOTS=1
 

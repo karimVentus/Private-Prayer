@@ -48,7 +48,9 @@ echo "[reset-app] Clearing app data: $PACKAGE_NAME"
 echo "[reset-app] Installing debug build..."
 (
   cd "$ROOT_DIR"
-  JAVA_HOME="${JAVA_HOME:-$HOME/jdk21}" ANDROID_HOME="${ANDROID_HOME:-$HOME/Android/Sdk}" ./gradlew installDebug
+  # shellcheck source=scripts/resolve-java-home.sh
+  source "$ROOT_DIR/scripts/resolve-java-home.sh"
+  ANDROID_HOME="${ANDROID_HOME:-$HOME/Android/Sdk}" ./gradlew installDebug
 )
 
 echo "[reset-app] Launching $PACKAGE_NAME..."

@@ -1,7 +1,7 @@
 # Hayya (حيا) — Phased Implementation Plan
 
 > **Product:** **Hayya** (EN) / **حيا** (AR) — privacy-first prayer-times app. Package **`com.prayertime`** unchanged.
-> **Current state:** Phases **0–7A** complete on `main` (Jun 2026). Release **`v1.1.5`** — compact bottom nav (`AppBottomNavigationBar`), edge-to-edge inset fix, `background`=`surface` themes, Qibla README screenshot. **No active feature phase** — branch new work from `main`. **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
+> **Current state:** Phases **0–7A** complete on `main` (Jun 2026). Release **`v1.1.6`**. **Active plan: Phase 7B** (compass geographic calibration + UI) — then **Phase 8** (city catalog + manual coords). **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
 > **Build:** Single APK `com.prayertime` (~23 MB debug). Privacy via Settings **offline-only toggle** (`offline_only`); no separate offline flavor.
 > **Calculation:** Umm al-Qura + Shafi + twilight (≥48°N); `adhan-java` when offline-only; Aladhan API when user disables offline mode.
 > **Tests:** `./gradlew testDebugUnitTest` — **414** JVM `@Test` (56 files); run `./scripts/smoke-ci.sh` for full gate.
@@ -60,6 +60,8 @@
 | **Release v1.1.5** | **Done** — signed `Hayya-v1.1.5.apk` on GitHub Releases |
 | **Widget L v1.1.6 (Jun 2026)** | **Done** — restore per-column countdown; shrink next-prayer highlight to times row only |
 | **Release v1.1.6** | **Done** — signed `Hayya-v1.1.6.apk` on GitHub Releases |
+| **Phase 7B** compass calibration | **Active** — geographic declination, upright gate, accuracy UI; see §7B |
+| **Phase 8** city catalog + manual coords | **Planned** — after 7B; see §8 |
 
 ---
 
@@ -75,6 +77,8 @@ flowchart LR
     P4 --> P5[Phase 5\nHardening]
     P5 --> P6[Phase 6\nRelease]
     P6 --> P7A[Phase 7A\nQibla Compass]
+    P7A --> P7B[Phase 7B\nCompass calibration]
+    P7B --> P8[Phase 8\nCity coords +\nmanual entry]
 ```
 
 ---
@@ -201,23 +205,52 @@ Maintain an up-to-date code graph after each phase gate. Full CLI lifecycle: [`g
 
 ---
 
-## Post-7A — clean continuation baseline
+## Post-7A — active work (Phase 7B → Phase 8)
 
-**Branch from:** `main` (working tree clean after PR **#13** merge).
+**Branch from:** `main`.
 
 | Rule | Detail |
 |------|--------|
-| **Shipped** | Phases **0–7A**; release tag **`v1.0.0`** |
-| **No active phase** | No scoped **7B** yet — define next phase in this file before coding |
-| **Branching** | Feature branches only; `./scripts/smoke-ci.sh` before merge |
-| **Graphify** | `OPENAI_API_KEY="" graphify update . --no-cluster` after package/layout changes |
-| **Docs** | Update this file + `AGENTS.md` + playbook feature table on phase boundaries |
+| **Shipped** | Phases **0–7A**; latest release **`v1.1.6`** |
+| **Active** | **Phase 7B** — geographic compass correction + pointing accuracy + calibration UI (§Phase 7B) |
+| **Next** | **Phase 8** — city `knownCityCoords` + manual lat/lng wizard (§Phase 8) |
+| **Branching** | e.g. `feat/compass-calibration-7b` then `feat/manual-coords-wizard`; `./scripts/smoke-ci.sh` before merge |
+| **Graphify** | After `sensor/` or `ui/screens/QiblaScreen` changes |
 
-**Suggested next-work checklist (before first commit on a new branch):**
+---
 
-1. Add a **Phase 7B** (or maintenance) section here with tasks.
-2. Run `./scripts/smoke-ci.sh` to confirm green baseline.
-3. Run Graphify if touching `data/`, `domain/`, `ui/`, `widget/`, or `sensor/`.
+## Phase 7B: Compass geographic calibration + UI
+
+**Goal:** Improve Qibla pointing accuracy using city-based geomagnetic correction, portrait tilt gating, and clearer calibration UX — without GPS.
+
+**Baseline (7A):** `CompassHeading.toTrueNorth` + tips-only calibration; no tilt gate; accuracy = low warning + link to tips.
+
+### Tasks
+
+- [x] **7B.1** `CompassGeographicField` — declination/inclination from city lat/lng (`GeomagneticField`); wire `CompassHeading.toTrueNorth`; tests (Hameln)
+- [x] **7B.2** `CompassUprightGate` — ignore heading updates when pitch/roll outside portrait band; `compass_tilted_hint` in UI
+- [x] **7B.3** Calibration UI — accuracy chip (good / fair / poor); auto-open tips on low/unreliable; show declination line under Qibla bearing
+- [x] **7B.4** User fine-offset (±15°) in DataStore + slider in calibrate panel
+- [ ] **7B.5** Manual QA — Hameln/Berlin device: upright vs flat, figure-8 recovery, EN/AR strings
+- [ ] **7B.6** Release — version bump + README compass note when 7B ships
+
+**Out of scope:** GPS, landscape compass, separate calibration Activity.
+
+---
+
+## Phase 8: City catalog coordinates + manual entry
+
+**Goal:** Offline-first city setup worldwide — bundled `knownCityCoords` + manual lat/lng wizard fallback.
+
+**Data order:** Europe → Africa → Asia → America (`scripts/expand_locations.py`, `scripts/generate-cities-ar.py`).
+
+### Tasks
+
+- [ ] **8A** Manual lat/lng wizard UI (`WizardStep.ManualCoordinates`) — ship before bulk data
+- [ ] **8B–8E** Regional `knownCityCoords` fill (EU → AF → AS → AM)
+- [ ] **8F** Docs + release + APK size check
+
+See [wiki/Phase-8-City-Catalog](https://github.com/karimVentus/Private-Prayer/wiki/Phase-8-City-Catalog) for wizard flow diagram.
 
 ---
 

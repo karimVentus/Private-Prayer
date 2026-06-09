@@ -2,7 +2,8 @@
 set -e
 
 # Setup JDK and Android SDK Paths
-export JAVA_HOME="${JAVA_HOME:-$HOME/jdk21}"
+# shellcheck source=scripts/resolve-java-home.sh
+source "$(cd "$(dirname "$0")/.." && pwd)/scripts/resolve-java-home.sh"
 export ANDROID_HOME="${ANDROID_HOME:-$HOME/Android/Sdk}"
 unset ANDROID_SDK_ROOT
 

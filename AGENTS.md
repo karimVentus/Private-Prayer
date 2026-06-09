@@ -77,6 +77,8 @@ Hayya/  (repo folder may still be Private-Prayer; package com.prayertime)
 | 5 | Manual QA hardening — 5A–5F signed off (Jun 2026, incl. 5C.2, 5D, 5F.3); 5A–5E automated; TLS; USE_EXACT_ALARM | **Done** | — |
 | 6 | Release — R8, signed APK/AAB | **Done (`v1.0.0`)** | Tagged Jun 2026 |
 | 7A | Qibla compass — city bearing + portrait accel/mag sensor, align feedback | **Done** — PR **#11** + **#12** + **#13** (L-widget) merged Jun 2026 | — |
+| **7B** | Compass geographic calibration + UI | **Active** — `CompassGeographicField`, `CompassUprightGate`, Qibla accuracy chip; see `PHASED_PLAN.md` §7B |
+| **8** | City catalog coords + manual lat/lng | **Planned** — after 7B; see `PHASED_PLAN.md` §8 |
 
 ## Architecture (post-2F hardening)
 

@@ -241,6 +241,12 @@
     <string name="compass_reading">Reading compass…</string>
     <string name="qibla_bearing_format">Qibla: %1$d° (%2$s) from North</string>
     <string name="compass_low_accuracy">Compass accuracy is low. Try the calibration tips below.</string>
+    <string name="compass_accuracy_good">Compass: good accuracy</string>
+    <string name="compass_accuracy_fair">Compass: fair — figure-8 may help</string>
+    <string name="compass_accuracy_poor">Compass: poor — calibrate</string>
+    <string name="compass_tilted_hint">Hold the phone upright — tilt is too strong for a reliable reading.</string>
+    <string name="compass_declination_format">Magnetic declination: %1$d° (city-based)</string>
+    <string name="compass_offset_label">Fine-tune heading: %1$d°</string>
     <string name="compass_calibrate_tips">Calibration tips</string>
     <string name="compass_calibrate_help_title">Improve compass accuracy</string>
     <string name="compass_calibrate_instruction">Move your phone in a wide figure-eight for 10–20 seconds while away from metal objects and magnets. This helps the magnetometer — there is no automatic “done” step.</string>

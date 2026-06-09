@@ -12,7 +12,8 @@ flowchart LR
     P4 --> P5[Phase 5\nHardening]
     P5 --> P6[Phase 6\nRelease]
     P6 --> P7A[Phase 7A\nQibla Compass]
-    P7A --> P8[Phase 8\nCity coords +\nmanual entry]
+    P7A --> P7B[Phase 7B\nCompass calibration]
+    P7B --> P8[Phase 8\nCity coords +\nmanual entry]
 ```
 
 ---
@@ -34,9 +35,20 @@ flowchart LR
 
 ---
 
-## Active: Phase 8
+## Active: Phase 7B
 
-**Goal:** Offline-first city setup works worldwide — bundled coordinates for picker cities plus manual lat/lng entry when coords are missing.
+**Goal:** Geographic declination correction, portrait tilt gating, and clearer calibration UI on `QiblaScreen`.
+
+| Task block | Scope |
+|------------|-------|
+| **7B.1–7B.3** | `CompassGeographicField`, `CompassUprightGate`, accuracy chip, auto tips |
+| **7B.4–7B.6** | Optional fine-offset, device QA, release |
+
+---
+
+## Next: Phase 8
+
+**Goal:** Offline-first city setup worldwide — bundled coordinates for picker cities plus manual lat/lng entry when coords are missing.
 
 | Task block | Scope |
 |------------|-------|

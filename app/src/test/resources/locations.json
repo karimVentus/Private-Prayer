@@ -3969,6 +3969,11 @@
       "latitude": -16.0,
       "longitude": 167.0,
       "timezone": "Pacific/Efate"
+    },
+    "MD": {
+      "latitude": 47.0,
+      "longitude": 28.8,
+      "timezone": "Europe/Chisinau"
     }
   },
   "knownCityCoords": {
@@ -9216,6 +9221,2206 @@
       "latitude": 35.2,
       "longitude": -0.633,
       "timezone": "Africa/Algiers"
+    },
+    "AD_Andorra la Vella": {
+      "latitude": 42.498,
+      "longitude": 1.503,
+      "timezone": "Europe/Andorra"
+    },
+    "AD_Escaldes-Engordany": {
+      "latitude": 42.486,
+      "longitude": 1.604,
+      "timezone": "Europe/Andorra"
+    },
+    "AD_Encamp": {
+      "latitude": 42.536,
+      "longitude": 1.584,
+      "timezone": "Europe/Andorra"
+    },
+    "AD_La Massana": {
+      "latitude": 42.544,
+      "longitude": 1.516,
+      "timezone": "Europe/Andorra"
+    },
+    "AD_Ordino": {
+      "latitude": 42.601,
+      "longitude": 1.53,
+      "timezone": "Europe/Andorra"
+    },
+    "AD_Canillo": {
+      "latitude": 42.587,
+      "longitude": 1.657,
+      "timezone": "Europe/Andorra"
+    },
+    "AD_Sant Julià de Lòria": {
+      "latitude": 42.467,
+      "longitude": 1.497,
+      "timezone": "Europe/Andorra"
+    },
+    "AD_Arinsal": {
+      "latitude": 42.572,
+      "longitude": 1.484,
+      "timezone": "Europe/Andorra"
+    },
+    "AD_El Pas de la Casa": {
+      "latitude": 42.547,
+      "longitude": 1.724,
+      "timezone": "Europe/Andorra"
+    },
+    "AD_Pal": {
+      "latitude": 42.546,
+      "longitude": 1.476,
+      "timezone": "Europe/Andorra"
+    },
+    "AL_Tirana": {
+      "latitude": 41.328,
+      "longitude": 19.818,
+      "timezone": "Europe/Tirane"
+    },
+    "AL_Durrës": {
+      "latitude": 41.313,
+      "longitude": 19.446,
+      "timezone": "Europe/Tirane"
+    },
+    "AL_Vlorë": {
+      "latitude": 40.471,
+      "longitude": 19.491,
+      "timezone": "Europe/Tirane"
+    },
+    "AL_Elbasan": {
+      "latitude": 41.113,
+      "longitude": 20.082,
+      "timezone": "Europe/Tirane"
+    },
+    "AL_Shkodër": {
+      "latitude": 42.068,
+      "longitude": 19.512,
+      "timezone": "Europe/Tirane"
+    },
+    "AL_Fier": {
+      "latitude": 40.725,
+      "longitude": 19.558,
+      "timezone": "Europe/Tirane"
+    },
+    "AL_Korçë": {
+      "latitude": 40.616,
+      "longitude": 20.777,
+      "timezone": "Europe/Tirane"
+    },
+    "AL_Berat": {
+      "latitude": 40.702,
+      "longitude": 19.958,
+      "timezone": "Europe/Tirane"
+    },
+    "AL_Lushnjë": {
+      "latitude": 40.942,
+      "longitude": 19.706,
+      "timezone": "Europe/Tirane"
+    },
+    "AL_Pogradec": {
+      "latitude": 40.9,
+      "longitude": 20.657,
+      "timezone": "Europe/Tirane"
+    },
+    "AT_Vienna": {
+      "latitude": 48.208,
+      "longitude": 16.373,
+      "timezone": "Europe/Vienna"
+    },
+    "AT_Graz": {
+      "latitude": 47.071,
+      "longitude": 15.438,
+      "timezone": "Europe/Vienna"
+    },
+    "AT_Linz": {
+      "latitude": 48.306,
+      "longitude": 14.286,
+      "timezone": "Europe/Vienna"
+    },
+    "AT_Salzburg": {
+      "latitude": 47.798,
+      "longitude": 13.046,
+      "timezone": "Europe/Vienna"
+    },
+    "AT_Innsbruck": {
+      "latitude": 47.265,
+      "longitude": 11.393,
+      "timezone": "Europe/Vienna"
+    },
+    "AT_Klagenfurt": {
+      "latitude": 46.624,
+      "longitude": 14.308,
+      "timezone": "Europe/Vienna"
+    },
+    "AT_Villach": {
+      "latitude": 46.617,
+      "longitude": 13.85,
+      "timezone": "Europe/Vienna"
+    },
+    "AT_Wels": {
+      "latitude": 48.157,
+      "longitude": 14.024,
+      "timezone": "Europe/Vienna"
+    },
+    "AT_Sankt Pölten": {
+      "latitude": 48.204,
+      "longitude": 15.623,
+      "timezone": "Europe/Vienna"
+    },
+    "AT_Dornbirn": {
+      "latitude": 47.414,
+      "longitude": 9.742,
+      "timezone": "Europe/Vienna"
+    },
+    "BA_Sarajevo": {
+      "latitude": 43.857,
+      "longitude": 18.413,
+      "timezone": "Europe/Sarajevo"
+    },
+    "BA_Banja Luka": {
+      "latitude": 44.772,
+      "longitude": 17.192,
+      "timezone": "Europe/Sarajevo"
+    },
+    "BA_Tuzla": {
+      "latitude": 44.539,
+      "longitude": 18.675,
+      "timezone": "Europe/Sarajevo"
+    },
+    "BA_Zenica": {
+      "latitude": 44.2,
+      "longitude": 17.909,
+      "timezone": "Europe/Sarajevo"
+    },
+    "BA_Mostar": {
+      "latitude": 43.344,
+      "longitude": 17.808,
+      "timezone": "Europe/Sarajevo"
+    },
+    "BA_Bijeljina": {
+      "latitude": 44.757,
+      "longitude": 19.216,
+      "timezone": "Europe/Sarajevo"
+    },
+    "BA_Bihać": {
+      "latitude": 44.815,
+      "longitude": 15.869,
+      "timezone": "Europe/Sarajevo"
+    },
+    "BA_Prijedor": {
+      "latitude": 44.98,
+      "longitude": 16.712,
+      "timezone": "Europe/Sarajevo"
+    },
+    "BA_Trebinje": {
+      "latitude": 42.71,
+      "longitude": 18.346,
+      "timezone": "Europe/Sarajevo"
+    },
+    "BA_Brčko": {
+      "latitude": 44.877,
+      "longitude": 18.81,
+      "timezone": "Europe/Sarajevo"
+    },
+    "BE_Brussels": {
+      "latitude": 50.847,
+      "longitude": 4.352,
+      "timezone": "Europe/Brussels"
+    },
+    "BE_Antwerp": {
+      "latitude": 51.221,
+      "longitude": 4.4,
+      "timezone": "Europe/Brussels"
+    },
+    "BE_Ghent": {
+      "latitude": 51.054,
+      "longitude": 3.725,
+      "timezone": "Europe/Brussels"
+    },
+    "BE_Charleroi": {
+      "latitude": 50.412,
+      "longitude": 4.445,
+      "timezone": "Europe/Brussels"
+    },
+    "BE_Liege": {
+      "latitude": 50.471,
+      "longitude": 5.774,
+      "timezone": "Europe/Brussels"
+    },
+    "BE_Bruges": {
+      "latitude": 51.209,
+      "longitude": 3.227,
+      "timezone": "Europe/Brussels"
+    },
+    "BE_Namur": {
+      "latitude": 50.467,
+      "longitude": 4.866,
+      "timezone": "Europe/Brussels"
+    },
+    "BE_Leuven": {
+      "latitude": 50.879,
+      "longitude": 4.701,
+      "timezone": "Europe/Brussels"
+    },
+    "BE_Mons": {
+      "latitude": 50.455,
+      "longitude": 3.952,
+      "timezone": "Europe/Brussels"
+    },
+    "BE_Mechelen": {
+      "latitude": 51.028,
+      "longitude": 4.48,
+      "timezone": "Europe/Brussels"
+    },
+    "BG_Sofia": {
+      "latitude": 42.698,
+      "longitude": 23.322,
+      "timezone": "Europe/Sofia"
+    },
+    "BG_Plovdiv": {
+      "latitude": 42.142,
+      "longitude": 24.75,
+      "timezone": "Europe/Sofia"
+    },
+    "BG_Varna": {
+      "latitude": 43.207,
+      "longitude": 27.917,
+      "timezone": "Europe/Sofia"
+    },
+    "BG_Burgas": {
+      "latitude": 42.494,
+      "longitude": 27.472,
+      "timezone": "Europe/Sofia"
+    },
+    "BG_Ruse": {
+      "latitude": 43.848,
+      "longitude": 25.954,
+      "timezone": "Europe/Sofia"
+    },
+    "BG_Stara Zagora": {
+      "latitude": 42.425,
+      "longitude": 25.626,
+      "timezone": "Europe/Sofia"
+    },
+    "BG_Pleven": {
+      "latitude": 43.481,
+      "longitude": 24.606,
+      "timezone": "Europe/Sofia"
+    },
+    "BG_Sliven": {
+      "latitude": 42.642,
+      "longitude": 26.263,
+      "timezone": "Europe/Sofia"
+    },
+    "BG_Dobrich": {
+      "latitude": 43.664,
+      "longitude": 27.9,
+      "timezone": "Europe/Sofia"
+    },
+    "BG_Shumen": {
+      "latitude": 43.309,
+      "longitude": 27.02,
+      "timezone": "Europe/Sofia"
+    },
+    "CH_Zurich": {
+      "latitude": 47.374,
+      "longitude": 8.541,
+      "timezone": "Europe/Zurich"
+    },
+    "CH_Geneva": {
+      "latitude": 46.202,
+      "longitude": 6.147,
+      "timezone": "Europe/Zurich"
+    },
+    "CH_Basel": {
+      "latitude": 47.558,
+      "longitude": 7.588,
+      "timezone": "Europe/Zurich"
+    },
+    "CH_Bern": {
+      "latitude": 46.948,
+      "longitude": 7.452,
+      "timezone": "Europe/Zurich"
+    },
+    "CH_Lausanne": {
+      "latitude": 46.522,
+      "longitude": 6.633,
+      "timezone": "Europe/Zurich"
+    },
+    "CH_Winterthur": {
+      "latitude": 47.499,
+      "longitude": 8.729,
+      "timezone": "Europe/Zurich"
+    },
+    "CH_Lucerne": {
+      "latitude": 47.052,
+      "longitude": 8.306,
+      "timezone": "Europe/Zurich"
+    },
+    "CH_St. Gallen": {
+      "latitude": 47.426,
+      "longitude": 9.376,
+      "timezone": "Europe/Zurich"
+    },
+    "CH_Lugano": {
+      "latitude": 46.004,
+      "longitude": 8.951,
+      "timezone": "Europe/Zurich"
+    },
+    "CH_Biel": {
+      "latitude": 47.14,
+      "longitude": 7.244,
+      "timezone": "Europe/Zurich"
+    },
+    "CY_Nicosia": {
+      "latitude": 35.175,
+      "longitude": 33.364,
+      "timezone": "Asia/Nicosia"
+    },
+    "CY_Limassol": {
+      "latitude": 34.685,
+      "longitude": 33.033,
+      "timezone": "Asia/Nicosia"
+    },
+    "CY_Larnaca": {
+      "latitude": 34.924,
+      "longitude": 33.624,
+      "timezone": "Asia/Nicosia"
+    },
+    "CY_Paphos": {
+      "latitude": 34.774,
+      "longitude": 32.423,
+      "timezone": "Asia/Nicosia"
+    },
+    "CY_Famagusta": {
+      "latitude": 35.121,
+      "longitude": 33.939,
+      "timezone": "Asia/Nicosia"
+    },
+    "CY_Kyrenia": {
+      "latitude": 35.34,
+      "longitude": 33.321,
+      "timezone": "Asia/Nicosia"
+    },
+    "CY_Morphou": {
+      "latitude": 35.199,
+      "longitude": 32.993,
+      "timezone": "Asia/Nicosia"
+    },
+    "CY_Paralimni": {
+      "latitude": 35.039,
+      "longitude": 33.983,
+      "timezone": "Asia/Nicosia"
+    },
+    "CY_Dromolaxia": {
+      "latitude": 34.873,
+      "longitude": 33.587,
+      "timezone": "Asia/Nicosia"
+    },
+    "CY_Aradippou": {
+      "latitude": 34.95,
+      "longitude": 33.593,
+      "timezone": "Asia/Nicosia"
+    },
+    "CZ_Prague": {
+      "latitude": 50.087,
+      "longitude": 14.421,
+      "timezone": "Europe/Prague"
+    },
+    "CZ_Brno": {
+      "latitude": 49.192,
+      "longitude": 16.611,
+      "timezone": "Europe/Prague"
+    },
+    "CZ_Ostrava": {
+      "latitude": 49.835,
+      "longitude": 18.282,
+      "timezone": "Europe/Prague"
+    },
+    "CZ_Pilsen": {
+      "latitude": 49.748,
+      "longitude": 13.378,
+      "timezone": "Europe/Prague"
+    },
+    "CZ_Liberec": {
+      "latitude": 50.77,
+      "longitude": 15.058,
+      "timezone": "Europe/Prague"
+    },
+    "CZ_Olomouc": {
+      "latitude": 49.594,
+      "longitude": 17.251,
+      "timezone": "Europe/Prague"
+    },
+    "CZ_Ústí nad Labem": {
+      "latitude": 50.66,
+      "longitude": 14.038,
+      "timezone": "Europe/Prague"
+    },
+    "CZ_Hradec Králové": {
+      "latitude": 50.209,
+      "longitude": 15.833,
+      "timezone": "Europe/Prague"
+    },
+    "CZ_České Budějovice": {
+      "latitude": 48.975,
+      "longitude": 14.474,
+      "timezone": "Europe/Prague"
+    },
+    "CZ_Pardubice": {
+      "latitude": 50.039,
+      "longitude": 15.779,
+      "timezone": "Europe/Prague"
+    },
+    "DK_Copenhagen": {
+      "latitude": 55.687,
+      "longitude": 12.57,
+      "timezone": "Europe/Copenhagen"
+    },
+    "DK_Aarhus": {
+      "latitude": 56.15,
+      "longitude": 10.213,
+      "timezone": "Europe/Copenhagen"
+    },
+    "DK_Odense": {
+      "latitude": 55.4,
+      "longitude": 10.385,
+      "timezone": "Europe/Copenhagen"
+    },
+    "DK_Aalborg": {
+      "latitude": 57.046,
+      "longitude": 9.922,
+      "timezone": "Europe/Copenhagen"
+    },
+    "DK_Esbjerg": {
+      "latitude": 55.466,
+      "longitude": 8.452,
+      "timezone": "Europe/Copenhagen"
+    },
+    "DK_Randers": {
+      "latitude": 56.462,
+      "longitude": 10.037,
+      "timezone": "Europe/Copenhagen"
+    },
+    "DK_Kolding": {
+      "latitude": 55.489,
+      "longitude": 9.479,
+      "timezone": "Europe/Copenhagen"
+    },
+    "DK_Horsens": {
+      "latitude": 55.861,
+      "longitude": 9.844,
+      "timezone": "Europe/Copenhagen"
+    },
+    "DK_Vejle": {
+      "latitude": 55.708,
+      "longitude": 9.533,
+      "timezone": "Europe/Copenhagen"
+    },
+    "DK_Roskilde": {
+      "latitude": 55.643,
+      "longitude": 12.082,
+      "timezone": "Europe/Copenhagen"
+    },
+    "EE_Tallinn": {
+      "latitude": 59.437,
+      "longitude": 24.757,
+      "timezone": "Europe/Tallinn"
+    },
+    "EE_Tartu": {
+      "latitude": 58.378,
+      "longitude": 26.729,
+      "timezone": "Europe/Tallinn"
+    },
+    "EE_Narva": {
+      "latitude": 59.377,
+      "longitude": 28.192,
+      "timezone": "Europe/Tallinn"
+    },
+    "EE_Pärnu": {
+      "latitude": 58.387,
+      "longitude": 24.503,
+      "timezone": "Europe/Tallinn"
+    },
+    "EE_Kohtla-Järve": {
+      "latitude": 59.403,
+      "longitude": 27.288,
+      "timezone": "Europe/Tallinn"
+    },
+    "EE_Viljandi": {
+      "latitude": 58.365,
+      "longitude": 25.588,
+      "timezone": "Europe/Tallinn"
+    },
+    "EE_Rakvere": {
+      "latitude": 59.348,
+      "longitude": 26.362,
+      "timezone": "Europe/Tallinn"
+    },
+    "EE_Sillamäe": {
+      "latitude": 59.396,
+      "longitude": 27.763,
+      "timezone": "Europe/Tallinn"
+    },
+    "EE_Kuressaare": {
+      "latitude": 58.253,
+      "longitude": 22.485,
+      "timezone": "Europe/Tallinn"
+    },
+    "EE_Võru": {
+      "latitude": 57.839,
+      "longitude": 27.009,
+      "timezone": "Europe/Tallinn"
+    },
+    "ES_Madrid": {
+      "latitude": 40.417,
+      "longitude": -3.704,
+      "timezone": "Europe/Madrid"
+    },
+    "ES_Barcelona": {
+      "latitude": 41.383,
+      "longitude": 2.177,
+      "timezone": "Europe/Madrid"
+    },
+    "ES_Valencia": {
+      "latitude": 39.47,
+      "longitude": -0.376,
+      "timezone": "Europe/Madrid"
+    },
+    "ES_Seville": {
+      "latitude": 37.389,
+      "longitude": -5.995,
+      "timezone": "Europe/Madrid"
+    },
+    "ES_Bilbao": {
+      "latitude": 43.263,
+      "longitude": -2.935,
+      "timezone": "Europe/Madrid"
+    },
+    "ES_Malaga": {
+      "latitude": 36.765,
+      "longitude": -4.442,
+      "timezone": "Europe/Madrid"
+    },
+    "ES_Zaragoza": {
+      "latitude": 41.692,
+      "longitude": -0.91,
+      "timezone": "Europe/Madrid"
+    },
+    "ES_Murcia": {
+      "latitude": 37.935,
+      "longitude": -1.113,
+      "timezone": "Europe/Madrid"
+    },
+    "ES_Palma": {
+      "latitude": 39.57,
+      "longitude": 2.65,
+      "timezone": "Europe/Madrid"
+    },
+    "ES_Las Palmas": {
+      "latitude": 28.129,
+      "longitude": -15.435,
+      "timezone": "Europe/Madrid"
+    },
+    "ES_Alicante": {
+      "latitude": 38.344,
+      "longitude": -0.488,
+      "timezone": "Europe/Madrid"
+    },
+    "ES_Granada": {
+      "latitude": 37.173,
+      "longitude": -3.6,
+      "timezone": "Europe/Madrid"
+    },
+    "ES_Cordoba": {
+      "latitude": 37.885,
+      "longitude": -4.776,
+      "timezone": "Europe/Madrid"
+    },
+    "ES_Valladolid": {
+      "latitude": 41.62,
+      "longitude": -4.726,
+      "timezone": "Europe/Madrid"
+    },
+    "ES_Vigo": {
+      "latitude": 42.199,
+      "longitude": -8.728,
+      "timezone": "Europe/Madrid"
+    },
+    "FI_Helsinki": {
+      "latitude": 60.167,
+      "longitude": 24.944,
+      "timezone": "Europe/Helsinki"
+    },
+    "FI_Espoo": {
+      "latitude": 60.205,
+      "longitude": 24.656,
+      "timezone": "Europe/Helsinki"
+    },
+    "FI_Tampere": {
+      "latitude": 61.498,
+      "longitude": 23.762,
+      "timezone": "Europe/Helsinki"
+    },
+    "FI_Vantaa": {
+      "latitude": 60.293,
+      "longitude": 25.044,
+      "timezone": "Europe/Helsinki"
+    },
+    "FI_Turku": {
+      "latitude": 60.452,
+      "longitude": 22.267,
+      "timezone": "Europe/Helsinki"
+    },
+    "FI_Oulu": {
+      "latitude": 65.012,
+      "longitude": 25.47,
+      "timezone": "Europe/Helsinki"
+    },
+    "FI_Lahti": {
+      "latitude": 60.983,
+      "longitude": 25.661,
+      "timezone": "Europe/Helsinki"
+    },
+    "FI_Kuopio": {
+      "latitude": 62.892,
+      "longitude": 27.678,
+      "timezone": "Europe/Helsinki"
+    },
+    "FI_Jyväskylä": {
+      "latitude": 62.242,
+      "longitude": 25.75,
+      "timezone": "Europe/Helsinki"
+    },
+    "FI_Pori": {
+      "latitude": 61.487,
+      "longitude": 21.797,
+      "timezone": "Europe/Helsinki"
+    },
+    "FR_Toulouse": {
+      "latitude": 43.604,
+      "longitude": 1.444,
+      "timezone": "Europe/Paris"
+    },
+    "FR_Nice": {
+      "latitude": 43.701,
+      "longitude": 7.268,
+      "timezone": "Europe/Paris"
+    },
+    "FR_Nantes": {
+      "latitude": 47.219,
+      "longitude": -1.554,
+      "timezone": "Europe/Paris"
+    },
+    "FR_Strasbourg": {
+      "latitude": 48.585,
+      "longitude": 7.751,
+      "timezone": "Europe/Paris"
+    },
+    "FR_Montpellier": {
+      "latitude": 43.611,
+      "longitude": 3.877,
+      "timezone": "Europe/Paris"
+    },
+    "FR_Bordeaux": {
+      "latitude": 44.841,
+      "longitude": -0.58,
+      "timezone": "Europe/Paris"
+    },
+    "FR_Lille": {
+      "latitude": 50.637,
+      "longitude": 3.064,
+      "timezone": "Europe/Paris"
+    },
+    "FR_Rennes": {
+      "latitude": 48.111,
+      "longitude": -1.68,
+      "timezone": "Europe/Paris"
+    },
+    "FR_Reims": {
+      "latitude": 49.258,
+      "longitude": 4.032,
+      "timezone": "Europe/Paris"
+    },
+    "FR_Saint-Étienne": {
+      "latitude": 45.44,
+      "longitude": 4.387,
+      "timezone": "Europe/Paris"
+    },
+    "FR_Le Havre": {
+      "latitude": 49.494,
+      "longitude": 0.108,
+      "timezone": "Europe/Paris"
+    },
+    "FR_Dijon": {
+      "latitude": 47.322,
+      "longitude": 5.041,
+      "timezone": "Europe/Paris"
+    },
+    "GB_Liverpool": {
+      "latitude": 53.393,
+      "longitude": -2.917,
+      "timezone": "Europe/London"
+    },
+    "GB_Leeds": {
+      "latitude": 53.797,
+      "longitude": -1.544,
+      "timezone": "Europe/London"
+    },
+    "GB_Sheffield": {
+      "latitude": 53.381,
+      "longitude": -1.47,
+      "timezone": "Europe/London"
+    },
+    "GB_Glasgow": {
+      "latitude": 55.861,
+      "longitude": -4.25,
+      "timezone": "Europe/London"
+    },
+    "GB_Edinburgh": {
+      "latitude": 55.953,
+      "longitude": -3.188,
+      "timezone": "Europe/London"
+    },
+    "GB_Bristol": {
+      "latitude": 51.454,
+      "longitude": -2.597,
+      "timezone": "Europe/London"
+    },
+    "GB_Newcastle": {
+      "latitude": 54.974,
+      "longitude": -1.613,
+      "timezone": "Europe/London"
+    },
+    "GB_Nottingham": {
+      "latitude": 52.953,
+      "longitude": -1.15,
+      "timezone": "Europe/London"
+    },
+    "GB_Southampton": {
+      "latitude": 50.903,
+      "longitude": -1.404,
+      "timezone": "Europe/London"
+    },
+    "GB_Leicester": {
+      "latitude": 52.636,
+      "longitude": -1.133,
+      "timezone": "Europe/London"
+    },
+    "GB_Cardiff": {
+      "latitude": 51.482,
+      "longitude": -3.179,
+      "timezone": "Europe/London"
+    },
+    "GB_Belfast": {
+      "latitude": 54.596,
+      "longitude": -5.93,
+      "timezone": "Europe/London"
+    },
+    "GR_Athens": {
+      "latitude": 37.976,
+      "longitude": 23.735,
+      "timezone": "Europe/Athens"
+    },
+    "GR_Thessaloniki": {
+      "latitude": 40.64,
+      "longitude": 22.935,
+      "timezone": "Europe/Athens"
+    },
+    "GR_Patras": {
+      "latitude": 38.246,
+      "longitude": 21.735,
+      "timezone": "Europe/Athens"
+    },
+    "GR_Heraklion": {
+      "latitude": 35.339,
+      "longitude": 25.133,
+      "timezone": "Europe/Athens"
+    },
+    "GR_Larissa": {
+      "latitude": 39.638,
+      "longitude": 22.416,
+      "timezone": "Europe/Athens"
+    },
+    "GR_Volos": {
+      "latitude": 39.362,
+      "longitude": 22.94,
+      "timezone": "Europe/Athens"
+    },
+    "GR_Ioannina": {
+      "latitude": 39.664,
+      "longitude": 20.852,
+      "timezone": "Europe/Athens"
+    },
+    "GR_Kavala": {
+      "latitude": 40.937,
+      "longitude": 24.412,
+      "timezone": "Europe/Athens"
+    },
+    "GR_Rhodes": {
+      "latitude": 36.173,
+      "longitude": 27.919,
+      "timezone": "Europe/Athens"
+    },
+    "GR_Chania": {
+      "latitude": 35.512,
+      "longitude": 24.019,
+      "timezone": "Europe/Athens"
+    },
+    "GR_Agrinio": {
+      "latitude": 38.625,
+      "longitude": 21.409,
+      "timezone": "Europe/Athens"
+    },
+    "GR_Serres": {
+      "latitude": 41.091,
+      "longitude": 23.55,
+      "timezone": "Europe/Athens"
+    },
+    "GR_Lamia": {
+      "latitude": 38.899,
+      "longitude": 22.434,
+      "timezone": "Europe/Athens"
+    },
+    "GR_Alexandroupoli": {
+      "latitude": 40.846,
+      "longitude": 25.878,
+      "timezone": "Europe/Athens"
+    },
+    "GR_Kozani": {
+      "latitude": 40.301,
+      "longitude": 21.788,
+      "timezone": "Europe/Athens"
+    },
+    "HR_Zagreb": {
+      "latitude": 45.813,
+      "longitude": 15.977,
+      "timezone": "Europe/Zagreb"
+    },
+    "HR_Split": {
+      "latitude": 43.512,
+      "longitude": 16.44,
+      "timezone": "Europe/Zagreb"
+    },
+    "HR_Rijeka": {
+      "latitude": 45.327,
+      "longitude": 14.442,
+      "timezone": "Europe/Zagreb"
+    },
+    "HR_Osijek": {
+      "latitude": 45.555,
+      "longitude": 18.695,
+      "timezone": "Europe/Zagreb"
+    },
+    "HR_Zadar": {
+      "latitude": 44.117,
+      "longitude": 15.235,
+      "timezone": "Europe/Zagreb"
+    },
+    "HR_Dubrovnik": {
+      "latitude": 42.649,
+      "longitude": 18.094,
+      "timezone": "Europe/Zagreb"
+    },
+    "HR_Pula": {
+      "latitude": 44.87,
+      "longitude": 13.846,
+      "timezone": "Europe/Zagreb"
+    },
+    "HR_Slavonski Brod": {
+      "latitude": 45.158,
+      "longitude": 18.013,
+      "timezone": "Europe/Zagreb"
+    },
+    "HR_Karlovac": {
+      "latitude": 45.489,
+      "longitude": 15.549,
+      "timezone": "Europe/Zagreb"
+    },
+    "HR_Varaždin": {
+      "latitude": 46.308,
+      "longitude": 16.338,
+      "timezone": "Europe/Zagreb"
+    },
+    "HU_Budapest": {
+      "latitude": 47.481,
+      "longitude": 19.146,
+      "timezone": "Europe/Budapest"
+    },
+    "HU_Debrecen": {
+      "latitude": 47.531,
+      "longitude": 21.626,
+      "timezone": "Europe/Budapest"
+    },
+    "HU_Szeged": {
+      "latitude": 46.255,
+      "longitude": 20.149,
+      "timezone": "Europe/Budapest"
+    },
+    "HU_Miskolc": {
+      "latitude": 48.103,
+      "longitude": 20.79,
+      "timezone": "Europe/Budapest"
+    },
+    "HU_Pécs": {
+      "latitude": 46.077,
+      "longitude": 18.228,
+      "timezone": "Europe/Budapest"
+    },
+    "HU_Győr": {
+      "latitude": 47.684,
+      "longitude": 17.634,
+      "timezone": "Europe/Budapest"
+    },
+    "HU_Nyíregyháza": {
+      "latitude": 47.956,
+      "longitude": 21.717,
+      "timezone": "Europe/Budapest"
+    },
+    "HU_Kecskemét": {
+      "latitude": 46.907,
+      "longitude": 19.692,
+      "timezone": "Europe/Budapest"
+    },
+    "HU_Székesfehérvár": {
+      "latitude": 47.191,
+      "longitude": 18.411,
+      "timezone": "Europe/Budapest"
+    },
+    "HU_Szombathely": {
+      "latitude": 47.229,
+      "longitude": 16.619,
+      "timezone": "Europe/Budapest"
+    },
+    "IE_Dublin": {
+      "latitude": 53.349,
+      "longitude": -6.261,
+      "timezone": "Europe/Dublin"
+    },
+    "IE_Cork": {
+      "latitude": 51.899,
+      "longitude": -8.473,
+      "timezone": "Europe/Dublin"
+    },
+    "IE_Limerick": {
+      "latitude": 52.661,
+      "longitude": -8.63,
+      "timezone": "Europe/Dublin"
+    },
+    "IE_Galway": {
+      "latitude": 53.274,
+      "longitude": -9.049,
+      "timezone": "Europe/Dublin"
+    },
+    "IE_Waterford": {
+      "latitude": 52.261,
+      "longitude": -7.112,
+      "timezone": "Europe/Dublin"
+    },
+    "IE_Drogheda": {
+      "latitude": 53.715,
+      "longitude": -6.352,
+      "timezone": "Europe/Dublin"
+    },
+    "IE_Kilkenny": {
+      "latitude": 52.651,
+      "longitude": -7.251,
+      "timezone": "Europe/Dublin"
+    },
+    "IE_Swords": {
+      "latitude": 53.459,
+      "longitude": -6.219,
+      "timezone": "Europe/Dublin"
+    },
+    "IE_Dundalk": {
+      "latitude": 54.005,
+      "longitude": -6.401,
+      "timezone": "Europe/Dublin"
+    },
+    "IE_Navan": {
+      "latitude": 53.653,
+      "longitude": -6.684,
+      "timezone": "Europe/Dublin"
+    },
+    "IS_Reykjavik": {
+      "latitude": 64.146,
+      "longitude": -21.942,
+      "timezone": "Atlantic/Reykjavik"
+    },
+    "IS_Kópavogur": {
+      "latitude": 64.111,
+      "longitude": -21.905,
+      "timezone": "Atlantic/Reykjavik"
+    },
+    "IS_Akureyri": {
+      "latitude": 65.684,
+      "longitude": -18.112,
+      "timezone": "Atlantic/Reykjavik"
+    },
+    "IS_Reykjanesbær": {
+      "latitude": 63.983,
+      "longitude": -22.556,
+      "timezone": "Atlantic/Reykjavik"
+    },
+    "IS_Garðabær": {
+      "latitude": 64.088,
+      "longitude": -21.919,
+      "timezone": "Atlantic/Reykjavik"
+    },
+    "IS_Mosfellsbær": {
+      "latitude": 64.167,
+      "longitude": -21.697,
+      "timezone": "Atlantic/Reykjavik"
+    },
+    "IS_Akranes": {
+      "latitude": 64.317,
+      "longitude": -22.083,
+      "timezone": "Atlantic/Reykjavik"
+    },
+    "IS_Selfoss": {
+      "latitude": 63.937,
+      "longitude": -21.004,
+      "timezone": "Atlantic/Reykjavik"
+    },
+    "IS_Hafnarfjörður": {
+      "latitude": 64.07,
+      "longitude": -21.958,
+      "timezone": "Atlantic/Reykjavik"
+    },
+    "IS_Keflavík": {
+      "latitude": 64.0,
+      "longitude": -22.557,
+      "timezone": "Atlantic/Reykjavik"
+    },
+    "IT_Rome": {
+      "latitude": 41.893,
+      "longitude": 12.483,
+      "timezone": "Europe/Rome"
+    },
+    "IT_Milan": {
+      "latitude": 45.464,
+      "longitude": 9.19,
+      "timezone": "Europe/Rome"
+    },
+    "IT_Naples": {
+      "latitude": 40.836,
+      "longitude": 14.249,
+      "timezone": "Europe/Rome"
+    },
+    "IT_Turin": {
+      "latitude": 45.068,
+      "longitude": 7.682,
+      "timezone": "Europe/Rome"
+    },
+    "IT_Palermo": {
+      "latitude": 38.111,
+      "longitude": 13.352,
+      "timezone": "Europe/Rome"
+    },
+    "IT_Genoa": {
+      "latitude": 44.407,
+      "longitude": 8.934,
+      "timezone": "Europe/Rome"
+    },
+    "IT_Florence": {
+      "latitude": 43.77,
+      "longitude": 11.256,
+      "timezone": "Europe/Rome"
+    },
+    "IT_Bologna": {
+      "latitude": 44.494,
+      "longitude": 11.343,
+      "timezone": "Europe/Rome"
+    },
+    "IT_Bari": {
+      "latitude": 41.126,
+      "longitude": 16.862,
+      "timezone": "Europe/Rome"
+    },
+    "IT_Catania": {
+      "latitude": 37.502,
+      "longitude": 15.087,
+      "timezone": "Europe/Rome"
+    },
+    "IT_Venice": {
+      "latitude": 45.405,
+      "longitude": 12.311,
+      "timezone": "Europe/Rome"
+    },
+    "IT_Verona": {
+      "latitude": 45.442,
+      "longitude": 10.986,
+      "timezone": "Europe/Rome"
+    },
+    "IT_Messina": {
+      "latitude": 38.194,
+      "longitude": 15.554,
+      "timezone": "Europe/Rome"
+    },
+    "IT_Padua": {
+      "latitude": 45.398,
+      "longitude": 11.896,
+      "timezone": "Europe/Rome"
+    },
+    "IT_Trieste": {
+      "latitude": 45.65,
+      "longitude": 13.777,
+      "timezone": "Europe/Rome"
+    },
+    "LT_Vilnius": {
+      "latitude": 54.687,
+      "longitude": 25.283,
+      "timezone": "Europe/Vilnius"
+    },
+    "LT_Kaunas": {
+      "latitude": 54.898,
+      "longitude": 23.904,
+      "timezone": "Europe/Vilnius"
+    },
+    "LT_Klaipėda": {
+      "latitude": 55.713,
+      "longitude": 21.135,
+      "timezone": "Europe/Vilnius"
+    },
+    "LT_Šiauliai": {
+      "latitude": 55.934,
+      "longitude": 23.316,
+      "timezone": "Europe/Vilnius"
+    },
+    "LT_Panevėžys": {
+      "latitude": 55.734,
+      "longitude": 24.358,
+      "timezone": "Europe/Vilnius"
+    },
+    "LT_Alytus": {
+      "latitude": 54.396,
+      "longitude": 24.046,
+      "timezone": "Europe/Vilnius"
+    },
+    "LT_Marijampolė": {
+      "latitude": 54.556,
+      "longitude": 23.35,
+      "timezone": "Europe/Vilnius"
+    },
+    "LT_Mažeikiai": {
+      "latitude": 56.311,
+      "longitude": 22.348,
+      "timezone": "Europe/Vilnius"
+    },
+    "LT_Jonava": {
+      "latitude": 55.074,
+      "longitude": 24.276,
+      "timezone": "Europe/Vilnius"
+    },
+    "LT_Utena": {
+      "latitude": 55.498,
+      "longitude": 25.603,
+      "timezone": "Europe/Vilnius"
+    },
+    "LU_Luxembourg City": {
+      "latitude": 49.611,
+      "longitude": 6.13,
+      "timezone": "Europe/Luxembourg"
+    },
+    "LU_Esch-sur-Alzette": {
+      "latitude": 49.496,
+      "longitude": 5.985,
+      "timezone": "Europe/Luxembourg"
+    },
+    "LU_Dudelange": {
+      "latitude": 49.48,
+      "longitude": 6.089,
+      "timezone": "Europe/Luxembourg"
+    },
+    "LU_Differdange": {
+      "latitude": 49.522,
+      "longitude": 5.875,
+      "timezone": "Europe/Luxembourg"
+    },
+    "LU_Ettelbruck": {
+      "latitude": 49.847,
+      "longitude": 6.098,
+      "timezone": "Europe/Luxembourg"
+    },
+    "LU_Diekirch": {
+      "latitude": 49.869,
+      "longitude": 6.16,
+      "timezone": "Europe/Luxembourg"
+    },
+    "LU_Strassen": {
+      "latitude": 49.62,
+      "longitude": 6.072,
+      "timezone": "Europe/Luxembourg"
+    },
+    "LU_Wiltz": {
+      "latitude": 49.967,
+      "longitude": 5.932,
+      "timezone": "Europe/Luxembourg"
+    },
+    "LU_Echternach": {
+      "latitude": 49.812,
+      "longitude": 6.421,
+      "timezone": "Europe/Luxembourg"
+    },
+    "LU_Rumelange": {
+      "latitude": 49.461,
+      "longitude": 6.031,
+      "timezone": "Europe/Luxembourg"
+    },
+    "LV_Riga": {
+      "latitude": 56.949,
+      "longitude": 24.105,
+      "timezone": "Europe/Riga"
+    },
+    "LV_Daugavpils": {
+      "latitude": 55.871,
+      "longitude": 26.516,
+      "timezone": "Europe/Riga"
+    },
+    "LV_Liepāja": {
+      "latitude": 56.505,
+      "longitude": 21.007,
+      "timezone": "Europe/Riga"
+    },
+    "LV_Jelgava": {
+      "latitude": 56.652,
+      "longitude": 23.729,
+      "timezone": "Europe/Riga"
+    },
+    "LV_Jūrmala": {
+      "latitude": 56.973,
+      "longitude": 23.789,
+      "timezone": "Europe/Riga"
+    },
+    "LV_Ventspils": {
+      "latitude": 57.39,
+      "longitude": 21.564,
+      "timezone": "Europe/Riga"
+    },
+    "LV_Rēzekne": {
+      "latitude": 56.506,
+      "longitude": 27.331,
+      "timezone": "Europe/Riga"
+    },
+    "LV_Ogre": {
+      "latitude": 56.819,
+      "longitude": 24.607,
+      "timezone": "Europe/Riga"
+    },
+    "LV_Tukums": {
+      "latitude": 56.967,
+      "longitude": 23.152,
+      "timezone": "Europe/Riga"
+    },
+    "LV_Cēsis": {
+      "latitude": 57.313,
+      "longitude": 25.275,
+      "timezone": "Europe/Riga"
+    },
+    "MC_Monaco": {
+      "latitude": 43.731,
+      "longitude": 7.425,
+      "timezone": "Europe/Monaco"
+    },
+    "MC_Monte Carlo": {
+      "latitude": 43.74,
+      "longitude": 7.427,
+      "timezone": "Europe/Monaco"
+    },
+    "MC_La Condamine": {
+      "latitude": 43.734,
+      "longitude": 7.422,
+      "timezone": "Europe/Monaco"
+    },
+    "MC_Fontvieille": {
+      "latitude": 43.728,
+      "longitude": 7.418,
+      "timezone": "Europe/Monaco"
+    },
+    "MC_Moneghetti": {
+      "latitude": 43.736,
+      "longitude": 7.417,
+      "timezone": "Europe/Monaco"
+    },
+    "MD_Chișinău": {
+      "latitude": 47.025,
+      "longitude": 28.832,
+      "timezone": "Europe/Chisinau"
+    },
+    "MD_Bălți": {
+      "latitude": 47.762,
+      "longitude": 27.929,
+      "timezone": "Europe/Chisinau"
+    },
+    "MD_Tiraspol": {
+      "latitude": 46.837,
+      "longitude": 29.611,
+      "timezone": "Europe/Chisinau"
+    },
+    "MD_Bender": {
+      "latitude": 46.822,
+      "longitude": 29.482,
+      "timezone": "Europe/Chisinau"
+    },
+    "MD_Cahul": {
+      "latitude": 45.904,
+      "longitude": 28.195,
+      "timezone": "Europe/Chisinau"
+    },
+    "MD_Ungheni": {
+      "latitude": 47.206,
+      "longitude": 27.799,
+      "timezone": "Europe/Chisinau"
+    },
+    "MD_Soroca": {
+      "latitude": 48.154,
+      "longitude": 28.288,
+      "timezone": "Europe/Chisinau"
+    },
+    "MD_Orhei": {
+      "latitude": 47.368,
+      "longitude": 28.827,
+      "timezone": "Europe/Chisinau"
+    },
+    "MD_Hîncești": {
+      "latitude": 46.828,
+      "longitude": 28.589,
+      "timezone": "Europe/Chisinau"
+    },
+    "MD_Edineț": {
+      "latitude": 48.168,
+      "longitude": 27.298,
+      "timezone": "Europe/Chisinau"
+    },
+    "ME_Podgorica": {
+      "latitude": 42.442,
+      "longitude": 19.262,
+      "timezone": "Europe/Podgorica"
+    },
+    "ME_Nikšić": {
+      "latitude": 42.774,
+      "longitude": 18.949,
+      "timezone": "Europe/Podgorica"
+    },
+    "ME_Bijelo Polje": {
+      "latitude": 43.034,
+      "longitude": 19.747,
+      "timezone": "Europe/Podgorica"
+    },
+    "ME_Bar": {
+      "latitude": 42.098,
+      "longitude": 19.095,
+      "timezone": "Europe/Podgorica"
+    },
+    "ME_Herceg Novi": {
+      "latitude": 42.452,
+      "longitude": 18.537,
+      "timezone": "Europe/Podgorica"
+    },
+    "ME_Cetinje": {
+      "latitude": 42.39,
+      "longitude": 18.925,
+      "timezone": "Europe/Podgorica"
+    },
+    "ME_Budva": {
+      "latitude": 42.289,
+      "longitude": 18.842,
+      "timezone": "Europe/Podgorica"
+    },
+    "ME_Kotor": {
+      "latitude": 42.425,
+      "longitude": 18.771,
+      "timezone": "Europe/Podgorica"
+    },
+    "ME_Ulcinj": {
+      "latitude": 41.926,
+      "longitude": 19.206,
+      "timezone": "Europe/Podgorica"
+    },
+    "ME_Tivat": {
+      "latitude": 42.43,
+      "longitude": 18.699,
+      "timezone": "Europe/Podgorica"
+    },
+    "MK_Skopje": {
+      "latitude": 41.996,
+      "longitude": 21.432,
+      "timezone": "Europe/Skopje"
+    },
+    "MK_Bitola": {
+      "latitude": 41.032,
+      "longitude": 21.33,
+      "timezone": "Europe/Skopje"
+    },
+    "MK_Kumanovo": {
+      "latitude": 42.136,
+      "longitude": 21.719,
+      "timezone": "Europe/Skopje"
+    },
+    "MK_Prilep": {
+      "latitude": 41.344,
+      "longitude": 21.553,
+      "timezone": "Europe/Skopje"
+    },
+    "MK_Tetovo": {
+      "latitude": 42.007,
+      "longitude": 20.973,
+      "timezone": "Europe/Skopje"
+    },
+    "MK_Ohrid": {
+      "latitude": 41.117,
+      "longitude": 20.802,
+      "timezone": "Europe/Skopje"
+    },
+    "MK_Veles": {
+      "latitude": 41.719,
+      "longitude": 21.771,
+      "timezone": "Europe/Skopje"
+    },
+    "MK_Stip": {
+      "latitude": 41.737,
+      "longitude": 22.194,
+      "timezone": "Europe/Skopje"
+    },
+    "MK_Strumica": {
+      "latitude": 41.439,
+      "longitude": 22.637,
+      "timezone": "Europe/Skopje"
+    },
+    "MK_Gostivar": {
+      "latitude": 41.792,
+      "longitude": 20.908,
+      "timezone": "Europe/Skopje"
+    },
+    "MT_Valletta": {
+      "latitude": 35.899,
+      "longitude": 14.514,
+      "timezone": "Europe/Malta"
+    },
+    "MT_Birkirkara": {
+      "latitude": 35.899,
+      "longitude": 14.465,
+      "timezone": "Europe/Malta"
+    },
+    "MT_Mosta": {
+      "latitude": 35.908,
+      "longitude": 14.424,
+      "timezone": "Europe/Malta"
+    },
+    "MT_Sliema": {
+      "latitude": 35.913,
+      "longitude": 14.502,
+      "timezone": "Europe/Malta"
+    },
+    "MT_San Gwann": {
+      "latitude": 35.909,
+      "longitude": 14.479,
+      "timezone": "Europe/Malta"
+    },
+    "MT_Saint Paul's Bay": {
+      "latitude": 35.948,
+      "longitude": 14.397,
+      "timezone": "Europe/Malta"
+    },
+    "MT_Qormi": {
+      "latitude": 35.877,
+      "longitude": 14.474,
+      "timezone": "Europe/Malta"
+    },
+    "MT_Zabbar": {
+      "latitude": 35.875,
+      "longitude": 14.537,
+      "timezone": "Europe/Malta"
+    },
+    "MT_Fgura": {
+      "latitude": 35.873,
+      "longitude": 14.521,
+      "timezone": "Europe/Malta"
+    },
+    "MT_Zejtun": {
+      "latitude": 35.854,
+      "longitude": 14.532,
+      "timezone": "Europe/Malta"
+    },
+    "NL_Amsterdam": {
+      "latitude": 52.373,
+      "longitude": 4.892,
+      "timezone": "Europe/Amsterdam"
+    },
+    "NL_Rotterdam": {
+      "latitude": 51.924,
+      "longitude": 4.478,
+      "timezone": "Europe/Amsterdam"
+    },
+    "NL_The Hague": {
+      "latitude": 52.08,
+      "longitude": 4.311,
+      "timezone": "Europe/Amsterdam"
+    },
+    "NL_Utrecht": {
+      "latitude": 52.091,
+      "longitude": 5.122,
+      "timezone": "Europe/Amsterdam"
+    },
+    "NL_Eindhoven": {
+      "latitude": 51.449,
+      "longitude": 5.45,
+      "timezone": "Europe/Amsterdam"
+    },
+    "NL_Groningen": {
+      "latitude": 53.219,
+      "longitude": 6.568,
+      "timezone": "Europe/Amsterdam"
+    },
+    "NL_Tilburg": {
+      "latitude": 51.586,
+      "longitude": 5.066,
+      "timezone": "Europe/Amsterdam"
+    },
+    "NL_Almere": {
+      "latitude": 52.371,
+      "longitude": 5.219,
+      "timezone": "Europe/Amsterdam"
+    },
+    "NL_Breda": {
+      "latitude": 51.589,
+      "longitude": 4.776,
+      "timezone": "Europe/Amsterdam"
+    },
+    "NL_Nijmegen": {
+      "latitude": 51.847,
+      "longitude": 5.864,
+      "timezone": "Europe/Amsterdam"
+    },
+    "NL_Haarlem": {
+      "latitude": 52.384,
+      "longitude": 4.644,
+      "timezone": "Europe/Amsterdam"
+    },
+    "NL_Arnhem": {
+      "latitude": 52.006,
+      "longitude": 5.876,
+      "timezone": "Europe/Amsterdam"
+    },
+    "NL_Enschede": {
+      "latitude": 52.221,
+      "longitude": 6.894,
+      "timezone": "Europe/Amsterdam"
+    },
+    "NL_Amersfoort": {
+      "latitude": 52.156,
+      "longitude": 5.39,
+      "timezone": "Europe/Amsterdam"
+    },
+    "NL_Leiden": {
+      "latitude": 52.159,
+      "longitude": 4.491,
+      "timezone": "Europe/Amsterdam"
+    },
+    "NO_Oslo": {
+      "latitude": 59.913,
+      "longitude": 10.739,
+      "timezone": "Europe/Oslo"
+    },
+    "NO_Bergen": {
+      "latitude": 60.394,
+      "longitude": 5.326,
+      "timezone": "Europe/Oslo"
+    },
+    "NO_Trondheim": {
+      "latitude": 63.43,
+      "longitude": 10.395,
+      "timezone": "Europe/Oslo"
+    },
+    "NO_Stavanger": {
+      "latitude": 58.97,
+      "longitude": 5.732,
+      "timezone": "Europe/Oslo"
+    },
+    "NO_Drammen": {
+      "latitude": 59.696,
+      "longitude": 10.176,
+      "timezone": "Europe/Oslo"
+    },
+    "NO_Fredrikstad": {
+      "latitude": 59.186,
+      "longitude": 10.868,
+      "timezone": "Europe/Oslo"
+    },
+    "NO_Kristiansand": {
+      "latitude": 58.086,
+      "longitude": 7.932,
+      "timezone": "Europe/Oslo"
+    },
+    "NO_Tromsø": {
+      "latitude": 69.652,
+      "longitude": 18.956,
+      "timezone": "Europe/Oslo"
+    },
+    "NO_Sandnes": {
+      "latitude": 58.983,
+      "longitude": 6.395,
+      "timezone": "Europe/Oslo"
+    },
+    "NO_Bodø": {
+      "latitude": 67.284,
+      "longitude": 14.382,
+      "timezone": "Europe/Oslo"
+    },
+    "PL_Warsaw": {
+      "latitude": 52.232,
+      "longitude": 21.007,
+      "timezone": "Europe/Warsaw"
+    },
+    "PL_Krakow": {
+      "latitude": 50.047,
+      "longitude": 19.997,
+      "timezone": "Europe/Warsaw"
+    },
+    "PL_Lodz": {
+      "latitude": 51.773,
+      "longitude": 19.478,
+      "timezone": "Europe/Warsaw"
+    },
+    "PL_Wroclaw": {
+      "latitude": 51.126,
+      "longitude": 16.978,
+      "timezone": "Europe/Warsaw"
+    },
+    "PL_Poznan": {
+      "latitude": 52.401,
+      "longitude": 16.92,
+      "timezone": "Europe/Warsaw"
+    },
+    "PL_Gdansk": {
+      "latitude": 54.348,
+      "longitude": 18.654,
+      "timezone": "Europe/Warsaw"
+    },
+    "PL_Szczecin": {
+      "latitude": 53.43,
+      "longitude": 14.593,
+      "timezone": "Europe/Warsaw"
+    },
+    "PL_Bydgoszcz": {
+      "latitude": 53.13,
+      "longitude": 18.029,
+      "timezone": "Europe/Warsaw"
+    },
+    "PL_Lublin": {
+      "latitude": 51.218,
+      "longitude": 22.555,
+      "timezone": "Europe/Warsaw"
+    },
+    "PL_Katowice": {
+      "latitude": 50.26,
+      "longitude": 19.022,
+      "timezone": "Europe/Warsaw"
+    },
+    "PL_Bialystok": {
+      "latitude": 53.132,
+      "longitude": 23.159,
+      "timezone": "Europe/Warsaw"
+    },
+    "PL_Gdynia": {
+      "latitude": 54.516,
+      "longitude": 18.54,
+      "timezone": "Europe/Warsaw"
+    },
+    "PL_Czestochowa": {
+      "latitude": 50.812,
+      "longitude": 19.113,
+      "timezone": "Europe/Warsaw"
+    },
+    "PL_Radom": {
+      "latitude": 51.402,
+      "longitude": 21.154,
+      "timezone": "Europe/Warsaw"
+    },
+    "PL_Torun": {
+      "latitude": 53.015,
+      "longitude": 18.597,
+      "timezone": "Europe/Warsaw"
+    },
+    "PT_Lisbon": {
+      "latitude": 38.708,
+      "longitude": -9.137,
+      "timezone": "Europe/Lisbon"
+    },
+    "PT_Porto": {
+      "latitude": 41.15,
+      "longitude": -8.61,
+      "timezone": "Europe/Lisbon"
+    },
+    "PT_Braga": {
+      "latitude": 41.551,
+      "longitude": -8.428,
+      "timezone": "Europe/Lisbon"
+    },
+    "PT_Coimbra": {
+      "latitude": 40.211,
+      "longitude": -8.429,
+      "timezone": "Europe/Lisbon"
+    },
+    "PT_Funchal": {
+      "latitude": 32.65,
+      "longitude": -16.909,
+      "timezone": "Europe/Lisbon"
+    },
+    "PT_Amadora": {
+      "latitude": 38.759,
+      "longitude": -9.237,
+      "timezone": "Europe/Lisbon"
+    },
+    "PT_Setúbal": {
+      "latitude": 38.524,
+      "longitude": -8.893,
+      "timezone": "Europe/Lisbon"
+    },
+    "PT_Almada": {
+      "latitude": 38.683,
+      "longitude": -9.158,
+      "timezone": "Europe/Lisbon"
+    },
+    "PT_Aveiro": {
+      "latitude": 40.64,
+      "longitude": -8.654,
+      "timezone": "Europe/Lisbon"
+    },
+    "PT_Faro": {
+      "latitude": 37.016,
+      "longitude": -7.935,
+      "timezone": "Europe/Lisbon"
+    },
+    "RO_Bucharest": {
+      "latitude": 44.436,
+      "longitude": 26.103,
+      "timezone": "Europe/Bucharest"
+    },
+    "RO_Cluj-Napoca": {
+      "latitude": 46.769,
+      "longitude": 23.59,
+      "timezone": "Europe/Bucharest"
+    },
+    "RO_Timisoara": {
+      "latitude": 45.754,
+      "longitude": 21.226,
+      "timezone": "Europe/Bucharest"
+    },
+    "RO_Iasi": {
+      "latitude": 47.162,
+      "longitude": 27.584,
+      "timezone": "Europe/Bucharest"
+    },
+    "RO_Constanta": {
+      "latitude": 44.177,
+      "longitude": 28.651,
+      "timezone": "Europe/Bucharest"
+    },
+    "RO_Craiova": {
+      "latitude": 44.319,
+      "longitude": 23.797,
+      "timezone": "Europe/Bucharest"
+    },
+    "RO_Brașov": {
+      "latitude": 45.653,
+      "longitude": 25.611,
+      "timezone": "Europe/Bucharest"
+    },
+    "RO_Galati": {
+      "latitude": 45.434,
+      "longitude": 28.055,
+      "timezone": "Europe/Bucharest"
+    },
+    "RO_Ploiesti": {
+      "latitude": 44.942,
+      "longitude": 26.024,
+      "timezone": "Europe/Bucharest"
+    },
+    "RO_Oradea": {
+      "latitude": 47.055,
+      "longitude": 21.929,
+      "timezone": "Europe/Bucharest"
+    },
+    "RO_Brasov": {
+      "latitude": 45.653,
+      "longitude": 25.611,
+      "timezone": "Europe/Bucharest"
+    },
+    "RO_Arad": {
+      "latitude": 46.175,
+      "longitude": 21.32,
+      "timezone": "Europe/Bucharest"
+    },
+    "RO_Sibiu": {
+      "latitude": 45.797,
+      "longitude": 24.152,
+      "timezone": "Europe/Bucharest"
+    },
+    "RO_Targu Mures": {
+      "latitude": 46.545,
+      "longitude": 24.561,
+      "timezone": "Europe/Bucharest"
+    },
+    "RO_Bacau": {
+      "latitude": 46.556,
+      "longitude": 26.915,
+      "timezone": "Europe/Bucharest"
+    },
+    "RS_Belgrade": {
+      "latitude": 44.815,
+      "longitude": 20.446,
+      "timezone": "Europe/Belgrade"
+    },
+    "RS_Novi Sad": {
+      "latitude": 45.255,
+      "longitude": 19.845,
+      "timezone": "Europe/Belgrade"
+    },
+    "RS_Niš": {
+      "latitude": 43.321,
+      "longitude": 21.896,
+      "timezone": "Europe/Belgrade"
+    },
+    "RS_Kragujevac": {
+      "latitude": 44.013,
+      "longitude": 20.92,
+      "timezone": "Europe/Belgrade"
+    },
+    "RS_Subotica": {
+      "latitude": 46.1,
+      "longitude": 19.665,
+      "timezone": "Europe/Belgrade"
+    },
+    "RS_Zrenjanin": {
+      "latitude": 45.38,
+      "longitude": 20.391,
+      "timezone": "Europe/Belgrade"
+    },
+    "RS_Pančevo": {
+      "latitude": 44.871,
+      "longitude": 20.64,
+      "timezone": "Europe/Belgrade"
+    },
+    "RS_Čačak": {
+      "latitude": 43.891,
+      "longitude": 20.349,
+      "timezone": "Europe/Belgrade"
+    },
+    "RS_Kraljevo": {
+      "latitude": 43.723,
+      "longitude": 20.687,
+      "timezone": "Europe/Belgrade"
+    },
+    "RS_Smederevo": {
+      "latitude": 44.665,
+      "longitude": 20.927,
+      "timezone": "Europe/Belgrade"
+    },
+    "SE_Stockholm": {
+      "latitude": 59.325,
+      "longitude": 18.071,
+      "timezone": "Europe/Stockholm"
+    },
+    "SE_Gothenburg": {
+      "latitude": 57.707,
+      "longitude": 11.967,
+      "timezone": "Europe/Stockholm"
+    },
+    "SE_Malmo": {
+      "latitude": 55.605,
+      "longitude": 13.0,
+      "timezone": "Europe/Stockholm"
+    },
+    "SE_Uppsala": {
+      "latitude": 59.859,
+      "longitude": 17.639,
+      "timezone": "Europe/Stockholm"
+    },
+    "SE_Linkoping": {
+      "latitude": 58.41,
+      "longitude": 15.625,
+      "timezone": "Europe/Stockholm"
+    },
+    "SE_Vasteras": {
+      "latitude": 59.611,
+      "longitude": 16.546,
+      "timezone": "Europe/Stockholm"
+    },
+    "SE_Orebro": {
+      "latitude": 59.275,
+      "longitude": 15.215,
+      "timezone": "Europe/Stockholm"
+    },
+    "SE_Norrkoping": {
+      "latitude": 58.591,
+      "longitude": 16.19,
+      "timezone": "Europe/Stockholm"
+    },
+    "SE_Helsingborg": {
+      "latitude": 56.044,
+      "longitude": 12.704,
+      "timezone": "Europe/Stockholm"
+    },
+    "SE_Lund": {
+      "latitude": 55.703,
+      "longitude": 13.193,
+      "timezone": "Europe/Stockholm"
+    },
+    "SE_Umea": {
+      "latitude": 63.826,
+      "longitude": 20.263,
+      "timezone": "Europe/Stockholm"
+    },
+    "SE_Gavle": {
+      "latitude": 60.675,
+      "longitude": 17.147,
+      "timezone": "Europe/Stockholm"
+    },
+    "SE_Boras": {
+      "latitude": 57.721,
+      "longitude": 12.941,
+      "timezone": "Europe/Stockholm"
+    },
+    "SE_Sodertalje": {
+      "latitude": 59.196,
+      "longitude": 17.627,
+      "timezone": "Europe/Stockholm"
+    },
+    "SE_Eskilstuna": {
+      "latitude": 59.372,
+      "longitude": 16.505,
+      "timezone": "Europe/Stockholm"
+    },
+    "SI_Ljubljana": {
+      "latitude": 46.05,
+      "longitude": 14.507,
+      "timezone": "Europe/Ljubljana"
+    },
+    "SI_Maribor": {
+      "latitude": 46.558,
+      "longitude": 15.646,
+      "timezone": "Europe/Ljubljana"
+    },
+    "SI_Celje": {
+      "latitude": 46.229,
+      "longitude": 15.262,
+      "timezone": "Europe/Ljubljana"
+    },
+    "SI_Kranj": {
+      "latitude": 46.243,
+      "longitude": 14.355,
+      "timezone": "Europe/Ljubljana"
+    },
+    "SI_Koper": {
+      "latitude": 45.548,
+      "longitude": 13.73,
+      "timezone": "Europe/Ljubljana"
+    },
+    "SI_Novo Mesto": {
+      "latitude": 45.804,
+      "longitude": 15.17,
+      "timezone": "Europe/Ljubljana"
+    },
+    "SI_Velenje": {
+      "latitude": 46.359,
+      "longitude": 15.115,
+      "timezone": "Europe/Ljubljana"
+    },
+    "SI_Ptuj": {
+      "latitude": 46.42,
+      "longitude": 15.872,
+      "timezone": "Europe/Ljubljana"
+    },
+    "SI_Trbovlje": {
+      "latitude": 46.137,
+      "longitude": 15.046,
+      "timezone": "Europe/Ljubljana"
+    },
+    "SI_Kamnik": {
+      "latitude": 46.275,
+      "longitude": 14.627,
+      "timezone": "Europe/Ljubljana"
+    },
+    "SK_Bratislava": {
+      "latitude": 48.152,
+      "longitude": 17.109,
+      "timezone": "Europe/Bratislava"
+    },
+    "SK_Košice": {
+      "latitude": 48.717,
+      "longitude": 21.25,
+      "timezone": "Europe/Bratislava"
+    },
+    "SK_Prešov": {
+      "latitude": 49.0,
+      "longitude": 21.239,
+      "timezone": "Europe/Bratislava"
+    },
+    "SK_Žilina": {
+      "latitude": 49.223,
+      "longitude": 18.739,
+      "timezone": "Europe/Bratislava"
+    },
+    "SK_Nitra": {
+      "latitude": 48.313,
+      "longitude": 18.089,
+      "timezone": "Europe/Bratislava"
+    },
+    "SK_Banská Bystrica": {
+      "latitude": 48.735,
+      "longitude": 19.146,
+      "timezone": "Europe/Bratislava"
+    },
+    "SK_Trnava": {
+      "latitude": 48.374,
+      "longitude": 17.581,
+      "timezone": "Europe/Bratislava"
+    },
+    "SK_Martin": {
+      "latitude": 49.072,
+      "longitude": 18.929,
+      "timezone": "Europe/Bratislava"
+    },
+    "SK_Trenčín": {
+      "latitude": 48.892,
+      "longitude": 18.039,
+      "timezone": "Europe/Bratislava"
+    },
+    "SK_Poprad": {
+      "latitude": 49.054,
+      "longitude": 20.298,
+      "timezone": "Europe/Bratislava"
+    },
+    "UA_Kyiv": {
+      "latitude": 50.45,
+      "longitude": 30.524,
+      "timezone": "Europe/Kiev"
+    },
+    "UA_Kharkiv": {
+      "latitude": 49.992,
+      "longitude": 36.231,
+      "timezone": "Europe/Kiev"
+    },
+    "UA_Odesa": {
+      "latitude": 46.484,
+      "longitude": 30.732,
+      "timezone": "Europe/Kiev"
+    },
+    "UA_Dnipro": {
+      "latitude": 51.557,
+      "longitude": 30.612,
+      "timezone": "Europe/Kiev"
+    },
+    "UA_Lviv": {
+      "latitude": 49.842,
+      "longitude": 24.032,
+      "timezone": "Europe/Kiev"
+    },
+    "UA_Zaporizhzhia": {
+      "latitude": 47.851,
+      "longitude": 35.118,
+      "timezone": "Europe/Kiev"
+    },
+    "UA_Kryvyi Rih": {
+      "latitude": 47.91,
+      "longitude": 33.392,
+      "timezone": "Europe/Kiev"
+    },
+    "UA_Mykolaiv": {
+      "latitude": 46.976,
+      "longitude": 31.994,
+      "timezone": "Europe/Kiev"
+    },
+    "UA_Vinnytsia": {
+      "latitude": 48.899,
+      "longitude": 28.516,
+      "timezone": "Europe/Kiev"
+    },
+    "UA_Kherson": {
+      "latitude": 46.542,
+      "longitude": 33.408,
+      "timezone": "Europe/Kiev"
+    },
+    "UA_Poltava": {
+      "latitude": 49.861,
+      "longitude": 33.75,
+      "timezone": "Europe/Kiev"
+    },
+    "UA_Chernihiv": {
+      "latitude": 51.273,
+      "longitude": 31.742,
+      "timezone": "Europe/Kiev"
+    },
+    "UA_Cherkasy": {
+      "latitude": 49.146,
+      "longitude": 31.227,
+      "timezone": "Europe/Kiev"
+    },
+    "UA_Sumy": {
+      "latitude": 50.912,
+      "longitude": 34.803,
+      "timezone": "Europe/Kiev"
+    },
+    "UA_Zhytomyr": {
+      "latitude": 50.908,
+      "longitude": 28.387,
+      "timezone": "Europe/Kiev"
+    },
+    "VA_Vatican City": {
+      "latitude": 41.903,
+      "longitude": 12.453,
+      "timezone": "Europe/Vatican"
+    },
+    "XK_Pristina": {
+      "latitude": 42.664,
+      "longitude": 21.164,
+      "timezone": "Europe/Belgrade"
+    },
+    "XK_Prizren": {
+      "latitude": 42.213,
+      "longitude": 20.736,
+      "timezone": "Europe/Belgrade"
+    },
+    "XK_Gjakova": {
+      "latitude": 42.38,
+      "longitude": 20.432,
+      "timezone": "Europe/Belgrade"
+    },
+    "XK_Peja": {
+      "latitude": 42.659,
+      "longitude": 20.289,
+      "timezone": "Europe/Belgrade"
+    },
+    "XK_Ferizaj": {
+      "latitude": 42.368,
+      "longitude": 21.153,
+      "timezone": "Europe/Belgrade"
+    },
+    "XK_Mitrovica": {
+      "latitude": 42.879,
+      "longitude": 20.866,
+      "timezone": "Europe/Belgrade"
+    },
+    "XK_Gjilan": {
+      "latitude": 42.464,
+      "longitude": 21.469,
+      "timezone": "Europe/Belgrade"
+    },
+    "XK_Vushtrri": {
+      "latitude": 42.822,
+      "longitude": 20.967,
+      "timezone": "Europe/Belgrade"
+    },
+    "XK_Suhareka": {
+      "latitude": 42.362,
+      "longitude": 20.832,
+      "timezone": "Europe/Belgrade"
+    },
+    "XK_Malisheva": {
+      "latitude": 42.484,
+      "longitude": 20.743,
+      "timezone": "Europe/Belgrade"
     }
   }
 }

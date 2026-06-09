@@ -1,10 +1,10 @@
 # Hayya (حيا) — Phased Implementation Plan
 
 > **Product:** **Hayya** (EN) / **حيا** (AR) — privacy-first prayer-times app. Package **`com.prayertime`** unchanged.
-> **Current state:** Phases **0–7A** complete on `main` (Jun 2026). Release **`v1.1.6`**. **Active plan: Phase 7B** (compass geographic calibration + UI) — then **Phase 8** (city catalog + manual coords). **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
+> **Current state:** Phases **0–7B** + **8A** complete. **Phase 8B** (Europe coords) on `feat/city-coords-europe`. Release **`v1.2.0`** WIP. **Next: Phase 8C** (Africa coords). **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
 > **Build:** Single APK `com.prayertime` (~23 MB debug). Privacy via Settings **offline-only toggle** (`offline_only`); no separate offline flavor.
 > **Calculation:** Umm al-Qura + Shafi + twilight (≥48°N); `adhan-java` when offline-only; Aladhan API when user disables offline mode.
-> **Tests:** `./gradlew testDebugUnitTest` — **414** JVM `@Test` (56 files); run `./scripts/smoke-ci.sh` for full gate.
+> **Tests:** `./gradlew testDebugUnitTest` — **428** JVM `@Test` (56 files); run `./scripts/smoke-ci.sh` for full gate.
 > **Docs language:** English. **Architecture graphs:** Graphify + Mermaid below.
 > **Phase 5 manual QA:** **5C.2**, **5D**, **5F.3** signed off Jun 2026 (user device verification).
 
@@ -60,8 +60,10 @@
 | **Release v1.1.5** | **Done** — signed `Hayya-v1.1.5.apk` on GitHub Releases |
 | **Widget L v1.1.6 (Jun 2026)** | **Done** — restore per-column countdown; shrink next-prayer highlight to times row only |
 | **Release v1.1.6** | **Done** — signed `Hayya-v1.1.6.apk` on GitHub Releases |
-| **Phase 7B** compass calibration | **Active** — geographic declination, upright gate, accuracy UI; see §7B |
-| **Phase 8** city catalog + manual coords | **Planned** — after 7B; see §8 |
+| **Phase 7B** compass calibration | **Complete** — geographic declination, upright gate, accuracy UI, ±15° offset; PR **#42**; release **`v1.2.0`** WIP |
+| **Phase 8A** manual lat/lng wizard | **Complete** — `feat/manual-coords-wizard`; see §8 |
+| **Phase 8B** Europe city coords | **Complete** — 574/574 EU picker cities; `feat/city-coords-europe` |
+| **Phase 8C–8E** city catalog coords | **Planned** — Africa → Asia → America; see §8 |
 
 ---
 
@@ -205,17 +207,17 @@ Maintain an up-to-date code graph after each phase gate. Full CLI lifecycle: [`g
 
 ---
 
-## Post-7A — active work (Phase 7B → Phase 8)
+## Post-7B — active work (Phase 8C)
 
-**Branch from:** `main`.
+**Branch from:** `main` after **8A** + **8B** merge.
 
 | Rule | Detail |
 |------|--------|
-| **Shipped** | Phases **0–7A**; latest release **`v1.1.6`** |
-| **Active** | **Phase 7B** — geographic compass correction + pointing accuracy + calibration UI (§Phase 7B) |
-| **Next** | **Phase 8** — city `knownCityCoords` + manual lat/lng wizard (§Phase 8) |
-| **Branching** | e.g. `feat/compass-calibration-7b` then `feat/manual-coords-wizard`; `./scripts/smoke-ci.sh` before merge |
-| **Graphify** | After `sensor/` or `ui/screens/QiblaScreen` changes |
+| **Shipped** | Phases **0–7B** + **8A** + **8B**; release **`v1.2.0`** WIP |
+| **Active** | **Phase 8C** — Africa `knownCityCoords` fill |
+| **Next** | **Phase 8D–8E** — Asia → America |
+| **Branching** | `feat/city-coords-africa` after 8B merge; `./scripts/smoke-ci.sh` before merge |
+| **Graphify** | After `locations.json` or `scripts/fill_europe_coords.py` changes |
 
 ---
 
@@ -231,8 +233,8 @@ Maintain an up-to-date code graph after each phase gate. Full CLI lifecycle: [`g
 - [x] **7B.2** `CompassUprightGate` — ignore heading updates when pitch/roll outside portrait band; `compass_tilted_hint` in UI
 - [x] **7B.3** Calibration UI — accuracy chip (good / fair / poor); auto-open tips on low/unreliable; show declination line under Qibla bearing
 - [x] **7B.4** User fine-offset (±15°) in DataStore + slider in calibrate panel
-- [ ] **7B.5** Manual QA — Hameln/Berlin device: upright vs flat, figure-8 recovery, EN/AR strings
-- [ ] **7B.6** Release — version bump + README compass note when 7B ships
+- [x] **7B.5** Manual QA — Hameln/Berlin device: upright vs flat, figure-8 recovery, EN/AR strings
+- [x] **7B.6** Release — version bump + README compass note when 7B ships
 
 **Out of scope:** GPS, landscape compass, separate calibration Activity.
 
@@ -244,11 +246,34 @@ Maintain an up-to-date code graph after each phase gate. Full CLI lifecycle: [`g
 
 **Data order:** Europe → Africa → Asia → America (`scripts/expand_locations.py`, `scripts/generate-cities-ar.py`).
 
-### Tasks
+### 8A — Manual lat/lng wizard (complete)
 
-- [ ] **8A** Manual lat/lng wizard UI (`WizardStep.ManualCoordinates`) — ship before bulk data
-- [ ] **8B–8E** Regional `knownCityCoords` fill (EU → AF → AS → AM)
-- [ ] **8F** Docs + release + APK size check
+**Goal:** User can enter latitude/longitude coordinates manually for any city not in `knownCityCoords`, enabling offline prayer times + Qibla without bundled coords or Aladhan API.
+
+**Branch:** `feat/manual-coords-wizard`
+
+- [x] **8A.1** `WizardStep.ManualCoords` — sealed variant with `country` + `cityName` + `defaultTimezone`
+- [x] **8A.2** `CitySetupViewModel` — `requestManualCoords()` / `saveManualCoords()` / `backFromManualCoords()`
+- [x] **8A.3** `CityInputScreen` — `ManualCoordsStep` + `ManualCoordsOption` card on city fallback
+- [x] **8A.4** String resources — EN/AR for lat/lng/timezone labels, save action, validation hints
+- [x] **8A.5** Validation — lat ∈ [-90, 90], lng ∈ [-180, 180]; non-blank timezone; `INVALID_COORDINATES` error
+- [x] **8A.6** Unit tests — `CitySetupViewModelTest` manual coords path (7 tests)
+
+### 8B — Europe coord fill (complete)
+
+- [x] **8B.1** `scripts/fill_europe_coords.py` — Nominatim + cache; 440 coords added
+- [x] **8B.2** `locations.json` — 574/574 EU picker cities have `knownCityCoords`; MD `countryDefaults` fix
+- [x] **8B.3** Tests — `every_europe_picker_city_resolves_to_found` + reference spot checks
+
+### 8C–8E — Regional coord fill
+
+- [ ] **8C** Africa
+- [ ] **8D** Asia
+- [ ] **8E** America
+
+### 8F — Release
+
+- [ ] Update README catalog note; version bump; APK size gate
 
 See [wiki/Phase-8-City-Catalog](https://github.com/karimVentus/Private-Prayer/wiki/Phase-8-City-Catalog) for wizard flow diagram.
 

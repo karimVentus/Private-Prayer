@@ -103,6 +103,9 @@ class ComposeScreenSmokeTest {
                             selectCountry = {},
                             clearSelectedCountry = {},
                             saveCity = {},
+                            requestManualCoords = {},
+                            saveManualCoords = { _, _, _, _ -> },
+                            backFromManualCoords = {},
                         ),
                 )
             }

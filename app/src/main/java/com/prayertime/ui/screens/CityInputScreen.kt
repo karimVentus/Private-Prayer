@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -21,10 +22,16 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.prayertime.R
@@ -70,6 +77,18 @@ fun CityInputScreen(
                     onSearchQueryChanged = actions.onCitySearchQueryChanged,
                     onBack = actions.clearSelectedCountry,
                     onCitySelected = actions.saveCity,
+                    onManualCoordsRequested = actions.requestManualCoords,
+                )
+            }
+            is WizardStep.ManualCoords -> {
+                ManualCoordsStep(
+                    modifier = Modifier.weight(1f).fillMaxWidth(),
+                    country = step.country,
+                    cityName = step.cityName,
+                    defaultTimezone = step.defaultTimezone,
+                    languageTag = state.languageTag,
+                    onSave = actions.saveManualCoords,
+                    onBack = actions.backFromManualCoords,
                 )
             }
         }
@@ -220,6 +239,7 @@ private fun CitySelectionStep(
     onSearchQueryChanged: (String) -> Unit,
     onBack: () -> Unit,
     onCitySelected: (String) -> Unit,
+    onManualCoordsRequested: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -280,6 +300,12 @@ private fun CitySelectionStep(
                                 onClick = { onCitySelected(searchQuery.trim()) },
                             )
                         }
+                        item(key = "manual-coords-entry") {
+                            Spacer(modifier = Modifier.height(AppSpacing.itemGap))
+                            ManualCoordsOption(
+                                onClick = { onManualCoordsRequested(searchQuery.trim()) },
+                            )
+                        }
                     }
                     if (cities.isEmpty() && !showCustomCityFallback) {
                         item(key = "cities-empty") {
@@ -334,6 +360,192 @@ private fun CustomCityFallback(
                 color = MaterialTheme.colorScheme.onPrimaryContainer,
                 textAlign = TextAlign.Start,
                 modifier = Modifier.fillMaxWidth(),
+            )
+        }
+    }
+}
+
+@Composable
+private fun ManualCoordsOption(onClick: () -> Unit) {
+    Card(
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .padding(vertical = AppSpacing.listItemVertical)
+                .clickable(onClick = onClick),
+        shape = RoundedCornerShape(12.dp),
+        colors =
+            CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.secondaryContainer,
+            ),
+        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
+    ) {
+        Row(
+            modifier = Modifier.fillMaxWidth().padding(AppSpacing.cardPadding),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Text(
+                text = stringResource(R.string.enter_coords_manually),
+                style = MaterialTheme.typography.bodyLarge,
+                fontWeight = FontWeight.Medium,
+                color = MaterialTheme.colorScheme.onSecondaryContainer,
+                textAlign = TextAlign.Start,
+                modifier = Modifier.fillMaxWidth(),
+            )
+        }
+    }
+}
+
+@Composable
+private fun ManualCoordsStep(
+    country: Country,
+    cityName: String,
+    defaultTimezone: String,
+    languageTag: String?,
+    onSave: (cityName: String, latitude: String, longitude: String, timezone: String) -> Unit,
+    onBack: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    var latitudeText by remember { mutableStateOf("") }
+    var longitudeText by remember { mutableStateOf("") }
+    var timezoneText by remember { mutableStateOf(defaultTimezone) }
+
+    Column(
+        modifier =
+            modifier
+                .fillMaxSize()
+                .padding(horizontal = AppSpacing.screenHorizontal),
+    ) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            AppTextButton(onClick = onBack) {
+                Text(stringResource(R.string.back))
+            }
+            Spacer(modifier = Modifier.weight(1f))
+        }
+        Text(
+            text = LocationNames.countryDisplay(country, languageTag),
+            style = MaterialTheme.typography.headlineMedium,
+            fontWeight = FontWeight.Bold,
+            textAlign = TextAlign.Start,
+            modifier = Modifier.fillMaxWidth(),
+        )
+        Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
+        Text(
+            text = stringResource(R.string.manual_coords_title, cityName),
+            style = MaterialTheme.typography.titleMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            textAlign = TextAlign.Start,
+            modifier = Modifier.fillMaxWidth(),
+        )
+        Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
+        ManualCoordsFormFields(
+            latitudeText = latitudeText,
+            onLatitudeChange = { latitudeText = it },
+            longitudeText = longitudeText,
+            onLongitudeChange = { longitudeText = it },
+            timezoneText = timezoneText,
+            onTimezoneChange = { timezoneText = it },
+        )
+        Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
+        ManualCoordsSaveCard(
+            onClick = { onSave(cityName, latitudeText, longitudeText, timezoneText) },
+        )
+    }
+}
+
+@Composable
+private fun ManualCoordsFormFields(
+    latitudeText: String,
+    onLatitudeChange: (String) -> Unit,
+    longitudeText: String,
+    onLongitudeChange: (String) -> Unit,
+    timezoneText: String,
+    onTimezoneChange: (String) -> Unit,
+) {
+    OutlinedTextField(
+        value = latitudeText,
+        onValueChange = onLatitudeChange,
+        label = { Text(stringResource(R.string.manual_coords_latitude)) },
+        placeholder = { Text("e.g. 52.1048") },
+        singleLine = true,
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(16.dp),
+        colors = searchFieldColors(),
+        keyboardOptions =
+            KeyboardOptions(
+                keyboardType = KeyboardType.Decimal,
+                imeAction = ImeAction.Next,
+            ),
+    )
+    Spacer(modifier = Modifier.height(AppSpacing.itemGap))
+    OutlinedTextField(
+        value = longitudeText,
+        onValueChange = onLongitudeChange,
+        label = { Text(stringResource(R.string.manual_coords_longitude)) },
+        placeholder = { Text("e.g. 9.3566") },
+        singleLine = true,
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(16.dp),
+        colors = searchFieldColors(),
+        keyboardOptions =
+            KeyboardOptions(
+                keyboardType = KeyboardType.Decimal,
+                imeAction = ImeAction.Next,
+            ),
+    )
+    Spacer(modifier = Modifier.height(AppSpacing.itemGap))
+    OutlinedTextField(
+        value = timezoneText,
+        onValueChange = onTimezoneChange,
+        label = { Text(stringResource(R.string.manual_coords_timezone)) },
+        placeholder = { Text("e.g. Europe/Berlin") },
+        singleLine = true,
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(16.dp),
+        colors = searchFieldColors(),
+        keyboardOptions =
+            KeyboardOptions(
+                keyboardType = KeyboardType.Uri,
+                imeAction = ImeAction.Done,
+            ),
+    )
+    Spacer(modifier = Modifier.height(AppSpacing.sectionGap))
+    Text(
+        text = stringResource(R.string.manual_coords_hint),
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        textAlign = TextAlign.Start,
+        modifier = Modifier.fillMaxWidth(),
+    )
+}
+
+@Composable
+private fun ManualCoordsSaveCard(onClick: () -> Unit) {
+    Card(
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .clickable(onClick = onClick),
+        shape = RoundedCornerShape(12.dp),
+        colors =
+            CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.primary,
+            ),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+    ) {
+        Row(
+            modifier = Modifier.fillMaxWidth().padding(AppSpacing.cardPadding),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Text(
+                text = stringResource(R.string.manual_coords_save),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onPrimary,
             )
         }
     }

@@ -13,6 +13,13 @@
     <string name="back"><![CDATA[< رجوع]]></string>
     <string name="search_cities_hint">ابحث عن مدينة أو اكتب أي اسم</string>
     <string name="use_city">استخدام "%s"</string>
+    <string name="manual_coords_title">أدخل الإحداثيات لـ %s</string>
+    <string name="manual_coords_latitude">خط العرض</string>
+    <string name="manual_coords_longitude">خط الطول</string>
+    <string name="manual_coords_timezone">المنطقة الزمنية</string>
+    <string name="manual_coords_save">حفظ</string>
+    <string name="manual_coords_hint">أدخل الإحداثيات من latlong.net أو خرائط Google</string>
+    <string name="enter_coords_manually">أدخل الإحداثيات يدوياً</string>
 
     <!-- PrayerTimesScreen -->
     <string name="change">تغيير</string>
@@ -72,6 +79,7 @@
     <string name="error_save_city_not_found">المدينة غير موجودة. تحقق من التهجئة أو جرب مدينة أخرى.</string>
     <string name="error_save_invalid_response">تعذرت قراءة بيانات الصلاة من الخادم. حاول مرة أخرى.</string>
     <string name="error_save_unknown">حدث خطأ غير متوقع أثناء حفظ المدينة. حاول مرة أخرى.</string>
+    <string name="error_save_invalid_coordinates">إحداثيات غير صالحة. يجب أن يكون خط العرض بين -90 و 90، وخط الطول بين -180 و 180.</string>
     <string name="error_fetch_network_offline">تعذر حساب الأوقات محلياً. حاول مرة أخرى.</string>
     <string name="error_fetch_network_online">تعذر تحديث الأوقات. فعّل وضع عدم الاتصال في الإعدادات للحساب بدون إنترنت.</string>
     <string name="error_fetch_city_not_found">المدينة غير موجودة. تحقق من الاسم أو اختر مدينة أخرى.</string>

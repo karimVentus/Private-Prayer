@@ -65,7 +65,7 @@ Hayya/  (repo folder may still be Private-Prayer; package com.prayertime)
 | 1F Privacy / offline-only | Done — offline_only flag, privacy UI, fallback rejection, diacritic lookup, tests | ✅ | — |
 | 2A Countdown | Done — live 1s ticker, wrap-to-tomorrow, city-TZ day-change refresh | ✅ | — |
 | 2B–2D | Adhan alarms, permissions, WorkManager daily refresh | Done | Manual QA signed off (Jun 2026) |
-| 2E | Unit tests (midnight, city TZ, DST, alarms, migrations, workers, engine) | Done — **414** `@Test` in `app/src/test/java/` (56 files) | — |
+| 2E | Unit tests (midnight, city TZ, DST, alarms, migrations, workers, engine) | Done — **419** `@Test` in `app/src/test/java/` (56 files) | — |
 | 2F | Architecture hardening — ViewModel decomposition, city-scoped cache, async init, timezone consistency | Done | — |
 | 2G | Hilt DI, worker/engine tests, cache invalidation, About refresh | Done | — |
 | 2 manual | Adhan exact/fallback, emulator | Done | — |
@@ -77,8 +77,10 @@ Hayya/  (repo folder may still be Private-Prayer; package com.prayertime)
 | 5 | Manual QA hardening — 5A–5F signed off (Jun 2026, incl. 5C.2, 5D, 5F.3); 5A–5E automated; TLS; USE_EXACT_ALARM | **Done** | — |
 | 6 | Release — R8, signed APK/AAB | **Done (`v1.0.0`)** | Tagged Jun 2026 |
 | 7A | Qibla compass — city bearing + portrait accel/mag sensor, align feedback | **Done** — PR **#11** + **#12** + **#13** (L-widget) merged Jun 2026 | — |
-| **7B** | Compass geographic calibration + UI | **Active** — `CompassGeographicField`, `CompassUprightGate`, Qibla accuracy chip; see `PHASED_PLAN.md` §7B |
-| **8** | City catalog coords + manual lat/lng | **Planned** — after 7B; see `PHASED_PLAN.md` §8 |
+| **7B** | Compass geographic calibration + UI | **Done** — geographic declination, upright gate, accuracy UI, user fine-offset, 3 tests; merged PR **#42** Jun 2026 | — |
+| **8A** | Manual lat/lng coordinates wizard | **Done** — `WizardStep.ManualCoords`, validation, EN/AR strings | `feat/manual-coords-wizard` |
+| **8B** | Europe `knownCityCoords` fill | **Done** — 574/574 EU picker cities; `scripts/fill_europe_coords.py` | `feat/city-coords-europe` |
+| **8C** | Africa `knownCityCoords` fill | **Planned** — branch `feat/city-coords-africa` after 8B merge | — |
 
 ## Architecture (post-2F hardening)
 
@@ -114,7 +116,7 @@ Hayya/  (repo folder may still be Private-Prayer; package com.prayertime)
 - `LocationCatalogInitializer` (Hilt `@Singleton`) calls `LocationDataSource.initialize()` at app startup — not from `LocalLocationRepository`
 - `initialize()` kicks off JSON parsing on `Dispatchers.IO` — returns immediately, no main-thread block
 - `suspend fun awaitReady()` for coroutine callers; sync list accessors return empty while loading; `NOT_STARTED` throws
-- `locations.json` (187 KB, 9,221 lines) in `assets/` — no hardcoded Kotlin maps; expanded via `scripts/expand_locations.py`
+- `locations.json` (~238 KB) in `assets/` — no hardcoded Kotlin maps; expanded via `scripts/expand_locations.py` + `scripts/fill_europe_coords.py`
 
 ### Timezone consistency
 - Staleness check uses `needsPrayerDayRefresh(lastFetch, now, cityTZ)` — not a flat 25-hour epoch threshold

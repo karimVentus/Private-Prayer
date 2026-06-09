@@ -1,6 +1,5 @@
 package com.prayertime.data.local
 
-import android.content.Context
 import androidx.test.core.app.ApplicationProvider
 import com.prayertime.ui.theme.AppTheme
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -19,7 +18,7 @@ import org.robolectric.annotation.Config
 
 @OptIn(ExperimentalCoroutinesApi::class)
 @RunWith(RobolectricTestRunner::class)
-@Config(sdk = [34])
+@Config(sdk = [34], application = android.app.Application::class)
 class AppPreferencesDataSourceTest {
     private fun prefs() = AppPreferencesDataSource(ApplicationProvider.getApplicationContext())
 
@@ -101,13 +100,14 @@ class AppPreferencesDataSourceTest {
 
     @Test
     fun `warmAppLanguageCache syncs initialized flag to SharedPreferences`() =
-        runTest {
+        runBlocking {
             val p = prefs()
+            p.clearPreferencesForTests()
             p.setAppLanguageTag("ar", recordUserChoice = true)
+            assertEquals("ar", p.appLanguageTag.first())
             assertEquals("ar", p.readAppLanguageTagSync())
             assertTrue(p.readAppLanguageInitializedSync())
-            val context: Context = ApplicationProvider.getApplicationContext()
-            context.getSharedPreferences("widget_theme_cache", Context.MODE_PRIVATE).edit().clear().commit()
+            p.simulateColdThemeCacheMirrorForTests()
             assertFalse(p.readAppLanguageInitializedSync())
             assertNull(p.readAppLanguageTagSync())
             p.warmAppLanguageCache()

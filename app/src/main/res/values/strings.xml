@@ -108,6 +108,11 @@
     <string name="about_description">Hayya is a privacy-first prayer times app: pick your city, get accurate daily times (Umm al-Qura, Shafi), optional adhan alerts, home-screen widgets, Hijri calendar, and Qibla direction — without GPS or an account.</string>
     <string name="about_repo_link">Source code on GitHub</string>
     <string name="about_repo_url" translatable="false">https://github.com/karimVentus/Private-Prayer</string>
+    <string name="about_releases_url" translatable="false">https://github.com/karimVentus/Private-Prayer/releases/latest</string>
+    <string name="about_share">Share app</string>
+    <string name="about_share_chooser">Share Hayya via</string>
+    <string name="share_app_subject">Hayya (حيا) — prayer times</string>
+    <string name="share_app_message">Hayya (حيا) — privacy-first prayer times for Android.\n\nNo GPS • No ads • Offline-first • Custom adhan • Qibla • Widgets • Hijri calendar\n\nDownload: %1$s\nVersion %2$s</string>
 
     <!-- Adhan notifications -->
     <string name="adhan_channel_name">Adhan</string>

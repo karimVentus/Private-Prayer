@@ -127,9 +127,17 @@ class AppPreferencesDataSource
 
         /** Backfill cache after upgrade when DataStore already has a language tag. */
         suspend fun warmAppLanguageCache() {
-            val snapshot = context.appSettingsStore.data.first()
-            writeAppLanguageCache(snapshot[appLanguageTagKey])
-            writeAppLanguageInitializedCache(snapshot[appLanguageInitializedKey] == true)
+            val tag = appLanguageTag.first()
+            val initialized =
+                context.appSettingsStore.data.first().let { prefs ->
+                    when (prefs[appLanguageInitializedKey]) {
+                        true -> true
+                        false -> false
+                        null -> !tag.isNullOrBlank()
+                    }
+                }
+            writeAppLanguageCache(tag)
+            writeAppLanguageInitializedCache(initialized)
         }
 
         val adhanSound: Flow<String> =
@@ -231,6 +239,12 @@ class AppPreferencesDataSource
         internal suspend fun clearPreferencesForTests() {
             context.appSettingsStore.edit { it.clear() }
             writeAppThemeCache(AppTheme.DEFAULT_STORAGE_KEY)
+            writeAppLanguageCache(null)
+            writeAppLanguageInitializedCache(false)
+        }
+
+        /** Simulates a cold SharedPreferences mirror using production write paths. */
+        internal fun simulateColdThemeCacheMirrorForTests() {
             writeAppLanguageCache(null)
             writeAppLanguageInitializedCache(false)
         }

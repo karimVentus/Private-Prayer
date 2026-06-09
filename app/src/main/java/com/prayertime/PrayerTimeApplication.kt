@@ -19,6 +19,12 @@ import javax.inject.Inject
 
 @HiltAndroidApp
 class PrayerTimeApplication : Application(), Configuration.Provider {
+    companion object {
+        /** Robolectric unit tests set this before Application startup to skip IO cache warm. */
+        @Volatile
+        var skipAsyncStartupForTests: Boolean = false
+    }
+
     @Inject
     lateinit var workerFactory: HiltWorkerFactory
 
@@ -39,14 +45,16 @@ class PrayerTimeApplication : Application(), Configuration.Provider {
         AppLocale.apply(languageTag)
         PrayerRefreshWork.enqueue(this)
         WidgetRefreshWork.enqueue(this)
-        appScope.launch(Dispatchers.IO) {
-            val persisted = preferences.resolveLanguageTagForStartup()
-            if (persisted != languageTag) {
-                withContext(Dispatchers.Main) { AppLocale.apply(persisted) }
+        if (!skipAsyncStartupForTests) {
+            appScope.launch(Dispatchers.IO) {
+                val persisted = preferences.resolveLanguageTagForStartup()
+                if (persisted != languageTag) {
+                    withContext(Dispatchers.Main) { AppLocale.apply(persisted) }
+                }
+                preferences.warmAppThemeCache()
+                preferences.warmAppLanguageCache()
+                runCatching { locationRepository.awaitReady() }
             }
-            preferences.warmAppThemeCache()
-            preferences.warmAppLanguageCache()
-            runCatching { locationRepository.awaitReady() }
         }
     }
 

@@ -1,8 +1,14 @@
-# Hayya (حيا)
+# Hayya (حيا) — حي على الصلاة
+
+**Privacy-first prayer times • Offline-first • No GPS • No ads**
+
+**تطبيق أوقات صلاة خفي • خصوصية كاملة • بدون GPS • بدون إعلانات • أوفلاين أولاً**
 
 [English](#english) | [العربية](#arabic)
 
 [![Smoke CI](https://github.com/karimVentus/Private-Prayer/actions/workflows/smoke-ci.yml/badge.svg)](https://github.com/karimVentus/Private-Prayer/actions/workflows/smoke-ci.yml)
+
+Open-source Android app for accurate daily prayer times — pick your city from 4,000+ bundled locations, live countdown, optional adhan (including **custom imported sounds**), Qibla compass, home-screen widgets, and a full Hijri calendar. **No tracking, no ads, no GPS.**
 
 ---
 
@@ -10,9 +16,9 @@
 
 # English
 
-**Privacy-first Android prayer times — no GPS, no account.**
+**Privacy-first • Simple • Offline-first**
 
-Pick a country and city from a bundled catalog, get accurate daily times (Umm al-Qura, Shafi), live countdown to the next prayer, optional adhan notifications, two home-screen widgets (medium + large), and a Hijri calendar with ten Islamic events. English and Arabic with full RTL support; three themes (light, green, dark).
+Hayya is an open-source Android prayer-times app built around **privacy** and **simplicity**. Choose your city from a bundled catalog of 4,000+ locations, get accurate times (Umm al-Qura + Shafi), a live countdown to the next prayer, optional adhan notifications with **custom sound import**, a portrait Qibla compass, two home-screen widgets, and a Hijri calendar with ten Islamic events — **without GPS, accounts, or network calls by default**.
 
 | | |
 |---|---|
@@ -21,9 +27,23 @@ Pick a country and city from a bundled catalog, get accurate daily times (Umm al
 | **Min SDK** | 23 · **Target** 35 |
 | **Tests** | JVM unit tests via `./gradlew testDebugUnitTest` |
 
+### Highlights
+
+- **Privacy by default** — offline-only mode (no network); user can enable optional Aladhan API in Settings
+- **Custom adhan** — import and manage your own adhan audio files
+- **Qibla compass** — city bearing + accelerometer/magnetometer (no GPS)
+- **Widgets** — medium (5×1 schedule) + large (clock + per-prayer countdown); Eastern Arabic digits in AR
+- **Hijri calendar** — monthly grid + ten Islamic events
+- **Themes** — light, green, dark (app + widgets + calendar)
+- **Languages** — English and Arabic with full RTL
+
 ---
 
 ## Screenshots
+
+### Custom adhan
+
+Import any adhan audio you prefer and assign it in Settings.
 
 ### Prayer times
 
@@ -67,7 +87,7 @@ Portrait compass using accelerometer + magnetometer; city bearing from bundled c
 
 ### Settings & setup
 
-Offline-only privacy toggle, theme picker, adhan notifications, and country/city wizard (4,000+ cities, no GPS).
+Offline-only privacy toggle, theme picker, adhan notifications, custom sound import, **Share** button, and country/city wizard (4,000+ cities, no GPS).
 
 | Settings | City wizard |
 |:---:|:---:|
@@ -81,8 +101,8 @@ Offline-only privacy toggle, theme picker, adhan notifications, and country/city
 |------|---------|
 | **Prayer calculation** | Umm al-Qura (Makkah), Shafi Asr, twilight angle at \|lat\| ≥ 48°; Shuruq = sunrise |
 | **Privacy** | Default **offline-only** — no network calls; optional Aladhan API when user disables offline mode in Settings |
-| **Adhan** | Eight sounds, per-prayer mute, exact-alarm scheduling, Doze-safe `setAlarmClock` |
-| **Widgets** | Medium (5×1) + large (clock + columns); locale + Eastern Arabic digits; theme sync; stale-cache fallback |
+| **Adhan** | Eight built-in sounds + **custom import**, per-prayer mute, exact-alarm scheduling, Doze-safe `setAlarmClock` |
+| **Widgets** | Medium (5×1) + large (clock + columns + countdown); locale + Eastern Arabic digits; theme sync; stale-cache fallback |
 | **Hijri** | Calculator + 10 events; main-screen banner; calendar monthly/annual views |
 | **i18n** | English / Arabic, RTL layout, in-app language picker |
 | **Themes** | Light, green, dark — app + widgets + calendar |
@@ -100,15 +120,22 @@ See [`PHASED_PLAN.md`](PHASED_PLAN.md) for the full roadmap and Mermaid diagrams
 
 ---
 
-## Install (release)
+## Download
 
-### Users (download APK)
+**Easiest path:**
 
-Get the latest signed APK from **[GitHub Releases](https://github.com/karimVentus/Private-Prayer/releases)** (`Hayya-v*.apk`).
+1. Open **[GitHub Releases](https://github.com/karimVentus/Private-Prayer/releases)**
+2. Download the latest `Hayya-v1.1.6.apk`
+3. Install (allow unknown sources for your browser/files app)
+4. Open **Hayya** and complete the city wizard
 
-1. Download the APK on your phone (or sideload via `adb install -r Hayya-v1.1.6.apk`).
-2. Allow install from your browser/files app when prompted (Android “unknown sources”).
-3. Open **Hayya** and complete the city wizard.
+Or sideload: `adb install -r Hayya-v1.1.6.apk`
+
+Use **Settings → About → Share app** to send the download link to someone else.
+
+---
+
+## Install (release build)
 
 ### Maintainers (build + publish)
 
@@ -191,7 +218,7 @@ Requires JDK 21 (`$HOME/jdk21`); system JDK 25 breaks the current Gradle/AGP too
 
 ## License
 
-See repository license file. Prayer calculation uses [`adhan-java`](https://github.com/batoulapps/adhan-java) (Umm al-Qura).
+Open source — see the repository license file. Prayer calculation uses [`adhan-java`](https://github.com/batoulapps/adhan-java) (Umm al-Qura).
 
 ---
 
@@ -199,9 +226,9 @@ See repository license file. Prayer calculation uses [`adhan-java`](https://gith
 
 # العربية
 
-**حيا — تطبيق أوقات صلاة يركز على الخصوصية، بدون GPS وبدون حساب.**
+**حي على الصلاة — خصوصية أولاً • بساطة • أوفلاين أولاً**
 
-اختر الدولة والمدينة من دليل مدمج داخل التطبيق، واحصل على أوقات صلاة يومية دقيقة (تقويم أم القرى، والمذهب الشافعي)، وعد تنازلي مباشر للصلاة القادمة، وتنبيهات أذان اختيارية، وأداتين للشاشة الرئيسية (متوسطة + كبيرة)، وتقويم هجري مع عشرة مناسبات إسلامية. التطبيق متوفر باللغتين العربية والإنجليزية مع دعم كامل للاتجاه من اليمين إلى اليسار (RTL)، وثلاثة سمات (مظهر فاتح، أخضر، داكن).
+**Hayya** تطبيق أندرويد مفتوح المصدر يركز على **الخصوصية** و**البساطة**. اختر مدينتك من أكثر من **4000 مدينة** مدمجة، واحصل على أوقات صلاة دقيقة (أم القرى + الشافعي)، عد تنازلي حي، أذان مخصص (استيراد ملفاتك الخاصة)، بوصلة قبلة، ويدجيتس، وتقويم هجري كامل — **بدون تتبع أو إعلانات أو GPS**.
 
 | | |
 |---|---|
@@ -210,9 +237,23 @@ See repository license file. Prayer calculation uses [`adhan-java`](https://gith
 | **الحد الأدنى لـ SDK** | 23 · **المستهدف** 35 |
 | **الاختبارات** | `./gradlew testDebugUnitTest` |
 
+### أبرز المميزات
+
+- **خصوصية قصوى**: وضع أوفلاين افتراضي (لا طلبات شبكة)، يمكن إيقاف الشبكة كلياً من الإعدادات
+- **أذان مخصص**: استيراد وإدارة ملفات الصوت الخاصة بك
+- **بوصلة قبلة**: تعمل بدون GPS باستخدام إحداثيات المدينة وحساسات الهاتف
+- **ويدجيتس**: متوسطة + كبيرة مع عد تنازلي + أرقام عربية شرقية
+- **تقويم هجري**: شهري + مناسبات إسلامية (10 مناسبات)
+- **ثيمات**: فاتح، أخضر، داكن (تنطبق على التطبيق + الويدجيتس)
+- **دعم كامل**: عربي + RTL + إنجليزي
+
 ---
 
 ## لقطات الشاشة (Screenshots)
+
+### أذان مخصص
+
+استورد أي صوت أذان تريده واستخدمه للصلاة من الإعدادات.
 
 ### أوقات الصلاة
 
@@ -256,7 +297,7 @@ See repository license file. Prayer calculation uses [`adhan-java`](https://gith
 
 ### الإعدادات وإعدادات التشغيل الأول
 
-مفتاح الخصوصية للعمل دون اتصال بالشبكة بالكامل، مغير السمة، تنبيهات الأذان، ومعالج إعداد الدولة والمدينة (أكثر من 4000 مدينة، دون الحاجة لـ GPS).
+مفتاح الخصوصية للعمل دون اتصال بالشبكة، مغير السمة، تنبيهات الأذان، استيراد أذان مخصص، زر **مشاركة التطبيق**، ومعالج إعداد الدولة والمدينة (أكثر من 4000 مدينة، دون GPS).
 
 | Settings | City wizard |
 |:---:|:---:|
@@ -268,13 +309,13 @@ See repository license file. Prayer calculation uses [`adhan-java`](https://gith
 
 | القسم | التفاصيل |
 |------|---------|
-| **حساب أوقات الصلاة** | تقويم أم القرى (مكة المكرمة)، مذهب الشافعي للعصر، تعديل زاوية الشفق لخطوط العرض |lat| ≥ 48°؛ وقت الشروق = شروق الشمس |
+| **حساب أوقات الصلاة** | تقويم أم القرى (مكة المكرمة)، مذهب الشافعي للعصر، تعديل زاوية الشفق لخطوط العرض \|lat\| ≥ 48°؛ وقت الشروق = شروق الشمس |
 | **الخصوصية** | افتراضياً **دون اتصال بالشبكة** — لا اتصالات شبكة؛ Aladhan اختياري من الإعدادات |
-| **الأذان** | ثمانية أصوات للأذان، إمكانية كتم الصوت لكل صلاة على حدة، جدولة التنبيهات باستخدام ميزة الإنذار الدقيق، متوافق مع وضع Doze للحفاظ على البطارية عبر `setAlarmClock` |
-| **الأدوات (Widgets)** | متوسط (5×1) + كبير (ساعة + أعمدة)؛ دعم اللغة والأرقام العربية الشرقية؛ مزامنة السمة؛ ذاكرة مؤقتة عند التأخر |
-| **التقويم الهجري** | حاسبة هجرية مدمجة مع 10 مناسبات إسلامية؛ شريط إعلاني للمناسبات في الشاشة الرئيسية؛ عرض شهري وسنوي للتقويم |
-| **تعدد اللغات** | دعم كامل للغتين العربية والإنجليزية، اتجاه كامل من اليمين إلى اليسار (RTL)، ومحدد لغة مدمج في التطبيق |
-| **السمات** | ثلاثة سمات (فاتح، أخضر، داكن) تشمل التطبيق والأدوات والتقويم |
+| **الأذان** | ثمانية أصوات مدمجة + **استيراد مخصص**، كتم لكل صلاة، جدولة إنذار دقيق، متوافق مع Doze عبر `setAlarmClock` |
+| **الأدوات (Widgets)** | متوسط (5×1) + كبير (ساعة + أعمدة + عد تنازلي)؛ دعم اللغة والأرقام العربية الشرقية؛ مزامنة السمة |
+| **التقويم الهجري** | حاسبة هجرية + 10 مناسبات؛ شريط في الشاشة الرئيسية؛ عرض شهري وسنوي |
+| **تعدد اللغات** | عربي وإنجليزي، RTL كامل، محدد لغة داخل التطبيق |
+| **السمات** | فاتح، أخضر، داكن — التطبيق والأدوات والتقويم |
 | **الأمان** | تثبيت شهادة TLS لـ `aladhan.com` عند تفعيل وضع الشبكة |
 
 ---
@@ -284,19 +325,26 @@ See repository license file. Prayer calculation uses [`adhan-java`](https://gith
 - **APK واحد (`com.prayertime`):** `locations.json` + `adhan-java` **أو** [Aladhan API](https://api.aladhan.com) — toggle **دون اتصال** من الإعدادات
 - **التقنيات:** Kotlin · Jetpack Compose · Hilt · Room v4 · DataStore · WorkManager
 
-راجع ملف [`PHASED_PLAN.md`](PHASED_PLAN.md) للاطلاع على خارطة الطريق الكاملة ومخططات Mermaid.
+راجع [`PHASED_PLAN.md`](PHASED_PLAN.md) لخارطة الطريق ومخططات Mermaid.
 
 ---
 
-## التثبيت (النسخة النهائية - Release)
+## تنزيل التطبيق
 
-### للمستخدمين (تنزيل APK)
+**أسهل طريقة:**
 
-حمّل أحدث APK موقّع من **[إصدارات GitHub](https://github.com/karimVentus/Private-Prayer/releases)** (`PrayerTime-v*.apk`).
+1. اذهب إلى **[إصدارات GitHub](https://github.com/karimVentus/Private-Prayer/releases)**
+2. حمّل آخر إصدار `Hayya-v1.1.6.apk`
+3. ثبّت التطبيق (اسمح بالمصادر غير المعروفة)
+4. افتح **حيا** وأكمل معالج المدينة
 
-1. نزّل الملف على هاتفك (أو ثبّت عبر `adb install -r Hayya-v1.1.6.apk`).
-2. اسمح بالتثبيت من المتصفح/مدير الملفات عند الطلب.
-3. افتح التطبيق وأكمل معالج اختيار المدينة.
+أو عبر USB: `adb install -r Hayya-v1.1.6.apk`
+
+من داخل التطبيق: **الإعدادات → حول → مشاركة التطبيق** لإرسال رابط التنزيل.
+
+---
+
+## التثبيت (بناء النسخة النهائية)
 
 ### للمطورين (بناء ونشر)
 
@@ -309,12 +357,12 @@ PRAYERTIME_KEYSTORE_PASSWORD='your-password' ./scripts/setup-release-signing.sh
 
 | الملف الناتج | المسار | الحجم |
 |----------|------|------|
-| APK موقع | `app/build/outputs/apk/release/app-release.apk` | ~12 ميجابايت |
+| APK موقع | `dist/release/Hayya-v1.1.6.apk` | ~12 ميجابايت |
 | AAB موقع | `app/build/outputs/bundle/release/app-release.aab` | متجر Google Play |
 
 ```sh
-./scripts/release-gate.sh   # التحقق من حجم الـ APK (يجب أن يكون ≤ 13 ميجابايت)
-./scripts/smoke-ci.sh       # اختبار الـ CI الكامل قبل الدمج أو التوسيم
+./scripts/release-gate.sh   # التحقق من حجم الـ APK (≤ 13 ميجابايت)
+./scripts/smoke-ci.sh       # اختبار CI الكامل قبل الدمج أو التوسيم
 ```
 
 ---
@@ -342,7 +390,7 @@ export ANDROID_HOME=$HOME/Android/Sdk
 adb shell am start -n com.prayertime/com.prayertime.ui.MainActivity
 ```
 
-بعد تغيير تخطيط الأدوات (Widgets)، قم بإزالتها وإعادة إضافتها إلى الشاشة الرئيسية (تقوم واجهات التشغيل بحفظ الأبعاد مؤقتاً). لتحديث صور README للأدوات: `./scripts/export-readme-widget-screenshots.sh`.
+بعد تغيير تخطيط الأدوات، أزل الويدجيت وأعد إضافته. لتحديث صور README: `./scripts/export-readme-widget-screenshots.sh`.
 
 ---
 
@@ -354,7 +402,7 @@ adb shell am start -n com.prayertime/com.prayertime.ui.MainActivity
 
 البوابة الكاملة: `./scripts/smoke-ci.sh`.
 
-يتطلب التثبيت إصدار JDK 21 (`$HOME/jdk21`)؛ حيث أن إصدار نظام JDK 25 يسبب مشاكلاً مع بيئة Gradle/AGP الحالية.
+يتطلب JDK 21 (`$HOME/jdk21`).
 
 ---
 
@@ -363,15 +411,15 @@ adb shell am start -n com.prayertime/com.prayertime.ui.MainActivity
 | المستند | الغرض |
 |-----|---------|
 | [`PHASED_PLAN.md`](PHASED_PLAN.md) | خارطة الطريق، بوابات المراحل، Graphify |
-| [`APP_CREATION_PLAYBOOK.md`](APP_CREATION_PLAYBOOK.md) | دليل الهندسة البرمجية + جدول الميزات |
-| [`docs/PRIVACY.md`](docs/PRIVACY.md) | نموذج سياسة الخصوصية |
-| [`CONTRIBUTING.md`](CONTRIBUTING.md) | إرشادات المساهمة للمطورين |
-| [`SECURITY.md`](SECURITY.md) | سياسة الأمان والإبلاغ عن الثغرات |
-| [`graphity.md`](graphity.md) | صيانة شجرة المعرفة (Knowledge-Graph) |
-| [`AGENTS.md`](AGENTS.md) | بيئة البناء والتشغيل للوكلاء والـ CI |
+| [`APP_CREATION_PLAYBOOK.md`](APP_CREATION_PLAYBOOK.md) | دليل الهندسة + جدول الميزات |
+| [`docs/PRIVACY.md`](docs/PRIVACY.md) | نموذج الخصوصية |
+| [`CONTRIBUTING.md`](CONTRIBUTING.md) | إرشادات المساهمة |
+| [`SECURITY.md`](SECURITY.md) | سياسة الأمان |
+| [`graphity.md`](graphity.md) | صيانة Knowledge-Graph |
+| [`AGENTS.md`](AGENTS.md) | بيئة البناء للوكلاء والـ CI |
 
 ---
 
 ## الترخيص (License)
 
-راجع ملف الترخيص المرفق في المستودع. يعتمد حساب أوقات الصلاة على مكتبة [`adhan-java`](https://github.com/batoulapps/adhan-java) (تقويم أم القرى).
+مفتوح المصدر — راجع ملف الترخيص في المستودع. حساب أوقات الصلاة يعتمد على [`adhan-java`](https://github.com/batoulapps/adhan-java) (تقويم أم القرى).

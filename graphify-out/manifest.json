@@ -10,8 +10,8 @@
     "semantic_hash": ""
   },
   "app/build.gradle.kts": {
-    "mtime": 1780952356.367251,
-    "ast_hash": "d4b30b4f8ba3be1342636b56aceae0c8",
+    "mtime": 1781043002.4033046,
+    "ast_hash": "4d7f92e8357a5b229c40f97dbbd8b548",
     "semantic_hash": ""
   },
   "app/schemas/com.prayertime.data.local.AppDatabase/1.json": {
@@ -40,32 +40,32 @@
     "semantic_hash": ""
   },
   "app/src/main/assets/cities_ar.json": {
-    "mtime": 1780931911.1242628,
-    "ast_hash": "e9ef101eb8fc191ab1dbfc09165ab64c",
+    "mtime": 1781043002.403717,
+    "ast_hash": "1ae16abd1f103253f87d44c5ce7c5073",
     "semantic_hash": ""
   },
   "app/src/main/assets/locations.json": {
-    "mtime": 1780931911.1245422,
-    "ast_hash": "e0acc20e10d6405829682b7b1f20f2c8",
+    "mtime": 1781043002.4044013,
+    "ast_hash": "de40a5c55b8121ce21f37be8c60028f2",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/PendingIntentRequestCodes.kt": {
-    "mtime": 1780946774.8058977,
+    "mtime": 1780958108.271033,
     "ast_hash": "3773db10f293a34a56277072fbbc671f",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/PrayerTimeApplication.kt": {
-    "mtime": 1780931911.1250236,
-    "ast_hash": "8583b5f0bf3917986239f97c2a833c28",
+    "mtime": 1781028371.9116998,
+    "ast_hash": "28397d3a714dd8126603d5cef9f68491",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/alarm/AdhanAlarmReceiver.kt": {
-    "mtime": 1780946654.8510277,
-    "ast_hash": "369ec70a6c7bee6f81f7f307bd34a6c7",
+    "mtime": 1781028371.9117515,
+    "ast_hash": "3d650f805e294a2f475f95a538bbd719",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/alarm/AdhanAlarmRescheduler.kt": {
-    "mtime": 1780946655.6703885,
+    "mtime": 1780958108.2711556,
     "ast_hash": "780d80d7875f3ef3494b5f89a2854bed",
     "semantic_hash": ""
   },
@@ -85,13 +85,13 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/alarm/PrayerAlarmScheduler.kt": {
-    "mtime": 1780946774.00677,
-    "ast_hash": "e793ac75b6c5d3ba84ae0451047150ca",
+    "mtime": 1781028371.9117968,
+    "ast_hash": "a0dda8dd24437965a76f84810b4dc7db",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/alarm/ShowIntentFactory.kt": {
-    "mtime": 1780931911.1250873,
-    "ast_hash": "404f1a1c984be0e9f8e136f08096f11f",
+    "mtime": 1781028371.911837,
+    "ast_hash": "d1352731cbf7f235a016c9afbf5b7aa0",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/data/LocationCatalog.kt": {
@@ -115,8 +115,8 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/data/local/AppPreferencesDataSource.kt": {
-    "mtime": 1780950044.6763813,
-    "ast_hash": "1155bea835b83d462d96cef780c8b127",
+    "mtime": 1781028371.9119,
+    "ast_hash": "fdb185398ba3d785d533cdebc9850466",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/data/local/CityConfigDataSource.kt": {
@@ -185,12 +185,12 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/data/repository/LocalPrayerTimesRepository.kt": {
-    "mtime": 1780948285.6661346,
+    "mtime": 1780958108.271374,
     "ast_hash": "3355bae96d5d57fe66c71b66bef3ad01",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/data/repository/OnlinePrayerTimesRepository.kt": {
-    "mtime": 1780948286.4555302,
+    "mtime": 1780958108.271374,
     "ast_hash": "fe232dc3f8daf56b54ccc7de7f54c09b",
     "semantic_hash": ""
   },
@@ -200,7 +200,7 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/data/repository/PrayerTimesRepository.kt": {
-    "mtime": 1780948284.635932,
+    "mtime": 1780958108.2714837,
     "ast_hash": "236f373eb26f7d196e71cd2de147c35b",
     "semantic_hash": ""
   },
@@ -210,8 +210,8 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/di/CompassEntryPoint.kt": {
-    "mtime": 1780931911.1257615,
-    "ast_hash": "ff1d60707e9d3bdf5331dad9dda4870e",
+    "mtime": 1781028371.9119544,
+    "ast_hash": "55605d08ac376243f6d912ccc40172e2",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/di/DataModule.kt": {
@@ -305,7 +305,7 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/domain/model/Prayer.kt": {
-    "mtime": 1780946521.1912477,
+    "mtime": 1780958108.2715476,
     "ast_hash": "55a3955e25ba5628fd5cdd9611a804a9",
     "semantic_hash": ""
   },
@@ -325,8 +325,8 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/domain/model/SaveCityError.kt": {
-    "mtime": 1780931911.1260448,
-    "ast_hash": "4d81b2351683eac532c07935e9c22604",
+    "mtime": 1781032073.936777,
+    "ast_hash": "9173492cdbcac368fdb08d969847f73b",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/domain/model/SaveCityResult.kt": {
@@ -390,8 +390,8 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/sensor/CompassHeading.kt": {
-    "mtime": 1780931911.1264043,
-    "ast_hash": "b8a548904a243442458789eaad0806eb",
+    "mtime": 1781028371.9120288,
+    "ast_hash": "5b1ce3a8118bc8460373a86a97a94d08",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/sensor/CompassSensor.kt": {
@@ -415,28 +415,28 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/PrayerTimeRoot.kt": {
-    "mtime": 1780952143.8289518,
-    "ast_hash": "5725744a5c1ea9b7490ad8be7f1c4fc6",
+    "mtime": 1781032073.9369078,
+    "ast_hash": "9aa387f27434bb87d9b93bfda5cd1c08",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/PrayerTimesErrorMapper.kt": {
-    "mtime": 1780931911.126593,
-    "ast_hash": "f8f1f2c52b1574049a2b7c3f21d58713",
+    "mtime": 1781032073.9369879,
+    "ast_hash": "fb622de925a28851fa76d66aae24ed4d",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/city/CityInputUiState.kt": {
-    "mtime": 1780931911.126593,
-    "ast_hash": "0bf65520bf29feecb03b591bf10986fe",
+    "mtime": 1781032073.9370544,
+    "ast_hash": "42117e717b097d8b32396c609d2a1047",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/city/CitySetupViewModel.kt": {
-    "mtime": 1780931911.126767,
-    "ast_hash": "2c09cd4b1b8677551b677a4d44b41da4",
+    "mtime": 1781032073.9371247,
+    "ast_hash": "1508563f5571586f2d49c7908edb483c",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/city/WizardStep.kt": {
-    "mtime": 1780931911.126767,
-    "ast_hash": "d1c6ae900f1259f8a7e5990c7b3fae31",
+    "mtime": 1781032073.9371867,
+    "ast_hash": "686acd290f97301f2ad95cb99fab7422",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/components/AppTextButton.kt": {
@@ -445,7 +445,7 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/components/ScreenInsets.kt": {
-    "mtime": 1780951082.699128,
+    "mtime": 1780958108.271832,
     "ast_hash": "16a8e2270537cff3e16efa9a11c78317",
     "semantic_hash": ""
   },
@@ -455,13 +455,13 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/prayer/PrayerTimesViewModel.kt": {
-    "mtime": 1780949149.4050686,
-    "ast_hash": "ce5d2ac1a653ce12a1608a3dbd649659",
+    "mtime": 1780958108.2719119,
+    "ast_hash": "1b12fb10aa0cf1379ca5dd1e288fb41f",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/screens/AboutScreen.kt": {
-    "mtime": 1780951292.290931,
-    "ast_hash": "07e6cbf0aaa72a1e5ea36e9d42d19fcd",
+    "mtime": 1781028371.912123,
+    "ast_hash": "daab3140b36ddf281fefcb5ef00fd23e",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/screens/AnnualEventsView.kt": {
@@ -480,12 +480,12 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/screens/CityInputScreen.kt": {
-    "mtime": 1780931911.1270351,
-    "ast_hash": "01ae5ebbaa3564405198519d717b3992",
+    "mtime": 1781032073.9372761,
+    "ast_hash": "d4129a97383ff9609e561e3fb5fdf27c",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/screens/HijriCalendarScreen.kt": {
-    "mtime": 1780951801.8935194,
+    "mtime": 1780958108.2720807,
     "ast_hash": "0078ff1ea6feee0f3d928cf264e503c7",
     "semantic_hash": ""
   },
@@ -495,13 +495,13 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/screens/PrayerTimesScreen.kt": {
-    "mtime": 1780952135.3780649,
-    "ast_hash": "1d2b36db15a898e21223f2c33255a252",
+    "mtime": 1780958108.2721813,
+    "ast_hash": "88b22518cabeebb2640443894dfac0b9",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/screens/QiblaScreen.kt": {
-    "mtime": 1780951796.1463873,
-    "ast_hash": "b4340cf9afb8a6855288af90804a9a77",
+    "mtime": 1781028371.912212,
+    "ast_hash": "1d083015288577d8a317c47ccfb4ce32",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/settings/AppSettingsViewModel.kt": {
@@ -525,12 +525,12 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/theme/PrayerTimeTheme.kt": {
-    "mtime": 1780948284.3221543,
+    "mtime": 1780958108.2723389,
     "ast_hash": "f5e88bd11fce8191957a569f480d33f9",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/theme/ThemePalettes.kt": {
-    "mtime": 1780951288.8249187,
+    "mtime": 1780958108.2723968,
     "ast_hash": "f7d5180b2ce1a6b57b2f84d47a583310",
     "semantic_hash": ""
   },
@@ -550,12 +550,12 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/widget/WidgetAlarmScheduling.kt": {
-    "mtime": 1780931911.1274974,
-    "ast_hash": "cbeda45f76beb643065ce1780f862c6d",
+    "mtime": 1781028371.9122734,
+    "ast_hash": "cd99e42e15e85b96a702f1169ed62bc2",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/widget/WidgetCountdownRefreshScheduler.kt": {
-    "mtime": 1780931911.1274974,
+    "mtime": 1781025975.0640042,
     "ast_hash": "644bfa7ef4e88208355ed09cd1d5c1f8",
     "semantic_hash": ""
   },
@@ -570,18 +570,18 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/widget/WidgetPrayerBoundaryReceiver.kt": {
-    "mtime": 1780931911.1274974,
+    "mtime": 1781025975.064055,
     "ast_hash": "f06429e370dfbed13887def6ba7fb696",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/widget/WidgetPrayerBoundaryScheduler.kt": {
-    "mtime": 1780931911.1274974,
+    "mtime": 1781025975.064055,
     "ast_hash": "5a55fb4aa53d468b19aa98f7c40e227c",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/widget/WidgetRemoteViewsBuilder.kt": {
-    "mtime": 1780931911.1274974,
-    "ast_hash": "4f81f1366084d7b1634e74a9a8be4416",
+    "mtime": 1781028371.9123294,
+    "ast_hash": "7b872f93d79040ea61a772f1040faf91",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/widget/WidgetSnapshot.kt": {
@@ -605,7 +605,7 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/worker/PrayerTimeRefreshWorker.kt": {
-    "mtime": 1780946655.2731838,
+    "mtime": 1780958108.2724702,
     "ast_hash": "4c26fc93edb35594e6093ad3ace834fd",
     "semantic_hash": ""
   },
@@ -630,12 +630,12 @@
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/alarm/PrayerAlarmDozeTest.kt": {
-    "mtime": 1780946525.4505188,
+    "mtime": 1780958108.2727168,
     "ast_hash": "30a9eeb4aa6736d97ff8aa71c3c7277e",
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/alarm/PrayerAlarmSchedulerTest.kt": {
-    "mtime": 1780946542.238823,
+    "mtime": 1780958108.2727838,
     "ast_hash": "cd5a05f0dcf7f34f898e0e963c0b240d",
     "semantic_hash": ""
   },
@@ -645,8 +645,8 @@
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/data/LocationDataSourceTest.kt": {
-    "mtime": 1780931911.1608107,
-    "ast_hash": "2b814017e5d1d3cd1569ba2bf6649a38",
+    "mtime": 1781043002.4045124,
+    "ast_hash": "481be5ac40dcc04eae9ea7545c8ea2b8",
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/data/LocationDataSourceTestSupport.kt": {
@@ -660,8 +660,8 @@
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/data/local/AppPreferencesDataSourceTest.kt": {
-    "mtime": 1780950045.1354368,
-    "ast_hash": "a422fb5db0c447d84018911bfbceecbe",
+    "mtime": 1781028371.912685,
+    "ast_hash": "5b513f01df4dcb7ed09756f055c40107",
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/data/local/CityConfigSerializerTest.kt": {
@@ -810,23 +810,23 @@
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/permission/PermissionDenialMatrixTest.kt": {
-    "mtime": 1780949332.4855871,
+    "mtime": 1780958108.2729151,
     "ast_hash": "7a46afc0807292c170e83a747725c616",
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/sensor/CompassHeadingTest.kt": {
-    "mtime": 1780931911.1617138,
-    "ast_hash": "5f3c1b5155ad336cace051e7cd1a0536",
+    "mtime": 1781028371.912788,
+    "ast_hash": "c9f42119d00b23ceaa273e9588463815",
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/testing/FakePrayerTimesRepository.kt": {
-    "mtime": 1780948307.6722443,
+    "mtime": 1780958108.2729783,
     "ast_hash": "e50a2181121c4cdb5f6fe0ab6124ba00",
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/testing/ViewModelTestSupport.kt": {
-    "mtime": 1780951487.622352,
-    "ast_hash": "4fbd5bef968bae77efa66941a56e1562",
+    "mtime": 1781043002.404623,
+    "ast_hash": "a485f1fa2e0885c022da7a911a622190",
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/testing/WidgetTestSupport.kt": {
@@ -845,32 +845,32 @@
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/ui/city/CitySetupViewModelAssetLoadTest.kt": {
-    "mtime": 1780951490.6482818,
+    "mtime": 1780958108.2730901,
     "ast_hash": "360d0bab226d21317b7af155915ed4e3",
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/ui/city/CitySetupViewModelTest.kt": {
-    "mtime": 1780951489.0449932,
-    "ast_hash": "b1dcdb17ca2b35e85faf85dd48c330a4",
+    "mtime": 1781043002.404623,
+    "ast_hash": "34cf1d5129034b54e1683f174d15b70e",
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/ui/prayer/PrayerTimesViewModelIntegrationTest.kt": {
-    "mtime": 1780951498.3070068,
-    "ast_hash": "090a91d719aa08f34957f727ececccd9",
+    "mtime": 1780958108.273226,
+    "ast_hash": "9f450ec79596c06fc5db8e3a36185a17",
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/ui/prayer/PrayerTimesViewModelTest.kt": {
-    "mtime": 1780951496.690104,
-    "ast_hash": "7ae88c258d4f8f4f6b3c862b9b11ec5a",
+    "mtime": 1780958108.2732797,
+    "ast_hash": "ea66aed7d4217018780d3100a9d700c9",
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/ui/screens/ComposeScreenSmokeTest.kt": {
-    "mtime": 1780948134.4472575,
-    "ast_hash": "3dbde671d421f5a9cd874628a4015e2f",
+    "mtime": 1781032073.9378135,
+    "ast_hash": "7a7bd2ac70f386f05ba6eeadc68092e2",
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/ui/settings/AppSettingsViewModelTest.kt": {
-    "mtime": 1780951492.0636585,
+    "mtime": 1780958108.2733827,
     "ast_hash": "539f7fb1b339ebef90f7d7d193d7c4a6",
     "semantic_hash": ""
   },
@@ -880,8 +880,8 @@
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/widget/PrayerTimeWidgetProviderTest.kt": {
-    "mtime": 1780931911.1622546,
-    "ast_hash": "ce7cd194a4de0c712dd856957c97f1a8",
+    "mtime": 1781037093.4582593,
+    "ast_hash": "4088a2463c6332fe359f7e7894102e84",
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/widget/WidgetDigitFormatterTest.kt": {
@@ -905,8 +905,8 @@
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/widget/WidgetRemoteViewsBuilderTest.kt": {
-    "mtime": 1780931911.1622546,
-    "ast_hash": "c7ea23dd8f79ffe9693b41fb43153e52",
+    "mtime": 1781028371.9129245,
+    "ast_hash": "c4723722cf34e81e167ad3aeeea71c16",
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/widget/WidgetSnapshotLoaderIntegrationTest.kt": {
@@ -925,7 +925,7 @@
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/worker/PrayerTimeRefreshWorkerTest.kt": {
-    "mtime": 1780946687.9217985,
+    "mtime": 1780958108.2734518,
     "ast_hash": "20b736c247c110bd7e04ed1d98b39a5f",
     "semantic_hash": ""
   },
@@ -950,13 +950,13 @@
     "semantic_hash": ""
   },
   "app/src/test/resources/cities_ar.json": {
-    "mtime": 1780931911.1627398,
-    "ast_hash": "e9ef101eb8fc191ab1dbfc09165ab64c",
+    "mtime": 1781043002.404623,
+    "ast_hash": "1ae16abd1f103253f87d44c5ce7c5073",
     "semantic_hash": ""
   },
   "app/src/test/resources/locations.json": {
-    "mtime": 1780931911.1627398,
-    "ast_hash": "e0acc20e10d6405829682b7b1f20f2c8",
+    "mtime": 1781043002.404623,
+    "ast_hash": "de40a5c55b8121ce21f37be8c60028f2",
     "semantic_hash": ""
   },
   "build.gradle.kts": {
@@ -975,8 +975,8 @@
     "semantic_hash": ""
   },
   "scripts/.city-ar-cache.json": {
-    "mtime": 1780931911.1981297,
-    "ast_hash": "0d5eaf5918fe7f766845cea7d2e6d9e8",
+    "mtime": 1781043002.4060712,
+    "ast_hash": "e2548e71606196c97b4d084f43f9a51e",
     "semantic_hash": ""
   },
   "scripts/adb": {
@@ -985,8 +985,8 @@
     "semantic_hash": ""
   },
   "scripts/emu": {
-    "mtime": 1780931911.1983478,
-    "ast_hash": "95a7e1fe716b27c3c9613ea3c7332742",
+    "mtime": 1781028371.9130425,
+    "ast_hash": "525e68d51cbf57d423d6450505fa13b4",
     "semantic_hash": ""
   },
   "scripts/emulator-start": {
@@ -1005,13 +1005,13 @@
     "semantic_hash": ""
   },
   "scripts/export-readme-widget-screenshots.sh": {
-    "mtime": 1780931911.1984954,
-    "ast_hash": "aeafa6d9f12f3d93c18bc0a1afc7a8a0",
+    "mtime": 1781028371.913085,
+    "ast_hash": "556449b07ec4a1ae4b2d3abc182e65ce",
     "semantic_hash": ""
   },
   "scripts/generate-cities-ar.py": {
-    "mtime": 1780931911.1984954,
-    "ast_hash": "028558e9b5c0b77bb3534f33318d59bf",
+    "mtime": 1781043002.406455,
+    "ast_hash": "e7b17a41782cfe91d7e2247b1a77a093",
     "semantic_hash": ""
   },
   "scripts/qa-doze.sh": {
@@ -1025,18 +1025,18 @@
     "semantic_hash": ""
   },
   "scripts/release-gate.sh": {
-    "mtime": 1780946368.2067237,
+    "mtime": 1781024710.915918,
     "ast_hash": "f4cfbef324e86579a48a719d1a0a1b8f",
     "semantic_hash": ""
   },
   "scripts/reset-app": {
-    "mtime": 1780931911.1984954,
-    "ast_hash": "18fe5085fff604e4dd215aad807730e0",
+    "mtime": 1781028371.9131262,
+    "ast_hash": "71b25afc6aa2ee44875907ee2025e60a",
     "semantic_hash": ""
   },
   "scripts/smoke-ci.sh": {
-    "mtime": 1780940418.6556525,
-    "ast_hash": "26243d6327510e60b0c09ccba45eb918",
+    "mtime": 1781043002.406515,
+    "ast_hash": "a28dc181100f4b2ca85bd54b5e442a1d",
     "semantic_hash": ""
   },
   "scripts/verify-aladhan-pins.sh": {
@@ -1050,7 +1050,7 @@
     "semantic_hash": ""
   },
   "settings.gradle.kts": {
-    "mtime": 1780946368.2067678,
+    "mtime": 1781024710.917156,
     "ast_hash": "abafa5d2ebaea61fe6349be0ec30f661",
     "semantic_hash": ""
   },
@@ -1065,7 +1065,7 @@
     "semantic_hash": ""
   },
   ".github/dependabot.yml": {
-    "mtime": 1780946368.2047284,
+    "mtime": 1781024710.917446,
     "ast_hash": "012512c89bc311dcb9fbfd44031e62d3",
     "semantic_hash": ""
   },
@@ -1075,22 +1075,22 @@
     "semantic_hash": ""
   },
   ".github/workflows/smoke-ci.yml": {
-    "mtime": 1780931911.12316,
-    "ast_hash": "bd600253b948864f329837c45ccee856",
+    "mtime": 1781028371.910975,
+    "ast_hash": "6eb3ab17163ccebf2ef9220ea6a58e02",
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1780952361.5539489,
-    "ast_hash": "e4daf31cdd8bedcb30ae860751f82e2f",
+    "mtime": 1781043108.2859237,
+    "ast_hash": "76e1da8dbfaf665d2cfc243b123a18f5",
     "semantic_hash": ""
   },
   "APP_CREATION_PLAYBOOK.md": {
-    "mtime": 1780948553.053861,
-    "ast_hash": "a232c9ef6daea22be9dadb0f339a1f19",
+    "mtime": 1781028371.9112754,
+    "ast_hash": "cc385469cc72c1e7e66f6a475680e595",
     "semantic_hash": ""
   },
   "Audit.md": {
-    "mtime": 1780947066.6741228,
+    "mtime": 1780958108.270599,
     "ast_hash": "ea051a0febb0ae05b77dbc0155884859",
     "semantic_hash": ""
   },
@@ -1100,18 +1100,18 @@
     "semantic_hash": ""
   },
   "PHASED_PLAN.md": {
-    "mtime": 1780952366.1051204,
-    "ast_hash": "fb3809ba3204d3e084ed95b1a8734955",
+    "mtime": 1781043107.91293,
+    "ast_hash": "93601d036b98fa57f115588b1b426335",
     "semantic_hash": ""
   },
   "ProjectIdea.md": {
-    "mtime": 1780940418.6262336,
+    "mtime": 1781024710.917156,
     "ast_hash": "2208eac869a365df8bb22259ecb0101a",
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1780952369.2437816,
-    "ast_hash": "45d02a776346c7b84d9b3c166db2d1d5",
+    "mtime": 1781043002.403178,
+    "ast_hash": "9d287f3fa42d7e7eb94bd46d515ee50f",
     "semantic_hash": ""
   },
   "SECURITY.md": {
@@ -1125,7 +1125,7 @@
     "semantic_hash": ""
   },
   "docs/PRIVACY.md": {
-    "mtime": 1780946368.206477,
+    "mtime": 1781024710.915877,
     "ast_hash": "33ae9b23e8cf9c0430ad5ad09ecc2269",
     "semantic_hash": ""
   },
@@ -1145,8 +1145,8 @@
     "semantic_hash": ""
   },
   "graphity.md": {
-    "mtime": 1780952365.3599026,
-    "ast_hash": "622f01a7120af946d07d7edb93ce873a",
+    "mtime": 1781024710.915877,
+    "ast_hash": "f5012fedd3668c302a9f9a9f49746030",
     "semantic_hash": ""
   },
   "docs/screenshots/city-wizard-ar-dark.png": {
@@ -1285,13 +1285,163 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/components/AppBottomNavigationBar.kt": {
-    "mtime": 1780952131.8921804,
-    "ast_hash": "bca4179858e3071d6a55e4041d6fe37f",
+    "mtime": 1780958108.2717657,
+    "ast_hash": "d1fdafafac52e4c95d681a9511b832a4",
     "semantic_hash": ""
   },
   "docs/screenshots/qibla-compass-ar-dark.png": {
-    "mtime": 1780951784.6157503,
+    "mtime": 1780958108.2737179,
     "ast_hash": "85ae1c66e597ce16604ce156d4e541da",
+    "semantic_hash": ""
+  },
+  "app/src/main/java/com/prayertime/sensor/CompassGeographicCorrection.kt": {
+    "mtime": 1781028371.9119844,
+    "ast_hash": "4b63826f386833d3a1b9ea01aa3d9569",
+    "semantic_hash": ""
+  },
+  "app/src/main/java/com/prayertime/sensor/CompassUprightGate.kt": {
+    "mtime": 1781028371.9120536,
+    "ast_hash": "b3966e7e0a2f0c654ed0f8e88f52829d",
+    "semantic_hash": ""
+  },
+  "app/src/main/java/com/prayertime/ui/components/AppBottomNavItem.kt": {
+    "mtime": 1780958108.2717228,
+    "ast_hash": "ed7b7f02f325bbdb35b736972d368237",
+    "semantic_hash": ""
+  },
+  "app/src/test/java/com/prayertime/sensor/CompassGeographicFieldTest.kt": {
+    "mtime": 1781028371.912685,
+    "ast_hash": "5790680d68e3352e98e3a98cbda86052",
+    "semantic_hash": ""
+  },
+  "app/src/test/java/com/prayertime/sensor/CompassUprightGateTest.kt": {
+    "mtime": 1781028371.9128149,
+    "ast_hash": "bd54e33d540bf153968522696725e478",
+    "semantic_hash": ""
+  },
+  "app/src/test/java/com/prayertime/testing/DisableCountdownTickerRunListener.kt": {
+    "mtime": 1781028371.9128506,
+    "ast_hash": "9f1d4dc4693bad7024875d43cd4005dd",
+    "semantic_hash": ""
+  },
+  "scripts/.africa-coords-cache.json": {
+    "mtime": 1781033168.246329,
+    "ast_hash": "8be7fcc23a325137b710e12f6d876394",
+    "semantic_hash": ""
+  },
+  "scripts/.africa-expansion-coords-cache.json": {
+    "mtime": 1781043002.4054005,
+    "ast_hash": "abc74003123759d1ad405dc3ea293c1a",
+    "semantic_hash": ""
+  },
+  "scripts/.america-coords-cache.json": {
+    "mtime": 1781037093.458872,
+    "ast_hash": "8afbfc07d43a0cba44d64cf4ae5196d0",
+    "semantic_hash": ""
+  },
+  "scripts/.asia-coords-cache.json": {
+    "mtime": 1781034769.9919174,
+    "ast_hash": "76434a27567280ca0191b69fed44368c",
+    "semantic_hash": ""
+  },
+  "scripts/.catalog-tail-coords-cache.json": {
+    "mtime": 1781043002.4054005,
+    "ast_hash": "6d481e1bab11f3949ec3e189d442a551",
+    "semantic_hash": ""
+  },
+  "scripts/.europe-coords-cache.json": {
+    "mtime": 1781032073.9384725,
+    "ast_hash": "79d5e0cd0b7a3ba3c20edbbcc7fc14d2",
+    "semantic_hash": ""
+  },
+  "scripts/.remaining-coords-cache.json": {
+    "mtime": 1781043002.406147,
+    "ast_hash": "69ff0e9853a4bf8ff464234918a14e72",
+    "semantic_hash": ""
+  },
+  "scripts/add_africa_cities.py": {
+    "mtime": 1781043002.4061847,
+    "ast_hash": "2e2b37ac05c4cd9b6d780ffe79168612",
+    "semantic_hash": ""
+  },
+  "scripts/add_remaining_cities.py": {
+    "mtime": 1781043002.4062355,
+    "ast_hash": "2c1b6ba6b5387f3d1d9d624eed53a9bd",
+    "semantic_hash": ""
+  },
+  "scripts/fill_africa_coords.py": {
+    "mtime": 1781033168.2463946,
+    "ast_hash": "1af7100107ec0f2cff58e442318b9f40",
+    "semantic_hash": ""
+  },
+  "scripts/fill_africa_expansion_coords.py": {
+    "mtime": 1781043002.406286,
+    "ast_hash": "777935ba9933a4573402611866ffb37b",
+    "semantic_hash": ""
+  },
+  "scripts/fill_america_coords.py": {
+    "mtime": 1781037093.4589117,
+    "ast_hash": "f9a6519d48f92976b2abb28337fc2e7f",
+    "semantic_hash": ""
+  },
+  "scripts/fill_asia_coords.py": {
+    "mtime": 1781034769.9919713,
+    "ast_hash": "577d051150be84671ebc48eaf2aa0f82",
+    "semantic_hash": ""
+  },
+  "scripts/fill_catalog_tail_coords.py": {
+    "mtime": 1781043002.4063327,
+    "ast_hash": "5a846f1a58829b207540f185aee4f83a",
+    "semantic_hash": ""
+  },
+  "scripts/fill_europe_coords.py": {
+    "mtime": 1781032073.9385319,
+    "ast_hash": "a4c7df1cc6babb7d3dee1b7321a4f75a",
+    "semantic_hash": ""
+  },
+  "scripts/fill_remaining_coords.py": {
+    "mtime": 1781043002.4063861,
+    "ast_hash": "678668e2eaee4364d883282aa4a5e397",
+    "semantic_hash": ""
+  },
+  "scripts/resolve-java-home.sh": {
+    "mtime": 1781028371.9131262,
+    "ast_hash": "33841a7e252d8b4f2c4cba6f39d2dd33",
+    "semantic_hash": ""
+  },
+  ".github/workflows/sync-wiki.yml": {
+    "mtime": 1781028371.9110026,
+    "ast_hash": "ce1b3b8fd6d2bc0618cc4736a87217ef",
+    "semantic_hash": ""
+  },
+  "wiki/Development.md": {
+    "mtime": 1781043002.4065838,
+    "ast_hash": "c89528493195d1266fa7c4057ae0ce2d",
+    "semantic_hash": ""
+  },
+  "wiki/Home.md": {
+    "mtime": 1781028371.9132411,
+    "ast_hash": "21dbef419b280b09165c4186c22636b7",
+    "semantic_hash": ""
+  },
+  "wiki/Phase-8-City-Catalog.md": {
+    "mtime": 1781043002.4066508,
+    "ast_hash": "e6355eba54dd7442f360cacb6c366209",
+    "semantic_hash": ""
+  },
+  "wiki/Releases.md": {
+    "mtime": 1781028371.9133086,
+    "ast_hash": "211aab6063fee7048e757acc3ff38c6f",
+    "semantic_hash": ""
+  },
+  "wiki/Roadmap.md": {
+    "mtime": 1781043108.7329175,
+    "ast_hash": "d9da49d66e2c966a2b15327374bcfd76",
+    "semantic_hash": ""
+  },
+  "wiki/Security.md": {
+    "mtime": 1781028371.913369,
+    "ast_hash": "7d9e2bdb13836f6e9672e034fd9dae10",
     "semantic_hash": ""
   }
 }

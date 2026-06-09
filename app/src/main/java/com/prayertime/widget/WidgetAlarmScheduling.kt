@@ -2,6 +2,7 @@ package com.prayertime.widget
 
 import android.app.AlarmManager
 import android.app.PendingIntent
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.os.Build
@@ -82,7 +83,9 @@ internal object WidgetAlarmScheduling {
         context: Context,
         action: String,
     ): Intent =
-        Intent(context, WidgetPrayerBoundaryReceiver::class.java).apply {
+        Intent().apply {
+            component = ComponentName(context, WidgetPrayerBoundaryReceiver::class.java)
+            setPackage(context.packageName)
             this.action = action
         }
 }

@@ -23,9 +23,7 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
         context: Context,
         intent: Intent,
     ) {
-        val prayerName =
-            intent.takeIf { it.action == ACTION_PRAYER_ALARM }
-                ?.getStringExtra(EXTRA_PRAYER)
+        val prayerName = intent.getStringExtra(EXTRA_PRAYER)
         val prayer = prayerName?.let { runCatching { Prayer.valueOf(it) }.getOrNull() }
         if (prayer == null) {
             return

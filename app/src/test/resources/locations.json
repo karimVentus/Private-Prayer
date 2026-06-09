@@ -14011,6 +14011,241 @@
       "latitude": 10.45,
       "longitude": -64.158,
       "timezone": "America/Caracas"
+    },
+    "AU_Perth": {
+      "latitude": -31.956,
+      "longitude": 115.861,
+      "timezone": "Australia/Perth"
+    },
+    "AU_Adelaide": {
+      "latitude": -34.928,
+      "longitude": 138.6,
+      "timezone": "Australia/Adelaide"
+    },
+    "AU_Gold Coast": {
+      "latitude": -28.025,
+      "longitude": 153.43,
+      "timezone": "Australia/Brisbane"
+    },
+    "AU_Canberra": {
+      "latitude": -35.298,
+      "longitude": 149.101,
+      "timezone": "Australia/Sydney"
+    },
+    "AU_Newcastle": {
+      "latitude": -32.896,
+      "longitude": 151.777,
+      "timezone": "Australia/Sydney"
+    },
+    "AU_Hobart": {
+      "latitude": -42.883,
+      "longitude": 147.328,
+      "timezone": "Australia/Hobart"
+    },
+    "AU_Darwin": {
+      "latitude": -12.46,
+      "longitude": 130.841,
+      "timezone": "Australia/Darwin"
+    },
+    "AU_Cairns": {
+      "latitude": -16.921,
+      "longitude": 145.772,
+      "timezone": "Australia/Brisbane"
+    },
+    "AU_Geelong": {
+      "latitude": -38.149,
+      "longitude": 144.36,
+      "timezone": "Australia/Sydney"
+    },
+    "AU_Wollongong": {
+      "latitude": -34.428,
+      "longitude": 150.893,
+      "timezone": "Australia/Sydney"
+    },
+    "AU_Sunshine Coast": {
+      "latitude": -26.656,
+      "longitude": 153.092,
+      "timezone": "Australia/Brisbane"
+    },
+    "AU_Launceston": {
+      "latitude": -41.434,
+      "longitude": 147.137,
+      "timezone": "Australia/Hobart"
+    },
+    "BY_Minsk": {
+      "latitude": 53.902,
+      "longitude": 27.562,
+      "timezone": "Europe/Minsk"
+    },
+    "BY_Gomel": {
+      "latitude": 52.424,
+      "longitude": 31.013,
+      "timezone": "Europe/Minsk"
+    },
+    "BY_Mogilev": {
+      "latitude": 53.909,
+      "longitude": 30.343,
+      "timezone": "Europe/Minsk"
+    },
+    "BY_Vitebsk": {
+      "latitude": 55.193,
+      "longitude": 30.207,
+      "timezone": "Europe/Minsk"
+    },
+    "BY_Grodno": {
+      "latitude": 53.683,
+      "longitude": 23.834,
+      "timezone": "Europe/Minsk"
+    },
+    "BY_Brest": {
+      "latitude": 52.094,
+      "longitude": 23.685,
+      "timezone": "Europe/Minsk"
+    },
+    "BY_Bobruisk": {
+      "latitude": 53.145,
+      "longitude": 29.228,
+      "timezone": "Europe/Minsk"
+    },
+    "BY_Baranovichi": {
+      "latitude": 53.132,
+      "longitude": 26.018,
+      "timezone": "Europe/Minsk"
+    },
+    "BY_Borisov": {
+      "latitude": 54.224,
+      "longitude": 28.512,
+      "timezone": "Europe/Minsk"
+    },
+    "BY_Pinsk": {
+      "latitude": 52.111,
+      "longitude": 26.103,
+      "timezone": "Europe/Minsk"
+    },
+    "NZ_Auckland": {
+      "latitude": -36.852,
+      "longitude": 174.763,
+      "timezone": "Pacific/Auckland"
+    },
+    "NZ_Wellington": {
+      "latitude": -41.289,
+      "longitude": 174.777,
+      "timezone": "Pacific/Auckland"
+    },
+    "NZ_Christchurch": {
+      "latitude": -43.531,
+      "longitude": 172.636,
+      "timezone": "Pacific/Auckland"
+    },
+    "NZ_Hamilton": {
+      "latitude": -37.788,
+      "longitude": 175.282,
+      "timezone": "Pacific/Auckland"
+    },
+    "NZ_Tauranga": {
+      "latitude": -37.686,
+      "longitude": 176.168,
+      "timezone": "Pacific/Auckland"
+    },
+    "NZ_Napier": {
+      "latitude": -39.49,
+      "longitude": 176.918,
+      "timezone": "Pacific/Auckland"
+    },
+    "NZ_Dunedin": {
+      "latitude": -45.874,
+      "longitude": 170.504,
+      "timezone": "Pacific/Auckland"
+    },
+    "NZ_Palmerston North": {
+      "latitude": -40.353,
+      "longitude": 175.608,
+      "timezone": "Pacific/Auckland"
+    },
+    "NZ_Nelson": {
+      "latitude": -41.271,
+      "longitude": 173.284,
+      "timezone": "Pacific/Auckland"
+    },
+    "NZ_Rotorua": {
+      "latitude": -38.136,
+      "longitude": 176.253,
+      "timezone": "Pacific/Auckland"
+    },
+    "RU_Moscow": {
+      "latitude": 55.626,
+      "longitude": 37.606,
+      "timezone": "Europe/Moscow"
+    },
+    "RU_Saint Petersburg": {
+      "latitude": 59.934,
+      "longitude": 30.335,
+      "timezone": "Europe/Moscow"
+    },
+    "RU_Novosibirsk": {
+      "latitude": 54.968,
+      "longitude": 82.952,
+      "timezone": "Asia/Novosibirsk"
+    },
+    "RU_Yekaterinburg": {
+      "latitude": 56.838,
+      "longitude": 60.601,
+      "timezone": "Asia/Yekaterinburg"
+    },
+    "RU_Kazan": {
+      "latitude": 55.795,
+      "longitude": 49.112,
+      "timezone": "Europe/Moscow"
+    },
+    "RU_Krasnoyarsk": {
+      "latitude": 56.009,
+      "longitude": 92.873,
+      "timezone": "Asia/Krasnoyarsk"
+    },
+    "RU_Nizhny Novgorod": {
+      "latitude": 56.326,
+      "longitude": 44.005,
+      "timezone": "Europe/Moscow"
+    },
+    "RU_Chelyabinsk": {
+      "latitude": 55.16,
+      "longitude": 61.403,
+      "timezone": "Asia/Yekaterinburg"
+    },
+    "RU_Samara": {
+      "latitude": 53.196,
+      "longitude": 50.101,
+      "timezone": "Europe/Moscow"
+    },
+    "RU_Omsk": {
+      "latitude": 54.991,
+      "longitude": 73.372,
+      "timezone": "Asia/Omsk"
+    },
+    "RU_Rostov-on-Don": {
+      "latitude": 47.261,
+      "longitude": 39.725,
+      "timezone": "Europe/Moscow"
+    },
+    "RU_Ufa": {
+      "latitude": 54.726,
+      "longitude": 55.947,
+      "timezone": "Asia/Yekaterinburg"
+    },
+    "RU_Perm": {
+      "latitude": 58.011,
+      "longitude": 56.232,
+      "timezone": "Asia/Yekaterinburg"
+    },
+    "RU_Voronezh": {
+      "latitude": 51.68,
+      "longitude": 39.184,
+      "timezone": "Europe/Moscow"
+    },
+    "RU_Volgograd": {
+      "latitude": 48.708,
+      "longitude": 44.515,
+      "timezone": "Europe/Moscow"
     }
   }
 }

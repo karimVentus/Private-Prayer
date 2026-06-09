@@ -124,10 +124,55 @@ class LocationDataSourceTest {
 
     @Test
     fun every_germany_picker_city_resolves_to_found() {
-        val cities = LocationDataSource.loadedCatalog()?.citiesByCountry["DE"] ?: emptyList()
+        assertEveryPickerCityResolvesToFound("DE")
+    }
+
+    @Test
+    fun every_europe_picker_city_resolves_to_found() {
+        val euCountryCodes =
+            listOf(
+                "AL", "AD", "AT", "BE", "BA", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE",
+                "GR", "HU", "IS", "IE", "IT", "XK", "LV", "LT", "LU", "MT", "MD", "MC", "ME", "MK",
+                "NL", "NO", "PL", "PT", "RO", "RS", "SK", "SI", "ES", "SE", "CH", "UA", "GB", "VA",
+            )
+        val failures = mutableListOf<String>()
+        for (countryCode in euCountryCodes) {
+            val cities = LocationDataSource.loadedCatalog()?.citiesByCountry[countryCode] ?: emptyList()
+            for (city in cities) {
+                when (LocationDataSource.resolveCityCoordinates(countryCode, city)) {
+                    is CityResolutionResult.Found -> {}
+                    else -> failures.add("$countryCode:$city")
+                }
+            }
+        }
+        assertTrue(
+            "EU picker cities without exact coords: ${failures.take(10)}${if (failures.size > 10) "..." else ""}",
+            failures.isEmpty(),
+        )
+    }
+
+    @Test
+    fun europe_reference_city_coords_match() {
+        val paris = LocationDataSource.resolveCityCoordinates("FR", "Paris")
+        assertTrue(paris is CityResolutionResult.Found)
+        paris as CityResolutionResult.Found
+        assertEquals(48.857, paris.coords.latitude, 0.05)
+        assertEquals(2.352, paris.coords.longitude, 0.05)
+        assertEquals("Europe/Paris", paris.coords.timezone)
+
+        val amsterdam = LocationDataSource.resolveCityCoordinates("NL", "Amsterdam")
+        assertTrue(amsterdam is CityResolutionResult.Found)
+        amsterdam as CityResolutionResult.Found
+        assertEquals(52.374, amsterdam.coords.latitude, 0.05)
+        assertEquals(4.890, amsterdam.coords.longitude, 0.05)
+        assertEquals("Europe/Amsterdam", amsterdam.coords.timezone)
+    }
+
+    private fun assertEveryPickerCityResolvesToFound(countryCode: String) {
+        val cities = LocationDataSource.loadedCatalog()?.citiesByCountry[countryCode] ?: emptyList()
         val failures = mutableListOf<String>()
         for (city in cities) {
-            when (LocationDataSource.resolveCityCoordinates("DE", city)) {
+            when (LocationDataSource.resolveCityCoordinates(countryCode, city)) {
                 is CityResolutionResult.Found -> {}
                 else -> failures.add(city)
             }

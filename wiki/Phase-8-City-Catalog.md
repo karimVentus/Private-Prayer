@@ -1,6 +1,6 @@
 # Phase 8 — City catalog coordinates + manual entry
 
-**Status:** **8A complete** on `feat/manual-coords-wizard`. **8B** (Europe coords) next. Branch from `main` after 8A merge.
+**Status:** **8A** + **8B complete** on `feat/city-coords-europe` (574/574 EU picker cities). **8C** (Africa) next.
 
 ---
 
@@ -64,9 +64,14 @@ flowchart TD
 - [x] **8A.3** `ManualCoordsOption` card on city fallback (“Enter coordinates manually”)
 - [x] **8A.4** Unit tests — offline save, invalid coords rejected, country default TZ (7 tests)
 
-### 8B–8E — Regional coord fill
+### 8B — Europe coord fill (complete)
 
-- [ ] **8B** Europe (~465 missing)
+- [x] **8B.1** `scripts/fill_europe_coords.py` — OSM Nominatim + `.europe-coords-cache.json`
+- [x] **8B.2** 440 coords added; EU picker 574/574 covered; MD `countryDefaults` → `Europe/Chisinau`
+- [x] **8B.3** `LocationDataSourceTest` — `every_europe_picker_city_resolves_to_found`
+
+### 8C–8E — Regional coord fill
+
 - [ ] **8C** Africa
 - [ ] **8D** Asia
 - [ ] **8E** America

@@ -78,8 +78,9 @@ Hayya/  (repo folder may still be Private-Prayer; package com.prayertime)
 | 6 | Release — R8, signed APK/AAB | **Done (`v1.0.0`)** | Tagged Jun 2026 |
 | 7A | Qibla compass — city bearing + portrait accel/mag sensor, align feedback | **Done** — PR **#11** + **#12** + **#13** (L-widget) merged Jun 2026 | — |
 | **7B** | Compass geographic calibration + UI | **Done** — geographic declination, upright gate, accuracy UI, user fine-offset, 3 tests; merged PR **#42** Jun 2026 | — |
-| **8A** | Manual lat/lng coordinates wizard | **Done** — `WizardStep.ManualCoords`, validation, EN/AR strings, 426 JVM tests | `feat/manual-coords-wizard` |
-| **8B** | Europe `knownCityCoords` fill | **Planned** — ~465 missing; branch `feat/city-coords-europe` after 8A merge | — |
+| **8A** | Manual lat/lng coordinates wizard | **Done** — `WizardStep.ManualCoords`, validation, EN/AR strings | `feat/manual-coords-wizard` |
+| **8B** | Europe `knownCityCoords` fill | **Done** — 574/574 EU picker cities; `scripts/fill_europe_coords.py` | `feat/city-coords-europe` |
+| **8C** | Africa `knownCityCoords` fill | **Planned** — branch `feat/city-coords-africa` after 8B merge | — |
 
 ## Architecture (post-2F hardening)
 
@@ -115,7 +116,7 @@ Hayya/  (repo folder may still be Private-Prayer; package com.prayertime)
 - `LocationCatalogInitializer` (Hilt `@Singleton`) calls `LocationDataSource.initialize()` at app startup — not from `LocalLocationRepository`
 - `initialize()` kicks off JSON parsing on `Dispatchers.IO` — returns immediately, no main-thread block
 - `suspend fun awaitReady()` for coroutine callers; sync list accessors return empty while loading; `NOT_STARTED` throws
-- `locations.json` (187 KB, 9,221 lines) in `assets/` — no hardcoded Kotlin maps; expanded via `scripts/expand_locations.py`
+- `locations.json` (~238 KB) in `assets/` — no hardcoded Kotlin maps; expanded via `scripts/expand_locations.py` + `scripts/fill_europe_coords.py`
 
 ### Timezone consistency
 - Staleness check uses `needsPrayerDayRefresh(lastFetch, now, cityTZ)` — not a flat 25-hour epoch threshold

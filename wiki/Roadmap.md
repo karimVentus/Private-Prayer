@@ -52,7 +52,8 @@ flowchart LR
 
 | Task block | Scope |
 |------------|-------|
-| **8A** | Manual coordinates UI in city wizard — **done** (`feat/manual-coords-wizard`) |
+| **8A** | Manual coordinates UI in city wizard — **done** |
+| **8B** | Europe `knownCityCoords` fill (574 cities) — **done** (`feat/city-coords-europe`) |
 | **8B** | Europe — fill `knownCityCoords` (~465 cities missing) |
 | **8C–8E** | Africa → Asia → America |
 | **8F** | Docs, version bump, APK size check |

@@ -1,10 +1,10 @@
 # Hayya (حيا) — Phased Implementation Plan
 
 > **Product:** **Hayya** (EN) / **حيا** (AR) — privacy-first prayer-times app. Package **`com.prayertime`** unchanged.
-> **Current state:** Phases **0–7B** complete on `main` (Jun 2026). **Phase 8A** complete on `feat/manual-coords-wizard` (manual lat/lng wizard + **`v1.2.0`** WIP). **Next: Phase 8B** (Europe `knownCityCoords` fill). **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
+> **Current state:** Phases **0–7B** + **8A** complete. **Phase 8B** (Europe coords) on `feat/city-coords-europe`. Release **`v1.2.0`** WIP. **Next: Phase 8C** (Africa coords). **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
 > **Build:** Single APK `com.prayertime` (~23 MB debug). Privacy via Settings **offline-only toggle** (`offline_only`); no separate offline flavor.
 > **Calculation:** Umm al-Qura + Shafi + twilight (≥48°N); `adhan-java` when offline-only; Aladhan API when user disables offline mode.
-> **Tests:** `./gradlew testDebugUnitTest` — **426** JVM `@Test` (56 files); run `./scripts/smoke-ci.sh` for full gate.
+> **Tests:** `./gradlew testDebugUnitTest` — **428** JVM `@Test` (56 files); run `./scripts/smoke-ci.sh` for full gate.
 > **Docs language:** English. **Architecture graphs:** Graphify + Mermaid below.
 > **Phase 5 manual QA:** **5C.2**, **5D**, **5F.3** signed off Jun 2026 (user device verification).
 
@@ -62,7 +62,8 @@
 | **Release v1.1.6** | **Done** — signed `Hayya-v1.1.6.apk` on GitHub Releases |
 | **Phase 7B** compass calibration | **Complete** — geographic declination, upright gate, accuracy UI, ±15° offset; PR **#42**; release **`v1.2.0`** WIP |
 | **Phase 8A** manual lat/lng wizard | **Complete** — `feat/manual-coords-wizard`; see §8 |
-| **Phase 8B–8E** city catalog coords | **Planned** — Europe first; see §8 |
+| **Phase 8B** Europe city coords | **Complete** — 574/574 EU picker cities; `feat/city-coords-europe` |
+| **Phase 8C–8E** city catalog coords | **Planned** — Africa → Asia → America; see §8 |
 
 ---
 
@@ -206,17 +207,17 @@ Maintain an up-to-date code graph after each phase gate. Full CLI lifecycle: [`g
 
 ---
 
-## Post-7B — active work (Phase 8B)
+## Post-7B — active work (Phase 8C)
 
-**Branch from:** `main` after **8A** merge.
+**Branch from:** `main` after **8A** + **8B** merge.
 
 | Rule | Detail |
 |------|--------|
-| **Shipped** | Phases **0–7B** + **8A** on `feat/manual-coords-wizard`; release **`v1.2.0`** WIP |
-| **Active** | **Phase 8B** — Europe `knownCityCoords` fill (~465 missing) |
-| **Next** | **Phase 8C–8E** — Africa → Asia → America |
-| **Branching** | `feat/city-coords-europe` after 8A merge; `./scripts/smoke-ci.sh` before merge |
-| **Graphify** | After `locations.json` or `scripts/expand_locations.py` changes |
+| **Shipped** | Phases **0–7B** + **8A** + **8B**; release **`v1.2.0`** WIP |
+| **Active** | **Phase 8C** — Africa `knownCityCoords` fill |
+| **Next** | **Phase 8D–8E** — Asia → America |
+| **Branching** | `feat/city-coords-africa` after 8B merge; `./scripts/smoke-ci.sh` before merge |
+| **Graphify** | After `locations.json` or `scripts/fill_europe_coords.py` changes |
 
 ---
 
@@ -258,9 +259,14 @@ Maintain an up-to-date code graph after each phase gate. Full CLI lifecycle: [`g
 - [x] **8A.5** Validation — lat ∈ [-90, 90], lng ∈ [-180, 180]; non-blank timezone; `INVALID_COORDINATES` error
 - [x] **8A.6** Unit tests — `CitySetupViewModelTest` manual coords path (7 tests)
 
-### 8B–8E — Regional coord fill
+### 8B — Europe coord fill (complete)
 
-- [ ] **8B** Europe (~465 missing)
+- [x] **8B.1** `scripts/fill_europe_coords.py` — Nominatim + cache; 440 coords added
+- [x] **8B.2** `locations.json` — 574/574 EU picker cities have `knownCityCoords`; MD `countryDefaults` fix
+- [x] **8B.3** Tests — `every_europe_picker_city_resolves_to_found` + reference spot checks
+
+### 8C–8E — Regional coord fill
+
 - [ ] **8C** Africa
 - [ ] **8D** Asia
 - [ ] **8E** America

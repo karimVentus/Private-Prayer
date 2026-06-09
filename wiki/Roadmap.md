@@ -54,7 +54,8 @@ flowchart LR
 |------------|-------|
 | **8A** | Manual coordinates UI in city wizard — **done** |
 | **8B** | Europe `knownCityCoords` fill (574 cities) — **done** (PR **#43**) |
-| **8C** | Africa `knownCityCoords` fill (407 cities) — **done** (`feat/city-coords-africa`) |
+| **8C** | Africa `knownCityCoords` fill (407 cities) — **done** (PR **#44**) |
+| **8D** | Asia `knownCityCoords` fill (920 cities) — **done** (`feat/city-coords-asia`) |
 | **8B** | Europe — fill `knownCityCoords` (~465 cities missing) |
 | **8C–8E** | Africa → Asia → America |
 | **8F** | Docs, version bump, APK size check |

@@ -1,6 +1,6 @@
 # Phase 8 — City catalog coordinates + manual entry
 
-**Status:** **8A** + **8B** + **8C** on `feat/city-coords-africa` (407/407 Africa picker cities). **8D** (Asia) next.
+**Status:** **8A**–**8D** on `feat/city-coords-asia` (920/920 Asia picker cities). **8E** (America) next.
 
 ---
 
@@ -76,9 +76,14 @@ flowchart TD
 - [x] **8C.2** 100 coords added; Africa picker 407/407 covered
 - [x] **8C.3** `LocationDataSourceTest` — `every_africa_picker_city_resolves_to_found`
 
-### 8D–8E — Regional coord fill
+### 8D — Asia coord fill (complete)
 
-- [ ] **8D** Asia
+- [x] **8D.1** `scripts/fill_asia_coords.py` — OSM Nominatim + `.asia-coords-cache.json`
+- [x] **8D.2** 320 coords added; Asia picker 920/920 covered
+- [x] **8D.3** `LocationDataSourceTest` — `every_asia_picker_city_resolves_to_found`
+
+### 8E — America coord fill
+
 - [ ] **8E** America
 
 ### 8F — Release

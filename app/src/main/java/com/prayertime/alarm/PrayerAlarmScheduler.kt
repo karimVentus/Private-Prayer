@@ -2,6 +2,7 @@ package com.prayertime.alarm
 
 import android.app.AlarmManager
 import android.app.PendingIntent
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.os.Build
@@ -127,8 +128,9 @@ object PrayerAlarmScheduler {
         context: Context,
         prayer: Prayer,
     ): Intent =
-        Intent(context, AdhanAlarmReceiver::class.java).apply {
-            action = AdhanAlarmReceiver.ACTION_PRAYER_ALARM
+        Intent().apply {
+            component = ComponentName(context, AdhanAlarmReceiver::class.java)
+            setPackage(context.packageName)
             putExtra(AdhanAlarmReceiver.EXTRA_PRAYER, prayer.name)
         }
 

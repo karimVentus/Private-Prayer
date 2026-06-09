@@ -59,7 +59,6 @@ class WidgetPrayerBoundaryScheduler
                     triggerAtMs = triggerAtMs,
                     requestCode = PendingIntentRequestCodes.WIDGET_BOUNDARY_ALARM,
                     showRequestCode = PendingIntentRequestCodes.WIDGET_BOUNDARY_SHOW,
-                    action = WidgetPrayerBoundaryReceiver.ACTION_WIDGET_BOUNDARY,
                     cancelExisting = WidgetAlarmScheduling::cancelBoundary,
                 )
             }

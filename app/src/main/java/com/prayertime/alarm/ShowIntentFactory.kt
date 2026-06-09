@@ -1,7 +1,6 @@
 package com.prayertime.alarm
 
 import android.app.PendingIntent
-import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import com.prayertime.PendingIntentRequestCodes
@@ -15,9 +14,7 @@ internal object ShowIntentFactory {
         requestCode: Int,
     ): PendingIntent {
         val launch =
-            Intent().apply {
-                component = ComponentName(context, MainActivity::class.java)
-                setPackage(context.packageName)
+            ExplicitAlarmIntents.activity(context, MainActivity::class.java) {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
             }
         return PendingIntent.getActivity(

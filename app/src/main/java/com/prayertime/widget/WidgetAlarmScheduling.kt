@@ -2,11 +2,11 @@ package com.prayertime.widget
 
 import android.app.AlarmManager
 import android.app.PendingIntent
-import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.os.Build
 import com.prayertime.PendingIntentRequestCodes
+import com.prayertime.alarm.ExplicitAlarmIntents
 import com.prayertime.alarm.PrayerAlarmScheduler
 import com.prayertime.alarm.ShowIntentFactory
 
@@ -16,7 +16,6 @@ internal object WidgetAlarmScheduling {
         triggerAtMs: Long,
         requestCode: Int,
         showRequestCode: Int,
-        action: String,
         cancelExisting: (Context) -> Unit,
     ) {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as? AlarmManager ?: return
@@ -25,7 +24,7 @@ internal object WidgetAlarmScheduling {
             PendingIntent.getBroadcast(
                 context,
                 requestCode,
-                intentFor(context, action),
+                widgetAlarmIntent(context),
                 PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
             )
         val useReliableAlarms = PrayerAlarmScheduler.canUseExactAlarms(context)
@@ -53,24 +52,23 @@ internal object WidgetAlarmScheduling {
     }
 
     fun cancelBoundary(context: Context) {
-        cancel(context, PendingIntentRequestCodes.WIDGET_BOUNDARY_ALARM, WidgetPrayerBoundaryReceiver.ACTION_WIDGET_BOUNDARY)
+        cancel(context, PendingIntentRequestCodes.WIDGET_BOUNDARY_ALARM)
     }
 
     fun cancelCountdownTick(context: Context) {
-        cancel(context, PendingIntentRequestCodes.WIDGET_COUNTDOWN_ALARM, WidgetPrayerBoundaryReceiver.ACTION_WIDGET_COUNTDOWN_TICK)
+        cancel(context, PendingIntentRequestCodes.WIDGET_COUNTDOWN_ALARM)
     }
 
     private fun cancel(
         context: Context,
         requestCode: Int,
-        action: String,
     ) {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as? AlarmManager ?: return
         val pending =
             PendingIntent.getBroadcast(
                 context,
                 requestCode,
-                intentFor(context, action),
+                widgetAlarmIntent(context),
                 PendingIntent.FLAG_NO_CREATE or PendingIntent.FLAG_IMMUTABLE,
             )
         if (pending != null) {
@@ -79,13 +77,6 @@ internal object WidgetAlarmScheduling {
         }
     }
 
-    private fun intentFor(
-        context: Context,
-        action: String,
-    ): Intent =
-        Intent().apply {
-            component = ComponentName(context, WidgetPrayerBoundaryReceiver::class.java)
-            setPackage(context.packageName)
-            this.action = action
-        }
+    private fun widgetAlarmIntent(context: Context): Intent =
+        ExplicitAlarmIntents.broadcast(context, WidgetPrayerBoundaryReceiver::class.java)
 }

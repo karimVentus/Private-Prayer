@@ -12,7 +12,6 @@ class WidgetPrayerBoundaryReceiver : BroadcastReceiver() {
         context: Context,
         intent: Intent,
     ) {
-        if (intent.action != ACTION_WIDGET_BOUNDARY && intent.action != ACTION_WIDGET_COUNTDOWN_TICK) return
         val pendingResult = goAsync()
         val entryPoint =
             EntryPointAccessors.fromApplication(

@@ -10,7 +10,6 @@ internal object WidgetCountdownRefreshScheduler {
             triggerAtMs = nextTickTimestamp(),
             requestCode = PendingIntentRequestCodes.WIDGET_COUNTDOWN_ALARM,
             showRequestCode = PendingIntentRequestCodes.WIDGET_COUNTDOWN_SHOW,
-            action = WidgetPrayerBoundaryReceiver.ACTION_WIDGET_COUNTDOWN_TICK,
             cancelExisting = { WidgetAlarmScheduling.cancelCountdownTick(it) },
         )
     }

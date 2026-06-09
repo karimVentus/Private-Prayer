@@ -4,7 +4,7 @@
 > **Current state:** Phases **0–7B** + **8A**–**8D** complete on `main`. **Phase 8E** (Americas coords) on `feat/city-coords-america`. Release **`v1.2.0`** WIP. **Next: Phase 8F** (release + remaining AU/RU/BY/NZ coords). **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
 > **Build:** Single APK `com.prayertime` (~23 MB debug). Privacy via Settings **offline-only toggle** (`offline_only`); no separate offline flavor.
 > **Calculation:** Umm al-Qura + Shafi + twilight (≥48°N); `adhan-java` when offline-only; Aladhan API when user disables offline mode.
-> **Tests:** `./gradlew testDebugUnitTest` — **434** JVM `@Test` (56 files); run `./scripts/smoke-ci.sh` for full gate.
+> **Tests:** `./gradlew testDebugUnitTest` — **431** JVM `@Test` (56 files); run `./scripts/smoke-ci.sh` for full gate.
 > **Docs language:** English. **Architecture graphs:** Graphify + Mermaid below.
 > **Phase 5 manual QA:** **5C.2**, **5D**, **5F.3** signed off Jun 2026 (user device verification).
 

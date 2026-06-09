@@ -77,13 +77,13 @@ class CitySetupViewModelTest {
 
     @Test
     fun `default wizard step is CountrySelection`() =
-        runTest(testDispatcher) {
+        runTest {
             assertEquals(WizardStep.CountrySelection, viewModel().wizardStep.value)
         }
 
     @Test
     fun `country search query filters countries`() =
-        runTest(testDispatcher) {
+        runTest {
             val vm = viewModel()
             vm.onCountrySearchQueryChanged("Sy")
             val filtered = vm.filteredCountries.value
@@ -93,7 +93,7 @@ class CitySetupViewModelTest {
 
     @Test
     fun `empty country search query returns at least 150 countries`() =
-        runTest(testDispatcher) {
+        runTest {
             val vm = viewModel()
             vm.onCountrySearchQueryChanged("")
             assertTrue(vm.filteredCountries.value.size >= 150)
@@ -101,7 +101,7 @@ class CitySetupViewModelTest {
 
     @Test
     fun `selecting country advances wizard to CitySelection`() =
-        runTest(testDispatcher) {
+        runTest {
             val vm = viewModel()
             vm.selectCountry(Country("Syria", "SY"))
             val step = vm.wizardStep.value
@@ -111,8 +111,9 @@ class CitySetupViewModelTest {
 
     @Test
     fun `city search query filters cities`() =
-        runTest(testDispatcher) {
+        runTest {
             val vm = viewModel()
+            advanceUntilIdle()
             vm.selectCountry(Country("Syria", "SY"))
             vm.onCitySearchQueryChanged("Dam")
             val filtered = vm.filteredCities.value
@@ -128,7 +129,7 @@ class CitySetupViewModelTest {
 
     @Test
     fun `clearSelectedCountry returns to country selection`() =
-        runTest(testDispatcher) {
+        runTest {
             val vm = viewModel()
             vm.selectCountry(Country("Syria", "SY"))
             vm.clearSelectedCountry()
@@ -137,7 +138,7 @@ class CitySetupViewModelTest {
 
     @Test
     fun `custom city fallback shown when city query is not blank`() =
-        runTest(testDispatcher) {
+        runTest {
             val vm = viewModel()
             vm.selectCountry(Country("Syria", "SY"))
             assertFalse(vm.showCustomCityFallback)
@@ -147,7 +148,7 @@ class CitySetupViewModelTest {
 
     @Test
     fun `saveCity resolves Arabic display name to canonical coords`() =
-        runTest(testDispatcher) {
+        runTest {
             val arPreferences =
                 mockk<AppPreferencesDataSource> {
                     every { appLanguageTag } returns flowOf("ar")
@@ -173,7 +174,7 @@ class CitySetupViewModelTest {
 
     @Test
     fun `saveCity persists enriched config`() =
-        runTest(testDispatcher) {
+        runTest {
             val vm = viewModel()
             vm.selectCountry(Country("Syria", "SY"))
             vm.saveCity("Damascus")
@@ -187,7 +188,7 @@ class CitySetupViewModelTest {
 
     @Test
     fun `saveCity offline rejects unknown city before repository`() =
-        runTest(testDispatcher) {
+        runTest {
             citySource.setOfflineOnly(true)
             val vm = viewModel()
             vm.selectCountry(Country("Germany", "DE"))
@@ -199,7 +200,7 @@ class CitySetupViewModelTest {
 
     @Test
     fun `saveCity passes catalog timezone not UTC placeholder`() =
-        runTest(testDispatcher) {
+        runTest {
             val vm = viewModel()
             vm.selectCountry(Country("Germany", "DE"))
             vm.saveCity("Hameln")
@@ -210,7 +211,7 @@ class CitySetupViewModelTest {
 
     @Test
     fun `saveCity does nothing when no country selected`() =
-        runTest(testDispatcher) {
+        runTest {
             val vm = viewModel()
             vm.saveCity("Damascus")
             advanceUntilIdle()
@@ -219,7 +220,7 @@ class CitySetupViewModelTest {
 
     @Test
     fun `saveCity network error exposes online message when network mode enabled`() =
-        runTest(testDispatcher) {
+        runTest {
             val failingRepo = FakePrayerTimesRepository.failingSave(citySource)
             val vm =
                 CitySetupViewModel(
@@ -241,7 +242,7 @@ class CitySetupViewModelTest {
 
     @Test
     fun `requestManualCoords advances to ManualCoords with country default timezone`() =
-        runTest(testDispatcher) {
+        runTest {
             val vm = viewModel()
             vm.selectCountry(Country("Germany", "DE"))
             vm.requestManualCoords("UnknownVillage")
@@ -255,7 +256,7 @@ class CitySetupViewModelTest {
 
     @Test
     fun `saveManualCoords persists config offline`() =
-        runTest(testDispatcher) {
+        runTest {
             citySource.setOfflineOnly(true)
             val vm = viewModel()
             vm.selectCountry(Country("Germany", "DE"))
@@ -273,7 +274,7 @@ class CitySetupViewModelTest {
 
     @Test
     fun `saveManualCoords rejects out of range latitude`() =
-        runTest(testDispatcher) {
+        runTest {
             val vm = viewModel()
             vm.selectCountry(Country("Germany", "DE"))
             vm.requestManualCoords("CustomTown")
@@ -285,7 +286,7 @@ class CitySetupViewModelTest {
 
     @Test
     fun `saveManualCoords rejects out of range longitude`() =
-        runTest(testDispatcher) {
+        runTest {
             val vm = viewModel()
             vm.selectCountry(Country("Germany", "DE"))
             vm.requestManualCoords("CustomTown")
@@ -297,7 +298,7 @@ class CitySetupViewModelTest {
 
     @Test
     fun `saveManualCoords rejects blank timezone`() =
-        runTest(testDispatcher) {
+        runTest {
             val vm = viewModel()
             vm.selectCountry(Country("Germany", "DE"))
             vm.requestManualCoords("CustomTown")
@@ -309,7 +310,7 @@ class CitySetupViewModelTest {
 
     @Test
     fun `saveManualCoords rejects non-numeric coordinates`() =
-        runTest(testDispatcher) {
+        runTest {
             val vm = viewModel()
             vm.selectCountry(Country("Germany", "DE"))
             vm.requestManualCoords("CustomTown")
@@ -321,7 +322,7 @@ class CitySetupViewModelTest {
 
     @Test
     fun `backFromManualCoords returns to city selection`() =
-        runTest(testDispatcher) {
+        runTest {
             val vm = viewModel()
             vm.selectCountry(Country("Germany", "DE"))
             vm.requestManualCoords("CustomTown")

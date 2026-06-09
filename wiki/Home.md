@@ -20,7 +20,7 @@ Open-source Android app ([karimVentus/Private-Prayer](https://github.com/karimVe
 | [Roadmap](Roadmap) | Phase status (0–7A done; Phase 8 planned) |
 | [Phase 8 — City catalog](Phase-8-City-Catalog) | Coordinate rollout + manual lat/lng wizard |
 | [Development](Development) | Build env, tests, CI, branching |
-| [Security](Security) | Reporting vulnerabilities; Dependabot / CodeQL setup |
+| [Security](Security) | Enabled Dependabot, CodeQL, secret scanning; how to report |
 | [Releases](Releases) | Version history |
 
 ---

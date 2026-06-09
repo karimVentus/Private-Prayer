@@ -1,10 +1,10 @@
 # Hayya (حيا) — Phased Implementation Plan
 
 > **Product:** **Hayya** (EN) / **حيا** (AR) — privacy-first prayer-times app. Package **`com.prayertime`** unchanged.
-> **Current state:** Phases **0–7B** + **8A**–**8C** complete on `main`. **Phase 8D** (Asia coords) on `feat/city-coords-asia`. Release **`v1.2.0`** WIP. **Next: Phase 8E** (America coords). **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
+> **Current state:** Phases **0–7B** + **8A**–**8D** complete on `main`. **Phase 8E** (Americas coords) on `feat/city-coords-america`. Release **`v1.2.0`** WIP. **Next: Phase 8F** (release + remaining AU/RU/BY/NZ coords). **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
 > **Build:** Single APK `com.prayertime` (~23 MB debug). Privacy via Settings **offline-only toggle** (`offline_only`); no separate offline flavor.
 > **Calculation:** Umm al-Qura + Shafi + twilight (≥48°N); `adhan-java` when offline-only; Aladhan API when user disables offline mode.
-> **Tests:** `./gradlew testDebugUnitTest` — **432** JVM `@Test` (56 files); run `./scripts/smoke-ci.sh` for full gate.
+> **Tests:** `./gradlew testDebugUnitTest` — **434** JVM `@Test` (56 files); run `./scripts/smoke-ci.sh` for full gate.
 > **Docs language:** English. **Architecture graphs:** Graphify + Mermaid below.
 > **Phase 5 manual QA:** **5C.2**, **5D**, **5F.3** signed off Jun 2026 (user device verification).
 
@@ -64,8 +64,9 @@
 | **Phase 8A** manual lat/lng wizard | **Complete** — `feat/manual-coords-wizard`; see §8 |
 | **Phase 8B** Europe city coords | **Complete** — 574/574 EU picker cities; merged PR **#43** |
 | **Phase 8C** Africa city coords | **Complete** — 407/407; merged PR **#44** |
-| **Phase 8D** Asia city coords | **Active** — 920/920 Asia picker cities; `feat/city-coords-asia` |
-| **Phase 8E** America city coords | **Planned** — see §8 |
+| **Phase 8D** Asia city coords | **Complete** — 920/920; merged PR **#45** |
+| **Phase 8E** Americas city coords | **Active** — 105/105 Americas picker cities; `feat/city-coords-america` |
+| **Phase 8F** release + catalog tail | **Planned** — 47 remaining (AU/RU/BY/NZ); see §8 |
 
 ---
 
@@ -209,17 +210,17 @@ Maintain an up-to-date code graph after each phase gate. Full CLI lifecycle: [`g
 
 ---
 
-## Post-7B — active work (Phase 8E)
+## Post-7B — active work (Phase 8F)
 
-**Branch from:** `main` after **8D** merge.
+**Branch from:** `main` after **8E** merge.
 
 | Rule | Detail |
 |------|--------|
-| **Shipped** | Phases **0–7B** + **8A**–**8D**; release **`v1.2.0`** WIP |
-| **Active** | **Phase 8E** — America `knownCityCoords` fill |
-| **Next** | **Phase 8F** — release + README catalog note |
-| **Branching** | `feat/city-coords-america` after 8D merge; `./scripts/smoke-ci.sh` before merge |
-| **Graphify** | After `locations.json` or `scripts/fill_asia_coords.py` changes |
+| **Shipped** | Phases **0–7B** + **8A**–**8E**; **`v1.2.0`** WIP; catalog **2009/2056** coords |
+| **Active** | **Phase 8F** — fill AU/RU/BY/NZ tail (47 cities) + release |
+| **Next** | Tag **`v1.2.0`**, GitHub release APK |
+| **Branching** | `feat/city-coords-tail` or release branch; `./scripts/smoke-ci.sh` before merge |
+| **Graphify** | After `locations.json` or `scripts/fill_america_coords.py` changes |
 
 ---
 
@@ -279,13 +280,16 @@ Maintain an up-to-date code graph after each phase gate. Full CLI lifecycle: [`g
 - [x] **8D.2** `locations.json` — 920/920 Asia picker cities have `knownCityCoords`
 - [x] **8D.3** Tests — `every_asia_picker_city_resolves_to_found` + Tokyo/Singapore spot checks
 
-### 8E — America coord fill
+### 8E — Americas coord fill (complete)
 
-- [ ] **8E** America
+- [x] **8E.1** `scripts/fill_america_coords.py` — Nominatim + cache; 98 coords added
+- [x] **8E.2** `locations.json` — 105/105 Americas picker cities (AR/BR/CA/CL/CO/PE/US/UY/VE)
+- [x] **8E.3** Tests — `every_americas_picker_city_resolves_to_found` + São Paulo/Toronto spot checks
 
-### 8F — Release
+### 8F — Release + catalog tail
 
-- [ ] Update README catalog note; version bump; APK size gate
+- [ ] **8F.1** Fill remaining **47** picker cities (AU 12, RU 15, BY 10, NZ 10)
+- [ ] **8F.2** Update README catalog note; version bump; APK size gate
 
 See [wiki/Phase-8-City-Catalog](https://github.com/karimVentus/Private-Prayer/wiki/Phase-8-City-Catalog) for wizard flow diagram.
 

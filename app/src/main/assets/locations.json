@@ -13521,6 +13521,496 @@
       "latitude": 13.755,
       "longitude": 109.177,
       "timezone": "Asia/Ho_Chi_Minh"
+    },
+    "AR_Buenos Aires": {
+      "latitude": -34.61,
+      "longitude": -58.389,
+      "timezone": "America/Argentina/Buenos_Aires"
+    },
+    "AR_Córdoba": {
+      "latitude": -31.417,
+      "longitude": -64.183,
+      "timezone": "America/Argentina/Buenos_Aires"
+    },
+    "AR_Rosario": {
+      "latitude": -32.959,
+      "longitude": -60.662,
+      "timezone": "America/Argentina/Buenos_Aires"
+    },
+    "AR_Mendoza": {
+      "latitude": -34.597,
+      "longitude": -68.73,
+      "timezone": "America/Argentina/Buenos_Aires"
+    },
+    "AR_La Plata": {
+      "latitude": -34.921,
+      "longitude": -57.954,
+      "timezone": "America/Argentina/Buenos_Aires"
+    },
+    "AR_San Miguel de Tucumán": {
+      "latitude": -26.83,
+      "longitude": -65.204,
+      "timezone": "America/Argentina/Buenos_Aires"
+    },
+    "AR_Salta": {
+      "latitude": -25.227,
+      "longitude": -64.591,
+      "timezone": "America/Argentina/Buenos_Aires"
+    },
+    "AR_Mar del Plata": {
+      "latitude": -37.998,
+      "longitude": -57.548,
+      "timezone": "America/Argentina/Buenos_Aires"
+    },
+    "AR_Santa Fe": {
+      "latitude": -30.315,
+      "longitude": -61.165,
+      "timezone": "America/Argentina/Buenos_Aires"
+    },
+    "AR_San Juan": {
+      "latitude": -30.705,
+      "longitude": -69.199,
+      "timezone": "America/Argentina/Buenos_Aires"
+    },
+    "BR_Brasília": {
+      "latitude": -15.794,
+      "longitude": -47.883,
+      "timezone": "America/Sao_Paulo"
+    },
+    "BR_São Paulo": {
+      "latitude": -23.551,
+      "longitude": -46.633,
+      "timezone": "America/Sao_Paulo"
+    },
+    "BR_Rio de Janeiro": {
+      "latitude": -22.911,
+      "longitude": -43.209,
+      "timezone": "America/Sao_Paulo"
+    },
+    "BR_Salvador": {
+      "latitude": -12.982,
+      "longitude": -38.481,
+      "timezone": "America/Sao_Paulo"
+    },
+    "BR_Fortaleza": {
+      "latitude": -3.793,
+      "longitude": -38.528,
+      "timezone": "America/Sao_Paulo"
+    },
+    "BR_Belo Horizonte": {
+      "latitude": -19.923,
+      "longitude": -43.945,
+      "timezone": "America/Sao_Paulo"
+    },
+    "BR_Manaus": {
+      "latitude": -3.132,
+      "longitude": -59.983,
+      "timezone": "America/Sao_Paulo"
+    },
+    "BR_Curitiba": {
+      "latitude": -25.43,
+      "longitude": -49.271,
+      "timezone": "America/Sao_Paulo"
+    },
+    "BR_Recife": {
+      "latitude": -8.058,
+      "longitude": -34.885,
+      "timezone": "America/Sao_Paulo"
+    },
+    "BR_Porto Alegre": {
+      "latitude": -30.032,
+      "longitude": -51.23,
+      "timezone": "America/Sao_Paulo"
+    },
+    "BR_Belém": {
+      "latitude": -1.451,
+      "longitude": -48.468,
+      "timezone": "America/Sao_Paulo"
+    },
+    "BR_Goiânia": {
+      "latitude": -16.681,
+      "longitude": -49.253,
+      "timezone": "America/Sao_Paulo"
+    },
+    "BR_Guarulhos": {
+      "latitude": -23.468,
+      "longitude": -46.528,
+      "timezone": "America/Sao_Paulo"
+    },
+    "BR_Campinas": {
+      "latitude": -22.906,
+      "longitude": -47.06,
+      "timezone": "America/Sao_Paulo"
+    },
+    "BR_São Luís": {
+      "latitude": -2.53,
+      "longitude": -44.296,
+      "timezone": "America/Sao_Paulo"
+    },
+    "CA_Calgary": {
+      "latitude": 51.046,
+      "longitude": -114.058,
+      "timezone": "America/Toronto"
+    },
+    "CA_Edmonton": {
+      "latitude": 53.546,
+      "longitude": -113.491,
+      "timezone": "America/Toronto"
+    },
+    "CA_Ottawa": {
+      "latitude": 45.421,
+      "longitude": -75.69,
+      "timezone": "America/Toronto"
+    },
+    "CA_Winnipeg": {
+      "latitude": 49.896,
+      "longitude": -97.138,
+      "timezone": "America/Toronto"
+    },
+    "CA_Quebec City": {
+      "latitude": 47.594,
+      "longitude": -52.717,
+      "timezone": "America/Toronto"
+    },
+    "CA_Hamilton": {
+      "latitude": 43.256,
+      "longitude": -79.873,
+      "timezone": "America/Toronto"
+    },
+    "CA_Kitchener": {
+      "latitude": 43.408,
+      "longitude": -80.439,
+      "timezone": "America/Toronto"
+    },
+    "CA_London": {
+      "latitude": 42.984,
+      "longitude": -81.25,
+      "timezone": "America/Toronto"
+    },
+    "CA_Halifax": {
+      "latitude": 44.649,
+      "longitude": -63.586,
+      "timezone": "America/Toronto"
+    },
+    "CA_Victoria": {
+      "latitude": 48.428,
+      "longitude": -123.365,
+      "timezone": "America/Toronto"
+    },
+    "CA_Windsor": {
+      "latitude": 42.286,
+      "longitude": -82.978,
+      "timezone": "America/Toronto"
+    },
+    "CA_Saskatoon": {
+      "latitude": 52.132,
+      "longitude": -106.661,
+      "timezone": "America/Toronto"
+    },
+    "CL_Santiago": {
+      "latitude": -33.438,
+      "longitude": -70.651,
+      "timezone": "America/Santiago"
+    },
+    "CL_Valparaíso": {
+      "latitude": -32.598,
+      "longitude": -70.853,
+      "timezone": "America/Santiago"
+    },
+    "CL_Concepción": {
+      "latitude": -36.829,
+      "longitude": -73.007,
+      "timezone": "America/Santiago"
+    },
+    "CL_La Serena": {
+      "latitude": -29.903,
+      "longitude": -71.252,
+      "timezone": "America/Santiago"
+    },
+    "CL_Antofagasta": {
+      "latitude": -23.646,
+      "longitude": -70.398,
+      "timezone": "America/Santiago"
+    },
+    "CL_Rancagua": {
+      "latitude": -34.17,
+      "longitude": -70.741,
+      "timezone": "America/Santiago"
+    },
+    "CL_Talca": {
+      "latitude": -35.427,
+      "longitude": -71.666,
+      "timezone": "America/Santiago"
+    },
+    "CL_Arica": {
+      "latitude": -18.479,
+      "longitude": -70.321,
+      "timezone": "America/Santiago"
+    },
+    "CL_Iquique": {
+      "latitude": -20.214,
+      "longitude": -70.152,
+      "timezone": "America/Santiago"
+    },
+    "CL_Puerto Montt": {
+      "latitude": -41.472,
+      "longitude": -72.94,
+      "timezone": "America/Santiago"
+    },
+    "CO_Bogotá": {
+      "latitude": 4.653,
+      "longitude": -74.084,
+      "timezone": "America/Bogota"
+    },
+    "CO_Medellín": {
+      "latitude": 6.27,
+      "longitude": -75.603,
+      "timezone": "America/Bogota"
+    },
+    "CO_Cali": {
+      "latitude": 3.411,
+      "longitude": -76.581,
+      "timezone": "America/Bogota"
+    },
+    "CO_Barranquilla": {
+      "latitude": 10.994,
+      "longitude": -74.793,
+      "timezone": "America/Bogota"
+    },
+    "CO_Cartagena": {
+      "latitude": 10.427,
+      "longitude": -75.544,
+      "timezone": "America/Bogota"
+    },
+    "CO_Cúcuta": {
+      "latitude": 8.078,
+      "longitude": -72.469,
+      "timezone": "America/Bogota"
+    },
+    "CO_Bucaramanga": {
+      "latitude": 7.167,
+      "longitude": -73.105,
+      "timezone": "America/Bogota"
+    },
+    "CO_Ibagué": {
+      "latitude": 4.439,
+      "longitude": -75.211,
+      "timezone": "America/Bogota"
+    },
+    "CO_Pereira": {
+      "latitude": 4.785,
+      "longitude": -75.788,
+      "timezone": "America/Bogota"
+    },
+    "CO_Santa Marta": {
+      "latitude": 11.232,
+      "longitude": -74.195,
+      "timezone": "America/Bogota"
+    },
+    "PE_Lima": {
+      "latitude": -12.046,
+      "longitude": -77.031,
+      "timezone": "America/Lima"
+    },
+    "PE_Arequipa": {
+      "latitude": -16.399,
+      "longitude": -71.537,
+      "timezone": "America/Lima"
+    },
+    "PE_Cusco": {
+      "latitude": -13.549,
+      "longitude": -71.894,
+      "timezone": "America/Lima"
+    },
+    "PE_Trujillo": {
+      "latitude": -8.112,
+      "longitude": -79.029,
+      "timezone": "America/Lima"
+    },
+    "PE_Chiclayo": {
+      "latitude": -6.772,
+      "longitude": -79.839,
+      "timezone": "America/Lima"
+    },
+    "PE_Piura": {
+      "latitude": -5.0,
+      "longitude": -80.333,
+      "timezone": "America/Lima"
+    },
+    "PE_Iquitos": {
+      "latitude": -3.749,
+      "longitude": -73.244,
+      "timezone": "America/Lima"
+    },
+    "PE_Huancayo": {
+      "latitude": -12.068,
+      "longitude": -75.21,
+      "timezone": "America/Lima"
+    },
+    "PE_Cajamarca": {
+      "latitude": -6.25,
+      "longitude": -78.833,
+      "timezone": "America/Lima"
+    },
+    "PE_Pucallpa": {
+      "latitude": -8.382,
+      "longitude": -74.539,
+      "timezone": "America/Lima"
+    },
+    "US_Phoenix": {
+      "latitude": 33.448,
+      "longitude": -112.074,
+      "timezone": "America/New_York"
+    },
+    "US_Philadelphia": {
+      "latitude": 39.953,
+      "longitude": -75.164,
+      "timezone": "America/New_York"
+    },
+    "US_San Antonio": {
+      "latitude": 29.425,
+      "longitude": -98.495,
+      "timezone": "America/New_York"
+    },
+    "US_San Diego": {
+      "latitude": 32.717,
+      "longitude": -117.163,
+      "timezone": "America/New_York"
+    },
+    "US_Dallas": {
+      "latitude": 32.776,
+      "longitude": -96.797,
+      "timezone": "America/New_York"
+    },
+    "US_San Jose": {
+      "latitude": 37.336,
+      "longitude": -121.891,
+      "timezone": "America/New_York"
+    },
+    "US_Austin": {
+      "latitude": 30.271,
+      "longitude": -97.744,
+      "timezone": "America/New_York"
+    },
+    "US_Boston": {
+      "latitude": 42.359,
+      "longitude": -71.058,
+      "timezone": "America/New_York"
+    },
+    "US_Seattle": {
+      "latitude": 47.604,
+      "longitude": -122.33,
+      "timezone": "America/New_York"
+    },
+    "US_Denver": {
+      "latitude": 39.739,
+      "longitude": -104.985,
+      "timezone": "America/New_York"
+    },
+    "US_Miami": {
+      "latitude": 25.774,
+      "longitude": -80.194,
+      "timezone": "America/New_York"
+    },
+    "UY_Montevideo": {
+      "latitude": -34.906,
+      "longitude": -56.191,
+      "timezone": "America/Montevideo"
+    },
+    "UY_Salto": {
+      "latitude": -31.389,
+      "longitude": -57.961,
+      "timezone": "America/Montevideo"
+    },
+    "UY_Paysandú": {
+      "latitude": -32.322,
+      "longitude": -58.089,
+      "timezone": "America/Montevideo"
+    },
+    "UY_Ciudad de la Costa": {
+      "latitude": -34.832,
+      "longitude": -55.963,
+      "timezone": "America/Montevideo"
+    },
+    "UY_Las Piedras": {
+      "latitude": -34.727,
+      "longitude": -56.216,
+      "timezone": "America/Montevideo"
+    },
+    "UY_Rivera": {
+      "latitude": -30.9,
+      "longitude": -55.541,
+      "timezone": "America/Montevideo"
+    },
+    "UY_Maldonado": {
+      "latitude": -34.909,
+      "longitude": -54.958,
+      "timezone": "America/Montevideo"
+    },
+    "UY_Tacuarembó": {
+      "latitude": -32.167,
+      "longitude": -55.5,
+      "timezone": "America/Montevideo"
+    },
+    "UY_Melo": {
+      "latitude": -32.368,
+      "longitude": -54.17,
+      "timezone": "America/Montevideo"
+    },
+    "UY_Mercedes": {
+      "latitude": -33.248,
+      "longitude": -58.03,
+      "timezone": "America/Montevideo"
+    },
+    "VE_Caracas": {
+      "latitude": 10.506,
+      "longitude": -66.915,
+      "timezone": "America/Caracas"
+    },
+    "VE_Maracaibo": {
+      "latitude": 10.65,
+      "longitude": -71.644,
+      "timezone": "America/Caracas"
+    },
+    "VE_Valencia": {
+      "latitude": 10.17,
+      "longitude": -68.0,
+      "timezone": "America/Caracas"
+    },
+    "VE_Barquisimeto": {
+      "latitude": 10.077,
+      "longitude": -69.322,
+      "timezone": "America/Caracas"
+    },
+    "VE_Maracay": {
+      "latitude": 10.238,
+      "longitude": -67.589,
+      "timezone": "America/Caracas"
+    },
+    "VE_Ciudad Guayana": {
+      "latitude": 8.31,
+      "longitude": -62.715,
+      "timezone": "America/Caracas"
+    },
+    "VE_Barcelona": {
+      "latitude": 10.147,
+      "longitude": -64.695,
+      "timezone": "America/Caracas"
+    },
+    "VE_Maturín": {
+      "latitude": 9.742,
+      "longitude": -63.189,
+      "timezone": "America/Caracas"
+    },
+    "VE_Mérida": {
+      "latitude": 8.557,
+      "longitude": -71.208,
+      "timezone": "America/Caracas"
+    },
+    "VE_Cumaná": {
+      "latitude": 10.45,
+      "longitude": -64.158,
+      "timezone": "America/Caracas"
     }
   }
 }

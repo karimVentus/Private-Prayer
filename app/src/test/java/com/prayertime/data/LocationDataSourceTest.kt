@@ -200,6 +200,42 @@ class LocationDataSourceTest {
     }
 
     @Test
+    fun every_americas_picker_city_resolves_to_found() {
+        val americasCountryCodes = listOf("AR", "BR", "CA", "CL", "CO", "PE", "US", "UY", "VE")
+        val failures = mutableListOf<String>()
+        for (countryCode in americasCountryCodes) {
+            val cities = LocationDataSource.loadedCatalog()?.citiesByCountry[countryCode] ?: emptyList()
+            for (city in cities) {
+                when (LocationDataSource.resolveCityCoordinates(countryCode, city)) {
+                    is CityResolutionResult.Found -> {}
+                    else -> failures.add("$countryCode:$city")
+                }
+            }
+        }
+        assertTrue(
+            "Americas picker cities without exact coords: ${failures.take(10)}${if (failures.size > 10) "..." else ""}",
+            failures.isEmpty(),
+        )
+    }
+
+    @Test
+    fun americas_reference_city_coords_match() {
+        val saoPaulo = LocationDataSource.resolveCityCoordinates("BR", "São Paulo")
+        assertTrue(saoPaulo is CityResolutionResult.Found)
+        saoPaulo as CityResolutionResult.Found
+        assertEquals(-23.552, saoPaulo.coords.latitude, 0.1)
+        assertEquals(-46.634, saoPaulo.coords.longitude, 0.1)
+        assertEquals("America/Sao_Paulo", saoPaulo.coords.timezone)
+
+        val toronto = LocationDataSource.resolveCityCoordinates("CA", "Toronto")
+        assertTrue(toronto is CityResolutionResult.Found)
+        toronto as CityResolutionResult.Found
+        assertEquals(43.653, toronto.coords.latitude, 0.1)
+        assertEquals(-79.383, toronto.coords.longitude, 0.1)
+        assertEquals("America/Toronto", toronto.coords.timezone)
+    }
+
+    @Test
     fun asia_reference_city_coords_match() {
         val tokyo = LocationDataSource.resolveCityCoordinates("JP", "Tokyo")
         assertTrue(tokyo is CityResolutionResult.Found)

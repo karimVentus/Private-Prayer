@@ -1,6 +1,6 @@
 # Phase 8 — City catalog coordinates + manual entry
 
-**Status:** **8A**–**8D** on `feat/city-coords-asia` (920/920 Asia picker cities). **8E** (America) next.
+**Status:** **8A**–**8E** on `feat/city-coords-america` (105/105 Americas picker cities). **8F** (tail + release) next. **47** cities remain (AU/RU/BY/NZ).
 
 ---
 
@@ -82,13 +82,16 @@ flowchart TD
 - [x] **8D.2** 320 coords added; Asia picker 920/920 covered
 - [x] **8D.3** `LocationDataSourceTest` — `every_asia_picker_city_resolves_to_found`
 
-### 8E — America coord fill
+### 8E — Americas coord fill (complete)
 
-- [ ] **8E** America
+- [x] **8E.1** `scripts/fill_america_coords.py` — OSM Nominatim + `.america-coords-cache.json`
+- [x] **8E.2** 98 coords added; Americas picker 105/105 covered
+- [x] **8E.3** `LocationDataSourceTest` — `every_americas_picker_city_resolves_to_found`
 
-### 8F — Release
+### 8F — Release + catalog tail
 
-- [ ] Update README catalog note; version bump; APK size gate
+- [ ] **8F.1** AU/RU/BY/NZ (47 cities)
+- [ ] **8F.2** README catalog note; version bump; APK size gate
 
 ---
 

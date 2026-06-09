@@ -8,7 +8,8 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
-JAVA_HOME="${JAVA_HOME:-$HOME/jdk21}"
+# shellcheck source=scripts/resolve-java-home.sh
+source "$ROOT_DIR/scripts/resolve-java-home.sh"
 SDK="${ANDROID_HOME:-$HOME/Android/Sdk}"
 ADB_BIN="$SDK/platform-tools/adb"
 EMULATOR_START="$ROOT_DIR/scripts/emulator-start"

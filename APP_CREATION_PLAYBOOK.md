@@ -233,6 +233,8 @@ Public docs must reflect real maturity.
 | BootCompletedReceiver stale alarms | **Fixed** | Null-city and notifications-denied boot paths now explicitly cancel stale alarm intents. |
 | Phase 5 hardening (Doze, perms, offline, DST, UI) | **Done (Jun 2026)** | 5A–5F signed off (emulator + device), incl. **5C.2**, **5D**, **5F.3** user verification. |
 | Qibla compass (city coords + magnetometer) | **Done (7A, Jun 2026)** | `QiblaScreen`, `QiblaCalculator`, `CompassSensor`/`CompassHeading`; portrait hold; dual-layer rotation; align haptic. Merged PR **#11**–**#13**. |
+| Compass calibration (7B) | **Active** | Geographic declination (`CompassGeographicField`), upright tilt gate, accuracy chip + auto tips, declination label. |
+| City catalog + manual coords (8) | **Planned** | EU→AF→AS→AM data; manual lat/lng wizard before bulk fill. |
 | L-widget layout parity | **Done (PR #13, Jun 2026)** | `widget_large_prayer_block.xml`; M-aligned columns + readable fonts; VM ticker test seam. |
 | Product name (Hayya / حيا) | **Done (v1.1.1)** | Launcher + widgets + Settings version string; GitHub release `Hayya-v*.apk`; package `com.prayertime` unchanged. |
 | Settings About section | **Done (v1.1.2)** | Bottom of Settings: Hayya description, GitHub repo link (`about_repo_url`), version line. |

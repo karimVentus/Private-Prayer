@@ -30,6 +30,13 @@ class CompassHeadingTest {
     }
 
     @Test
+    fun `applyUserOffset wraps within 0 to 360`() {
+        val adjusted = CompassHeading.applyUserOffset(350f, 20f)
+        assertTrue(adjusted in 0f..360f)
+        assertTrue(adjusted in 9f..11f)
+    }
+
+    @Test
     fun `readingFromRotationMatrix returns normalized azimuth`() {
         val identity =
             floatArrayOf(

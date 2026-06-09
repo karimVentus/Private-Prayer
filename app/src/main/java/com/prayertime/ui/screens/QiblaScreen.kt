@@ -24,6 +24,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Slider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -32,6 +33,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -48,12 +50,17 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.prayertime.R
+import com.prayertime.data.local.AppPreferencesDataSource
 import com.prayertime.di.CompassEntryPoint
 import com.prayertime.domain.calculator.QiblaCalculator
 import com.prayertime.sensor.CompassHeading
+import com.prayertime.sensor.CompassSensor
+import com.prayertime.sensor.CompassUprightGate
 import com.prayertime.ui.theme.AppSpacing
 import dagger.hilt.android.EntryPointAccessors
+import kotlinx.coroutines.launch
 import kotlin.math.cos
+import kotlin.math.roundToInt
 import kotlin.math.sin
 
 /**
@@ -78,27 +85,129 @@ fun QiblaScreen(
     val cardinalDir = remember(qiblaBearing) { QiblaCalculator.cardinalDirection(qiblaBearing) }
 
     val context = LocalContext.current
-    val compassSensor =
+    val compassEntryPoint =
         remember(context) {
             runCatching {
-                EntryPointAccessors
-                    .fromApplication(context.applicationContext, CompassEntryPoint::class.java)
-                    .compassSensor()
+                EntryPointAccessors.fromApplication(context.applicationContext, CompassEntryPoint::class.java)
             }.getOrNull()
         }
+    val compassSensor = compassEntryPoint?.compassSensor()
+    val appPreferences = compassEntryPoint?.appPreferences()
     val compassAvailable = compassSensor?.isAvailable ?: false
     val palette = calendarPalette()
+    val compassUi =
+        rememberQiblaCompassUiState(
+            context = context,
+            latitude = latitude,
+            longitude = longitude,
+            qiblaBearing = qiblaBearing,
+            compassSensor = compassSensor,
+            appPreferences = appPreferences,
+        )
 
+    Column(
+        modifier = modifier.fillMaxSize().background(palette.background),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        QiblaTitleRow(palette)
+        Spacer(modifier = Modifier.height(AppSpacing.screenVertical))
+        QiblaSensorStatus(
+            compassAvailable,
+            compassUi.displayAzimuth,
+            compassUi.isFacingQibla,
+            compassUi.isUpright,
+            compassUi.hasSensorSample,
+            palette,
+        )
+        QiblaCompassBox(
+            deviceAzimuth = compassUi.displayAzimuth,
+            qiblaBearing = qiblaBearing,
+            palette = palette,
+            modifier = Modifier.weight(1f),
+        )
+        QiblaInfoLabels(
+            qiblaBearing = qiblaBearing,
+            cardinalDir = cardinalDir,
+            cityLabel = cityLabel,
+            declinationDegrees = compassUi.declinationDegrees,
+            palette = palette,
+            resources = context.resources,
+        )
+        if (compassUi.showCalibrateHelp) {
+            QiblaCalibrateHelp(
+                palette = palette,
+                headingOffset = compassUi.headingOffset,
+                appPreferences = appPreferences,
+                onDismiss = { compassUi.setShowCalibrateHelp(false) },
+            )
+        } else {
+            QiblaCalibrationStatus(
+                accuracy = compassUi.accuracy,
+                compassAvailable = compassAvailable,
+                hasSensorSample = compassUi.hasSensorSample,
+                resources = context.resources,
+                onShowTips = { compassUi.setShowCalibrateHelp(true) },
+            )
+        }
+        if (showBackLink) {
+            QiblaCloseButton(onClose, palette, context.resources)
+        }
+    }
+}
+
+// ── Sub-composables ───────────────────────────────────────────────────────────
+
+private class QiblaCompassUiState(
+    val displayAzimuth: Float?,
+    val isFacingQibla: Boolean,
+    val isUpright: Boolean,
+    val hasSensorSample: Boolean,
+    val accuracy: Int,
+    val headingOffset: Float,
+    val declinationDegrees: Float,
+    val showCalibrateHelp: Boolean,
+    val setShowCalibrateHelp: (Boolean) -> Unit,
+)
+
+@Composable
+private fun rememberQiblaCompassUiState(
+    context: Context,
+    latitude: Double,
+    longitude: Double,
+    qiblaBearing: Float,
+    compassSensor: CompassSensor?,
+    appPreferences: AppPreferencesDataSource?,
+): QiblaCompassUiState {
     var azimuth by remember { mutableStateOf<Float?>(null) }
-    // Continuous heading for smooth 0°/360° wrap (same idea as RotateAnimation fillAfter).
     var smoothHeading by remember { mutableFloatStateOf(0f) }
     val accuracy by compassSensor?.accuracy?.collectAsState()
         ?: remember { mutableStateOf(SensorManager.SENSOR_STATUS_ACCURACY_HIGH) }
     var showCalibrateHelp by remember { mutableStateOf(false) }
-
+    var isUpright by remember { mutableStateOf(true) }
+    var hasSensorSample by remember { mutableStateOf(false) }
+    val declinationDegrees =
+        remember(latitude, longitude) {
+            com.prayertime.sensor.CompassGeographicField.correctionAt(latitude, longitude).declinationDegrees
+        }
+    var headingOffset by remember { mutableFloatStateOf(0f) }
+    LaunchedEffect(appPreferences) {
+        appPreferences?.compassHeadingOffsetDegrees?.collect { headingOffset = it }
+    }
+    LaunchedEffect(accuracy) {
+        if (
+            accuracy == SensorManager.SENSOR_STATUS_UNRELIABLE ||
+            accuracy == SensorManager.SENSOR_STATUS_ACCURACY_LOW
+        ) {
+            showCalibrateHelp = true
+        }
+    }
     LaunchedEffect(compassSensor, latitude, longitude) {
         val sensor = compassSensor ?: return@LaunchedEffect
         sensor.readings.collect { reading ->
+            hasSensorSample = true
+            val upright = CompassUprightGate.isUpright(reading.pitch, reading.roll)
+            isUpright = upright
+            if (!upright) return@collect
             val raw =
                 CompassHeading.toTrueNorth(
                     magneticAzimuth = reading.azimuth,
@@ -117,57 +226,49 @@ fun QiblaScreen(
             }
         }
     }
-
     val animatedHeading by animateFloatAsState(
         targetValue = smoothHeading,
         animationSpec = tween(durationMillis = 210, easing = LinearEasing),
         label = "compassAzimuth",
     )
-    val displayAzimuth: Float? = if (azimuth == null) null else animatedHeading
+    val displayAzimuth: Float? =
+        if (azimuth == null) {
+            null
+        } else {
+            CompassHeading.applyUserOffset(animatedHeading, headingOffset)
+        }
     val isFacingQibla =
-        displayAzimuth?.let { heading ->
-            isFacingQibla(qiblaBearing, heading)
-        } ?: false
+        displayAzimuth?.let { heading -> isFacingQibla(qiblaBearing, heading) } ?: false
     var wasFacingQibla by remember { mutableStateOf(false) }
-
     LaunchedEffect(isFacingQibla) {
         if (isFacingQibla && !wasFacingQibla) {
             vibrateQiblaAligned(context)
         }
         wasFacingQibla = isFacingQibla
     }
-
-    Column(
-        modifier = modifier.fillMaxSize().background(palette.background),
-        horizontalAlignment = Alignment.CenterHorizontally,
+    return remember(
+        displayAzimuth,
+        isFacingQibla,
+        isUpright,
+        hasSensorSample,
+        accuracy,
+        headingOffset,
+        declinationDegrees,
+        showCalibrateHelp,
     ) {
-        QiblaTitleRow(palette)
-        Spacer(modifier = Modifier.height(AppSpacing.screenVertical))
-        QiblaSensorStatus(compassAvailable, displayAzimuth, isFacingQibla, palette)
-        QiblaCompassBox(
-            deviceAzimuth = displayAzimuth,
-            qiblaBearing = qiblaBearing,
-            palette = palette,
-            modifier = Modifier.weight(1f),
+        QiblaCompassUiState(
+            displayAzimuth = displayAzimuth,
+            isFacingQibla = isFacingQibla,
+            isUpright = isUpright,
+            hasSensorSample = hasSensorSample,
+            accuracy = accuracy,
+            headingOffset = headingOffset,
+            declinationDegrees = declinationDegrees,
+            showCalibrateHelp = showCalibrateHelp,
+            setShowCalibrateHelp = { showCalibrateHelp = it },
         )
-        QiblaInfoLabels(qiblaBearing, cardinalDir, cityLabel, palette, context.resources)
-        if (showCalibrateHelp) {
-            QiblaCalibrateHelp(palette = palette, onDismiss = { showCalibrateHelp = false })
-        } else {
-            QiblaCalibrationStatus(
-                accuracy = accuracy,
-                compassAvailable = compassAvailable,
-                resources = context.resources,
-                onShowTips = { showCalibrateHelp = true },
-            )
-        }
-        if (showBackLink) {
-            QiblaCloseButton(onClose, palette, context.resources)
-        }
     }
 }
-
-// ── Sub-composables ───────────────────────────────────────────────────────────
 
 @Composable
 private fun QiblaTitleRow(palette: com.prayertime.ui.theme.CalendarPalette) {
@@ -193,6 +294,8 @@ private fun QiblaSensorStatus(
     compassAvailable: Boolean,
     azimuth: Float?,
     isFacingQibla: Boolean,
+    isUpright: Boolean,
+    hasSensorSample: Boolean,
     palette: com.prayertime.ui.theme.CalendarPalette,
 ) {
     val context = LocalContext.current
@@ -202,6 +305,15 @@ private fun QiblaSensorStatus(
                 text = context.getString(R.string.compass_not_available),
                 color = palette.textSecondary,
                 fontSize = 14.sp,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.padding(horizontal = AppSpacing.screenHorizontal),
+            )
+        hasSensorSample && !isUpright ->
+            Text(
+                text = context.getString(R.string.compass_tilted_hint),
+                color = Color(0xFFE65100),
+                fontSize = 13.sp,
+                fontWeight = FontWeight.Medium,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(horizontal = AppSpacing.screenHorizontal),
             )
@@ -444,6 +556,7 @@ private fun QiblaInfoLabels(
     qiblaBearing: Float,
     cardinalDir: String,
     cityLabel: String,
+    declinationDegrees: Float,
     palette: com.prayertime.ui.theme.CalendarPalette,
     resources: android.content.res.Resources,
 ) {
@@ -456,6 +569,17 @@ private fun QiblaInfoLabels(
             color = palette.textPrimary,
             fontSize = 16.sp,
             fontWeight = FontWeight.SemiBold,
+            textAlign = TextAlign.Center,
+        )
+        Spacer(modifier = Modifier.height(4.dp))
+        Text(
+            text =
+                resources.getString(
+                    R.string.compass_declination_format,
+                    declinationDegrees.toInt(),
+                ),
+            color = palette.textSecondary,
+            fontSize = 11.sp,
             textAlign = TextAlign.Center,
         )
         Spacer(modifier = Modifier.height(4.dp))
@@ -490,27 +614,47 @@ private fun QiblaCloseButton(
 private fun QiblaCalibrationStatus(
     accuracy: Int,
     compassAvailable: Boolean,
+    hasSensorSample: Boolean,
     resources: android.content.res.Resources,
     onShowTips: () -> Unit,
 ) {
     if (!compassAvailable) return
-    val isLowAccuracy =
-        accuracy == SensorManager.SENSOR_STATUS_UNRELIABLE ||
-            accuracy == SensorManager.SENSOR_STATUS_ACCURACY_LOW
+    val (accuracyLabel, accuracyColor) =
+        when (accuracy) {
+            SensorManager.SENSOR_STATUS_ACCURACY_HIGH ->
+                resources.getString(R.string.compass_accuracy_good) to Color(0xFF2E7D32)
+            SensorManager.SENSOR_STATUS_ACCURACY_MEDIUM ->
+                resources.getString(R.string.compass_accuracy_fair) to Color(0xFFF9A825)
+            else ->
+                resources.getString(R.string.compass_accuracy_poor) to Color(0xFFE65100)
+        }
     Column(
         modifier = Modifier.fillMaxWidth().padding(horizontal = AppSpacing.screenHorizontal),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Spacer(modifier = Modifier.height(4.dp))
-        if (isLowAccuracy) {
+        if (hasSensorSample) {
+            Spacer(modifier = Modifier.height(4.dp))
             Text(
-                text = resources.getString(R.string.compass_low_accuracy),
-                color = Color(0xFFE65100),
+                text = accuracyLabel,
+                color = accuracyColor,
                 fontSize = 12.sp,
+                fontWeight = FontWeight.SemiBold,
                 textAlign = TextAlign.Center,
             )
-            Spacer(modifier = Modifier.height(4.dp))
+            if (
+                accuracy == SensorManager.SENSOR_STATUS_UNRELIABLE ||
+                accuracy == SensorManager.SENSOR_STATUS_ACCURACY_LOW
+            ) {
+                Spacer(modifier = Modifier.height(4.dp))
+                Text(
+                    text = resources.getString(R.string.compass_low_accuracy),
+                    color = Color(0xFFE65100),
+                    fontSize = 12.sp,
+                    textAlign = TextAlign.Center,
+                )
+            }
         }
+        Spacer(modifier = Modifier.height(4.dp))
         Text(
             text = resources.getString(R.string.compass_calibrate_tips),
             color = Color(0xFF1565C0),
@@ -525,8 +669,11 @@ private fun QiblaCalibrationStatus(
 @Composable
 private fun QiblaCalibrateHelp(
     palette: com.prayertime.ui.theme.CalendarPalette,
+    headingOffset: Float,
+    appPreferences: AppPreferencesDataSource?,
     onDismiss: () -> Unit,
 ) {
+    val scope = rememberCoroutineScope()
     Column(
         modifier = Modifier.fillMaxWidth().padding(horizontal = AppSpacing.screenHorizontal),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -556,6 +703,30 @@ private fun QiblaCalibrateHelp(
             textAlign = TextAlign.Center,
             lineHeight = 15.sp,
         )
+        if (appPreferences != null) {
+            Spacer(modifier = Modifier.height(10.dp))
+            Text(
+                text =
+                    stringResource(
+                        R.string.compass_offset_label,
+                        headingOffset.roundToInt(),
+                    ),
+                color = palette.textSecondary,
+                fontSize = 11.sp,
+                textAlign = TextAlign.Center,
+            )
+            Slider(
+                value = headingOffset,
+                onValueChange = { value ->
+                    scope.launch {
+                        appPreferences.setCompassHeadingOffsetDegrees(value.roundToInt().toFloat())
+                    }
+                },
+                valueRange = AppPreferencesDataSource.COMPASS_OFFSET_MIN..AppPreferencesDataSource.COMPASS_OFFSET_MAX,
+                steps = 30,
+                modifier = Modifier.fillMaxWidth(),
+            )
+        }
         Text(
             text = stringResource(R.string.compass_calibrate_cancel),
             color = palette.textSecondary,

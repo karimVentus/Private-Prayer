@@ -6,6 +6,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.floatPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.prayertime.locale.AppLocale
@@ -32,6 +33,26 @@ class AppPreferencesDataSource
         private val appLanguageInitializedKey = booleanPreferencesKey("app_language_initialized")
         private val adhanSoundKey = stringPreferencesKey("adhan_sound")
         private val appThemeKey = stringPreferencesKey("app_theme")
+        private val compassHeadingOffsetKey = floatPreferencesKey("compass_heading_offset_deg")
+
+        val compassHeadingOffsetDegrees: Flow<Float> =
+            context.appSettingsStore.data.map { prefs ->
+                (prefs[compassHeadingOffsetKey] ?: 0f).coerceIn(
+                    COMPASS_OFFSET_MIN,
+                    COMPASS_OFFSET_MAX,
+                )
+            }
+
+        suspend fun setCompassHeadingOffsetDegrees(offset: Float) {
+            context.appSettingsStore.edit { prefs ->
+                val clamped = offset.coerceIn(COMPASS_OFFSET_MIN, COMPASS_OFFSET_MAX)
+                if (clamped == 0f) {
+                    prefs.remove(compassHeadingOffsetKey)
+                } else {
+                    prefs[compassHeadingOffsetKey] = clamped
+                }
+            }
+        }
 
         val adhanNotificationsEnabled: Flow<Boolean> =
             context.appSettingsStore.data.map { prefs ->
@@ -252,6 +273,8 @@ class AppPreferencesDataSource
         suspend fun isPrayerMuted(prayer: String): Boolean = mutedPrayers.first().contains(prayer)
 
         companion object {
+            const val COMPASS_OFFSET_MIN = -15f
+            const val COMPASS_OFFSET_MAX = 15f
             const val DEFAULT_ADHAN_SOUND = AdhanSoundResolver.DEFAULT_KEY
             private const val THEME_CACHE_PREFS = "widget_theme_cache"
             private const val APP_THEME_CACHE_KEY = "app_theme"

@@ -37,4 +37,4 @@ Open-source Android app ([karimVentus/Private-Prayer](https://github.com/karimVe
 
 ## Current focus
 
-**Phase 8** — fill `knownCityCoords` worldwide (Europe → Africa → Asia → America) and add a **manual latitude/longitude** path in the city wizard for regions without bundled coords. See [Phase 8 — City catalog](Phase-8-City-Catalog).
+**Phase 7B** — compass geographic calibration (declination, upright tilt gate, accuracy UI). Then **Phase 8** — city coords + manual lat/lng. See [Roadmap](Roadmap).

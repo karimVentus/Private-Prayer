@@ -128,25 +128,38 @@ class LocationDataSourceTest {
     }
 
     @Test
-    fun regional_picker_cities_have_bundled_coords() {
-        val filledRegionCountryCodes =
-            listOf(
-                // Europe
-                "AL", "AD", "AT", "BE", "BA", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE",
-                "GR", "HU", "IS", "IE", "IT", "XK", "LV", "LT", "LU", "MT", "MD", "MC", "ME", "MK",
-                "NL", "NO", "PL", "PT", "RO", "RS", "SK", "SI", "ES", "SE", "CH", "UA", "GB", "VA",
-                // Africa
-                "DJ", "DZ", "EG", "ET", "GH", "KE", "KM", "LY", "MA", "MR", "NG", "SD", "SL", "SN",
-                "SO", "TN", "TZ", "ZA",
-                // Asia
-                "AF", "AM", "AZ", "BH", "BD", "BN", "KH", "CN", "GE", "IN", "ID", "IR", "IQ", "IL",
-                "JO", "JP", "KZ", "KW", "KG", "LA", "LB", "MY", "MV", "MN", "MM", "NP", "OM", "PK",
-                "PS", "PH", "QA", "SA", "SG", "KR", "LK", "SY", "TW", "TJ", "TH", "TL", "TR", "TM",
-                "AE", "UZ", "VN", "YE",
-                // Americas
-                "AR", "BR", "CA", "CL", "CO", "PE", "US", "UY", "VE",
-            )
-        assertEveryPickerCityHasKnownCoords(filledRegionCountryCodes)
+    fun every_picker_city_has_bundled_coords() {
+        val catalog = LocationDataSource.loadedCatalog()!!
+        val coords = catalog.knownCityCoords
+        val failures = mutableListOf<String>()
+        for ((countryCode, cities) in catalog.citiesByCountry) {
+            for (city in cities) {
+                if ("${countryCode}_$city" !in coords) {
+                    failures.add("$countryCode:$city")
+                }
+            }
+        }
+        assertTrue(
+            "Picker cities without bundled coords: ${failures.take(10)}${if (failures.size > 10) "..." else ""}",
+            failures.isEmpty(),
+        )
+    }
+
+    @Test
+    fun catalog_tail_reference_city_coords_match() {
+        val perth = LocationDataSource.resolveCityCoordinates("AU", "Perth")
+        assertTrue(perth is CityResolutionResult.Found)
+        perth as CityResolutionResult.Found
+        assertEquals(-31.952, perth.coords.latitude, 0.1)
+        assertEquals(115.861, perth.coords.longitude, 0.1)
+        assertEquals("Australia/Perth", perth.coords.timezone)
+
+        val moscow = LocationDataSource.resolveCityCoordinates("RU", "Moscow")
+        assertTrue(moscow is CityResolutionResult.Found)
+        moscow as CityResolutionResult.Found
+        assertEquals(55.626, moscow.coords.latitude, 0.1)
+        assertEquals(37.606, moscow.coords.longitude, 0.1)
+        assertEquals("Europe/Moscow", moscow.coords.timezone)
     }
 
     @Test
@@ -228,24 +241,6 @@ class LocationDataSourceTest {
         }
         assertTrue(
             "Picker cities without exact coords: ${failures.take(10)}${if (failures.size > 10) "..." else ""}",
-            failures.isEmpty(),
-        )
-    }
-
-    /** Fast catalog key check — avoids per-city resolveCityCoordinates on ~2000 picker rows in CI. */
-    private fun assertEveryPickerCityHasKnownCoords(countryCodes: List<String>) {
-        val catalog = LocationDataSource.loadedCatalog()!!
-        val coords = catalog.knownCityCoords
-        val failures = mutableListOf<String>()
-        for (countryCode in countryCodes) {
-            for (city in catalog.citiesByCountry[countryCode] ?: emptyList()) {
-                if ("${countryCode}_$city" !in coords) {
-                    failures.add("$countryCode:$city")
-                }
-            }
-        }
-        assertTrue(
-            "Picker cities without bundled coords: ${failures.take(10)}${if (failures.size > 10) "..." else ""}",
             failures.isEmpty(),
         )
     }

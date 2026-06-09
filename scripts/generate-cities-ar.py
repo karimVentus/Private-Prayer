@@ -14,6 +14,14 @@ LOCATIONS = ROOT / "app/src/main/assets/locations.json"
 CACHE = Path(__file__).resolve().parent / ".city-ar-cache.json"
 OUT = ROOT / "app/src/main/assets/cities_ar.json"
 
+# City names that machine translation mishandles (e.g. Perm → "permanent wave").
+MANUAL_OVERRIDES: dict[str, str] = {
+    "Perm": "بيرم",
+    "Yekaterinburg": "يكاترينبورغ",
+    "Voronezh": "فورونيج",
+    "Volgograd": "فولغوغراد",
+}
+
 
 def ensure_translator():
     try:
@@ -40,6 +48,9 @@ def main() -> int:
     print(f"Translating {total} unique city names…")
 
     for index, city in enumerate(unique, start=1):
+        if city in MANUAL_OVERRIDES:
+            cache[city] = MANUAL_OVERRIDES[city]
+            continue
         if city in cache and cache[city].strip():
             continue
         try:

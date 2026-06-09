@@ -1,10 +1,10 @@
 # Hayya (حيا) — Phased Implementation Plan
 
 > **Product:** **Hayya** (EN) / **حيا** (AR) — privacy-first prayer-times app. Package **`com.prayertime`** unchanged.
-> **Current state:** Phases **0–7B** + **8A**–**8E** complete on `main`. **Phase 8F** (catalog tail + **`v1.2.0`** release) on `feat/city-coords-tail`. Catalog **2056/2056** picker cities with `knownCityCoords`. **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
+> **Current state:** Phases **0–8G** complete on `feat/city-coords-tail` (PR **#47**). Catalog **2766/2766** picker cities with `knownCityCoords`; **0** empty catalog countries. **`v1.2.0`** release after merge. **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
 > **Build:** Single APK `com.prayertime` (~23 MB debug). Privacy via Settings **offline-only toggle** (`offline_only`); no separate offline flavor.
 > **Calculation:** Umm al-Qura + Shafi + twilight (≥48°N); `adhan-java` when offline-only; Aladhan API when user disables offline mode.
-> **Tests:** `./gradlew testDebugUnitTest` — **432** JVM `@Test` (56 files); run `./scripts/smoke-ci.sh` for full gate.
+> **Tests:** `./gradlew testDebugUnitTest` — **438** JVM `@Test` (56 files); run `./scripts/smoke-ci.sh` for full gate.
 > **Docs language:** English. **Architecture graphs:** Graphify + Mermaid below.
 > **Phase 5 manual QA:** **5C.2**, **5D**, **5F.3** signed off Jun 2026 (user device verification).
 
@@ -66,8 +66,8 @@
 | **Phase 8C** Africa city coords | **Complete** — 407/407; merged PR **#44** |
 | **Phase 8D** Asia city coords | **Complete** — 920/920; merged PR **#45** |
 | **Phase 8E** Americas city coords | **Complete** — 105/105; merged PR **#46** |
-| **Phase 8** city catalog | **Complete** — **2056/2056** picker cities; `feat/city-coords-tail` (8F) |
-| **Release v1.2.0** | **WIP** — `versionCode` 10; tag + GitHub APK after 8F merge |
+| **Phase 8** city catalog | **Complete** — **2766/2766** picker cities; 8C.4 Africa + 8G remaining; PR **#47** |
+| **Release v1.2.0** | **WIP** — `versionCode` 10; tag + GitHub APK after **#47** merge |
 
 ---
 
@@ -217,9 +217,9 @@ Maintain an up-to-date code graph after each phase gate. Full CLI lifecycle: [`g
 
 | Rule | Detail |
 |------|--------|
-| **Shipped** | Phases **0–7B** + **8** (catalog **2056/2056**); **`v1.2.0`** on `feat/city-coords-tail` |
-| **Active** | Tag **`v1.2.0`**, `./scripts/publish-release.sh`, GitHub APK |
-| **Branching** | Merge `feat/city-coords-tail` then release; `./scripts/smoke-ci.sh` before tag |
+| **Shipped** | Phases **0–8G** (catalog **2766/2766**); **`v1.2.0`** on `feat/city-coords-tail` |
+| **Active** | Merge PR **#47**, tag **`v1.2.0`**, `./scripts/publish-release.sh` |
+| **Branching** | `./scripts/smoke-ci.sh` green before merge; debug APK gate **30 MB** |
 | **Graphify** | After `locations.json` complete — run `graphify update` |
 
 ---
@@ -273,6 +273,8 @@ Maintain an up-to-date code graph after each phase gate. Full CLI lifecycle: [`g
 - [x] **8C.1** `scripts/fill_africa_coords.py` — Nominatim + cache; 100 coords added
 - [x] **8C.2** `locations.json` — 407/407 Africa picker cities have `knownCityCoords`
 - [x] **8C.3** Tests — `every_africa_picker_city_resolves_to_found` + Lagos/Nairobi spot checks
+- [x] **8C.4** `scripts/add_africa_cities.py` + `fill_africa_expansion_coords.py` — 33 countries × 10 cities (+330); **51/51** African catalog countries have picker cities; **737/737** Africa coords
+- [x] **8G** `scripts/add_remaining_cities.py` + `fill_remaining_coords.py` — 38 countries × 10 cities (+380); **0** empty catalog countries; global **2766/2766** coords
 
 ### 8D — Asia coord fill (complete)
 
@@ -289,7 +291,7 @@ Maintain an up-to-date code graph after each phase gate. Full CLI lifecycle: [`g
 ### 8F — Release + catalog tail (complete)
 
 - [x] **8F.1** `scripts/fill_catalog_tail_coords.py` — AU/RU/BY/NZ (47 coords); per-city TZ for AU/RU
-- [x] **8F.2** Catalog **2056/2056**; README updated; `versionCode` 10 / `versionName` 1.2.0
+- [x] **8F.2** Catalog tail + global expansion → **2766/2766**; README updated; `versionCode` 10 / `versionName` 1.2.0
 - [x] **8F.3** Tests — `every_picker_city_has_bundled_coords` + Perth/Moscow spot checks
 - [ ] **8F.4** Tag **`v1.2.0`** + GitHub release (post-merge)
 

@@ -33,7 +33,7 @@ Package: `com.prayertime`
 ./scripts/smoke-ci.sh
 ```
 
-Runs debug build, **414** JVM unit tests, APK size check (~25 MB limit). Live HTTP tests skip unless `PRAYERTIME_LIVE_HTTP=1`.
+Runs debug build, **437** JVM unit tests, APK size check (~30 MB limit). Live HTTP tests skip unless `PRAYERTIME_LIVE_HTTP=1`.
 
 ## Branching
 

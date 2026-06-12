@@ -41,18 +41,27 @@ cmd_audit() {
   local issues=0
 
   if grep -q 'WAKE_LOCK' "$ROOT_DIR/app/src/main/AndroidManifest.xml" 2>/dev/null; then
-    echo "FAIL: WAKE_LOCK permission in manifest"
-    issues=$((issues + 1))
+    if grep -q 'setWakeMode' "$ROOT_DIR/app/src/main/java/com/prayertime/notification/AdhanAlertDeliverer.kt" 2>/dev/null; then
+      echo "OK: WAKE_LOCK declared for adhan MediaPlayer playback only"
+    else
+      echo "FAIL: WAKE_LOCK in manifest but no setWakeMode in AdhanAlertDeliverer"
+      issues=$((issues + 1))
+    fi
   else
-    echo "OK: no WAKE_LOCK permission in manifest"
+    echo "FAIL: missing WAKE_LOCK permission (adhan cannot play in Doze / screen-off)"
+    issues=$((issues + 1))
   fi
 
-  if grep -rE 'WakeLock|\.acquire\(|PARTIAL_WAKE_LOCK' "$ROOT_DIR/app/src/main/java" 2>/dev/null | grep -v '.kt:.*PowerManager' | grep -q .; then
-    echo "FAIL: WakeLock usage in main source"
-    grep -rE 'WakeLock|\.acquire\(|PARTIAL_WAKE_LOCK' "$ROOT_DIR/app/src/main/java" || true
+  if grep -rE 'WakeLock|\.acquire\(|PARTIAL_WAKE_LOCK' "$ROOT_DIR/app/src/main/java" 2>/dev/null \
+    | grep -v 'AdhanAlertDeliverer.kt' \
+    | grep -v '.kt:.*PowerManager' \
+    | grep -q .; then
+    echo "FAIL: WakeLock usage outside AdhanAlertDeliverer"
+    grep -rE 'WakeLock|\.acquire\(|PARTIAL_WAKE_LOCK' "$ROOT_DIR/app/src/main/java" \
+      | grep -v 'AdhanAlertDeliverer.kt' || true
     issues=$((issues + 1))
   else
-    echo "OK: no WakeLock.acquire in app code"
+    echo "OK: no manual WakeLock.acquire outside adhan playback"
   fi
 
   if grep -q 'FOREGROUND_SERVICE' "$ROOT_DIR/app/src/main/AndroidManifest.xml" 2>/dev/null; then
@@ -125,7 +134,7 @@ cmd_wakelocks() {
   app_installed || die "$PACKAGE not installed"
   section "5A.3 runtime — wakelocks & jobs ($PACKAGE)"
 
-  echo "--- Active partial wakelocks (should be empty for PrayerTime) ---"
+  echo "--- Active partial wakelocks (expect none except brief adhan playback) ---"
   "$ADB" shell dumpsys power | grep -i -A2 "$PACKAGE" || echo "(none for $PACKAGE)"
 
   echo ""

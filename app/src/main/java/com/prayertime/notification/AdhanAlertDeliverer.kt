@@ -3,13 +3,16 @@ package com.prayertime.notification
 import android.content.Context
 import android.media.AudioAttributes
 import android.media.MediaPlayer
+import android.os.PowerManager
 import com.prayertime.data.local.AppPreferencesDataSource
 import com.prayertime.domain.model.Prayer
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.suspendCancellableCoroutine
 import java.io.File
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlin.coroutines.resume
 
 /** Shows the adhan notification and plays audio (shared by alarm receiver and in-app unmute). */
 @Singleton
@@ -34,21 +37,50 @@ class AdhanAlertDeliverer
             }
         }
 
-        private fun playAdhanSound(soundPref: String) {
-            try {
-                val player = MediaPlayer()
-                player.setAudioAttributes(
-                    AudioAttributes.Builder()
-                        .setUsage(AudioAttributes.USAGE_ALARM)
-                        .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-                        .build(),
-                )
-                player.setOnCompletionListener { it.release() }
-                setAdhanDataSource(player, soundPref) ?: return
-                player.prepare()
-                player.start()
-            } catch (_: Exception) {
-                // Notification still shown if audio fails
+        /**
+         * Plays adhan to completion. Uses [MediaPlayer.setWakeMode] so playback survives Doze /
+         * screen-off (e.g. airplane mode overnight). Caller must keep the broadcast [goAsync] scope
+         * alive until this suspend function returns.
+         */
+        private suspend fun playAdhanSound(soundPref: String) {
+            suspendCancellableCoroutine { cont ->
+                var player: MediaPlayer? = null
+
+                fun finishPlayback() {
+                    player?.release()
+                    player = null
+                    if (cont.isActive) cont.resume(Unit)
+                }
+
+                cont.invokeOnCancellation { finishPlayback() }
+
+                try {
+                    player =
+                        MediaPlayer().apply {
+                            setAudioAttributes(
+                                AudioAttributes.Builder()
+                                    .setUsage(AudioAttributes.USAGE_ALARM)
+                                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                                    .build(),
+                            )
+                            setWakeMode(context.applicationContext, PowerManager.PARTIAL_WAKE_LOCK)
+                            setOnCompletionListener { finishPlayback() }
+                            setOnErrorListener { mp, _, _ ->
+                                mp.release()
+                                player = null
+                                if (cont.isActive) cont.resume(Unit)
+                                true
+                            }
+                        }
+                    if (!setAdhanDataSource(checkNotNull(player), soundPref)) {
+                        finishPlayback()
+                        return@suspendCancellableCoroutine
+                    }
+                    checkNotNull(player).prepare()
+                    checkNotNull(player).start()
+                } catch (_: Exception) {
+                    finishPlayback()
+                }
             }
         }
 

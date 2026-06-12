@@ -28,7 +28,7 @@ import org.robolectric.shadows.ShadowPowerManager
  *
  * 5A.1 — Alarms use Doze-safe APIs (setAlarmClock, setAndAllowWhileIdle)
  * 5A.2 — AlarmManager triggers in Doze (RTC_WAKEUP + AlarmClockInfo)
- * 5A.3 — No wakelock leaks in alarm receiver or worker
+ * 5A.3 — No wakelock leaks outside adhan playback; scheduler/workers stay lock-free
  */
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34])

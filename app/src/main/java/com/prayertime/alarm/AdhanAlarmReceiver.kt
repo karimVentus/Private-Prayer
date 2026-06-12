@@ -31,7 +31,7 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
         val pendingResult = goAsync()
         alarmScope.launch {
             try {
-                adhanAlertDeliverer.deliver(prayer)
+                adhanAlertDeliverer.deliver(prayer, detachedPlayback = true)
             } finally {
                 pendingResult.finish()
             }

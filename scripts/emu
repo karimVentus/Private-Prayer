@@ -71,11 +71,22 @@ echo "=============================================="
 echo "[emu] Removing legacy package com.prayertime.offline (old privacy-only APK)..."
 "$ADB_BIN" uninstall com.prayertime.offline >/dev/null 2>&1 || true
 
+install_debug() {
+  (
+    cd "$ROOT_DIR"
+    ./gradlew installDebug
+  )
+}
+
 echo "[emu] Building and installing debug ($APP_PACKAGE)..."
-(
-  cd "$ROOT_DIR"
-  ./gradlew installDebug
-)
+install_rc=0
+install_debug || install_rc=$?
+if [ "$install_rc" -ne 0 ]; then
+  echo "[emu] installDebug failed (often INSTALL_FAILED_UPDATE_INCOMPATIBLE after a release-signed APK)."
+  echo "[emu] Removing $APP_PACKAGE and retrying once..."
+  "$ADB_BIN" uninstall "$APP_PACKAGE" >/dev/null 2>&1 || true
+  install_debug
+fi
 
 if ! "$ADB_BIN" devices | awk 'NR>1 && $2=="device" { found=1 } END { exit !found }'; then
   echo "[emu] ERROR: No adb device. Logs: ${XDG_CACHE_HOME:-$HOME/.cache}/prayertime/emulator.log"

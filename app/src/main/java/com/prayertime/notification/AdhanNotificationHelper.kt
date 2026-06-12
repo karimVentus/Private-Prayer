@@ -21,8 +21,10 @@ class AdhanNotificationHelper
         companion object {
             const val CHANNEL_ID = "adhan"
             private const val NOTIFICATION_ID_ENABLED = 3990
-            private const val NOTIFICATION_ID_BASE = 4000
+            const val NOTIFICATION_ID_BASE = 4000
         }
+
+        fun notificationId(prayer: Prayer): Int = NOTIFICATION_ID_BASE + prayer.ordinal
 
         init {
             ensureChannel()
@@ -68,14 +70,11 @@ class AdhanNotificationHelper
             }
         }
 
-        fun showPrayerNotification(
+        fun buildPrayerNotification(
             prayer: Prayer,
             alertMode: AdhanAlertMode = AdhanAlertPolicy.mode(context),
-        ) {
+        ): android.app.Notification {
             ensureChannel()
-            val manager = context.getSystemService(NotificationManager::class.java) ?: return
-            if (!NotificationManagerCompat.from(context).areNotificationsEnabled()) return
-
             val title = context.getString(R.string.adhan_notification_title)
             val body = context.getString(R.string.adhan_notification_body, prayerLabel(prayer))
 
@@ -103,11 +102,21 @@ class AdhanNotificationHelper
                         .setSilent(true)
                 }
             }
+            return builder.build()
+        }
 
-            val notification = builder.build()
+        fun showPrayerNotification(
+            prayer: Prayer,
+            alertMode: AdhanAlertMode = AdhanAlertPolicy.mode(context),
+        ) {
+            ensureChannel()
+            val manager = context.getSystemService(NotificationManager::class.java) ?: return
+            if (!NotificationManagerCompat.from(context).areNotificationsEnabled()) return
+
+            val notification = buildPrayerNotification(prayer, alertMode)
 
             try {
-                manager.notify(NOTIFICATION_ID_BASE + prayer.ordinal, notification)
+                manager.notify(notificationId(prayer), notification)
             } catch (_: SecurityException) {
                 // POST_NOTIFICATIONS not granted on API 33+
             } catch (_: RuntimeException) {

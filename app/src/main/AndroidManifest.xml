@@ -10,6 +10,8 @@
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
 
     <application
         android:name=".PrayerTimeApplication"
@@ -36,6 +38,11 @@
         <receiver
             android:name=".alarm.AdhanAlarmReceiver"
             android:exported="false" />
+
+        <service
+            android:name=".notification.AdhanPlaybackService"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback" />
 
         <receiver
             android:name=".alarm.BootCompletedReceiver"

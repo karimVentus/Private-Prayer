@@ -65,10 +65,15 @@ cmd_audit() {
   fi
 
   if grep -q 'FOREGROUND_SERVICE' "$ROOT_DIR/app/src/main/AndroidManifest.xml" 2>/dev/null; then
-    echo "FAIL: foreground service declared"
-    issues=$((issues + 1))
+    if grep -q 'AdhanPlaybackService' "$ROOT_DIR/app/src/main/AndroidManifest.xml" 2>/dev/null; then
+      echo "OK: foreground service limited to AdhanPlaybackService (mediaPlayback)"
+    else
+      echo "FAIL: FOREGROUND_SERVICE declared without AdhanPlaybackService"
+      issues=$((issues + 1))
+    fi
   else
-    echo "OK: no foreground service"
+    echo "FAIL: missing FOREGROUND_SERVICE for adhan playback"
+    issues=$((issues + 1))
   fi
 
   echo ""

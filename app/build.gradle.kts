@@ -148,7 +148,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
 
     // WorkManager (daily prayer refresh)
-    implementation("androidx.work:work-runtime-ktx:2.9.1")
+    implementation("androidx.work:work-runtime-ktx:2.11.2")
 
     // Hilt
     implementation("com.google.dagger:hilt-android:2.52")
@@ -164,7 +164,7 @@ dependencies {
     testImplementation("androidx.test:core:1.7.0")
     testImplementation("org.robolectric:robolectric:4.14.1")
     testImplementation("org.json:json:20240303")
-    testImplementation("androidx.work:work-testing:2.9.1")
+    testImplementation("androidx.work:work-testing:2.11.2")
     testImplementation("io.mockk:mockk:1.13.13")
     testImplementation("com.squareup.okhttp3:mockwebserver:4.12.0")
 

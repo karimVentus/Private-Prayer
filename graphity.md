@@ -116,6 +116,6 @@ Tick **Graphify** checkbox in `PHASED_PLAN.md` for that phase.
 
 Use the graph to avoid stale imports when refactoring repository ↔ flavor-specific API ↔ calculator paths. **Do not** expect `PrayerApi` under `src/main/` after the flavor split.
 
-**Test counts (Jun 2026):** **414** JVM `@Test` in `app/src/test/java/` (56 files) + **3** instrumented (`androidTest`). Recount: `rg -c '@Test' app/src/test --glob '*.kt' | awk -F: '{s+=$2} END {print s}'`.
+**Test counts (Jun 2026):** **439** JVM `@Test` in `app/src/test/java/` (56 files) + **3** instrumented (`androidTest`). Recount: `rg -c '@Test' app/src/test --glob '*.kt' | awk -F: '{s+=$2} END {print s}'`.
 
-**Last Graphify run:** 2026-06-08 — **5252** nodes, **99405** edges (v1.1.5 bottom nav + inset fixes).
+**Last Graphify run:** 2026-06-18 — **8488** nodes, **116352** edges (v1.2.1 Umm al-Qura Hijri + `UmmAlQuraEpochMonths`).

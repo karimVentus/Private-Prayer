@@ -16,6 +16,7 @@ import androidx.work.testing.TestListenableWorkerBuilder
 import androidx.work.testing.WorkManagerTestInitHelper
 import com.prayertime.R
 import com.prayertime.testing.WidgetTestSupport
+import com.prayertime.widget.WidgetPrayerBoundaryScheduler
 import com.prayertime.widget.WidgetRemoteViewsBuilder
 import com.prayertime.widget.WidgetSize
 import com.prayertime.widget.WidgetSnapshot
@@ -235,7 +236,7 @@ class WidgetRefreshWorkTest {
             WidgetTestSupport.registerMediumWidget(context)
             val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as android.app.AlarmManager
             val shadowAlarm = Shadows.shadowOf(alarmManager)
-            val alarmsBefore = shadowAlarm.scheduledAlarms.size
+            WidgetPrayerBoundaryScheduler.cancel(context)
 
             val worker =
                 TestListenableWorkerBuilder<WidgetUpdateWorker>(context)
@@ -247,16 +248,22 @@ class WidgetRefreshWorkTest {
             assertEquals(ListenableWorker.Result.success(), result)
             val snapshot = stack.loader.load()
             assertEquals(WidgetSnapshot.State.READY, snapshot.state)
+            val expectedBoundary =
+                WidgetPrayerBoundaryScheduler.nextBoundaryTimestamp(snapshot.times, snapshot.timezone)
+            assertTrue(
+                "Expected a future prayer boundary for widget alarms",
+                expectedBoundary != null,
+            )
+            assertTrue(
+                "Boundary alarm should be scheduled after refresh",
+                shadowAlarm.scheduledAlarms.any { it.triggerAtTime == expectedBoundary },
+            )
             val root =
                 WidgetRemoteViewsBuilder(context, stack.preferences)
                     .build(snapshot, WidgetSize.MEDIUM)
                     .apply(context, android.widget.FrameLayout(context))
             assertTrue(
                 root.findViewById<TextView>(R.id.widget_prayer_0)?.text?.isNotBlank() == true,
-            )
-            assertTrue(
-                "Boundary alarm should be scheduled after refresh",
-                shadowAlarm.scheduledAlarms.size > alarmsBefore,
             )
         }
 }

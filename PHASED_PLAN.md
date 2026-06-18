@@ -1,10 +1,10 @@
 # Hayya (حيا) — Phased Implementation Plan
 
 > **Product:** **Hayya** (EN) / **حيا** (AR) — privacy-first prayer-times app. Package **`com.prayertime`** unchanged.
-> **Current state:** Phases **0–8G** + **`v1.2.0`** release complete on `main`. Catalog **2766/2766** picker cities with `knownCityCoords`; **0** empty catalog countries. **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
+> **Current state:** Phases **0–8G** + **`v1.2.1`** release prep on `docs/umm-alqura-hijri-alignment`. Catalog **2766/2766** picker cities with `knownCityCoords`; **0** empty catalog countries. **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
 > **Build:** Single APK `com.prayertime` (~23 MB debug). Privacy via Settings **offline-only toggle** (`offline_only`); no separate offline flavor.
 > **Calculation:** Umm al-Qura + Shafi + twilight (≥48°N); `adhan-java` when offline-only; Aladhan API when user disables offline mode.
-> **Tests:** `./gradlew testDebugUnitTest` — **438** JVM `@Test` (56 files); run `./scripts/smoke-ci.sh` for full gate.
+> **Tests:** `./gradlew testDebugUnitTest` — **439** JVM `@Test` (56 files); run `./scripts/smoke-ci.sh` for full gate.
 > **Docs language:** English. **Architecture graphs:** Graphify + Mermaid below.
 > **Phase 5 manual QA:** **5C.2**, **5D**, **5F.3** signed off Jun 2026 (user device verification).
 
@@ -68,6 +68,8 @@
 | **Phase 8E** Americas city coords | **Complete** — 105/105; merged PR **#46** |
 | **Phase 8** city catalog | **Complete** — **2766/2766** picker cities; 8C.4 Africa + 8G remaining; PR **#47** |
 | **Release v1.2.0** | **Done** — `Hayya-v1.2.0.apk` (~13 MB release); tag **v1.2.0** |
+| **Hijri Umm al-Qura table** | **Done (Jun 2026)** — bundled OpenJDK month-start table (1300–1600 AH); tabular fallback outside range; fixes off-by-one Hijri dates; PR **#54** + **#56** |
+| **Release v1.2.1** | **Pending** — `versionCode` 11 / `versionName` 1.2.1; Umm al-Qura Hijri + adhan FGS fixes; tag after merge |
 
 ---
 
@@ -207,7 +209,7 @@ Maintain an up-to-date code graph after each phase gate. Full CLI lifecycle: [`g
 
 **Agent rule:** Run Graphify update when architecture boundaries change (new packages, repository paths, or phase completion).
 
-> **Last Graphify run:** 2026-06-08 — **5252** nodes, **99405** edges (v1.1.5: `AppBottomNavigationBar`, inset/theme fixes). Install: `uv tool install graphifyy`. Commit `graphify-out/` with structural PRs.
+> **Last Graphify run:** 2026-06-18 — **8488** nodes, **116352** edges (v1.2.1: Umm al-Qura Hijri table). Install: `uv tool install graphifyy`. Commit `graphify-out/` with structural PRs.
 
 ---
 

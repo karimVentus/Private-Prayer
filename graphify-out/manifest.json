@@ -10,8 +10,8 @@
     "semantic_hash": ""
   },
   "app/build.gradle.kts": {
-    "mtime": 1781043002.4033046,
-    "ast_hash": "4d7f92e8357a5b229c40f97dbbd8b548",
+    "mtime": 1781796757.5407343,
+    "ast_hash": "3dfec59b4730ea85402cbbd85ca4e22e",
     "semantic_hash": ""
   },
   "app/schemas/com.prayertime.data.local.AppDatabase/1.json": {
@@ -60,8 +60,8 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/alarm/AdhanAlarmReceiver.kt": {
-    "mtime": 1781028371.9117515,
-    "ast_hash": "3d650f805e294a2f475f95a538bbd719",
+    "mtime": 1781273274.4792657,
+    "ast_hash": "3f7fbe232c5028b0b98c5a55995a97ae",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/alarm/AdhanAlarmRescheduler.kt": {
@@ -90,7 +90,7 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/alarm/ShowIntentFactory.kt": {
-    "mtime": 1781028371.911837,
+    "mtime": 1781044506.1700387,
     "ast_hash": "d1352731cbf7f235a016c9afbf5b7aa0",
     "semantic_hash": ""
   },
@@ -245,8 +245,8 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/domain/calculator/HijriCalculator.kt": {
-    "mtime": 1780931911.1258795,
-    "ast_hash": "b75903b0f2a4f1e834f40d7ba3705113",
+    "mtime": 1781740918.2441742,
+    "ast_hash": "174fc1dea4b988c9e4ce686031f0bf3e",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/domain/calculator/LocalPrayerTimeCalculator.kt": {
@@ -365,8 +365,8 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/notification/AdhanAlertDeliverer.kt": {
-    "mtime": 1780940418.6263897,
-    "ast_hash": "eb57366f996f33a9862349e85de3c04d",
+    "mtime": 1781273274.4792657,
+    "ast_hash": "9d0e69337f2f57b1ef5f49800850692d",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/notification/AdhanAlertPolicy.kt": {
@@ -375,8 +375,8 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/notification/AdhanNotificationHelper.kt": {
-    "mtime": 1780931911.1264043,
-    "ast_hash": "a2cd057c10e9786f24c88850815e6469",
+    "mtime": 1781273274.4802656,
+    "ast_hash": "2d7e564d105f049bb59f2f7fd4368f13",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/notification/AdhanSoundResolver.kt": {
@@ -415,7 +415,7 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/PrayerTimeRoot.kt": {
-    "mtime": 1781032073.9369078,
+    "mtime": 1781739842.6910324,
     "ast_hash": "9aa387f27434bb87d9b93bfda5cd1c08",
     "semantic_hash": ""
   },
@@ -450,12 +450,12 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/prayer/PrayerTimesUiState.kt": {
-    "mtime": 1780931911.126835,
+    "mtime": 1781739842.6911206,
     "ast_hash": "be404953bea479d6b4d3bd8b06642380",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/prayer/PrayerTimesViewModel.kt": {
-    "mtime": 1780958108.2719119,
+    "mtime": 1781739842.6912208,
     "ast_hash": "1b12fb10aa0cf1379ca5dd1e288fb41f",
     "semantic_hash": ""
   },
@@ -485,8 +485,8 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/screens/HijriCalendarScreen.kt": {
-    "mtime": 1780958108.2720807,
-    "ast_hash": "0078ff1ea6feee0f3d928cf264e503c7",
+    "mtime": 1781740548.7869413,
+    "ast_hash": "fb15cee3f91e1d96a007d0af6ac515d3",
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/screens/LanguagePickerDialog.kt": {
@@ -495,7 +495,7 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/ui/screens/PrayerTimesScreen.kt": {
-    "mtime": 1780958108.2721813,
+    "mtime": 1781739842.6914082,
     "ast_hash": "88b22518cabeebb2640443894dfac0b9",
     "semantic_hash": ""
   },
@@ -590,7 +590,7 @@
     "semantic_hash": ""
   },
   "app/src/main/java/com/prayertime/widget/WidgetSnapshotLoader.kt": {
-    "mtime": 1780931911.1274974,
+    "mtime": 1781739842.6915052,
     "ast_hash": "9e5364f9ed5e03e015ca44a1dd3fa4f6",
     "semantic_hash": ""
   },
@@ -630,8 +630,8 @@
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/alarm/PrayerAlarmDozeTest.kt": {
-    "mtime": 1780958108.2727168,
-    "ast_hash": "30a9eeb4aa6736d97ff8aa71c3c7277e",
+    "mtime": 1781228137.808144,
+    "ast_hash": "277b42e8179e0242c32cc751a35e5308",
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/alarm/PrayerAlarmSchedulerTest.kt": {
@@ -750,8 +750,8 @@
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/domain/calculator/HijriCalculatorTest.kt": {
-    "mtime": 1780931911.16142,
-    "ast_hash": "241203cf3dd88d412a4c378f16c8a944",
+    "mtime": 1781741070.0481203,
+    "ast_hash": "70aab317edb76c26b7d4730562fdb6bd",
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/domain/calculator/LocalPrayerTimeCalculatorTest.kt": {
@@ -825,8 +825,8 @@
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/testing/ViewModelTestSupport.kt": {
-    "mtime": 1781043002.404623,
-    "ast_hash": "a485f1fa2e0885c022da7a911a622190",
+    "mtime": 1781741232.951948,
+    "ast_hash": "a8a3f6c415d1df1954dcff20e74574d9",
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/testing/WidgetTestSupport.kt": {
@@ -845,8 +845,8 @@
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/ui/city/CitySetupViewModelAssetLoadTest.kt": {
-    "mtime": 1780958108.2730901,
-    "ast_hash": "360d0bab226d21317b7af155915ed4e3",
+    "mtime": 1781741286.3717332,
+    "ast_hash": "5cc5d4ab29a1ce28c7c0092b694b30d8",
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/ui/city/CitySetupViewModelTest.kt": {
@@ -865,7 +865,7 @@
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/ui/screens/ComposeScreenSmokeTest.kt": {
-    "mtime": 1781032073.9378135,
+    "mtime": 1781739842.6916587,
     "ast_hash": "7a7bd2ac70f386f05ba6eeadc68092e2",
     "semantic_hash": ""
   },
@@ -930,8 +930,8 @@
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/worker/WidgetRefreshWorkTest.kt": {
-    "mtime": 1780931911.1626234,
-    "ast_hash": "482c35dce36532b056193ab0b0f83693",
+    "mtime": 1781796756.598883,
+    "ast_hash": "bc7eca2557c4e808cb03db8a33ffcb13",
     "semantic_hash": ""
   },
   "app/src/test/java/com/prayertime/worker/WidgetUpdateWorkerTest.kt": {
@@ -985,8 +985,8 @@
     "semantic_hash": ""
   },
   "scripts/emu": {
-    "mtime": 1781028371.9130425,
-    "ast_hash": "525e68d51cbf57d423d6450505fa13b4",
+    "mtime": 1781273274.4772656,
+    "ast_hash": "07bc81e1c6af3d3656b5ad4338a67fdf",
     "semantic_hash": ""
   },
   "scripts/emulator-start": {
@@ -1015,8 +1015,8 @@
     "semantic_hash": ""
   },
   "scripts/qa-doze.sh": {
-    "mtime": 1780931911.1984954,
-    "ast_hash": "fa7ad2d68ee82f5d85ee02ab9031c949",
+    "mtime": 1781273274.4772656,
+    "ast_hash": "bfa6f7ca19c8a0b27e6ceaaa7323bce4",
     "semantic_hash": ""
   },
   "scripts/qa-offline.sh": {
@@ -1025,7 +1025,7 @@
     "semantic_hash": ""
   },
   "scripts/release-gate.sh": {
-    "mtime": 1781024710.915918,
+    "mtime": 1781791453.7969494,
     "ast_hash": "f4cfbef324e86579a48a719d1a0a1b8f",
     "semantic_hash": ""
   },
@@ -1050,7 +1050,7 @@
     "semantic_hash": ""
   },
   "settings.gradle.kts": {
-    "mtime": 1781024710.917156,
+    "mtime": 1781791453.7979493,
     "ast_hash": "abafa5d2ebaea61fe6349be0ec30f661",
     "semantic_hash": ""
   },
@@ -1065,7 +1065,7 @@
     "semantic_hash": ""
   },
   ".github/dependabot.yml": {
-    "mtime": 1781024710.917446,
+    "mtime": 1781791453.7979493,
     "ast_hash": "012512c89bc311dcb9fbfd44031e62d3",
     "semantic_hash": ""
   },
@@ -1080,13 +1080,13 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1781043108.2859237,
-    "ast_hash": "76e1da8dbfaf665d2cfc243b123a18f5",
+    "mtime": 1781796782.2395232,
+    "ast_hash": "d2e1c572d18ae88f21e0c7f2adfecfb9",
     "semantic_hash": ""
   },
   "APP_CREATION_PLAYBOOK.md": {
-    "mtime": 1781028371.9112754,
-    "ast_hash": "cc385469cc72c1e7e66f6a475680e595",
+    "mtime": 1781796776.3723989,
+    "ast_hash": "620ffe3709965995b358204da7bc79de",
     "semantic_hash": ""
   },
   "Audit.md": {
@@ -1100,12 +1100,12 @@
     "semantic_hash": ""
   },
   "PHASED_PLAN.md": {
-    "mtime": 1781043107.91293,
-    "ast_hash": "93601d036b98fa57f115588b1b426335",
+    "mtime": 1781796767.164712,
+    "ast_hash": "c36c0e08bd126b660de068b06e2012ec",
     "semantic_hash": ""
   },
   "ProjectIdea.md": {
-    "mtime": 1781024710.917156,
+    "mtime": 1781791453.7969494,
     "ast_hash": "2208eac869a365df8bb22259ecb0101a",
     "semantic_hash": ""
   },
@@ -1125,7 +1125,7 @@
     "semantic_hash": ""
   },
   "docs/PRIVACY.md": {
-    "mtime": 1781024710.915877,
+    "mtime": 1781791453.7969494,
     "ast_hash": "33ae9b23e8cf9c0430ad5ad09ecc2269",
     "semantic_hash": ""
   },
@@ -1145,7 +1145,7 @@
     "semantic_hash": ""
   },
   "graphity.md": {
-    "mtime": 1781024710.915877,
+    "mtime": 1781791453.7969494,
     "ast_hash": "f5012fedd3668c302a9f9a9f49746030",
     "semantic_hash": ""
   },
@@ -1442,6 +1442,36 @@
   "wiki/Security.md": {
     "mtime": 1781028371.913369,
     "ast_hash": "7d9e2bdb13836f6e9672e034fd9dae10",
+    "semantic_hash": ""
+  },
+  "app/src/main/java/com/prayertime/domain/calculator/HijriGregorianDates.kt": {
+    "mtime": 1781740847.157928,
+    "ast_hash": "e60a5164d1d02f77666daabc4bbd408a",
+    "semantic_hash": ""
+  },
+  "app/src/main/java/com/prayertime/domain/calculator/TabularHijriCalendar.kt": {
+    "mtime": 1781740852.6444285,
+    "ast_hash": "f811c59ca1fc1e25a1f8e1306bf275ab",
+    "semantic_hash": ""
+  },
+  "app/src/main/java/com/prayertime/domain/calculator/UmmAlQuraCalendar.kt": {
+    "mtime": 1781741506.458352,
+    "ast_hash": "b799e7c8ce639a2917a0ba64b6655b4c",
+    "semantic_hash": ""
+  },
+  "app/src/main/java/com/prayertime/domain/calculator/UmmAlQuraEpochMonths.kt": {
+    "mtime": 1781741507.1027493,
+    "ast_hash": "26b4facb6b9e05739391eb51977a7f57",
+    "semantic_hash": ""
+  },
+  "app/src/main/java/com/prayertime/notification/AdhanAudioPlayer.kt": {
+    "mtime": 1781273274.4772656,
+    "ast_hash": "03f7197f5e26c323d825fbf98e6c1114",
+    "semantic_hash": ""
+  },
+  "app/src/main/java/com/prayertime/notification/AdhanPlaybackService.kt": {
+    "mtime": 1781273274.4792657,
+    "ast_hash": "c4122418682a5ac160712ca1edd99fbf",
     "semantic_hash": ""
   }
 }

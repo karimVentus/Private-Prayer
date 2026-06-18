@@ -224,7 +224,7 @@ Public docs must reflect real maturity.
 | TLS pinning (Aladhan API) | **Done (6.8)** | `network_security_config.xml` — leaf cert + SPKI backup for `aladhan.com`; `./scripts/verify-aladhan-pins.sh` |
 | Architecture: Room schema export | **Implemented** | `exportSchema = true`; `app/schemas/.../4.json` in VCS (`MIGRATION_3_4`). |
 | The Widget | **Implemented** | Two providers (medium 5×1 + large); theme sync at bind; **M-widget** 5×1 three-band layout, **14sp** names/times, **time-only** (no M countdown); **L-widget** M-aligned grid via `widget_large_prayer_block.xml` + per-column countdown; picker previews; locale + Eastern Arabic digits; provider E2E + real worker stack. |
-| Hijri Calendar and Events | **Implemented** | `HijriCalculator`, 10 events, Room v4, main subtitle + banner, monthly calendar (`headerDayText`, `eventNameCellRes`), M/L widget Hijri/event, 19 tests. |
+| Hijri Calendar and Events | **Implemented** | Bundled **Umm al-Qura** table (1300–1600 AH) in `HijriCalculator` + tabular fallback; 10 events, Room v4, main subtitle + banner, monthly calendar, M/L widget Hijri/event, 24 tests. |
 | Phase 5G audit / architecture | **Implemented (Jun 2026)** | Comprehensive audits closed — `TextNormalizer`, `FetchError`/`SaveCityError`, `Prayer.SHURUQ`, Room migrations 1→4, `AdhanAlarmReceiver` goAsync, `LocationCatalogInitializer`. See `PHASED_PLAN.md` §5G + `Audit.md`. |
 | Widget picker previews | **Implemented (5E.28)** | Sample prayer-time layouts in picker (API 31+ `previewLayout`); static light chrome — placed widgets follow user theme. |
 | Launcher icon | **Implemented (5E.29)** | Adaptive icon: green `#1B5E20` + white crescent vector foreground. |

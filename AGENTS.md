@@ -65,13 +65,13 @@ Hayya/  (repo folder may still be Private-Prayer; package com.prayertime)
 | 1F Privacy / offline-only | Done — offline_only flag, privacy UI, fallback rejection, diacritic lookup, tests | ✅ | — |
 | 2A Countdown | Done — live 1s ticker, wrap-to-tomorrow, city-TZ day-change refresh | ✅ | — |
 | 2B–2D | Adhan alarms, permissions, WorkManager daily refresh | Done | Manual QA signed off (Jun 2026) |
-| 2E | Unit tests (midnight, city TZ, DST, alarms, migrations, workers, engine) | Done — **419** `@Test` in `app/src/test/java/` (56 files) | — |
+| 2E | Unit tests (midnight, city TZ, DST, alarms, migrations, workers, engine) | Done — **439** `@Test` in `app/src/test/java/` (56 files) | — |
 | 2F | Architecture hardening — ViewModel decomposition, city-scoped cache, async init, timezone consistency | Done | — |
 | 2G | Hilt DI, worker/engine tests, cache invalidation, About refresh | Done | — |
 | 2 manual | Adhan exact/fallback, emulator | Done | — |
 | 2H | Pre–Phase 3 polish — LocationRepository, Hilt network, Room schemas, locale EN/AR, RTL (2H-B.5), header/adhan fixes, `./dev` | Done | — |
 | 3 | Home screen widget — **two** providers (medium + large), stale cache, locale/digits, provider E2E + real worker tests | Done | — |
-| 4 | Hijri calendar — calculator, 10 events, Room v4, main + calendar + M/L widget, 19 tests | Done | — |
+| 4 | Hijri calendar — Umm al-Qura bundled table, 10 events, Room v4, main + calendar + M/L widget, 24 tests | Done | — |
 | 5G | Audit / architecture hardening — split errors, TextNormalizer, catalog validation, test infra | Done (Jun 2026) | — |
 | 5E | UI polish — spacing, RTL, language picker, **three app themes**, Settings screen, portrait lock, Compose smoke | Done (Jun 2026) | — |
 | 5 | Manual QA hardening — 5A–5F signed off (Jun 2026, incl. 5C.2, 5D, 5F.3); 5A–5E automated; TLS; USE_EXACT_ALARM | **Done** | — |
@@ -85,6 +85,7 @@ Hayya/  (repo folder may still be Private-Prayer; package com.prayertime)
 | **8E** | Americas `knownCityCoords` fill | **Done** — 105/105; merged PR **#46** | — |
 | **8** | Full catalog coords | **Done** — **2766/2766**; PR **#48** merged | — |
 | **Release v1.2.0** | Tag + GitHub APK | **Done** — **v1.2.0** Jun 2026 | — |
+| **Release v1.2.1** | Umm al-Qura Hijri + adhan FGS | **Pending** — `versionCode` 11; PR **#56** | — |
 
 ## Architecture (post-2F hardening)
 
@@ -174,7 +175,7 @@ After structural changes or phase completion:
 OPENAI_API_KEY="" graphify update . --no-cluster
 ```
 
-Details: [`graphity.md`](graphity.md). Diagrams: [`PHASED_PLAN.md`](PHASED_PLAN.md). **Last run:** 2026-06-09 — **8436** nodes, **107146** edges (v1.2.0 global catalog 2766 cities). Install: `uv tool install graphifyy`.
+Details: [`graphity.md`](graphity.md). Diagrams: [`PHASED_PLAN.md`](PHASED_PLAN.md). **Last run:** 2026-06-18 — **8488** nodes, **116352** edges (v1.2.1 Umm al-Qura Hijri table). Install: `uv tool install graphifyy`.
 
 ## Orientation
 

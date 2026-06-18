@@ -1,10 +1,10 @@
 # Hayya (حيا) — Phased Implementation Plan
 
 > **Product:** **Hayya** (EN) / **حيا** (AR) — privacy-first prayer-times app. Package **`com.prayertime`** unchanged.
-> **Current state:** Phases **0–8G** + **`v1.2.0`** release complete on `main`. Catalog **2766/2766** picker cities with `knownCityCoords`; **0** empty catalog countries. **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
+> **Current state:** Phases **0–8G** + **`v1.2.1`** release prep on `docs/umm-alqura-hijri-alignment`. Catalog **2766/2766** picker cities with `knownCityCoords`; **0** empty catalog countries. **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
 > **Build:** Single APK `com.prayertime` (~23 MB debug). Privacy via Settings **offline-only toggle** (`offline_only`); no separate offline flavor.
 > **Calculation:** Umm al-Qura + Shafi + twilight (≥48°N); `adhan-java` when offline-only; Aladhan API when user disables offline mode.
-> **Tests:** `./gradlew testDebugUnitTest` — **438** JVM `@Test` (56 files); run `./scripts/smoke-ci.sh` for full gate.
+> **Tests:** `./gradlew testDebugUnitTest` — **439** JVM `@Test` (56 files); run `./scripts/smoke-ci.sh` for full gate.
 > **Docs language:** English. **Architecture graphs:** Graphify + Mermaid below.
 > **Phase 5 manual QA:** **5C.2**, **5D**, **5F.3** signed off Jun 2026 (user device verification).
 
@@ -68,6 +68,8 @@
 | **Phase 8E** Americas city coords | **Complete** — 105/105; merged PR **#46** |
 | **Phase 8** city catalog | **Complete** — **2766/2766** picker cities; 8C.4 Africa + 8G remaining; PR **#47** |
 | **Release v1.2.0** | **Done** — `Hayya-v1.2.0.apk` (~13 MB release); tag **v1.2.0** |
+| **Hijri Umm al-Qura table** | **Done (Jun 2026)** — bundled OpenJDK month-start table (1300–1600 AH); tabular fallback outside range; fixes off-by-one Hijri dates; PR **#54** + **#56** |
+| **Release v1.2.1** | **Pending** — `versionCode` 11 / `versionName` 1.2.1; Umm al-Qura Hijri + adhan FGS fixes; tag after merge |
 
 ---
 
@@ -207,7 +209,7 @@ Maintain an up-to-date code graph after each phase gate. Full CLI lifecycle: [`g
 
 **Agent rule:** Run Graphify update when architecture boundaries change (new packages, repository paths, or phase completion).
 
-> **Last Graphify run:** 2026-06-08 — **5252** nodes, **99405** edges (v1.1.5: `AppBottomNavigationBar`, inset/theme fixes). Install: `uv tool install graphifyy`. Commit `graphify-out/` with structural PRs.
+> **Last Graphify run:** 2026-06-18 — **8488** nodes, **116352** edges (v1.2.1: Umm al-Qura Hijri table). Install: `uv tool install graphifyy`. Commit `graphify-out/` with structural PRs.
 
 ---
 
@@ -699,7 +701,7 @@ flowchart LR
 
 ### 4A — Hijri Calculation
 
-- [x] **4A.1** `HijriCalculator` — tabular Islamic calendar (Kuwaiti algorithm); Gregorian ↔ Hijri conversion, leap year detection
+- [x] **4A.1** `HijriCalculator` — bundled Umm al-Qura month-start table (OpenJDK, 1300–1600 AH) with tabular Kuwaiti fallback outside range; Gregorian ↔ Hijri conversion, leap year via Dhul Hijjah length
 - [x] **4A.2** Compute 10 Islamic events: Islamic New Year, Ashura, Mawlid, Isra & Miraj, Mid-Shaban, Ramadan, Laylat al-Qadr, Eid al-Fitr, Day of Arafah, Eid al-Adha; `nextUpcomingEvent()` finds the next event from today
 - [x] **4A.3** Store Hijri date in Room — `PrayerTimeEntity` v3→v4 migration adds `hijriYear/Month/Day` columns; populated on cache via `PrayerTimesLocalEngine`
 
@@ -713,7 +715,7 @@ flowchart LR
 ### 4C — Tests
 
 - [x] **4C.1** HijriCalculator: epoch (1 Muharram 1 AH), 1 Ramadan 1445 = March 11 2024
-- [x] **4C.2** HijriCalculator: 1 Shawwal 1445 = April 10 2024, Eid al-Adha = June 17 2024
+- [x] **4C.2** HijriCalculator: 1 Shawwal 1445 = April 10 2024; 10 Dhul Hijjah 1445 = June 16 2024 (Umm al-Qura)
 - [x] **4C.3** Event display: 30 days from 1 Ramadan → 1 Shawwal; next event ordering verified
 - [x] **4C.4** Full Hijri year cycle (leap + regular), round-trips, month boundaries, migration v3→v4
 

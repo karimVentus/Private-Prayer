@@ -233,7 +233,7 @@
     <string name="annual_col_hijri">Hijri Date</string>
     <string name="annual_col_event">Event</string>
     <string name="annual_col_greg">Gregorian</string>
-    <string name="annual_disclaimer">Gregorian dates are tabular (Umm al-Qura) — may differ by one day from moon sighting</string>
+    <string name="annual_disclaimer">Gregorian dates follow the Umm al-Qura calendar — may differ by one day from local moon sighting</string>
     <string name="annual_ah_suffix">AH</string>
     <string name="error_missing_coords">City coordinates are missing. Please re-select your city.</string>
     <string name="annual_sub_laylat">(observed)</string>

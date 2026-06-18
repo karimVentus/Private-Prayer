@@ -699,7 +699,7 @@ flowchart LR
 
 ### 4A — Hijri Calculation
 
-- [x] **4A.1** `HijriCalculator` — tabular Islamic calendar (Kuwaiti algorithm); Gregorian ↔ Hijri conversion, leap year detection
+- [x] **4A.1** `HijriCalculator` — bundled Umm al-Qura month-start table (OpenJDK, 1300–1600 AH) with tabular Kuwaiti fallback outside range; Gregorian ↔ Hijri conversion, leap year via Dhul Hijjah length
 - [x] **4A.2** Compute 10 Islamic events: Islamic New Year, Ashura, Mawlid, Isra & Miraj, Mid-Shaban, Ramadan, Laylat al-Qadr, Eid al-Fitr, Day of Arafah, Eid al-Adha; `nextUpcomingEvent()` finds the next event from today
 - [x] **4A.3** Store Hijri date in Room — `PrayerTimeEntity` v3→v4 migration adds `hijriYear/Month/Day` columns; populated on cache via `PrayerTimesLocalEngine`
 
@@ -713,7 +713,7 @@ flowchart LR
 ### 4C — Tests
 
 - [x] **4C.1** HijriCalculator: epoch (1 Muharram 1 AH), 1 Ramadan 1445 = March 11 2024
-- [x] **4C.2** HijriCalculator: 1 Shawwal 1445 = April 10 2024, Eid al-Adha = June 17 2024
+- [x] **4C.2** HijriCalculator: 1 Shawwal 1445 = April 10 2024; 10 Dhul Hijjah 1445 = June 16 2024 (Umm al-Qura)
 - [x] **4C.3** Event display: 30 days from 1 Ramadan → 1 Shawwal; next event ordering verified
 - [x] **4C.4** Full Hijri year cycle (leap + regular), round-trips, month boundaries, migration v3→v4
 

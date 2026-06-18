@@ -227,7 +227,7 @@
     <string name="annual_col_hijri">التاريخ الهجري</string>
     <string name="annual_col_event">المناسبة</string>
     <string name="annual_col_greg">التاريخ الميلادي</string>
-    <string name="annual_disclaimer">التواريخ الميلادية جدولية (أم القرى) — قد تختلف يومًا عن رؤية الهلال</string>
+    <string name="annual_disclaimer">التواريخ الميلادية وفق تقويم أم القرى — قد تختلف يومًا عن رؤية الهلال محليًا</string>
     <string name="annual_ah_suffix">هـ</string>
     <string name="error_missing_coords">إحداثيات المدينة غير متوفرة. يرجى إعادة اختيار المدينة.</string>
     <string name="annual_sub_laylat">(المرتقبة)</string>

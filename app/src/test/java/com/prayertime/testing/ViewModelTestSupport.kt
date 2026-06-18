@@ -13,7 +13,16 @@ import kotlinx.coroutines.test.setMain
 @OptIn(ExperimentalCoroutinesApi::class)
 internal fun installTestMainDispatcher(dispatcher: TestDispatcher = UnconfinedTestDispatcher()) {
     uninstallTestMainDispatcher()
-    Dispatchers.setMain(dispatcher)
+    try {
+        Dispatchers.setMain(dispatcher)
+    } catch (_: IllegalStateException) {
+        // Another test left Main set; force-reset and retry once.
+        try {
+            Dispatchers.resetMain()
+        } catch (_: IllegalStateException) {
+        }
+        Dispatchers.setMain(dispatcher)
+    }
 }
 
 /** Clears the test main dispatcher when one is installed; no-op otherwise. */

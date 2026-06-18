@@ -66,11 +66,7 @@ fun HijriCalendarScreen(
 ) {
     val palette = calendarPalette()
     val tz = TimeZone.getTimeZone(timezone)
-    val cal = remember { Calendar.getInstance(tz) }
-    val todayHijri =
-        remember(cal) {
-            HijriCalculator.gregorianToHijri(cal[Calendar.YEAR], cal[Calendar.MONTH] + 1, cal[Calendar.DAY_OF_MONTH])
-        }
+    val todayHijri = HijriCalculator.todayInTimezone(timezone)
     val locale = Locale.getDefault()
     val isArabic = locale.language == "ar"
 

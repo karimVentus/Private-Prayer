@@ -13,11 +13,13 @@ import com.prayertime.testing.uninstallTestMainDispatcher
 import com.prayertime.widget.WidgetUpdater
 import io.mockk.every
 import io.mockk.mockk
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
+import kotlinx.coroutines.withContext
 import org.junit.After
 import org.junit.Assert.assertTrue
 import org.junit.Before
@@ -49,10 +51,14 @@ class CitySetupViewModelAssetLoadTest {
 
     @Test
     fun `filteredCountries loads from packaged assets after awaitReady`() =
-        runTest(testDispatcher) {
+        runTest {
             val context = ApplicationProvider.getApplicationContext<android.content.Context>()
             LocationDataSource.initialize(context)
             val locationRepository = LocalLocationRepository()
+            withContext(Dispatchers.Default.limitedParallelism(1)) {
+                locationRepository.awaitReady()
+            }
+
             val vm =
                 CitySetupViewModel(
                     FakePrayerTimesRepository.forCitySetup(InMemoryCityConfigDataSource()),

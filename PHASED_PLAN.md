@@ -1,7 +1,7 @@
 # Hayya (حيا) — Phased Implementation Plan
 
 > **Product:** **Hayya** (EN) / **حيا** (AR) — privacy-first prayer-times app. Package **`com.prayertime`** unchanged.
-> **Current state:** Phases **0–8G** + **`v1.2.1`** release prep on `docs/umm-alqura-hijri-alignment`. Catalog **2766/2766** picker cities with `knownCityCoords`; **0** empty catalog countries. **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
+> **Current state:** Phases **0–8G** + **`v1.2.1`** released on `main` ([GitHub release](https://github.com/karimVentus/Private-Prayer/releases/tag/v1.2.1)). Catalog **2766/2766** picker cities with `knownCityCoords`; **0** empty catalog countries. **Portrait-only** app (`MainActivity` `screenOrientation=portrait`).
 > **Build:** Single APK `com.prayertime` (~23 MB debug). Privacy via Settings **offline-only toggle** (`offline_only`); no separate offline flavor.
 > **Calculation:** Umm al-Qura + Shafi + twilight (≥48°N); `adhan-java` when offline-only; Aladhan API when user disables offline mode.
 > **Tests:** `./gradlew testDebugUnitTest` — **439** JVM `@Test` (56 files); run `./scripts/smoke-ci.sh` for full gate.
@@ -16,7 +16,7 @@
 |------|--------|
 | **Phase 2H** pre–Phase 3 polish | **Complete** — merged to main |
 | **Phase 3** widget | **Complete** — **two** providers (medium 5×1 + large), locale/digits, `STALE` cache fallback, `getCachedTodayTimes`, provider E2E + real worker stack (~30 widget-adjacent tests) |
-| **Phase 4** Hijri + events | **Complete** — `HijriCalculator`, 10 events, Room v4, main + calendar + M/L widget, 19 tests |
+| **Phase 4** Hijri + events | **Complete** — bundled Umm al-Qura table (1300–1600 AH), 10 events, Room v4, main + calendar + M/L widget, 24 tests |
 | **Phase 5G** audit / architecture | **Complete (Jun 2026)** — see §5G; `FetchError`/`SaveCityError`, `Prayer.SHURUQ`, `TextNormalizer`, catalog validation, online save fallback, test infra (FakeRepo, VM integration, MockWebServer) |
 | **Phase 5E** UI polish | **Complete (Jun 2026)** — theme/spacing, edge-to-edge, RTL, language picker, calendar layout, portrait lock; see §5E |
 | **Phase 5** hardening | **Done** — 5A–5E automated tests, sound picker, per-prayer mute, audit remediation (Jun 2026), Room v1–v4 schema tests, smoke-ci green (**414** JVM tests). |
@@ -69,7 +69,7 @@
 | **Phase 8** city catalog | **Complete** — **2766/2766** picker cities; 8C.4 Africa + 8G remaining; PR **#47** |
 | **Release v1.2.0** | **Done** — `Hayya-v1.2.0.apk` (~13 MB release); tag **v1.2.0** |
 | **Hijri Umm al-Qura table** | **Done (Jun 2026)** — bundled OpenJDK month-start table (1300–1600 AH); tabular fallback outside range; fixes off-by-one Hijri dates; PR **#54** + **#56** |
-| **Release v1.2.1** | **Pending** — `versionCode` 11 / `versionName` 1.2.1; Umm al-Qura Hijri + adhan FGS fixes; tag after merge |
+| **Release v1.2.1** | **Done** — `Hayya-v1.2.1.apk` (~13 MB); tag **v1.2.1** Jun 2026 — Umm al-Qura Hijri table, adhan FGS playback, widget test hardening; PR **#56** |
 
 ---
 

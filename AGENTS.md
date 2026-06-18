@@ -85,7 +85,7 @@ Hayya/  (repo folder may still be Private-Prayer; package com.prayertime)
 | **8E** | Americas `knownCityCoords` fill | **Done** — 105/105; merged PR **#46** | — |
 | **8** | Full catalog coords | **Done** — **2766/2766**; PR **#48** merged | — |
 | **Release v1.2.0** | Tag + GitHub APK | **Done** — **v1.2.0** Jun 2026 | — |
-| **Release v1.2.1** | Umm al-Qura Hijri + adhan FGS | **Pending** — `versionCode` 11; PR **#56** | — |
+| **Release v1.2.1** | Umm al-Qura Hijri + adhan FGS | **Done** — tag **v1.2.1** Jun 2026; PR **#56** | — |
 
 ## Architecture (post-2F hardening)
 

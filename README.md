@@ -22,7 +22,7 @@ Hayya is an open-source Android prayer-times app built around **privacy** and **
 
 | | |
 |---|---|
-| **Version** | 1.2.0 |
+| **Version** | 1.2.1 |
 | **Package** | `com.prayertime` |
 | **Min SDK** | 23 · **Target** 35 |
 | **Tests** | JVM unit tests via `./gradlew testDebugUnitTest` |
@@ -127,11 +127,11 @@ See [`PHASED_PLAN.md`](PHASED_PLAN.md) for the full roadmap and Mermaid diagrams
 **Easiest path:**
 
 1. Open **[GitHub Releases](https://github.com/karimVentus/Private-Prayer/releases)**
-2. Download the latest `Hayya-v1.2.0.apk`
+2. Download the latest `Hayya-v1.2.1.apk`
 3. Install (allow unknown sources for your browser/files app)
 4. Open **Hayya** and complete the city wizard
 
-Or sideload: `adb install -r Hayya-v1.2.0.apk`
+Or sideload: `adb install -r Hayya-v1.2.1.apk`
 
 Use **Settings → About → Share app** to send the download link to someone else.
 
@@ -151,12 +151,12 @@ export ANDROID_HOME=$HOME/Android/Sdk
 PRAYERTIME_KEYSTORE_PASSWORD='your-password' ./scripts/setup-release-signing.sh
 
 ./scripts/smoke-ci.sh          # full CI before tagging
-./scripts/publish-release.sh v1.2.0   # build, package dist/, create GitHub Release
+./scripts/publish-release.sh v1.2.1   # build, package dist/, create GitHub Release
 ```
 
 | Artifact | Path | Size |
 |----------|------|------|
-| Signed APK | `dist/release/Hayya-v1.2.0.apk` | ~12 MB |
+| Signed APK | `dist/release/Hayya-v1.2.1.apk` | ~13 MB |
 | Signed AAB | `app/build/outputs/bundle/release/app-release.aab` | Play Store (`PUBLISH_AAB=1`) |
 
 ```sh
@@ -234,7 +234,7 @@ Open source — see the repository license file. Prayer calculation uses [`adhan
 
 | | |
 |---|---|
-| **الإصدار** | 1.2.0 |
+| **الإصدار** | 1.2.1 |
 | **حزمة التطبيق** | `com.prayertime` |
 | **الحد الأدنى لـ SDK** | 23 · **المستهدف** 35 |
 | **الاختبارات** | `./gradlew testDebugUnitTest` |
@@ -338,7 +338,7 @@ Open source — see the repository license file. Prayer calculation uses [`adhan
 **أسهل طريقة:**
 
 1. اذهب إلى **[إصدارات GitHub](https://github.com/karimVentus/Private-Prayer/releases)**
-2. حمّل آخر إصدار `Hayya-v1.2.0.apk`
+2. حمّل آخر إصدار `Hayya-v1.2.1.apk`
 3. ثبّت التطبيق (اسمح بالمصادر غير المعروفة)
 4. افتح **حيا** وأكمل معالج المدينة
 
@@ -356,7 +356,7 @@ Open source — see the repository license file. Prayer calculation uses [`adhan
 export JAVA_HOME=$HOME/jdk21
 export ANDROID_HOME=$HOME/Android/Sdk
 PRAYERTIME_KEYSTORE_PASSWORD='your-password' ./scripts/setup-release-signing.sh
-./scripts/publish-release.sh v1.2.0
+./scripts/publish-release.sh v1.2.1
 ```
 
 | الملف الناتج | المسار | الحجم |

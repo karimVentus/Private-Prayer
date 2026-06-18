@@ -60,6 +60,8 @@ flowchart LR
 | **8F** | Catalog tail AU/RU/BY/NZ — **done** (PR **#47**) |
 | **8C.4 / 8G** | Fill empty Africa + remaining 38 countries — **2766/2766** — **done** |
 | **Release v1.2.0** | **Done** — [v1.2.0](https://github.com/karimVentus/Private-Prayer/releases/tag/v1.2.0) |
+| **Hijri Umm al-Qura table** | **Done** — bundled OpenJDK month-start table; PR **#54** + **#56** |
+| **Release v1.2.1** | **Done** — [v1.2.1](https://github.com/karimVentus/Private-Prayer/releases/tag/v1.2.1) |
 
 Details: [Phase 8 — City catalog](Phase-8-City-Catalog)
 
